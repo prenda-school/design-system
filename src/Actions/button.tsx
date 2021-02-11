@@ -3,7 +3,7 @@ import { Button as MatButton } from '@material-ui/core';
 import { ButtonProps as MatButtonProps } from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-type ButtonProps = {
+export type ButtonProps = {
   size?: 'large' | 'medium' | 'small',
   disabled: boolean,
 }
@@ -40,6 +40,7 @@ export const Button: FC<ButtonProps | MatButtonProps> = (props) => {
       borderRadius: 100,
       height,
       color: '#FFF',
+      textTransform: 'none',
     },
   })(MatButton);
 
