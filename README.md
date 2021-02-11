@@ -32,6 +32,7 @@ Now changes you make to components in the `src` dir within the project root shou
 - Possibly better development feedback loop through a dedicated react component playground tool?
 - Add CNAME record for pointing \<URL TBD> to docs.
 - Re-publish to NPM under `@prenda/spark` (currently is `prenda-spark`).
+- Add github action/other mechanism for running an npm publish process if version changes in `package.json`.
 
 ## Install
 
