@@ -16,8 +16,6 @@ export const Button: FC<ButtonProps | MatButtonProps> = (props) => {
     32
   )
 
-  console.log('..', disabled)
-
   const disabledStyles = {
     "&:disabled": {
       backgroundColor: '#2967A6',
