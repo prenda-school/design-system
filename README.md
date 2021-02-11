@@ -31,6 +31,7 @@ Now changes you make to components in the `src` dir within the project root shou
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
 - Possibly better development feedback loop through a dedicated react component playground tool?
 - Add CNAME record for pointing \<URL TBD> to docs.
+- Re-publish to NPM under `@prenda/spark` (currently is `prenda-spark`).
 
 ## Install
 
