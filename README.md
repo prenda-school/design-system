@@ -1,8 +1,36 @@
-# prenda-spark
+## Prenda Spark
 
-> Made with create-react-library
+- [Documentation](#documentation)
+- [Development](#development)
+- [WIP and TODOS](#wip-and-todos)
+- [Install](#install)
+- [Usage](#usage)
 
-[![NPM](https://img.shields.io/npm/v/prenda-spark.svg)](https://www.npmjs.com/package/prenda-spark) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+---
+
+## Documentation
+
+> Official Docs: https://prenda-school.github.io/prenda-documentation/
+
+Prenda Spark, based on create-react-library (https://github.com/transitive-bullshit/create-react-library), extends Material UI react components (https://material-ui.com/) by overriding select styles to match the Prenda Design System philosophy
+
+## Development
+
+Install packages in root and example directories.
+
+```
+npm i && cd example && npm i
+```
+
+Run `npm run start` in the root and example directories. Use two terminals/tabs for this.
+
+Now changes you make to components in the `src` dir within the project root should automatically be detected and cause Spark to be built. The build output will then be put into dist and be made available to the example directory project for testing.
+
+## WIP and TODOS
+
+- Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
+- Possibly better development feedback loop through a dedicated react component playground tool?
+- Add CNAME record for pointing \<URL TBD> to docs.
 
 ## Install
 
@@ -13,18 +41,17 @@ npm install --save prenda-spark
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'prenda-spark'
-import 'prenda-spark/dist/index.css'
+import { Button } from 'prenda-spark'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+  return (
+    <>
+      <Button size='large'>I am a button</Button>
+    </>
+  )
 }
+
+export default App
 ```
-
-## License
-
-MIT © [smrbts](https://github.com/smrbts)
