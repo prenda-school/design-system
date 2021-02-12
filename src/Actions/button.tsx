@@ -3,13 +3,14 @@ import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 export type ButtonProps = {
-  size?: 'large' | 'medium' | 'small',
+  size: 'large' | 'medium' | 'small',
   disabled?: boolean,
-  icon?: ReactElement
+  icon?: ReactElement,
+  outlinedStyle?: boolean,
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { size, disabled, icon } = props
+  const { size, disabled, icon, outlinedStyle } = props
   const height = (
     size === 'large' ? 48 :
     size === 'small' ? 24 :
@@ -32,11 +33,24 @@ export const Button: FC<ButtonProps> = (props) => {
     minWidth: 'auto'
   }
 
+  const outlineStyles = {
+    border: '2px solid #2967A6',
+    backgroundColor: 'transparent',
+    color: '#2967A6',
+  }
+
+  const disabledOutlineStyles =  {
+    backgroundColor: 'transparent',
+    color: '#2967A6',
+    border: '2px solid ##2967A6'
+  }
+
   const disabledStyles = {
     "&:disabled": {
       backgroundColor: '#2967A6',
       opacity: 0.5,
       color: '#FFF',
+      ...(outlineStyles ? disabledOutlineStyles : {})
     }
   }
 
@@ -50,6 +64,22 @@ export const Button: FC<ButtonProps> = (props) => {
     }
   }
 
+  const buttonStyles = {
+    root: {
+      ...(icon ? iconButtonStyles : {}),
+      borderRadius: 100,
+      height,
+      color: '#FFF',
+      textTransform: 'none',
+      ...(outlinedStyle ? outlineStyles : {}),
+      ...(disabled ? disabledStyles : nonDisabledStyles),
+    },
+  }
+
+  console.log('props', props)
+  console.log('buttonStyles', buttonStyles)
+  
+
   const StyledButton = withStyles({
     root: {
       ...(disabled ? disabledStyles : nonDisabledStyles),
@@ -58,6 +88,7 @@ export const Button: FC<ButtonProps> = (props) => {
       height,
       color: '#FFF',
       textTransform: 'none',
+      ...(outlinedStyle ? outlineStyles : {})
     },
   })(MatButton);
 

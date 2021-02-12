@@ -29,9 +29,35 @@ Large.args = {
   size: 'large'
 } as ButtonProps;
 
-export const Disabled = TextTemplate.bind({});
-Disabled.args = {
+export const OutlinedSmall = TextTemplate.bind({});
+OutlinedSmall.args = {
+  size: 'small',
+  outlinedStyle: true,
+} as ButtonProps;
+
+export const OutlinedMedium = TextTemplate.bind({});
+OutlinedMedium.args = {
+  size: "medium",
+  outlinedStyle: true,
+} as ButtonProps;
+
+export const OutlinedLarge = TextTemplate.bind({});
+OutlinedLarge.args = {
+  size: 'large',
+  outlinedStyle: true,
+} as ButtonProps;
+
+export const DisabledMedium = TextTemplate.bind({});
+DisabledMedium.args = {
+  size: 'medium',
   disabled: true
+} as ButtonProps;
+
+export const DisabledOutlinedMedium = TextTemplate.bind({});
+DisabledOutlinedMedium.args = {
+  size: "medium",
+  outlinedStyle: true,
+  disabled: true,
 } as ButtonProps;
 
 export const SmallIcon = TextTemplate.bind({});
