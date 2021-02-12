@@ -12,7 +12,7 @@ export default {
 
 const createTemplate = (children: JSX.Element | string) => (args: ButtonProps) => <Button {...args}>{children}</Button>;
 
-const TextTemplate = createTemplate("Pizza")
+const TextTemplate = createTemplate("PizzaTaco")
 const IconTemplate = createTemplate(<ArrowForward />)
 
 export const Small = TextTemplate.bind({});
