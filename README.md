@@ -16,18 +16,11 @@ Prenda Spark, based on create-react-library (https://github.com/transitive-bulls
 
 ## Development
 
-Install packages in root and example directories.
-
-```
-npm i && cd example && npm i
-```
-
-Run `npm run start` in the root and example directories. Use two terminals/tabs for this.
-
-Now changes you make to components in the `src` dir within the project root should automatically be detected and cause Spark to be built. The build output will then be put into dist and be made available to the example directory project for testing.
+Install packages in root dir then run `npm run storybook`. Navigate to `localhost:6006`. If a component you are working on doesn't have a story then you can add one in the `src/stories/`.
 
 ## WIP and TODOS
 
+- Have storybook import the output from the build rather than directly importing ts (as a consumer would do).
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
 - Possibly better development feedback loop through a dedicated react component playground tool?
 - Add CNAME record for pointing \<URL TBD> to docs.

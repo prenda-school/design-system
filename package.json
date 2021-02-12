@@ -20,8 +20,8 @@
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
+    "predeploy": "echo 'TODO'",
+    "deploy": "npm publish",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

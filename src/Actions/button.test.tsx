@@ -1,6 +1,6 @@
 import { Button } from './button'
 
-describe('ExampleComponent', () => {
+describe('Button', () => {
   it('is truthy', () => {
     expect(Button).toBeTruthy()
   })
