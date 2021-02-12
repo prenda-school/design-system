@@ -1,20 +1,36 @@
-import React, { FC } from 'react'
+import React, { FC, ReactElement } from 'react'
 import { Button as MatButton } from '@material-ui/core';
-import { ButtonProps as MatButtonProps } from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
 export type ButtonProps = {
   size?: 'large' | 'medium' | 'small',
-  disabled: boolean,
+  disabled?: boolean,
+  icon?: ReactElement
 }
 
-export const Button: FC<ButtonProps | MatButtonProps> = (props) => {
-  const { size, disabled } = props
+export const Button: FC<ButtonProps> = (props) => {
+  const { size, disabled, icon } = props
   const height = (
     size === 'large' ? 48 :
     size === 'small' ? 24 :
     32
   )
+
+  const styledIcon = icon ? React.cloneElement(icon, {
+    style: {
+      maxWidth: (
+        size === 'large' ? '20px' :
+        size === 'medium' ? '16px' :
+        '12px'
+      ),
+    }
+  }) : {}
+
+  const iconButtonStyles = {
+    height,
+    width: height,
+    minWidth: 'auto'
+  }
 
   const disabledStyles = {
     "&:disabled": {
@@ -37,6 +53,7 @@ export const Button: FC<ButtonProps | MatButtonProps> = (props) => {
   const StyledButton = withStyles({
     root: {
       ...(disabled ? disabledStyles : nonDisabledStyles),
+      ...(icon ? iconButtonStyles : {}),
       borderRadius: 100,
       height,
       color: '#FFF',
@@ -45,7 +62,7 @@ export const Button: FC<ButtonProps | MatButtonProps> = (props) => {
   })(MatButton);
 
   return <StyledButton disableFocusRipple={true} { ...props }>
-    {props.children}
+    { icon ? styledIcon : props.children } 
   </StyledButton>;
 }
 

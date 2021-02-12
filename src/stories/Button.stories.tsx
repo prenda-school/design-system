@@ -3,7 +3,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { Button, ButtonProps } from '../Actions/button';
-import { ArrowForward } from '@material-ui/icons';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default {
   title: 'prenda-spark/Button',
@@ -13,29 +13,41 @@ export default {
 const createTemplate = (children: JSX.Element | string) => (args: ButtonProps) => <Button {...args}>{children}</Button>;
 
 const TextTemplate = createTemplate("PizzaTaco")
-const IconTemplate = createTemplate(<ArrowForward />)
 
 export const Small = TextTemplate.bind({});
 Small.args = {
   size: 'small'
-};
+} as ButtonProps;
 
 export const Medium = TextTemplate.bind({});
 Medium.args = {
   size: "medium"
-};
+} as ButtonProps;
 
 export const Large = TextTemplate.bind({});
 Large.args = {
   size: 'large'
-};
+} as ButtonProps;
 
 export const Disabled = TextTemplate.bind({});
 Disabled.args = {
   disabled: true
-};
+} as ButtonProps;
 
-export const Icon = IconTemplate.bind({});
-Icon.args = {
-  children: <ArrowForward />
-};
+export const SmallIcon = TextTemplate.bind({});
+SmallIcon.args = {
+  icon: <ExpandMoreIcon />,
+  size: 'small'
+} as ButtonProps;
+
+export const MediumIcon = TextTemplate.bind({});
+MediumIcon.args = {
+  icon: <ExpandMoreIcon />,
+  size: 'medium'
+} as ButtonProps;
+
+export const LargeIcon = TextTemplate.bind({});
+LargeIcon.args = {
+  icon: <ExpandMoreIcon />,
+  size: 'large'
+} as ButtonProps;
