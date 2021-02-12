@@ -2,6 +2,7 @@
 
 - [Documentation](#documentation)
 - [Development](#development)
+- [Testing](#testing)
 - [WIP and TODOS](#wip-and-todos)
 - [Install](#install)
 - [Usage](#usage)
@@ -17,6 +18,10 @@ Prenda Spark, based on create-react-library (https://github.com/transitive-bulls
 ## Development
 
 Install packages in root dir then run `npm run storybook`. Navigate to `localhost:6006`. If a component you are working on doesn't have a story then you can add one in the `src/stories/`.
+
+## Testing
+
+Run tests with `npm run test`. We are using snapshot testing (https://storybook.js.org/docs/react/workflows/snapshot-testing). Run `npm run test:updateSnapshot` to update the snapshots.
 
 ## WIP and TODOS
 
