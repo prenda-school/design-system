@@ -14,10 +14,7 @@ const createTemplate = (children: JSX.Element | string) => (args: ButtonProps) =
 
 const TextTemplate = createTemplate("PizzaTaco")
 
-export const Small = TextTemplate.bind({});
-Small.args = {
-  size: 'small'
-} as ButtonProps;
+export const Small = () => <Button size="small">PizzaTaco</Button>
 
 export const Medium = TextTemplate.bind({});
 Medium.args = {

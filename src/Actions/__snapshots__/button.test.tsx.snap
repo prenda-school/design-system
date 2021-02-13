@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots prenda-spark/Button Disabled 1`] = `
+exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-4 MuiButton-text Mui-disabled Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-7 MuiButton-text Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -26,10 +26,10 @@ exports[`Storyshots prenda-spark/Button Disabled 1`] = `
 </button>
 `;
 
-exports[`Storyshots prenda-spark/Button Icon 1`] = `
+exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-5 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-8 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -41,22 +41,14 @@ exports[`Storyshots prenda-spark/Button Icon 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  outlinedStyle={true}
+  tabIndex={-1}
   type="button"
 >
   <span
     className="MuiButton-label"
   >
-    <svg
-      aria-hidden={true}
-      className="MuiSvgIcon-root"
-      focusable="false"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-      />
-    </svg>
+    PizzaTaco
   </span>
 </button>
 `;
@@ -87,6 +79,47 @@ exports[`Storyshots prenda-spark/Button Large 1`] = `
 </button>
 `;
 
+exports[`Storyshots prenda-spark/Button Large Icon 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-11 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
+  disabled={false}
+  icon={<UNDEFINED />}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
 exports[`Storyshots prenda-spark/Button Medium 1`] = `
 <button
   className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-2 MuiButton-text"
@@ -102,6 +135,128 @@ exports[`Storyshots prenda-spark/Button Medium 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    PizzaTaco
+  </span>
+</button>
+`;
+
+exports[`Storyshots prenda-spark/Button Medium Icon 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-10 MuiButton-text"
+  disabled={false}
+  icon={<UNDEFINED />}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "16px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`Storyshots prenda-spark/Button Outlined Large 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-6 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
+  disabled={false}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  outlinedStyle={true}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    PizzaTaco
+  </span>
+</button>
+`;
+
+exports[`Storyshots prenda-spark/Button Outlined Medium 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-5 MuiButton-text"
+  disabled={false}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  outlinedStyle={true}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    PizzaTaco
+  </span>
+</button>
+`;
+
+exports[`Storyshots prenda-spark/Button Outlined Small 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-4 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+  disabled={false}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  outlinedStyle={true}
   tabIndex={0}
   type="button"
 >
@@ -135,6 +290,47 @@ exports[`Storyshots prenda-spark/Button Small 1`] = `
     className="MuiButton-label"
   >
     PizzaTaco
+  </span>
+</button>
+`;
+
+exports[`Storyshots prenda-spark/Button Small Icon 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-9 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+  disabled={false}
+  icon={<UNDEFINED />}
+  onBlur={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "12px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
   </span>
 </button>
 `;
