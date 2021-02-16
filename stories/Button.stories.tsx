@@ -10,7 +10,7 @@ export default {
   component: Button,
 } as Meta;
 
-const buttonText = 'PizzaTacos';
+const buttonText = 'PizzaTaco';
 
 export const Small = () => <Button size="small">{buttonText}</Button>;
 export const Medium = () => <Button size="medium">{buttonText}</Button>;
