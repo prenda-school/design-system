@@ -1,10 +1,7 @@
-import { Button } from './Actions/button'
+import { Button } from './Actions/button';
 
 const Actions = {
   Button,
-}
+};
 
-export {
-  Actions,
-  Button
-}
+export { Actions, Button };
