@@ -52,7 +52,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "prenda-spark",
+  "name": "@prenda/spark",
   "author": "Jake McBride",
   "module": "dist/prenda-spark.esm.js",
   "size-limit": [
