@@ -37,8 +37,7 @@
   },
   "lint-staged": {
     "./**/*.(tsx|ts)": [
-      "tsdx lint --fix",
-      "prettier --write"
+      "tsdx lint --fix"
     ]
   },
   "husky": {
