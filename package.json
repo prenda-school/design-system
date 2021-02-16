@@ -36,7 +36,7 @@
     "react": ">=16"
   },
   "lint-staged": {
-    "*.(ts|tsx)": [
+    "./**/*.tsx": [
       "tsdx lint",
       "prettier --write"
     ]
