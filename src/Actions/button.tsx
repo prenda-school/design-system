@@ -7,8 +7,7 @@ export type ButtonProps = {
   size: 'large' | 'medium' | 'small';
   disabled?: boolean;
   icon?: ReactElement;
-  outlined?: boolean;
-};
+  outlined?: boolean};
 
 export const Button: FC<ButtonProps> = (props) => {
   const { size, disabled, icon, outlined } = props;
