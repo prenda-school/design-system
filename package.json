@@ -37,7 +37,7 @@
   },
   "lint-staged": {
     "./**/*.(tsx|ts)": [
-      "tsdx lint",
+      "tsdx lint --fix",
       "prettier --write"
     ]
   },
