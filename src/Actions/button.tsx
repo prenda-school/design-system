@@ -10,7 +10,7 @@ export type ButtonProps = {
   outlined?: boolean;
 };
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = props => {
   const { size, disabled, icon, outlined } = props;
 
   const height = size === 'large' ? 48 : size === 'small' ? 24 : 32;
