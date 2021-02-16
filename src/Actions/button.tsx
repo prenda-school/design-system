@@ -1,16 +1,18 @@
 import React, { FC, ReactElement } from 'react'
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 export type ButtonProps = {
   size: 'large' | 'medium' | 'small',
   disabled?: boolean,
   icon?: ReactElement,
-  outlinedStyle?: boolean,
+  outlined?: boolean,
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { size, disabled, icon, outlinedStyle } = props
+  const { size, disabled, icon, outlined } = props
+
   const height = (
     size === 'large' ? 48 :
     size === 'small' ? 24 :
@@ -27,32 +29,23 @@ export const Button: FC<ButtonProps> = (props) => {
     }
   }) : {}
 
-  const iconButtonStyles = {
+  const iconButtonStyles = icon ? {
     height,
     width: height,
     minWidth: 'auto'
-  }
+  } : {}
 
-  const outlineStyles = {
+  const outlineStyles = outlined ? {
     border: '2px solid #2967A6',
     backgroundColor: 'transparent',
     color: '#2967A6',
-  }
+  } : {}
 
-  const disabledOutlineStyles =  {
+  const disabledOutlineStyles = outlined ? {
     backgroundColor: 'transparent',
     color: '#2967A6',
     border: '2px solid ##2967A6'
-  }
-
-  const disabledStyles = {
-    "&:disabled": {
-      backgroundColor: '#2967A6',
-      opacity: 0.5,
-      color: '#FFF',
-      ...(outlineStyles ? disabledOutlineStyles : {})
-    }
-  }
+  } : {}
 
   const nonDisabledStyles = { 
     backgroundColor: '#2967A6',
@@ -64,32 +57,30 @@ export const Button: FC<ButtonProps> = (props) => {
     }
   }
 
-  const buttonStyles = {
-    root: {
-      ...(icon ? iconButtonStyles : {}),
-      borderRadius: 100,
-      height,
+  const disabledStyles = disabled ? {
+    "&:disabled": {
+      backgroundColor: '#2967A6',
+      opacity: 0.5,
       color: '#FFF',
-      textTransform: 'none',
-      ...(outlinedStyle ? outlineStyles : {}),
-      ...(disabled ? disabledStyles : nonDisabledStyles),
-    },
-  }
+      ...disabledOutlineStyles
+    }
+  } : nonDisabledStyles
+
+  const buttonRootStyles = {
+    borderRadius: 100,
+    height,
+    color: '#FFF',
+    textTransform: 'none',
+    ...disabledStyles,
+    ...iconButtonStyles,
+    ...outlineStyles
+  } as CSSProperties
 
   console.log('props', props)
-  console.log('buttonStyles', buttonStyles)
-  
+  console.log('buttonStyles', buttonRootStyles)
 
   const StyledButton = withStyles({
-    root: {
-      ...(disabled ? disabledStyles : nonDisabledStyles),
-      ...(icon ? iconButtonStyles : {}),
-      borderRadius: 100,
-      height,
-      color: '#FFF',
-      textTransform: 'none',
-      ...(outlinedStyle ? outlineStyles : {})
-    },
+    root: buttonRootStyles,
   })(MatButton);
 
   return <StyledButton disableFocusRipple={true} { ...props }>
