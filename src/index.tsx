@@ -1,3 +1,10 @@
-import { Button } from './Actions'
+import { Button } from './Actions/button'
 
-export { Button }
+const Actions = {
+  Button,
+}
+
+export {
+  Actions,
+  Button
+}

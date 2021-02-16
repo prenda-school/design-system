@@ -1,4 +1,4 @@
-import { Button } from './button'
+import { Button } from '../src/'
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots();
 

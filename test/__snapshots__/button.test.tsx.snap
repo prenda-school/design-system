@@ -189,7 +189,7 @@ exports[`Storyshots prenda-spark/Button Large Icon 1`] = `
 <button
   className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-15 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
   disabled={false}
-  icon={<UNDEFINED />}
+  icon={<Memo />}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -256,7 +256,7 @@ exports[`Storyshots prenda-spark/Button Medium Icon 1`] = `
 <button
   className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-14 MuiButton-text"
   disabled={false}
-  icon={<UNDEFINED />}
+  icon={<Memo />}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -404,7 +404,7 @@ exports[`Storyshots prenda-spark/Button Small Icon 1`] = `
 <button
   className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
   disabled={false}
-  icon={<UNDEFINED />}
+  icon={<Memo />}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
