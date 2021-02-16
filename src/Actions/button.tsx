@@ -76,9 +76,6 @@ export const Button: FC<ButtonProps> = (props) => {
     ...outlineStyles
   } as CSSProperties
 
-  console.log('props', props)
-  console.log('buttonStyles', buttonRootStyles)
-
   const StyledButton = withStyles({
     root: buttonRootStyles,
   })(MatButton);

@@ -67,7 +67,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={-1}
   type="button"
 >
@@ -94,7 +94,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={-1}
   type="button"
 >
@@ -121,7 +121,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={-1}
   type="button"
 >
@@ -308,7 +308,7 @@ exports[`Storyshots prenda-spark/Button Outlined Large 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={0}
   type="button"
 >
@@ -335,7 +335,7 @@ exports[`Storyshots prenda-spark/Button Outlined Medium 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={0}
   type="button"
 >
@@ -362,7 +362,7 @@ exports[`Storyshots prenda-spark/Button Outlined Small 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  outlinedStyle={true}
+  outlined={true}
   tabIndex={0}
   type="button"
 >
