@@ -7,8 +7,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default {
   title: 'prenda-spark/Button',
-  component: Button,
-} as Meta;
+  component: Button} as Meta
 
 const buttonText = 'PizzaTaco';
 
