@@ -23,5 +23,10 @@ export const BasicMenu = () => (
     label="Choose Label"
     menuOptions={menuOptions}
     minWidth={200}
+    bottomFormLabel="Types of Food"
+    selectPlaceholder="Placeholder"
+    onChange={() => {
+      console.log('valueChanged');
+    }}
   />
 );
