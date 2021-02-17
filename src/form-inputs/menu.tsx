@@ -3,23 +3,26 @@ import {
   Select as MatSelect,
   InputLabel as MatInputLabel,
   FormControl as MatFormControl,
+  MenuItem as MatMenuItem,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 
-const Select: FC = props => {
+type SelectProps = {
+  labelId: string;
+};
+
+const Select: FC<SelectProps> = props => {
   const StyledSelect = withStyles({})(MatSelect);
-  return <StyledSelect>{props.children}</StyledSelect>;
+  return <StyledSelect labelId={props.labelId}>{props.children}</StyledSelect>;
 };
 
 type InputLabelProps = {
-  labelId: string;
+  id: string;
 };
 
 const InputLabel: FC<InputLabelProps> = props => {
   const StyledInputLabel = withStyles({})(MatInputLabel);
-  return (
-    <StyledInputLabel id={props.labelId}>{props.children}</StyledInputLabel>
-  );
+  return <StyledInputLabel id={props.id}>{props.children}</StyledInputLabel>;
 };
 
 const FormControl: FC = props => {
@@ -29,16 +32,41 @@ const FormControl: FC = props => {
   );
 };
 
+type MenuItemProps = {
+  displayName: string;
+  value: string;
+};
+
+const MenuItem: FC<MenuItemProps> = props => {
+  const StyledMenuItem = withStyles({})(MatMenuItem);
+  return (
+    <StyledMenuItem value={props.value}>{props.displayName}</StyledMenuItem>
+  );
+};
+
+export type MenuItemOptions = {
+  displayName: string;
+  value: string;
+};
+
 export type MenuProps = {
   menuId: string;
   label?: string;
+  menuOptions: MenuItemOptions[];
 };
 
 export const Menu: FC<MenuProps> = props => {
   return (
     <FormControl>
-      <InputLabel labelId={props.menuId}>{props.label}</InputLabel>
-      <Select>{props.children}</Select>
+      <InputLabel id={props.menuId}>{props.label}</InputLabel>
+      <Select labelId={props.menuId}>{props.children}</Select>
+      {props.menuOptions.map((o, i) => (
+        <MenuItem
+          key={`${props.menuId}-${i}`}
+          value={o.value}
+          displayName={o.displayName}
+        />
+      ))}
     </FormControl>
   );
 };

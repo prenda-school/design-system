@@ -1,12 +1,4 @@
-import { Button } from './actions/';
-import { Menu } from './form-inputs/';
+import { Button, ButtonProps } from './actions/';
+import { Menu, MenuProps, MenuItemOptions } from './form-inputs/';
 
-const Actions = {
-  Button,
-};
-
-const FormInputs = {
-  Menu,
-};
-
-export { Actions, FormInputs, Button, Menu };
+export { Button, Menu, ButtonProps, MenuProps, MenuItemOptions };

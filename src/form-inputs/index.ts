@@ -1,3 +1,3 @@
-import { Menu } from './menu';
+import { Menu, MenuProps, MenuItemOptions } from './menu';
 
-export { Menu };
+export { Menu, MenuProps, MenuItemOptions };
