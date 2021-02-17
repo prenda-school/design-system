@@ -14,7 +14,13 @@ type FormHelperTextProps = {
 };
 
 const FormHelperText: FC<FormHelperTextProps> = props => {
-  const StyledFormHelperText = withStyles({})(MatFormHelperText);
+  const StyledFormHelperText = withStyles({
+    root: {
+      'font-size': '12px',
+      'line-height': '18px',
+      color: 'rgba(7, 46, 68, 0.72)',
+    },
+  })(MatFormHelperText);
   return <StyledFormHelperText>{props.label}</StyledFormHelperText>;
 };
 
@@ -28,6 +34,19 @@ const Select: FC<SelectProps> = props => {
     root: {
       border: '1px solid #D2D4D6',
       borderRadius: '8px',
+      '&:blur': {
+        border: '1px solid #498DCC',
+        'box-sizing': 'border-box',
+        'box-shadow': '0px 0px 0px 4px #D7F3FF',
+        'border-radius': '8px',
+      },
+      '&:focus': {
+        border: '1px solid #498DCC',
+        'box-sizing': 'border-box',
+        'box-shadow': '0px 0px 0px 4px #D7F3FF',
+        'border-radius': '8px',
+        backgroundColor: '#FFFFFF',
+      },
     },
   })(MatSelect);
   return (
@@ -46,7 +65,18 @@ type InputLabelProps = {
 };
 
 const InputLabel: FC<InputLabelProps> = props => {
-  const StyledInputLabel = withStyles({})(MatInputLabel);
+  const StyledInputLabel = withStyles({
+    root: {
+      'font-weight': 700,
+      color: '#072E44',
+      'font-size': '16px',
+      'line-height': '18px',
+      top: '-5px',
+      '&.Mui-focused': {
+        color: '#072E44',
+      },
+    },
+  })(MatInputLabel);
   return (
     <StyledInputLabel shrink id={props.id}>
       {props.children}
@@ -72,12 +102,16 @@ type MenuItemProps = {
   value: string;
 };
 
-const MenuItem: FC<MenuItemProps> = props => {
-  const StyledMenuItem = withStyles({})(MatMenuItem);
-  return (
-    <StyledMenuItem value={props.value}>{props.displayName}</StyledMenuItem>
-  );
-};
+const MenuItem: any = React.forwardRef<HTMLLIElement, MenuItemProps>(
+  (props, ref) => {
+    const StyledMenuItem = withStyles({})(MatMenuItem);
+    return (
+      <StyledMenuItem ref={ref} value={props.value}>
+        {props.displayName}
+      </StyledMenuItem>
+    );
+  }
+);
 
 export type MenuItemOptions = {
   displayName: string;
