@@ -2,7 +2,7 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Button } from '../src/';
+import { Button } from '../../src';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default {
@@ -11,6 +11,9 @@ export default {
 } as Meta;
 
 const buttonText = 'PizzaTaco';
+
+const Template = args => <Button {...args}>{buttonText}</Button>;
+export const ConfigurableButton = Template.bind({ size: 'medium' });
 
 export const Small = () => <Button size="small">{buttonText}</Button>;
 export const Medium = () => <Button size="medium">{buttonText}</Button>;

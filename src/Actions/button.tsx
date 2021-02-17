@@ -84,7 +84,7 @@ export const Button: FC<ButtonProps> = props => {
   })(MatButton);
 
   return (
-    <StyledButton disableFocusRipple={true} {...props}>
+    <StyledButton disableFocusRipple={true}>
       {icon ? styledIcon : props.children}
     </StyledButton>
   );
