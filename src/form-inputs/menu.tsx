@@ -11,17 +11,12 @@ import { SelectInputProps } from '@material-ui/core/Select/SelectInput';
 
 type FormHelperTextProps = {
   label?: string;
-}
+};
 
 const FormHelperText: FC<FormHelperTextProps> = props => {
-  const StyledFormHelperText = withStyles({
-    root: {
-      position: 'relative',
-      left: '-1.2em'
-    }
-  })(MatFormHelperText);
-  return <StyledFormHelperText>{ props.label }</StyledFormHelperText>
-}
+  const StyledFormHelperText = withStyles({})(MatFormHelperText);
+  return <StyledFormHelperText>{props.label}</StyledFormHelperText>;
+};
 
 type SelectProps = {
   labelId: string;
@@ -29,8 +24,21 @@ type SelectProps = {
 };
 
 const Select: FC<SelectProps> = props => {
-  const StyledSelect = withStyles({})(MatSelect);
-  return <StyledSelect onChange={props.onChange} labelId={props.labelId}>{props.children}</StyledSelect>;
+  const StyledSelect = withStyles({
+    root: {
+      border: '1px solid #D2D4D6',
+      borderRadius: '8px',
+    },
+  })(MatSelect);
+  return (
+    <StyledSelect
+      onChange={props.onChange}
+      labelId={props.labelId}
+      disableUnderline
+    >
+      {props.children}
+    </StyledSelect>
+  );
 };
 
 type InputLabelProps = {
@@ -39,17 +47,23 @@ type InputLabelProps = {
 
 const InputLabel: FC<InputLabelProps> = props => {
   const StyledInputLabel = withStyles({})(MatInputLabel);
-  return <StyledInputLabel shrink id={props.id}>{props.children}</StyledInputLabel>;
+  return (
+    <StyledInputLabel shrink id={props.id}>
+      {props.children}
+    </StyledInputLabel>
+  );
 };
 
 type FormControlInput = {
   minWidth: number;
-}
+};
 
 const FormControl: FC<FormControlInput> = props => {
   const StyledFormControl = withStyles({})(MatFormControl);
   return (
-    <StyledFormControl style={{ minWidth: props.minWidth }} variant="outlined">{props.children}</StyledFormControl>
+    <StyledFormControl style={{ minWidth: props.minWidth }}>
+      {props.children}
+    </StyledFormControl>
   );
 };
 
@@ -87,7 +101,7 @@ export const Menu: FC<MenuProps> = props => {
       value={o.value}
       displayName={o.displayName}
     />
-  ))
+  ));
 
   return (
     <FormControl minWidth={props.minWidth || 100}>
@@ -100,8 +114,8 @@ export const Menu: FC<MenuProps> = props => {
   );
 };
 
-
-{/* <FormControl className={classes.formControl}>
+{
+  /* <FormControl className={classes.formControl}>
   <InputLabel shrink id="demo-simple-select-placeholder-label-label">
     Age
   </InputLabel>
@@ -121,4 +135,5 @@ export const Menu: FC<MenuProps> = props => {
     <MenuItem value={30}>Thirty</MenuItem>
   </Select>
   <FormHelperText>Label + placeholder</FormHelperText>
-</FormControl> */}
+</FormControl> */
+}
