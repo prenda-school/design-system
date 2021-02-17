@@ -17,6 +17,15 @@ const menuOptions: MenuItemOptions[] = [
   { displayName: 'Pizza', value: 'pizza' },
 ];
 
+const handleOnChange = (
+  evt: React.ChangeEvent<{
+    name?: string;
+    value: unknown;
+  }>
+) => {
+  console.log(`Handling On Change, ${evt}`);
+};
+
 export const BasicMenu = () => (
   <Menu
     menuId="basic-menu-1"
@@ -25,8 +34,6 @@ export const BasicMenu = () => (
     minWidth={200}
     bottomFormLabel="Types of Food"
     selectPlaceholder="Placeholder"
-    onChange={() => {
-      console.log('valueChanged');
-    }}
+    onChange={handleOnChange}
   />
 );

@@ -30,6 +30,9 @@ type SelectProps = {
 };
 
 const Select: FC<SelectProps> = props => {
+
+  console.log('Select props.onChange', props.onChange)
+
   const StyledSelect = withStyles({
     root: {
       border: '1px solid #D2D4D6',
@@ -99,14 +102,14 @@ const FormControl: FC<FormControlInput> = props => {
 
 type MenuItemProps = {
   displayName: string;
-  value: string;
+  menuItemValue: string;
 };
 
 const MenuItem: any = React.forwardRef<HTMLLIElement, MenuItemProps>(
   (props, ref) => {
     const StyledMenuItem = withStyles({})(MatMenuItem);
     return (
-      <StyledMenuItem ref={ref} value={props.value}>
+      <StyledMenuItem ref={ref} value={props.menuItemValue}>
         {props.displayName}
       </StyledMenuItem>
     );
@@ -129,13 +132,15 @@ export type MenuProps = {
 };
 
 export const Menu: FC<MenuProps> = props => {
-  const menuItems = props.menuOptions.map((o, i) => (
-    <MenuItem
-      key={`${props.menuId}-${i}`}
-      value={o.value}
-      displayName={o.displayName}
-    />
-  ));
+  const menuItems = props.menuOptions.map((o, i) => {
+      return (<MenuItem
+        key={`${props.menuId}-${i}`}
+        menuItemValue={o.value}
+        value={o.value}
+        displayName={o.displayName}
+      />)
+    }
+  );
 
   return (
     <FormControl minWidth={props.minWidth || 100}>
