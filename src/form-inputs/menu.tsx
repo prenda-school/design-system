@@ -1,11 +1,10 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC } from 'react';
 import {
   Select as MatSelect,
   InputLabel as MatInputLabel,
   FormControl as MatFormControl,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
 const Select: FC = props => {
   const StyledSelect = withStyles({})(MatSelect);
