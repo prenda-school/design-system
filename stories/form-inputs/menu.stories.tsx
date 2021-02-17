@@ -3,7 +3,6 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 
 import { Menu } from '../../src';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export default {
   title: 'prenda-spark/Menu',
