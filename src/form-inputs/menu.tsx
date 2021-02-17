@@ -25,10 +25,14 @@ const InputLabel: FC<InputLabelProps> = props => {
   return <StyledInputLabel id={props.id}>{props.children}</StyledInputLabel>;
 };
 
-const FormControl: FC = props => {
+type FormControlInput = {
+  minWidth: number;
+}
+
+const FormControl: FC<FormControlInput> = props => {
   const StyledFormControl = withStyles({})(MatFormControl);
   return (
-    <StyledFormControl variant="outlined">{props.children}</StyledFormControl>
+    <StyledFormControl style={{ minWidth: props.minWidth }} variant="outlined">{props.children}</StyledFormControl>
   );
 };
 
@@ -53,20 +57,22 @@ export type MenuProps = {
   menuId: string;
   label?: string;
   menuOptions: MenuItemOptions[];
+  minWidth?: number;
 };
 
 export const Menu: FC<MenuProps> = props => {
   return (
-    <FormControl>
+    <FormControl minWidth={props.minWidth || 100}>
       <InputLabel id={props.menuId}>{props.label}</InputLabel>
-      <Select labelId={props.menuId}>{props.children}</Select>
-      {props.menuOptions.map((o, i) => (
-        <MenuItem
-          key={`${props.menuId}-${i}`}
-          value={o.value}
-          displayName={o.displayName}
-        />
-      ))}
+      <Select labelId={props.menuId}>
+        {props.menuOptions.map((o, i) => (
+          <MenuItem
+            key={`${props.menuId}-${i}`}
+            value={o.value}
+            displayName={o.displayName}
+          />
+        ))}
+      </Select>
     </FormControl>
   );
 };

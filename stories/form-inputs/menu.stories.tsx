@@ -18,5 +18,10 @@ const menuOptions: MenuItemOptions[] = [
 ];
 
 export const BasicMenu = () => (
-  <Menu menuId="basic-menu-1" label="Choose Label" menuOptions={menuOptions} />
+  <Menu
+    menuId="basic-menu-1"
+    label="Choose Label"
+    menuOptions={menuOptions}
+    minWidth={200}
+  />
 );
