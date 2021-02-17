@@ -20,7 +20,7 @@ const FormHelperText: FC<FormHelperTextProps> = props => {
 
 type SelectProps = {
   labelId: string;
-  // onChange: SelectInputProps['onChange'];
+  onChange: SelectInputProps['onChange'];
 };
 
 const Select: FC<SelectProps> = props => {
@@ -32,7 +32,7 @@ const Select: FC<SelectProps> = props => {
   })(MatSelect);
   return (
     <StyledSelect
-      // onChange={props.onChange}
+      onChange={props.onChange}
       labelId={props.labelId}
       disableUnderline
     >
@@ -106,7 +106,7 @@ export const Menu: FC<MenuProps> = props => {
   return (
     <FormControl minWidth={props.minWidth || 100}>
       <InputLabel id={props.menuId}>{props.label}</InputLabel>
-      <Select /*onChange={props.onChange}*/ labelId={props.menuId}>
+      <Select onChange={props.onChange} labelId={props.menuId}>
         {menuItems}
       </Select>
       <FormHelperText label={props.bottomFormLabel} />
