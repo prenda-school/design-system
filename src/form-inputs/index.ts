@@ -1,3 +1,3 @@
 import { Menu, MenuProps, MenuItemOptions } from './menu';
-
-export { Menu, MenuProps, MenuItemOptions };
+import { Checkbox, CheckboxProps } from './checkbox';
+export { Menu, MenuProps, MenuItemOptions, Checkbox, CheckboxProps };
