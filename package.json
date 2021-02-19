@@ -68,7 +68,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.12.16",
-    "@material-ui/icons": "^4.11.2",
     "@size-limit/preset-small-lib": "^4.9.2",
     "@storybook/addon-essentials": "^6.1.18",
     "@storybook/addon-info": "^5.3.21",
@@ -93,6 +92,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "@material-ui/icons": "^4.11.2"
   }
 }
