@@ -31,6 +31,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
 - Add CNAME record for pointing \<URL TBD> to docs.
 - Add github action/other mechanism for running an npm publish process if version changes in `package.json`.
+- Optimize Menu component (among other issues it shouldn't need an internal useState).
 
 ## Install
 

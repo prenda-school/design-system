@@ -626,7 +626,7 @@ exports[`Storyshots prenda-spark/Menu Basic Menu 1`] = `
   }
 >
   <label
-    className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-44 MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink"
     data-shrink={true}
     id="basic-menu-1"
   >
@@ -639,7 +639,7 @@ exports[`Storyshots prenda-spark/Menu Basic Menu 1`] = `
     <div
       aria-haspopup="listbox"
       aria-labelledby="basic-menu-1"
-      className="MuiSelect-root WithStyles(ForwardRef(Select))-root-44 MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
+      className="MuiSelect-root WithStyles(ForwardRef(Select))-root-45 MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -647,21 +647,19 @@ exports[`Storyshots prenda-spark/Menu Basic Menu 1`] = `
       role="button"
       tabIndex={0}
     >
-      <span
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "&#8203;",
-          }
-        }
+      <div
+        className="sc-bdfBwQ uJjeH"
       />
     </div>
     <input
       aria-hidden={true}
       className="MuiSelect-nativeInput"
+      name=""
       onAnimationStart={[Function]}
       onChange={[Function]}
       required={false}
       tabIndex={-1}
+      value=""
     />
     <svg
       aria-hidden={true}
@@ -675,7 +673,7 @@ exports[`Storyshots prenda-spark/Menu Basic Menu 1`] = `
     </svg>
   </div>
   <p
-    className="MuiFormHelperText-root"
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-46"
   >
     Types of Food
   </p>

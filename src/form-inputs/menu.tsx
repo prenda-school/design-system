@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   Select as MatSelect,
   InputLabel as MatInputLabel,
@@ -8,6 +8,7 @@ import {
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import { SelectInputProps } from '@material-ui/core/Select/SelectInput';
+import styled from 'styled-components';
 
 type FormHelperTextProps = {
   label?: string;
@@ -27,12 +28,11 @@ const FormHelperText: FC<FormHelperTextProps> = props => {
 type SelectProps = {
   labelId: string;
   onChange: SelectInputProps['onChange'];
+  value: string;
+  renderValue: ((value: unknown) => React.ReactNode) | undefined;
 };
 
 const Select: FC<SelectProps> = props => {
-
-  console.log('Select props.onChange', props.onChange)
-
   const StyledSelect = withStyles({
     root: {
       border: '1px solid #D2D4D6',
@@ -54,9 +54,13 @@ const Select: FC<SelectProps> = props => {
   })(MatSelect);
   return (
     <StyledSelect
+      displayEmpty
       onChange={props.onChange}
       labelId={props.labelId}
       disableUnderline
+      value={props.value}
+      name={props.value}
+      renderValue={props.renderValue}
     >
       {props.children}
     </StyledSelect>
@@ -100,21 +104,27 @@ const FormControl: FC<FormControlInput> = props => {
   );
 };
 
-type MenuItemProps = {
-  displayName: string;
-  menuItemValue: string;
-};
+/**
+ * Want to get this componenet working, but issues extracting value with ref.
+ */
+// type MenuItemProps = {
+//   displayName?: string;
+//   menuItemValue: string;
+// };
 
-const MenuItem: any = React.forwardRef<HTMLLIElement, MenuItemProps>(
-  (props, ref) => {
-    const StyledMenuItem = withStyles({})(MatMenuItem);
-    return (
-      <StyledMenuItem ref={ref} value={props.menuItemValue}>
-        {props.displayName}
-      </StyledMenuItem>
-    );
-  }
-);
+// const MenuItem: FC<MenuItemProps> = props => {
+//   // const StyledMenuItem = withStyles({})(MatMenuItem);
+//   return (
+//     <MatMenuItem value={props.menuItemValue}>
+//       {props.children}
+//     </MatMenuItem>
+//   );
+// }
+
+
+const RenderContainer = styled.div`
+  padding-left: 5px;
+`
 
 export type MenuItemOptions = {
   displayName: string;
@@ -129,50 +139,48 @@ export type MenuProps = {
   menuOptions: MenuItemOptions[];
   minWidth?: number;
   onChange: SelectInputProps['onChange'];
+  value: string;
 };
 
 export const Menu: FC<MenuProps> = props => {
+  const [selectVal, setSelectVal] = useState('')
+  
   const menuItems = props.menuOptions.map((o, i) => {
-      return (<MenuItem
+      const StyledMenuItem = withStyles({})(MatMenuItem);
+      return (<StyledMenuItem
         key={`${props.menuId}-${i}`}
-        menuItemValue={o.value}
         value={o.value}
-        displayName={o.displayName}
-      />)
+      >{o.displayName}</StyledMenuItem>)
     }
   );
+
+  const handleOnChange = (
+    evt: React.ChangeEvent<{
+      name?: string;
+      value: unknown;
+    }>,
+    child: React.ReactNode
+  ) => {
+    setSelectVal(evt.target.value as string)
+    props.onChange && props.onChange(evt, child)
+  };
 
   return (
     <FormControl minWidth={props.minWidth || 100}>
       <InputLabel id={props.menuId}>{props.label}</InputLabel>
-      <Select onChange={props.onChange} labelId={props.menuId}>
+      <Select 
+        onChange={handleOnChange} 
+        labelId={props.menuId} 
+        value={props.value}
+        renderValue={() => {
+          return (<RenderContainer>{props.menuOptions.find(o => {
+            return o.value === selectVal
+          })?.displayName}</RenderContainer>)
+        }}
+      >
         {menuItems}
       </Select>
       <FormHelperText label={props.bottomFormLabel} />
     </FormControl>
   );
 };
-
-{
-  /* <FormControl className={classes.formControl}>
-  <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-    Age
-  </InputLabel>
-  <Select
-    labelId="demo-simple-select-placeholder-label-label"
-    id="demo-simple-select-placeholder-label"
-    value={age}
-    onChange={handleChange}
-    displayEmpty
-    className={classes.selectEmpty}
-  >
-    <MenuItem value="">
-      <em>None</em>
-    </MenuItem>
-    <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
-  </Select>
-  <FormHelperText>Label + placeholder</FormHelperText>
-</FormControl> */
-}

@@ -17,13 +17,15 @@ const menuOptions: MenuItemOptions[] = [
   { displayName: 'Pizza', value: 'pizza' },
 ];
 
+let selectVal: string = '';
 const handleOnChange = (
   evt: React.ChangeEvent<{
     name?: string;
     value: unknown;
   }>
 ) => {
-  console.log(`Handling On Change, ${evt}`);
+  selectVal = evt.target.value as string;
+  console.log(`Value extracted from select.`);
 };
 
 export const BasicMenu = () => (
@@ -35,5 +37,6 @@ export const BasicMenu = () => (
     bottomFormLabel="Types of Food"
     selectPlaceholder="Placeholder"
     onChange={handleOnChange}
+    value={selectVal}
   />
 );
