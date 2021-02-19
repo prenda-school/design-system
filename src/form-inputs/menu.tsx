@@ -121,10 +121,9 @@ const FormControl: FC<FormControlInput> = props => {
 //   );
 // }
 
-
 const RenderContainer = styled.div`
   padding-left: 5px;
-`
+`;
 
 export type MenuItemOptions = {
   displayName: string;
@@ -143,16 +142,16 @@ export type MenuProps = {
 };
 
 export const Menu: FC<MenuProps> = props => {
-  const [selectVal, setSelectVal] = useState('')
-  
+  const [selectVal, setSelectVal] = useState('');
+
   const menuItems = props.menuOptions.map((o, i) => {
-      const StyledMenuItem = withStyles({})(MatMenuItem);
-      return (<StyledMenuItem
-        key={`${props.menuId}-${i}`}
-        value={o.value}
-      >{o.displayName}</StyledMenuItem>)
-    }
-  );
+    const StyledMenuItem = withStyles({})(MatMenuItem);
+    return (
+      <StyledMenuItem key={`${props.menuId}-${i}`} value={o.value}>
+        {o.displayName}
+      </StyledMenuItem>
+    );
+  });
 
   const handleOnChange = (
     evt: React.ChangeEvent<{
@@ -161,21 +160,27 @@ export const Menu: FC<MenuProps> = props => {
     }>,
     child: React.ReactNode
   ) => {
-    setSelectVal(evt.target.value as string)
-    props.onChange && props.onChange(evt, child)
+    setSelectVal(evt.target.value as string);
+    props.onChange && props.onChange(evt, child);
   };
 
   return (
     <FormControl minWidth={props.minWidth || 100}>
       <InputLabel id={props.menuId}>{props.label}</InputLabel>
-      <Select 
-        onChange={handleOnChange} 
-        labelId={props.menuId} 
+      <Select
+        onChange={handleOnChange}
+        labelId={props.menuId}
         value={props.value}
         renderValue={() => {
-          return (<RenderContainer>{props.menuOptions.find(o => {
-            return o.value === selectVal
-          })?.displayName}</RenderContainer>)
+          return (
+            <RenderContainer>
+              {
+                props.menuOptions.find(o => {
+                  return o.value === selectVal;
+                })?.displayName
+              }
+            </RenderContainer>
+          );
         }}
       >
         {menuItems}
