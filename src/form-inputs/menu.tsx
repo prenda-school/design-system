@@ -10,117 +10,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { SelectInputProps } from '@material-ui/core/Select/SelectInput';
 import styled from 'styled-components';
 
-type FormHelperTextProps = {
-  label?: string;
-};
-
-const FormHelperText: FC<FormHelperTextProps> = props => {
-  const StyledFormHelperText = withStyles({
-    root: {
-      'font-size': '12px',
-      'line-height': '18px',
-      color: 'rgba(7, 46, 68, 0.72)',
-    },
-  })(MatFormHelperText);
-  return <StyledFormHelperText>{props.label}</StyledFormHelperText>;
-};
-
-type SelectProps = {
-  labelId: string;
-  onChange: SelectInputProps['onChange'];
-  value: string;
-  renderValue: ((value: unknown) => React.ReactNode) | undefined;
-};
-
-const Select: FC<SelectProps> = props => {
-  const StyledSelect = withStyles({
-    root: {
-      border: '1px solid #D2D4D6',
-      borderRadius: '8px',
-      '&:blur': {
-        border: '1px solid #498DCC',
-        'box-sizing': 'border-box',
-        'box-shadow': '0px 0px 0px 4px #D7F3FF',
-        'border-radius': '8px',
-      },
-      '&:focus': {
-        border: '1px solid #498DCC',
-        'box-sizing': 'border-box',
-        'box-shadow': '0px 0px 0px 4px #D7F3FF',
-        'border-radius': '8px',
-        backgroundColor: '#FFFFFF',
-      },
-    },
-  })(MatSelect);
-  return (
-    <StyledSelect
-      displayEmpty
-      onChange={props.onChange}
-      labelId={props.labelId}
-      disableUnderline
-      value={props.value}
-      name={props.value}
-      renderValue={props.renderValue}
-    >
-      {props.children}
-    </StyledSelect>
-  );
-};
-
-type InputLabelProps = {
-  id: string;
-};
-
-const InputLabel: FC<InputLabelProps> = props => {
-  const StyledInputLabel = withStyles({
-    root: {
-      'font-weight': 700,
-      color: '#072E44',
-      'font-size': '16px',
-      'line-height': '18px',
-      top: '-5px',
-      '&.Mui-focused': {
-        color: '#072E44',
-      },
-    },
-  })(MatInputLabel);
-  return (
-    <StyledInputLabel shrink id={props.id}>
-      {props.children}
-    </StyledInputLabel>
-  );
-};
-
-type FormControlInput = {
-  minWidth: number;
-};
-
-const FormControl: FC<FormControlInput> = props => {
-  const StyledFormControl = withStyles({})(MatFormControl);
-  return (
-    <StyledFormControl style={{ minWidth: props.minWidth }}>
-      {props.children}
-    </StyledFormControl>
-  );
-};
-
-/**
- * Want to get this componenet working, but issues extracting value with ref.
- */
-// type MenuItemProps = {
-//   displayName?: string;
-//   menuItemValue: string;
-// };
-
-// const MenuItem: FC<MenuItemProps> = props => {
-//   // const StyledMenuItem = withStyles({})(MatMenuItem);
-//   return (
-//     <MatMenuItem value={props.menuItemValue}>
-//       {props.children}
-//     </MatMenuItem>
-//   );
-// }
-
 const RenderContainer = styled.div`
   padding-left: 5px;
 `;
@@ -142,17 +31,29 @@ export type MenuProps = {
 };
 
 export const Menu: FC<MenuProps> = props => {
+  /**
+   * Selection handling
+   * 
+   * TODO: 
+   *    Optimize selection handling we should
+   *    need to have an internal useState within
+   *    this component. We should find a way to 
+   *    reference the value prop of this component
+   *    when determining which selected value to 
+   *    render. 
+   * 
+   *    The current issue is that this
+   *    component is not re-rendering when the
+   *    value changes. 
+   * 
+   *    Potential Solution: This might be just due to
+   *    the storybook using a variable scoped to
+   *    the module as opposed to rendering this
+   *    component within another component and then
+   *    using useState and passing the value prop
+   *    of this component that resulting state.
+   */
   const [selectVal, setSelectVal] = useState('');
-
-  const menuItems = props.menuOptions.map((o, i) => {
-    const StyledMenuItem = withStyles({})(MatMenuItem);
-    return (
-      <StyledMenuItem key={`${props.menuId}-${i}`} value={o.value}>
-        {o.displayName}
-      </StyledMenuItem>
-    );
-  });
-
   const handleOnChange = (
     evt: React.ChangeEvent<{
       name?: string;
@@ -164,13 +65,83 @@ export const Menu: FC<MenuProps> = props => {
     props.onChange && props.onChange(evt, child);
   };
 
+  /**
+   * Menu Items
+   */
+  const menuItems = props.menuOptions.map((o, i) => {
+    const StyledMenuItem = withStyles({})(MatMenuItem);
+    return (
+      <StyledMenuItem key={`${props.menuId}-${i}`} value={o.value}>
+        {o.displayName}
+      </StyledMenuItem>
+    );
+  });
+
+  /**
+   * Form Control
+   */
+  const FormControl = withStyles({})(MatFormControl);
+
+  /**
+   * Select Box
+   */
+  const Select = withStyles({
+    root: {
+      border: '1px solid #D2D4D6',
+      borderRadius: '8px',
+      '&:blur': {
+        border: '1px solid #498DCC',
+        'box-sizing': 'border-box',
+        'box-shadow': '0px 0px 0px 4px #D7F3FF',
+        'border-radius': '8px',
+      },
+      '&:focus': {
+        border: '1px solid #498DCC',
+        'box-sizing': 'border-box',
+        'box-shadow': '0px 0px 0px 4px #D7F3FF',
+        'border-radius': '8px',
+        backgroundColor: '#FFFFFF',
+      },
+    },
+  })(MatSelect);
+
+  /**
+   * Primary Label
+   */
+  const InputLabel = withStyles({
+    root: {
+      'font-weight': 700,
+      color: '#072E44',
+      'font-size': '16px',
+      'line-height': '18px',
+      top: '-5px',
+      '&.Mui-focused': {
+        color: '#072E44',
+      },
+    },
+  })(MatInputLabel);
+
+  /**
+   * Optional Label
+   */
+  const FormHelperText = withStyles({
+    root: {
+      'font-size': '12px',
+      'line-height': '18px',
+      color: 'rgba(7, 46, 68, 0.72)',
+    },
+  })(MatFormHelperText);
+
   return (
-    <FormControl minWidth={props.minWidth || 100}>
-      <InputLabel id={props.menuId}>{props.label}</InputLabel>
+    <FormControl style={{ minWidth: props.minWidth || 100 }}>
+      <InputLabel id={props.menuId} shrink>{props.label}</InputLabel>
       <Select
+        displayEmpty
         onChange={handleOnChange}
         labelId={props.menuId}
+        disableUnderline
         value={props.value}
+        name={props.value}
         renderValue={() => {
           return (
             <RenderContainer>
@@ -185,7 +156,7 @@ export const Menu: FC<MenuProps> = props => {
       >
         {menuItems}
       </Select>
-      <FormHelperText label={props.bottomFormLabel} />
+      <FormHelperText>{props.bottomFormLabel}</FormHelperText>
     </FormControl>
   );
 };

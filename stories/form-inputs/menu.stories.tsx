@@ -25,7 +25,7 @@ const handleOnChange = (
   }>
 ) => {
   selectVal = evt.target.value as string;
-  console.log(`Value extracted from select.`);
+  console.log(`Value extracted from select: ${evt.target.value}`);
 };
 
 export const BasicMenu = () => (
