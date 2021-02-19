@@ -12,6 +12,9 @@ import styled from 'styled-components';
 
 const RenderContainer = styled.div`
   padding-left: 5px;
+  padding-top: 2px;
+  font-size: 16px;
+  line-height: 18px;
 `;
 
 export type MenuItemOptions = {
@@ -64,6 +67,17 @@ export const Menu: FC<MenuProps> = props => {
     setSelectVal(evt.target.value as string);
     props.onChange && props.onChange(evt, child);
   };
+  const renderValue = () => {
+    return (
+      <RenderContainer>
+        {
+          props.menuOptions.find(o => {
+            return o.value === selectVal;
+          })?.displayName || props.selectPlaceholder || ''
+        }
+      </RenderContainer>
+    );
+  }
 
   /**
    * Menu Items
@@ -88,6 +102,7 @@ export const Menu: FC<MenuProps> = props => {
   const Select = withStyles({
     root: {
       border: '1px solid #D2D4D6',
+      color: 'rgba(7, 46, 68, 0.72)',
       borderRadius: '8px',
       '&:blur': {
         border: '1px solid #498DCC',
@@ -101,6 +116,7 @@ export const Menu: FC<MenuProps> = props => {
         'box-shadow': '0px 0px 0px 4px #D7F3FF',
         'border-radius': '8px',
         backgroundColor: '#FFFFFF',
+        color: '#072E44',
       },
     },
   })(MatSelect);
@@ -142,17 +158,7 @@ export const Menu: FC<MenuProps> = props => {
         disableUnderline
         value={props.value}
         name={props.value}
-        renderValue={() => {
-          return (
-            <RenderContainer>
-              {
-                props.menuOptions.find(o => {
-                  return o.value === selectVal;
-                })?.displayName
-              }
-            </RenderContainer>
-          );
-        }}
+        renderValue={renderValue}
       >
         {menuItems}
       </Select>
