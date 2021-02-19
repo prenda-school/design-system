@@ -20,7 +20,8 @@
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test:update-snapshot": "jest --updateSnapshot"
+    "test:update-snapshots": "jest --updateSnapshot",
+    "test:update-snapshot": "npm run test:update-snapshots"
   },
   "jest": {
     "preset": "ts-jest",
