@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Checkbox as MatCheckbox, FormControlLabel } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { makeStyles } from '@material-ui/core/styles';
+import Check from '@material-ui/icons/Check';
 
 export type CheckboxProps = {
   disabled?: boolean;
@@ -14,50 +14,73 @@ export type CheckboxProps = {
 export const Checkbox: FC<CheckboxProps> = props => {
   const { disabled, label } = props;
 
-  const checkboxHoverStyles = !disabled 
-    ? {
-        '&:hover': {
-          backgroundColor: 'inherit',
-          color: '#0A4872'
-        }
-      } 
-    : {};
-
-  const checkedStyles = {
-    color: '#2967A6',
-    ...checkboxHoverStyles
-  }
-
-  const checkboxRootStyles = {
-    color: '#D2D4D6',
-    backgroundColor: "#FFF",
-    borderRadius: '2px',
-    width: '20px',
-    height: '20px',
-    '&$checked': {...checkedStyles},
-    ...checkboxHoverStyles,
-  } as CSSProperties;
-
-  const StyledCheckbox = withStyles({
-    root: checkboxRootStyles,
-    checked: { ...checkedStyles }
-  })(MatCheckbox);
-
-  const disabledStyles = {
-    color: 'rgba(7, 46, 68, 0.72)'
-  }
-
-  const StyledFormControlLabel = withStyles({
-    root: { },
+  const styles = makeStyles({
+    root: {
+      '&$root$root:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
+    },
+    icon: {
+      backgroundColor: '#FFFFFF',
+      border: '2px solid #D2D4D6',
+      borderRadius: '2px',
+      height: '16px',
+      width: '16px',
+      'label:hover &': {
+        border: '2px solid #0A4872',
+      },
+      'input:focus ~ &': {
+        boxShadow: '0px 0px 0px 4px #D7F3FF',
+      },
+    },
+    checkIcon: {
+      fontSize: '16px',
+    },
+    checkedIconContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#2967A6',
+      border: '2px solid #2967A6',
+      color: '#FFFFFF',
+      'label:hover &': {
+        border: '2px solid #2967A6',
+      },
+    },
+    disabledIcon: {
+      backgroundColor: '#D2D4D6',
+      border: '2px solid #D2D4D6',
+      'label:hover &': {
+        border: '2px solid #D2D4D6',
+      },
+    },
     label: {
       color: 'rgba(7, 46, 68, 0.72)',
-      '&:hover': { color: '#072E44' },
-      '&$disabled': { ...disabledStyles }
+      'label:hover &': { color: '#072E44' },
+      '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
     },
-    disabled: { ...disabledStyles }
-  })(FormControlLabel)
+  })();
+
+  const disabledIconClass = disabled ? styles.disabledIcon : '';
+
+  const icon = <span className={`${styles.icon} ${disabledIconClass}`}></span>;
+  const checkedIcon = (
+    <span className={`${styles.icon} ${styles.checkedIconContainer}`}>
+      <Check className={styles.checkIcon} />
+    </span>
+  );
 
   return (
-    <StyledFormControlLabel label={label} disabled={disabled} control={<StyledCheckbox {...props}/>} />
+    <FormControlLabel
+      label={<span className={styles.label}>{label}</span>}
+      disabled={disabled}
+      control={
+        <MatCheckbox
+          className={styles.root}
+          icon={icon}
+          checkedIcon={checkedIcon}
+          disableRipple={true}
+          {...props}
+        />
+      }
+    />
   );
 };
