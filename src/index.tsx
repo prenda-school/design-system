@@ -7,6 +7,8 @@ import {
   CheckboxProps,
   Input,
   InputProps,
+  Radio,
+  RadioProps
 } from './form-inputs/';
 
 export {
@@ -19,4 +21,6 @@ export {
   CheckboxProps,
   Input,
   InputProps,
+  Radio,
+  RadioProps
 };

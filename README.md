@@ -27,14 +27,13 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
 
 ## WIP and TODOS
 
-- Have storybook import the output from the build rather than directly importing ts (as a consumer would do).
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
   - Button (MVP)
   - Menu (MVP)
   - Checkbox (MVP)
   - Input (todo)
   - Large Input (todo)
-  - Radio (todo)
+  - Radio (MVP)
   - Fonts (todo)
 - Add CNAME record for pointing \<URL TBD> to docs.
 - Add github action/other mechanism for running an npm publish process if version changes in `package.json`.
