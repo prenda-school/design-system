@@ -1,8 +1,8 @@
 import { Checkbox } from '../src';
 import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots();
+initStoryshots({ storyKindRegex: /^.*Checkbox.*$/ });
 
-describe('Button', () => {
+describe('Checkbox', () => {
   it('is truthy', () => {
     expect(Checkbox).toBeTruthy();
   });

@@ -1,8 +1,8 @@
 import { Menu } from '../src';
 import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots();
+initStoryshots({ storyKindRegex: /^.*Menu.*$/ });
 
-describe('Button', () => {
+describe('Menu', () => {
   it('is truthy', () => {
     expect(Menu).toBeTruthy();
   });
