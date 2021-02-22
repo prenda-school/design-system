@@ -1,6 +1,6 @@
 import { Menu } from '../src';
 import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots({ storyKindRegex: /^.*Menu.*$/ });
+initStoryshots({ storyKindRegex: /^prenda-spark\/Menu$/ });
 
 describe('Menu', () => {
   it('is truthy', () => {

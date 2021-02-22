@@ -1,6 +1,6 @@
 import { Checkbox } from '../src';
 import initStoryshots from '@storybook/addon-storyshots';
-initStoryshots({ storyKindRegex: /^.*Checkbox.*$/ });
+initStoryshots({ storyKindRegex: /^prenda-spark\/Checkbox$/ });
 
 describe('Checkbox', () => {
   it('is truthy', () => {
