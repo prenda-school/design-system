@@ -12,8 +12,8 @@ export default {
 export const ExampleInput = () => (
   <Input
     inputId="inputId"
-    label="Basic input"
-    inputPlaceholder="Pizza Taco"
-    bottomInputLabel="Bottom Input Taco"
+    label="Input Label"
+    inputPlaceholder="PizzaTaco"
+    bottomInputLabel="Optional Message"
   />
 );
