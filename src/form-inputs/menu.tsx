@@ -36,19 +36,19 @@ export type MenuProps = {
 export const Menu: FC<MenuProps> = props => {
   /**
    * Selection handling
-   * 
-   * TODO: 
+   *
+   * TODO:
    *    Optimize selection handling we should
    *    need to have an internal useState within
-   *    this component. We should find a way to 
+   *    this component. We should find a way to
    *    reference the value prop of this component
-   *    when determining which selected value to 
-   *    render. 
-   * 
+   *    when determining which selected value to
+   *    render.
+   *
    *    The current issue is that this
    *    component is not re-rendering when the
-   *    value changes. 
-   * 
+   *    value changes.
+   *
    *    Potential Solution: This might be just due to
    *    the storybook using a variable scoped to
    *    the module as opposed to rendering this
@@ -70,14 +70,14 @@ export const Menu: FC<MenuProps> = props => {
   const renderValue = () => {
     return (
       <RenderContainer>
-        {
-          props.menuOptions.find(o => {
-            return o.value === selectVal;
-          })?.displayName || props.selectPlaceholder || ''
-        }
+        {props.menuOptions.find(o => {
+          return o.value === selectVal;
+        })?.displayName ||
+          props.selectPlaceholder ||
+          ''}
       </RenderContainer>
     );
-  }
+  };
 
   /**
    * Menu Items
@@ -150,7 +150,9 @@ export const Menu: FC<MenuProps> = props => {
 
   return (
     <FormControl style={{ minWidth: props.minWidth || 100 }}>
-      <InputLabel id={props.menuId} shrink>{props.label}</InputLabel>
+      <InputLabel id={props.menuId} shrink>
+        {props.label}
+      </InputLabel>
       <Select
         displayEmpty
         onChange={handleOnChange}
