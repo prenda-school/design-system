@@ -5,6 +5,8 @@ import {
   MenuItemOptions,
   Checkbox,
   CheckboxProps,
+  Input,
+  InputProps,
 } from './form-inputs/';
 
 export {
@@ -15,4 +17,6 @@ export {
   MenuItemOptions,
   Checkbox,
   CheckboxProps,
+  Input,
+  InputProps,
 };
