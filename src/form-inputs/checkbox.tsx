@@ -25,7 +25,7 @@ export const Checkbox: FC<CheckboxProps> = props => {
       height: '16px',
       width: '16px',
       'label:hover &': {
-        border: '2px solid #0A4872',
+        borderColor: '#0A4872',
       },
       'input:focus ~ &': {
         boxShadow: '0px 0px 0px 4px #D7F3FF',
@@ -39,17 +39,16 @@ export const Checkbox: FC<CheckboxProps> = props => {
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#2967A6',
-      border: '2px solid #2967A6',
+      borderColor: '#2967A6',
       color: '#FFFFFF',
       'label:hover &': {
-        border: '2px solid #2967A6',
+        borderColor: '#2967A6',
       },
     },
     disabledIcon: {
       backgroundColor: '#D2D4D6',
-      border: '2px solid #D2D4D6',
       'label:hover &': {
-        border: '2px solid #D2D4D6',
+        borderColor: '#D2D4D6',
       },
     },
     label: {

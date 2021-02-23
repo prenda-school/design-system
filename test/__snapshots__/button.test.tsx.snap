@@ -28,8 +28,8 @@ exports[`Storyshots prenda-spark/Button Configurable Button 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-10 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-10 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -41,7 +41,7 @@ exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
@@ -54,8 +54,8 @@ exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-9 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-9 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -67,7 +67,7 @@ exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
@@ -80,8 +80,8 @@ exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -93,7 +93,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
@@ -106,8 +106,8 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-12 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-12 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -119,7 +119,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
@@ -132,8 +132,8 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-11 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-11 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -145,7 +145,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
@@ -158,8 +158,8 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Small 1`] = `
 <button
-  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-8 MuiButton-text"
-  disabled={false}
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-8 MuiButton-text Mui-disabled Mui-disabled"
+  disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
   onFocus={[Function]}
@@ -171,7 +171,7 @@ exports[`Storyshots prenda-spark/Button Disabled Small 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  tabIndex={0}
+  tabIndex={-1}
   type="button"
 >
   <span
