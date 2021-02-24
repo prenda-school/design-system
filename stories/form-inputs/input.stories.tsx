@@ -29,7 +29,7 @@ export const LargeInput = () => (
   />
 );
 
-export const SmallInputError = hasError => (
+export const SmallInputError = () => (
   <Input
     inputId="inputId"
     hasError={() => true}
