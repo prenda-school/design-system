@@ -14,6 +14,14 @@ export const Button: FC<ButtonProps> = props => {
   const { size, disabled, icon, outlined } = props;
 
   const height = size === 'large' ? 48 : size === 'small' ? 24 : 32;
+  const padding =
+    size === 'large'
+      ? '12px 32px'
+      : size === 'small'
+      ? '8px 16px'
+      : '12px 24px';
+  const fontSize =
+    size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
 
   const styledIcon = icon
     ? React.cloneElement(icon, {
@@ -29,6 +37,7 @@ export const Button: FC<ButtonProps> = props => {
         height,
         width: height,
         minWidth: 'auto',
+        padding: 'auto',
       }
     : {};
 
@@ -37,6 +46,11 @@ export const Button: FC<ButtonProps> = props => {
         border: '2px solid #2967A6',
         backgroundColor: 'transparent',
         color: '#2967A6',
+        '&:hover': {
+          backgroundColor: 'transparent',
+          color: '#0A4872',
+          borderColor: '#0A4872',
+        },
       }
     : {};
 
@@ -54,7 +68,7 @@ export const Button: FC<ButtonProps> = props => {
       backgroundColor: '#0A4872',
     },
     '&:focus': {
-      border: '4px solid #498DCC',
+      boxShadow: '0px 0px 0px 4px #D7F3FF',
     },
   };
 
@@ -74,6 +88,9 @@ export const Button: FC<ButtonProps> = props => {
     height,
     color: '#FFF',
     textTransform: 'none',
+    padding,
+    fontSize,
+    lineHeight: fontSize,
     ...disabledStyles,
     ...iconButtonStyles,
     ...outlineStyles,
