@@ -9,11 +9,22 @@ export default {
   component: Input,
 } as Meta;
 
-export const ExampleInput = () => (
+export const SmallInput = () => (
   <Input
     inputId="inputId"
     label="Input Label"
     inputPlaceholder="PizzaTaco"
+    bottomInputLabel="Optional Message"
+  />
+);
+
+export const LargeInput = () => (
+  <Input
+    inputId="inputId"
+    label="Input Label"
+    inputPlaceholder="PizzaTaco"
+    multiline={true}
+    rows={6}
     bottomInputLabel="Optional Message"
   />
 );

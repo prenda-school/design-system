@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots prenda-spark/Input Large Input 1`] = `
+Array [
+  <label
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-4 MuiInputLabel-animated MuiInputLabel-shrink"
+    data-shrink={true}
+  >
+    Input Label
+  </label>,
+  <div
+    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-5"
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
+      onClick={[Function]}
+    >
+      <textarea
+        aria-invalid={false}
+        autoFocus={false}
+        className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
+        defaultValue="PizzaTaco"
+        disabled={false}
+        id="inputId"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        rows={6}
+      />
+    </div>
+  </div>,
+  <p
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-6"
+  >
+    Optional Message
+  </p>,
+]
+`;
+
+exports[`Storyshots prenda-spark/Input Small Input 1`] = `
+Array [
+  <label
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-1 MuiInputLabel-animated MuiInputLabel-shrink"
+    data-shrink={true}
+  >
+    Input Label
+  </label>,
+  <div
+    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-2"
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        autoFocus={false}
+        className="MuiInputBase-input MuiInput-input"
+        defaultValue="PizzaTaco"
+        disabled={false}
+        id="inputId"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>,
+  <p
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-3"
+  >
+    Optional Message
+  </p>,
+]
+`;
