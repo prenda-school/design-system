@@ -28,3 +28,13 @@ export const LargeInput = () => (
     bottomInputLabel="Optional Message"
   />
 );
+
+export const SmallInputError = hasError => (
+  <Input
+    inputId="inputId"
+    hasError={() => true}
+    label="Input Label"
+    inputPlaceholder="PizzaTaco"
+    bottomInputLabel="Optional Message"
+  />
+);

@@ -16,12 +16,14 @@ export type InputProps = {
   multiline?: boolean;
   rows?: number;
   InputProps?: string;
+  hasError?: (val?: string) => boolean;
 };
 
 export const Input: FC<InputProps> = props => {
   const InputLabel = withStyles({
     root: {
       color: '#072E44',
+      'margin-bottom': '0.2rem',
       'font-weight': 700,
       'font-size': '16px',
       'line-height': '18px',
@@ -30,6 +32,8 @@ export const Input: FC<InputProps> = props => {
       },
     },
   })(MatInputLabel);
+
+  const isError = props.hasError ? props.hasError() : false;
 
   const InputTextField = withStyles({
     root: {
@@ -41,6 +45,12 @@ export const Input: FC<InputProps> = props => {
         color: 'rgba(7, 46, 68, 0.72)',
         'padding-left': '16px',
       },
+      '& .Mui-error': {
+        border: '1px solid #DE5160',
+        'box-sizing': 'border-box',
+        'box-shadow': '0px 0px 0px 4px #F7D2DA',
+        'border-radius': '8px',
+        },
       '& .Mui-focused': {
         border: '1px solid #498DCC',
         'box-sizing': 'border-box',
@@ -50,6 +60,7 @@ export const Input: FC<InputProps> = props => {
           color: '#072E44',
         },
       },
+      
     },
   })(MatTextField);
 
@@ -65,6 +76,7 @@ export const Input: FC<InputProps> = props => {
     <>
       <InputLabel shrink>{props.label}</InputLabel>
       <InputTextField
+        error={isError}
         id={props.inputId}
         defaultValue={props.inputPlaceholder}
         InputProps={{ disableUnderline: true }}

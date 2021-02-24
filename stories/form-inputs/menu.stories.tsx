@@ -35,7 +35,7 @@ export const BasicMenu = () => (
     menuOptions={menuOptions}
     minWidth={200}
     bottomFormLabel="Types of Food"
-    selectPlaceholder="placeholder text"
+    selectPlaceholder="Choose an option"
     onChange={handleOnChange}
     value={selectVal}
   />
