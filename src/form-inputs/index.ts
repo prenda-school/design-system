@@ -12,5 +12,5 @@ export {
   Input,
   InputProps,
   Radio,
-  RadioProps
+  RadioProps,
 };

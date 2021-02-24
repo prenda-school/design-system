@@ -34,7 +34,7 @@ exports[`Storyshots prenda-spark/Menu Basic Menu 1`] = `
       <div
         className="sc-gsTCUz fDgzpk"
       >
-        placeholder text
+        Choose an option
       </div>
     </div>
     <input

@@ -77,3 +77,42 @@ Array [
   </p>,
 ]
 `;
+
+exports[`Storyshots prenda-spark/Input Small Input Error 1`] = `
+Array [
+  <label
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-7 MuiInputLabel-animated MuiInputLabel-shrink"
+    data-shrink={true}
+  >
+    Input Label
+  </label>,
+  <div
+    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-8"
+  >
+    <div
+      className="MuiInputBase-root MuiInput-root Mui-error Mui-error MuiInputBase-formControl MuiInput-formControl"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={true}
+        autoFocus={false}
+        className="MuiInputBase-input MuiInput-input"
+        defaultValue="PizzaTaco"
+        disabled={false}
+        id="inputId"
+        onAnimationStart={[Function]}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>,
+  <p
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-9"
+  >
+    Optional Message
+  </p>,
+]
+`;

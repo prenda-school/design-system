@@ -8,7 +8,7 @@ import {
   Input,
   InputProps,
   Radio,
-  RadioProps
+  RadioProps,
 } from './form-inputs/';
 
 export {
@@ -22,5 +22,5 @@ export {
   Input,
   InputProps,
   Radio,
-  RadioProps
+  RadioProps,
 };

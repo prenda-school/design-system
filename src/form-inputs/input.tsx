@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 
-// TODO: apparently to alter the Input field underline, you need to pass InputProps as a prop? 
+// TODO: apparently to alter the Input field underline, you need to pass InputProps as a prop?
 // Don't like the look of this, open to suggestions on changes.
 export type InputProps = {
   inputId: string;
@@ -50,7 +50,7 @@ export const Input: FC<InputProps> = props => {
         'box-sizing': 'border-box',
         'box-shadow': '0px 0px 0px 4px #F7D2DA',
         'border-radius': '8px',
-        },
+      },
       '& .Mui-focused': {
         border: '1px solid #498DCC',
         'box-sizing': 'border-box',
@@ -60,7 +60,6 @@ export const Input: FC<InputProps> = props => {
           color: '#072E44',
         },
       },
-      
     },
   })(MatTextField);
 
