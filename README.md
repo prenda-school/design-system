@@ -28,6 +28,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
 ## WIP and TODOS
 
 - Move this WIP and TODOS to asana (todo)
+- Update official documentation
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
   - Button (MVP)
   - Menu (MVP)
