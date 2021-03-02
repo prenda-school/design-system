@@ -33,7 +33,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
   - Menu (MVP)
   - Checkbox (MVP)
   - Input (MVP)
-  - Large Input (MVP)
+  - Large Input (todo)
   - Radio (MVP)
   - Fonts (todo)
 - Add CNAME record for pointing \<URL TBD> to docs.
