@@ -31,7 +31,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
 - Update official documentation
 - Implement https://www.figma.com/file/y6Ca8BdJtQEd3Of1saRieF/Prenda-Design-System---Web?node-id=29%3A0
   - Button (MVP)
-  - Menu (MVP)
+  - Menu (todo: simplify onChange handler like the one for input)
   - Checkbox (MVP)
   - Input (MVP)
   - Large Input (todo)
@@ -39,7 +39,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
   - Fonts (todo)
 - Add CNAME record for pointing \<URL TBD> to docs.
 - Add github action/other mechanism for running an npm publish process if version changes in `package.json`. (todo)
-- Optimize Menu component (among other issues it shouldn't need an internal useState).  (todo)
+- Optimize Menu component (among other issues it shouldn't need an internal useState). (todo)
 - Implement Colors https://www.figma.com/file/w9lodWeivyS4GHdBNIYaJr/Spark-Design-System---Base?node-id=1%3A2 (todo)
 - Implement Logos https://www.figma.com/file/w9lodWeivyS4GHdBNIYaJr/Spark-Design-System---Base?node-id=5%3A0 (todo)
 - Implement Typography https://www.figma.com/file/w9lodWeivyS4GHdBNIYaJr/Spark-Design-System---Base?node-id=1%3A3 (todo)
