@@ -9,12 +9,25 @@ export default {
   component: Input,
 } as Meta;
 
+let selectVal: string = '';
+
+const hasError = (val: string) => {
+  return val.includes('u');
+};
+
+const handleOnChange = (val: string) => {
+  selectVal = val;
+  console.log(`Value extracted from input: ${val}`);
+};
+
 export const SmallInput = () => (
   <Input
     inputId="inputId"
     label="Input Label"
-    inputPlaceholder="PizzaTaco"
     bottomInputLabel="Optional Message"
+    hasError={hasError}
+    onChange={handleOnChange}
+    value={selectVal}
   />
 );
 
@@ -22,19 +35,22 @@ export const LargeInput = () => (
   <Input
     inputId="inputId"
     label="Input Label"
-    inputPlaceholder="PizzaTaco"
     multiline={true}
     rows={6}
     bottomInputLabel="Optional Message"
+    hasError={hasError}
+    onChange={handleOnChange}
+    value={selectVal}
   />
 );
 
 export const SmallInputError = () => (
   <Input
     inputId="inputId"
-    hasError={() => true}
     label="Input Label"
-    inputPlaceholder="PizzaTaco"
     bottomInputLabel="Optional Message"
+    hasError={() => true}
+    onChange={handleOnChange}
+    value={selectVal}
   />
 );
