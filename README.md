@@ -27,7 +27,7 @@ Run tests with `npm run test`. We are using snapshot testing (https://storybook.
 
 ## WIP and TODOS
 
-- Please see the Asana board for all current WIP and TODOS https://app.asana.com/0/1200012653024704/board
+- Please see the Asana board for all current WIP and TODOS https://app.asana.com/share/prenda/spark-v1-release-wip-and-todos/995455616843969/2480fe89c9ef452f98b70ba4d981caa9
 
 ## Install
 
