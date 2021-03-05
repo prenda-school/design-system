@@ -5,9 +5,8 @@ import {
   FormHelperText as MatFormHelperText,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-// TODO: apparently to alter the Input field underline, you need to pass InputProps as a prop?
-// Don't like the look of this, open to suggestions on changes.
 export type InputProps = {
   inputId: string;
   label?: string;
@@ -35,12 +34,12 @@ export const Input: FC<InputProps> = props => {
 
     props.onChange && props.onChange(newInputVal);
 
-    if(newInputVal.length > 0) {
-      if(props.hasError) {
+    if (newInputVal.length > 0) {
+      if (props.hasError) {
         const newIsError = props.hasError(newInputVal);
-        setIsError(newIsError)
+        setIsError(newIsError);
         setIsSuccess(!newIsError);
-      }      
+      }
     } else {
       setIsError(false);
       setIsSuccess(false);
@@ -60,18 +59,24 @@ export const Input: FC<InputProps> = props => {
     },
   })(MatInputLabel);
 
-  const InputTextField = withStyles({
-    root: {
+  // We had to change our styling here due to strange text cursor resetting on largeInput. See
+  // https://stackoverflow.com/questions/61795171/using-textarea-inside-of-styled-components-makes-it-write-backwards-by-resetting
+  // for similar use case.
+
+  const classes = makeStyles(() => ({
+    textarea: {
       border: '1px solid #D2D4D6',
       'box-sizing': 'border-box',
       'border-radius': '8px',
-      width: '320px',
-      '& .MuiInput-root': isSuccess ? {
-        border: '1px solid #4AA784',
-        'box-sizing': 'border-box',
-        'box-shadow': '0px 0px 0px 4px #B8F0D4',
-        'border-radius': '8px',
-      }: {},
+      minWidth: '320px',
+      '& .MuiInput-root': isSuccess
+        ? {
+            border: '1px solid #4AA784',
+            'box-sizing': 'border-box',
+            'box-shadow': '0px 0px 0px 4px #B8F0D4',
+            'border-radius': '8px',
+          }
+        : {},
       '& .MuiInputBase-input': {
         color: 'rgba(7, 46, 68, 0.72)',
         'padding-left': '16px',
@@ -92,7 +97,10 @@ export const Input: FC<InputProps> = props => {
         },
       },
     },
-  })(MatTextField);
+    textAreaResize: {
+      resize: 'both',
+    },
+  }))();
 
   const InputHelperText = withStyles({
     root: {
@@ -105,16 +113,18 @@ export const Input: FC<InputProps> = props => {
   return (
     <>
       <InputLabel shrink>{props.label}</InputLabel>
-      <InputTextField
+      <MatTextField
         autoFocus
+        className={classes.textarea}
         error={isError}
         id={props.inputId}
         InputProps={{ disableUnderline: true }}
+        inputProps={{ className: classes.textAreaResize }}
         multiline={props.multiline}
         rows={props.rows}
         onChange={handleOnChange}
         value={inputVal}
-      ></InputTextField>
+      />
       <InputHelperText>{props.bottomInputLabel}</InputHelperText>
     </>
   );
