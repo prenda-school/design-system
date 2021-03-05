@@ -3,13 +3,13 @@
 exports[`Storyshots prenda-spark/Input Large Input 1`] = `
 Array [
   <label
-    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-4 MuiInputLabel-animated MuiInputLabel-shrink"
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-7 MuiInputLabel-animated MuiInputLabel-shrink"
     data-shrink={true}
   >
     Input Label
   </label>,
   <div
-    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-5"
+    className="MuiFormControl-root MuiTextField-root makeStyles-textarea-5"
   >
     <div
       className="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl MuiInputBase-multiline MuiInput-multiline"
@@ -18,7 +18,7 @@ Array [
       <textarea
         aria-invalid={false}
         autoFocus={true}
-        className="MuiInputBase-input MuiInput-input MuiInputBase-inputMultiline MuiInput-inputMultiline"
+        className="MuiInputBase-input MuiInput-input makeStyles-textAreaResize-6 MuiInputBase-inputMultiline MuiInput-inputMultiline"
         disabled={false}
         id="inputId"
         onAnimationStart={[Function]}
@@ -32,7 +32,7 @@ Array [
     </div>
   </div>,
   <p
-    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-6"
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-8"
   >
     Optional Message
   </p>,
@@ -42,13 +42,13 @@ Array [
 exports[`Storyshots prenda-spark/Input Small Input 1`] = `
 Array [
   <label
-    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-1 MuiInputLabel-animated MuiInputLabel-shrink"
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-3 MuiInputLabel-animated MuiInputLabel-shrink"
     data-shrink={true}
   >
     Input Label
   </label>,
   <div
-    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-2"
+    className="MuiFormControl-root MuiTextField-root makeStyles-textarea-1"
   >
     <div
       className="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl"
@@ -57,7 +57,7 @@ Array [
       <input
         aria-invalid={false}
         autoFocus={true}
-        className="MuiInputBase-input MuiInput-input"
+        className="MuiInputBase-input MuiInput-input makeStyles-textAreaResize-2"
         disabled={false}
         id="inputId"
         onAnimationStart={[Function]}
@@ -71,7 +71,7 @@ Array [
     </div>
   </div>,
   <p
-    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-3"
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-4"
   >
     Optional Message
   </p>,
@@ -81,13 +81,13 @@ Array [
 exports[`Storyshots prenda-spark/Input Small Input Error 1`] = `
 Array [
   <label
-    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-7 MuiInputLabel-animated MuiInputLabel-shrink"
+    className="MuiFormLabel-root MuiInputLabel-root WithStyles(ForwardRef(InputLabel))-root-11 MuiInputLabel-animated MuiInputLabel-shrink"
     data-shrink={true}
   >
     Input Label
   </label>,
   <div
-    className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-8"
+    className="MuiFormControl-root MuiTextField-root makeStyles-textarea-9"
   >
     <div
       className="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl"
@@ -96,7 +96,7 @@ Array [
       <input
         aria-invalid={false}
         autoFocus={true}
-        className="MuiInputBase-input MuiInput-input"
+        className="MuiInputBase-input MuiInput-input makeStyles-textAreaResize-10"
         disabled={false}
         id="inputId"
         onAnimationStart={[Function]}
@@ -110,7 +110,7 @@ Array [
     </div>
   </div>,
   <p
-    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-9"
+    className="MuiFormHelperText-root WithStyles(ForwardRef(FormHelperText))-root-12"
   >
     Optional Message
   </p>,
