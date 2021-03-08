@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { colors } from '../colors';
 
 export type ButtonProps = {
   size: 'large' | 'medium' | 'small';
@@ -43,17 +44,17 @@ export const Button: FC<ButtonProps> = props => {
 
   const outlineStyles = outlined
     ? {
-        border: '2px solid #2967A6',
+        border: `2px solid ${colors.blue3}`,
         backgroundColor: 'transparent',
-        color: '#2967A6',
+        color: colors.blue3,
         '&:hover': {
           backgroundColor: 'transparent',
-          color: '#0A4872',
-          borderColor: '#0A4872',
+          color: colors.blue4,
+          borderColor: colors.blue4,
         },
         '&:focus': {
-          boxShadow: '0px 0px 0px 4px #D7F3FF',
-          backgroundColor: '#D7F3FF'
+          boxShadow: `0px 0px 0px 4px ${colors.blue1}`,
+          backgroundColor: colors.blue1,
         },
       }
     : {};
@@ -61,27 +62,27 @@ export const Button: FC<ButtonProps> = props => {
   const disabledOutlineStyles = outlined
     ? {
         backgroundColor: 'transparent',
-        color: '#2967A6',
-        border: '2px solid #2967A6',
+        color: colors.blue3,
+        border: `2px solid ${colors.blue3}`,
       }
     : {};
 
   const nonDisabledStyles = {
-    backgroundColor: '#2967A6',
+    backgroundColor: colors.blue3,
     '&:hover': {
-      backgroundColor: '#0A4872',
+      backgroundColor: colors.blue4,
     },
     '&:focus': {
-      boxShadow: '0px 0px 0px 4px #D7F3FF',
+      boxShadow: `0px 0px 0px 4px ${colors.blue1}`,
     },
   };
 
   const disabledStyles = disabled
     ? {
         '&:disabled': {
-          backgroundColor: '#2967A6',
+          backgroundColor: colors.blue3,
           opacity: 0.5,
-          color: '#FFF',
+          color: colors.neutralWhite,
           ...disabledOutlineStyles,
         },
       }
@@ -90,7 +91,7 @@ export const Button: FC<ButtonProps> = props => {
   const buttonRootStyles = {
     borderRadius: 100,
     height,
-    color: '#FFF',
+    color: colors.neutralWhite,
     textTransform: 'none',
     padding,
     fontSize,
