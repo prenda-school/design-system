@@ -15,7 +15,7 @@ export type InputProps = {
   rows?: number;
   value: string;
   hasError?: (val: string) => boolean;
-  onChange?: (val: string) => void;
+  onChange: (val: string) => void;
 };
 
 export const Input: FC<InputProps> = props => {

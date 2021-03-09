@@ -18,14 +18,9 @@ const menuOptions: MenuItemOptions[] = [
 ];
 
 let selectVal: string = '';
-const handleOnChange = (
-  evt: React.ChangeEvent<{
-    name?: string;
-    value: unknown;
-  }>
-) => {
-  selectVal = evt.target.value as string;
-  console.log(`Value extracted from select: ${evt.target.value}`);
+const handleOnChange = (val: string) => {
+  selectVal = val;
+  console.log(`Value extracted from input: ${val}`);
 };
 
 export const BasicMenu = () => (

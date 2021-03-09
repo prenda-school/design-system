@@ -7,7 +7,6 @@ import {
   FormHelperText as MatFormHelperText,
 } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
-import { SelectInputProps } from '@material-ui/core/Select/SelectInput';
 import styled from 'styled-components';
 
 const RenderContainer = styled.div`
@@ -29,7 +28,7 @@ export type MenuProps = {
   selectPlaceholder?: string;
   menuOptions: MenuItemOptions[];
   minWidth?: number;
-  onChange: SelectInputProps['onChange'];
+  onChange: (val: string) => void;
   value: string;
 };
 
@@ -61,11 +60,11 @@ export const Menu: FC<MenuProps> = props => {
     evt: React.ChangeEvent<{
       name?: string;
       value: unknown;
-    }>,
-    child: React.ReactNode
+    }>
   ) => {
-    setSelectVal(evt.target.value as string);
-    props.onChange && props.onChange(evt, child);
+    const newInputVal = evt.target.value as string;
+    setSelectVal(newInputVal);
+    props.onChange && props.onChange(newInputVal);
   };
   const renderValue = () => {
     return (
