@@ -18,6 +18,21 @@ export type InputProps = {
   onChange: (val: string) => void;
 };
 
+const InputLabel = withStyles(theme => ({
+  root: {
+    // @ts-ignore
+    color: theme.palette.background.lightContrastText,
+    'margin-bottom': '0.2rem',
+    'font-weight': 700,
+    'font-size': '16px',
+    'line-height': '18px',
+    '&.Mui-focused': {
+      // @ts-ignore
+      color: theme.palette.background.lightContrastText,
+    },
+  },
+}))(MatInputLabel);
+
 export const Input: FC<InputProps> = props => {
   const [inputVal, setInputVal] = React.useState('');
   const [isError, setIsError] = React.useState(false);
@@ -45,19 +60,6 @@ export const Input: FC<InputProps> = props => {
       setIsSuccess(false);
     }
   };
-
-  const InputLabel = withStyles({
-    root: {
-      color: '#072E44',
-      'margin-bottom': '0.2rem',
-      'font-weight': 700,
-      'font-size': '16px',
-      'line-height': '18px',
-      '&.Mui-focused': {
-        color: '#072E44',
-      },
-    },
-  })(MatInputLabel);
 
   // We had to change our styling here due to strange text cursor resetting on largeInput. See
   // https://stackoverflow.com/questions/61795171/using-textarea-inside-of-styled-components-makes-it-write-backwards-by-resetting
