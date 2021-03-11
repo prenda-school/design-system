@@ -8,7 +8,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
+  (Story: any) => (
     <SparkThemeProvider>
       <Story />
     </SparkThemeProvider>

@@ -45,7 +45,7 @@ import {
   colorsPurple,
   colorsRed,
   colorsYellow,
-} from './theme/'
+} from './theme/';
 
 export {
   SparkThemeProvider,
