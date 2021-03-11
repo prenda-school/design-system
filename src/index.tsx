@@ -10,8 +10,24 @@ import {
   Radio,
   RadioProps,
 } from './form-inputs/';
+import {
+  colors,
+  colorsBlue,
+  colorsOrange,
+  colorsGreen,
+  colorsPurple,
+  colorsYellow,
+  colorsRed,
+} from './theme/'
 
 export {
+  colors,
+  colorsBlue,
+  colorsOrange,
+  colorsGreen,
+  colorsPurple,
+  colorsYellow,
+  colorsRed,
   Button,
   Menu,
   ButtonProps,
