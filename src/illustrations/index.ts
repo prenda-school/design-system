@@ -1,1 +1,6 @@
-export { BookIllustration } from './book';
+export {
+  BookIllustration,
+  CollaborateIllustration,
+  ConquerIllustration,
+  CreateIllustration,
+} from './illustrations';
