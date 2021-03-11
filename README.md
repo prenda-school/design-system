@@ -17,7 +17,7 @@ Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react compon
 
 ## Development
 
-Install packages in root dir then run `npm run storybook`. Navigate to `localhost:6006`. If a component you are working on doesn't have a story then you can add one in the `/stories/`.
+Install packages in root dir using `nvm use && npm i` then run `npm run storybook`. Navigate to `localhost:6006`. If a component you are working on doesn't have a story then you can add one in the `/stories/`.
 
 Implement components in `/src`.
 

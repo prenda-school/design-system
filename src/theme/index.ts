@@ -1,21 +1,10 @@
-import { Button, ButtonProps } from './actions/';
 import {
-  Menu,
-  MenuProps,
-  MenuItemOptions,
-  Checkbox,
-  CheckboxProps,
-  Input,
-  InputProps,
-  Radio,
-  RadioProps,
-} from './form-inputs/';
-import {
-  SparkThemeProvider,
   PrendaThemeOptions,
   TertiaryColor,
   muiTheme,
   prendaTheme,
+} from './theme';
+import {
   colors,
   colorsPrendaBlue,
   colorsPrendaLightBlue,
@@ -45,7 +34,8 @@ import {
   colorsPurple,
   colorsRed,
   colorsYellow,
-} from './theme/';
+} from './colors';
+import { SparkThemeProvider } from './Provider';
 
 export {
   SparkThemeProvider,
@@ -82,15 +72,4 @@ export {
   colorsPurple,
   colorsRed,
   colorsYellow,
-  Button,
-  Menu,
-  ButtonProps,
-  MenuProps,
-  MenuItemOptions,
-  Checkbox,
-  CheckboxProps,
-  Input,
-  InputProps,
-  Radio,
-  RadioProps,
 };

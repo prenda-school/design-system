@@ -53,7 +53,7 @@ export const Button: FC<ButtonProps> = props => {
         },
         '&:focus': {
           boxShadow: '0px 0px 0px 4px #D7F3FF',
-          backgroundColor: '#D7F3FF'
+          backgroundColor: '#D7F3FF',
         },
       }
     : {};
