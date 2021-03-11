@@ -1,0 +1,1 @@
+export { BookIllustration } from './book';
