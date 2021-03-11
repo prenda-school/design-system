@@ -21,6 +21,8 @@ export type PrendaThemeOptions = ThemeOptions & {
       white: string;
       lightContrastText: string;
       lightLowContrastText: string;
+      default: string;
+      paper: string;
     };
     brand: {
       blue: string;
@@ -42,6 +44,25 @@ export type PrendaThemeOptions = ThemeOptions & {
       green: TertiaryColor;
       blue: TertiaryColor;
       purple: TertiaryColor;
+    };
+    text: {
+      disabled: string;
+      hint: string;
+      primary: string;
+      secondary: string;
+    };
+    action: {
+      disabled: string;
+      active: string;
+      activatedOpacity: number;
+      disabledOpacity: number;
+      disabledBackground: string;
+      focus: string;
+      focusOpacity: number;
+      hover: string;
+      hoverOpacity: number;
+      selected: string;
+      selectedOpacity: number;
     };
   };
 };
@@ -88,6 +109,8 @@ export const prendaTheme: PrendaThemeOptions = {
       white: colors.colorsBackgroundWhite,
       lightContrastText: colors.colorsTextIconOnLightHighContrast,
       lightLowContrastText: colors.colorsTextIconOnLightLowContrast,
+      default: colors.colorsBackgroundDefault,
+      paper: colors.colorsBackgroundPaper,
     },
     // very custom
     brand: {
@@ -110,6 +133,25 @@ export const prendaTheme: PrendaThemeOptions = {
       green: colors.colorsGreen,
       blue: colors.colorsBlue,
       purple: colors.colorsPurple,
+    },
+    text: {
+      disabled: colors.colorsTextDisabled,
+      hint: colors.colorsTextHint,
+      primary: colors.colorsTextPrimary,
+      secondary: colors.colorsTextSecondary,
+    },
+    action: {
+      disabled: colors.colorsActionDisabled,
+      active: colors.colorsActionActive,
+      activatedOpacity: colors.colorsActionActivatedOpacity,
+      disabledBackground: colors.colorsActionDisabledBackground,
+      focus: colors.colorsActionFocus,
+      focusOpacity: colors.colorsActionFocusOpacity,
+      hover: colors.colorsActionHover,
+      hoverOpacity: colors.colorsActionHoverOpacity,
+      selected: colors.colorsActionSelected,
+      selectedOpacity: colors.colorsActionSelectedOpacity,
+      disabledOpacity: colors.colorsActionDisabledOpacity,
     },
   },
 };
