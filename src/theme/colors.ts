@@ -49,6 +49,23 @@ export const colorsPrendaLightGrey = '#F0F1F2';
 export const colorsPrendaMediumGrey = '#e1e3e5';
 export const colorsPrendaDarkGrey = '#d2d4d6';
 export const colorsPrendaWhite = '#FFFFFF';
+export const colorsBackgroundDefault = '#fafafa';
+export const colorsBackgroundPaper = '#fff';
+export const colorsTextDisabled = 'rgba(0, 0, 0, 0.38)'; // same as mui
+export const colorsTextHint = 'rgba(0, 0, 0, 0.38)'; // same as mui
+export const colorsTextPrimary = 'rgba(0, 0, 0, 0.87)'; //same as mui
+export const colorsTextSecondary = 'rgba(0, 0, 0, 0.54)'; //same as mui
+export const colorsActionDisabled = 'rgba(0, 0, 0, 0.26)'; // same as mui
+export const colorsActionDisabledOpacity = 0.38; // same as mui
+export const colorsActionActive = 'rgba(0, 0, 0, 0.54)'; //same as mui
+export const colorsActionActivatedOpacity = 0.12; //same as mui
+export const colorsActionDisabledBackground = 'rgba(0, 0, 0, 0.12)'; //same as mui
+export const colorsActionFocus = 'rgba(0, 0, 0, 0.12)'; //same as mui
+export const colorsActionFocusOpacity = 0.12; //same as mui
+export const colorsActionHover = 'rgba(0, 0, 0, 0.04)'; //same as mui
+export const colorsActionHoverOpacity = 0.04; //same as mui
+export const colorsActionSelected = 'rgba(0, 0, 0, 0.08)'; //same as mui
+export const colorsActionSelectedOpacity = 0.08; //same as mui
 export const colorsPrimaryAction = colorsBlue[3];
 export const colorsSuccess = colorsGreen[3];
 export const colorsWarning = colorsYellow[2];
@@ -92,4 +109,21 @@ export const colors = {
   colorsPurple,
   colorsRed,
   colorsYellow,
+  colorsBackgroundDefault,
+  colorsBackgroundPaper,
+  colorsTextDisabled,
+  colorsTextHint,
+  colorsTextPrimary,
+  colorsTextSecondary,
+  colorsActionDisabled,
+  colorsActionActive,
+  colorsActionActivatedOpacity,
+  colorsActionDisabledBackground,
+  colorsActionFocus,
+  colorsActionFocusOpacity,
+  colorsActionHover,
+  colorsActionHoverOpacity,
+  colorsActionSelected,
+  colorsActionSelectedOpacity,
+  colorsActionDisabledOpacity,
 };
