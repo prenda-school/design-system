@@ -9,8 +9,32 @@ export type TertiaryColor = {
   5: string;
 };
 
-export type PrendaThemeOptions = ThemeOptions & {
+export type PrendaThemeOptions = {
   palette: {
+    error: {
+      light: string;
+      main: string;
+      dark: string;
+      contrastText: string;
+    };
+    warning: {
+      light: string;
+      main: string;
+      dark: string;
+      contrastText: string;
+    };
+    info: {
+      light: string;
+      main: string;
+      dark: string;
+      contrastText: string;
+    };
+    success: {
+      light: string;
+      main: string;
+      dark: string;
+      contrastText: string;
+    };
     background: {
       navy: string;
       blue: string;
@@ -114,4 +138,6 @@ export const prendaTheme: PrendaThemeOptions = {
   },
 };
 
-export const muiTheme = createMuiTheme(prendaTheme);
+export const muiTheme = createMuiTheme(
+  prendaTheme as PrendaThemeOptions & ThemeOptions
+);
