@@ -1,1 +1,1 @@
-export { CaretUpIcon } from './icons';
+export { CaretUpIcon, CaretDownIcon } from './icons';

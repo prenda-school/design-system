@@ -1,7 +1,7 @@
 import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
-import { CaretUpIcon } from '../../src';
+import { CaretUpIcon, CaretDownIcon } from '../../src';
 
 export default {
   title: 'prenda-spark/Icon',
@@ -14,4 +14,8 @@ export const CaretUpIconSmallNavyHi = () => (
 
 export const CaretUpIconSmallGreyHi = () => (
   <CaretUpIcon fontSize="large" color="grey" contrast="high" />
+);
+
+export const CaretDownIconSmallGreyHi = () => (
+  <CaretDownIcon fontSize="large" color="grey" contrast="high" />
 );

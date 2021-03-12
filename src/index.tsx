@@ -24,7 +24,7 @@ export {
   CreateIllustration,
 } from './illustrations/';
 
-export { CaretUpIcon } from './icons';
+export { CaretUpIcon, CaretDownIcon } from './icons';
 export {
   SparkThemeProvider,
   PrendaThemeOptions,
