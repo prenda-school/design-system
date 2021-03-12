@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
-import { IllustrationWrapper } from "./illustrationwrapper"
-import { BookSvgPath, CollaborateSvgPath, ConquerSvgPath, CreateSvgPath } from "./svgpath"
+import { Illustration } from './illustration';
+import {
+  BookSvgPath,
+  CollaborateSvgPath,
+  ConquerSvgPath,
+  CreateSvgPath,
+} from './svgpath';
 
 interface illustrationProps {
   fontSize: string;
@@ -8,34 +13,34 @@ interface illustrationProps {
 
 export const BookIllustration: FC<illustrationProps> = ({ fontSize }) => {
   return (
-    <>
-      <IllustrationWrapper fontSize={fontSize}>
-        <BookSvgPath />
-      </IllustrationWrapper>
-    </>
-  )
-}
+    <Illustration fontSize={fontSize}>
+      <BookSvgPath />
+    </Illustration>
+  );
+};
 
-export const CollaborateIllustration: FC<illustrationProps> = ({ fontSize }) => {
+export const CollaborateIllustration: FC<illustrationProps> = ({
+  fontSize,
+}) => {
   return (
-    <IllustrationWrapper fontSize={fontSize}>
+    <Illustration fontSize={fontSize}>
       <CollaborateSvgPath />
-    </IllustrationWrapper>
-  )
-}
+    </Illustration>
+  );
+};
 
 export const ConquerIllustration: FC<illustrationProps> = ({ fontSize }) => {
   return (
-    <IllustrationWrapper fontSize={fontSize}>
+    <Illustration fontSize={fontSize}>
       <ConquerSvgPath />
-    </IllustrationWrapper>
-  )
-}
+    </Illustration>
+  );
+};
 
 export const CreateIllustration: FC<illustrationProps> = ({ fontSize }) => {
   return (
-    <IllustrationWrapper fontSize={fontSize}>
+    <Illustration fontSize={fontSize}>
       <CreateSvgPath />
-    </IllustrationWrapper>
-  )
-}
+    </Illustration>
+  );
+};

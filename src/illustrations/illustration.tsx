@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { SvgIcon } from '@material-ui/core';
 
-interface illustrationWrapperProps {
+interface illustrationProps {
   fontSize: string;
   children: JSX.Element;
 }
 
-export const IllustrationWrapper: FC<illustrationWrapperProps> = ({
+export const Illustration: FC<illustrationProps> = ({
   fontSize,
   children,
 }) => {
