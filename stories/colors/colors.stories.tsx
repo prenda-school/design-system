@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import styled from 'styled-components';
 import { prendaTheme } from '../../dist';
+import { TextFormatter } from '../story-util';
 
 interface ColorBoxProps {
   color: string;
@@ -358,11 +359,6 @@ const ColorContainer = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 200;
-`;
-const TextFormatter = styled.div`
-  font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular',
-    'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica,
-    Arial, sans-serif;
 `;
 const ColorContainerTitle = styled.div`
   font-weight: 500;
