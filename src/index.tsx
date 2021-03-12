@@ -17,6 +17,12 @@ import {
   muiTheme,
   prendaTheme,
 } from './theme/';
+export {
+  BookIllustration,
+  CollaborateIllustration,
+  ConquerIllustration,
+  CreateIllustration,
+} from './illustrations/';
 
 export {
   SparkThemeProvider,
