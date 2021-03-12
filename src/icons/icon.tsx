@@ -1,26 +1,32 @@
 import React, { FC } from 'react';
 import { SvgIcon } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import { prendaTheme } from '../theme/theme';
 
 interface iconProps {
   children: JSX.Element;
-}
-
-interface props {
   color: string;
   fontSize: string;
   contrast: string;
 }
 
+const useStyles = makeStyles({
+  icon: (props: iconProps) => ({
+    color:
+      prendaTheme.palette.background[getTextKey(props.color, props.contrast)],
+    fontSize: getFontSize(props.fontSize),
+  }),
+});
+
 function getTextKey(color = 'navy', contrast = 'high') {
   if (color === 'navy' && contrast == 'high') {
-    return 'darkContrastText';
-  } else if (color === 'navy' && contrast == 'low') {
-    return 'darkLowContrastText';
-  } else if (color === 'grey' && contrast == 'high') {
     return 'lightContrastText';
-  } else if (color === 'grey' && contrast == 'low') {
+  } else if (color === 'navy' && contrast == 'low') {
     return 'lightLowContrastText';
+  } else if (color === 'grey' && contrast == 'high') {
+    return 'darkContrastText';
+  } else if (color === 'grey' && contrast == 'low') {
+    return 'darkLowContrastText';
   } else {
     throw new Error('Invalid color or contrast prop');
   }
@@ -38,16 +44,11 @@ function getFontSize(size = 'default') {
   }
 }
 
-// FIX: theme type & props types
-const styles = (theme: any) => ({
-  root: (props: props) => ({
-    color: theme.palette.background[getTextKey(props.color, props.contrast)],
-    fontSize: getFontSize(props.fontSize),
-  }),
-});
-
-const Icon: FC<iconProps> = ({ children }) => {
-  return <SvgIcon viewBox="0 0 24 24">{children}</SvgIcon>;
+export const Icon: FC<iconProps> = props => {
+  const styles = useStyles(props);
+  return (
+    <SvgIcon viewBox="0 0 24 24" className={styles.icon}>
+      {props.children}
+    </SvgIcon>
+  );
 };
-
-export default withStyles(styles)(Icon);
