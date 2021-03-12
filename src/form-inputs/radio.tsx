@@ -10,47 +10,49 @@ export type RadioProps = {
   name: string;
 };
 
+const useStyles = makeStyles({
+  radioRoot: {
+    '&&&:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
+  },
+  radio: {
+    backgroundColor: '#FFFFFF',
+    border: '2px solid #D2D4D6',
+    borderRadius: '50%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '20px',
+    height: '20px',
+    '.Mui-disabled &': {
+      backgroundColor: '#E1E3E5',
+    },
+    'label:hover:not(.Mui-disabled) &': {
+      borderColor: '#0A4872',
+    },
+    '.Mui-checked &': {
+      borderColor: '#2967A6',
+    },
+    'input:focus ~ &': {
+      boxShadow: '0px 0px 0px 4px #D7F3FF',
+    },
+  },
+  checkedRadioCenter: {
+    backgroundColor: '#2967A6',
+    borderRadius: '50%',
+    width: '14px',
+    height: '14px',
+  },
+  label: {
+    color: 'rgba(7, 46, 68, 0.72)',
+    'label:hover &': { color: '#072E44' },
+    '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
+  },
+});
+
 export const Radio: FC<RadioProps> = props => {
   const { disabled, checked, label } = props;
 
-  const styles = makeStyles({
-    radioRoot: {
-      '&&&:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
-    },
-    radio: {
-      backgroundColor: '#FFFFFF',
-      border: '2px solid #D2D4D6',
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '20px',
-      height: '20px',
-      '.Mui-disabled &': {
-        backgroundColor: '#E1E3E5',
-      },
-      'label:hover:not(.Mui-disabled) &': {
-        borderColor: '#0A4872',
-      },
-      '.Mui-checked &': {
-        borderColor: '#2967A6',
-      },
-      'input:focus ~ &': {
-        boxShadow: '0px 0px 0px 4px #D7F3FF',
-      },
-    },
-    checkedRadioCenter: {
-      backgroundColor: '#2967A6',
-      borderRadius: '50%',
-      width: '14px',
-      height: '14px',
-    },
-    label: {
-      color: 'rgba(7, 46, 68, 0.72)',
-      'label:hover &': { color: '#072E44' },
-      '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
-    },
-  })();
+  const styles = useStyles();
 
   const radioButton = <span className={styles.radio}></span>;
   const checkedRadioButton = (
