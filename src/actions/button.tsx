@@ -4,85 +4,93 @@ import { withStyles } from '@material-ui/core/styles';
 
 type Size = 'large' | 'medium' | 'small';
 
-const getHeight = (size: Size) =>
-  size === 'large' ? 48 : size === 'small' ? 24 : 32;
-const getPadding = (size: Size) =>
-  size === 'large' ? '12px 32px' : size === 'small' ? '8px 16px' : '12px 24px';
-const getFontSize = (size: Size) =>
-  size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
+const StyledButton = withStyles(theme => {
+  const { blue } = theme.palette.tertiary;
 
-const getIconButtonStyles = (isIcon: boolean, size: Size) =>
-  isIcon
-    ? {
-        height: getHeight(size),
-        width: getHeight(size),
-        minWidth: 'auto',
-        padding: 'auto',
-      }
-    : {};
+  const getHeight = (size: Size) =>
+    size === 'large' ? 48 : size === 'small' ? 24 : 32;
+  const getPadding = (size: Size) =>
+    size === 'large'
+      ? '12px 32px'
+      : size === 'small'
+      ? '8px 16px'
+      : '12px 24px';
+  const getFontSize = (size: Size) =>
+    size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
 
-const getOutlineStyles = (outlined?: boolean) =>
-  outlined
-    ? {
-        border: '2px solid #2967A6',
-        backgroundColor: 'transparent',
-        color: '#2967A6',
-        '&:hover': {
+  const getIconButtonStyles = (isIcon: boolean, size: Size) =>
+    isIcon
+      ? {
+          height: getHeight(size),
+          width: getHeight(size),
+          minWidth: 'auto',
+          padding: 'auto',
+        }
+      : {};
+
+  const getOutlineStyles = (outlined?: boolean) =>
+    outlined
+      ? {
+          border: `2px solid ${blue[3]}`,
           backgroundColor: 'transparent',
-          color: '#0A4872',
-          borderColor: '#0A4872',
-        },
-        '&:focus': {
-          boxShadow: '0px 0px 0px 4px #D7F3FF',
-          backgroundColor: '#D7F3FF',
-        },
-      }
-    : {};
+          color: blue[3],
+          '&:hover': {
+            backgroundColor: 'transparent',
+            color: blue[4],
+            borderColor: blue[4],
+          },
+          '&:focus': {
+            boxShadow: `0px 0px 0px 4px ${blue[1]}`,
+            backgroundColor: blue[1],
+          },
+        }
+      : {};
 
-const getDisabledOutlineStyles = (outlined?: boolean) =>
-  outlined
-    ? {
-        backgroundColor: 'transparent',
-        color: '#2967A6',
-        border: '2px solid #2967A6',
-      }
-    : {};
+  const getDisabledOutlineStyles = (outlined?: boolean) =>
+    outlined
+      ? {
+          backgroundColor: 'transparent',
+          color: blue[3],
+          border: `2px solid ${blue[3]}`,
+        }
+      : {};
 
-const nonDisabledStyles = {
-  backgroundColor: '#2967A6',
-  '&:hover': {
-    backgroundColor: '#0A4872',
-  },
-  '&:focus': {
-    boxShadow: '0px 0px 0px 4px #D7F3FF',
-  },
-};
+  const nonDisabledStyles = {
+    backgroundColor: blue[3],
+    '&:hover': {
+      backgroundColor: blue[4],
+    },
+    '&:focus': {
+      boxShadow: `0px 0px 0px 4px ${blue[1]}`,
+    },
+  };
 
-const getDisabledStyles = (disabled?: boolean, outlined?: boolean) =>
-  disabled
-    ? {
-        '&:disabled': {
-          backgroundColor: '#2967A6',
-          opacity: 0.5,
-          color: '#FFF',
-          ...getDisabledOutlineStyles(outlined),
-        },
-      }
-    : nonDisabledStyles;
+  const getDisabledStyles = (disabled?: boolean, outlined?: boolean) =>
+    disabled
+      ? {
+          '&:disabled': {
+            backgroundColor: blue[3],
+            opacity: 0.5,
+            color: theme.palette.neutral.white,
+            ...getDisabledOutlineStyles(outlined),
+          },
+        }
+      : nonDisabledStyles;
 
-const StyledButton = withStyles({
-  root: (props: ButtonProps) => ({
-    borderRadius: 100,
-    height: getHeight(props.size),
-    color: '#FFF',
-    textTransform: 'none',
-    padding: getPadding(props.size),
-    fontSize: getFontSize(props.size),
-    lineHeight: getFontSize(props.size),
-    ...getDisabledStyles(props?.disabled, props.outlined),
-    ...getIconButtonStyles(!!props.icon, props.size),
-    ...getOutlineStyles(props.outlined),
-  }),
+  return {
+    root: (props: ButtonProps) => ({
+      borderRadius: 100,
+      height: getHeight(props.size),
+      color: theme.palette.neutral.white,
+      textTransform: 'none',
+      padding: getPadding(props.size),
+      fontSize: getFontSize(props.size),
+      lineHeight: getFontSize(props.size),
+      ...getDisabledStyles(props?.disabled, props.outlined),
+      ...getIconButtonStyles(!!props.icon, props.size),
+      ...getOutlineStyles(props.outlined),
+    }),
+  };
 })(MatButton);
 
 export type ButtonProps = {
