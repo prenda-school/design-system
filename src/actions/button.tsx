@@ -6,6 +6,7 @@ type Size = 'large' | 'medium' | 'small';
 
 const StyledButton = withStyles(theme => {
   const { blue } = theme.palette.tertiary;
+  const { background } = theme.palette;
 
   const getHeight = (size: Size) =>
     size === 'large' ? 48 : size === 'small' ? 24 : 32;
@@ -41,7 +42,7 @@ const StyledButton = withStyles(theme => {
           },
           '&:focus': {
             boxShadow: `0px 0px 0px 4px ${blue[1]}`,
-            backgroundColor: blue[1],
+            backgroundColor: background.lightBlue,
           },
         }
       : {};
@@ -58,7 +59,7 @@ const StyledButton = withStyles(theme => {
   const nonDisabledStyles = {
     backgroundColor: blue[3],
     '&:hover': {
-      backgroundColor: blue[4],
+      backgroundColor: background.blue,
     },
     '&:focus': {
       boxShadow: `0px 0px 0px 4px ${blue[1]}`,
