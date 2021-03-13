@@ -53,11 +53,11 @@ const useStyles = makeStyles({
     'label:hover &': { color: '#072E44' },
     '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
   },
-})
+});
 
 export const Checkbox: FC<CheckboxProps> = props => {
   const { disabled, label } = props;
-  const styles = useStyles()
+  const styles = useStyles();
 
   const disabledIconClass = disabled ? styles.disabledIcon : '';
 
