@@ -1,47 +1,28 @@
 import React, { FC, ReactElement } from 'react';
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 
-export type ButtonProps = {
-  size: 'large' | 'medium' | 'small';
-  disabled?: boolean;
-  icon?: ReactElement;
-  outlined?: boolean;
-};
+type Size = 'large' | 'medium' | 'small';
 
-export const Button: FC<ButtonProps> = props => {
-  const { size, disabled, icon, outlined } = props;
+const getHeight = (size: Size) =>
+  size === 'large' ? 48 : size === 'small' ? 24 : 32;
+const getPadding = (size: Size) =>
+  size === 'large' ? '12px 32px' : size === 'small' ? '8px 16px' : '12px 24px';
+const getFontSize = (size: Size) =>
+  size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
 
-  const height = size === 'large' ? 48 : size === 'small' ? 24 : 32;
-  const padding =
-    size === 'large'
-      ? '12px 32px'
-      : size === 'small'
-      ? '8px 16px'
-      : '12px 24px';
-  const fontSize =
-    size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
-
-  const styledIcon = icon
-    ? React.cloneElement(icon, {
-        style: {
-          maxWidth:
-            size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
-        },
-      })
-    : {};
-
-  const iconButtonStyles = icon
+const getIconButtonStyles = (isIcon: boolean, size: Size) =>
+  isIcon
     ? {
-        height,
-        width: height,
+        height: getHeight(size),
+        width: getHeight(size),
         minWidth: 'auto',
         padding: 'auto',
       }
     : {};
 
-  const outlineStyles = outlined
+const getOutlineStyles = (outlined?: boolean) =>
+  outlined
     ? {
         border: '2px solid #2967A6',
         backgroundColor: 'transparent',
@@ -58,7 +39,8 @@ export const Button: FC<ButtonProps> = props => {
       }
     : {};
 
-  const disabledOutlineStyles = outlined
+const getDisabledOutlineStyles = (outlined?: boolean) =>
+  outlined
     ? {
         backgroundColor: 'transparent',
         color: '#2967A6',
@@ -66,46 +48,64 @@ export const Button: FC<ButtonProps> = props => {
       }
     : {};
 
-  const nonDisabledStyles = {
-    backgroundColor: '#2967A6',
-    '&:hover': {
-      backgroundColor: '#0A4872',
-    },
-    '&:focus': {
-      boxShadow: '0px 0px 0px 4px #D7F3FF',
-    },
-  };
+const nonDisabledStyles = {
+  backgroundColor: '#2967A6',
+  '&:hover': {
+    backgroundColor: '#0A4872',
+  },
+  '&:focus': {
+    boxShadow: '0px 0px 0px 4px #D7F3FF',
+  },
+};
 
-  const disabledStyles = disabled
+const getDisabledStyles = (disabled?: boolean, outlined?: boolean) =>
+  disabled
     ? {
         '&:disabled': {
           backgroundColor: '#2967A6',
           opacity: 0.5,
           color: '#FFF',
-          ...disabledOutlineStyles,
+          ...getDisabledOutlineStyles(outlined),
         },
       }
     : nonDisabledStyles;
 
-  const buttonRootStyles = {
+const StyledButton = withStyles({
+  root: (props: ButtonProps) => ({
     borderRadius: 100,
-    height,
+    height: getHeight(props.size),
     color: '#FFF',
     textTransform: 'none',
-    padding,
-    fontSize,
-    lineHeight: fontSize,
-    ...disabledStyles,
-    ...iconButtonStyles,
-    ...outlineStyles,
-  } as CSSProperties;
+    padding: getPadding(props.size),
+    fontSize: getFontSize(props.size),
+    lineHeight: getFontSize(props.size),
+    ...getDisabledStyles(props?.disabled, props.outlined),
+    ...getIconButtonStyles(!!props.icon, props.size),
+    ...getOutlineStyles(props.outlined),
+  }),
+})(MatButton);
 
-  const StyledButton = withStyles({
-    root: buttonRootStyles,
-  })(MatButton);
+export type ButtonProps = {
+  size: 'large' | 'medium' | 'small';
+  disabled?: boolean;
+  icon?: ReactElement;
+  outlined?: boolean;
+};
+
+export const Button: FC<ButtonProps> = props => {
+  const { size, disabled, icon } = props;
+
+  const styledIcon = icon
+    ? React.cloneElement(icon, {
+        style: {
+          maxWidth:
+            size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
+        },
+      })
+    : {};
 
   return (
-    <StyledButton disabled={disabled} disableFocusRipple={true}>
+    <StyledButton disabled={disabled} disableFocusRipple={true} {...props}>
       {icon ? styledIcon : props.children}
     </StyledButton>
   );
