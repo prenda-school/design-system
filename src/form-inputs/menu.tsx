@@ -34,46 +34,52 @@ export type MenuProps = {
 
 const FormControl = withStyles({})(MatFormControl);
 const StyledMenuItem = withStyles({})(MatMenuItem);
-const Select = withStyles({
-  root: {
-    border: '1px solid #D2D4D6',
-    color: 'rgba(7, 46, 68, 0.72)',
-    borderRadius: '8px',
-    '&:blur': {
-      border: '1px solid #498DCC',
-      'box-sizing': 'border-box',
-      'box-shadow': '0px 0px 0px 4px #D7F3FF',
-      'border-radius': '8px',
+const Select = withStyles(theme => {
+  const { blue } = theme.palette.tertiary;
+  return {
+    root: {
+      border: `1px solid ${theme.palette.neutral.darkGrey}`,
+      color: 'rgba(7, 46, 68, 0.72)',
+      borderRadius: '8px',
+      '&:blur': {
+        border: `1px solid ${blue[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${blue[1]}`,
+        'border-radius': '8px',
+      },
+      '&:focus': {
+        border: `1px solid ${blue[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${blue[1]}`,
+        'border-radius': '8px',
+        backgroundColor: theme.palette.background.white,
+        color: blue[5],
+      },
     },
-    '&:focus': {
-      border: '1px solid #498DCC',
-      'box-sizing': 'border-box',
-      'box-shadow': '0px 0px 0px 4px #D7F3FF',
-      'border-radius': '8px',
-      backgroundColor: '#FFFFFF',
-      color: '#072E44',
-    },
-  },
+  };
 })(MatSelect);
-const InputLabel = withStyles({
-  root: {
-    'font-weight': 700,
-    color: '#072E44',
-    'font-size': '16px',
-    'line-height': '18px',
-    top: '-5px',
-    '&.Mui-focused': {
-      color: '#072E44',
+const InputLabel = withStyles(theme => {
+  const { blue } = theme.palette.tertiary;
+  return {
+    root: {
+      'font-weight': 700,
+      color: blue[5],
+      'font-size': '16px',
+      'line-height': '18px',
+      top: '-5px',
+      '&.Mui-focused': {
+        color: blue[5],
+      },
     },
-  },
+  };
 })(MatInputLabel);
-const FormHelperText = withStyles({
+const FormHelperText = withStyles(theme => ({
   root: {
     'font-size': '12px',
     'line-height': '18px',
-    color: 'rgba(7, 46, 68, 0.72)',
+    color: theme.palette.background.lightLowContrastText,
   },
-})(MatFormHelperText);
+}))(MatFormHelperText);
 
 export const Menu: FC<MenuProps> = props => {
   /**
