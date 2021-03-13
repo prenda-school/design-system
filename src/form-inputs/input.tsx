@@ -39,43 +39,47 @@ const InputHelperText = withStyles(theme => ({
   },
 }))(MatFormHelperText);
 
-const matTextAreaUseStyles = makeStyles({
-  textarea: (props: { isSuccess: boolean }) => ({
-    border: '1px solid #D2D4D6',
-    'box-sizing': 'border-box',
-    'border-radius': '8px',
-    minWidth: '320px',
-    '& .MuiInput-root': props.isSuccess
-      ? {
-          border: '1px solid #4AA784',
-          'box-sizing': 'border-box',
-          'box-shadow': '0px 0px 0px 4px #B8F0D4',
-          'border-radius': '8px',
-        }
-      : {},
-    '& .MuiInputBase-input': {
-      color: 'rgba(7, 46, 68, 0.72)',
-      'padding-left': '16px',
-    },
-    '& .Mui-error': {
-      border: '1px solid #DE5160',
+const matTextAreaUseStyles = makeStyles(theme => {
+  const { palette } = theme;
+  const { green, blue, red } = theme.palette.tertiary;
+  return {
+    textarea: (props: { isSuccess: boolean }) => ({
+      border: `1px solid ${palette.neutral.darkGrey}`,
       'box-sizing': 'border-box',
-      'box-shadow': '0px 0px 0px 4px #F7D2DA',
       'border-radius': '8px',
-    },
-    '& .Mui-focused': {
-      border: `1px solid #498DCC`,
-      'box-sizing': 'border-box',
-      'box-shadow': `0px 0px 0px 4px #D7F3FF`,
-      'border-radius': '8px',
+      minWidth: '320px',
+      '& .MuiInput-root': props.isSuccess
+        ? {
+            border: `1px solid ${green[2]}`,
+            'box-sizing': 'border-box',
+            'box-shadow': `0px 0px 0px 4px ${green[1]}`,
+            'border-radius': '8px',
+          }
+        : {},
       '& .MuiInputBase-input': {
-        color: '#072E44',
+        color: 'rgba(7, 46, 68, 0.72)',
+        'padding-left': '16px',
       },
+      '& .Mui-error': {
+        border: `1px solid ${red[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${red[1]}`,
+        'border-radius': '8px',
+      },
+      '& .Mui-focused': {
+        border: `1px solid ${blue[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${blue[1]}`,
+        'border-radius': '8px',
+        '& .MuiInputBase-input': {
+          color: blue[5],
+        },
+      },
+    }),
+    textAreaResize: {
+      resize: 'both',
     },
-  }),
-  textAreaResize: {
-    resize: 'both',
-  },
+  };
 });
 
 export const Input: FC<InputProps> = props => {
