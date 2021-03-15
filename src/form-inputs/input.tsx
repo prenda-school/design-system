@@ -18,7 +18,7 @@ export type InputProps = {
   onChange: (val: string) => void;
 };
 
-const InputLabel = withStyles((theme: Theme) => ({
+const InputLabel = withStyles(theme => ({
   root: {
     color: theme.palette.background.lightContrastText,
     'margin-bottom': '0.2rem',
