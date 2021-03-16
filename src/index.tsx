@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from './actions/';
-import {
+export { Button, ButtonProps } from './actions/';
+export {
   Menu,
   MenuProps,
   MenuItemOptions,
@@ -10,9 +10,8 @@ import {
   Radio,
   RadioProps,
 } from './form-inputs/';
-import {
+export {
   SparkThemeProvider,
-  PrendaThemeOptions,
   TertiaryColor,
   muiTheme,
   prendaTheme,
@@ -23,22 +22,3 @@ export {
   ConquerIllustration,
   CreateIllustration,
 } from './illustrations/';
-
-export {
-  SparkThemeProvider,
-  PrendaThemeOptions,
-  TertiaryColor,
-  muiTheme,
-  prendaTheme,
-  Button,
-  Menu,
-  ButtonProps,
-  MenuProps,
-  MenuItemOptions,
-  Checkbox,
-  CheckboxProps,
-  Input,
-  InputProps,
-  Radio,
-  RadioProps,
-};

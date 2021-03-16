@@ -1,7 +1,112 @@
 import React, { FC, ReactElement } from 'react';
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+
+type Size = 'large' | 'medium' | 'small';
+
+interface StyledIconprops {
+  size: 'large' | 'medium' | 'small';
+  icon: ReactElement;
+}
+
+const StyledIcon = (props: StyledIconprops) => {
+  const { size, icon } = props;
+  return React.cloneElement(icon, {
+    style: {
+      maxWidth: size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
+    },
+  });
+};
+
+const StyledButton = withStyles(theme => {
+  const { blue } = theme.palette.tertiary;
+  const { background } = theme.palette;
+
+  const getHeight = (size: Size) =>
+    size === 'large' ? 48 : size === 'small' ? 24 : 32;
+  const getPadding = (size: Size) =>
+    size === 'large'
+      ? '12px 32px'
+      : size === 'small'
+      ? '8px 16px'
+      : '12px 24px';
+  const getFontSize = (size: Size) =>
+    size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
+
+  const getIconButtonStyles = (isIcon: boolean, size: Size) =>
+    isIcon
+      ? {
+          height: getHeight(size),
+          width: getHeight(size),
+          minWidth: 'auto',
+          padding: 'auto',
+        }
+      : {};
+
+  const getOutlineStyles = (outlined?: boolean) =>
+    outlined
+      ? {
+          border: `2px solid ${blue[3]}`,
+          backgroundColor: 'transparent',
+          color: blue[3],
+          '&:hover': {
+            backgroundColor: 'transparent',
+            color: blue[4],
+            borderColor: blue[4],
+          },
+          '&:focus': {
+            boxShadow: `0px 0px 0px 4px ${blue[1]}`,
+            backgroundColor: background.lightBlue,
+          },
+        }
+      : {};
+
+  const getDisabledOutlineStyles = (outlined?: boolean) =>
+    outlined
+      ? {
+          backgroundColor: 'transparent',
+          color: blue[3],
+          border: `2px solid ${blue[3]}`,
+        }
+      : {};
+
+  const nonDisabledStyles = {
+    backgroundColor: blue[3],
+    '&:hover': {
+      backgroundColor: background.blue,
+    },
+    '&:focus': {
+      boxShadow: `0px 0px 0px 4px ${blue[1]}`,
+    },
+  };
+
+  const getDisabledStyles = (disabled?: boolean, outlined?: boolean) =>
+    disabled
+      ? {
+          '&:disabled': {
+            backgroundColor: blue[3],
+            opacity: 0.5,
+            color: theme.palette.neutral.white,
+            ...getDisabledOutlineStyles(outlined),
+          },
+        }
+      : nonDisabledStyles;
+
+  return {
+    root: (props: ButtonProps) => ({
+      borderRadius: 100,
+      height: getHeight(props.size),
+      color: theme.palette.neutral.white,
+      textTransform: 'none',
+      padding: getPadding(props.size),
+      fontSize: getFontSize(props.size),
+      lineHeight: getFontSize(props.size),
+      ...getDisabledStyles(props.disabled, props.outlined),
+      ...getIconButtonStyles(!!props.icon, props.size),
+      ...getOutlineStyles(props.outlined),
+    }),
+  };
+})(MatButton);
 
 export type ButtonProps = {
   size: 'large' | 'medium' | 'small';
@@ -12,101 +117,15 @@ export type ButtonProps = {
 
 export const Button: FC<ButtonProps> = props => {
   const { size, disabled, icon, outlined } = props;
-
-  const height = size === 'large' ? 48 : size === 'small' ? 24 : 32;
-  const padding =
-    size === 'large'
-      ? '12px 32px'
-      : size === 'small'
-      ? '8px 16px'
-      : '12px 24px';
-  const fontSize =
-    size === 'large' ? '18px' : size === 'small' ? '12px' : '16px';
-
-  const styledIcon = icon
-    ? React.cloneElement(icon, {
-        style: {
-          maxWidth:
-            size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
-        },
-      })
-    : {};
-
-  const iconButtonStyles = icon
-    ? {
-        height,
-        width: height,
-        minWidth: 'auto',
-        padding: 'auto',
-      }
-    : {};
-
-  const outlineStyles = outlined
-    ? {
-        border: '2px solid #2967A6',
-        backgroundColor: 'transparent',
-        color: '#2967A6',
-        '&:hover': {
-          backgroundColor: 'transparent',
-          color: '#0A4872',
-          borderColor: '#0A4872',
-        },
-        '&:focus': {
-          boxShadow: '0px 0px 0px 4px #D7F3FF',
-          backgroundColor: '#D7F3FF',
-        },
-      }
-    : {};
-
-  const disabledOutlineStyles = outlined
-    ? {
-        backgroundColor: 'transparent',
-        color: '#2967A6',
-        border: '2px solid #2967A6',
-      }
-    : {};
-
-  const nonDisabledStyles = {
-    backgroundColor: '#2967A6',
-    '&:hover': {
-      backgroundColor: '#0A4872',
-    },
-    '&:focus': {
-      boxShadow: '0px 0px 0px 4px #D7F3FF',
-    },
-  };
-
-  const disabledStyles = disabled
-    ? {
-        '&:disabled': {
-          backgroundColor: '#2967A6',
-          opacity: 0.5,
-          color: '#FFF',
-          ...disabledOutlineStyles,
-        },
-      }
-    : nonDisabledStyles;
-
-  const buttonRootStyles = {
-    borderRadius: 100,
-    height,
-    color: '#FFF',
-    textTransform: 'none',
-    padding,
-    fontSize,
-    lineHeight: fontSize,
-    ...disabledStyles,
-    ...iconButtonStyles,
-    ...outlineStyles,
-  } as CSSProperties;
-
-  const StyledButton = withStyles({
-    root: buttonRootStyles,
-  })(MatButton);
-
   return (
-    <StyledButton disabled={disabled} disableFocusRipple={true}>
-      {icon ? styledIcon : props.children}
+    <StyledButton
+      disabled={disabled}
+      size={size}
+      outlined={outlined}
+      icon={icon}
+      disableFocusRipple={true}
+    >
+      {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
     </StyledButton>
   );
 };
