@@ -10,14 +10,13 @@ interface StyledIconprops {
 }
 
 const StyledIcon = (props: StyledIconprops) => {
-  const {size, icon} = props;
+  const { size, icon } = props;
   return React.cloneElement(icon, {
     style: {
-      maxWidth:
-        size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
+      maxWidth: size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
     },
-  })
-}
+  });
+};
 
 const StyledButton = withStyles(theme => {
   const { blue } = theme.palette.tertiary;
@@ -119,7 +118,13 @@ export type ButtonProps = {
 export const Button: FC<ButtonProps> = props => {
   const { size, disabled, icon, outlined } = props;
   return (
-    <StyledButton disabled={disabled} size={size} outlined={outlined} icon={icon} disableFocusRipple={true}>
+    <StyledButton
+      disabled={disabled}
+      size={size}
+      outlined={outlined}
+      icon={icon}
+      disableFocusRipple={true}
+    >
       {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
     </StyledButton>
   );
