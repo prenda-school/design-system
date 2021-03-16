@@ -33,7 +33,7 @@ export type MenuProps = {
 };
 
 const FormControl = withStyles({})(MatFormControl);
-const StyledMenuItem = withStyles({})(MatMenuItem);
+const MenuItem = withStyles({})(MatMenuItem);
 const Select = withStyles(theme => {
   const { blue } = theme.palette.tertiary;
   return {
@@ -132,9 +132,9 @@ export const Menu: FC<MenuProps> = props => {
    */
   const menuItems = props.menuOptions.map((o, i) => {
     return (
-      <StyledMenuItem key={`${props.menuId}-${i}`} value={o.value}>
+      <MenuItem key={`${props.menuId}-${i}`} value={o.value}>
         {o.displayName}
-      </StyledMenuItem>
+      </MenuItem>
     );
   });
 
