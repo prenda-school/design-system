@@ -4,7 +4,7 @@ import {
   InputLabel as MatInputLabel,
   FormHelperText as MatFormHelperText,
 } from '@material-ui/core/';
-import { Theme, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
 export type InputProps = {

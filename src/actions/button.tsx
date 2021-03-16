@@ -4,6 +4,21 @@ import { withStyles } from '@material-ui/core/styles';
 
 type Size = 'large' | 'medium' | 'small';
 
+interface StyledIconprops {
+  size: 'large' | 'medium' | 'small';
+  icon: ReactElement;
+}
+
+const StyledIcon = (props: StyledIconprops) => {
+  const {size, icon} = props;
+  return React.cloneElement(icon, {
+    style: {
+      maxWidth:
+        size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
+    },
+  })
+}
+
 const StyledButton = withStyles(theme => {
   const { blue } = theme.palette.tertiary;
   const { background } = theme.palette;
@@ -87,7 +102,7 @@ const StyledButton = withStyles(theme => {
       padding: getPadding(props.size),
       fontSize: getFontSize(props.size),
       lineHeight: getFontSize(props.size),
-      ...getDisabledStyles(props?.disabled, props.outlined),
+      ...getDisabledStyles(props.disabled, props.outlined),
       ...getIconButtonStyles(!!props.icon, props.size),
       ...getOutlineStyles(props.outlined),
     }),
@@ -102,20 +117,10 @@ export type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = props => {
-  const { size, disabled, icon } = props;
-
-  const styledIcon = icon
-    ? React.cloneElement(icon, {
-        style: {
-          maxWidth:
-            size === 'large' ? '20px' : size === 'medium' ? '16px' : '12px',
-        },
-      })
-    : {};
-
+  const { size, disabled, icon, outlined } = props;
   return (
-    <StyledButton disabled={disabled} disableFocusRipple={true} {...props}>
-      {icon ? styledIcon : props.children}
+    <StyledButton disabled={disabled} size={size} outlined={outlined} icon={icon} disableFocusRipple={true}>
+      {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
     </StyledButton>
   );
 };
