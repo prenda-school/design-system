@@ -4,12 +4,12 @@ import { withStyles } from '@material-ui/core/styles';
 
 type Size = 'large' | 'medium' | 'small';
 
-interface StyledIconprops {
+interface StyledIconProps {
   size: 'large' | 'medium' | 'small';
   icon: ReactElement;
 }
 
-const StyledIcon = (props: StyledIconprops) => {
+const StyledIcon = (props: StyledIconProps) => {
   const { size, icon } = props;
   return React.cloneElement(icon, {
     style: {
@@ -70,6 +70,14 @@ const StyledButton = withStyles(theme => {
         }
       : {};
 
+  const getDisabledLabelOnlyStyles = (labelOnly?: boolean) =>
+    labelOnly
+      ? {
+          backgroundColor: 'transparent',
+          color: blue[3]
+        }
+      : {};
+
   const nonDisabledStyles = {
     backgroundColor: blue[3],
     '&:hover': {
@@ -80,7 +88,7 @@ const StyledButton = withStyles(theme => {
     },
   };
 
-  const getDisabledStyles = (disabled?: boolean, outlined?: boolean) =>
+  const getDisabledStyles = (disabled?: boolean, outlined?: boolean, labelOnly?: boolean) =>
     disabled
       ? {
           '&:disabled': {
@@ -88,9 +96,27 @@ const StyledButton = withStyles(theme => {
             opacity: 0.5,
             color: theme.palette.neutral.white,
             ...getDisabledOutlineStyles(outlined),
+            ...getDisabledLabelOnlyStyles(labelOnly)
           },
         }
       : nonDisabledStyles;
+
+  const getLabelOnlyStyles = (labelOnly?: boolean) => 
+    labelOnly 
+      ? {
+          backgroundColor: 'transparent',
+          color: blue[3],
+          '&:hover': {
+            backgroundColor: 'transparent',
+            color: blue[4]
+          },
+          '&:focus': {
+            backgroundColor: background.lightBlue,
+            border: `2px solid ${blue[3]}`,
+            boxShadow: `0px 0px 0px 4px ${blue[1]}`
+          }
+        } 
+      : {}
 
   return {
     root: (props: ButtonProps) => ({
@@ -101,9 +127,10 @@ const StyledButton = withStyles(theme => {
       padding: getPadding(props.size),
       fontSize: getFontSize(props.size),
       lineHeight: getFontSize(props.size),
-      ...getDisabledStyles(props.disabled, props.outlined),
+      ...getDisabledStyles(props.disabled, props.outlined, props.labelOnly),
       ...getIconButtonStyles(!!props.icon, props.size),
       ...getOutlineStyles(props.outlined),
+      ...getLabelOnlyStyles(props.labelOnly)
     }),
   };
 })(MatButton);
@@ -113,16 +140,18 @@ export type ButtonProps = {
   disabled?: boolean;
   icon?: ReactElement;
   outlined?: boolean;
+  labelOnly?: boolean;
 };
 
 export const Button: FC<ButtonProps> = props => {
-  const { size, disabled, icon, outlined } = props;
+  const { size, disabled, icon, outlined, labelOnly } = props;
   return (
     <StyledButton
       disabled={disabled}
       size={size}
       outlined={outlined}
       icon={icon}
+      labelOnly={labelOnly}
       disableFocusRipple={true}
     >
       {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
