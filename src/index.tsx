@@ -23,8 +23,32 @@ export {
   ConquerIllustration,
   CreateIllustration,
 } from './illustrations/';
-
-export { CaretUpIcon, CaretDownIcon } from './icons';
+export {
+  CaretUpIcon,
+  CaretDownIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
+  PointerIcon,
+  SearchIcon,
+  CheckIcon,
+  CheckCircleIcon,
+  CheckCircleFilledIcon,
+  XIcon,
+  XCircleIcon,
+  XCircleFilledIcon,
+  AlertIcon,
+  AlertFilledIcon,
+  HeartIcon,
+  HeartFilledIcon,
+  PlayIcon,
+  MenuIcon,
+  DesktopIcon,
+  EnvelopeIcon,
+  PencilIcon,
+  PinIcon,
+  CalendarIcon,
+  SchoolIcon,
+} from './icons';
 export {
   SparkThemeProvider,
   PrendaThemeOptions,
