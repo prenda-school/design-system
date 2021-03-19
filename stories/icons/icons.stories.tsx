@@ -128,5 +128,6 @@ export const AllIcons = () => (
     <CodeIcon fontSize="default" color="navy" contrast="high" />
     <StarIcon fontSize="default" color="navy" contrast="high" />
     <StarFilledIcon fontSize="default" color="navy" contrast="high" />
+    <SortIcon fontSize="default" color="navy" contrast="high" />
   </>
 );

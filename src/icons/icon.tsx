@@ -34,11 +34,11 @@ function getTextKey(color = 'navy', contrast = 'high') {
 
 function getFontSize(size = 'default') {
   if (size === 'small') {
-    return '20';
+    return '20px';
   } else if (size === 'default') {
-    return '24';
+    return '24px';
   } else if (size === 'large') {
-    return '28';
+    return '28px';
   } else {
     throw new Error('invalid size for icon');
   }
