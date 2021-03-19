@@ -24,7 +24,36 @@ import {
   Pencil,
   Pin,
   Calendar,
-  School
+  School,
+  CaretAltUp,
+  CaretAltDown,
+  CaretAltLeft,
+  CaretAltRight,
+  TrendUp,
+  TrendDown,
+  Plus,
+  PlusCircle,
+  PlusCircleFilled,
+  Minus,
+  MinusCircle,
+  MinusCircleFilled,
+  Box,
+  Checkbox,
+  CheckboxFilled,
+  QuestionCircle,
+  QuestionCircleFilled,
+  Sort,
+  Bolt,
+  BoltFilled,
+  Home,
+  User,
+  Refresh,
+  Clock,
+  Stopwatch,
+  Book,
+  Code,
+  Star,
+  StarFilled
 } from './svgpath';
 
 interface iconProps {
@@ -221,6 +250,238 @@ export const SchoolIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <School />
+    </Icon>
+  );
+};
+
+export const CaretAltUpIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <CaretAltUp />
+    </Icon>
+  );
+};
+
+export const CaretAltDownIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <CaretAltDown />
+    </Icon>
+  );
+};
+
+export const CaretAltLeftIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <CaretAltLeft />
+    </Icon>
+  );
+};
+
+export const CaretAltRightIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <CaretAltRight />
+    </Icon>
+  );
+};
+
+export const TrendUpIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <TrendUp />
+    </Icon>
+  );
+};
+
+export const TrendDownIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <TrendDown />
+    </Icon>
+  );
+};
+
+export const PlusIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Plus />
+    </Icon>
+  );
+};
+
+export const PlusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <PlusCircle />
+    </Icon>
+  );
+};
+
+export const PlusCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <PlusCircleFilled />
+    </Icon>
+  );
+};
+
+export const MinusIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Minus />
+    </Icon>
+  );
+};
+
+export const MinusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <MinusCircle />
+    </Icon>
+  );
+};
+
+export const MinusCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <MinusCircleFilled />
+    </Icon>
+  );
+};
+
+export const BoxIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Box />
+    </Icon>
+  );
+};
+
+export const CheckboxIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Checkbox />
+    </Icon>
+  );
+};
+
+export const CheckboxFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <CheckboxFilled />
+    </Icon>
+  );
+};
+
+export const QuestionCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <QuestionCircle />
+    </Icon>
+  );
+};
+
+export const QuestionCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <QuestionCircleFilled />
+    </Icon>
+  );
+};
+
+export const SortIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Sort />
+    </Icon>
+  );
+};
+
+export const BoltIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Bolt />
+    </Icon>
+  );
+};
+
+export const BoltFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <BoltFilled />
+    </Icon>
+  );
+};
+
+export const HomeIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Home />
+    </Icon>
+  );
+};
+
+export const UserIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <User />
+    </Icon>
+  );
+};
+
+export const RefreshIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Refresh />
+    </Icon>
+  );
+};
+
+export const ClockIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Clock />
+    </Icon>
+  );
+};
+
+export const StopwatchIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Stopwatch />
+    </Icon>
+  );
+};
+
+export const BookIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Book />
+    </Icon>
+  );
+};
+
+export const CodeIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Code />
+    </Icon>
+  );
+};
+
+export const StarIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <Star />
+    </Icon>
+  );
+};
+
+export const StarFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+  return (
+    <Icon fontSize={fontSize} color={color} contrast={contrast}>
+      <StarFilled />
     </Icon>
   );
 };

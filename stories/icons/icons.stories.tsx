@@ -26,6 +26,35 @@ import {
   PinIcon,
   CalendarIcon,
   SchoolIcon,
+  CaretAltUpIcon,
+  CaretAltDownIcon,
+  CaretAltLeftIcon,
+  CaretAltRightIcon,
+  TrendUpIcon,
+  TrendDownIcon,
+  PlusIcon,
+  PlusCircleIcon,
+  PlusCircleFilledIcon,
+  MinusIcon,
+  MinusCircleIcon,
+  MinusCircleFilledIcon,
+  BoxIcon,
+  CheckboxIcon,
+  CheckboxFilledIcon,
+  QuestionCircleIcon,
+  QuestionCircleFilledIcon,
+  SortIcon,
+  BoltIcon,
+  BoltFilledIcon,
+  HomeIcon,
+  UserIcon,
+  RefreshIcon,
+  ClockIcon,
+  StopwatchIcon,
+  BookIcon,
+  CodeIcon,
+  StarIcon,
+  StarFilledIcon,
 } from '../../src';
 
 export default {
@@ -71,5 +100,33 @@ export const AllIcons = () => (
     <PinIcon fontSize="default" color="navy" contrast="high" />
     <CalendarIcon fontSize="default" color="navy" contrast="high" />
     <SchoolIcon fontSize="default" color="navy" contrast="high" />
+    <CaretAltUpIcon fontSize="default" color="navy" contrast="high" />
+    <CaretAltDownIcon fontSize="default" color="navy" contrast="high" />
+    <CaretAltLeftIcon fontSize="default" color="navy" contrast="high" />
+    <CaretAltRightIcon fontSize="default" color="navy" contrast="high" />
+    <TrendUpIcon fontSize="default" color="navy" contrast="high" />
+    <TrendDownIcon fontSize="default" color="navy" contrast="high" />
+    <PlusIcon fontSize="default" color="navy" contrast="high" />
+    <PlusCircleIcon fontSize="default" color="navy" contrast="high" />
+    <PlusCircleFilledIcon fontSize="default" color="navy" contrast="high" />
+    <MinusIcon fontSize="default" color="navy" contrast="high" />
+    <MinusCircleIcon fontSize="default" color="navy" contrast="high" />
+    <MinusCircleFilledIcon fontSize="default" color="navy" contrast="high" />
+    <BoxIcon fontSize="default" color="navy" contrast="high" />
+    <CheckboxIcon fontSize="default" color="navy" contrast="high" />
+    <CheckboxFilledIcon fontSize="default" color="navy" contrast="high" />
+    <QuestionCircleIcon fontSize="default" color="navy" contrast="high" />
+    <QuestionCircleFilledIcon fontSize="default" color="navy" contrast="high" />
+    <BoltIcon fontSize="default" color="navy" contrast="high" />
+    <BoltFilledIcon fontSize="default" color="navy" contrast="high" />
+    <HomeIcon fontSize="default" color="navy" contrast="high" />
+    <UserIcon fontSize="default" color="navy" contrast="high" />
+    <RefreshIcon fontSize="default" color="navy" contrast="high" />
+    <ClockIcon fontSize="default" color="navy" contrast="high" />
+    <StopwatchIcon fontSize="default" color="navy" contrast="high" />
+    <BookIcon fontSize="default" color="navy" contrast="high" />
+    <CodeIcon fontSize="default" color="navy" contrast="high" />
+    <StarIcon fontSize="default" color="navy" contrast="high" />
+    <StarFilledIcon fontSize="default" color="navy" contrast="high" />
   </>
 );
