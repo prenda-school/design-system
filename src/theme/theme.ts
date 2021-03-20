@@ -84,7 +84,7 @@ declare module '@material-ui/core/styles/createPalette' {
 
 export const prendaTheme: ThemeOptions = {
   typography: {
-    fontFamily: 'Founders Grotesk, Raleway',
+    fontFamily: 'Founders Grotesk, Raleway, Avenir, sans-serif',
   },
   overrides: {
     MuiCssBaseline: {
