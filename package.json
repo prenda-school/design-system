@@ -22,7 +22,8 @@
     "build-storybook": "build-storybook",
     "start-storybook": "start-storybook -p 6006 -s ./public",
     "test:update-snapshots": "jest --updateSnapshot",
-    "test:update-snapshot": "npm run test:update-snapshots"
+    "test:update-snapshot": "npm run test:update-snapshots",
+    "prettify": "git ls-files *.js *.jsx *.json *.ts *.tsx | xargs prettier --write"
   },
   "jest": {
     "preset": "ts-jest",
