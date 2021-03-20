@@ -20,7 +20,7 @@
     "analyze": "size-limit --why",
     "storybook": "concurrently npm:start npm:start-storybook",
     "build-storybook": "build-storybook",
-    "start-storybook": "start-storybook -p 6006",
+    "start-storybook": "start-storybook -p 6006 -s ./public",
     "test:update-snapshots": "jest --updateSnapshot",
     "test:update-snapshot": "npm run test:update-snapshots"
   },
