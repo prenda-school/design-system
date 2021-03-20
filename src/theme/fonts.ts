@@ -32,7 +32,7 @@ const ralewayRegularItalic = {
   unicodeRange: latinUnicodeRange,
 };
 
- const ralewayMedium = {
+const ralewayMedium = {
   fontFamily: '"Raleway"',
   fontStyle: 'normal',
   fontWeight: 500,
