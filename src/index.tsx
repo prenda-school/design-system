@@ -22,3 +22,10 @@ export {
   ConquerIllustration,
   CreateIllustration,
 } from './illustrations/';
+
+export {
+  Typography,
+} from './display';
+export type {
+  TypographyProps
+} from "./display";
