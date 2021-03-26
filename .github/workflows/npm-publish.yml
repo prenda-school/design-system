@@ -16,3 +16,25 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+      - name: Slack Notification Success
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: spark-development
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: Successfully published to npm.
+          SLACK_TITLE: Prenda Spark
+          SLACK_USERNAME: GH Action Parrot
+          SLACK_ICON: https://emoji.slack-edge.com/T3LPQHAMV/headbangingparrot/1898efdc354c8ff8.gif
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      - name: Slack Notification Failure
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: spark-development
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: Oh Noez - failed to publish to npm.
+          SLACK_TITLE: Prenda Spark
+          SLACK_USERNAME: GH Action Parrot
+          SLACK_ICON: https://emoji.slack-edge.com/T3LPQHAMV/headbangingparrot/1898efdc354c8ff8.gif
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
