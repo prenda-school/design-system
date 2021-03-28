@@ -23,9 +23,4 @@ export {
   CreateIllustration,
 } from './illustrations/';
 
-export {
-  Typography,
-} from './display';
-export type {
-  TypographyProps
-} from "./display";
+export * from './typography';
