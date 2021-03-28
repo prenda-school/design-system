@@ -10,6 +10,36 @@ import MuiTypography, {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import clsx from 'clsx';
+// import {
+//   OverrideProps,
+//   OverridableComponent,
+// } from '@material-ui/core/OverridableComponent';
+
+// export type TypographyClassKey = 'root' | Variant;
+// | 'colorInherit'
+// | 'colorPrimary'
+// | 'colorSecondary'
+// | 'colorTextPrimary'
+// | 'colorTextSecondary'
+// | 'colorError'
+// | 'displayInline'
+// | 'displayBlock';
+
+// interface TypographyTypeMap<P = {}, D extends React.ElementType = 'p'> {
+//   props: P & {
+//     variant?: Variant; // | 'inherit';
+//     variantMapping?: Partial<Record<Variant, React.ElementType>>;
+//   };
+//   defaultComponent: D;
+//   classKey: TypographyClassKey;
+// }
+
+// export type TypographyProps<
+//   D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+//   P = {}
+// > = OverrideProps<TypographyTypeMap<P, D>, D>;
+
+// declare const Typography: OverridableComponent<TypographyTypeMap>;
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -63,7 +93,7 @@ const styles = (theme: Theme) =>
       fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '1rem',
       lineHeight: '1rem',
-      letterSpacing: '.1rem',
+      letterSpacing: '.1em',
       fontWeight: 600,
       textTransform: 'uppercase',
     },
@@ -71,7 +101,7 @@ const styles = (theme: Theme) =>
       fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '0.875rem',
       lineHeight: '0.875rem',
-      letterSpacing: '.1rem',
+      letterSpacing: '.1em',
       fontWeight: 600,
       textTransform: 'uppercase',
     },
@@ -79,7 +109,7 @@ const styles = (theme: Theme) =>
       fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '0.75rem',
       lineHeight: '0.75rem',
-      letterSpacing: '.1rem',
+      letterSpacing: '.1em',
       fontWeight: 600,
       textTransform: 'uppercase',
     },
@@ -123,6 +153,27 @@ const styles = (theme: Theme) =>
       lineHeight: '1.125rem',
       fontWeight: 400,
     },
+    'code-lg': {
+      fontFamily:
+        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
+      fontSize: '1.125rem',
+      lineHeight: '1.75rem',
+      fontWeight: 400,
+    },
+    'code-md': {
+      fontFamily:
+        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
+      fontSize: '1rem',
+      lineHeight: '1.5rem',
+      fontWeight: 400,
+    },
+    'code-sm': {
+      fontFamily:
+        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
+      fontSize: '0.875rem',
+      lineHeight: '1.25rem',
+      fontWeight: 400,
+    },
   });
 
 export type Variant =
@@ -144,11 +195,39 @@ export type Variant =
   | 'paragraph-xl'
   | 'paragraph-lg'
   | 'paragraph-md'
-  | 'paragraph-sm';
+  | 'paragraph-sm'
+  | 'code-lg'
+  | 'code-md'
+  | 'code-sm';
+
+const defaultVariantMapping: Partial<Record<Variant, string>> = {
+  'display-lg': 'h1',
+  'display-md': 'h1',
+  'display-sm': 'h1',
+  'heading-xxl': 'h2',
+  'heading-xl': 'h3',
+  'heading-lg': 'h4',
+  'heading-md': 'h5',
+  'heading-sm': 'h6',
+  'smallcaps-lg': 'span',
+  'smallcaps-md': 'span',
+  'smallcaps-sm': 'span',
+  'label-xl': 'span',
+  'label-lg': 'span',
+  'label-md': 'span',
+  'label-sm': 'span',
+  'paragraph-xl': 'p',
+  'paragraph-lg': 'p',
+  'paragraph-md': 'p',
+  'paragraph-sm': 'p',
+  'code-lg': 'pre',
+  'code-md': 'pre',
+  'code-sm': 'pre',
+};
 
 export interface TypographyProps
-  extends WithStyles<typeof styles>,
-    Omit<MuiTypographyProps, 'variant' | 'classes'> {
+  extends Omit<MuiTypographyProps, 'variant' | 'classes'>,
+    WithStyles<typeof styles> {
   variant?: Variant;
 }
 
@@ -162,6 +241,8 @@ const Typography = ({
     <MuiTypography
       className={clsx(classes.root, classes[variant], className)}
       {...other}
+      // @ts-ignore
+      component={other.component || defaultVariantMapping[variant]}
     />
   );
 };
@@ -190,7 +271,16 @@ Typography.propTypes = {
     'paragraph-lg',
     'paragraph-md',
     'paragraph-sm',
+    'code-lg',
+    'code-md',
+    'code-sm',
   ]),
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   * Overrides the behavior of the `variantMapping` prop.
+   */
+  component: PropTypes.elementType,
 };
 
 export default withStyles(styles, {

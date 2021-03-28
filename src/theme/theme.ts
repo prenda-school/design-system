@@ -8,6 +8,7 @@ import {
   foundersGroteskBold,
   foundersGroteskBoldItalic,
   foundersGroteskCondensedSemibold,
+  sourceCodeProRegular,
 } from './fonts';
 
 export type TertiaryColor = {
@@ -97,6 +98,7 @@ export const prendaTheme: ThemeOptions = {
           foundersGroteskBold,
           foundersGroteskBoldItalic,
           foundersGroteskCondensedSemibold,
+          sourceCodeProRegular,
         ],
       },
     },

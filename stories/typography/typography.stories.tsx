@@ -75,6 +75,7 @@ enum Bases {
   Smallcaps = 'Small caps',
   Labels = 'Labels',
   Paragraph = 'Paragraph',
+  Code = "Code"
 }
 
 enum Sizes {
@@ -257,6 +258,26 @@ const baseMap = {
       variant: 'paragraph-sm',
     } as BaseInfo,
   ],
+  [Bases.Code]: [
+    {
+      text: Sizes.Large,
+      values: '18px/28px',
+      style: Styles.Regular,
+      variant: 'code-lg',
+    } as BaseInfo,
+    {
+      text: Sizes.Medium,
+      values: '16px/24px',
+      style: Styles.Regular,
+      variant: 'code-md',
+    } as BaseInfo,
+    {
+      text: Sizes.Small,
+      values: '14px/20px',
+      style: Styles.Regular,
+      variant: 'code-sm',
+    } as BaseInfo,
+  ],
 };
 
 type TypogPageProps = {
@@ -265,17 +286,18 @@ type TypogPageProps = {
 
 
 const OverviewContainer = styled.div`
-  display: flex;
+  // display: flex;
 `;
 
 const BaseSection = styled.div`
-  margin-right: '2rem';
+  // margin-right: 2rem;
+  // max-width: 52.5rem;
 `;
 
 const SizeSection = styled.div`
   margin: 2.5rem 0;
   display: grid;
-  grid-template-columns: 11rem 1.5rem 40rem;
+  grid-template-columns: 11rem 1.5rem auto;
   grid-template-rows: 1.5rem auto;
 
   .pos-1 {
@@ -333,4 +355,5 @@ export const Overview = () => <OverviewContainer>
   <TypogPage variantBase={Bases.Smallcaps} />
   <TypogPage variantBase={Bases.Labels} />
   <TypogPage variantBase={Bases.Paragraph} />
+  <TypogPage variantBase={Bases.Code} />
 </OverviewContainer>
