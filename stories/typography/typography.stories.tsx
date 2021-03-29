@@ -11,7 +11,7 @@ export default {
   argTypes: {
     variant: {
       control: {
-        type: "select",
+        type: 'select',
         options: [
           'display-lg',
           'display-md',
@@ -32,8 +32,8 @@ export default {
           'paragraph-lg',
           'paragraph-md',
           'paragraph-sm',
-        ]
-      }
+        ],
+      },
     },
   },
   args: {
@@ -41,7 +41,13 @@ export default {
   },
 } as Meta;
 
-type TextKey = 'display' | 'heading' | 'smallcaps' | 'label' | 'paragraph' | 'code';
+type TextKey =
+  | 'display'
+  | 'heading'
+  | 'smallcaps'
+  | 'label'
+  | 'paragraph'
+  | 'code';
 
 const text = {
   display: 'Empower learners everywhere',
@@ -77,7 +83,7 @@ enum Bases {
   Smallcaps = 'Small caps',
   Labels = 'Labels',
   Paragraph = 'Paragraph',
-  Code = "Code"
+  Code = 'Code',
 }
 
 enum Sizes {
@@ -286,7 +292,6 @@ type TypogPageProps = {
   variantBase: Bases;
 };
 
-
 const OverviewContainer = styled.div`
   // display: flex;
 `;
@@ -351,11 +356,13 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
   );
 };
 
-export const Overview = () => <OverviewContainer>
-  <TypogPage variantBase={Bases.Display} />
-  <TypogPage variantBase={Bases.Heading} />
-  <TypogPage variantBase={Bases.Smallcaps} />
-  <TypogPage variantBase={Bases.Labels} />
-  <TypogPage variantBase={Bases.Paragraph} />
-  <TypogPage variantBase={Bases.Code} />
-</OverviewContainer>
+export const Overview = () => (
+  <OverviewContainer>
+    <TypogPage variantBase={Bases.Display} />
+    <TypogPage variantBase={Bases.Heading} />
+    <TypogPage variantBase={Bases.Smallcaps} />
+    <TypogPage variantBase={Bases.Labels} />
+    <TypogPage variantBase={Bases.Paragraph} />
+    <TypogPage variantBase={Bases.Code} />
+  </OverviewContainer>
+);
