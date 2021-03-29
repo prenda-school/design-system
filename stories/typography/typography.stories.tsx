@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Typography, TypographyProps } from '../../dist';
 import styled from 'styled-components';
-import type { Variant } from "../../src/typography"
+import type { Variant } from "../../src/typography/typography"
 
 export default {
   title: 'prenda-spark/Typography',
@@ -13,6 +13,7 @@ export default {
       control: {
         type: "select",
         options: [
+          'inherit',
           'display-lg',
           'display-md',
           'display-sm',
@@ -35,9 +36,24 @@ export default {
         ]
       }
     },
+    color: {
+      control: {
+        type: "select",
+        options: [
+          'initial',
+          'inherit',
+          'textOnDark',
+          'textOnDarkLowContrast',
+          'textOnLight',
+          'textOnLightLowContrast',
+          'tertiaryBlue2',
+        ]
+      }
+    },
   },
   args: {
     variant: 'paragraph-lg',
+    color: 'textOnLight'
   },
 } as Meta;
 
@@ -325,11 +341,11 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
       {baseMap[variantBase].map(
         ({ text, values, style, variant, isStrong }: BaseInfo) => (
           <SizeSection key={text}>
-            <Typography variant="heading-sm" className="pos-1">
+            <Typography variant="heading-sm" color="tertiaryBlue2" className="pos-1">
               {text}
             </Typography>
 
-            <Typography variant="paragraph-md" className="pos-2">
+            <Typography variant="paragraph-md" color="tertiaryBlue2" className="pos-2">
               {values}
               <br />
               {style}

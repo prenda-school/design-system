@@ -10,44 +10,32 @@ import MuiTypography, {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import clsx from 'clsx';
-// import {
-//   OverrideProps,
-//   OverridableComponent,
-// } from '@material-ui/core/OverridableComponent';
-
-// export type TypographyClassKey = 'root' | Variant;
-// | 'colorInherit'
-// | 'colorPrimary'
-// | 'colorSecondary'
-// | 'colorTextPrimary'
-// | 'colorTextSecondary'
-// | 'colorError'
-// | 'displayInline'
-// | 'displayBlock';
-
-// interface TypographyTypeMap<P = {}, D extends React.ElementType = 'p'> {
-//   props: P & {
-//     variant?: Variant; // | 'inherit';
-//     variantMapping?: Partial<Record<Variant, React.ElementType>>;
-//   };
-//   defaultComponent: D;
-//   classKey: TypographyClassKey;
-// }
-
-// export type TypographyProps<
-//   D extends React.ElementType = TypographyTypeMap['defaultComponent'],
-//   P = {}
-// > = OverrideProps<TypographyTypeMap<P, D>, D>;
-
-// declare const Typography: OverridableComponent<TypographyTypeMap>;
 
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      color: theme.palette.background.lightContrastText,
       '& strong, b': {
         fontWeight: 500,
       },
+    },
+    initial: {}, // to satisfy TS
+    inherit: {
+      color: 'inherit',
+    },
+    textOnDark: {
+      color: theme.palette.background.darkContrastText,
+    },
+    textOnDarkLowContrast: {
+      color: theme.palette.background.darkLowContrastText,
+    },
+    textOnLight: {
+      color: theme.palette.background.lightContrastText,
+    },
+    textOnLightLowContrast: {
+      color: theme.palette.background.lightLowContrastText,
+    },
+    tertiaryBlue2: {
+      color: theme.palette.tertiary.blue[2],
     },
     'display-lg': {
       fontSize: '4rem',
@@ -177,6 +165,7 @@ const styles = (theme: Theme) =>
   });
 
 export type Variant =
+  | 'inherit'
   | 'display-lg'
   | 'display-md'
   | 'display-sm'
@@ -199,6 +188,17 @@ export type Variant =
   | 'code-lg'
   | 'code-md'
   | 'code-sm';
+
+export type Color =
+  | 'initial'
+  | 'inherit'
+  | 'textOnDark'
+  | 'textOnDarkLowContrast'
+  | 'textOnLight'
+  | 'textOnLightLowContrast'
+  | 'tertiaryBlue2';
+
+type ClassKey = Variant | Color;
 
 const defaultVariantMapping: Partial<Record<Variant, string>> = {
   'display-lg': 'h1',
@@ -226,20 +226,29 @@ const defaultVariantMapping: Partial<Record<Variant, string>> = {
 };
 
 export interface TypographyProps
-  extends Omit<MuiTypographyProps, 'variant' | 'classes'>,
+  extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
     WithStyles<typeof styles> {
   variant?: Variant;
+  color?: Color;
 }
 
 const Typography = ({
   classes,
   className,
   variant = 'paragraph-lg' as Variant,
+  color = 'textOnLight' as Color,
   ...other
 }: TypographyProps) => {
   return (
     <MuiTypography
-      className={clsx(classes.root, classes[variant], className)}
+      className={clsx(
+        classes.root,
+        {
+          [classes[variant as ClassKey]]: variant !== 'inherit',
+          [classes[color as ClassKey]]: color !== 'initial',
+        },
+        className
+      )}
       {...other}
       // @ts-ignore
       component={other.component || defaultVariantMapping[variant]}
@@ -276,11 +285,17 @@ Typography.propTypes = {
     'code-sm',
   ]),
   /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   * Overrides the behavior of the `variantMapping` prop.
+   * The color of the component. It supports those theme colors that make sense for this component.
    */
-  component: PropTypes.elementType,
+  color: PropTypes.oneOf<Color>([
+    'initial',
+    'inherit',
+    'textOnDark',
+    'textOnDarkLowContrast',
+    'textOnLight',
+    'textOnLightLowContrast',
+    'tertiaryBlue2',
+  ]),
 };
 
 export default withStyles(styles, {
