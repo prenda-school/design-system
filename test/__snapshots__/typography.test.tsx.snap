@@ -2,7 +2,7 @@
 
 exports[`Storyshots prenda-spark/Typography Configurable Typography 1`] = `
 <p
-  className="MuiTypography-root SparkTypography-root-1 SparkTypography-paragraph-lg-18 MuiTypography-body1"
+  className="MuiTypography-root SparkTypography-root-1 SparkTypography-paragraph-lg-25 SparkTypography-textOnLight-6 MuiTypography-body1"
 >
   When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.
 </p>
@@ -16,7 +16,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Display
     </h4>
@@ -25,19 +25,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         64px/64px
         <br />
         Bold
       </p>
       <h1
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-display-lg-25 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-display-lg-39 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h1>
@@ -46,19 +46,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         56px/56px
         <br />
         Bold
       </p>
       <h1
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-display-md-26 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-display-md-40 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h1>
@@ -67,19 +67,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         48px/48px
         <br />
         Bold
       </p>
       <h1
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-display-sm-27 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-display-sm-41 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h1>
@@ -89,7 +89,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Heading
     </h4>
@@ -98,19 +98,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         XXLarge
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         40px/40px
         <br />
         Medium
       </p>
       <h2
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-xxl-28 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-xxl-42 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h2>
@@ -119,19 +119,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         XLarge
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         34px/34px
         <br />
         Medium
       </p>
       <h3
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-xl-29 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-xl-43 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h3>
@@ -140,19 +140,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         28px/30px
         <br />
         Medium
       </p>
       <h4
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h4>
@@ -161,19 +161,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         24px/26px
         <br />
         Medium
       </p>
       <h5
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-md-31 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-md-45 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h5>
@@ -182,19 +182,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         20px/22px
         <br />
         Medium
       </p>
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Empower learners everywhere
       </h6>
@@ -204,7 +204,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Small caps
     </h4>
@@ -213,19 +213,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         16px/16px/10%
         <br />
         Condensed/Semibold
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-smallcaps-lg-33 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-smallcaps-lg-47 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Passion to learn
       </span>
@@ -234,19 +234,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         14px/14px/10%
         <br />
         Condensed/Semibold
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-smallcaps-md-34 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-smallcaps-md-48 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Passion to learn
       </span>
@@ -255,19 +255,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         12px/12px/10%
         <br />
         Condensed/Semibold
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-smallcaps-sm-35 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-smallcaps-sm-49 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Passion to learn
       </span>
@@ -277,7 +277,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Labels
     </h4>
@@ -286,19 +286,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         XLarge
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         18px/24px
         <br />
         Regular
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-xl-36 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-xl-50 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Label
       </span>
@@ -307,19 +307,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         XLarge - Strong
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         18px/24px
         <br />
         Medium
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-xl-36 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-xl-50 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         <strong>
           Label
@@ -330,19 +330,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         16px/24px
         <br />
         Regular
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-lg-37 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-lg-51 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Label
       </span>
@@ -351,19 +351,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large - Strong
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         16px/24px
         <br />
         Medium
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-lg-37 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-lg-51 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         <strong>
           Label
@@ -374,19 +374,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         14px/20px
         <br />
         Regular
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-md-38 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-md-52 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Label
       </span>
@@ -395,19 +395,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium - Strong
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         14px/20px
         <br />
         Medium
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-md-38 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-md-52 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         <strong>
           Label
@@ -418,19 +418,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         12px/20px
         <br />
         Regular
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-sm-39 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-sm-53 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         Label
       </span>
@@ -439,19 +439,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small - Strong
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         12px/20px
         <br />
         Medium
       </p>
       <span
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-label-sm-39 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-label-sm-53 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         <strong>
           Label
@@ -463,7 +463,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Paragraph
     </h4>
@@ -472,19 +472,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         XLarge
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         18px/28px
         <br />
         Regular
       </p>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-xl-40 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-xl-54 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.
       </p>
@@ -493,19 +493,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         16px/24px
         <br />
         Regular
       </p>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-lg-41 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-lg-55 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.
       </p>
@@ -514,19 +514,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         14px/20px
         <br />
         Regular
       </p>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.
       </p>
@@ -535,19 +535,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         12px/18px
         <br />
         Regular
       </p>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-sm-43 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-sm-57 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.
       </p>
@@ -557,7 +557,7 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
     className="sc-gKsewC bIkriO"
   >
     <h4
-      className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-lg-30 MuiTypography-body1"
+      className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-lg-44 SparkTypography-textOnLight-36 MuiTypography-body1"
     >
       Code
     </h4>
@@ -566,19 +566,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Large
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         18px/28px
         <br />
         Regular
       </p>
       <pre
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-code-lg-44 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-code-lg-58 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         &lt;script&gt;
   let mystring = 'abc123';
@@ -591,19 +591,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Medium
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         16px/24px
         <br />
         Regular
       </p>
       <pre
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-code-md-45 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-code-md-59 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         &lt;script&gt;
   let mystring = 'abc123';
@@ -616,19 +616,19 @@ exports[`Storyshots prenda-spark/Typography Overview 1`] = `
       className="sc-iBPRYJ cSTNuL"
     >
       <h6
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-heading-sm-32 pos-1 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-heading-sm-46 SparkTypography-tertiaryBlue2-38 pos-1 MuiTypography-body1"
       >
         Small
       </h6>
       <p
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-paragraph-md-42 pos-2 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-paragraph-md-56 SparkTypography-tertiaryBlue2-38 pos-2 MuiTypography-body1"
       >
         14px/20px
         <br />
         Regular
       </p>
       <pre
-        className="MuiTypography-root SparkTypography-root-24 SparkTypography-code-sm-46 pos-3 MuiTypography-body1"
+        className="MuiTypography-root SparkTypography-root-31 SparkTypography-code-sm-60 SparkTypography-textOnLight-36 pos-3 MuiTypography-body1"
       >
         &lt;script&gt;
   let mystring = 'abc123';
