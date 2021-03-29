@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Typography, TypographyProps } from '../../dist';
 import styled from 'styled-components';
-import type { Variant } from "../../src/typography/typography"
+import { Variant } from '../../src/typography/typography';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -11,7 +11,7 @@ export default {
   argTypes: {
     variant: {
       control: {
-        type: "select",
+        type: 'select',
         options: [
           'inherit',
           'display-lg',
@@ -33,12 +33,12 @@ export default {
           'paragraph-lg',
           'paragraph-md',
           'paragraph-sm',
-        ]
-      }
+        ],
+      },
     },
     color: {
       control: {
-        type: "select",
+        type: 'select',
         options: [
           'initial',
           'inherit',
@@ -47,15 +47,23 @@ export default {
           'textOnLight',
           'textOnLightLowContrast',
           'tertiaryBlue2',
-        ]
-      }
+        ],
+      },
     },
   },
   args: {
     variant: 'paragraph-lg',
-    color: 'textOnLight'
+    color: 'textOnLight',
   },
 } as Meta;
+
+type TextKey =
+  | 'display'
+  | 'heading'
+  | 'smallcaps'
+  | 'label'
+  | 'paragraph'
+  | 'code';
 
 const text = {
   display: 'Empower learners everywhere',
@@ -77,11 +85,11 @@ const text = {
  * @returns {string}
  */
 function getText(variant: string): string {
-  return text[variant.split('-')[0]] || text.paragraph;
+  return text[variant.split('-')[0] as TextKey] || text.paragraph;
 }
 
 const Template: Story<TypographyProps> = args => (
-  <Typography {...args}>{getText(args.variant)}</Typography>
+  <Typography {...args}>{getText(String(args.variant))}</Typography>
 );
 export const ConfigurableTypography = Template.bind({});
 
@@ -91,7 +99,7 @@ enum Bases {
   Smallcaps = 'Small caps',
   Labels = 'Labels',
   Paragraph = 'Paragraph',
-  Code = "Code"
+  Code = 'Code',
 }
 
 enum Sizes {
@@ -300,7 +308,6 @@ type TypogPageProps = {
   variantBase: Bases;
 };
 
-
 const OverviewContainer = styled.div`
   // display: flex;
 `;
@@ -341,11 +348,19 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
       {baseMap[variantBase].map(
         ({ text, values, style, variant, isStrong }: BaseInfo) => (
           <SizeSection key={text}>
-            <Typography variant="heading-sm" color="tertiaryBlue2" className="pos-1">
+            <Typography
+              variant="heading-sm"
+              color="tertiaryBlue2"
+              className="pos-1"
+            >
               {text}
             </Typography>
 
-            <Typography variant="paragraph-md" color="tertiaryBlue2" className="pos-2">
+            <Typography
+              variant="paragraph-md"
+              color="tertiaryBlue2"
+              className="pos-2"
+            >
               {values}
               <br />
               {style}
@@ -365,11 +380,13 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
   );
 };
 
-export const Overview = () => <OverviewContainer>
-  <TypogPage variantBase={Bases.Display} />
-  <TypogPage variantBase={Bases.Heading} />
-  <TypogPage variantBase={Bases.Smallcaps} />
-  <TypogPage variantBase={Bases.Labels} />
-  <TypogPage variantBase={Bases.Paragraph} />
-  <TypogPage variantBase={Bases.Code} />
-</OverviewContainer>
+export const Overview = () => (
+  <OverviewContainer>
+    <TypogPage variantBase={Bases.Display} />
+    <TypogPage variantBase={Bases.Heading} />
+    <TypogPage variantBase={Bases.Smallcaps} />
+    <TypogPage variantBase={Bases.Labels} />
+    <TypogPage variantBase={Bases.Paragraph} />
+    <TypogPage variantBase={Bases.Code} />
+  </OverviewContainer>
+);

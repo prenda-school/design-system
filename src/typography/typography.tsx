@@ -232,13 +232,13 @@ export interface TypographyProps
   color?: Color;
 }
 
-const Typography = ({
+const Typography: React.FC<TypographyProps> = ({
   classes,
   className,
   variant = 'paragraph-lg' as Variant,
   color = 'textOnLight' as Color,
   ...other
-}: TypographyProps) => {
+}) => {
   return (
     <MuiTypography
       className={clsx(
