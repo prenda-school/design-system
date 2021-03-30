@@ -74,7 +74,7 @@ const StyledButton = withStyles(theme => {
     labelOnly
       ? {
           backgroundColor: 'transparent',
-          color: blue[3]
+          color: blue[3],
         }
       : {};
 
@@ -88,7 +88,11 @@ const StyledButton = withStyles(theme => {
     },
   };
 
-  const getDisabledStyles = (disabled?: boolean, outlined?: boolean, labelOnly?: boolean) =>
+  const getDisabledStyles = (
+    disabled?: boolean,
+    outlined?: boolean,
+    labelOnly?: boolean
+  ) =>
     disabled
       ? {
           '&:disabled': {
@@ -96,27 +100,27 @@ const StyledButton = withStyles(theme => {
             opacity: 0.5,
             color: theme.palette.neutral.white,
             ...getDisabledOutlineStyles(outlined),
-            ...getDisabledLabelOnlyStyles(labelOnly)
+            ...getDisabledLabelOnlyStyles(labelOnly),
           },
         }
       : nonDisabledStyles;
 
-  const getLabelOnlyStyles = (labelOnly?: boolean) => 
-    labelOnly 
+  const getLabelOnlyStyles = (labelOnly?: boolean) =>
+    labelOnly
       ? {
           backgroundColor: 'transparent',
           color: blue[3],
           '&:hover': {
             backgroundColor: 'transparent',
-            color: blue[4]
+            color: blue[4],
           },
           '&:focus': {
             backgroundColor: background.lightBlue,
             border: `2px solid ${blue[3]}`,
-            boxShadow: `0px 0px 0px 4px ${blue[1]}`
-          }
-        } 
-      : {}
+            boxShadow: `0px 0px 0px 4px ${blue[1]}`,
+          },
+        }
+      : {};
 
   return {
     root: (props: ButtonProps) => ({
@@ -130,7 +134,7 @@ const StyledButton = withStyles(theme => {
       ...getDisabledStyles(props.disabled, props.outlined, props.labelOnly),
       ...getIconButtonStyles(!!props.icon, props.size),
       ...getOutlineStyles(props.outlined),
-      ...getLabelOnlyStyles(props.labelOnly)
+      ...getLabelOnlyStyles(props.labelOnly),
     }),
   };
 })(MatButton);
