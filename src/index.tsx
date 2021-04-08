@@ -22,3 +22,11 @@ export {
   ConquerIllustration,
   CreateIllustration,
 } from './illustrations/';
+export {
+  PrendaWordmarkDark,
+  PrendaWordmarkLight,
+  PrendaMonogramDark,
+  PrendaMonogramLight,
+  SparkLogoDark,
+  SparkLogoLight
+} from './logos';
