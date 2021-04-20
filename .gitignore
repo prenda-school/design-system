@@ -5,3 +5,4 @@ node_modules
 .cache
 dist
 storybook-static/
+public/fonts/founders-grotesk-*.woff*
