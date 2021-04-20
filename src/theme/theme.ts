@@ -1,5 +1,15 @@
 import { createMuiTheme, ThemeOptions } from '@material-ui/core';
 import { colors } from './colors';
+import {
+  foundersGroteskRegular,
+  foundersGroteskRegularItalic,
+  foundersGroteskMedium,
+  foundersGroteskMediumItalic,
+  foundersGroteskBold,
+  foundersGroteskBoldItalic,
+  foundersGroteskCondensedSemibold,
+  sourceCodeProRegular,
+} from './fonts';
 
 export type TertiaryColor = {
   1: string;
@@ -8,6 +18,7 @@ export type TertiaryColor = {
   4: string;
   5: string;
 };
+
 declare module '@material-ui/core/styles/createPalette' {
   export interface TypeBackground {
     navy: string;
@@ -73,6 +84,25 @@ declare module '@material-ui/core/styles/createPalette' {
 }
 
 export const prendaTheme: ThemeOptions = {
+  typography: {
+    fontFamily: '"Founders Grotesk", Avenir, sans-serif',
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [
+          foundersGroteskRegular,
+          foundersGroteskRegularItalic,
+          foundersGroteskMedium,
+          foundersGroteskMediumItalic,
+          foundersGroteskBold,
+          foundersGroteskBoldItalic,
+          foundersGroteskCondensedSemibold,
+          sourceCodeProRegular,
+        ],
+      },
+    },
+  },
   palette: {
     // follow material
     error: {
