@@ -12,7 +12,6 @@ import {
 } from './form-inputs/';
 import {
   SparkThemeProvider,
-  PrendaThemeOptions,
   TertiaryColor,
   muiTheme,
   prendaTheme,
