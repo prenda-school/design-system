@@ -1,5 +1,15 @@
 import { createMuiTheme, ThemeOptions } from '@material-ui/core';
 import { colors } from './colors';
+import {
+  foundersGroteskRegular,
+  foundersGroteskRegularItalic,
+  foundersGroteskMedium,
+  foundersGroteskMediumItalic,
+  foundersGroteskBold,
+  foundersGroteskBoldItalic,
+  foundersGroteskCondensedSemibold,
+  sourceCodeProRegular,
+} from './fonts';
 
 export type TertiaryColor = {
   1: string;
@@ -9,45 +19,22 @@ export type TertiaryColor = {
   5: string;
 };
 
-export type PrendaThemeOptions = {
-  palette: {
-    error: {
-      light: string;
-      main: string;
-      dark: string;
-      contrastText: string;
-    };
-    warning: {
-      light: string;
-      main: string;
-      dark: string;
-      contrastText: string;
-    };
-    info: {
-      light: string;
-      main: string;
-      dark: string;
-      contrastText: string;
-    };
-    success: {
-      light: string;
-      main: string;
-      dark: string;
-      contrastText: string;
-    };
-    background: {
-      navy: string;
-      blue: string;
-      darkContrastText: string;
-      darkLowContrastText: string;
-      lightGrey: string;
-      lightBlue: string;
-      white: string;
-      lightContrastText: string;
-      lightLowContrastText: string;
-      default: string;
-      paper: string;
-    };
+declare module '@material-ui/core/styles/createPalette' {
+  export interface TypeBackground {
+    navy: string;
+    blue: string;
+    darkContrastText: string;
+    darkLowContrastText: string;
+    lightGrey: string;
+    lightBlue: string;
+    white: string;
+    lightContrastText: string;
+    lightLowContrastText: string;
+    default: string;
+    paper: string;
+  }
+
+  export interface Palette {
     brand: {
       blue: string;
       lightBlue: string;
@@ -69,29 +56,53 @@ export type PrendaThemeOptions = {
       blue: TertiaryColor;
       purple: TertiaryColor;
     };
-    text: {
-      disabled: string;
-      hint: string;
-      primary: string;
-      secondary: string;
-    };
-    action: {
-      disabled: string;
-      active: string;
-      activatedOpacity: number;
-      disabledOpacity: number;
-      disabledBackground: string;
-      focus: string;
-      focusOpacity: number;
-      hover: string;
-      hoverOpacity: number;
-      selected: string;
-      selectedOpacity: number;
-    };
-  };
-};
+  }
 
-export const prendaTheme: PrendaThemeOptions = {
+  interface PaletteOptions {
+    brand?: {
+      blue: string;
+      lightBlue: string;
+      orange: string;
+      peach: string;
+    };
+    neutral?: {
+      navy: string;
+      lightGrey: string;
+      mediumGrey: string;
+      darkGrey: string;
+      white: string;
+    };
+    tertiary?: {
+      red: TertiaryColor;
+      orange: TertiaryColor;
+      yellow: TertiaryColor;
+      green: TertiaryColor;
+      blue: TertiaryColor;
+      purple: TertiaryColor;
+    };
+  }
+}
+
+export const prendaTheme: ThemeOptions = {
+  typography: {
+    fontFamily: '"Founders Grotesk", Avenir, sans-serif',
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [
+          foundersGroteskRegular,
+          foundersGroteskRegularItalic,
+          foundersGroteskMedium,
+          foundersGroteskMediumItalic,
+          foundersGroteskBold,
+          foundersGroteskBoldItalic,
+          foundersGroteskCondensedSemibold,
+          sourceCodeProRegular,
+        ],
+      },
+    },
+  },
   palette: {
     // follow material
     error: {
@@ -180,6 +191,4 @@ export const prendaTheme: PrendaThemeOptions = {
   },
 };
 
-export const muiTheme = createMuiTheme(
-  prendaTheme as PrendaThemeOptions & ThemeOptions
-);
+export const muiTheme = createMuiTheme(prendaTheme);

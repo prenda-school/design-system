@@ -10,43 +10,47 @@ export type RadioProps = {
   name: string;
 };
 
-const useStyles = makeStyles({
-  radioRoot: {
-    '&&&:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
-  },
-  radio: {
-    backgroundColor: '#FFFFFF',
-    border: '2px solid #D2D4D6',
-    borderRadius: '50%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '20px',
-    height: '20px',
-    '.Mui-disabled &': {
-      backgroundColor: '#E1E3E5',
+const useStyles = makeStyles(theme => {
+  const { blue } = theme.palette.tertiary;
+  const { palette } = theme;
+  return {
+    radioRoot: {
+      '&&&:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
     },
-    'label:hover:not(.Mui-disabled) &': {
-      borderColor: '#0A4872',
+    radio: {
+      backgroundColor: palette.background.white,
+      border: `2px solid ${palette.neutral.darkGrey}`,
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '20px',
+      height: '20px',
+      '.Mui-disabled &': {
+        backgroundColor: palette.neutral.mediumGrey,
+      },
+      'label:hover:not(.Mui-disabled) &': {
+        borderColor: palette.brand.blue,
+      },
+      '.Mui-checked &': {
+        borderColor: blue[3],
+      },
+      'input:focus ~ &': {
+        boxShadow: `0px 0px 0px 4px ${palette.brand.lightBlue}`,
+      },
     },
-    '.Mui-checked &': {
-      borderColor: '#2967A6',
+    checkedRadioCenter: {
+      backgroundColor: blue[3],
+      borderRadius: '50%',
+      width: '14px',
+      height: '14px',
     },
-    'input:focus ~ &': {
-      boxShadow: '0px 0px 0px 4px #D7F3FF',
+    label: {
+      color: 'rgba(7, 46, 68, 0.72)',
+      'label:hover &': { color: palette.neutral.navy },
+      '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
     },
-  },
-  checkedRadioCenter: {
-    backgroundColor: '#2967A6',
-    borderRadius: '50%',
-    width: '14px',
-    height: '14px',
-  },
-  label: {
-    color: 'rgba(7, 46, 68, 0.72)',
-    'label:hover &': { color: '#072E44' },
-    '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
-  },
+  };
 });
 
 export const Radio: FC<RadioProps> = props => {

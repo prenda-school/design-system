@@ -20,18 +20,67 @@ export type InputProps = {
 
 const InputLabel = withStyles(theme => ({
   root: {
-    // @ts-ignore
     color: theme.palette.background.lightContrastText,
     'margin-bottom': '0.2rem',
     'font-weight': 700,
     'font-size': '16px',
     'line-height': '18px',
     '&.Mui-focused': {
-      // @ts-ignore
       color: theme.palette.background.lightContrastText,
     },
   },
 }))(MatInputLabel);
+
+const InputHelperText = withStyles(theme => ({
+  root: {
+    color: theme.palette.background.lightLowContrastText,
+    'font-size': '10px',
+    'line-height': '18px',
+  },
+}))(MatFormHelperText);
+
+const matTextAreaUseStyles = makeStyles(theme => {
+  const { palette } = theme;
+  const { green, blue, red } = theme.palette.tertiary;
+  return {
+    textarea: (props: { isSuccess: boolean }) => ({
+      border: `1px solid ${palette.neutral.darkGrey}`,
+      'box-sizing': 'border-box',
+      'border-radius': '8px',
+      minWidth: '320px',
+      '& .MuiInput-root': props.isSuccess
+        ? {
+            border: `1px solid ${green[2]}`,
+            'box-sizing': 'border-box',
+            'box-shadow': `0px 0px 0px 4px ${green[1]}`,
+            'border-radius': '8px',
+          }
+        : {},
+      '& .MuiInputBase-input': {
+        color: 'rgba(7, 46, 68, 0.72)',
+        'padding-left': '16px',
+      },
+      '& .Mui-error': {
+        border: `1px solid ${red[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${red[1]}`,
+        'border-radius': '8px',
+      },
+      '& .Mui-focused': {
+        border: `1px solid ${blue[2]}`,
+        'box-sizing': 'border-box',
+        'box-shadow': `0px 0px 0px 4px ${blue[1]}`,
+        'border-radius': '8px',
+        '& .MuiInputBase-input': {
+          color: blue[5],
+        },
+      },
+    }),
+    textAreaResize: {
+      resize: 'both',
+    },
+  };
+});
 
 export const Input: FC<InputProps> = props => {
   const [inputVal, setInputVal] = React.useState('');
@@ -61,67 +110,19 @@ export const Input: FC<InputProps> = props => {
     }
   };
 
-  // We had to change our styling here due to strange text cursor resetting on largeInput. See
-  // https://stackoverflow.com/questions/61795171/using-textarea-inside-of-styled-components-makes-it-write-backwards-by-resetting
-  // for similar use case.
-
-  const classes = makeStyles(() => ({
-    textarea: {
-      border: '1px solid #D2D4D6',
-      'box-sizing': 'border-box',
-      'border-radius': '8px',
-      minWidth: '320px',
-      '& .MuiInput-root': isSuccess
-        ? {
-            border: '1px solid #4AA784',
-            'box-sizing': 'border-box',
-            'box-shadow': '0px 0px 0px 4px #B8F0D4',
-            'border-radius': '8px',
-          }
-        : {},
-      '& .MuiInputBase-input': {
-        color: 'rgba(7, 46, 68, 0.72)',
-        'padding-left': '16px',
-      },
-      '& .Mui-error': {
-        border: '1px solid #DE5160',
-        'box-sizing': 'border-box',
-        'box-shadow': '0px 0px 0px 4px #F7D2DA',
-        'border-radius': '8px',
-      },
-      '& .Mui-focused': {
-        border: `1px solid #498DCC`,
-        'box-sizing': 'border-box',
-        'box-shadow': `0px 0px 0px 4px #D7F3FF`,
-        'border-radius': '8px',
-        '& .MuiInputBase-input': {
-          color: '#072E44',
-        },
-      },
-    },
-    textAreaResize: {
-      resize: 'both',
-    },
-  }))();
-
-  const InputHelperText = withStyles({
-    root: {
-      color: 'rgba(7, 46, 68, 0.72)',
-      'font-size': '10px',
-      'line-height': '18px',
-    },
-  })(MatFormHelperText);
+  const styleProps = { isSuccess };
+  const matTextAreaStyles = matTextAreaUseStyles(styleProps);
 
   return (
     <>
       <InputLabel shrink>{props.label}</InputLabel>
       <MatTextField
         autoFocus
-        className={classes.textarea}
+        className={matTextAreaStyles.textarea}
         error={isError}
         id={props.inputId}
         InputProps={{ disableUnderline: true }}
-        inputProps={{ className: classes.textAreaResize }}
+        inputProps={{ className: matTextAreaStyles.textAreaResize }}
         multiline={props.multiline}
         rows={props.rows}
         onChange={handleOnChange}

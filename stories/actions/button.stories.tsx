@@ -67,6 +67,22 @@ export const DisabledOutlinedLarge = () => (
   </Button>
 );
 
+export const DisabledLabelOnlySmall = () => (
+  <Button size="small" labelOnly={true} disabled={true}>
+    {buttonText}
+  </Button>
+);
+export const DisabledLabelOnlyMedium = () => (
+  <Button size="medium" labelOnly={true} disabled={true}>
+    {buttonText}
+  </Button>
+);
+export const DisabledLabelOnlyLarge = () => (
+  <Button size="large" labelOnly={true} disabled={true}>
+    {buttonText}
+  </Button>
+);
+
 export const SmallIcon = () => (
   <Button size="small" icon={<ExpandMoreIcon />}></Button>
 );
@@ -75,4 +91,20 @@ export const MediumIcon = () => (
 );
 export const LargeIcon = () => (
   <Button size="large" icon={<ExpandMoreIcon />}></Button>
+);
+
+export const SmallLabelOnly = () => (
+  <Button size="small" labelOnly={true}>
+    {buttonText}
+  </Button>
+);
+export const MediumLabelOnly = () => (
+  <Button size="medium" labelOnly={true}>
+    {buttonText}
+  </Button>
+);
+export const LargeLabelOnly = () => (
+  <Button size="large" labelOnly={true}>
+    {buttonText}
+  </Button>
 );
