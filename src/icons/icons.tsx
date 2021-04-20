@@ -53,7 +53,7 @@ import {
   Book,
   Code,
   Star,
-  StarFilled
+  StarFilled,
 } from './svgpath';
 
 interface iconProps {
@@ -94,7 +94,11 @@ export const PointerIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const CaretRightIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CaretRightIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CaretRight />
@@ -118,7 +122,11 @@ export const CheckIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const CheckCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CheckCircleIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CheckCircle />
@@ -126,7 +134,11 @@ export const CheckCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) =>
   );
 };
 
-export const CheckCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CheckCircleFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CheckCircleFilled />
@@ -150,7 +162,11 @@ export const XCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const XCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const XCircleFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <XCircleFilled />
@@ -166,7 +182,11 @@ export const AlertIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const AlertFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const AlertFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <AlertFilled />
@@ -182,7 +202,11 @@ export const HeartIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const HeartFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const HeartFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <HeartFilled />
@@ -254,7 +278,11 @@ export const SchoolIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const CaretAltUpIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CaretAltUpIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CaretAltUp />
@@ -262,7 +290,11 @@ export const CaretAltUpIcon: FC<iconProps> = ({ fontSize, color, contrast }) => 
   );
 };
 
-export const CaretAltDownIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CaretAltDownIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CaretAltDown />
@@ -270,7 +302,11 @@ export const CaretAltDownIcon: FC<iconProps> = ({ fontSize, color, contrast }) =
   );
 };
 
-export const CaretAltLeftIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CaretAltLeftIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CaretAltLeft />
@@ -278,7 +314,11 @@ export const CaretAltLeftIcon: FC<iconProps> = ({ fontSize, color, contrast }) =
   );
 };
 
-export const CaretAltRightIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CaretAltRightIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CaretAltRight />
@@ -310,7 +350,11 @@ export const PlusIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const PlusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const PlusCircleIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <PlusCircle />
@@ -318,7 +362,11 @@ export const PlusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => 
   );
 };
 
-export const PlusCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const PlusCircleFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <PlusCircleFilled />
@@ -334,7 +382,11 @@ export const MinusIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const MinusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const MinusCircleIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <MinusCircle />
@@ -342,7 +394,11 @@ export const MinusCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) =>
   );
 };
 
-export const MinusCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const MinusCircleFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <MinusCircleFilled />
@@ -366,7 +422,11 @@ export const CheckboxIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const CheckboxFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const CheckboxFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <CheckboxFilled />
@@ -374,7 +434,11 @@ export const CheckboxFilledIcon: FC<iconProps> = ({ fontSize, color, contrast })
   );
 };
 
-export const QuestionCircleIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const QuestionCircleIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <QuestionCircle />
@@ -382,7 +446,11 @@ export const QuestionCircleIcon: FC<iconProps> = ({ fontSize, color, contrast })
   );
 };
 
-export const QuestionCircleFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const QuestionCircleFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <QuestionCircleFilled />
@@ -406,7 +474,11 @@ export const BoltIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const BoltFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const BoltFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <BoltFilled />
@@ -478,7 +550,11 @@ export const StarIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   );
 };
 
-export const StarFilledIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
+export const StarFilledIcon: FC<iconProps> = ({
+  fontSize,
+  color,
+  contrast,
+}) => {
   return (
     <Icon fontSize={fontSize} color={color} contrast={contrast}>
       <StarFilled />
