@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SvgIcon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Theme, useTheme } from '@material-ui/core';
+import { Theme } from '@material-ui/core';
 
 interface iconProps {
   children: JSX.Element;
@@ -10,20 +10,13 @@ interface iconProps {
   contrast: string;
 }
 
-interface styleProps {
-  color: string;
-  fontSize: string;
-  contrast: string;
-  theme: Theme;
-}
-
-const useStyles = makeStyles({
-  icon: (props: styleProps) => ({
+const useStyles = makeStyles((theme: Theme) => ({
+  icon: (props: iconProps) => ({
     color:
-      props.theme.palette.background[getTextKey(props.color, props.contrast)],
+      theme.palette.background[getTextKey(props.color, props.contrast)],
     fontSize: getFontSize(props.fontSize),
   }),
-});
+}));
 
 function getTextKey(color = 'navy', contrast = 'high') {
   if (color === 'navy' && contrast == 'high') {
@@ -52,14 +45,7 @@ function getFontSize(size = 'default') {
 }
 
 export const Icon: FC<iconProps> = props => {
-  const theme: Theme = useTheme();
-  const stylePropsObject: styleProps = {
-    theme,
-    color: props.color,
-    contrast: props.contrast,
-    fontSize: props.fontSize
-  }
-  const styles = useStyles(stylePropsObject);
+  const styles = useStyles(props);
   return (
     <SvgIcon viewBox="0 0 24 24" className={styles.icon}>
       {props.children}
