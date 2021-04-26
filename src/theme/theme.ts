@@ -8,6 +8,8 @@ import {
   nunitoBoldItalic,
   nunitoExtrabold,
   nunitoExtraboldItalic,
+  nunitoSemibold,
+  nunitoSemiboldItalic,
   sourceCodeProRegular,
 } from './fonts';
 
@@ -85,7 +87,7 @@ declare module '@material-ui/core/styles/createPalette' {
 
 export const prendaTheme: ThemeOptions = {
   typography: {
-    fontFamily: '"Founders Grotesk", Avenir, sans-serif',
+    fontFamily: '"nunito", Avenir, sans-serif',
   },
   overrides: {
     MuiCssBaseline: {
@@ -98,6 +100,8 @@ export const prendaTheme: ThemeOptions = {
           nunitoBoldItalic,
           nunitoExtrabold,
           nunitoExtraboldItalic,
+          nunitoSemibold,
+          nunitoSemiboldItalic,
           sourceCodeProRegular,
         ],
       },

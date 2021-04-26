@@ -78,7 +78,6 @@ const styles = (theme: Theme) =>
       fontWeight: 500,
     },
     'smallcaps-lg': {
-      fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '1rem',
       lineHeight: '1rem',
       letterSpacing: '.1em',
@@ -86,7 +85,6 @@ const styles = (theme: Theme) =>
       textTransform: 'uppercase',
     },
     'smallcaps-md': {
-      fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '0.875rem',
       lineHeight: '0.875rem',
       letterSpacing: '.1em',
@@ -94,7 +92,6 @@ const styles = (theme: Theme) =>
       textTransform: 'uppercase',
     },
     'smallcaps-sm': {
-      fontFamily: '"Founders Grotesk Condensed"',
       fontSize: '0.75rem',
       lineHeight: '0.75rem',
       letterSpacing: '.1em',
