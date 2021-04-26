@@ -3,103 +3,83 @@ import * as CSS from 'csstype';
 const latinUnicodeRange =
   'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD';
 
-export const foundersGroteskRegular: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
+export const nunitoRegular: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
   src: [
-    'url(/fonts/founders-grotesk-web-regular.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-regular.woff) format("woff")',
-    `url(/fonts/raleway-web-medium.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-medium.woff) format("woff")`,
+    'url(/fonts/nunito-regular-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-regular-webfont.woff) format("woff")',
   ].join(', '),
-  unicodeRange: latinUnicodeRange,
 };
 
-export const foundersGroteskRegularItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
+export const nunitoMedium: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: [
+    'url(/fonts/nunito-medium-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-medium-webfont.woff) format("woff")',
+  ].join(', '),
+};
+
+export const nunitoRegularItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
   src: [
-    'url(/fonts/founders-grotesk-web-regular-italic.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-regular-italic.woff) format("woff")',
-    `url(/fonts/raleway-web-medium-italic.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-medium-italic.woff) format("woff")`,
+    'url(/fonts/nunito-italic-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-italic-webfont.woff) format("woff")',
   ].join(', '),
-  unicodeRange: latinUnicodeRange,
 };
 
-export const foundersGroteskMedium: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
-  fontStyle: 'normal',
-  fontDisplay: 'swap',
-  fontWeight: 500,
-  src: [
-    'url(/fonts/founders-grotesk-web-medium.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-medium.woff) format("woff")',
-    `url(/fonts/raleway-web-bold.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-bold.woff) format("woff")`,
-  ].join(','),
-  unicodeRange: latinUnicodeRange,
-};
-
-export const foundersGroteskMediumItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
+export const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
-  fontWeight: 500,
+  fontWeight: 800,
   src: [
-    'url(/fonts/founders-grotesk-web-medium-italic.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-medium-italic.woff) format("woff")',
-    `url(/fonts/raleway-web-bold-italic.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-bold-italic.woff) format("woff")`,
-  ].join(','),
-  unicodeRange: latinUnicodeRange,
+    'url(/fonts/nunito-extrabolditalic-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-extrabolditalic-webfont.woff) format("woff")',
+  ].join(', '),
 };
 
-export const foundersGroteskBold: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
+export const nunitoExtrabold: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
-  fontWeight: 700,
+  fontWeight: 800,
   src: [
-    'url(/fonts/founders-grotesk-web-bold.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-bold.woff) format("woff")',
-    `url(/fonts/raleway-web-extrabold.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-extrabold.woff) format("woff")`,
-  ].join(','),
-  unicodeRange: latinUnicodeRange,
+    'url(/fonts/nunito-extrabold-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-extrabold-webfont.woff) format("woff")',
+  ].join(', '),
 };
 
-export const foundersGroteskBoldItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk"',
+export const nunitoBoldItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
   src: [
-    'url(/fonts/founders-grotesk-web-bold-italic.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-web-bold-italic.woff) format("woff")',
-    `url(/fonts/raleway-web-extrabold-italic.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-extrabold-italic.woff) format("woff")`,
-  ].join(','),
-  unicodeRange: latinUnicodeRange,
+    'url(/fonts/nunito-bolditalic-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-bolditalic-webfont.woff) format("woff")',
+  ].join(', '),
 };
 
-export const foundersGroteskCondensedSemibold: CSS.AtRule.FontFace = {
-  fontFamily: '"Founders Grotesk Condensed"',
+export const nunitoBold: CSS.AtRule.FontFace = {
+  fontFamily: '"nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
-  fontWeight: 600,
+  fontWeight: 700,
   src: [
-    'url(/fonts/founders-grotesk-condensed-web-semibold.woff2) format("woff2")',
-    'url(/fonts/founders-grotesk-condensed-web-semibold.woff) format("woff")',
-    `url(/fonts/raleway-web-bold.woff2) format("woff2")`,
-    `url(/fonts/raleway-web-bold.woff) format("woff")`,
-  ].join(','),
-  unicodeRange: latinUnicodeRange,
+    'url(/fonts/nunito-bold-webfont.woff2) format("woff2")',
+    'url(/fonts/nunito-bold-webfont.woff) format("woff")',
+  ].join(', '),
 };
+
 
 export const sourceCodeProRegular: CSS.AtRule.FontFace = {
   fontFamily: '"Source Code Pro"',

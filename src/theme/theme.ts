@@ -1,13 +1,13 @@
 import { createMuiTheme, ThemeOptions } from '@material-ui/core';
 import { colors } from './colors';
 import {
-  foundersGroteskRegular,
-  foundersGroteskRegularItalic,
-  foundersGroteskMedium,
-  foundersGroteskMediumItalic,
-  foundersGroteskBold,
-  foundersGroteskBoldItalic,
-  foundersGroteskCondensedSemibold,
+  nunitoRegular,
+  nunitoRegularItalic,
+  nunitoMedium,
+  nunitoBold,
+  nunitoBoldItalic,
+  nunitoExtrabold,
+  nunitoExtraboldItalic,
   sourceCodeProRegular,
 } from './fonts';
 
@@ -91,13 +91,13 @@ export const prendaTheme: ThemeOptions = {
     MuiCssBaseline: {
       '@global': {
         '@font-face': [
-          foundersGroteskRegular,
-          foundersGroteskRegularItalic,
-          foundersGroteskMedium,
-          foundersGroteskMediumItalic,
-          foundersGroteskBold,
-          foundersGroteskBoldItalic,
-          foundersGroteskCondensedSemibold,
+          nunitoRegular,
+          nunitoRegularItalic,
+          nunitoMedium,
+          nunitoBold,
+          nunitoBoldItalic,
+          nunitoExtrabold,
+          nunitoExtraboldItalic,
           sourceCodeProRegular,
         ],
       },
