@@ -109,6 +109,7 @@ export const LargeLabelOnly = () => (
   </Button>
 );
 
+// example of event handling
 function handleOnClick() {
   console.log('You clicked me!');
 }
