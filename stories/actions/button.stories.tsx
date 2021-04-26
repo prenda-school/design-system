@@ -108,3 +108,12 @@ export const LargeLabelOnly = () => (
     {buttonText}
   </Button>
 );
+
+function handleOnClick() {
+  console.log('You clicked me!');
+}
+export const LargeLabelOnlyOnClick = () => (
+  <Button size="large" labelOnly={true} onClick={handleOnClick}>
+    {buttonText}
+  </Button>
+);

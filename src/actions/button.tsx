@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, ReactEventHandler } from 'react';
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -145,18 +145,20 @@ export type ButtonProps = {
   icon?: ReactElement;
   outlined?: boolean;
   labelOnly?: boolean;
+  onClick?: ReactEventHandler;
 };
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { size, disabled, icon, outlined, labelOnly } = props;
+  const { size, disabled, icon, outlined, labelOnly, ...other } = props;
   return (
     <StyledButton
+      size={size}
       disabled={disabled}
       outlined={outlined}
       icon={icon}
       labelOnly={labelOnly}
       disableFocusRipple={true}
-      {...props}
+      {...other}
     >
       {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
     </StyledButton>
