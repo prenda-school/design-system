@@ -1,7 +1,7 @@
 import * as CSS from 'csstype';
 
 export const nunitoRegular: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
@@ -12,7 +12,7 @@ export const nunitoRegular: CSS.AtRule.FontFace = {
 };
 
 export const nunitoMedium: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 500,
@@ -23,7 +23,7 @@ export const nunitoMedium: CSS.AtRule.FontFace = {
 };
 
 export const nunitoRegularItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
@@ -34,7 +34,7 @@ export const nunitoRegularItalic: CSS.AtRule.FontFace = {
 };
 
 export const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 800,
@@ -45,7 +45,7 @@ export const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
 };
 
 export const nunitoExtrabold: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 800,
@@ -56,7 +56,7 @@ export const nunitoExtrabold: CSS.AtRule.FontFace = {
 };
 
 export const nunitoBoldItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
@@ -67,7 +67,7 @@ export const nunitoBoldItalic: CSS.AtRule.FontFace = {
 };
 
 export const nunitoBold: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 700,
@@ -78,7 +78,7 @@ export const nunitoBold: CSS.AtRule.FontFace = {
 };
 
 export const nunitoSemibold: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
@@ -89,7 +89,7 @@ export const nunitoSemibold: CSS.AtRule.FontFace = {
 };
 
 export const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
-  fontFamily: '"nunito"',
+  fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 600,
