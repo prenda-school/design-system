@@ -98,8 +98,10 @@ const SparkInput: FC<InputProps> = props => {
 
   // TODO: throw a helpful error when detecting that both error & success props
   // are `true` -- look to MUI's method of throwing errors as an inspiration.
-  if (props.error && props.success) {
-    console.warn("@prenda/spark SparkInput detected both error and success props as `true`")
+  if (process.env.NODE_ENV !== 'production' && props.error && props.success) {
+    console.warn(
+      '@prenda/spark SparkInput detected both error and success props as `true`'
+    );
   }
 
   return (
