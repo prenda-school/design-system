@@ -3,7 +3,7 @@ import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { StoryTitle, TextFormatter, StorySubTitle } from '../story-util';
 
-import { Input } from '../../dist';
+import { Input } from '../../src';
 
 export default {
   title: 'prenda-spark/Input',
