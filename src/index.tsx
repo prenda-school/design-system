@@ -23,14 +23,6 @@ export {
   CreateIllustration,
 } from './illustrations/';
 export {
-  PrendaWordmarkDark,
-  PrendaWordmarkLight,
-  PrendaMonogramDark,
-  PrendaMonogramLight,
-  SparkLogoDark,
-  SparkLogoLight
-} from './logos';
-export {
   CaretUpIcon,
   CaretDownIcon,
   CaretLeftIcon,
