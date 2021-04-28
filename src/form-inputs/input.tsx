@@ -18,7 +18,7 @@ export type InputProps = {
   onChange: (val: string) => void;
 };
 
-const InputLabel = withStyles(theme => ({
+const InputLabel = withStyles((theme) => ({
   root: {
     color: theme.palette.background.lightContrastText,
     'margin-bottom': '0.2rem',
@@ -31,7 +31,7 @@ const InputLabel = withStyles(theme => ({
   },
 }))(MatInputLabel);
 
-const InputHelperText = withStyles(theme => ({
+const InputHelperText = withStyles((theme) => ({
   root: {
     color: theme.palette.background.lightLowContrastText,
     'font-size': '10px',
@@ -39,7 +39,7 @@ const InputHelperText = withStyles(theme => ({
   },
 }))(MatFormHelperText);
 
-const matTextAreaUseStyles = makeStyles(theme => {
+const matTextAreaUseStyles = makeStyles((theme) => {
   const { palette } = theme;
   const { green, blue, red } = theme.palette.tertiary;
   return {
@@ -82,7 +82,7 @@ const matTextAreaUseStyles = makeStyles(theme => {
   };
 });
 
-export const Input: FC<InputProps> = props => {
+export const Input: FC<InputProps> = (props) => {
   const [inputVal, setInputVal] = React.useState('');
   const [isError, setIsError] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);

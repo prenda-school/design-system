@@ -18,7 +18,7 @@ const StyledIcon = (props: StyledIconProps) => {
   });
 };
 
-const StyledButton = withStyles(theme => {
+const StyledButton = withStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   const { background } = theme.palette;
 
@@ -147,7 +147,7 @@ export type ButtonProps = {
   labelOnly?: boolean;
 };
 
-export const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = (props) => {
   const { size, disabled, icon, outlined, labelOnly } = props;
   return (
     <StyledButton

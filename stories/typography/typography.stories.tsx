@@ -91,7 +91,7 @@ function getText(variant: string): string {
   return text[variant.split('-')[0] as TextKey] || text.paragraph;
 }
 
-const Template: Story<TypographyProps> = args => (
+const Template: Story<TypographyProps> = (args) => (
   <Typography {...args}>{getText(String(args.variant))}</Typography>
 );
 export const ConfigurableTypography = Template.bind({});
