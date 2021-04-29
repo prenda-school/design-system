@@ -58,13 +58,12 @@ const Input = styled(MuiInput)`
 
       // inner input / textarea
       & .MuiInput-input {
-        color: ${theme.palette.background.lightLowContrastText};
         padding: 0;
+        &::placeholder {
+          opacity: 1;
+          color: ${theme.palette.background.lightLowContrastText};
+        }
       }
-      // & .MuiInput-inputMultiline {
-      //   color: ${theme.palette.background.lightLowContrastText};
-      //   padding: 0;
-      // }
 
       &.Mui-focused {
         border-color: ${theme.palette.tertiary.blue[3]};
