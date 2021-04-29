@@ -130,6 +130,19 @@ const Radio = styled(MuiRadio)`
       &.Mui-focusVisible {
         color: ${theme.palette.tertiary.blue[3]};
         background-color: ${theme.palette.tertiary.blue[1]};
+        & .MuiSvgIcon-root {
+          transform: scale(0.9);
+          transition: ${theme.transitions.create('transform', {
+            easing: theme.transitions.easing.easeIn,
+            duration: theme.transitions.duration.shortest,
+          })};
+          &.dot {
+            color: ${theme.palette.tertiary.blue[1]};
+          }
+        }
+        & .checked .dot {
+          color: ${theme.palette.tertiary.blue[3]};
+        }
       }
       
       &.Mui-checked {
