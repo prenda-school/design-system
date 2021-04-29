@@ -22,7 +22,7 @@ export interface InputProps extends MuiInputProps {
 const InputLabel = styled(MuiInputLabel)`
   ${({ theme }: { theme: Theme }) => `
     color: ${theme.palette.background.lightContrastText};
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem; // 8px
     font-weight: 700;
     font-size: 1rem; // 16px
     line-height: 1.125rem; // 18px
@@ -35,9 +35,10 @@ const InputLabel = styled(MuiInputLabel)`
 
 const FormHelperText = styled(MuiFormHelperText)`
   ${({ theme }: { theme: Theme }) => `
-    color: ${theme.palette.background.lightContrastText};
+    color: ${theme.palette.background.lightLowContrastText};
     font-size: 0.75rem; // 12px
     line-height 1.25rem; // 20px
+    margin-top: 0.5rem: // 8px
   `}
 `;
 
@@ -49,22 +50,27 @@ const Input = styled(MuiInput)`
       border-width: 2px;
       border-style: solid;
       border-color: ${theme.palette.neutral.mediumGrey};
-      border-radius: 8px;
+      border-radius: 16px;
       width: 20rem; // 320px
+      padding: .75rem 1rem;
+      font-size: 1rem; // 16px
+      line-height: 1.125rem; // 18px
 
+      // inner input / textarea
       & .MuiInput-input {
-        color: rgba(7, 46, 68, 0.72);
-        padding-left: 1rem; // 16px
+        color: ${theme.palette.background.lightLowContrastText};
+        padding: 0;
       }
-      & .MuiInput-inputMultiline {
-        resize: both;
-      }
+      // & .MuiInput-inputMultiline {
+      //   color: ${theme.palette.background.lightLowContrastText};
+      //   padding: 0;
+      // }
 
       &.Mui-focused {
         border-color: ${theme.palette.tertiary.blue[3]};
         box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
         & .MuiInput-input {
-          color: ${theme.palette.tertiary.blue[5]};
+          color: ${theme.palette.background.lightContrastText};
         }
       }
       &.Mui-error {

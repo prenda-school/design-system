@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { StoryTitle, TextFormatter, StorySubTitle } from '../story-util';
 
-import { Input, InputProps } from '../../dist';
+import { Input, InputProps } from '../../src';
 
 export default {
   title: 'prenda-spark/Input',
@@ -16,6 +16,9 @@ export default {
     label: {
       control: 'text',
     },
+    placeholder: {
+      control: 'text',
+    },
     helperText: {
       control: 'text',
     },
@@ -25,17 +28,21 @@ export default {
     success: {
       control: 'boolean',
     },
+    disabled: {
+      control: 'boolean',
+    },
     multiline: {
       control: 'boolean',
     },
-    disabled: {
-      control: 'boolean',
+    rows: {
+      control: 'number',
     },
   },
   args: {
     id: 'sample',
-    label: 'Label',
-    helperText: 'Helper text',
+    label: 'Input label',
+    placeholder: 'Placeholder',
+    helperText: 'Optional message',
   },
 } as Meta;
 
