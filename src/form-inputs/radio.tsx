@@ -1,84 +1,169 @@
 import React, { FC } from 'react';
-import { Radio as MatRadio, FormControlLabel } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import {
+  Radio as MuiRadio,
+  RadioProps as MuiRadioProps,
+  FormControlLabel as MuiFormControlLabel,
+  Theme,
+} from '@material-ui/core';
+import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
+import styled from 'styled-components';
+import { createSvgIcon } from '@material-ui/core';
+import clsx from 'clsx';
 
-export type RadioProps = {
-  disabled?: boolean;
-  checked?: boolean;
-  label: React.ReactNode;
-  value: string;
-  name: string;
-};
+// Recreation of Material-UI's internal RadioButton component, but with our icons (bit larger at 26x26, no empty border space)
+const StyledSpan = styled.span`
+  ${({ theme }) => `
+    position: relative;
+    display: flex;
+    border-radius: 50%;
+    
+    // Adjust for irregular svg size of radio unchecked button 
+    height: 26px;
+    width: 26px;
+    & .MuiSvgIcon-root{
+      width: 26px;
+      height: 26px;
+      background-color: white;
+    }
+    &:hover {
+      // color: ${theme.palette.background.lightContrastText};
+      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+    }
 
-const useStyles = makeStyles(theme => {
-  const { blue } = theme.palette.tertiary;
-  const { palette } = theme;
-  return {
-    radioRoot: {
-      '&&&:hover': { backgroundColor: 'inherit' }, // Get rid of MaterialUI hover (had to make the selector more specific)
-    },
-    radio: {
-      backgroundColor: palette.background.white,
-      border: `2px solid ${palette.neutral.darkGrey}`,
-      borderRadius: '50%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '20px',
-      height: '20px',
-      '.Mui-disabled &': {
-        backgroundColor: palette.neutral.mediumGrey,
-      },
-      'label:hover:not(.Mui-disabled) &': {
-        borderColor: palette.brand.blue,
-      },
-      '.Mui-checked &': {
-        borderColor: blue[3],
-      },
-      'input:focus ~ &': {
-        boxShadow: `0px 0px 0px 4px ${palette.brand.lightBlue}`,
-      },
-    },
-    checkedRadioCenter: {
-      backgroundColor: blue[3],
-      borderRadius: '50%',
-      width: '14px',
-      height: '14px',
-    },
-    label: {
-      color: 'rgba(7, 46, 68, 0.72)',
-      'label:hover &': { color: palette.neutral.navy },
-      '.Mui-disabled:hover &': { color: 'rgba(7, 46, 68, 0.72)' },
-    },
-  };
-});
+    &.checked .dot {
+      transform: scale(1);
+      transition: ${theme.transitions.create('transform', {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.shortest,
+      })};
+    }
+    & .background {
+      border-radius: 50%;
+      // (M-UI) Scale applied to prevent dot misalignment in Safari
+      transform: scale(1);
+    }
+    & .dot {
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      transform: scale(0);
+      transition: ${theme.transitions.create('transform', {
+        easing: theme.transitions.easing.easeIn,
+        duration: theme.transitions.duration.shortest,
+      })};
+    }
+  `}
+`;
 
-export const Radio: FC<RadioProps> = props => {
-  const { disabled, checked, label } = props;
+// viewBox="0 0 26 26"
+const SparkRadioButtonUncheckedIcon = createSvgIcon(
+  <path d="M13 2C19.0751 2 24 6.92487 24 13C24 19.0751 19.0751 24 13 24C6.92487 24 2 19.0751 2 13C2 6.92487 6.92487 2 13 2ZM0 13C0 20.1797 5.8203 26 13 26C20.1797 26 26 20.1797 26 13C26 5.8203 20.1797 0 13 0C5.8203 0 0 5.8203 0 13Z" />,
+  'SparkRadioButtonUnchecked'
+);
 
-  const styles = useStyles();
+// viewBox="0 0 26 26"
+const SparkRadioButtonCheckedIcon = createSvgIcon(
+  <path
+    d="M13 21C17.4183 21 21 17.4183 21 13C21 8.58172 17.4183 5 13 5C8.58172 5 5 8.58172 5 13C5 17.4183 8.58172 21 13 21Z"
+  />,
+  'SparkRadioButtonChecked'
+);
 
-  const radioButton = <span className={styles.radio}></span>;
-  const checkedRadioButton = (
-    <span className={styles.radio}>
-      <span className={styles.checkedRadioCenter}></span>
-    </span>
+function SparkRadioButtonIcon(props: {
+  checked?: Boolean;
+  fontSize?: 'small' | 'default';
+}) {
+  const { checked, fontSize } = props;
+
+  return (
+    <StyledSpan className={clsx({ checked: checked })}>
+      <SparkRadioButtonUncheckedIcon
+        fontSize={fontSize}
+        className="background"
+        viewBox="0 0 26 26"
+      />
+      <SparkRadioButtonCheckedIcon
+        viewBox="0 0 26 26"
+        fontSize={fontSize}
+        className="dot"
+      />
+    </StyledSpan>
   );
+}
+
+// End custom radio button, Begin Radio
+
+export interface RadioProps extends MuiFormControlLabelProps {
+  ControlRadioProps?: MuiRadioProps;
+}
+
+const FormControlLabel = styled(MuiFormControlLabel)`
+  ${({ theme }: { theme: Theme }) => `
+    &.MuiFormControlLabel-root {
+      color: ${theme.palette.background.lightLowContrastText};
+      &:hover {
+        color: ${theme.palette.background.lightContrastText};
+      }
+      & .MuiTypography-root {
+        font-weight: 500; // FIXME: differs from Figma weight value, 600, BUT 600 is way too heavy
+      }
+
+      &.Mui-disabled {
+        color: ${theme.palette.neutral.darkGrey};
+      }
+    }
+  `}
+`;
+
+const Radio = styled(MuiRadio)`
+  ${({ theme }: { theme: Theme }) => `
+    &.MuiRadio-root {
+      padding: 0.25rem; // 8px
+      margin: 0.25rem;
+      background-color: unset;
+
+      color: ${theme.palette.neutral.darkGrey};
+
+      &:hover {
+        color: ${theme.palette.background.lightContrastText};
+        background-color: unset;
+      }
+
+      &.Mui-focusVisible {
+        color: ${theme.palette.tertiary.blue[3]};
+        background-color: ${theme.palette.tertiary.blue[1]};
+      }
+      
+      &.Mui-checked {
+        color: ${theme.palette.tertiary.blue[3]};
+      }
+      &.Mui-disabled {
+        & .MuiSvgIcon-root {
+          background-color: ${theme.palette.neutral.mediumGrey};
+          color: ${theme.palette.neutral.darkGrey};
+        }
+      }
+    }
+  `}
+`;
+
+const SparkRadio: FC<RadioProps> = props => {
+  const { ControlRadioProps, ...other } = props;
 
   return (
     <FormControlLabel
-      label={<span className={styles.label}>{label}</span>}
-      disabled={disabled}
-      checked={checked}
+      {...other}
       control={
-        <MatRadio
-          className={styles.radioRoot}
-          icon={radioButton}
-          checkedIcon={checkedRadioButton}
+        <Radio
           disableRipple={true}
-          {...props}
+          icon={<SparkRadioButtonIcon />}
+          checkedIcon={<SparkRadioButtonIcon checked />}
+          {...ControlRadioProps}
         />
       }
     />
   );
 };
+
+export { SparkRadio as Radio };
+  
