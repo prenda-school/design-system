@@ -25,18 +25,16 @@ const StyledSpan = styled.span`
       background-color: white;
     }
     label:hover & {
-      .SparkCheckboxIcon-unchecked {
+      color: ${theme.palette.tertiary.blue[3]};
+      :not(.SparkCheckboxIcon-checked) {
         color: ${theme.palette.background.lightContrastText};
-      }
-      .SparkCheckboxIcon-checked {
-        color: ${theme.palette.tertiary.blue[3]};
       }
     }
     input:focus ~ & {
       // color: ${theme.palette.background.lightContrastText};
       box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
 
-      &.SparkCheckboxIcon-unchecked .MuiSvgIcon-root {
+      &:not(.SparkCheckboxIcon-checked) .MuiSvgIcon-root {
         transform: scale(1);
         transition: ${theme.transitions.create('transform', {
           easing: theme.transitions.easing.easeIn,
@@ -108,7 +106,6 @@ function SparkCheckboxIcon(props: {
     <StyledSpan
       className={clsx('SparkCheckboxIcon-root', {
         'SparkCheckboxIcon-checked': checked,
-        'SparkCheckboxIcon-unchecked': !checked,
       })}
     >
       <SparkCheckboxUncheckedIcon
