@@ -36,13 +36,14 @@ const StyledSpan = styled.span`
     }
     input:focus ~ & {
       box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
-      &:not(.SparkRadioIcon-checked) & .MuiSvgIcon-root {
+      &:not(.SparkRadioIcon-checked) .MuiSvgIcon-root {
         transform: scale(0.9);
         transition: ${theme.transitions.create('transform', {
           easing: theme.transitions.easing.easeIn,
           duration: theme.transitions.duration.shortest,
         })};
         &.SparkRadioIcon-dot {
+          transform: scale(0.8);
           color: ${theme.palette.tertiary.blue[1]};
         }
       }
