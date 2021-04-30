@@ -26,23 +26,45 @@ const StyledSpan = styled.span`
       background-color: white;
     }
     &:hover {
-      // color: ${theme.palette.background.lightContrastText};
       box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
     }
+    label:hover & {
+      color: ${theme.palette.tertiary.blue[3]};
+      :not(.SparkRadioIcon-checked) {
+        color: ${theme.palette.background.lightContrastText};
+      }
+    }
+    input:focus ~ & {
+      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+      &:not(.SparkRadioIcon-checked) & .MuiSvgIcon-root {
+        transform: scale(0.9);
+        transition: ${theme.transitions.create('transform', {
+          easing: theme.transitions.easing.easeIn,
+          duration: theme.transitions.duration.shortest,
+        })};
+        &.SparkRadioIcon-dot {
+          color: ${theme.palette.tertiary.blue[1]};
+        }
+      }
+      & .SparkRadioIcon-checked .SparkRadioIcon-dot {
+        color: ${theme.palette.tertiary.blue[3]};
+      }
+    }
 
-    &.checked .dot {
+
+    &.SparkRadioIcon-checked .SparkRadioIcon-dot {
       transform: scale(1);
       transition: ${theme.transitions.create('transform', {
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.shortest,
       })};
     }
-    & .background {
+    & .SparkRadioIcon-circle {
       border-radius: 50%;
       // (M-UI) Scale applied to prevent dot misalignment in Safari
       transform: scale(1);
     }
-    & .dot {
+    & .SparkRadioIcon-dot {
       background-color: transparent;
       position: absolute;
       left: 0;
@@ -74,16 +96,20 @@ function SparkRadioButtonIcon(props: {
   const { checked, fontSize } = props;
 
   return (
-    <StyledSpan className={clsx({ checked: checked })}>
+    <StyledSpan
+      className={clsx('SparkRadioIcon-root', {
+        'SparkRadioIcon-checked': checked,
+      })}
+    >
       <SparkRadioButtonUncheckedIcon
         fontSize={fontSize}
-        className="background"
         viewBox="0 0 26 26"
+        className="SparkRadioIcon-circle"
       />
       <SparkRadioButtonCheckedIcon
-        viewBox="0 0 26 26"
         fontSize={fontSize}
-        className="dot"
+        viewBox="0 0 26 26"
+        className="SparkRadioIcon-dot"
       />
     </StyledSpan>
   );
@@ -95,6 +121,7 @@ export interface RadioProps extends MuiFormControlLabelProps {
   ControlRadioProps?: MuiRadioProps;
 }
 
+// REFACTOR: so far, same as refactored Radio's FormControlLabel, could combine at later state
 const FormControlLabel = styled(MuiFormControlLabel)`
   ${({ theme }: { theme: Theme }) => `
     &.MuiFormControlLabel-root {
@@ -104,8 +131,8 @@ const FormControlLabel = styled(MuiFormControlLabel)`
       }
       & .MuiTypography-root {
         font-weight: 500; // FIXME: differs from Figma weight value, 600, BUT 600 is way too heavy
+        line-height: 1.125rem;
       }
-
       &.Mui-disabled {
         color: ${theme.palette.neutral.darkGrey};
       }
@@ -116,8 +143,10 @@ const FormControlLabel = styled(MuiFormControlLabel)`
 const Radio = styled(MuiRadio)`
   ${({ theme }: { theme: Theme }) => `
     &.MuiRadio-root {
-      padding: 0.25rem; // 8px
+      // Split 8px of padding / margin so icon can use background-color instead of box-shadow
+      padding: 0.25rem;
       margin: 0.25rem;
+      // Clear M-UI's primary/secondary color bgcolor
       background-color: unset;
 
       color: ${theme.palette.neutral.darkGrey};
@@ -126,25 +155,10 @@ const Radio = styled(MuiRadio)`
         color: ${theme.palette.background.lightContrastText};
         background-color: unset;
       }
-
       &.Mui-focusVisible {
         color: ${theme.palette.tertiary.blue[3]};
         background-color: ${theme.palette.tertiary.blue[1]};
-        & .MuiSvgIcon-root {
-          transform: scale(0.9);
-          transition: ${theme.transitions.create('transform', {
-            easing: theme.transitions.easing.easeIn,
-            duration: theme.transitions.duration.shortest,
-          })};
-          &.dot {
-            color: ${theme.palette.tertiary.blue[1]};
-          }
-        }
-        & .checked .dot {
-          color: ${theme.palette.tertiary.blue[3]};
-        }
       }
-      
       &.Mui-checked {
         color: ${theme.palette.tertiary.blue[3]};
       }
@@ -177,4 +191,3 @@ const SparkRadio: FC<RadioProps> = props => {
 };
 
 export { SparkRadio as Radio };
-  
