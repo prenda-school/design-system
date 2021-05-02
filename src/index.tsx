@@ -1,4 +1,4 @@
-export { Button, ButtonProps } from './actions/';
+export { Button, ButtonProps, IconButton, IconButtonProps } from './actions/';
 export {
   Menu,
   MenuProps,
@@ -28,7 +28,7 @@ export {
   PrendaMonogramDark,
   PrendaMonogramLight,
   SparkLogoDark,
-  SparkLogoLight
+  SparkLogoLight,
 } from './logos';
 export {
   CaretUpIcon,
