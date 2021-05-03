@@ -24,13 +24,13 @@ export interface IconButtonProps
 // TODO: file Figma issue: all borders should be "outside" strokes; otherwise they should be box-shadows; the main issue produced is spacing discrepancies (e.g. 12px of padding, but a center stroke of 2px width cuts the padding by 1px inside to 11px in effect). NOTE: this does not apply to icons
 
 export const ButtonBase = styled(MuiButtonBase)`
-  ${({ theme }: { theme: Theme }) => `
+         ${({ theme }: { theme: Theme }) => `
     font-family: ${theme.typography.button.fontFamily};
     font-weight: 700;
     border-radius: 8px;
     border-width: 2px;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 8px;
 
     // FROM-MUI
     text-align: center;
@@ -98,7 +98,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       justify-content: inherit;
     }
   `}
-`;
+       `;
 
 const SparkIconButton: FC<IconButtonProps> = ({
   className,
