@@ -27,7 +27,7 @@ export interface ButtonProps
 // TODO: file Figma issue: all borders should be "outside" strokes; otherwise they should be box-shadows; the main issue produced is spacing discrepancies (e.g. 12px of padding, but a center stroke of 2px width cuts the padding by 1px inside to 11px in effect). NOTE: this does not apply to icons
 
 export const ButtonBase = styled(MuiButtonBase)`
-  ${({ theme }: { theme: Theme }) => `
+         ${({ theme }: { theme: Theme }) => `
     font-family: ${theme.typography.button.fontFamily};
 
     font-size: 1rem; // 16px;
@@ -82,15 +82,16 @@ export const ButtonBase = styled(MuiButtonBase)`
         background-color: ${theme.palette.tertiary.blue[1]};
       }
     }
+    // Y-paddings are subtracted by 2 to account for border-width
     &.SparkButton-sizeLarge {
       font-size: 1.125rem; // 18px
-      padding: .75rem 1rem; // 12px 16px
+      padding: .675rem 1rem; // 12-2px 16px
       & .SparkButton-content {
         height: 1.5rem; // 24px
       }
     }
     &.SparkButton-sizeMedium {
-      padding: .375rem 1rem; // 6px 16px
+      padding: .25rem 1rem; // 6-2px 16px
       & .SparkButton-content {
         height: 1.25rem; // 20px
       }
@@ -98,7 +99,7 @@ export const ButtonBase = styled(MuiButtonBase)`
     &.SparkButton-sizeSmall {
       font-size: 0.75rem; // 12px
       line-height: 0.75rem; // 12px
-      padding: .25rem 1rem; // 4px 16px
+      padding: .125rem 1rem; // 4-2px 16px
       & .SparkButton-content {
         height: 1rem; // 16px
       }
@@ -131,7 +132,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       font-size: 1.5rem; // 24px
     }
   `}
-`;
+       `;
 
 const SparkButton: FC<ButtonProps> = ({
   className,
