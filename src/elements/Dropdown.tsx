@@ -64,6 +64,10 @@ const StyledMenuItem = styled(MuiMenuItem)`
     min-width: 228px;
     height: 2.125rem; // 34px;
     min-height: 2.125rem;
+    // TODO: Figma says 600 but that appears too heavy
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.125rem;
     // margins collapse with other menu items
     margin: 4px 0;
 
