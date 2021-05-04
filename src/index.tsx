@@ -1,4 +1,4 @@
-export { Button, ButtonProps, IconButton, IconButtonProps } from './actions/';
+export { Button, ButtonProps, IconButton, IconButtonProps } from './elements';
 export {
   Menu,
   MenuProps,

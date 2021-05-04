@@ -2,7 +2,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { IconButton, IconButtonProps } from '../../src';
-import { Icons } from '../../src/actions/button';
+import { Icons } from '../../src/elements/button';
 
 export default {
   title: 'prenda-spark/IconButton',
