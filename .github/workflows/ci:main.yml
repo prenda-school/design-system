@@ -1,0 +1,25 @@
+name: Continuous Integration Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          
+      - name: NPM Clean Install
+        run: npm ci
+
+      - name: NPM Test
+        run: npm test
