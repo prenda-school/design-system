@@ -1,5 +1,4 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { IconButton, IconButtonProps } from '../../src';
 import { Icons } from '../../src/actions/button';
@@ -40,6 +39,6 @@ interface TemplateIconButtonProps extends IconButtonProps {
 }
 
 const Template = (args: TemplateIconButtonProps) => (
-  <IconButton {...args}>{Icons[args.children]}</IconButton>
+  <IconButton {...args}>{Icons[args.children || 'caret-down']}</IconButton>
 );
 export const ConfigurableInput = Template.bind({});
