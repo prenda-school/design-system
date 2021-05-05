@@ -2,7 +2,7 @@
 
 exports[`Storyshots prenda-spark/Button Configurable Button 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-1 WithStyles(ForwardRef(Button))-root-2 MuiButton-text"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -19,7 +19,7 @@ exports[`Storyshots prenda-spark/Button Configurable Button 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -28,7 +28,7 @@ exports[`Storyshots prenda-spark/Button Configurable Button 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Label Only Large 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-31 WithStyles(ForwardRef(Button))-root-32 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge Mui-disabled Mui-disabled"
   disabled={true}
   labelOnly={true}
   onBlur={[Function]}
@@ -46,7 +46,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Large 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -55,7 +55,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Label Only Medium 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-29 WithStyles(ForwardRef(Button))-root-30 MuiButton-text Mui-disabled Mui-disabled"
   disabled={true}
   labelOnly={true}
   onBlur={[Function]}
@@ -73,7 +73,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Medium 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -82,7 +82,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Label Only Small 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-27 WithStyles(ForwardRef(Button))-root-28 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
   disabled={true}
   labelOnly={true}
   onBlur={[Function]}
@@ -100,7 +100,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Small 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -109,7 +109,7 @@ exports[`Storyshots prenda-spark/Button Disabled Label Only Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-19 WithStyles(ForwardRef(Button))-root-20 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -126,7 +126,7 @@ exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -135,7 +135,7 @@ exports[`Storyshots prenda-spark/Button Disabled Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-17 WithStyles(ForwardRef(Button))-root-18 MuiButton-text Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -152,7 +152,7 @@ exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -161,7 +161,7 @@ exports[`Storyshots prenda-spark/Button Disabled Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-25 WithStyles(ForwardRef(Button))-root-26 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -179,7 +179,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -188,7 +188,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-23 WithStyles(ForwardRef(Button))-root-24 MuiButton-text Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -206,7 +206,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -215,7 +215,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-21 WithStyles(ForwardRef(Button))-root-22 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -233,7 +233,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -242,7 +242,7 @@ exports[`Storyshots prenda-spark/Button Disabled Outlined Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Disabled Small 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall Mui-disabled"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-15 WithStyles(ForwardRef(Button))-root-16 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
   disabled={true}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -259,7 +259,7 @@ exports[`Storyshots prenda-spark/Button Disabled Small 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -268,7 +268,7 @@ exports[`Storyshots prenda-spark/Button Disabled Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Large 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-7 WithStyles(ForwardRef(Button))-root-8 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -285,7 +285,7 @@ exports[`Storyshots prenda-spark/Button Large 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -294,7 +294,7 @@ exports[`Storyshots prenda-spark/Button Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Large Icon 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-37 WithStyles(ForwardRef(Button))-root-38 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
   disabled={false}
   icon={<Memo />}
   onBlur={[Function]}
@@ -312,14 +312,30 @@ exports[`Storyshots prenda-spark/Button Large Icon 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
-  />
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
 </button>
 `;
 
 exports[`Storyshots prenda-spark/Button Large Label Only 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-43 WithStyles(ForwardRef(Button))-root-44 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
   disabled={false}
   labelOnly={true}
   onBlur={[Function]}
@@ -337,7 +353,7 @@ exports[`Storyshots prenda-spark/Button Large Label Only 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -346,7 +362,7 @@ exports[`Storyshots prenda-spark/Button Large Label Only 1`] = `
 
 exports[`Storyshots prenda-spark/Button Medium 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-5 WithStyles(ForwardRef(Button))-root-6 MuiButton-text"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -363,7 +379,7 @@ exports[`Storyshots prenda-spark/Button Medium 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -372,7 +388,7 @@ exports[`Storyshots prenda-spark/Button Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Medium Icon 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-35 WithStyles(ForwardRef(Button))-root-36 MuiButton-text"
   disabled={false}
   icon={<Memo />}
   onBlur={[Function]}
@@ -390,14 +406,30 @@ exports[`Storyshots prenda-spark/Button Medium Icon 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
-  />
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "16px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
 </button>
 `;
 
 exports[`Storyshots prenda-spark/Button Medium Label Only 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-41 WithStyles(ForwardRef(Button))-root-42 MuiButton-text"
   disabled={false}
   labelOnly={true}
   onBlur={[Function]}
@@ -415,7 +447,7 @@ exports[`Storyshots prenda-spark/Button Medium Label Only 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -424,7 +456,7 @@ exports[`Storyshots prenda-spark/Button Medium Label Only 1`] = `
 
 exports[`Storyshots prenda-spark/Button Outlined Large 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeLarge"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-13 WithStyles(ForwardRef(Button))-root-14 MuiButton-text MuiButton-textSizeLarge MuiButton-sizeLarge"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -442,7 +474,7 @@ exports[`Storyshots prenda-spark/Button Outlined Large 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -451,7 +483,7 @@ exports[`Storyshots prenda-spark/Button Outlined Large 1`] = `
 
 exports[`Storyshots prenda-spark/Button Outlined Medium 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeMedium"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-11 WithStyles(ForwardRef(Button))-root-12 MuiButton-text"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -469,7 +501,7 @@ exports[`Storyshots prenda-spark/Button Outlined Medium 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -478,7 +510,7 @@ exports[`Storyshots prenda-spark/Button Outlined Medium 1`] = `
 
 exports[`Storyshots prenda-spark/Button Outlined Small 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-9 WithStyles(ForwardRef(Button))-root-10 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -496,7 +528,7 @@ exports[`Storyshots prenda-spark/Button Outlined Small 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -505,7 +537,7 @@ exports[`Storyshots prenda-spark/Button Outlined Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Small 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-3 WithStyles(ForwardRef(Button))-root-4 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
   disabled={false}
   onBlur={[Function]}
   onDragLeave={[Function]}
@@ -522,7 +554,7 @@ exports[`Storyshots prenda-spark/Button Small 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
@@ -531,7 +563,7 @@ exports[`Storyshots prenda-spark/Button Small 1`] = `
 
 exports[`Storyshots prenda-spark/Button Small Icon 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-33 WithStyles(ForwardRef(Button))-root-34 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
   disabled={false}
   icon={<Memo />}
   onBlur={[Function]}
@@ -549,14 +581,30 @@ exports[`Storyshots prenda-spark/Button Small Icon 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
-  />
+    className="MuiButton-label"
+  >
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      style={
+        Object {
+          "maxWidth": "12px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
 </button>
 `;
 
 exports[`Storyshots prenda-spark/Button Small Label Only 1`] = `
 <button
-  className="MuiButtonBase-root SparkButton-root SparkButton-variantSolid SparkButton-sizeSmall"
+  className="MuiButtonBase-root MuiButton-root WithStyles(ForwardRef(Button))-root-39 WithStyles(ForwardRef(Button))-root-40 MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
   disabled={false}
   labelOnly={true}
   onBlur={[Function]}
@@ -574,7 +622,7 @@ exports[`Storyshots prenda-spark/Button Small Label Only 1`] = `
   type="button"
 >
   <span
-    className="SparkButton-content"
+    className="MuiButton-label"
   >
     PizzaTaco
   </span>
