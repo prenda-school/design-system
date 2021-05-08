@@ -66,11 +66,11 @@ export const CaretUpIconSmallNavyHi = () => (
   <CaretUpIcon fontSize="small" color="navy" contrast="high" />
 );
 
-export const CaretUpIconSmallGreyHi = () => (
+export const CaretUpIconLargeGreyHi = () => (
   <CaretUpIcon fontSize="large" color="grey" contrast="high" />
 );
 
-export const CaretDownIconSmallGreyHi = () => (
+export const CaretDownIconLargeGreyHi = () => (
   <CaretDownIcon fontSize="large" color="grey" contrast="high" />
 );
 
