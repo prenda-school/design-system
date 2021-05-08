@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, ReactEventHandler } from 'react';
 import { Button as MatButton } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -18,7 +18,7 @@ const StyledIcon = (props: StyledIconProps) => {
   });
 };
 
-const StyledButton = withStyles(theme => {
+const StyledButton = withStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   const { background } = theme.palette;
 
@@ -145,18 +145,20 @@ export type ButtonProps = {
   icon?: ReactElement;
   outlined?: boolean;
   labelOnly?: boolean;
+  onClick?: ReactEventHandler;
 };
 
-export const Button: FC<ButtonProps> = props => {
-  const { size, disabled, icon, outlined, labelOnly } = props;
+export const Button: FC<ButtonProps> = (props) => {
+  const { size, disabled, icon, outlined, labelOnly, ...other } = props;
   return (
     <StyledButton
-      disabled={disabled}
       size={size}
+      disabled={disabled}
       outlined={outlined}
       icon={icon}
       labelOnly={labelOnly}
       disableFocusRipple={true}
+      {...other}
     >
       {icon ? <StyledIcon size={size} icon={icon} /> : props.children}
     </StyledButton>
