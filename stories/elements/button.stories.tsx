@@ -1,13 +1,13 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Button, ButtonProps } from '../../src';
+import { Button, ButtonProps } from '../../dist';
 import { Icons } from '../../src/elements/button';
 
 export default {
   title: 'prenda-spark/Button',
   component: Button,
   argTypes: {
+    onClick: { actions: 'clicked' },
     variant: {
       control: {
         type: 'select',

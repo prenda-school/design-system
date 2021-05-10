@@ -1,4 +1,5 @@
-export { TertiaryColor, muiTheme, prendaTheme } from './theme';
+export { muiTheme, prendaTheme } from './theme';
+export type { TertiaryColor } from './theme';
 export {
   colors,
   colorsPrendaBlue,

@@ -17,13 +17,36 @@ Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react compon
 
 ## Development
 
-Install packages in root dir using `nvm use && npm i` then run `npm run build` then run `npm run storybook`. Navigate to `localhost:6006`. If a component you are working on doesn't have a story then you can add one in the `/stories/`.
+1. Clone the repository.
+2. Ensure you have Node Version Manager installed on your system ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
+3. Run `> nvm use` to ensure specified node version is used.
+4. Ensure you have Yarn 1 installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
+5. Run `> yarn` to install dependencies.
+6. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
+7. Open another terminal
+8. Run `> yarn storybook` to start the Storybook component explorer on port 6006 (should automatically open `http://localhost:6006/` in your default browser) (loads stories from `./stories`).
 
-Implement components in `/src`.
+Now you can develop components within the `src/` directory and see changes update in realtime.
+
+### Writing Stories
+
+1. Ensure you are importing Spark modules from the build output (`/dist`) and not the source (`/src`)
+
+```diff
+# FILE: /stories/button.stories.tsx
+- import { Button } from '../src'
++ import { Button } from '../dist'
+```
+
+#### Notes
+
+- Ensure
+- Yarn is used over NPM so that ["resolutions"](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) can be specified in `./package.json`. NPM does not have this capability yet.
+- Yarn has no direct equivalent of `> npm ci`, but you can use `> rm -rf ./node_modules && yarn install --frozen-lockfile` if the functionality is needed.
 
 ## Testing
 
-Run tests with `npm run test`. We are using snapshot testing (https://storybook.js.org/docs/react/workflows/snapshot-testing). Run `npm run test:updateSnapshot` to update the snapshots.
+Run tests with `yarn test`. We are using snapshot testing (https://storybook.js.org/docs/react/workflows/snapshot-testing). Run `yarn run test:updateSnapshot` to update the snapshots.
 
 ## WIP and TODOS
 

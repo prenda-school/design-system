@@ -27,7 +27,7 @@ export interface ButtonProps
 // TODO: file Figma issue: all borders should be "outside" strokes; otherwise they should be box-shadows; the main issue produced is spacing discrepancies (e.g. 12px of padding, but a center stroke of 2px width cuts the padding by 1px inside to 11px in effect). NOTE: this does not apply to icons
 
 export const ButtonBase = styled(MuiButtonBase)`
-         ${({ theme }: { theme: Theme }) => `
+  ${({ theme }: { theme: Theme }) => `
     font-family: ${theme.typography.button.fontFamily};
 
     font-size: 1rem; // 16px;
@@ -37,7 +37,7 @@ export const ButtonBase = styled(MuiButtonBase)`
     border-width: 2px;
     border-style: solid;
 
-    // FROM-MUI
+      // FROM-MUI
     box-sizing: border-box;
     transition: ${theme.transitions.create(
       ['background-color', 'box-shadow', 'border'],
@@ -53,7 +53,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       opacity: 50%;
     }
 
-    &.SparkButton-variantSolid {
+        &.SparkButton-variantSolid {
       border-color: ${theme.palette.tertiary.blue[3]};
       background-color: ${theme.palette.tertiary.blue[3]};
       color: white;
@@ -105,7 +105,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       }
     }
 
-    & .SparkButton-content {
+        & .SparkButton-content {
       // FROM-MUI
       width: 100%; // Ensure the correct width for iOS Safari
       display: inherit;
@@ -113,7 +113,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       justify-content: inherit;
     }
 
-    & .SparkButton-startIcon {
+        & .SparkButton-startIcon {
       display: inherit;
       margin-right: .5rem; // 8px
     }
@@ -122,7 +122,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       margin-left: .5rem; // 8px
     }
 
-    & .SparkButton-iconSizeSmall {
+        & .SparkButton-iconSizeSmall {
       font-size: 1rem; // 16px
     }
     & .SparkButton-iconSizeMedium {
@@ -132,7 +132,7 @@ export const ButtonBase = styled(MuiButtonBase)`
       font-size: 1.5rem; // 24px
     }
   `}
-       `;
+`;
 
 const SparkButton: FC<ButtonProps> = ({
   className,

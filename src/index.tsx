@@ -1,41 +1,33 @@
-export {
-  Button,
-  ButtonProps,
-  IconButton,
-  IconButtonProps,
+export { Button, IconButton,
   DropdownContext,
-  DropdownContextProps,
   DropdownButton,
-  DropdownButtonProps,
   DropdownMenu,
-  DropdownMenuProps,
   DropdownMenuItem,
+  DropdownDivider, } from './elements';
+export type {
+  ButtonProps,
+  IconButtonProps,
+  DropdownContextProps,
+  DropdownButtonProps,
+  DropdownMenuProps,
   DropdownMenuItemProps,
-  DropdownDivider,
 } from './elements';
-export {
-  Menu,
-  MenuProps,
+export { Menu, Checkbox, Input, Radio } from './form-inputs';
+export type {
   MenuItemOptions,
-  Checkbox,
+  MenuProps,
   CheckboxProps,
-  Input,
   InputProps,
-  Radio,
   RadioProps,
-} from './form-inputs/';
-export {
-  SparkThemeProvider,
-  TertiaryColor,
-  muiTheme,
-  prendaTheme,
-} from './theme/';
+} from './form-inputs';
+export { SparkThemeProvider, muiTheme, prendaTheme } from './theme';
+export type { TertiaryColor } from './theme';
 export {
   BookIllustration,
   CollaborateIllustration,
   ConquerIllustration,
   CreateIllustration,
-} from './illustrations/';
+} from './illustrations';
 export {
   PrendaWordmarkDark,
   PrendaWordmarkLight,
@@ -99,4 +91,5 @@ export {
   StarIcon,
   StarFilledIcon,
 } from './icons';
-export { Typography, TypographyProps } from './typography';
+export { Typography } from './typography';
+export type { TypographyProps } from './typography';

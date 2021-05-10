@@ -1,13 +1,13 @@
 import React from 'react';
-import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { IconButton, IconButtonProps } from '../../src';
+import { IconButton, IconButtonProps } from '../../dist';
 import { Icons } from '../../src/elements/button';
 
 export default {
   title: 'prenda-spark/IconButton',
   component: IconButton,
   argTypes: {
+    onClick: { actions: 'clicked' },
     variant: {
       control: {
         type: 'select',
@@ -40,6 +40,6 @@ interface TemplateIconButtonProps extends IconButtonProps {
 }
 
 const Template = (args: TemplateIconButtonProps) => (
-  <IconButton {...args}>{Icons[args.children]}</IconButton>
+  <IconButton {...args}>{Icons[args.children || 'caret-down']}</IconButton>
 );
 export const ConfigurableInput = Template.bind({});

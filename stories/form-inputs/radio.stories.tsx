@@ -1,32 +1,22 @@
 import React from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
+import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Radio } from '../../dist';
+import { Radio, RadioProps } from '../../dist';
 
 export default {
   title: 'prenda-spark/Radio',
   component: Radio,
+  parameters: { actions: { handles: ['change'] } },
+  argTypes: {
+    label: { control: 'text' },
+    checked: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+  },
+  args: {
+    label: 'Radio button label',
+  },
 } as Meta;
 
-export const BasicRadioButton = () => (
-  <Radio label="Basic Radio Button" value="basic" name="basicRadio" />
-);
-
-export const CheckedRadioButton = () => (
-  <Radio
-    label="Checked Radio Button"
-    value="checked"
-    name="checkedRadio"
-    checked={true}
-  />
-);
-
-export const DisabledRadioButton = () => (
-  <Radio
-    label="Disabled Radio Button"
-    value="disabled"
-    name="disabledRadio"
-    disabled={true}
-  />
-);
+const Template: Story<RadioProps> = args => <Radio {...args} />;
+export const ConfigurableInput = Template.bind({});
