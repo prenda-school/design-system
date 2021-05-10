@@ -1,6 +1,6 @@
 /** Uppercase the first letter. */
-export default function capitalize(string: string) {
-  if (typeof string !== 'string') {
+export default function capitalize(string: string): string {
+  if (process.env.NODE_ENV !== 'production' && typeof string !== 'string') {
     throw new Error(
       'Prenda Spark: capitalize(string) expects a string argument'
     );
