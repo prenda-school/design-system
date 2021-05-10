@@ -18,9 +18,9 @@ Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react compon
 ## Development
 
 1. Clone the repository.
-2. Ensure you have `nvm` installed ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
+2. Ensure you have Node Version Manager installed on your system ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
 3. Run `> nvm use` to ensure specified node version is used.
-4. Ensure you have `yarn` installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
+4. Ensure you have Yarn 1 installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
 5. Run `> yarn` to install dependencies.
 6. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
 7. Open another terminal
@@ -40,6 +40,7 @@ Now you can develop components within the `src/` directory and see changes updat
 
 #### Notes
 
+- Ensure
 - Yarn is used over NPM so that ["resolutions"](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) can be specified in `./package.json`. NPM does not have this capability yet.
 - Yarn has no direct equivalent of `> npm ci`, but you can use `> rm -rf ./node_modules && yarn install --frozen-lockfile` if the functionality is needed.
 
