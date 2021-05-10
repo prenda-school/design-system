@@ -7,6 +7,7 @@ export default {
   title: 'prenda-spark/Button',
   component: Button,
   argTypes: {
+    onClick: { actions: 'clicked' },
     variant: {
       control: {
         type: 'select',

@@ -7,6 +7,7 @@ export default {
   title: 'prenda-spark/IconButton',
   component: IconButton,
   argTypes: {
+    onClick: { actions: 'clicked' },
     variant: {
       control: {
         type: 'select',
