@@ -11,7 +11,7 @@ interface ColorBoxProps {
   textColor: string;
 }
 
-const ColorBox: FC<ColorBoxProps> = props => {
+const ColorBox: FC<ColorBoxProps> = (props) => {
   return (
     <div
       style={{

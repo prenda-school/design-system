@@ -34,7 +34,7 @@ export type MenuProps = {
 
 const FormControl = withStyles({})(MatFormControl);
 const MenuItem = withStyles({})(MatMenuItem);
-const Select = withStyles(theme => {
+const Select = withStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   return {
     root: {
@@ -58,7 +58,7 @@ const Select = withStyles(theme => {
     },
   };
 })(MatSelect);
-const InputLabel = withStyles(theme => {
+const InputLabel = withStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   return {
     root: {
@@ -73,7 +73,7 @@ const InputLabel = withStyles(theme => {
     },
   };
 })(MatInputLabel);
-const FormHelperText = withStyles(theme => ({
+const FormHelperText = withStyles((theme) => ({
   root: {
     'font-size': '12px',
     'line-height': '18px',
@@ -81,7 +81,7 @@ const FormHelperText = withStyles(theme => ({
   },
 }))(MatFormHelperText);
 
-export const Menu: FC<MenuProps> = props => {
+export const Menu: FC<MenuProps> = (props) => {
   /**
    * Selection handling
    *
@@ -118,7 +118,7 @@ export const Menu: FC<MenuProps> = props => {
   const renderValue = () => {
     return (
       <RenderContainer>
-        {props.menuOptions.find(o => {
+        {props.menuOptions.find((o) => {
           return o.value === selectVal;
         })?.displayName ||
           props.selectPlaceholder ||

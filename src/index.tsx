@@ -1,34 +1,28 @@
-export { Button, ButtonProps } from './actions/';
-export {
-  Menu,
-  MenuProps,
+export { Button, IconButton } from './actions';
+export type { ButtonProps, IconButtonProps } from './actions';
+export { Menu, Checkbox, Input, Radio } from './form-inputs';
+export type {
   MenuItemOptions,
-  Checkbox,
+  MenuProps,
   CheckboxProps,
-  Input,
   InputProps,
-  Radio,
   RadioProps,
-} from './form-inputs/';
-export {
-  SparkThemeProvider,
-  TertiaryColor,
-  muiTheme,
-  prendaTheme,
-} from './theme/';
+} from './form-inputs';
+export { SparkThemeProvider, muiTheme, prendaTheme } from './theme';
+export type { TertiaryColor } from './theme';
 export {
   BookIllustration,
   CollaborateIllustration,
   ConquerIllustration,
   CreateIllustration,
-} from './illustrations/';
+} from './illustrations';
 export {
   PrendaWordmarkDark,
   PrendaWordmarkLight,
   PrendaMonogramDark,
   PrendaMonogramLight,
   SparkLogoDark,
-  SparkLogoLight
+  SparkLogoLight,
 } from './logos';
 export {
   CaretUpIcon,
@@ -85,4 +79,5 @@ export {
   StarIcon,
   StarFilledIcon,
 } from './icons';
-export { Typography, TypographyProps } from './typography';
+export { Typography } from './typography';
+export type { TypographyProps } from './typography';
