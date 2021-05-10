@@ -20,10 +20,11 @@ Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react compon
 1. Clone the repository.
 2. Ensure you have `nvm` installed ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
 3. Run `> nvm use` to ensure specified node version is used.
-3. Run `> yarn` to install dependencies.
-4. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
-5. Open another terminal
-6. Run `> yarn storybook` to start the Storybook component explorer on port 6006 (should automatically open `http://localhost:6006/` in your default browser) (loads stories from `./stories`).
+4. Ensure you have `yarn` installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
+5. Run `> yarn` to install dependencies.
+6. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
+7. Open another terminal
+8. Run `> yarn storybook` to start the Storybook component explorer on port 6006 (should automatically open `http://localhost:6006/` in your default browser) (loads stories from `./stories`).
 
 Now you can develop components within the `src/` directory and see changes update in realtime.
 
