@@ -1,134 +1,137 @@
 import React, { FC } from 'react';
+import styled from 'styled-components';
+import clsx from 'clsx';
 import {
-  TextField as MatTextField,
-  InputLabel as MatInputLabel,
-  FormHelperText as MatFormHelperText,
+  Input as MuiInput,
+  InputLabel as MuiInputLabel,
+  FormHelperText as MuiFormHelperText,
+  InputProps as MuiInputProps,
+  InputLabelProps as MuiInputLabelProps,
+  Theme,
 } from '@material-ui/core/';
-import { withStyles } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
+import { FormHelperTextProps as MuiFormHelperTextProps } from '@material-ui/core/FormHelperText';
 
-export type InputProps = {
-  inputId: string;
+export interface InputProps extends MuiInputProps {
+  success?: boolean;
   label?: string;
-  bottomInputLabel?: string;
-  multiline?: boolean;
-  rows?: number;
-  value: string;
-  hasError?: (val: string) => boolean;
-  onChange: (val: string) => void;
-};
+  InputLabelProps?: MuiInputLabelProps;
+  helperText?: string;
+  FormHelperTextProps: MuiFormHelperTextProps;
+}
 
-const InputLabel = withStyles((theme) => ({
-  root: {
-    color: theme.palette.background.lightContrastText,
-    'margin-bottom': '0.2rem',
-    'font-weight': 700,
-    'font-size': '16px',
-    'line-height': '18px',
-    '&.Mui-focused': {
-      color: theme.palette.background.lightContrastText,
-    },
-  },
-}))(MatInputLabel);
+const InputLabel = styled(MuiInputLabel)`
+  ${({ theme }: { theme: Theme }) => `
+    color: ${theme.palette.background.lightContrastText};
+    margin-bottom: 0.5rem; // 8px
+    font-weight: 700;
+    font-size: 1rem; // 16px
+    line-height: 1.125rem; // 18px
 
-const InputHelperText = withStyles((theme) => ({
-  root: {
-    color: theme.palette.background.lightLowContrastText,
-    'font-size': '10px',
-    'line-height': '18px',
-  },
-}))(MatFormHelperText);
-
-const matTextAreaUseStyles = makeStyles((theme) => {
-  const { palette } = theme;
-  const { green, blue, red } = theme.palette.tertiary;
-  return {
-    textarea: (props: { isSuccess: boolean }) => ({
-      border: `1px solid ${palette.neutral.darkGrey}`,
-      'box-sizing': 'border-box',
-      'border-radius': '8px',
-      minWidth: '320px',
-      '& .MuiInput-root': props.isSuccess
-        ? {
-            border: `1px solid ${green[2]}`,
-            'box-sizing': 'border-box',
-            'box-shadow': `0px 0px 0px 4px ${green[1]}`,
-            'border-radius': '8px',
-          }
-        : {},
-      '& .MuiInputBase-input': {
-        color: 'rgba(7, 46, 68, 0.72)',
-        'padding-left': '16px',
-      },
-      '& .Mui-error': {
-        border: `1px solid ${red[2]}`,
-        'box-sizing': 'border-box',
-        'box-shadow': `0px 0px 0px 4px ${red[1]}`,
-        'border-radius': '8px',
-      },
-      '& .Mui-focused': {
-        border: `1px solid ${blue[2]}`,
-        'box-sizing': 'border-box',
-        'box-shadow': `0px 0px 0px 4px ${blue[1]}`,
-        'border-radius': '8px',
-        '& .MuiInputBase-input': {
-          color: blue[5],
-        },
-      },
-    }),
-    textAreaResize: {
-      resize: 'both',
-    },
-  };
-});
-
-export const Input: FC<InputProps> = (props) => {
-  const [inputVal, setInputVal] = React.useState('');
-  const [isError, setIsError] = React.useState(false);
-  const [isSuccess, setIsSuccess] = React.useState(false);
-  const handleOnChange = (
-    evt: React.ChangeEvent<{
-      name?: string;
-      value: unknown;
-    }>
-  ) => {
-    const newInputVal = evt.target.value as string;
-
-    setInputVal(newInputVal);
-
-    props.onChange && props.onChange(newInputVal);
-
-    if (newInputVal.length > 0) {
-      if (props.hasError) {
-        const newIsError = props.hasError(newInputVal);
-        setIsError(newIsError);
-        setIsSuccess(!newIsError);
-      }
-    } else {
-      setIsError(false);
-      setIsSuccess(false);
+    &.Mui-disabled {
+      color: ${theme.palette.neutral.darkGrey};
     }
-  };
+  `}
+`;
 
-  const styleProps = { isSuccess };
-  const matTextAreaStyles = matTextAreaUseStyles(styleProps);
+const FormHelperText = styled(MuiFormHelperText)`
+  ${({ theme }: { theme: Theme }) => `
+    color: ${theme.palette.background.lightLowContrastText};
+    font-size: 0.75rem; // 12px
+    line-height 1.25rem; // 20px
+    margin-top: 0.5rem: // 8px
+  `}
+`;
+
+const Input = styled(MuiInput)`
+  ${({ theme }: { theme: Theme }) => `
+    &.MuiInput-root {
+      box-sizing: border-box;
+      background-color: white;
+      border-width: 2px;
+      border-style: solid;
+      border-color: ${theme.palette.neutral.mediumGrey};
+      border-radius: 16px;
+      width: 20rem; // 320px
+      padding: .75rem 1rem;
+      font-size: 1rem; // 16px
+      line-height: 1.125rem; // 18px
+
+      // inner input / textarea
+      & .MuiInput-input {
+        padding: 0;
+        &::placeholder {
+          opacity: 1;
+          color: ${theme.palette.background.lightLowContrastText};
+        }
+      }
+
+      &.Mui-focused {
+        border-color: ${theme.palette.tertiary.blue[3]};
+        box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+        & .MuiInput-input {
+          color: ${theme.palette.background.lightContrastText};
+        }
+      }
+      &.Mui-error {
+        border-color: ${theme.palette.tertiary.red[3]};
+        box-shadow: 0 0 0 4px ${theme.palette.tertiary.red[1]};
+      }
+      &.Mui-disabled {
+       border-color: ${theme.palette.neutral.darkGrey};
+       background-color: ${theme.palette.neutral.mediumGrey};
+      }
+      &.SparkInput-success {
+        border-color: ${theme.palette.tertiary.green[3]};
+        box-shadow: 0 0 0 4px ${theme.palette.tertiary.green[1]};
+      }
+    }
+  `}
+`;
+
+const SparkInput: FC<InputProps> = props => {
+  const {
+    id,
+    label,
+    helperText,
+    disabled,
+    success,
+    className,
+    InputLabelProps,
+    FormHelperTextProps,
+    ...other
+  } = props;
+
+  // TODO: throw a helpful error when detecting that both error & success props
+  // are `true` -- look to MUI's method of throwing errors as an inspiration.
+  if (process.env.NODE_ENV !== 'production' && props.error && props.success) {
+    console.warn(
+      '@prenda/spark SparkInput detected both error and success props as `true`'
+    );
+  }
 
   return (
     <>
-      <InputLabel shrink>{props.label}</InputLabel>
-      <MatTextField
-        autoFocus
-        className={matTextAreaStyles.textarea}
-        error={isError}
-        id={props.inputId}
-        InputProps={{ disableUnderline: true }}
-        inputProps={{ className: matTextAreaStyles.textAreaResize }}
-        multiline={props.multiline}
-        rows={props.rows}
-        onChange={handleOnChange}
-        value={inputVal}
+      {label ? (
+        <InputLabel htmlFor={id} {...InputLabelProps}>
+          {label}
+        </InputLabel>
+      ) : null}
+      <Input
+        id={id}
+        disableUnderline
+        className={clsx(className, {
+          'SparkInput-success': success,
+        })}
+        disabled={disabled}
+        {...other}
       />
-      <InputHelperText>{props.bottomInputLabel}</InputHelperText>
+      {helperText ? (
+        <FormHelperText disabled={disabled} {...FormHelperTextProps}>
+          {helperText}
+        </FormHelperText>
+      ) : null}
     </>
   );
 };
+
+export { SparkInput as Input };

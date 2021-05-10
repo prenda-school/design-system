@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
+    "test": "tsdx test --passWithNoTests -u",
     "lint": "tsdx lint --fix src stories test",
     "prepare": "tsdx build",
     "size": "size-limit",
@@ -93,6 +93,7 @@
     "concurrently": "^6.0.0",
     "csstype": "^3.0.7",
     "husky": "^4.3.8",
+    "jest-styled-components": "^7.0.4",
     "lint-staged": "^10.5.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
