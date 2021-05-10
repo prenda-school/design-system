@@ -1,11 +1,12 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Checkbox, CheckboxProps } from '../../src';
+import { Checkbox, CheckboxProps } from '../../dist';
 
 export default {
   title: 'prenda-spark/Checkbox',
   component: Checkbox,
+  parameters: { actions: { handles: ['change'] } },
   argTypes: {
     label: { control: 'text' },
     checked: { control: 'boolean' },
