@@ -3,7 +3,7 @@ import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Typography, TypographyProps } from '../../dist';
 import styled from 'styled-components';
-import { Variant } from '../../src/typography/typography';
+import { Variant } from '../../dist/typography/typography';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -91,7 +91,7 @@ function getText(variant: string): string {
   return text[variant.split('-')[0] as TextKey] || text.paragraph;
 }
 
-const Template: Story<TypographyProps> = args => (
+const Template: Story<TypographyProps> = (args) => (
   <Typography {...args}>{getText(String(args.variant))}</Typography>
 );
 export const ConfigurableTypography = Template.bind({});

@@ -3,7 +3,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Input, InputProps } from '../../src';
+import { Input, InputProps } from '../../dist';
 
 export default {
   title: 'prenda-spark/Input',
@@ -45,8 +45,7 @@ export default {
   },
 } as Meta;
 
-
-const Template: Story<InputProps> = args => <Input {...args} />;
+const Template: Story<InputProps> = (args) => <Input {...args} />;
 export const ConfigurableInput = Template.bind({});
 
 // TODO: make custom story that mocks the Figma file spec page
