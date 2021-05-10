@@ -6,7 +6,7 @@ import {
   CollaborateIllustration,
   ConquerIllustration,
   CreateIllustration,
-} from '../../src';
+} from '../../dist';
 
 export default {
   title: 'prenda-spark/Illustration',

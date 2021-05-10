@@ -12,8 +12,7 @@ interface iconProps {
 
 const useStyles = makeStyles((theme: Theme) => ({
   icon: (props: iconProps) => ({
-    color:
-      theme.palette.background[getTextKey(props.color, props.contrast)],
+    color: theme.palette.background[getTextKey(props.color, props.contrast)],
     fontSize: getFontSize(props.fontSize),
   }),
 }));
@@ -44,7 +43,7 @@ function getFontSize(size = 'default') {
   }
 }
 
-export const Icon: FC<iconProps> = props => {
+export const Icon: FC<iconProps> = (props) => {
   const styles = useStyles(props);
   return (
     <SvgIcon viewBox="0 0 24 24" className={styles.icon}>
