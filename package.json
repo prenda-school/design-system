@@ -18,9 +18,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "storybook": "concurrently npm:start npm:start-storybook",
+    "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook",
-    "start-storybook": "start-storybook -p 6006 -s ./public",
     "test:update-snapshots": "jest --updateSnapshot",
     "test:update-snapshot": "npm run test:update-snapshots",
     "prettify": "git ls-files *.js *.jsx *.json *.ts *.tsx | xargs prettier --write"
