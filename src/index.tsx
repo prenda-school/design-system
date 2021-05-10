@@ -1,5 +1,17 @@
-export { Button, IconButton } from './actions';
-export type { ButtonProps, IconButtonProps } from './actions';
+export { Button, IconButton,
+  DropdownContext,
+  DropdownButton,
+  DropdownMenu,
+  DropdownMenuItem,
+  DropdownDivider, } from './elements';
+export type {
+  ButtonProps,
+  IconButtonProps,
+  DropdownContextProps,
+  DropdownButtonProps,
+  DropdownMenuProps,
+  DropdownMenuItemProps,
+} from './elements';
 export { Menu, Checkbox, Input, Radio } from './form-inputs';
 export type {
   MenuItemOptions,
