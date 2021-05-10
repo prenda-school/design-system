@@ -7,6 +7,7 @@ import { Radio, RadioProps } from '../../src';
 export default {
   title: 'prenda-spark/Radio',
   component: Radio,
+  parameters: { actions: { handles: ['change'] } },
   argTypes: {
     label: { control: 'text' },
     checked: { control: 'boolean' },
