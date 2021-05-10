@@ -10,7 +10,7 @@ export type RadioProps = {
   name: string;
 };
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   const { palette } = theme;
   return {
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => {
   };
 });
 
-export const Radio: FC<RadioProps> = props => {
+export const Radio: FC<RadioProps> = (props) => {
   const { disabled, checked, label } = props;
 
   const styles = useStyles();
