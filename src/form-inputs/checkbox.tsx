@@ -11,7 +11,7 @@ export type CheckboxProps = {
   name: string;
 };
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   const { blue } = theme.palette.tertiary;
   const { background } = theme.palette;
   return {
@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => {
   };
 });
 
-export const Checkbox: FC<CheckboxProps> = props => {
+export const Checkbox: FC<CheckboxProps> = (props) => {
   const { disabled, label } = props;
   const styles = useStyles();
 
