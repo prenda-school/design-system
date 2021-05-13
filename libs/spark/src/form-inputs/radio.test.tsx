@@ -1,4 +1,4 @@
-import { Radio } from '../src';
+import { Radio } from './';
 import 'jest-styled-components';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/Radio$/ });

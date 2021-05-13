@@ -1,4 +1,4 @@
-import { IconButton } from '../src';
+import { IconButton } from './';
 import 'jest-styled-components';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/IconButton$/ });

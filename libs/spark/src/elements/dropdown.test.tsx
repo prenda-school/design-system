@@ -4,7 +4,7 @@ import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownDivider,
-} from '../src';
+} from './';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/Menu$/ });
 

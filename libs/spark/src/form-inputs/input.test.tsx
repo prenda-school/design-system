@@ -1,4 +1,4 @@
-import { Input } from '../src';
+import { Input } from './';
 import 'jest-styled-components';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/Input$/ });

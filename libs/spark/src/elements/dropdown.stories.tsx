@@ -7,8 +7,8 @@ import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownDivider,
-} from '../../src';
-import { Icons } from '../../src/elements/button';
+} from './';
+import { Icons } from './button';
 import { Box } from '@material-ui/core';
 
 export default {

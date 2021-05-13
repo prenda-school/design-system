@@ -1,4 +1,4 @@
-import { Typography } from '../src';
+import { Typography } from './';
 import 'jest-styled-components';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/Typography$/ });

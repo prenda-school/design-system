@@ -1,4 +1,4 @@
-import { Checkbox } from '../src';
+import { Checkbox } from './';
 import 'jest-styled-components';
 import initStoryshots from '@storybook/addon-storyshots';
 initStoryshots({ storyKindRegex: /^prenda-spark\/Checkbox$/ });
