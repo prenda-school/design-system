@@ -1,77 +1,94 @@
-## Prenda Spark
 
-- [Documentation](#documentation)
-- [Development](#development)
-- [Testing](#testing)
-- [WIP and TODOS](#wip-and-todos)
-- [Install](#install)
-- [Usage](#usage)
 
----
+# PrendaSpark
 
-## Documentation
+This project was generated using [Nx](https://nx.dev).
 
-> Official Docs: https://prenda-school.github.io/prenda-documentation/
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react components (https://material-ui.com/) by overriding select styles to match the Prenda Design System philosophy
+🔎 **Powerful, Extensible Dev Tools**
 
-## Development
+## Adding capabilities to your workspace
 
-1. Clone the repository.
-2. Ensure you have Node Version Manager installed on your system ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
-3. Run `> nvm use` to ensure specified node version is used.
-4. Ensure you have Yarn 1 installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
-5. Run `> yarn` to install dependencies.
-6. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
-7. Open another terminal
-8. Run `> yarn storybook` to start the Storybook component explorer on port 6006 (should automatically open `http://localhost:6006/` in your default browser) (loads stories from `./stories`).
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-Now you can develop components within the `src/` directory and see changes update in realtime.
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-### Writing Stories
+Below are our core plugins:
 
-1. Ensure you are importing Spark modules from the build output (`/dist`) and not the source (`/src`)
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+- [Nest](https://nestjs.com)
+  - `npm install --save-dev @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `npm install --save-dev @nrwl/express`
+- [Node](https://nodejs.org)
+  - `npm install --save-dev @nrwl/node`
 
-```diff
-# FILE: /stories/button.stories.tsx
-- import { Button } from '../src'
-+ import { Button } from '../dist'
-```
+There are also many [community plugins](https://nx.dev/nx-community) you could add.
 
-#### Notes
+## Generate an application
 
-- Ensure
-- Yarn is used over NPM so that ["resolutions"](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) can be specified in `./package.json`. NPM does not have this capability yet.
-- Yarn has no direct equivalent of `> npm ci`, but you can use `> rm -rf ./node_modules && yarn install --frozen-lockfile` if the functionality is needed.
+Run `nx g @nrwl/react:app my-app` to generate an application.
 
-## Testing
+> You can use any of the plugins above to generate applications as well.
 
-Run tests with `yarn test`. We are using snapshot testing (https://storybook.js.org/docs/react/workflows/snapshot-testing). Run `yarn run test:updateSnapshot` to update the snapshots.
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## WIP and TODOS
+## Generate a library
 
-- Please see the Asana board for all current WIP and TODOS https://app.asana.com/share/prenda/spark-v1-release-wip-and-todos/995455616843969/2480fe89c9ef452f98b70ba4d981caa9
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-## Install
+> You can also use any of the plugins above to generate libraries as well.
 
-```bash
-npm install --save @prenda/spark
-```
+Libraries are shareable across libraries and applications. They can be imported from `@prenda-spark/mylib`.
 
-## Usage
+## Development server
 
-```tsx
-import React from 'react';
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-import { Button } from '@prenda/spark';
+## Code scaffolding
 
-const App = () => {
-  return (
-    <>
-      <Button size="large">I am a button</Button>
-    </>
-  );
-};
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
-export default App;
-```
+## Build
+
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+
+Run `nx affected:test` to execute the unit tests affected by a change.
+
+## Running end-to-end tests
+
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+
+## Understand your workspace
+
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+
+
+## ☁ Nx Cloud
+
+### Computation Memoization in the Cloud
+
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+
+Visit [Nx Cloud](https://nx.app/) to learn more.
