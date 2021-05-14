@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Button, ButtonProps, Icons } from './button';
+import { Button, ButtonProps, Icons } from '../../src/elements/button';
 
 export default {
   title: 'prenda-spark/Button',

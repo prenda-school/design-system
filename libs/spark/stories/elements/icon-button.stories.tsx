@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { IconButton, IconButtonProps } from './';
+import { IconButton, IconButtonProps } from '../../src';
 import { Icons } from '../../src/elements/button';
 
 export default {

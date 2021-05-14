@@ -118,7 +118,7 @@ function SparkRadioButtonIcon(props: {
 
 // End custom radio button, Begin Radio
 
-export interface RadioProps extends MuiFormControlLabelProps {
+export interface RadioProps extends Omit<MuiFormControlLabelProps, "control"> {
   ControlRadioProps?: MuiRadioProps;
 }
 

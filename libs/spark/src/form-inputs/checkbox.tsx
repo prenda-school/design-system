@@ -97,7 +97,7 @@ const SparkCheckboxCheckedIcon = createSvgIcon(
 );
 
 function SparkCheckboxIcon(props: {
-  checked?: Boolean;
+  checked?: boolean;
   fontSize?: 'small' | 'default';
 }) {
   const { checked, fontSize } = props;
@@ -124,7 +124,7 @@ function SparkCheckboxIcon(props: {
 
 // End custom checkbox icons, Begin Checkbox component
 
-export interface CheckboxProps extends MuiFormControlLabelProps {
+export interface CheckboxProps extends Omit<MuiFormControlLabelProps, "control"> {
   ControlCheckboxProps?: MuiCheckboxProps;
 }
 

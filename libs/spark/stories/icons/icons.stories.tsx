@@ -55,7 +55,7 @@ import {
   CodeIcon,
   StarIcon,
   StarFilledIcon,
-} from './';
+} from '../../src';
 
 export default {
   title: 'prenda-spark/Icon',

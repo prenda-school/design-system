@@ -3,7 +3,7 @@ import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Input, InputProps } from './';
+import { Input, InputProps } from '../../src';
 
 export default {
   title: 'prenda-spark/Input',

@@ -16,7 +16,7 @@ export interface InputProps extends MuiInputProps {
   label?: string;
   InputLabelProps?: MuiInputLabelProps;
   helperText?: string;
-  FormHelperTextProps: MuiFormHelperTextProps;
+  FormHelperTextProps?: MuiFormHelperTextProps;
 }
 
 const InputLabel = styled(MuiInputLabel)`

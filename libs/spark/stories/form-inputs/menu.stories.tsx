@@ -2,7 +2,7 @@ import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
 
-import { Menu, MenuItemOptions } from './';
+import { Menu, MenuItemOptions } from '../../src';
 
 export default {
   title: 'prenda-spark/Menu',
@@ -17,7 +17,7 @@ const menuOptions: MenuItemOptions[] = [
   { displayName: 'Pizza', value: 'pizza' },
 ];
 
-let selectVal: string = '';
+let selectVal = '';
 const handleOnChange = (val: string) => {
   selectVal = val;
   console.log(`Value extracted from input: ${val}`);
