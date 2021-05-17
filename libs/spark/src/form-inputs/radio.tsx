@@ -91,7 +91,7 @@ const SparkRadioButtonCheckedIcon = createSvgIcon(
 );
 
 function SparkRadioButtonIcon(props: {
-  checked?: Boolean;
+  checked?: boolean;
   fontSize?: 'small' | 'default';
 }) {
   const { checked, fontSize } = props;

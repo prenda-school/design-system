@@ -19,8 +19,8 @@ type DropdownContextType = {
 const Context = React.createContext<DropdownContextType>({
   id: 'dropdown',
   anchorEl: null,
-  handleClick: () => {},
-  handleClose: () => {},
+  handleClick: () => false,
+  handleClose: () => false,
 });
 
 export interface DropdownContextProps {

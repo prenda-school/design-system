@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 function getTextKey(color = 'navy', contrast = 'high') {
-  if (color === 'navy' && contrast == 'high') {
+  if (color === 'navy' && contrast === 'high') {
     return 'lightContrastText';
-  } else if (color === 'navy' && contrast == 'low') {
+  } else if (color === 'navy' && contrast === 'low') {
     return 'lightLowContrastText';
-  } else if (color === 'grey' && contrast == 'high') {
+  } else if (color === 'grey' && contrast === 'high') {
     return 'darkContrastText';
-  } else if (color === 'grey' && contrast == 'low') {
+  } else if (color === 'grey' && contrast === 'low') {
     return 'darkLowContrastText';
   } else {
     throw new Error('Invalid color or contrast prop');
