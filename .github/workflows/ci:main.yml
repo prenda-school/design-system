@@ -16,10 +16,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12'
-          
-      - name: Yarn Clean Install
-        run: yarn install --frozen-install
+          node-version: '14'
 
-      - name: Yarn Test
-        run: yarn test
+      - name: NPM clean install
+        run: npm ci
+
+      - name: prenda-spark jest tests
+        run: nx run spark:test

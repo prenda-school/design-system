@@ -8,8 +8,8 @@ rootMain.addons.push(
   '@storybook/addon-storyshots'
 );
 rootMain.stories.push(
-  '../src/**/*.stories.mdx',
-  '../src/**/*.stories.@(js|jsx|ts|tsx)'
+  '../stories/**/*.stories.mdx',
+  '../stories/**/*.stories.@(js|jsx|ts|tsx)'
 );
 
 module.exports = rootMain;

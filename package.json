@@ -73,6 +73,7 @@
     "babel-jest": "26.2.2",
     "babel-loader": "8.1.0",
     "babel-plugin-styled-components": "1.10.7",
+    "cypress": "^7.3.0",
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
