@@ -21,5 +21,8 @@ jobs:
       - name: NPM clean install
         run: npm ci
 
-      - name: prenda-spark jest tests
-        run: nx run spark:test
+      - name: Spark Jest tests
+        run: npx nx run spark:test
+
+      - name: Spark Cypress end-to-end tests
+        run: npx nx run spark-e2e:e2e
