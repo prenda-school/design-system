@@ -4,8 +4,7 @@ const rootMain = require('../../../.storybook/main');
 // rootMain.addons.push('');
 rootMain.addons.push(
   '@storybook/addon-links',
-  '@storybook/addon-essentials',
-  '@storybook/addon-storyshots'
+  '@storybook/addon-essentials'
 );
 rootMain.stories.push(
   '../stories/**/*.stories.mdx',
