@@ -11,4 +11,11 @@ rootMain.stories.push(
   '../stories/**/*.stories.@(js|jsx|ts|tsx)'
 );
 
+rootMain.typescript = {
+  check: true,
+  checkOptions: {
+    tsconfig: './libs/spark/.storybook/tsconfig.json'
+  }
+};
+
 module.exports = rootMain;
