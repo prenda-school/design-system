@@ -24,7 +24,7 @@
             "tsConfig": "libs/spark/tsconfig.lib.json",
             "project": "libs/spark/package.json",
             "entryFile": "libs/spark/src/index.ts",
-            "external": ["react", "react-dom", "react-is", "styled-components"],
+            "external": ["react", "react-dom", "react-is", "styled-components", "@material-ui"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
