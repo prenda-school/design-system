@@ -1,77 +1,51 @@
-## Prenda Spark
+# PrendaSpark
 
-- [Documentation](#documentation)
-- [Development](#development)
-- [Testing](#testing)
-- [WIP and TODOS](#wip-and-todos)
-- [Install](#install)
-- [Usage](#usage)
+This project was generated using [Nx](https://nx.dev). See the README in `libs/spark` for further documentation on Prenda Spark. This README provides general information on how to use Nx.
 
----
+## Generate an application
 
-## Documentation
+Run `nx g @nrwl/react:app my-app` to generate an application.
 
-> Official Docs: https://prenda-school.github.io/prenda-documentation/
+> You can use any of the plugins above to generate applications as well.
 
-Prenda Spark, based on TSdx (https://tsdx.io/), extends Material UI react components (https://material-ui.com/) by overriding select styles to match the Prenda Design System philosophy
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## Development
+## Generate a library
 
-1. Clone the repository.
-2. Ensure you have Node Version Manager installed on your system ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
-3. Run `> nvm use` to ensure specified node version is used.
-4. Ensure you have Yarn 1 installed globally ([see instructions](https://classic.yarnpkg.com/en/docs/install/#windows-stable)).
-5. Run `> yarn` to install dependencies.
-6. Run `> yarn start` to trigger TSdx to run the project is development watch mode.
-7. Open another terminal
-8. Run `> yarn storybook` to start the Storybook component explorer on port 6006 (should automatically open `http://localhost:6006/` in your default browser) (loads stories from `./stories`).
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-Now you can develop components within the `src/` directory and see changes update in realtime.
+> You can also use any of the plugins above to generate libraries as well.
 
-### Writing Stories
+Libraries are shareable across libraries and applications. They can be imported from `@prenda-spark/mylib`.
 
-1. Ensure you are importing Spark modules from the build output (`/dist`) and not the source (`/src`)
+## Development server
 
-```diff
-# FILE: /stories/button.stories.tsx
-- import { Button } from '../src'
-+ import { Button } from '../dist'
-```
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-#### Notes
+## Code scaffolding
 
-- Ensure
-- Yarn is used over NPM so that ["resolutions"](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) can be specified in `./package.json`. NPM does not have this capability yet.
-- Yarn has no direct equivalent of `> npm ci`, but you can use `> rm -rf ./node_modules && yarn install --frozen-lockfile` if the functionality is needed.
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
-## Testing
+## Build
 
-Run tests with `yarn test`. We are using snapshot testing (https://storybook.js.org/docs/react/workflows/snapshot-testing). Run `yarn run test:updateSnapshot` to update the snapshots.
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## WIP and TODOS
+## Running unit tests
 
-- Please see the Asana board for all current WIP and TODOS https://app.asana.com/share/prenda/spark-v1-release-wip-and-todos/995455616843969/2480fe89c9ef452f98b70ba4d981caa9
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
-## Install
+Run `nx affected:test` to execute the unit tests affected by a change.
 
-```bash
-npm install --save @prenda/spark
-```
+## Running end-to-end tests
 
-## Usage
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-```tsx
-import React from 'react';
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
-import { Button } from '@prenda/spark';
+## Understand your workspace
 
-const App = () => {
-  return (
-    <>
-      <Button size="large">I am a button</Button>
-    </>
-  );
-};
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-export default App;
-```
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev) to learn more.

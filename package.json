@@ -1,112 +1,94 @@
 {
-  "version": "0.7.0",
+  "name": "prenda-spark",
+  "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test -u",
-    "lint": "tsdx lint --fix src stories test",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "storybook": "start-storybook -p 6006 -s ./public",
-    "build-storybook": "build-storybook",
-    "test:update-snapshots": "jest --updateSnapshot",
-    "test:update-snapshot": "npm run test:update-snapshots",
-    "prettify": "git ls-files *.js *.jsx *.json *.ts *.tsx | xargs prettier --write"
+    "nx": "nx",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "lint": "nx workspace-lint && nx lint",
+    "e2e": "nx e2e",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "update": "nx migrate latest",
+    "workspace-generator": "nx workspace-generator",
+    "dep-graph": "nx dep-graph",
+    "help": "nx help",
+    "prepare": "husky install"
   },
-  "resolutions": {
-    "**/@typescript-eslint/eslint-plugin": "^4",
-    "**/@typescript-eslint/parser": "^4",
-    "**/eslint": "^7",
-    "**/jest": "^26",
-    "**/prettier": "^2",
-    "**/ts-jest": "^26",
-    "**/typescript": "^4"
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/styles": "^4.11.4",
+    "clsx": "^1.1.1",
+    "core-js": "^3.6.5",
+    "document-register-element": "1.13.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-is": "17.0.2",
+    "regenerator-runtime": "0.13.7",
+    "styled-components": "5.2.1",
+    "tslib": "^2.0.0"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "transform": {
-      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!variables/.*)"
-    ]
-  },
-  "peerDependencies": {
-    "react": ">=16"
-  },
-  "lint-staged": {
-    "./**/*.(tsx|ts)": [
-      "tsdx lint --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {}
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "tabWidth": 2
-  },
-  "name": "@prenda/spark",
-  "author": "Jake McBride",
-  "module": "dist/prenda-spark.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/prenda-spark.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/prenda-spark.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@size-limit/preset-small-lib": "^4.9.2",
+    "@babel/core": "7.12.13",
+    "@babel/preset-env": "7.12.13",
+    "@babel/preset-react": "7.12.13",
+    "@babel/preset-typescript": "7.12.13",
+    "@nrwl/cli": "12.2.0",
+    "@nrwl/eslint-plugin-nx": "12.2.0",
+    "@nrwl/jest": "12.2.0",
+    "@nrwl/linter": "12.2.0",
+    "@nrwl/react": "^12.2.0",
+    "@nrwl/storybook": "^12.2.0",
+    "@nrwl/tao": "12.2.0",
+    "@nrwl/web": "12.2.0",
+    "@nrwl/workspace": "12.2.0",
     "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-storyshots": "^6.2.9",
-    "@storybook/addons": "^6.2.9",
-    "@storybook/react": "^6.2.9",
-    "@types/jest": "^25.1.4",
-    "@types/prop-types": "^15.7.3",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "@types/styled-components": "^5.1.7",
-    "babel-loader": "^8.2.2",
-    "concurrently": "^6.0.0",
-    "csstype": "^3.0.7",
-    "husky": "^4.3.8",
+    "@storybook/react": "^6.1.11",
+    "@svgr/webpack": "^5.4.0",
+    "@testing-library/react": "11.2.6",
+    "@types/jest": "26.0.8",
+    "@types/node": "14.14.33",
+    "@types/react": "17.0.3",
+    "@types/react-dom": "17.0.3",
+    "@types/react-is": "17.0.0",
+    "@types/styled-components": "5.1.9",
+    "@types/webpack": "4.41.21",
+    "@typescript-eslint/eslint-plugin": "4.19.0",
+    "@typescript-eslint/parser": "4.19.0",
+    "babel-jest": "26.2.2",
+    "babel-loader": "8.1.0",
+    "babel-plugin-styled-components": "1.10.7",
+    "cypress": "^7.3.0",
+    "dotenv": "8.2.0",
+    "eslint": "7.22.0",
+    "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.23.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "^6.0.0",
+    "jest": "26.2.2",
     "jest-styled-components": "^7.0.4",
-    "lint-staged": "^10.5.4",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-is": "^17.0.1",
-    "size-limit": "^4.9.2",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.1.0",
-    "typescript": "^4.1.5"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "clsx": "^1.1.1",
-    "prop-types": "^15.7.2",
-    "styled-components": "^5.2.1"
+    "prettier": "2.2.1",
+    "ts-jest": "26.5.5",
+    "ts-node": "~9.1.1",
+    "typescript": "~4.1.4",
+    "url-loader": "^3.0.0"
   }
 }
