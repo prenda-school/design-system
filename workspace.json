@@ -18,13 +18,21 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/spark",
             "tsConfig": "libs/spark/tsconfig.lib.json",
             "project": "libs/spark/package.json",
             "entryFile": "libs/spark/src/index.ts",
-            "external": ["react", "react-dom", "react-is", "styled-components", "@material-ui"],
+            "external": [
+              "react",
+              "react-dom",
+              "react-is",
+              "styled-components",
+              "@material-ui"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -38,12 +46,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/spark/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/spark/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/spark"],
+          "outputs": [
+            "coverage/libs/spark"
+          ],
           "options": {
             "jestConfig": "libs/spark/jest.config.js",
             "passWithNoTests": true
@@ -54,7 +66,9 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
-            "staticDir": ["libs/spark/public"],
+            "staticDir": [
+              "libs/spark/public"
+            ],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
@@ -67,7 +81,9 @@
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/react",
             "outputPath": "dist/storybook/spark",
@@ -79,6 +95,12 @@
             "ci": {
               "quiet": true
             }
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
           }
         }
       }
@@ -104,7 +126,15 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/spark-e2e/**/*.{js,ts}"
+            ]
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
           }
         }
       }
