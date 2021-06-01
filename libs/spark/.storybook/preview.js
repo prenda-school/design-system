@@ -1,6 +1,6 @@
 import React from 'react';
 import { addDecorator } from '@storybook/react';
-import { SparkThemeProvider } from '../src/theme/Provider';
+import { SparkThemeProvider } from '../src';
 
 addDecorator((Story) => (
   <SparkThemeProvider>

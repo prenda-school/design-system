@@ -9,7 +9,7 @@ import {
   PrendaMonogramLight,
   SparkLogoDark,
   SparkLogoLight,
-} from '../../src';
+} from '../src';
 import { Theme, useTheme } from '@material-ui/core';
 
 export default {
