@@ -1,4 +1,14 @@
-# PrendaSpark
+<p align="center">
+  
+<img width="150" src="./public/img/monogram_dark_bkgd_multicolor.png" alt="Prenda Spark logo">
+
+</p>
+
+<h1 align="center">Prenda Spark</h1>
+
+<div align="center">
+  
+</div>
 
 This project was generated using [Nx](https://nx.dev). See the README in `libs/spark` for further documentation on Prenda Spark. This README provides general information on how to use Nx.
 
