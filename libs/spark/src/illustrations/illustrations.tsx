@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Illustration } from './illustration';
+import { Illustration } from './Illustration';
 import {
   BookSvgPath,
   CollaborateSvgPath,

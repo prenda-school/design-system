@@ -1,5 +1,5 @@
-export { Button, ButtonProps } from './button';
-export { IconButton, IconButtonProps } from './iconButton';
+export { Button, ButtonProps } from './Button';
+export { IconButton, IconButtonProps } from './IconButton';
 export {
   DropdownContext,
   DropdownContextProps,

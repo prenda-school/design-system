@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { Checkbox } from '../src/form-inputs/checkbox';
+import { Checkbox } from '../src';
 import 'jest-styled-components';
 import { SparkThemeProvider } from '../src/theme/Provider';
 
