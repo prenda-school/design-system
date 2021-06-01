@@ -27,7 +27,7 @@ export interface DropdownContextProps {
   children?: React.ReactNode;
   id?: string;
 }
-export interface DropdownButtonProps extends ButtonProps {}
+export type DropdownButtonProps = ButtonProps;
 export interface DropdownMenuProps extends Omit<MuiMenuProps, 'open'> {
   open?: boolean | undefined;
 }
@@ -136,8 +136,8 @@ const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
   };
 
   const value = React.useMemo(
-    () => ({ id, open, anchorEl, handleClick, handleClose }),
-    [id, anchorEl, open]
+    () => ({ id, anchorEl, handleClick, handleClose }),
+    [id, anchorEl]
   );
 
   return <Context.Provider value={value} {...props} />;

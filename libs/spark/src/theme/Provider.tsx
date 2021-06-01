@@ -4,7 +4,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { muiTheme } from './theme';
 import { CssBaseline } from '@material-ui/core';
 
-export const SparkThemeProvider = (props: { children: any }) => {
+export const SparkThemeProvider = (props) => {
   return (
     <StylesProvider injectFirst>
       <ThemeProvider theme={muiTheme}>
