@@ -7,7 +7,7 @@
 <h1 align="center">Prenda Spark</h1>
 
 <div align="center">
-  The official component library for Prenda applications. Each component implements the [Prenda Design System](https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034) over [Material-UI](https://material-ui.com/) components.
+  The official component library for Prenda applications. Each component implements the <a href="https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034" rel="noopener" target="_blank">Prenda Design System</a> over <a href="https://material-ui.com/" rel="noopener" target="_blank">Material-UI</a> components.
 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/prenda-school/prenda-spark/blob/main/LICENSE)
   [![GitHub release](https://img.shields.io/github/release/prenda-school/prenda-spark.js.svg)](https://github.com/prenda-school/prenda-spark/releases/)
