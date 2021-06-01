@@ -15,6 +15,24 @@
   [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)]()
 </div>
 
+## Installation
+
+Prenda Spark is available as an [NPM package](https://www.npmjs.com/package/@prenda/spark).
+
+```sh
+npm install @prenda/spark
+```
+
+## Usage
+
+## Contributing
+
+## Changelog
+
+## License
+
+This project is licensed under the terms of the [MIT license](/LICENSE).
+
 This project was generated using [Nx](https://nx.dev). See the README in `libs/spark` for further documentation on Prenda Spark. This README provides general information on how to use Nx.
 
 ## Generate an application
