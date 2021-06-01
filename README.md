@@ -10,7 +10,6 @@
   The official component library for Prenda applications. Each component implements the <a href="https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034" rel="noopener" target="_blank">Prenda Design System</a> over <a href="https://material-ui.com/" rel="noopener" target="_blank">Material-UI</a> components.
 
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/prenda-school/prenda-spark/blob/main/LICENSE)
-  [![GitHub release](https://img.shields.io/github/release/prenda-school/prenda-spark.js.svg)](https://github.com/prenda-school/prenda-spark/releases/)
   [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest.svg)](https://www.npmjs.com/package/@prenda/spark)
   [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark.svg)](https://www.npmjs.com/package/@prenda/spark)
   [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)]()
