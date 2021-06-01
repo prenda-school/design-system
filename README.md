@@ -1,6 +1,6 @@
 <p align="center">
   
-<img width="150" src="./public/img/monogram_dark_bkgd_multicolor.png" alt="Prenda Spark logo">
+<img width="150" src="./public/img/spark-logo-multicolor.svg" alt="Prenda Spark logo">
 
 </p>
 
