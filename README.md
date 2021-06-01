@@ -13,7 +13,7 @@
   [![GitHub release](https://img.shields.io/github/release/prenda-school/prenda-spark.js.svg)](https://github.com/prenda-school/prenda-spark/releases/)
   [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest.svg)](https://www.npmjs.com/package/@prenda/spark)
   [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark.svg)](https://www.npmjs.com/package/@prenda/spark)
-  [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)]()
+  [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)]()
 </div>
 
 This project was generated using [Nx](https://nx.dev). See the README in `libs/spark` for further documentation on Prenda Spark. This README provides general information on how to use Nx.
