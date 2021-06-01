@@ -1,13 +1,19 @@
 <p align="center">
   
-<img width="128" src="./public/img/spark-logo-multicolor.svg" alt="Prenda Spark logo">
+<img width="128" src="https://github.com/prenda-school/prenda-spark/blob/main/public/img/spark-logo-multicolor.svg" alt="Prenda Spark logo">
 
 </p>
 
 <h1 align="center">Prenda Spark</h1>
 
 <div align="center">
-  
+  The official component library for Prenda applications. Each component implements the [Prenda Design System](https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034) over [Material-UI](https://material-ui.com/) components.
+
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/prenda-school/prenda-spark/blob/main/LICENSE)
+  [![GitHub release](https://img.shields.io/github/release/prenda-school/prenda-spark.js.svg)](https://github.com/prenda-school/prenda-spark/releases/)
+  [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest.svg)](https://www.npmjs.com/package/@prenda/spark)
+  [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark.svg)](https://www.npmjs.com/package/@prenda/spark)
+  [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)]()
 </div>
 
 This project was generated using [Nx](https://nx.dev). See the README in `libs/spark` for further documentation on Prenda Spark. This README provides general information on how to use Nx.
