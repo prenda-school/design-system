@@ -17,5 +17,5 @@ export default {
   },
 } as Meta;
 
-const Template: Story<CheckboxProps> = args => <Checkbox {...args} />;
+const Template: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 export const ConfigurableInput = Template.bind({});

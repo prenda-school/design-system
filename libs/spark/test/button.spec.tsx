@@ -8,8 +8,8 @@ describe('Button', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
         <Button />
-      </SparkThemeProvider> 
-    )
+      </SparkThemeProvider>
+    );
     expect(baseElement).toBeTruthy();
   });
 });

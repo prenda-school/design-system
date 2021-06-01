@@ -9,7 +9,7 @@ describe('Checkbox', () => {
       <SparkThemeProvider>
         <Checkbox label="test label" />
       </SparkThemeProvider>
-    )
+    );
     expect(baseElement).toBeTruthy();
   });
 });

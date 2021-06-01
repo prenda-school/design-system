@@ -6,10 +6,10 @@ import 'jest-styled-components';
 describe('Input', () => {
   it('is truthy', () => {
     const { baseElement } = render(
-    <SparkThemeProvider>
-      <Input />
-    </SparkThemeProvider>
-    )
+      <SparkThemeProvider>
+        <Input />
+      </SparkThemeProvider>
+    );
     expect(baseElement).toBeTruthy();
   });
 });

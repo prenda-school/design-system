@@ -122,7 +122,7 @@ function useUniqueId() {
   return id;
 }
 
-const SparkDropdownContext: React.FC<DropdownContextProps> = props => {
+const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
   const id = useUniqueId();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -143,7 +143,7 @@ const SparkDropdownContext: React.FC<DropdownContextProps> = props => {
   return <Context.Provider value={value} {...props} />;
 };
 
-const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
+const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
   const { id, handleClick } = React.useContext(Context);
   return (
     <Button

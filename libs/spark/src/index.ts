@@ -1,9 +1,12 @@
-export { Button, IconButton,
+export {
+  Button,
+  IconButton,
   DropdownContext,
   DropdownButton,
   DropdownMenu,
   DropdownMenuItem,
-  DropdownDivider, } from './elements';
+  DropdownDivider,
+} from './elements';
 export type {
   ButtonProps,
   IconButtonProps,
