@@ -18,9 +18,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/spark",
             "tsConfig": "libs/spark/tsconfig.lib.json",
@@ -46,16 +44,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/spark/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/spark/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/spark"
-          ],
+          "outputs": ["coverage/libs/spark"],
           "options": {
             "jestConfig": "libs/spark/jest.config.js",
             "passWithNoTests": true
@@ -66,9 +60,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
-            "staticDir": [
-              "libs/spark/public"
-            ],
+            "staticDir": ["libs/spark/public"],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
@@ -81,9 +73,7 @@
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "uiFramework": "@storybook/react",
             "outputPath": "dist/storybook/spark",
@@ -126,9 +116,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/spark-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
           }
         },
         "version": {
