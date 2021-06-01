@@ -1,6 +1,6 @@
 <p align="center">
   
-<img width="128" src="https://github.com/prenda-school/prenda-spark/blob/main/public/img/spark-logo-multicolor.svg" alt="Prenda Spark logo">
+<img width="128" src="https://github.com/prenda-school/prenda-spark/blob/1e3f9d9c01980b5e323b595310e558dfba88b137/public/img/spark-logo-multicolor.svg" alt="Prenda Spark logo">
 
 </p>
 
