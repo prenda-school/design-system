@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Icon } from './Icon';
+import { Icon } from '../Icon';
 import {
   CaretUp,
   CaretDown,

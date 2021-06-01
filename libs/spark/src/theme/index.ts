@@ -48,4 +48,3 @@ export {
   colorsActionSelectedOpacity,
   colorsActionDisabledOpacity,
 } from './colors';
-export { SparkThemeProvider } from './Provider';

@@ -1,41 +1,22 @@
-export { Button, IconButton,
+export { Button } from './Button';
+export type { ButtonProps } from './Button';
+export { Checkbox } from './Checkbox';
+export type { CheckboxProps } from './Checkbox';
+export {
   DropdownContext,
   DropdownButton,
   DropdownMenu,
   DropdownMenuItem,
-  DropdownDivider, } from './elements';
+  DropdownDivider,
+} from './Dropdown';
 export type {
-  ButtonProps,
-  IconButtonProps,
   DropdownContextProps,
   DropdownButtonProps,
   DropdownMenuProps,
   DropdownMenuItemProps,
-} from './elements';
-export { Menu, Checkbox, Input, Radio } from './form-inputs';
-export type {
-  MenuItemOptions,
-  MenuProps,
-  CheckboxProps,
-  InputProps,
-  RadioProps,
-} from './form-inputs';
-export { SparkThemeProvider, muiTheme, prendaTheme } from './theme';
-export type { TertiaryColor } from './theme';
-export {
-  BookIllustration,
-  CollaborateIllustration,
-  ConquerIllustration,
-  CreateIllustration,
-} from './illustrations';
-export {
-  PrendaWordmarkDark,
-  PrendaWordmarkLight,
-  PrendaMonogramDark,
-  PrendaMonogramLight,
-  SparkLogoDark,
-  SparkLogoLight,
-} from './logos';
+} from './Dropdown';
+export { Icon } from './Icon';
+export type { IconProps } from './Icon';
 export {
   CaretUpIcon,
   CaretDownIcon,
@@ -91,5 +72,32 @@ export {
   StarIcon,
   StarFilledIcon,
 } from './icons';
-export { Typography } from './typography';
-export type { TypographyProps } from './typography';
+export { IconButton } from './IconButton';
+export type { IconButtonProps } from './IconButton';
+export {
+  BookIllustration,
+  CollaborateIllustration,
+  ConquerIllustration,
+  CreateIllustration,
+} from './illustrations';
+export { Input } from './Input';
+export type { InputProps } from './Input';
+export { Logo } from './Logo';
+export type { LogoProps } from './Logo';
+export {
+  PrendaWordmarkDark,
+  PrendaWordmarkLight,
+  PrendaMonogramDark,
+  PrendaMonogramLight,
+  SparkLogoDark,
+  SparkLogoLight,
+} from './logos';
+export { Menu } from './Menu';
+export type { MenuItemOptions, MenuProps } from './Menu';
+export { Radio } from './Radio';
+export type { RadioProps } from './Radio';
+export { SparkThemeProvider } from './SparkThemeProvider';
+export { muiTheme, prendaTheme } from './theme';
+export type { TertiaryColor } from './theme';
+export { Typography } from './Typography';
+export type { TypographyProps } from './Typography';

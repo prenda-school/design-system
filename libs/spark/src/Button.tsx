@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import styled from 'styled-components';
 import clsx from 'clsx';
-import { capitalize } from '../utils';
+import { capitalize } from './utils';
 
 export interface ButtonProps
   extends Omit<

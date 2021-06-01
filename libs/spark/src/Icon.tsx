@@ -3,7 +3,7 @@ import { SvgIcon } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core';
 
-interface iconProps {
+export interface IconProps {
   children: JSX.Element;
   color: string;
   fontSize: string;
@@ -11,7 +11,7 @@ interface iconProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
-  icon: (props: iconProps) => ({
+  icon: (props: IconProps) => ({
     color: theme.palette.background[getTextKey(props.color, props.contrast)],
     fontSize: getFontSize(props.fontSize),
   }),
@@ -43,7 +43,7 @@ function getFontSize(size = 'default') {
   }
 }
 
-export const Icon: FC<iconProps> = (props) => {
+export const Icon: FC<IconProps> = (props) => {
   const styles = useStyles(props);
   return (
     <SvgIcon viewBox="0 0 24 24" className={styles.icon}>
