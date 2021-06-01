@@ -11,7 +11,7 @@
     The official monorepo for libraries implementing the <a href="https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034" rel="noopener" target="_blank">Spark Design System</a>, intended for use in <a href="https://www.prenda.com/" rel="noopener" target="_blank">Prenda</a> applications. Libraries include customized <a href="https://material-ui.com/" rel="noopener" target="_blank">Material-UI</a> components and Prenda illustrations and icons.
   </p>
 
-  [![Contributors](https://img.shields.io/github/prenda-school/prenda-spark/shields)](https://github.com/prenda-school/prenda-spark/graphs/contributors)
+  [![Contributors](https://img.shields.io/github/contributors/badges/shields)](https://github.com/prenda-school/prenda-spark/graphs/contributors)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/prenda-school/prenda-spark/blob/main/LICENSE)
   [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest.svg)](https://www.npmjs.com/package/@prenda/spark)
   [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark.svg)](https://www.npmjs.com/package/@prenda/spark)
