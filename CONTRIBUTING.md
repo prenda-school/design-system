@@ -9,7 +9,9 @@ Please read [the full text](/CODE_OF_CONDUCT.md) so that you can understand what
 
 ## Design-to-Development Pipeline
 
-Prenda Spark represents a collaborative effort between the Design and Engineering teams at Prenda. Every component starts out in a Figma Design page within the Web file. 
+Prenda Spark represents a collaborative effort between the Design and Engineering teams at Prenda. Every component starts out in a Figma Design page within the Web file. Once a component is initially completed, it can be implemented in the Spark repository. Any further changes should be tracked in this repository as well. This requires a significant amount of coordination, but we know it is possible with everyone involved.
+
+### New
 
 1. A designer completes an initial component design.
 2. The designer files a "New Component" Issue in this repository. The description should:
@@ -20,26 +22,77 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 3. An engineer assesses the description, communicates with the designer as necessary, and produces an initial written assessment:
   - Formalize enumerated descriptors to props
   - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
-4. Once the assessment is complete, either initially or with additional engineer / designer conversation, the issue is labeled "ready".
-5. One or many engineers claim the issue, create a new branch, and work on the implementation.
-  - Claiming = assign to themselves -- the aim is to make sure two people don't unknowingly work on the same issue.
-  - Branches can be created by Prenda engineers and help collaboration or picking up where others left off, if everyone is in agreement for that. 
-    - If you are outside of Prenda, fork & clone instead of branch, and see below.
+4. Label the issue with "ready" (to be worked on).
+5. A developer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
-The Spark Design System is constantly evolving, most rapidly in Figma. When a designers makes a change to a component's Figma page:
+### Change
 
-1. The designer files a "Change to Component" Issue in this repository. The description should:
+1. A designers makes a change to a completed component.
+2. The designer files a "Change to Component" Issue in this repository. The description should:
   - Provide a link to the corresponding Figma page.
   - Describe the before-and-after of the change.
 2. An engineer assesses the description, communicates with the designer as necessary, and produces a change plan.
-3. An engineer claims the issue, creates a new branch, and works on implementing the change.
+custom-styled or modified to produce the new component.
+4. Label the issue with "ready" (to be worked on).
+5. A developer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
-If somebody claims an issue but doesn't follow up for more than a week, it's fine to take it over but you should still leave a comment.
-If there has been no activity on the issue for 7 to 14 days, it is safe to assume that nobody is working on it.
+### Implementation Work
 
-## Outside of Prenda
+Requirements:
+- Spark component is a wrapper around, or is based on, a Material-UI component(s).
+  - Imports from MUI should be named and prefixed with "Mui"
+```tsx
+// FILE: src/Button.tsx
+import { 
+  ButtonBase as MuiButtonBase,
+  ButtonBaseProps as MuiButtonBaseProps,
+} from '@material-ui/core';
+``` 
+- Spark component props are defined as a TypeScript interface and extend the underlying component's props.
+```tsx
+// FILE: src/Button.tsx
+export interface ButtonProps 
+  extends Omit<MuiButtonBaseProps, 'unwanted_prop'> {
+    custom_prop?: 'value';
+  }
+```
+- Styling is done using styled-components or emotion
+- Component is functional React component.
+- Component name is prefixed with "Spark", but exported as proper name.
+```tsx
+// FILE: src/Button.tsx
+const SparkButton: FC<ButtonProps> = (props) => {...}
+export { SparkButton as Button };
+```
+- One component per file
+  - internal (sub-)components can be moved to `src/internal/` as needed.
+  - components with composition patterns that customize other existing Spark components should also be prefixed accordingly 
+```tsx
+// FILE: src/Button.tsx
+import { Button, ButtonProps } from './Button';
+export interface DropdownButtonProps = ButtonProps
+const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
+  const { id, handleClick } = React.useContext(Context);
+  return (
+    <Button
+      aria-controls={id}
+      aria-haspopup="true"
+      onClick={handleClick}
+      {...props}
+    />
+  );
+};
+export {
+  SparkDropdownButton as DropdownButton,
+};
+```
+- Component and Props interface are exported in `src/index.ts`.
 
-If you are not a part of Prenda but would like to contribute to Prenda Spark, then we appreciate you and will accept your contributions. However, you will not be able to be as closely involved in the Design Pipeline; you will not be given access to Prenda's Figma organization or design files. The best places for you to contribute are fixing bugs and improving our documentation, stories, and markdown.
+### Other
+
+If somebody claims an issue but doesn't follow up for more than a week, then it's fine to take it over -- you should leave a comment to let others know.
+
+If there has been no activity on an issue for 7 to 14 days, it is safe to assume that nobody is working on it.
 
 ## Keep a Pull Request small
 
@@ -49,7 +102,48 @@ When in doubt, keep your Pull Requests small. To give a Pull Request the best ch
 
 Before working on any change besides chores, it is best to open an issue first and discuss it with the maintainers.
 
+## Get Up and Running
+
+There will be differences depending on if you are inside or outside of Prenda. See [Outside of Prenda?](##-outside-of-prenda) for our outlook on this.
+
+1. Inside of Prenda? Skip this step. Outside of Prenda? Fork the repository.
+2. Inside of Prenda? Clone the repository to your local machine. Outside of Prenda? Clone the fork to your local machine, add upstream remote, and synchronize your local with upstream. Else: goto 3. I
+```sh
+# Inside of Prenda?
+git clone https://github.com/prenda-school/prenda-spark
+cd prenda-spark
+```
+```sh
+# Outside of Prenda?
+git clone https://github.com/<your username>/prenda-spark.git
+cd prenda-spark
+git remote add upstream https://github.com/prenda-school/prenda-spark.git
+git checkout main
+git pull upstream main
+```
+3. Install dependencies.
+```sh
+npm install
+```
+4. Create a new topic branch.
+```sh
+git checkout -b my-topic-branch
+```
+
+From here, your next steps will be project specific. See project README's:
+- [Spark](/libs/spark/README.md)
+
+## Outside of Prenda
+
+If you are not a part of Prenda but would like to contribute to Prenda Spark, then we appreciate you and will accept your contributions. However, you will not be able to be as closely involved in the Design-to-Development Pipeline; you will not be given access to Prenda's Figma organization or design files. The best places for you to contribute are fixing bugs and improving our documentation, stories, and markdown.
+
+When you see "create a new branch" below, you will instead follow a fork and clone process.
+
 ## About Nx
+
+Prenda Spark uses [Nx](https://nx.dev/) to scaffold and support our workspace. Read through [Getting Started](https://nx.dev/latest/angular/getting-started/intro) to become familiar with it.
+
+Here's some notable description, auto-generated by Nx, that we'll leave for posterity / knowledge.
 
 ### Generate an application
 
