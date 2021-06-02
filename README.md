@@ -19,7 +19,7 @@
   [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079)](https://semver.org/)
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa)](https://github.com/prenda-school/prenda-spark/blob/main/CODE_OF_CONDUCT.md)
   [![Figma](https://img.shields.io/badge/-designed%20in%20Figma-444?logo=figma&logoColor=white)](https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034)
-  [![Nx](https://img.shields.io/badge/maintained%20with-Nx-143055)](https://nx.dev/)
+  [![Nx](https://img.shields.io/badge/-maintained%20with%20Nx-143055?logo=Nx&logoColor=white)](https://nx.dev/)
 
 
 </div>
