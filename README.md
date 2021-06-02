@@ -20,6 +20,7 @@
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.0-4baaaa)](https://github.com/prenda-school/prenda-spark/blob/main/CODE_OF_CONDUCT.md)
   [![Figma](https://img.shields.io/badge/-designed%20in%20Figma-f24e1e?logo=figma&logoColor=white)](https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034)
   [![Nx](https://img.shields.io/badge/-maintained%20with%20Nx-143055?logo=Nx&logoColor=white)](https://nx.dev/)
+  [![Build State](https://github.com/prenda-school/prenda-spark/workflows/Continuous%20Integration%20Test/badge.svg)](https://github.com/prenda-school/prenda-spark/actions?query=workflow%3aContinuous%20Integration%20Test+branch%3Amain)
 
 
 </div>
