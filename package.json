@@ -24,7 +24,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "chromatic": "nx run spark:build-storybook && npx chromatic --project-token=a0f0d95ee1a6 -d dist/storybook/spark --auto-accept-changes"
   },
   "private": true,
   "dependencies": {
@@ -73,6 +74,7 @@
     "babel-jest": "26.2.2",
     "babel-loader": "8.1.0",
     "babel-plugin-styled-components": "1.10.7",
+    "chromatic": "^5.9.0",
     "cypress": "^7.3.0",
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
