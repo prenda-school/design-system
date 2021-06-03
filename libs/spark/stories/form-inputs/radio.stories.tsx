@@ -18,5 +18,5 @@ export default {
   },
 } as Meta;
 
-const Template: Story<RadioProps> = args => <Radio {...args} />;
+const Template: Story<RadioProps> = (args) => <Radio {...args} />;
 export const ConfigurableInput = Template.bind({});
