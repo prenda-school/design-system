@@ -71,6 +71,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "outputPath": "dist/storybook/spark",
+            "staticDir": ["libs/spark/public"],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
