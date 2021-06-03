@@ -7,7 +7,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "lint": "nx workspace-lint --fix && nx run-many --all --target=lint --fix",
+    "lint": "nx workspace-lint --fix && nx run-many --all --target lint --fix",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
