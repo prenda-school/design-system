@@ -24,8 +24,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "prepare": "husky install",
-    "chromatic": "nx run spark:build-storybook && npx chromatic --project-token=a0f0d95ee1a6 -d dist/storybook/spark --auto-accept-changes"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
