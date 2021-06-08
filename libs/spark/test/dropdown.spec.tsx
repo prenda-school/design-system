@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
-import { SparkThemeProvider } from '../src/theme/Provider';
+import 'jest-styled-components';
 import {
+  SparkThemeProvider,
   DropdownContext,
   DropdownButton,
   DropdownMenu,

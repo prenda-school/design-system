@@ -7,7 +7,7 @@ import {
   Divider as MuiDivider,
   Theme,
 } from '@material-ui/core';
-import { Button, ButtonProps } from './button';
+import { Button, ButtonProps } from './Button';
 import styled from 'styled-components';
 
 type DropdownContextType = {

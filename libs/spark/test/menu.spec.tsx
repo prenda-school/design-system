@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
-import { Menu } from '../src';
-import { SparkThemeProvider } from '../src/theme/Provider';
 import 'jest-styled-components';
+import { Menu, SparkThemeProvider } from '../src';
 
 describe('Menu', () => {
   it('is truthy', () => {

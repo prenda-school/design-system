@@ -295,6 +295,8 @@ Typography.propTypes = {
   ]),
 };
 
-export default withStyles(styles, {
+const SparkTypography = withStyles(styles, {
   name: 'SparkTypography',
 })(Typography);
+
+export { SparkTypography as Typography };

@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
-import { Checkbox } from '../src/form-inputs/checkbox';
 import 'jest-styled-components';
-import { SparkThemeProvider } from '../src/theme/Provider';
+import { SparkThemeProvider, Checkbox } from '../src';
 
 describe('Checkbox', () => {
   it('is truthy', () => {

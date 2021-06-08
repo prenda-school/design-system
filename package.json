@@ -46,6 +46,7 @@
     "@babel/preset-env": "7.12.13",
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.12.13",
+    "@jscutlery/semver": "^2.2.1",
     "@nrwl/cli": "12.2.0",
     "@nrwl/eslint-plugin-nx": "12.2.0",
     "@nrwl/jest": "12.2.0",

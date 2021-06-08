@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Logo } from './logo';
+import { Logo } from '../Logo';
 import {
   PrendaWordmarkSvgPath,
   PrendaMonogramSvgPath,

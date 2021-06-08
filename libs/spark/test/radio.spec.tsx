@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
-import { Radio } from '../src';
-import { SparkThemeProvider } from '../src/theme/Provider';
 import 'jest-styled-components';
+import { Radio, SparkThemeProvider } from '../src';
 
 describe('Radio', () => {
   it('is truthy', () => {
