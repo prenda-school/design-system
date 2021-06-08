@@ -20,6 +20,7 @@ Prenda Spark extends Material UI react components (https://material-ui.com/) by 
 ## Development
 
 ### Set Up
+
 1. Clone the repository.
 2. Ensure you have Node Version Manager installed on your system ([see instructions](https://github.com/nvm-sh/nvm#installing-and-updating)).
 3. Run `nvm use` to ensure specified node version is used.
@@ -27,6 +28,7 @@ Prenda Spark extends Material UI react components (https://material-ui.com/) by 
 5. Ensure you have [Nx](https://nx.dev) installed on your system (`npm i -g nx`) ([see more](https://nx.dev/latest/react/tutorial/01-create-application#note-on-the-nx-cli)), or if this is not possible, you can use `npx nx` instead of `nx` in the commands in this document.
 
 ### Usage
+
 Run `nx run spark:storybook` to run the spark project in develop mode (open `http://localhost:4400/` in your default browser to view.)
 
 Now you can develop components within the `libs/spark/src/` directory and see changes update in realtime.
@@ -35,7 +37,7 @@ Depending on your preferred IDE, consider downloading a [community IDE plugin fo
 
 ## Testing
 
-Run tests with `nx run spark:test`. 
+Run tests with `nx run spark:test`.
 Spark uses Jest tests with React Testing Library.
 
 To run end-to-end tests with [Cypress.io](https://www.cypress.io/), run `nx run spark-e2e:e2e`, and add the `--watch` flag to keep the Cypress test runner open and manually run specific Cypress tests.
