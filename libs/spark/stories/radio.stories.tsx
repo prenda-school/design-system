@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Checkbox, CheckboxProps } from '../../src';
+import { Radio, RadioProps } from '../src';
 
 export default {
-  title: 'prenda-spark/Checkbox',
-  component: Checkbox,
+  title: 'prenda-spark/Radio',
+  component: Radio,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     label: { control: 'text' },
@@ -13,9 +13,9 @@ export default {
     disabled: { control: 'boolean' },
   },
   args: {
-    label: 'Checkbox label',
+    label: 'Radio button label',
   },
 } as Meta;
 
-const Template: Story<CheckboxProps> = args => <Checkbox {...args} />;
+const Template: Story<RadioProps> = (args) => <Radio {...args} />;
 export const ConfigurableInput = Template.bind({});

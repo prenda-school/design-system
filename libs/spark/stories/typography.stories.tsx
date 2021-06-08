@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Typography, TypographyProps } from '../../src';
+import { Typography, TypographyProps } from '../src';
 import styled from 'styled-components';
-import { Variant } from '../../src/typography/typography';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -124,11 +123,10 @@ enum Styles {
   Regular = 'Regular',
 }
 
-type BaseInfo = {
+type BaseInfo = Pick<TypographyProps, 'variant'> & {
   text: Sizes;
   values: string;
   style: Styles;
-  variant: Variant;
   isStrong?: boolean;
 };
 

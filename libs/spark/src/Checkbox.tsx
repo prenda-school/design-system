@@ -124,7 +124,8 @@ function SparkCheckboxIcon(props: {
 
 // End custom checkbox icons, Begin Checkbox component
 
-export interface CheckboxProps extends Omit<MuiFormControlLabelProps, "control"> {
+export interface CheckboxProps
+  extends Omit<MuiFormControlLabelProps, 'control'> {
   ControlCheckboxProps?: MuiCheckboxProps;
 }
 
@@ -171,7 +172,7 @@ const Checkbox = styled(MuiCheckbox)`
   `}
 `;
 
-export const SparkCheckbox: FC<CheckboxProps> = props => {
+export const SparkCheckbox: FC<CheckboxProps> = (props) => {
   const { ControlCheckboxProps, ...other } = props;
 
   return (

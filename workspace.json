@@ -24,7 +24,13 @@
             "tsConfig": "libs/spark/tsconfig.lib.json",
             "project": "libs/spark/package.json",
             "entryFile": "libs/spark/src/index.ts",
-            "external": ["react", "react-dom", "react-is", "styled-components", "@material-ui"],
+            "external": [
+              "react",
+              "react-dom",
+              "react-is",
+              "styled-components",
+              "@material-ui"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -81,6 +87,12 @@
               "quiet": true
             }
           }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
+          }
         }
       }
     },
@@ -106,6 +118,12 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
           }
         }
       }

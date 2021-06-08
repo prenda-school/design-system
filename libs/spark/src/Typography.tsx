@@ -247,7 +247,7 @@ const Typography: React.FC<TypographyProps> = ({
         className
       )}
       {...other}
-      // @ts-ignore
+      // @ts-expect-error: Property 'component' does not exist on type
       component={other.component || defaultVariantMapping[variant]}
     />
   );
@@ -295,6 +295,8 @@ Typography.propTypes = {
   ]),
 };
 
-export default withStyles(styles, {
+const SparkTypography = withStyles(styles, {
   name: 'SparkTypography',
 })(Typography);
+
+export { SparkTypography as Typography };

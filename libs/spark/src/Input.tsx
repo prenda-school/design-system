@@ -88,7 +88,7 @@ const Input = styled(MuiInput)`
   `}
 `;
 
-const SparkInput: FC<InputProps> = props => {
+const SparkInput: FC<InputProps> = (props) => {
   const {
     id,
     label,
