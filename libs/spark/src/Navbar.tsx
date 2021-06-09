@@ -4,7 +4,6 @@ import { PrendaMonogramDark } from './logos';
 import { colorsPrendaMediumGrey } from './theme';
 
 export type NavbarProps = {
-  navbarId: string;
   children: React.ReactChild | React.ReactChild[];
 };
 
