@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Icon } from '../Icon';
+import { Icon, IconProps } from '../Icon';
 import {
   CaretUp,
   CaretDown,
@@ -56,11 +56,7 @@ import {
   StarFilled,
 } from './svgpath';
 
-interface iconProps {
-  fontSize: string;
-  color: string;
-  contrast: string;
-}
+type iconProps = Omit<IconProps, 'children'>;
 
 export const CaretUpIcon: FC<iconProps> = ({ fontSize, color, contrast }) => {
   return (
