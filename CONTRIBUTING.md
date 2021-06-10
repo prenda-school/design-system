@@ -37,7 +37,7 @@ custom-styled or modified to produce the new component.
 
 ### Implementation Work
 
-Spark components should adhere closely to these *requirements*:
+Spark components should adhere closely to these *guidelines*:
 - Based on a Material-UI component(s).
 - Uses named imports from Material-UI, prefixed with `Mui`.
 - Defines props as a TypeScript interface that extends the underlying component's props.
