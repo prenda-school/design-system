@@ -37,35 +37,44 @@ custom-styled or modified to produce the new component.
 
 ### Implementation Work
 
-Requirements:
-- Spark components is based on a Material-UI component(s).
-  - Imports from MUI should be named and prefixed with `Mui`.
+Spark components should adhere closely to these *requirements*:
+- Based on a Material-UI component(s).
+- Uses named imports from Material-UI, prefixed with `Mui`.
+- Defines props as a TypeScript interface that extends the underlying component's props.
+- Passes through all unknown props.
+- Styled using `styled-components` or `emotion`.
+- Is a functional React component.
+- Prefixed with "Spark" but exported as proper name.
 ```tsx
 // FILE: src/Button.tsx
 import { 
   ButtonBase as MuiButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
 } from '@material-ui/core';
-``` 
-- Spark component props are defined as a TypeScript interface and extend the underlying component's props.
-```tsx
-// FILE: src/Button.tsx
+
 export interface ButtonProps 
   extends Omit<MuiButtonBaseProps, 'unwanted_prop'> {
     custom_prop?: 'value';
   }
-```
-- Styling is done using `styled-components` or `emotion`.
-- Component is functional React component.
-- Component name is prefixed with "Spark", but exported as proper name.
-```tsx
-// FILE: src/Button.tsx
-...
 
-const SparkButton: FC<ButtonProps> = (props) => {...};
+const Button = styled(MuiButton)`
+  ${({ theme }) => `
+    ...
+  `}
+`;
+
+const SparkButton: FC<ButtonProps> = ({ capturedProp, ...other}) => {
+  ... // something with `capturedProp`
+
+  return (
+    <Button {...other}>
+      {...}
+    </Button>
+  )
+};
 
 export { SparkButton as Button };
-```
+``` 
 - One component per file
   - internal (sub-)components can be moved to `src/internal/` as needed.
   - components with composition patterns that customize other existing Spark components should also be prefixed accordingly 
