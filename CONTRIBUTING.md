@@ -4,8 +4,7 @@ Thank you for helping us make this project great and being a part of the Prenda 
 
 ## Code of Conduct
 
-Prenda Spark has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) as its Code of Conduct, and we expect project participants to adhere to it.
-Please read [the full text](/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
+Prenda Spark has no official Code of Conduct. Prenda employees should abide company policies. Outside contributors are asked to be respectful and understanding at all times. Prenda project maintainers can take administrative action at any time.
 
 ## Design-to-Development Pipeline
 
