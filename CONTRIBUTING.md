@@ -23,7 +23,7 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
   - Formalize enumerated descriptors to props
   - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
-5. A developer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
+5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
 ### Change
 
@@ -34,7 +34,7 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 2. An engineer assesses the description, communicates with the designer as necessary, and produces a change plan.
 custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
-5. A developer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
+5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
 ### Implementation Work
 
@@ -104,15 +104,43 @@ Before working on any change besides chores, it is best to open an issue first a
 
 ## Get Up and Running
 
-There will be differences depending on if you are inside or outside of Prenda. See [Outside of Prenda?](##-outside-of-prenda) for our outlook on this.
+1. Initial setup depends on if you are inside or outside of Prenda. See [Inside of Prenda?](##-inside-of-prenda) or [Outside of Prenda?](##-outside-of-prenda).
 
-1. Inside of Prenda? Skip this step. Outside of Prenda? Fork the repository.
-2. Inside of Prenda? Clone the repository to your local machine. Outside of Prenda? Clone the fork to your local machine, add upstream remote, and synchronize your local with upstream. Else: goto 3. I
+2. Install dependencies.
+```sh
+npm install
+```
+
+3. Create a new topic branch.
+```sh
+git checkout -b my-topic-branch
+```
+
+From here, your next steps will be project specific. See project README's:
+- [Spark](/libs/spark/README.md)
+
+## Inside of Prenda
+
+You have ability to create new branches in the repo instead of forking.
+
+1. Clone the repository to your local machine.
+
 ```sh
 # Inside of Prenda?
 git clone https://github.com/prenda-school/prenda-spark
 cd prenda-spark
 ```
+
+## Outside of Prenda
+
+If you are not a part of Prenda but would like to contribute to Prenda Spark, then we appreciate you and will accept your contributions. However, you will not be able to be as closely involved in the Design-to-Development Pipeline; you will not be given access to Prenda's Figma organization or design files. The best places for you to contribute are fixing bugs and improving our documentation, stories, and markdown.
+
+Setup Process:
+
+1. Fork the repository.
+
+2. Clone the fork to your local machine, add upstream remote, and synchronize your local with upstream.
+
 ```sh
 # Outside of Prenda?
 git clone https://github.com/<your username>/prenda-spark.git
@@ -121,23 +149,6 @@ git remote add upstream https://github.com/prenda-school/prenda-spark.git
 git checkout main
 git pull upstream main
 ```
-3. Install dependencies.
-```sh
-npm install
-```
-4. Create a new topic branch.
-```sh
-git checkout -b my-topic-branch
-```
-
-From here, your next steps will be project specific. See project README's:
-- [Spark](/libs/spark/README.md)
-
-## Outside of Prenda
-
-If you are not a part of Prenda but would like to contribute to Prenda Spark, then we appreciate you and will accept your contributions. However, you will not be able to be as closely involved in the Design-to-Development Pipeline; you will not be given access to Prenda's Figma organization or design files. The best places for you to contribute are fixing bugs and improving our documentation, stories, and markdown.
-
-When you see "create a new branch" below, you will instead follow a fork and clone process.
 
 ## About Nx
 
