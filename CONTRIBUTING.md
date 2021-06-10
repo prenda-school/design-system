@@ -45,6 +45,9 @@ Spark components should adhere closely to these *guidelines*:
 - Styled using `styled-components` or `emotion`.
 - Is a functional React component.
 - Prefixed with "Spark" but exported as proper name.
+- One component per file
+  - internal (sub-)components can be moved to `~/src/internal/` as needed.
+- Component and Props interface are exported in `~/src/index.ts`.
 ```tsx
 // FILE: src/Button.tsx
 import { 
@@ -64,7 +67,7 @@ const Button = styled(MuiButton)`
 `;
 
 const SparkButton: FC<ButtonProps> = ({ capturedProp, ...other}) => {
-  ... // something with `capturedProp`
+  ... // something with `capturedProp` & other logic
 
   return (
     <Button {...other}>
@@ -75,11 +78,9 @@ const SparkButton: FC<ButtonProps> = ({ capturedProp, ...other}) => {
 
 export { SparkButton as Button };
 ``` 
-- One component per file
-  - internal (sub-)components can be moved to `src/internal/` as needed.
-  - components with composition patterns that customize other existing Spark components should also be prefixed accordingly 
+- Components with composition patterns that customize other existing Spark components should also be prefixed accordingly 
 ```tsx
-// FILE: src/Button.tsx
+// FILE: src/DropdownButton.tsx
 import { Button, ButtonProps } from './Button';
 
 export interface DropdownButtonProps = ButtonProps;
@@ -98,7 +99,6 @@ const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
 
 export { SparkDropdownButton as DropdownButton };
 ```
-- Component and Props interface are exported in `src/index.ts`.
 
 ### Other
 
