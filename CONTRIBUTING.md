@@ -15,13 +15,13 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 
 1. A designer completes an initial component design.
 2. The designer files a "New Component" Issue in this repository. The description should:
-  - Provide a link to the corresponding Figma page.
-  - Describe the motivation and use-case of component, if necessary.
-  - Enumerate descriptors like variants, sizes, etc.
-  - Describe component makeup, if the component has, or is, a composition pattern.
+    - Provide a link to the corresponding Figma page.
+    - Describe the motivation and use-case of component, if necessary.
+    - Enumerate descriptors like variants, sizes, etc.
+    - Describe component makeup, if the component has, or is, a composition pattern.
 3. An engineer assesses the description, communicates with the designer as necessary, and produces an initial written assessment:
-  - Formalize enumerated descriptors to props
-  - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
+    - Formalize enumerated descriptors to props
+    - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
 5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
@@ -29,8 +29,8 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 
 1. A designers makes a change to a completed component.
 2. The designer files a "Change to Component" Issue in this repository. The description should:
-  - Provide a link to the corresponding Figma page.
-  - Describe the before-and-after of the change.
+    - Provide a link to the corresponding Figma page.
+    - Describe the before-and-after of the change.
 2. An engineer assesses the description, communicates with the designer as necessary, and produces a change plan.
 custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
