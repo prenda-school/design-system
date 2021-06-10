@@ -38,8 +38,8 @@ custom-styled or modified to produce the new component.
 ### Implementation Work
 
 Requirements:
-- Spark component is a wrapper around, or is based on, a Material-UI component(s).
-  - Imports from MUI should be named and prefixed with "Mui"
+- Spark components is based on a Material-UI component(s).
+  - Imports from MUI should be named and prefixed with `Mui`.
 ```tsx
 // FILE: src/Button.tsx
 import { 
@@ -55,12 +55,15 @@ export interface ButtonProps
     custom_prop?: 'value';
   }
 ```
-- Styling is done using styled-components or emotion
+- Styling is done using `styled-components` or `emotion`.
 - Component is functional React component.
 - Component name is prefixed with "Spark", but exported as proper name.
 ```tsx
 // FILE: src/Button.tsx
-const SparkButton: FC<ButtonProps> = (props) => {...}
+...
+
+const SparkButton: FC<ButtonProps> = (props) => {...};
+
 export { SparkButton as Button };
 ```
 - One component per file
@@ -69,7 +72,9 @@ export { SparkButton as Button };
 ```tsx
 // FILE: src/Button.tsx
 import { Button, ButtonProps } from './Button';
-export interface DropdownButtonProps = ButtonProps
+
+export interface DropdownButtonProps = ButtonProps;
+
 const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
   const { id, handleClick } = React.useContext(Context);
   return (
@@ -81,9 +86,8 @@ const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
     />
   );
 };
-export {
-  SparkDropdownButton as DropdownButton,
-};
+
+export { SparkDropdownButton as DropdownButton };
 ```
 - Component and Props interface are exported in `src/index.ts`.
 
