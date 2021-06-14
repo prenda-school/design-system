@@ -1,0 +1,24 @@
+import * as React from 'react';
+
+function SvgGlassWine(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      fill="none"
+      viewBox="0 0 24 24"
+      style={props.style}
+    >
+      <path
+        fill="currentcolor"
+        fillOpacity={0.72}
+        fillRule="evenodd"
+        d="M5.222 2.25A1.972 1.972 0 003.25 4.222V6a8.75 8.75 0 008 8.718v5.532H8a.75.75 0 000 1.5h8a.75.75 0 000-1.5h-3.25v-5.532a8.75 8.75 0 008-8.718V4.222a1.972 1.972 0 00-1.972-1.972H5.222zM4.75 4.222c0-.26.211-.472.472-.472h13.556c.26 0 .472.211.472.472V6a7.25 7.25 0 11-14.5 0V4.222z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export default SvgGlassWine;
