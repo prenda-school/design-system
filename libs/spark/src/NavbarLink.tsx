@@ -17,6 +17,7 @@ export const NavbarLink = styled.a`
   align-items: center;
   font-size: 18px;
   font-weight: 500;
+  cursor: pointer;
   &:hover,
   &:focus,
   &[aria-current='page'] {

@@ -22,7 +22,7 @@ const UserMenu = styled.div`
   display: flex;
 `;
 
-const Template = (args: NavbarProps) => (
+const NavbarTemplate = (args: NavbarProps) => (
   <Navbar {...args}>
     <NavbarLink href="/">
       <HomeIcon fontSize="large" color="navy" contrast="low" />
@@ -42,4 +42,12 @@ const Template = (args: NavbarProps) => (
     </UserMenu>
   </Navbar>
 );
-export const BasicNavbar = Template.bind({});
+export const BasicNavbar = NavbarTemplate.bind({});
+
+const NavbarLinkTemplate = (args) => (
+  <NavbarLink as="a">
+    <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
+    <span>Link Text</span>
+  </NavbarLink>
+);
+export const BasicNavbarLink = NavbarLinkTemplate.bind({});
