@@ -3,10 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
 import * as Icons from '../src/icons';
+import { AlertCircleIconDuotone } from '../src/icons';
 
 const Wrapper = styled.div`
   vertical-align: middle;
 `;
+
+export const ExampleIcon = (props) => <AlertCircleIconDuotone />;
 
 export const Duotone = () => (
   <Wrapper>
@@ -5122,5 +5125,5 @@ export const Line = () => (
 
 export default {
   title: 'prenda-spark/Icons',
-  component: Line,
+  component: ExampleIcon,
 } as Meta;
