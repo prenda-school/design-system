@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
 import {
   Navbar,
@@ -16,6 +17,11 @@ export default {
   args: {},
 } as Meta;
 
+const UserMenu = styled.div`
+  margin-left: auto;
+  display: flex;
+`;
+
 const Template = (args: NavbarProps) => (
   <Navbar {...args}>
     <NavbarLink href="/">
@@ -26,10 +32,14 @@ const Template = (args: NavbarProps) => (
       <CheckCircleIcon fontSize="large" color="navy" contrast="low" />
       <span>Active</span>
     </NavbarLink>
-    <NavbarLink>
+    <NavbarLink className="disabled">
       <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
       <span>Disabled</span>
     </NavbarLink>
+    <UserMenu>
+      <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
+      <span>0</span>
+    </UserMenu>
   </Navbar>
 );
 export const BasicNavbar = Template.bind({});

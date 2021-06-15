@@ -30,7 +30,7 @@ export const NavbarLink = styled.a`
     border: 2px solid ${colorsPrendaNavy};
     outline: none;
   }
-  &:not([href]) {
+  &.disabled {
     opacity: 0.56;
     pointer-events: none;
     cursor: default;
