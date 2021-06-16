@@ -5,9 +5,9 @@ import { Theme } from '@material-ui/core';
 
 export interface IconProps {
   children: JSX.Element;
-  color: string;
-  fontSize: string;
-  contrast: string;
+  color: 'navy' | 'grey';
+  fontSize: 'small' | 'large' | 'default';
+  contrast: 'high' | 'low';
 }
 
 const useStyles = makeStyles((theme: Theme) => ({

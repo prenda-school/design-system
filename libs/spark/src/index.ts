@@ -101,3 +101,6 @@ export { muiTheme, prendaTheme } from './theme';
 export type { TertiaryColor } from './theme';
 export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
+export { Navbar } from './Navbar';
+export type { NavbarProps } from './Navbar';
+export { NavbarLink } from './NavbarLink';
