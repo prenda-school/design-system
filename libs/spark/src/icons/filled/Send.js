@@ -12,7 +12,6 @@ function SvgSend(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M2.458 3.482a.75.75 0 01.847-.167l18 8a.75.75 0 010 1.37l-18 8a.75.75 0 01-.976-1.02l3.458-6.915H12a.75.75 0 000-1.5H5.786L2.33 4.335a.75.75 0 01.129-.853z"
         clipRule="evenodd"

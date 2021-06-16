@@ -12,7 +12,6 @@ function SvgText2(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M4.25 4A.75.75 0 015 3.25h14a.75.75 0 010 1.5h-6.25V20a.75.75 0 01-1.5 0V4.75H5A.75.75 0 014.25 4z"
         clipRule="evenodd"

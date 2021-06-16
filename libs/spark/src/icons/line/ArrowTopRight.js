@@ -12,7 +12,6 @@ function SvgArrowTopRight(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M7.65 6a.75.75 0 01.75-.75H18a.75.75 0 01.75.75v9.6a.75.75 0 01-1.5 0V7.81L6.53 18.53a.75.75 0 11-1.06-1.06L16.19 6.75H8.4A.75.75 0 017.65 6z"
         clipRule="evenodd"

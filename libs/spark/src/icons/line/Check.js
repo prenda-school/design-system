@@ -12,7 +12,6 @@ function SvgCheck(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M20.507 5.447a.75.75 0 01.046 1.06l-11 12a.75.75 0 01-1.083.023l-5-5a.75.75 0 111.06-1.06l4.446 4.446L19.447 5.493a.75.75 0 011.06-.046z"
         clipRule="evenodd"

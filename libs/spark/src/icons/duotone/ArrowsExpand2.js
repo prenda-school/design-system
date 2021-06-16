@@ -13,7 +13,6 @@ function SvgArrowsExpand2(props) {
       <path fill={props.fillColor || '#F0F1F2'} d="M4 4h16v16H4z" />
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M15 3.25a.75.75 0 000 1.5h3.19L12 10.94 5.81 4.75H9a.75.75 0 000-1.5H4a.75.75 0 00-.75.75v5a.75.75 0 001.5 0V5.81L10.94 12l-6.19 6.19V15a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h5a.75.75 0 000-1.5H5.81L12 13.06l6.19 6.19H15a.75.75 0 000 1.5h5a.75.75 0 00.75-.75v-5a.75.75 0 00-1.5 0v3.19L13.06 12l6.19-6.19V9a.75.75 0 001.5 0V4a.75.75 0 00-.75-.75h-5z"
         clipRule="evenodd"

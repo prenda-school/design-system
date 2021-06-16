@@ -12,7 +12,6 @@ function SvgMouse(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M12 2.25A7.75 7.75 0 004.25 10v4a7.75 7.75 0 0015.5 0v-4A7.75 7.75 0 0012 2.25zM5.75 10a6.25 6.25 0 1112.5 0v4a6.25 6.25 0 11-12.5 0v-4zm7-2a.75.75 0 00-1.5 0v2a.75.75 0 001.5 0V8z"
         clipRule="evenodd"

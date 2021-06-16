@@ -12,7 +12,6 @@ function SvgArrowBottomRight(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M5.47 5.47a.75.75 0 011.06 0l10.72 10.72V8.4a.75.75 0 011.5 0V18a.75.75 0 01-.75.75H8.4a.75.75 0 110-1.5h7.79L5.47 6.53a.75.75 0 010-1.06z"
         clipRule="evenodd"

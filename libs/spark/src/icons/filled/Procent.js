@@ -12,7 +12,6 @@ function SvgProcent(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M17.398 3.364a.75.75 0 01.238 1.034l-10 16a.75.75 0 11-1.272-.795l10-16a.75.75 0 011.034-.239zM9 7a3 3 0 11-6 0 3 3 0 016 0zm9 13a3 3 0 100-6 3 3 0 000 6z"
         clipRule="evenodd"

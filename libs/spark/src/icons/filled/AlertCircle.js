@@ -12,7 +12,6 @@ function SvgAlertCircle(props) {
     >
       <path
         fill="currentcolor"
-        fillOpacity={0.72}
         fillRule="evenodd"
         d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10zM12 7.25a.75.75 0 01.75.75v5a.75.75 0 01-1.5 0V8a.75.75 0 01.75-.75zM12 17a1 1 0 100-2 1 1 0 000 2z"
         clipRule="evenodd"

@@ -10,11 +10,7 @@ function SvgRecord(props) {
       viewBox="0 0 24 24"
       style={props.style}
     >
-      <path
-        fill="currentcolor"
-        fillOpacity={0.72}
-        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-      />
+      <path fill="currentcolor" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   );
 }
