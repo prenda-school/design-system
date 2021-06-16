@@ -49,6 +49,7 @@
     "@babel/preset-typescript": "7.12.13",
     "@jscutlery/semver": "^2.2.1",
     "@nrwl/cli": "12.3.6",
+    "@nrwl/cypress": "^12.3.6",
     "@nrwl/eslint-plugin-nx": "12.3.6",
     "@nrwl/jest": "12.3.6",
     "@nrwl/linter": "12.3.6",
