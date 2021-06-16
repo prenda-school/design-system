@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
+import { Navbar, NavbarProps, NavbarLink } from '../src';
 import {
-  Navbar,
-  NavbarProps,
-  NavbarLink,
-  HomeIcon,
-  CheckCircleIcon,
-  QuestionCircleIcon,
-} from '../src';
+  HomeIconDuotone,
+  CheckCircleIconDuotone,
+  RocketIconDuotone,
+  InboxFilledIconDuotone,
+  UsersIconDuotone,
+  UserIconDuotone,
+} from '../src/icons';
 
 export default {
   title: 'prenda-spark/Navbar',
@@ -18,27 +19,30 @@ export default {
 } as Meta;
 
 const UserMenu = styled.div`
-  margin-left: auto;
   display: flex;
+  align-items: center;
 `;
 
 const NavbarTemplate = (args: NavbarProps) => (
   <Navbar {...args}>
     <NavbarLink href="/">
-      <HomeIcon fontSize="large" color="navy" contrast="low" />
+      <HomeIconDuotone fillColor="transparent" />
       <span>Dashboard</span>
     </NavbarLink>
     <NavbarLink href="/" aria-current="page">
-      <CheckCircleIcon fontSize="large" color="navy" contrast="low" />
+      <CheckCircleIconDuotone />
       <span>Active</span>
     </NavbarLink>
     <NavbarLink className="disabled">
-      <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
+      <RocketIconDuotone />
       <span>Disabled</span>
     </NavbarLink>
-    <UserMenu>
-      <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
+    <NavbarLink style={{ marginLeft: 'auto' }}>
+      <InboxFilledIconDuotone />
       <span>0</span>
+    </NavbarLink>
+    <UserMenu>
+      <UserIconDuotone fillColor="pink" />
     </UserMenu>
   </Navbar>
 );
@@ -46,7 +50,7 @@ export const BasicNavbar = NavbarTemplate.bind({});
 
 const NavbarLinkTemplate = (args) => (
   <NavbarLink as="a">
-    <QuestionCircleIcon fontSize="large" color="navy" contrast="low" />
+    <UsersIconDuotone />
     <span>Link Text</span>
   </NavbarLink>
 );

@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownDivider,
 } from '../src';
-import { Icons } from './utils';
+import { UserIconDuotone, ChevronDownIconLine } from '../src/icons';
 import { Box } from '@material-ui/core';
 
 export default {
@@ -30,11 +30,13 @@ const Template = ({ disabled, open, ...otherArgs }) => {
   return (
     <Box mx={16} my={4}>
       <DropdownContext id="dropdown">
-        <DropdownButton endIcon={Icons['caret-down']} {...buttonProps}>
+        <DropdownButton endIcon={<ChevronDownIconLine />} {...buttonProps}>
           Options
         </DropdownButton>
         <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={Icons['user']}>Profile</DropdownMenuItem>
+          <DropdownMenuItem startIcon={<UserIconDuotone />}>
+            Profile
+          </DropdownMenuItem>
           <DropdownMenuItem>Resources</DropdownMenuItem>
           <DropdownMenuItem disabled>Menu item</DropdownMenuItem>
           <DropdownDivider />
