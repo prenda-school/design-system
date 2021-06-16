@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { IconButton, IconButtonProps } from '../src';
-import { Icons } from './utils';
+import { ChevronDownIconLine } from '../src/icons';
 
 export default {
   title: 'prenda-spark/IconButton',
@@ -40,6 +40,6 @@ interface TemplateIconButtonProps extends IconButtonProps {
 }
 
 const Template = (args: TemplateIconButtonProps) => (
-  <IconButton {...args}>{Icons[args.children || 'caret-down']}</IconButton>
+  <IconButton {...args}>{<ChevronDownIconLine />}</IconButton>
 );
 export const ConfigurableInput = Template.bind({});
