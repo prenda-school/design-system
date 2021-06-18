@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Card } from '../src/Card';
-import type { CardProps } from '../src/Card';
 
 export default {
   title: 'prenda-spark/Card',

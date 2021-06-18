@@ -1,9 +1,7 @@
-import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import MUICard from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-/* eslint-disable-next-line */
 export interface CardProps {
   elevation?: number;
   children?: JSX.Element | Array<JSX.Element>;
