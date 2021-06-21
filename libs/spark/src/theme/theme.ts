@@ -13,6 +13,8 @@ import {
   nunitoSemiboldItalic,
   sourceCodeProRegular,
 } from './fonts';
+import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
+import { MuiCardContentStyleOverrides } from '../CardContent';
 
 export type TertiaryColor = {
   1: string;
@@ -107,6 +109,8 @@ export const prendaTheme: ThemeOptions = {
         ],
       },
     },
+    MuiCard: MuiCardStyleOverrides,
+    MuiCardContent: MuiCardContentStyleOverrides,
   },
   shadows,
   palette: {
@@ -194,6 +198,9 @@ export const prendaTheme: ThemeOptions = {
       selectedOpacity: colors.colorsActionSelectedOpacity,
       disabledOpacity: colors.colorsActionDisabledOpacity,
     },
+  },
+  props: {
+    MuiCard: MuiCardPropOverrides,
   },
 };
 

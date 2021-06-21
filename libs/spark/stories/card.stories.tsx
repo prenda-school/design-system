@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Card } from '../src/Card';
+import { Card, CardContent, CardMedia, Typography } from '@material-ui/core';
+import styled from 'styled-components';
 
 export default {
   title: 'prenda-spark/Card',
@@ -11,15 +12,40 @@ export default {
 
 export const BasicCard = () => (
   <Card>
-    <h2>Card Header</h2>
-    <p>Card body</p>
+    <CardContent>
+      <Typography gutterBottom variant="h6" component="h2">
+        Card Title
+      </Typography>
+      <Typography variant="body1" component="p">
+        Card body
+      </Typography>
+    </CardContent>
   </Card>
 );
 
+const MyHeadingImg = styled.img`
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: 50% 10%;
+  vertical-align: bottom;
+`;
+
 export const CardWithImage = () => (
   <Card>
-    <img src="https://placekitten.com/400/200" alt="Kitten placeholder" />
-    <h2>Card Header</h2>
-    <p>Card body</p>
+    <CardMedia>
+      <MyHeadingImg
+        src="https://placekitten.com/300/200"
+        alt="Kitten placeholder"
+      />
+    </CardMedia>
+    <CardContent>
+      <Typography gutterBottom variant="h6" component="h2">
+        Card Title
+      </Typography>
+      <Typography variant="body1" component="p">
+        Card body
+      </Typography>
+    </CardContent>
   </Card>
 );
