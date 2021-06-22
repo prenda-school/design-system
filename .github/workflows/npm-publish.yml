@@ -1,8 +1,7 @@
-name: Publish npm
+name: NPM Publish
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -24,20 +23,22 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: spark-development
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: Successfully published to npm.
-          SLACK_TITLE: Prenda Spark
-          SLACK_USERNAME: GH Action Parrot
-          SLACK_ICON: https://emoji.slack-edge.com/T3LPQHAMV/headbangingparrot/1898efdc354c8ff8.gif
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
+          SLACK_USERNAME: 'Action: NPM Publish'
+          MSG_MINIMAL: true
+          SLACK_TITLE: '@prenda/spark'
+          SLACK_MESSAGE: Success
       - name: Slack Notification Failure
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_CHANNEL: spark-development
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: Oh Noez - failed to publish to npm.
-          SLACK_TITLE: Prenda Spark
-          SLACK_USERNAME: GH Action Parrot
-          SLACK_ICON: https://emoji.slack-edge.com/T3LPQHAMV/headbangingparrot/1898efdc354c8ff8.gif
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
+          SLACK_USERNAME: 'Action: NPM Publish'
+          MSG_MINIMAL: true
+          SLACK_TITLE: '@prenda/spark'
+          SLACK_MESSAGE: Failure
