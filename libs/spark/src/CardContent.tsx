@@ -1,5 +1,5 @@
 export const MuiCardContentStyleOverrides = {
   root: {
-    padding: 24,
+    padding: '24px 24px 0',
   },
 };
