@@ -1,5 +1,6 @@
 import { createMuiTheme, ThemeOptions } from '@material-ui/core';
 import { colors } from './colors';
+import { shadows } from './shadows';
 import {
   nunitoRegular,
   nunitoRegularItalic,
@@ -12,6 +13,9 @@ import {
   nunitoSemiboldItalic,
   sourceCodeProRegular,
 } from './fonts';
+import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
+import { MuiCardContentStyleOverrides } from '../CardContent';
+import { MuiCardActionsStyleOverrides } from '../CardActions';
 
 export type TertiaryColor = {
   1: string;
@@ -106,7 +110,11 @@ export const prendaTheme: ThemeOptions = {
         ],
       },
     },
+    MuiCard: MuiCardStyleOverrides,
+    MuiCardContent: MuiCardContentStyleOverrides,
+    MuiCardActions: MuiCardActionsStyleOverrides,
   },
+  shadows,
   palette: {
     // follow material
     error: {
@@ -192,6 +200,9 @@ export const prendaTheme: ThemeOptions = {
       selectedOpacity: colors.colorsActionSelectedOpacity,
       disabledOpacity: colors.colorsActionDisabledOpacity,
     },
+  },
+  props: {
+    MuiCard: MuiCardPropOverrides,
   },
 };
 
