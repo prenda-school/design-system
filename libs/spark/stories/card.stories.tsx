@@ -62,7 +62,7 @@ export const CardWithImage = () => (
       <Typography gutterBottom variant="heading-md" color="textOnLight">
         Title
       </Typography>
-      <Typography variant="paragraph-lg" color="textOnLight">
+      <Typography variant="paragraph-xl" color="textOnLight">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis turpis
         interdum hendrerit massa imperdiet.
       </Typography>
