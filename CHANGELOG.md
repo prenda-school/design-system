@@ -8,11 +8,3 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 ### Features
 
 * theme overrides for Card, CardContent, CardActions ([#71](https://github.com/prenda-school/prenda-spark/issues/71)) ([85068ec](https://github.com/prenda-school/prenda-spark/commit/85068ec14bad64c8251d47be482b12d85474dcb8))
-
-
-
-## [0.7.3](https://github.com/prenda-school/prenda-spark/compare/spark-0.7.2...spark-0.7.3) (2021-06-16)
-
-## [0.7.2](https://github.com/prenda-school/prenda-spark/compare/spark-0.7.1...spark-0.7.2) (2021-05-29)
-
-- initial commit for changelog.md
