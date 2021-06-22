@@ -19,7 +19,7 @@ export const BasicCard = () => (
       <Typography gutterBottom variant="heading-md" color="textOnLight">
         Heading
       </Typography>
-      <Typography variant="paragraph-lg" color="textOnLight">
+      <Typography variant="paragraph-xl" color="textOnLight">
         This is a sample catalog of all the courses we offer. Browse by topic or
         difficulty. Sign up today and get access to our entire library. This is
         a sample catalog of all the courses we offer.
