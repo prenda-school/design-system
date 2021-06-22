@@ -3,6 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Card, CardContent, CardMedia, CardActions } from '@material-ui/core';
 import { Typography } from '../src/Typography';
 import { Button } from '../src/Button';
+import { IconButton } from '../src/IconButton';
 import { HeartIconDuotone } from '../src/icons';
 import styled from 'styled-components';
 
@@ -14,9 +15,13 @@ export default {
 } as Meta;
 
 export const BasicCard = () => (
-  <Card>
+  <Card style={{ maxWidth: 400 }}>
     <CardContent>
-      <Typography gutterBottom variant="heading-md" color="textOnLight">
+      <Typography
+        variant="heading-md"
+        color="textOnLight"
+        style={{ marginBottom: '1rem' }}
+      >
         Heading
       </Typography>
       <Typography variant="paragraph-xl" color="textOnLight">
@@ -41,7 +46,7 @@ const MyHeadingImg = styled.img`
   vertical-align: bottom;
 `;
 
-const MyFloatingFavButton = styled(Button)`
+const MyFloatingFavButton = styled(IconButton)`
   position: absolute;
   right: 24px;
   top: 24px;
@@ -59,7 +64,11 @@ export const CardWithImage = () => (
       </MyFloatingFavButton>
     </CardMedia>
     <CardContent>
-      <Typography gutterBottom variant="heading-md" color="textOnLight">
+      <Typography
+        variant="heading-md"
+        color="textOnLight"
+        style={{ marginBottom: '1rem' }}
+      >
         Title
       </Typography>
       <Typography variant="paragraph-xl" color="textOnLight">
