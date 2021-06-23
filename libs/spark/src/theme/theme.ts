@@ -93,6 +93,12 @@ export const prendaTheme: ThemeOptions = {
   typography: {
     fontFamily: '"Nunito", Avenir, sans-serif',
     fontSize: 16,
+    body1: {
+      fontSize: 16,
+    },
+    body2: {
+      fontSize: 14,
+    },
   },
   overrides: {
     MuiCssBaseline: {
