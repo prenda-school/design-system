@@ -92,7 +92,7 @@ declare module '@material-ui/core/styles/createPalette' {
 export const prendaTheme: ThemeOptions = {
   typography: {
     fontFamily: '"Nunito", Avenir, sans-serif',
-    fontSize: 1,
+    fontSize: 16,
   },
   overrides: {
     MuiCssBaseline: {
