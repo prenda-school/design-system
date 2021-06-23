@@ -103,6 +103,10 @@ export const prendaTheme: ThemeOptions = {
   overrides: {
     MuiCssBaseline: {
       '@global': {
+        body: {
+          fontFamily: '"Nunito", Avenir, sans-serif',
+          fontSize: 16,
+        },
         '@font-face': [
           nunitoRegular,
           nunitoRegularItalic,
