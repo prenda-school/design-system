@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import {
-  Checkbox as MuiCheckbox,
+  Checkbox,
   CheckboxProps as MuiCheckboxProps,
   FormControlLabel,
   createSvgIcon,
@@ -8,8 +8,10 @@ import {
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
 import styled from 'styled-components';
 import clsx from 'clsx';
+import { colors } from './theme/colors';
 
-// Recreation of Material-UI's internal RadioButton component, but with our icons (bit larger at 22x22, no empty border space)
+// Recreation of Material-UI's internal RadioButton component, but 
+//  with our icons(bit larger at 22x22, no empty border space)
 const StyledSpan = styled.span`
   ${({ theme }) => `
     position: relative;
@@ -129,30 +131,34 @@ export interface CheckboxProps
   ControlCheckboxProps?: MuiCheckboxProps;
 }
 
-const Checkbox = styled(MuiCheckbox)`
-  ${({ theme }) => `
-    &.MuiCheckbox-root {
-      padding: 0.5rem; // 8px
-      background-color: unset;
-      border-radius: 8px;
+export const MuiCheckboxStyleOverrides = {
+  root: {
+    padding: '0.5rem', // 8px
+    backgroundColor: 'unset',
+    color: colors.colorsPrendaDarkGrey,
+    '&:hover': {
+      color: colors.colorsTextIconOnLightHighContrast,
+      backgroundColor: 'unset',
+    },
+  },
+  checked: {
+    color: colors.colorsBlue[3],
+  },
+  disabled: {
+    '&.MuiSvgIcon-root': {
+      backgroundColor: colors.colorsPrendaMediumGrey,
+      color: colors.colorsPrendaDarkGrey,
+    },
+  },
+};
 
-      &:hover {
-        color: ${theme.palette.background.lightContrastText};
-        background-color: unset;
-      }
-      
-      &.Mui-checked {
-        color: ${theme.palette.tertiary.blue[3]};
-      }
-      &.Mui-disabled {
-        & .MuiSvgIcon-root {
-          background-color: ${theme.palette.neutral.mediumGrey};
-          color: ${theme.palette.neutral.darkGrey};
-        }
-      }
-    }
-  `}
-`;
+
+export const MuiCheckboxPropOverrides = {
+  disableRipple: true,
+  color: 'default' as const,
+  icon: <SparkCheckboxIcon />,
+  checkedIcon: <SparkCheckboxIcon checked />,
+};
 
 export const SparkCheckbox: FC<CheckboxProps> = (props) => {
   const { ControlCheckboxProps, ...other } = props;
@@ -160,14 +166,7 @@ export const SparkCheckbox: FC<CheckboxProps> = (props) => {
   return (
     <FormControlLabel
       {...other}
-      control={
-        <Checkbox
-          icon={<SparkCheckboxIcon />}
-          checkedIcon={<SparkCheckboxIcon checked />}
-          disableRipple={true}
-          {...ControlCheckboxProps}
-        />
-      }
+      control={<Checkbox {...ControlCheckboxProps} />}
     />
   );
 };
