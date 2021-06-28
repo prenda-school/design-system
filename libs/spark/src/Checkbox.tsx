@@ -140,12 +140,10 @@ export const MuiCheckboxStyleOverrides = {
       color: colors.colorsTextIconOnLightHighContrast,
       backgroundColor: 'unset',
     },
-  },
-  checked: {
-    color: colors.colorsBlue[3],
-  },
-  disabled: {
-    '&.MuiSvgIcon-root': {
+    '&$checked': {
+      color: colors.colorsBlue[3],
+    },
+    '&$disabled.MuiSvgIcon-root': {
       backgroundColor: colors.colorsPrendaMediumGrey,
       color: colors.colorsPrendaDarkGrey,
     },
