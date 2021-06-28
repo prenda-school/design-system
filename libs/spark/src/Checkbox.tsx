@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import clsx from 'clsx';
 import { colors } from './theme/colors';
 
-// Recreation of Material-UI's internal RadioButton component, but 
+// Recreation of Material-UI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
 const StyledSpan = styled.span`
   ${({ theme }) => `
@@ -151,7 +151,6 @@ export const MuiCheckboxStyleOverrides = {
     },
   },
 };
-
 
 export const MuiCheckboxPropOverrides = {
   disableRipple: true,
