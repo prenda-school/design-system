@@ -45,6 +45,7 @@ export const colorsPrendaLightBlue = colorsBlue[1];
 export const colorsPrendaOrange = '#F34700';
 export const colorsPrendaPeach = '#FFB87F';
 export const colorsPrendaNavy = colorsBlue[5];
+export const colorsPrendaLighterGrey = '#f5f5f5';
 export const colorsPrendaLightGrey = '#F0F1F2';
 export const colorsPrendaMediumGrey = '#e1e3e5';
 export const colorsPrendaDarkGrey = '#d2d4d6';
@@ -86,6 +87,7 @@ export const colors = {
   colorsPrendaOrange,
   colorsPrendaPeach,
   colorsPrendaNavy,
+  colorsPrendaLighterGrey,
   colorsPrendaLightGrey,
   colorsPrendaMediumGrey,
   colorsPrendaDarkGrey,
