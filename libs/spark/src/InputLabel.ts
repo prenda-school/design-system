@@ -7,8 +7,7 @@ export const MuiInputLabelStyleOverrides = {
     fontWeight: 700,
     fontSize: '1rem', // 16px
     lineHeight: '1.125rem', // 18px
-
-    disabled: {
+    '&$disabled': {
       color: colors.colorsPrendaDarkGrey,
     },
   },
