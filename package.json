@@ -1,6 +1,6 @@
 {
   "name": "prenda-spark",
-  "version": "0.0.0",
+  "version": "0.8.0",
   "license": "MIT",
   "scripts": {
     "nx": "nx",
@@ -29,6 +29,7 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "^12.0.3",
+    "@angular-devkit/schematics": "^12.0.5",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.4",
