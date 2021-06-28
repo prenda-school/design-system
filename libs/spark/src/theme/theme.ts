@@ -18,6 +18,7 @@ import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
+import { MuiInputPropOverrides, MuiInputStyleOverrides } from '../Input';
 
 export type TertiaryColor = {
   1: string;
@@ -129,6 +130,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCardContent: MuiCardContentStyleOverrides,
     MuiCardActions: MuiCardActionsStyleOverrides,
     MuiFormHelperText: MuiFormHelperTextStyleOverrides,
+    MuiInput: MuiInputStyleOverrides,
     MuiInputLabel: MuiInputLabelStyleOverrides,
   },
   shadows,
@@ -221,6 +223,7 @@ export const prendaTheme: ThemeOptions = {
   },
   props: {
     MuiCard: MuiCardPropOverrides,
+    MuiInput: MuiInputPropOverrides,
   },
 };
 
