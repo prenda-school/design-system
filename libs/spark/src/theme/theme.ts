@@ -17,6 +17,7 @@ import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
+import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
 
 export type TertiaryColor = {
   1: string;
@@ -126,6 +127,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCardContent: MuiCardContentStyleOverrides,
     MuiCardActions: MuiCardActionsStyleOverrides,
     MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
+    MuiRadio: MuiRadioStyleOverrides,
   },
   shadows,
   palette: {
@@ -216,6 +218,7 @@ export const prendaTheme: ThemeOptions = {
   },
   props: {
     MuiCard: MuiCardPropOverrides,
+    MuiRadio: MuiRadioPropOverrides,
   },
 };
 
