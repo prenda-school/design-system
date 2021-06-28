@@ -36,9 +36,9 @@ const InputLabel = styled(MuiInputLabel)`
 const FormHelperText = styled(MuiFormHelperText)`
   ${({ theme }: { theme: Theme }) => `
     color: ${theme.palette.background.lightLowContrastText};
-    font-size: 0.75rem; // 12px
-    line-height 1.25rem; // 20px
-    margin-top: 0.5rem: // 8px
+    font-size: 1rem; // 16px
+    line-height 1.5rem; // 24px
+    margin-top: 0.5rem; // 8px
   `}
 `;
 
