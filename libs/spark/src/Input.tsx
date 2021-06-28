@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import {
   Input as MuiInput,
   InputLabel,
-  FormHelperText as MuiFormHelperText,
+  FormHelperText,
   InputProps as MuiInputProps,
   InputLabelProps as MuiInputLabelProps,
   Theme,
@@ -18,15 +18,6 @@ export interface InputProps extends MuiInputProps {
   helperText?: string;
   FormHelperTextProps?: MuiFormHelperTextProps;
 }
-
-const FormHelperText = styled(MuiFormHelperText)`
-  ${({ theme }: { theme: Theme }) => `
-    color: ${theme.palette.background.lightLowContrastText};
-    font-size: 1rem; // 16px
-    line-height 1.5rem; // 24px
-    margin-top: 0.5rem; // 8px
-  `}
-`;
 
 const Input = styled(MuiInput)`
   ${({ theme }: { theme: Theme }) => `
