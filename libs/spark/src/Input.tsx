@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import clsx from 'clsx';
 import {
   Input as MuiInput,
-  InputLabel as MuiInputLabel,
+  InputLabel,
   FormHelperText as MuiFormHelperText,
   InputProps as MuiInputProps,
   InputLabelProps as MuiInputLabelProps,
@@ -18,20 +18,6 @@ export interface InputProps extends MuiInputProps {
   helperText?: string;
   FormHelperTextProps?: MuiFormHelperTextProps;
 }
-
-const InputLabel = styled(MuiInputLabel)`
-  ${({ theme }: { theme: Theme }) => `
-    color: ${theme.palette.background.lightContrastText};
-    margin-bottom: 0.5rem; // 8px
-    font-weight: 700;
-    font-size: 1rem; // 16px
-    line-height: 1.125rem; // 18px
-
-    &.Mui-disabled {
-      color: ${theme.palette.neutral.darkGrey};
-    }
-  `}
-`;
 
 const FormHelperText = styled(MuiFormHelperText)`
   ${({ theme }: { theme: Theme }) => `
