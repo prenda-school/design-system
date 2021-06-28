@@ -1,7 +1,8 @@
 name: NPM Publish
 on:
   release:
-    types: [published]
+    types: [released]
+  workflow_dispatch:
 jobs:
   publish:
     runs-on: ubuntu-latest
