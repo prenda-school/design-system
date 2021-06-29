@@ -6,7 +6,7 @@ export const MuiFormControlLabelStyleOverrides = {
     '&:hover': {
       color: colors.colorsTextIconOnLightHighContrast,
     },
-    '&.Mui-disabled': {
+    '&$disabled': {
       color: colors.colorsPrendaDarkGrey,
     },
   },

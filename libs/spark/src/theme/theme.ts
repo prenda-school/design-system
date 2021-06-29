@@ -51,6 +51,7 @@ declare module '@material-ui/core/styles/createPalette' {
     };
     neutral: {
       navy: string;
+      lighterGrey: string;
       lightGrey: string;
       mediumGrey: string;
       darkGrey: string;
@@ -75,6 +76,7 @@ declare module '@material-ui/core/styles/createPalette' {
     };
     neutral?: {
       navy: string;
+      lighterGrey: string;
       lightGrey: string;
       mediumGrey: string;
       darkGrey: string;
@@ -183,6 +185,7 @@ export const prendaTheme: ThemeOptions = {
     },
     neutral: {
       navy: colors.colorsPrendaNavy,
+      lighterGrey: colors.colorsPrendaLighterGrey,
       lightGrey: colors.colorsPrendaLightGrey,
       mediumGrey: colors.colorsPrendaMediumGrey,
       darkGrey: colors.colorsPrendaDarkGrey,

@@ -85,9 +85,9 @@ export const PrendaColors = () => {
             colorLabel="theme.palette.neutral.darkGrey"
           />
           <ColorBox
-            color={theme.palette.neutral.white}
+            color={theme.palette.neutral.mediumGrey}
             textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.white"
+            colorLabel="theme.palette.neutral.mediumGrey"
           />
           <ColorBox
             color={theme.palette.neutral.lightGrey}
@@ -95,9 +95,14 @@ export const PrendaColors = () => {
             colorLabel="theme.palette.neutral.lightGrey"
           />
           <ColorBox
-            color={theme.palette.neutral.mediumGrey}
+            color={theme.palette.neutral.lighterGrey}
             textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.mediumGrey"
+            colorLabel="theme.palette.neutral.lighterGrey"
+          />
+          <ColorBox
+            color={theme.palette.neutral.white}
+            textColor={theme.palette.background.lightContrastText}
+            colorLabel="theme.palette.neutral.white"
           />
         </RowContainer>
       </ColorContainer>
