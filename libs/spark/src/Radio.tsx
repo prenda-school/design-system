@@ -105,11 +105,13 @@ function SparkRadioButtonIcon(props: {
       })}
     >
       <SparkRadioButtonUncheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-circle"
       />
       <SparkRadioButtonCheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-dot"
