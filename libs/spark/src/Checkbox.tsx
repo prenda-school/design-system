@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import {
   Checkbox as MuiCheckbox,
   CheckboxProps as MuiCheckboxProps,
-  FormControlLabel as MuiFormControlLabel,
+  FormControlLabel,
   createSvgIcon,
 } from '@material-ui/core';
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
@@ -128,24 +128,6 @@ export interface CheckboxProps
   extends Omit<MuiFormControlLabelProps, 'control'> {
   ControlCheckboxProps?: MuiCheckboxProps;
 }
-
-const FormControlLabel = styled(MuiFormControlLabel)`
-  ${({ theme }) => `
-    &.MuiFormControlLabel-root {
-      color: ${theme.palette.background.lightLowContrastText};
-      &:hover {
-        color: ${theme.palette.background.lightContrastText};
-      }
-      & .MuiTypography-root {
-        font-weight: 500; // FIXME: differs from Figma weight value, 600, BUT 600 is way too heavy
-        line-height: 1.125rem;
-      }
-      &.Mui-disabled {
-        color: ${theme.palette.neutral.darkGrey};
-      }
-    }
-  `}
-`;
 
 const Checkbox = styled(MuiCheckbox)`
   ${({ theme }) => `

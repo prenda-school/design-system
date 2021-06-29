@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import {
   Radio as MuiRadio,
   RadioProps as MuiRadioProps,
-  FormControlLabel as MuiFormControlLabel,
+  FormControlLabel,
   Theme,
 } from '@material-ui/core';
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
@@ -121,25 +121,6 @@ function SparkRadioButtonIcon(props: {
 export interface RadioProps extends Omit<MuiFormControlLabelProps, 'control'> {
   ControlRadioProps?: MuiRadioProps;
 }
-
-// REFACTOR: so far, same as refactored Radio's FormControlLabel, could combine at later state
-const FormControlLabel = styled(MuiFormControlLabel)`
-  ${({ theme }: { theme: Theme }) => `
-    &.MuiFormControlLabel-root {
-      color: ${theme.palette.background.lightLowContrastText};
-      &:hover {
-        color: ${theme.palette.background.lightContrastText};
-      }
-      & .MuiTypography-root {
-        font-weight: 500; // FIXME: differs from Figma weight value, 600, BUT 600 is way too heavy
-        line-height: 1.125rem;
-      }
-      &.Mui-disabled {
-        color: ${theme.palette.neutral.darkGrey};
-      }
-    }
-  `}
-`;
 
 const Radio = styled(MuiRadio)`
   ${({ theme }: { theme: Theme }) => `
