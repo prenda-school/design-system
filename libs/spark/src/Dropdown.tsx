@@ -44,16 +44,6 @@ export interface DropdownMenuItemProps
 const StyledMenu = styled(MuiMenu)`
   ${({ theme }: { theme: Theme }) => `
     inset: 8px 0 0 0 !important;
-
-    & .MuiMenu-paper {
-      box-shadow: 0px 8px 16px 0px #072E4414;
-      border-radius: 8px;
-    }
-
-    & .MuiMenu-list {
-      border: 2px solid ${theme.palette.neutral.mediumGrey};
-      border-radius: 8px;
-    }
   `}
 `;
 
@@ -162,8 +152,6 @@ const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
     return (
       <StyledMenu
         id={id}
-        // TODO: look into overriding MUI elevation presets with Spark effects definitions
-        elevation={0}
         getContentAnchorEl={null}
         anchorEl={anchorEl}
         keepMounted
