@@ -40,6 +40,8 @@ export {
 export { Radio } from './Radio';
 export type { RadioProps } from './Radio';
 export { SparkThemeProvider } from './SparkThemeProvider';
+export { SvgIcon } from './SvgIcon';
+export type { SvgIconProps } from './SvgIcon';
 export { muiTheme, prendaTheme } from './theme';
 export type { TertiaryColor } from './theme';
 export { Typography } from './Typography';

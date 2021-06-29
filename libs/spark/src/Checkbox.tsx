@@ -111,11 +111,13 @@ function SparkCheckboxIcon(props: {
       })}
     >
       <SparkCheckboxUncheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 22 22"
         className="SparkCheckboxIcon-box"
       />
       <SparkCheckboxCheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 22 22"
         className="SparkCheckboxIcon-checkmark"

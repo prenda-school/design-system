@@ -22,6 +22,7 @@ import {
 } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
+import { MuiSvgIconPropOverride, MuiSvgIconStyleOverrides } from '../SvgIcon';
 
 export type TertiaryColor = {
   1: string;
@@ -135,6 +136,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCheckbox: MuiCheckboxStyleOverrides,
     MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
     MuiRadio: MuiRadioStyleOverrides,
+    MuiSvgIcon: MuiSvgIconStyleOverrides,
   },
   shadows,
   palette: {
@@ -228,6 +230,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCard: MuiCardPropOverrides,
     MuiCheckbox: MuiCheckboxPropOverrides,
     MuiRadio: MuiRadioPropOverrides,
+    MuiSvgIcon: MuiSvgIconPropOverride,
   },
 };
 
