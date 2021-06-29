@@ -28,7 +28,6 @@ const SparkButton: FC<ButtonProps> = ({
     <ButtonBase
       className={clsx(
         className,
-        'SparkButton-root',
         `SparkButton-variant${capitalize(variant)}`,
         `SparkButton-size${capitalize(size)}`
       )}

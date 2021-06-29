@@ -9,12 +9,11 @@ export const MuiButtonBasePropOverrides = {
 
 export const MuiButtonBaseStyleOverrides = {
   root: {
+    fontFamily: '"Nunito", Avenir, sans-serif',
     boxSizing: 'border-box' as const,
     transition: transitions.create(
       ['background-color', 'box-shadow', 'border'],
-      {
-        duration: transitions.duration.short,
-      }
+      { duration: transitions.duration.short }
     ),
     borderRadius: 8,
     borderWidth: 2,
@@ -28,7 +27,7 @@ export const MuiButtonBaseStyleOverrides = {
     '&$disabled': {
       opacity: '50%',
     },
-    '&.SparkButtonBase-variantSolid': {
+    '&.SparkButton-variantSolid': {
       borderColor: colors.colorsBlue[3],
       backgroundColor: colors.colorsBlue[3],
       color: colors.colorsPrendaWhite,
