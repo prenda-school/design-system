@@ -21,6 +21,7 @@ import {
   MuiCheckboxStyleOverrides,
 } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
+import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiInputPropOverrides, MuiInputStyleOverrides } from '../Input';
 import { MuiMenuPropOverrides, MuiMenuStyleOverrides } from '../Menu';
 import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
@@ -137,6 +138,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCardActions: MuiCardActionsStyleOverrides,
     MuiCheckbox: MuiCheckboxStyleOverrides,
     MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
+    MuiFormHelperText: MuiFormHelperTextStyleOverrides,
     MuiInput: MuiInputStyleOverrides,
     MuiMenu: MuiMenuStyleOverrides,
     MuiRadio: MuiRadioStyleOverrides,
