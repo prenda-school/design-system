@@ -36,9 +36,9 @@ const InputLabel = styled(MuiInputLabel)`
 const FormHelperText = styled(MuiFormHelperText)`
   ${({ theme }: { theme: Theme }) => `
     color: ${theme.palette.background.lightLowContrastText};
-    font-size: 0.75rem; // 12px
-    line-height 1.25rem; // 20px
-    margin-top: 0.5rem: // 8px
+    font-size: 1rem; // 16px
+    line-height 1.5rem; // 24px
+    margin-top: 0.5rem; // 8px
   `}
 `;
 
@@ -50,11 +50,12 @@ const Input = styled(MuiInput)`
       border-width: 2px;
       border-style: solid;
       border-color: ${theme.palette.neutral.mediumGrey};
-      border-radius: 16px;
+      border-radius: 8px;
       width: 20rem; // 320px
       padding: .75rem 1rem;
       font-size: 1rem; // 16px
       line-height: 1.125rem; // 18px
+      background-color: ${theme.palette.neutral.lighterGrey};
 
       // inner input / textarea
       & .MuiInput-input {
@@ -71,6 +72,7 @@ const Input = styled(MuiInput)`
         & .MuiInput-input {
           color: ${theme.palette.background.lightContrastText};
         }
+        background-color: ${theme.palette.neutral.white};
       }
       &.Mui-error {
         border-color: ${theme.palette.tertiary.red[3]};
