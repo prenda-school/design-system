@@ -37,8 +37,6 @@ export {
   SparkLogoDark,
   SparkLogoLight,
 } from './logos';
-export { Menu } from './Menu';
-export type { MenuItemOptions, MenuProps } from './Menu';
 export { Radio } from './Radio';
 export type { RadioProps } from './Radio';
 export { SparkThemeProvider } from './SparkThemeProvider';
