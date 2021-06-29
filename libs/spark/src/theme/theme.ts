@@ -29,6 +29,7 @@ import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiInputPropOverrides, MuiInputStyleOverrides } from '../Input';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiMenuPropOverrides, MuiMenuStyleOverrides } from '../Menu';
+import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconPropOverride, MuiSvgIconStyleOverrides } from '../SvgIcon';
 
@@ -148,6 +149,7 @@ export const prendaTheme: ThemeOptions = {
     MuiInput: MuiInputStyleOverrides,
     MuiInputLabel: MuiInputLabelStyleOverrides,
     MuiMenu: MuiMenuStyleOverrides,
+    MuiMenuItem: MuiMenuItemStyleOverrides,
     MuiRadio: MuiRadioStyleOverrides,
     MuiSvgIcon: MuiSvgIconStyleOverrides,
   },
