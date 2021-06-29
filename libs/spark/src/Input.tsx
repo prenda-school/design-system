@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import clsx from 'clsx';
 import {
-  Input as MuiInput,
+  Input,
   InputLabel as MuiInputLabel,
   FormHelperText as MuiFormHelperText,
   InputProps as MuiInputProps,
@@ -10,6 +10,7 @@ import {
   Theme,
 } from '@material-ui/core/';
 import { FormHelperTextProps as MuiFormHelperTextProps } from '@material-ui/core/FormHelperText';
+import { colors } from './theme/colors';
 
 export interface InputProps extends MuiInputProps {
   success?: boolean;
@@ -42,53 +43,51 @@ const FormHelperText = styled(MuiFormHelperText)`
   `}
 `;
 
-const Input = styled(MuiInput)`
-  ${({ theme }: { theme: Theme }) => `
-    &.MuiInput-root {
-      box-sizing: border-box;
-      background-color: white;
-      border-width: 2px;
-      border-style: solid;
-      border-color: ${theme.palette.neutral.mediumGrey};
-      border-radius: 8px;
-      width: 20rem; // 320px
-      padding: .75rem 1rem;
-      font-size: 1rem; // 16px
-      line-height: 1.125rem; // 18px
-      background-color: ${theme.palette.neutral.lighterGrey};
+export const MuiInputPropOverrides = {
+  disableUnderline: true,
+};
 
-      // inner input / textarea
-      & .MuiInput-input {
-        padding: 0;
-        &::placeholder {
-          opacity: 1;
-          color: ${theme.palette.background.lightLowContrastText};
-        }
-      }
-
-      &.Mui-focused {
-        border-color: ${theme.palette.tertiary.blue[3]};
-        box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
-        & .MuiInput-input {
-          color: ${theme.palette.background.lightContrastText};
-        }
-        background-color: ${theme.palette.neutral.white};
-      }
-      &.Mui-error {
-        border-color: ${theme.palette.tertiary.red[3]};
-        box-shadow: 0 0 0 4px ${theme.palette.tertiary.red[1]};
-      }
-      &.Mui-disabled {
-       border-color: ${theme.palette.neutral.darkGrey};
-       background-color: ${theme.palette.neutral.mediumGrey};
-      }
-      &.SparkInput-success {
-        border-color: ${theme.palette.tertiary.green[3]};
-        box-shadow: 0 0 0 4px ${theme.palette.tertiary.green[1]};
-      }
-    }
-  `}
-`;
+export const MuiInputStyleOverrides = {
+  root: {
+    boxSizing: 'border-box' as const,
+    backgroundColor: colors.colorsPrendaLighterGrey,
+    borderWidth: 2,
+    borderStyle: 'solid',
+    borderColor: colors.colorsPrendaMediumGrey,
+    borderRadius: 8,
+    width: '20rem', // 320px
+    padding: '.75rem 1rem',
+    fontSize: '1rem', // 16px
+    lineHeight: '1.125rem', // 18px
+    '&.SparkInput-success': {
+      borderColor: colors.colorsGreen[3],
+      boxShadow: `0 0 0 4px ${colors.colorsGreen[1]}`,
+    },
+    '&$focused': {
+      borderColor: colors.colorsBlue[3],
+      boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
+      backgroundColor: colors.colorsPrendaWhite,
+      '& .MuiInput-input': {
+        color: colors.colorsTextIconOnLightHighContrast,
+      },
+    },
+    '&$error': {
+      borderColor: colors.colorsRed[3],
+      boxShadow: `0 0 0 4px ${colors.colorsRed[1]}`,
+    },
+    '&$disabled': {
+      borderColor: colors.colorsPrendaDarkGrey,
+      backgroundColor: colors.colorsPrendaMediumGrey,
+    },
+  },
+  input: {
+    padding: 0,
+    '&::placeholder': {
+      opacity: 1,
+      color: colors.colorsTextIconOnLightLowContrast,
+    },
+  },
+};
 
 const SparkInput: FC<InputProps> = (props) => {
   const {
@@ -120,7 +119,6 @@ const SparkInput: FC<InputProps> = (props) => {
       ) : null}
       <Input
         id={id}
-        disableUnderline
         className={clsx(className, {
           'SparkInput-success': success,
         })}
