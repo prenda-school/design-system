@@ -15,8 +15,6 @@ export type {
   DropdownMenuProps,
   DropdownMenuItemProps,
 } from './Dropdown';
-export { Icon } from './Icon';
-export type { IconProps } from './Icon';
 export { IconButton } from './IconButton';
 export type { IconButtonProps } from './IconButton';
 export {
@@ -40,6 +38,8 @@ export {
 export { Radio } from './Radio';
 export type { RadioProps } from './Radio';
 export { SparkThemeProvider } from './SparkThemeProvider';
+export { SvgIcon } from './SvgIcon';
+export type { SvgIconProps } from './SvgIcon';
 export { muiTheme, prendaTheme } from './theme';
 export type { TertiaryColor } from './theme';
 export { Typography } from './Typography';

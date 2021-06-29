@@ -1,16 +1,18 @@
 import React, { FC } from 'react';
 import {
-  Radio as MuiRadio,
+  Radio,
   RadioProps as MuiRadioProps,
-  FormControlLabel as MuiFormControlLabel,
+  FormControlLabel,
   Theme,
 } from '@material-ui/core';
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
 import styled from 'styled-components';
 import { createSvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
+import { colors } from './theme/colors';
 
-// Recreation of Material-UI's internal RadioButton component, but with our icons (bit larger at 26x26, no empty border space)
+// Recreation of Material-UI's internal RadioButton component,
+//  but with our icons (bit larger at 26x26, no empty border space)
 const StyledSpan = styled.span`
   ${({ theme }) => `
     position: relative;
@@ -103,11 +105,13 @@ function SparkRadioButtonIcon(props: {
       })}
     >
       <SparkRadioButtonUncheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-circle"
       />
       <SparkRadioButtonCheckedIcon
+        color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-dot"
@@ -122,72 +126,44 @@ export interface RadioProps extends Omit<MuiFormControlLabelProps, 'control'> {
   ControlRadioProps?: MuiRadioProps;
 }
 
-// REFACTOR: so far, same as refactored Radio's FormControlLabel, could combine at later state
-const FormControlLabel = styled(MuiFormControlLabel)`
-  ${({ theme }: { theme: Theme }) => `
-    &.MuiFormControlLabel-root {
-      color: ${theme.palette.background.lightLowContrastText};
-      &:hover {
-        color: ${theme.palette.background.lightContrastText};
-      }
-      & .MuiTypography-root {
-        font-weight: 500; // FIXME: differs from Figma weight value, 600, BUT 600 is way too heavy
-        line-height: 1.125rem;
-      }
-      &.Mui-disabled {
-        color: ${theme.palette.neutral.darkGrey};
-      }
-    }
-  `}
-`;
+export const MuiRadioStyleOverrides = {
+  root: {
+    // Split 8px of padding / margin so icon can use background-color instead of box-shadow
+    padding: '0.25rem',
+    margin: '0.25rem',
+    // Clear Mui's primary/secondary color bgcolor
+    backgroundColor: 'unset',
+    color: colors.colorsPrendaDarkGrey,
+    '&:hover': {
+      color: colors.colorsTextIconOnLightHighContrast,
+      backgroundColor: 'unset',
+    },
+    '&.Mui-focusVisible': {
+      color: colors.colorsBlue[3],
+      backgroundColors: colors.colorsBlue[1],
+    },
+    '&$checked': {
+      color: colors.colorsBlue[3],
+    },
+    '&$disabled .MuiSvgIcon-root': {
+      backgroundColor: colors.colorsPrendaMediumGrey,
+      color: colors.colorsPrendaDarkGrey,
+    },
+  },
+};
 
-const Radio = styled(MuiRadio)`
-  ${({ theme }: { theme: Theme }) => `
-    &.MuiRadio-root {
-      // Split 8px of padding / margin so icon can use background-color instead of box-shadow
-      padding: 0.25rem;
-      margin: 0.25rem;
-      // Clear M-UI's primary/secondary color bgcolor
-      background-color: unset;
-
-      color: ${theme.palette.neutral.darkGrey};
-
-      &:hover {
-        color: ${theme.palette.background.lightContrastText};
-        background-color: unset;
-      }
-      &.Mui-focusVisible {
-        color: ${theme.palette.tertiary.blue[3]};
-        background-color: ${theme.palette.tertiary.blue[1]};
-      }
-      &.Mui-checked {
-        color: ${theme.palette.tertiary.blue[3]};
-      }
-      &.Mui-disabled {
-        & .MuiSvgIcon-root {
-          background-color: ${theme.palette.neutral.mediumGrey};
-          color: ${theme.palette.neutral.darkGrey};
-        }
-      }
-    }
-  `}
-`;
+export const MuiRadioPropOverrides = {
+  disableRipple: true,
+  color: 'default' as const,
+  icon: <SparkRadioButtonIcon />,
+  checkedIcon: <SparkRadioButtonIcon checked />,
+};
 
 const SparkRadio: FC<RadioProps> = (props) => {
   const { ControlRadioProps, ...other } = props;
 
   return (
-    <FormControlLabel
-      {...other}
-      control={
-        <Radio
-          disableRipple={true}
-          icon={<SparkRadioButtonIcon />}
-          checkedIcon={<SparkRadioButtonIcon checked />}
-          {...ControlRadioProps}
-        />
-      }
-    />
+    <FormControlLabel {...other} control={<Radio {...ControlRadioProps} />} />
   );
 };
 

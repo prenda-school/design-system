@@ -16,7 +16,14 @@ import {
 import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
+import {
+  MuiCheckboxPropOverrides,
+  MuiCheckboxStyleOverrides,
+} from '../Checkbox';
+import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiMenuPropOverrides, MuiMenuStyleOverrides } from '../Menu';
+import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
+import { MuiSvgIconPropOverride, MuiSvgIconStyleOverrides } from '../SvgIcon';
 
 export type TertiaryColor = {
   1: string;
@@ -127,7 +134,11 @@ export const prendaTheme: ThemeOptions = {
     MuiCard: MuiCardStyleOverrides,
     MuiCardContent: MuiCardContentStyleOverrides,
     MuiCardActions: MuiCardActionsStyleOverrides,
+    MuiCheckbox: MuiCheckboxStyleOverrides,
+    MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
     MuiMenu: MuiMenuStyleOverrides,
+    MuiRadio: MuiRadioStyleOverrides,
+    MuiSvgIcon: MuiSvgIconStyleOverrides,
   },
   shadows,
   palette: {
@@ -219,7 +230,10 @@ export const prendaTheme: ThemeOptions = {
   },
   props: {
     MuiCard: MuiCardPropOverrides,
+    MuiCheckbox: MuiCheckboxPropOverrides,
     MuiMenu: MuiMenuPropOverrides,
+    MuiRadio: MuiRadioPropOverrides,
+    MuiSvgIcon: MuiSvgIconPropOverride,
   },
 };
 
