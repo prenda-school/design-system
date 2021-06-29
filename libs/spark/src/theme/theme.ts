@@ -16,6 +16,7 @@ import {
 import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
+import { MuiMenuPropOverrides, MuiMenuStyleOverrides } from '../Menu';
 
 export type TertiaryColor = {
   1: string;
@@ -126,6 +127,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCard: MuiCardStyleOverrides,
     MuiCardContent: MuiCardContentStyleOverrides,
     MuiCardActions: MuiCardActionsStyleOverrides,
+    MuiMenu: MuiMenuStyleOverrides,
   },
   shadows,
   palette: {
@@ -217,6 +219,7 @@ export const prendaTheme: ThemeOptions = {
   },
   props: {
     MuiCard: MuiCardPropOverrides,
+    MuiMenu: MuiMenuPropOverrides,
   },
 };
 
