@@ -9,23 +9,25 @@ export const MuiButtonBasePropOverrides = {
 
 export const MuiButtonBaseStyleOverrides = {
   root: {
-    fontFamily: '"Nunito", Avenir, sans-serif',
-    boxSizing: 'border-box' as const,
-    transition: transitions.create(
-      ['background-color', 'box-shadow', 'border'],
-      { duration: transitions.duration.short }
-    ),
-    borderRadius: 8,
-    borderWidth: 2,
-    borderStyle: 'solid' as const,
-    fontSize: '1rem', // 16px
-    lineHeight: '1.125rem', // 18px
-    fontWeight: 700,
-    '&.Mui-focusVisible': {
-      boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
-    },
-    '&$disabled': {
-      opacity: '50%',
+    '&.SparkButton-root': {
+      fontFamily: '"Nunito", Avenir, sans-serif',
+      boxSizing: 'border-box' as const,
+      transition: transitions.create(
+        ['background-color', 'box-shadow', 'border'],
+        { duration: transitions.duration.short }
+      ),
+      borderRadius: 8,
+      borderWidth: 2,
+      borderStyle: 'solid' as const,
+      fontSize: '1rem', // 16px
+      lineHeight: '1.125rem', // 18px
+      fontWeight: 700,
+      '&.Mui-focusVisible': {
+        boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
+      },
+      '&$disabled': {
+        opacity: '50%',
+      },
     },
     '&.SparkButton-variantSolid': {
       borderColor: colors.colorsBlue[3],
