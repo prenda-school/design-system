@@ -19,8 +19,6 @@ export const MuiButtonBaseStyleOverrides = {
       borderRadius: 8,
       borderWidth: '2px',
       borderStyle: 'solid' as const,
-      fontSize: '1rem', // 16px
-      lineHeight: '1.25rem', // 20px
       fontWeight: 700,
       '&.Mui-focusVisible': {
         boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
@@ -61,24 +59,18 @@ export const MuiButtonBaseStyleOverrides = {
       // Y-paddings are subtracted by 2 to account for border-width
       '&.SparkButton-sizeLarge': {
         fontSize: '1.125rem', // 18px
+        lineHeight: '1.25rem', // 20px
         padding: '.75rem 1rem', // 12px (accounting for 2px border width) 16px
-        '.SparkButton-content': {
-          height: '1.5rem', // 24px
-        },
       },
       '&.SparkButton-sizeMedium': {
-        padding: '.375rem 1rem', // 6px (accounting for 2px border width) 16px
-        '.SparkButton-content': {
-          height: '1.25rem', // 20px
-        },
+        fontSize: '1rem', // 16px
+        lineHeight: '1.25rem', // 20px
+        padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
       },
       '&.SparkButton-sizeSmall': {
         fontSize: '0.75rem', // 12px
         lineHeight: '0.75rem', // 12px
         padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
-        '& .SparkButton-content': {
-          height: '1rem', // 16px
-        },
       },
       '& .SparkButton-content': {
         // taken from Mui
