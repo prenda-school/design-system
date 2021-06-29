@@ -16,6 +16,10 @@ import {
 import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
+import {
+  MuiCheckboxPropOverrides,
+  MuiCheckboxStyleOverrides,
+} from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
 
@@ -128,6 +132,7 @@ export const prendaTheme: ThemeOptions = {
     MuiCard: MuiCardStyleOverrides,
     MuiCardContent: MuiCardContentStyleOverrides,
     MuiCardActions: MuiCardActionsStyleOverrides,
+    MuiCheckbox: MuiCheckboxStyleOverrides,
     MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
     MuiRadio: MuiRadioStyleOverrides,
   },
@@ -221,6 +226,7 @@ export const prendaTheme: ThemeOptions = {
   },
   props: {
     MuiCard: MuiCardPropOverrides,
+    MuiCheckbox: MuiCheckboxPropOverrides,
     MuiRadio: MuiRadioPropOverrides,
   },
 };
