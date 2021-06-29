@@ -13,6 +13,10 @@ import {
   nunitoSemiboldItalic,
   sourceCodeProRegular,
 } from './fonts';
+import {
+  MuiButtonBasePropOverrides,
+  MuiButtonBaseStyleOverrides,
+} from '../ButtonBase';
 import { MuiCardPropOverrides, MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
@@ -114,6 +118,7 @@ export const prendaTheme: ThemeOptions = {
     },
   },
   overrides: {
+    MuiButtonBase: MuiButtonBaseStyleOverrides,
     MuiCssBaseline: {
       '@global': {
         body: {
@@ -235,6 +240,7 @@ export const prendaTheme: ThemeOptions = {
     },
   },
   props: {
+    MuiButtonBase: MuiButtonBasePropOverrides,
     MuiCard: MuiCardPropOverrides,
     MuiCheckbox: MuiCheckboxPropOverrides,
     MuiInput: MuiInputPropOverrides,
