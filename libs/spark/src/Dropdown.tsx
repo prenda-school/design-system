@@ -2,13 +2,13 @@ import * as React from 'react';
 import {
   Menu as MuiMenu,
   MenuProps as MuiMenuProps,
-  MenuItem as MuiMenuItem,
   MenuItemProps as MuiMenuItemProps,
   Divider as MuiDivider,
   Theme,
 } from '@material-ui/core';
 import { Button, ButtonProps } from './Button';
 import styled from 'styled-components';
+import { MenuItem } from './MenuItem';
 
 type DropdownContextType = {
   id: string;
@@ -44,56 +44,6 @@ export interface DropdownMenuItemProps
 const StyledMenu = styled(MuiMenu)`
   ${({ theme }: { theme: Theme }) => `
     inset: 8px 0 0 0 !important;
-  `}
-`;
-
-const StyledMenuItem = styled(MuiMenuItem)`
-  ${({ theme }) => `
-    box-sizing: border-box;
-    color: ${theme.palette.background.lightContrastText};
-    min-width: 228px;
-    height: 2.125rem; // 34px;
-    min-height: 2.125rem;
-    // TODO: Figma says 600 but that appears too heavy
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.125rem;
-    // margins collapse with other menu items
-    margin: 4px 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    &:hover {
-      background-color: ${theme.palette.neutral.lightGrey};
-
-      .SparkDropdownMenuItem-startIcon {
-        color: ${theme.palette.background.lightContrastText};
-      }
-    }
-
-    &.Mui-focusVisible {
-      background-color: ${theme.palette.tertiary.blue[1]};
-
-      .SparkDropdownMenuItem-startIcon {
-        color: ${theme.palette.background.lightContrastText};
-      }
-    }
-
-    &.Mui-disabled {
-      color: ${theme.palette.neutral.darkGrey};
-    }
-
-    & .SparkDropdownMenuItem-startIcon {
-      display: inherit;
-      margin-right: .5rem; // 8px
-      color: ${theme.palette.background.lightLowContrastText};
-    }
-
   `}
 `;
 
@@ -175,15 +125,8 @@ const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
 const SparkDropdownMenuItem = React.forwardRef<
   HTMLLIElement,
   DropdownMenuItemProps
->(({ startIcon, children, ...other }, ref) => {
-  return (
-    <StyledMenuItem disableRipple disableTouchRipple ref={ref} {...other}>
-      {startIcon ? (
-        <span className="SparkDropdownMenuItem-startIcon">{startIcon}</span>
-      ) : null}
-      {children}
-    </StyledMenuItem>
-  );
+>((props, ref) => {
+  return <MenuItem {...props} />;
 });
 
 export {
