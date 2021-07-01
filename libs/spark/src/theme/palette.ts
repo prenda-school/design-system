@@ -6,20 +6,20 @@ interface TypeText {
   onDarkLowContrast: string;
   onLight: string;
   onLightLowContrast: string;
-  // required by Mui but we don't customize
+  // required by Mui but not customized
   primary?: string;
   secondary?: string;
   disabled?: string;
   hint?: string;
 }
 
-interface TypeBackground   {
+interface TypeBackground {
   navy: string;
   blue: string;
   lightGrey: string;
   lightBlue: string;
   white: string;
-  // required by Mui but we don't customize
+  // required by Mui but not customized
   paper?: string;
   default?: string;
 }
@@ -29,7 +29,7 @@ interface Color {
   light: '#f0f1f2';
   medium: '#e1e3e5';
   dark: '#d2d4d6';
-  // required by Mui but we don't customize
+  // required by Mui but not customized
   50?: string;
   100?: string;
   200?: string;
@@ -76,7 +76,7 @@ interface PaletteOptions extends MuiPaletteOptions {
 }
 
 // Re-declare overridden interface so that modules outside of this one can
-//  recognize our customizations
+//  recognize the customizations
 declare module '@material-ui/core/index' {
   // Only need to declare custom properties here; extending will throw
   interface Color {
@@ -155,7 +155,7 @@ const blue = {
   2: '#498dcc',
   3: '#2967a6',
   4: '#0a4872',
-  5: '#072e44',
+  5: '#072e44', // Also "Neutral Navy" in Figma
 };
 
 const purple = {
@@ -174,10 +174,10 @@ const brand = {
 };
 
 const grey = {
-  lighter: '#f5f5f5' as const,
-  light: '#f0f1f2' as const,
-  medium: '#e1e3e5' as const,
-  dark: '#d2d4d6' as const,
+  lighter: '#f5f5f5' as const, // "Neutral Lighter Grey" in Figma
+  light: '#f0f1f2' as const, // "Neutral Light Grey" in Figma
+  medium: '#e1e3e5' as const, // "Neutral Medium Grey" in Figma
+  dark: '#d2d4d6' as const, // "Neutral Dark Grey" in Figma
 };
 
 const text = {
@@ -190,7 +190,7 @@ const text = {
 // Only customizations are specified, view all other default theme.palette properties
 //  at https://material-ui.com/customization/default-theme/?expand-path=$.palette
 export const palette: PaletteOptions = {
-  // Mui default properties, with only necessary values changed
+  // Mui default properties, only customizations specified
   error: {
     main: red[3],
     contrastText: text.onDark,
@@ -199,7 +199,7 @@ export const palette: PaletteOptions = {
     main: yellow[2],
     contrastText: text.onLight,
   },
-  // "Primary Action" -> info
+  // "Primary Action" in Figma
   info: {
     main: blue[3],
     contrastText: text.onDark,
