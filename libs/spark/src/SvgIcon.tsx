@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 import clsx from 'clsx';
 import { capitalize } from './utils';
 

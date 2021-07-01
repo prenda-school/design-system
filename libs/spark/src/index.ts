@@ -42,7 +42,7 @@ export type { RadioProps } from './Radio';
 export { SparkThemeProvider } from './SparkThemeProvider';
 export { SvgIcon } from './SvgIcon';
 export type { SvgIconProps } from './SvgIcon';
-export { theme } from './theme';
+export { theme } from './styles';
 export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
 export { Navbar } from './Navbar';
