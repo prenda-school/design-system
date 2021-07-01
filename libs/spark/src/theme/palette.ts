@@ -96,7 +96,6 @@ export const palette = {
     blue: brand.blue,
     lightGrey: grey.light,
     lightBlue: brand.lightBlue,
-    white: grey[0],
   },
   // custom properties
   brand,
