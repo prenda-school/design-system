@@ -19,7 +19,7 @@ export interface InputProps extends MuiInputProps {
   FormHelperTextProps?: MuiFormHelperTextProps;
 }
 
-export const MuiInputPropOverrides = {
+export const MuiInputDefaultProps = {
   disableUnderline: true,
 };
 

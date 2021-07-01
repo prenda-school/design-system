@@ -1,5 +1,5 @@
 import { palette } from './styles/palette';
-export const MuiMenuPropOverrides = {
+export const MuiMenuDefaultProps = {
   elevation: 3,
 };
 

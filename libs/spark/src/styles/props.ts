@@ -1,17 +1,17 @@
-import { MuiButtonBasePropOverrides } from '../ButtonBase';
-import { MuiCardPropOverrides } from '../Card';
-import { MuiCheckboxPropOverrides } from '../Checkbox';
-import { MuiInputPropOverrides } from '../Input';
-import { MuiMenuPropOverrides } from '../Menu';
-import { MuiRadioPropOverrides } from '../Radio';
-import { MuiSvgIconPropOverride } from '../SvgIcon';
+import { MuiButtonBaseDefaultProps } from '../ButtonBase';
+import { MuiCardDefaultProps } from '../Card';
+import { MuiCheckboxDefaultProps } from '../Checkbox';
+import { MuiInputDefaultProps } from '../Input';
+import { MuiMenuDefaultProps } from '../Menu';
+import { MuiRadioDefaultProps } from '../Radio';
+import { MuiSvgIconDefaultProps } from '../SvgIcon';
 
 export const props = {
-  MuiButtonBase: MuiButtonBasePropOverrides,
-  MuiCard: MuiCardPropOverrides,
-  MuiCheckbox: MuiCheckboxPropOverrides,
-  MuiInput: MuiInputPropOverrides,
-  MuiMenu: MuiMenuPropOverrides,
-  MuiRadio: MuiRadioPropOverrides,
-  MuiSvgIcon: MuiSvgIconPropOverride,
+  MuiButtonBase: MuiButtonBaseDefaultProps,
+  MuiCard: MuiCardDefaultProps,
+  MuiCheckbox: MuiCheckboxDefaultProps,
+  MuiInput: MuiInputDefaultProps,
+  MuiMenu: MuiMenuDefaultProps,
+  MuiRadio: MuiRadioDefaultProps,
+  MuiSvgIcon: MuiSvgIconDefaultProps,
 };

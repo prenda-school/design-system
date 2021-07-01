@@ -151,7 +151,7 @@ export const MuiCheckboxStyleOverrides = {
   },
 };
 
-export const MuiCheckboxPropOverrides = {
+export const MuiCheckboxDefaultProps = {
   disableRipple: true,
   color: 'default' as const,
   icon: <SparkCheckboxIcon />,

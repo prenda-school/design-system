@@ -151,7 +151,7 @@ export const MuiRadioStyleOverrides = {
   },
 };
 
-export const MuiRadioPropOverrides = {
+export const MuiRadioDefaultProps = {
   disableRipple: true,
   color: 'default' as const,
   icon: <SparkRadioButtonIcon />,

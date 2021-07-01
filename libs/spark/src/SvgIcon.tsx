@@ -8,7 +8,7 @@ export interface SvgIconProps extends MuiSvgIconProps {
   contrast?: 'high' | 'low';
 }
 
-export const MuiSvgIconPropOverride = {
+export const MuiSvgIconDefaultProps = {
   color: 'primary' as const,
 };
 
