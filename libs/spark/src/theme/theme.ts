@@ -1,18 +1,7 @@
 import { createMuiTheme, ThemeOptions } from '@material-ui/core';
 import { palette } from './palette';
 import { shadows } from './shadows';
-import {
-  nunitoRegular,
-  nunitoRegularItalic,
-  nunitoMedium,
-  nunitoBold,
-  nunitoBoldItalic,
-  nunitoExtrabold,
-  nunitoExtraboldItalic,
-  nunitoSemibold,
-  nunitoSemiboldItalic,
-  sourceCodeProRegular,
-} from './fonts';
+import { typography, fontFaces } from './typography';
 import {
   MuiButtonBasePropOverrides,
   MuiButtonBaseStyleOverrides,
@@ -34,36 +23,16 @@ import { MuiRadioPropOverrides, MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconPropOverride, MuiSvgIconStyleOverrides } from '../SvgIcon';
 
 export const prendaTheme: ThemeOptions = {
-  typography: {
-    fontFamily: '"Nunito", Avenir, sans-serif',
-    fontSize: 16,
-    body1: {
-      fontSize: 16,
-    },
-    body2: {
-      fontSize: 14,
-    },
-  },
+  typography,
   overrides: {
     MuiButtonBase: MuiButtonBaseStyleOverrides,
     MuiCssBaseline: {
       '@global': {
         body: {
-          fontFamily: '"Nunito", Avenir, sans-serif',
-          fontSize: 16,
+          fontFamily: typography.fontFamily,
+          fontSize: typography.fontSize,
         },
-        '@font-face': [
-          nunitoRegular,
-          nunitoRegularItalic,
-          nunitoMedium,
-          nunitoBold,
-          nunitoBoldItalic,
-          nunitoExtrabold,
-          nunitoExtraboldItalic,
-          nunitoSemibold,
-          nunitoSemiboldItalic,
-          sourceCodeProRegular,
-        ],
+        '@font-face': fontFaces,
       },
     },
     MuiCard: MuiCardStyleOverrides,
