@@ -1,31 +1,49 @@
-import { Color as MuiColor } from '@material-ui/core';
-import {
-  TypeText as MuiTypeText,
-  TypeBackground as MuiTypeBackground,
-  PaletteOptions as MuiPaletteOptions,
-} from '@material-ui/core/styles/createPalette';
+import { PaletteOptions as MuiPaletteOptions } from '@material-ui/core/styles/createPalette';
 
 // Customized types
-interface TypeText extends MuiTypeText {
+interface TypeText {
   onDark: string;
   onDarkLowContrast: string;
   onLight: string;
   onLightLowContrast: string;
+  // required by Mui but we don't customize
+  primary?: string;
+  secondary?: string;
+  disabled?: string;
+  hint?: string;
 }
 
-interface TypeBackground extends MuiTypeBackground {
+interface TypeBackground   {
   navy: string;
   blue: string;
   lightGrey: string;
   lightBlue: string;
   white: string;
+  // required by Mui but we don't customize
+  paper?: string;
+  default?: string;
 }
 
-interface Color extends MuiColor {
+interface Color {
   lighter: '#f5f5f5';
   light: '#f0f1f2';
   medium: '#e1e3e5';
   dark: '#d2d4d6';
+  // required by Mui but we don't customize
+  50?: string;
+  100?: string;
+  200?: string;
+  300?: string;
+  400?: string;
+  500?: string;
+  600?: string;
+  700?: string;
+  800?: string;
+  900?: string;
+  A100?: string;
+  A200?: string;
+  A300?: string;
+  A400?: string;
 }
 
 // Custom types
@@ -160,21 +178,6 @@ const grey = {
   light: '#f0f1f2' as const,
   medium: '#e1e3e5' as const,
   dark: '#d2d4d6' as const,
-  // unchanged from Mui
-  50: '#fafafa',
-  100: '#f5f5f5',
-  200: '#eeeeee',
-  300: '#e0e0e0',
-  400: '#bdbdbd',
-  500: '#9e9e9e',
-  600: '#757575',
-  700: '#616161',
-  800: '#424242',
-  900: '#212121',
-  A100: '#d5d5d5',
-  A200: '#aaaaaa',
-  A400: '#303030',
-  A700: '#616161',
 };
 
 const text = {
@@ -182,11 +185,6 @@ const text = {
   onDarkLowContrast: `${grey.light}b8`, // 72% opacity
   onLight: blue[5],
   onLightLowContrast: `${blue[5]}b8`, // 72% opacity
-  // unchanged from Mui
-  primary: 'rgba(0, 0, 0, 0.87)',
-  secondary: 'rgba(0, 0, 0, 0.54)',
-  disabled: 'rgba(0, 0, 0, 0.38)',
-  hint: 'rgba(0, 0, 0, 0.38)',
 };
 
 // Only customizations are specified, view all other default theme.palette properties
@@ -218,9 +216,6 @@ export const palette: PaletteOptions = {
     lightGrey: grey.light,
     lightBlue: brand.lightBlue,
     white: grey[0],
-    // unchanged from Mui
-    paper: '#fff',
-    default: '#fafafa',
   },
   // custom properties
   brand,
