@@ -1,1 +1,1 @@
-export { muiTheme, prendaTheme } from './theme';
+export { theme } from './theme';
