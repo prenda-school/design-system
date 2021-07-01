@@ -1,16 +1,12 @@
-import {
-  colorsPrendaLightGrey,
-  colorsPrendaNavy,
-  colorsTextIconOnLightLowContrast,
-} from './theme';
 import styled from 'styled-components';
+import { palette } from './theme/palette';
 
 export const NavbarLink = styled.a`
   height: 48px;
   border-radius: 8px;
   padding: 8px;
   margin-left: 8px;
-  color: ${colorsTextIconOnLightLowContrast};
+  color: ${palette.text.onLightLowContrast};
   text-decoration: none;
   display: flex;
   gap: 4px;
@@ -21,14 +17,14 @@ export const NavbarLink = styled.a`
   &:hover,
   &:focus,
   &[aria-current='page'] {
-    background-color: ${colorsPrendaLightGrey};
+    background-color: ${palette.grey.light};
   }
   &:active,
   &[aria-current='page'] {
-    color: ${colorsPrendaNavy};
+    color: ${palette.blue[5]};
   }
   &:focus {
-    border: 2px solid ${colorsPrendaNavy};
+    border: 2px solid ${palette.blue[5]};
     outline: none;
   }
   &.disabled {

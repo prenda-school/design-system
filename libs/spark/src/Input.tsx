@@ -10,8 +10,7 @@ import {
   Theme,
 } from '@material-ui/core/';
 import { FormHelperTextProps as MuiFormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export interface InputProps extends MuiInputProps {
   success?: boolean;
   label?: string;
@@ -27,41 +26,41 @@ export const MuiInputPropOverrides = {
 export const MuiInputStyleOverrides = {
   root: {
     boxSizing: 'border-box' as const,
-    backgroundColor: colors.colorsPrendaLighterGrey,
+    backgroundColor: palette.grey.lighter,
     borderWidth: 2,
     borderStyle: 'solid',
-    borderColor: colors.colorsPrendaMediumGrey,
+    borderColor: palette.grey.medium,
     borderRadius: 8,
     width: '20rem', // 320px
     padding: '.75rem 1rem',
     fontSize: '1rem', // 16px
     lineHeight: '1.125rem', // 18px
     '&.SparkInput-success': {
-      borderColor: colors.colorsGreen[3],
-      boxShadow: `0 0 0 4px ${colors.colorsGreen[1]}`,
+      borderColor: palette.green[3],
+      boxShadow: `0 0 0 4px ${palette.green[1]}`,
     },
     '&$focused': {
-      borderColor: colors.colorsBlue[3],
-      boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
-      backgroundColor: colors.colorsPrendaWhite,
+      borderColor: palette.blue[3],
+      boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+      backgroundColor: palette.common.white,
       '& .MuiInput-input': {
-        color: colors.colorsTextIconOnLightHighContrast,
+        color: palette.text.onLight,
       },
     },
     '&$error': {
-      borderColor: colors.colorsRed[3],
-      boxShadow: `0 0 0 4px ${colors.colorsRed[1]}`,
+      borderColor: palette.red[3],
+      boxShadow: `0 0 0 4px ${palette.red[1]}`,
     },
     '&$disabled': {
-      borderColor: colors.colorsPrendaDarkGrey,
-      backgroundColor: colors.colorsPrendaMediumGrey,
+      borderColor: palette.grey.dark,
+      backgroundColor: palette.grey.medium,
     },
   },
   input: {
     padding: 0,
     '&::placeholder': {
       opacity: 1,
-      color: colors.colorsTextIconOnLightLowContrast,
+      color: palette.text.onLightLowContrast,
     },
   },
 };

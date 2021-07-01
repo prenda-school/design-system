@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
-import { colors } from './theme/colors';
+import { palette } from './theme/palette';
 import clsx from 'clsx';
 import { capitalize } from './utils';
 
@@ -30,10 +30,10 @@ export const MuiSvgIconStyleOverrides = {
     fontSize: '2rem', // 32px
   },
   colorPrimary: {
-    color: colors.colorsTextIconOnLightHighContrast,
+    color: palette.text.onLight,
   },
   colorSecondary: {
-    color: colors.colorsTextIconOnDarkHighContrast,
+    color: palette.text.onDark,
   },
 };
 

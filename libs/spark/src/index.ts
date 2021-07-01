@@ -43,7 +43,6 @@ export { SparkThemeProvider } from './SparkThemeProvider';
 export { SvgIcon } from './SvgIcon';
 export type { SvgIconProps } from './SvgIcon';
 export { muiTheme, prendaTheme } from './theme';
-export type { TertiaryColor } from './theme';
 export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
 export { Navbar } from './Navbar';

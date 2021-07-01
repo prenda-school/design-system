@@ -1,5 +1,4 @@
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export const MuiMenuPropOverrides = {
   elevation: 3,
 };
@@ -9,7 +8,7 @@ export const MuiMenuStyleOverrides = {
     borderRadius: 8,
   },
   list: {
-    border: `2px solid ${colors.colorsPrendaMediumGrey}`,
+    border: `2px solid ${palette.grey.medium}`,
     borderRadius: 8,
   },
 };

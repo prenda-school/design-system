@@ -1,13 +1,12 @@
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export const MuiFormControlLabelStyleOverrides = {
   root: {
-    color: colors.colorsTextIconOnLightLowContrast,
+    color: palette.text.onLightLowContrast,
     '&:hover': {
-      color: colors.colorsTextIconOnLightHighContrast,
+      color: palette.text.onLight,
     },
     '&$disabled': {
-      color: colors.colorsPrendaDarkGrey,
+      color: palette.grey.dark,
     },
   },
   label: {

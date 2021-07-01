@@ -9,8 +9,7 @@ import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/
 import styled from 'styled-components';
 import { createSvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
 const StyledSpan = styled.span`
@@ -28,16 +27,16 @@ const StyledSpan = styled.span`
       background-color: white;
     }
     &:hover {
-      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
     }
     label:hover & {
-      color: ${theme.palette.tertiary.blue[3]};
+      color: ${theme.palette.blue[3]};
       :not(.SparkRadioIcon-checked) {
-        color: ${theme.palette.background.lightContrastText};
+        color: ${theme.palette.text.onLight};
       }
     }
     input:focus ~ & {
-      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
       &:not(.SparkRadioIcon-checked) .MuiSvgIcon-root {
         transform: scale(0.9);
         transition: ${theme.transitions.create('transform', {
@@ -46,11 +45,11 @@ const StyledSpan = styled.span`
         })};
         &.SparkRadioIcon-dot {
           transform: scale(0.8);
-          color: ${theme.palette.tertiary.blue[1]};
+          color: ${theme.palette.blue[1]};
         }
       }
       & .SparkRadioIcon-checked .SparkRadioIcon-dot {
-        color: ${theme.palette.tertiary.blue[3]};
+        color: ${theme.palette.blue[3]};
       }
     }
 
@@ -133,21 +132,21 @@ export const MuiRadioStyleOverrides = {
     margin: '0.25rem',
     // Clear Mui's primary/secondary color bgcolor
     backgroundColor: 'unset',
-    color: colors.colorsPrendaDarkGrey,
+    color: palette.grey.dark,
     '&:hover': {
-      color: colors.colorsTextIconOnLightHighContrast,
+      color: palette.text.onLight,
       backgroundColor: 'unset',
     },
     '&.Mui-focusVisible': {
-      color: colors.colorsBlue[3],
-      backgroundColors: colors.colorsBlue[1],
+      color: palette.blue[3],
+      backgroundColors: palette.blue[1],
     },
     '&$checked': {
-      color: colors.colorsBlue[3],
+      color: palette.blue[3],
     },
     '&$disabled .MuiSvgIcon-root': {
-      backgroundColor: colors.colorsPrendaMediumGrey,
-      color: colors.colorsPrendaDarkGrey,
+      backgroundColor: palette.grey.medium,
+      color: palette.grey.dark,
     },
   },
 };

@@ -8,8 +8,7 @@ import {
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
 import styled from 'styled-components';
 import clsx from 'clsx';
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 // Recreation of Material-UI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
 const StyledSpan = styled.span`
@@ -27,14 +26,14 @@ const StyledSpan = styled.span`
       background-color: white;
     }
     label:hover & {
-      color: ${theme.palette.tertiary.blue[3]};
+      color: ${theme.palette.blue[3]};
       :not(.SparkCheckboxIcon-checked) {
-        color: ${theme.palette.background.lightContrastText};
+        color: ${theme.palette.text.onLight};
       }
     }
     input:focus ~ & {
-      // color: ${theme.palette.background.lightContrastText};
-      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+      // color: ${theme.palette.text.onLight};
+      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
 
       &:not(.SparkCheckboxIcon-checked) .MuiSvgIcon-root {
         transform: scale(1);
@@ -43,11 +42,11 @@ const StyledSpan = styled.span`
           duration: theme.transitions.duration.shortest,
         })};
         &.SparkCheckboxIcon-box {
-          color: ${theme.palette.tertiary.blue[3]};
+          color: ${theme.palette.blue[3]};
           background-color: white;
         }
         &.SparkCheckboxIcon-checkmark {
-          color: ${theme.palette.tertiary.blue[1]};
+          color: ${theme.palette.blue[1]};
         }
       }
     }
@@ -62,7 +61,7 @@ const StyledSpan = styled.span`
         })};
       }
       .MuiSvgIcon-root.SparkCheckboxIcon-box {
-        background-color: ${theme.palette.tertiary.blue[3]};
+        background-color: ${theme.palette.blue[3]};
       }
     }
     
@@ -72,7 +71,7 @@ const StyledSpan = styled.span`
       transform: scale(1);
     }
     & .MuiSvgIcon-root.SparkCheckboxIcon-checkmark {
-      color: ${theme.palette.tertiary.blue[1]};
+      color: ${theme.palette.blue[1]};
       background-color: transparent;
       position: absolute;
       left: 0;
@@ -137,17 +136,17 @@ export const MuiCheckboxStyleOverrides = {
   root: {
     padding: '0.5rem', // 8px
     backgroundColor: 'unset',
-    color: colors.colorsPrendaDarkGrey,
+    color: palette.grey.dark,
     '&:hover': {
-      color: colors.colorsTextIconOnLightHighContrast,
+      color: palette.text.onLight,
       backgroundColor: 'unset',
     },
     '&$checked': {
-      color: colors.colorsBlue[3],
+      color: palette.blue[3],
     },
     '&$disabled .MuiSvgIcon-root': {
-      backgroundColor: colors.colorsPrendaMediumGrey,
-      color: colors.colorsPrendaDarkGrey,
+      backgroundColor: palette.grey.medium,
+      color: palette.grey.dark,
     },
   },
 };

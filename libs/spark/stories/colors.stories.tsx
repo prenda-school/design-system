@@ -52,22 +52,22 @@ export const PrendaColors = () => {
         <RowContainer>
           <ColorBox
             color={theme.palette.brand.blue}
-            textColor={theme.palette.background.darkContrastText}
+            textColor={theme.palette.text.onDark}
             colorLabel="theme.palette.brand.blue"
           />
           <ColorBox
             color={theme.palette.brand.lightBlue}
-            textColor={theme.palette.background.lightContrastText}
+            textColor={theme.palette.text.onLight}
             colorLabel="theme.palette.brand.lightBlue"
           />
           <ColorBox
             color={theme.palette.brand.orange}
-            textColor={theme.palette.background.darkContrastText}
+            textColor={theme.palette.text.onDark}
             colorLabel="theme.palette.brand.orange"
           />
           <ColorBox
             color={theme.palette.brand.peach}
-            textColor={theme.palette.background.lightContrastText}
+            textColor={theme.palette.text.onLight}
             colorLabel="theme.palette.brand.peach"
           />
         </RowContainer>
@@ -75,34 +75,34 @@ export const PrendaColors = () => {
       <ColorContainer>
         <RowContainer>
           <ColorBox
-            color={theme.palette.neutral.navy}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.neutral.navy"
+            color={theme.palette.blue[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.blue[5]"
           />
           <ColorBox
-            color={theme.palette.neutral.darkGrey}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.darkGrey"
+            color={theme.palette.grey.dark}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.grey.dark"
           />
           <ColorBox
-            color={theme.palette.neutral.mediumGrey}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.mediumGrey"
+            color={theme.palette.grey.medium}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.grey.medium"
           />
           <ColorBox
-            color={theme.palette.neutral.lightGrey}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.lightGrey"
+            color={theme.palette.grey.light}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.grey.light"
           />
           <ColorBox
-            color={theme.palette.neutral.lighterGrey}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.lighterGrey"
+            color={theme.palette.grey.lighter}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.grey.lighter"
           />
           <ColorBox
-            color={theme.palette.neutral.white}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.neutral.white"
+            color={theme.palette.common.white}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.common.white"
           />
         </RowContainer>
       </ColorContainer>
@@ -112,22 +112,22 @@ export const PrendaColors = () => {
         <RowContainer>
           <ColorBox
             color={theme.palette.background.navy}
-            textColor={theme.palette.background.darkContrastText}
+            textColor={theme.palette.text.onDark}
             colorLabel="theme.palette.background.navy"
           />
           <ColorBox
             color={theme.palette.background.navy}
-            textColor={theme.palette.background.darkLowContrastText}
+            textColor={theme.palette.text.onDarkLowContrast}
             colorLabel="theme.palette.background.navy"
           />
           <ColorBox
             color={theme.palette.background.blue}
-            textColor={theme.palette.background.darkContrastText}
+            textColor={theme.palette.text.onDark}
             colorLabel="theme.palette.background.blue"
           />
           <ColorBox
             color={theme.palette.background.blue}
-            textColor={theme.palette.background.darkLowContrastText}
+            textColor={theme.palette.text.onDarkLowContrast}
             colorLabel="theme.palette.background.blue"
           />
         </RowContainer>
@@ -136,32 +136,32 @@ export const PrendaColors = () => {
         <RowContainer>
           <ColorBox
             color={theme.palette.background.lightGrey}
-            textColor={theme.palette.background.lightContrastText}
+            textColor={theme.palette.text.onLight}
             colorLabel="theme.palette.background.lightGrey"
           />
           <ColorBox
             color={theme.palette.background.lightGrey}
-            textColor={theme.palette.background.lightLowContrastText}
+            textColor={theme.palette.text.onLightLowContrast}
             colorLabel="theme.palette.background.lightGrey"
           />
           <ColorBox
-            color={theme.palette.background.white}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.background.white"
+            color={theme.palette.common.white}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.common.white"
           />
           <ColorBox
-            color={theme.palette.background.white}
-            textColor={theme.palette.background.lightLowContrastText}
-            colorLabel="theme.palette.background.white"
+            color={theme.palette.common.white}
+            textColor={theme.palette.text.onLightLowContrast}
+            colorLabel="theme.palette.common.white"
           />
           <ColorBox
             color={theme.palette.background.lightBlue}
-            textColor={theme.palette.background.lightContrastText}
+            textColor={theme.palette.text.onLight}
             colorLabel="theme.palette.background.lightBlue"
           />
           <ColorBox
             color={theme.palette.background.lightBlue}
-            textColor={theme.palette.background.lightLowContrastText}
+            textColor={theme.palette.text.onLightLowContrast}
             colorLabel="theme.palette.background.lightBlue"
           />
         </RowContainer>
@@ -171,22 +171,22 @@ export const PrendaColors = () => {
       <ColorContainer>
         <ColorBox
           color={theme.palette.info.main}
-          textColor={theme.palette.background.darkContrastText}
+          textColor={theme.palette.text.onDark}
           colorLabel="theme.palette.info.main"
         />
         <ColorBox
           color={theme.palette.success.main}
-          textColor={theme.palette.background.darkContrastText}
+          textColor={theme.palette.text.onDark}
           colorLabel="theme.palette.success.main"
         />
         <ColorBox
           color={theme.palette.warning.main}
-          textColor={theme.palette.background.lightContrastText}
+          textColor={theme.palette.text.onLight}
           colorLabel="theme.palette.warning.main"
         />
         <ColorBox
           color={theme.palette.error.main}
-          textColor={theme.palette.background.darkContrastText}
+          textColor={theme.palette.text.onDark}
           colorLabel="theme.palette.error.main"
         />
       </ColorContainer>
@@ -195,164 +195,164 @@ export const PrendaColors = () => {
       <ColorContainer>
         <div>
           <ColorBox
-            color={theme.palette.tertiary.red[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.red[1]"
+            color={theme.palette.red[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.red[1]"
           />
           <ColorBox
-            color={theme.palette.tertiary.red[2]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.red[2]"
+            color={theme.palette.red[2]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.red[2]"
           />
           <ColorBox
-            color={theme.palette.tertiary.red[3]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.red[3]"
+            color={theme.palette.red[3]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.red[3]"
           />
           <ColorBox
-            color={theme.palette.tertiary.red[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.red[4]"
+            color={theme.palette.red[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.red[4]"
           />
           <ColorBox
-            color={theme.palette.tertiary.red[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.red[5]"
-          />
-        </div>
-        <div>
-          <ColorBox
-            color={theme.palette.tertiary.orange[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.orange[1]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.orange[2]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.orange[2]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.orange[3]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.orange[3]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.orange[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.orange[4]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.orange[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.orange[5]"
+            color={theme.palette.red[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.red[5]"
           />
         </div>
         <div>
           <ColorBox
-            color={theme.palette.tertiary.yellow[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.yellow[1]"
+            color={theme.palette.orange[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.orange[1]"
           />
           <ColorBox
-            color={theme.palette.tertiary.yellow[2]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.yellow[2]"
+            color={theme.palette.orange[2]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.orange[2]"
           />
           <ColorBox
-            color={theme.palette.tertiary.yellow[3]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.yellow[3]"
+            color={theme.palette.orange[3]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.orange[3]"
           />
           <ColorBox
-            color={theme.palette.tertiary.yellow[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.yellow[4]"
+            color={theme.palette.orange[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.orange[4]"
           />
           <ColorBox
-            color={theme.palette.tertiary.yellow[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.yellow[5]"
-          />
-        </div>
-        <div>
-          <ColorBox
-            color={theme.palette.tertiary.green[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.green[1]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.green[2]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.green[2]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.green[3]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.green[3]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.green[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.green[4]"
-          />
-          <ColorBox
-            color={theme.palette.tertiary.green[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.green[5]"
+            color={theme.palette.orange[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.orange[5]"
           />
         </div>
         <div>
           <ColorBox
-            color={theme.palette.tertiary.blue[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.blue[1]"
+            color={theme.palette.yellow[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.yellow[1]"
           />
           <ColorBox
-            color={theme.palette.tertiary.blue[2]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.blue[2]"
+            color={theme.palette.yellow[2]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.yellow[2]"
           />
           <ColorBox
-            color={theme.palette.tertiary.blue[3]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.blue[3]"
+            color={theme.palette.yellow[3]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.yellow[3]"
           />
           <ColorBox
-            color={theme.palette.tertiary.blue[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.blue[4]"
+            color={theme.palette.yellow[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.yellow[4]"
           />
           <ColorBox
-            color={theme.palette.tertiary.blue[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.blue[5]"
+            color={theme.palette.yellow[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.yellow[5]"
           />
         </div>
         <div>
           <ColorBox
-            color={theme.palette.tertiary.purple[1]}
-            textColor={theme.palette.background.lightContrastText}
-            colorLabel="theme.palette.tertiary.purple[1]"
+            color={theme.palette.green[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.green[1]"
           />
           <ColorBox
-            color={theme.palette.tertiary.purple[2]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.purple[2]"
+            color={theme.palette.green[2]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.green[2]"
           />
           <ColorBox
-            color={theme.palette.tertiary.purple[3]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.purple[3]"
+            color={theme.palette.green[3]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.green[3]"
           />
           <ColorBox
-            color={theme.palette.tertiary.purple[4]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.purple[4]"
+            color={theme.palette.green[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.green[4]"
           />
           <ColorBox
-            color={theme.palette.tertiary.purple[5]}
-            textColor={theme.palette.background.darkContrastText}
-            colorLabel="theme.palette.tertiary.purple[5]"
+            color={theme.palette.green[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.green[5]"
+          />
+        </div>
+        <div>
+          <ColorBox
+            color={theme.palette.blue[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.blue[1]"
+          />
+          <ColorBox
+            color={theme.palette.blue[2]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.blue[2]"
+          />
+          <ColorBox
+            color={theme.palette.blue[3]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.blue[3]"
+          />
+          <ColorBox
+            color={theme.palette.blue[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.blue[4]"
+          />
+          <ColorBox
+            color={theme.palette.blue[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.blue[5]"
+          />
+        </div>
+        <div>
+          <ColorBox
+            color={theme.palette.purple[1]}
+            textColor={theme.palette.text.onLight}
+            colorLabel="theme.palette.purple[1]"
+          />
+          <ColorBox
+            color={theme.palette.purple[2]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.purple[2]"
+          />
+          <ColorBox
+            color={theme.palette.purple[3]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.purple[3]"
+          />
+          <ColorBox
+            color={theme.palette.purple[4]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.purple[4]"
+          />
+          <ColorBox
+            color={theme.palette.purple[5]}
+            textColor={theme.palette.text.onDark}
+            colorLabel="theme.palette.purple[5]"
           />
         </div>
       </ColorContainer>

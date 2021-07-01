@@ -23,19 +23,19 @@ const styles = (theme: Theme) =>
       color: 'inherit',
     },
     textOnDark: {
-      color: theme.palette.background.darkContrastText,
+      color: theme.palette.text.onDark,
     },
     textOnDarkLowContrast: {
-      color: theme.palette.background.darkLowContrastText,
+      color: theme.palette.text.onDarkLowContrast,
     },
     textOnLight: {
-      color: theme.palette.background.lightContrastText,
+      color: theme.palette.text.onLight,
     },
     textOnLightLowContrast: {
-      color: theme.palette.background.lightLowContrastText,
+      color: theme.palette.text.onLightLowContrast,
     },
     tertiaryBlue2: {
-      color: theme.palette.tertiary.blue[2],
+      color: theme.palette.blue[2],
     },
     'display-lg': {
       fontSize: '4rem',

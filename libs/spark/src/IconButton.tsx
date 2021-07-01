@@ -38,39 +38,39 @@ export const ButtonBase = styled(MuiButtonBase)`
     overflow: visible; // Explicitly set the default value to solve a bug on IE 11.
 
     &.Mui-focusVisible {
-      box-shadow: 0 0 0 4px ${theme.palette.tertiary.blue[1]};
+      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
     }
     &.Mui-disabled {
       opacity: 50%;
     }
 
     &.SparkIconButton-variantSolid {
-      border-color: ${theme.palette.tertiary.blue[3]};
-      background-color: ${theme.palette.tertiary.blue[3]};
+      border-color: ${theme.palette.blue[3]};
+      background-color: ${theme.palette.blue[3]};
       color: white;
       &:hover {
-        border-color: ${theme.palette.tertiary.blue[4]};
-        background-color: ${theme.palette.tertiary.blue[4]};
+        border-color: ${theme.palette.blue[4]};
+        background-color: ${theme.palette.blue[4]};
       }
     }
     &.SparkIconButton-variantOutlined {
-      border-color: ${theme.palette.neutral.mediumGrey};
+      border-color: ${theme.palette.grey.medium};
       background-color: white;
-      color: ${theme.palette.tertiary.blue[3]};
+      color: ${theme.palette.blue[3]};
       &:hover {
-        background-color: ${theme.palette.neutral.lightGrey};
+        background-color: ${theme.palette.grey.light};
       }
     }
     &.SparkIconButton-variantFlat {
       border-color: transparent;
       background-color: transparent;
-      color: ${theme.palette.tertiary.blue[3]};
+      color: ${theme.palette.blue[3]};
       &:hover {
-        color: ${theme.palette.tertiary.blue[4]};
+        color: ${theme.palette.blue[4]};
       }
       &.Mui-focusVisible {
-        border-color: ${theme.palette.tertiary.blue[3]};
-        background-color: ${theme.palette.tertiary.blue[1]};
+        border-color: ${theme.palette.blue[3]};
+        background-color: ${theme.palette.blue[1]};
       }
     }
     &.SparkIconButton-sizeLarge {

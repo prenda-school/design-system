@@ -1,6 +1,5 @@
 import transitions from '@material-ui/core/styles/transitions';
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export const MuiButtonBasePropOverrides = {
   disableRipple: true,
   disableTouchRipple: true,
@@ -21,39 +20,39 @@ export const MuiButtonBaseStyleOverrides = {
       borderStyle: 'solid' as const,
       fontWeight: 700,
       '&.Mui-focusVisible': {
-        boxShadow: `0 0 0 4px ${colors.colorsBlue[1]}`,
+        boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       },
       '&$disabled': {
         opacity: '50%',
       },
 
       '&.SparkButton-variantSolid': {
-        borderColor: colors.colorsBlue[3],
-        backgroundColor: colors.colorsBlue[3],
-        color: colors.colorsPrendaWhite,
+        borderColor: palette.blue[3],
+        backgroundColor: palette.blue[3],
+        color: palette.common.white,
         '&:hover': {
-          borderColor: colors.colorsBlue[4],
-          backgroundColor: colors.colorsBlue[4],
+          borderColor: palette.blue[4],
+          backgroundColor: palette.blue[4],
         },
       },
       '&.SparkButton-variantOutlined': {
-        borderColor: colors.colorsPrendaMediumGrey,
-        backgroundColor: colors.colorsPrendaWhite,
-        color: colors.colorsBlue[3],
+        borderColor: palette.grey.medium,
+        backgroundColor: palette.common.white,
+        color: palette.blue[3],
         '&:hover': {
-          backgroundColor: colors.colorsPrendaLightGrey,
+          backgroundColor: palette.grey.light,
         },
       },
       '&.SparkButton-variantFlat': {
         borderColor: 'transparent',
         backgroundColor: 'transparent',
-        color: colors.colorsBlue[3],
+        color: palette.blue[3],
         '&:hover': {
-          color: colors.colorsBlue[4],
+          color: palette.blue[4],
         },
         '&.Mui-focusVisible': {
-          borderColor: colors.colorsBlue[3],
-          backgroundColor: colors.colorsBlue[1],
+          borderColor: palette.blue[3],
+          backgroundColor: palette.blue[1],
         },
       },
       // Y-paddings are subtracted by 2 to account for border-width
