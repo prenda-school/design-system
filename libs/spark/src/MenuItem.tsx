@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { MenuItem, MenuItemProps as MuiMenuItemProps } from '@material-ui/core';
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export interface MenuItemProps extends MuiMenuItemProps {
   startIcon?: React.ReactNode;
   // Fix mismatch on Mui's end
@@ -11,7 +10,7 @@ export interface MenuItemProps extends MuiMenuItemProps {
 export const MuiMenuItemStyleOverrides = {
   root: {
     boxSizing: 'border-box' as const,
-    color: colors.colorsTextIconOnLightHighContrast,
+    color: palette.text.onLight,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
     // Figma says 600 but that appears too heavy
@@ -27,25 +26,25 @@ export const MuiMenuItemStyleOverrides = {
       marginBottom: 0,
     },
     '&:hover': {
-      backgroundColor: colors.colorsPrendaLightGrey,
+      backgroundColor: palette.grey.light,
       '.SparkMenuItem-startIcon': {
-        color: colors.colorsTextIconOnLightHighContrast,
+        color: palette.text.onLight,
       },
     },
     '&.Mui-focusVisible': {
-      backgroundColor: colors.colorsBlue[1],
+      backgroundColor: palette.blue[1],
       '.SparkMenuItem-startIcon': {
-        color: colors.colorsTextIconOnLightHighContrast,
+        color: palette.text.onLight,
       },
     },
     '&$disabled': {
-      color: colors.colorsPrendaDarkGrey,
+      color: palette.grey.dark,
     },
 
     '.SparkMenuItem-startIcon': {
       display: 'inherit',
       marginRight: '.5rem', // 8px
-      color: colors.colorsTextIconOnLightLowContrast,
+      color: palette.text.onLightLowContrast,
     },
   },
 };

@@ -1,10 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, withStyles } from '@material-ui/core/';
 import { PrendaMonogramDark } from './logos';
-import {
-  colorsPrendaMediumGrey,
-  colorsTextIconOnLightLowContrast,
-} from './theme';
+import { palette } from './theme/palette';
 
 export type NavbarProps = {
   children: React.ReactChild | React.ReactChild[];
@@ -18,9 +15,9 @@ export const Navbar = (props: NavbarProps) => {
 
   const PrendaAppBar = withStyles({
     root: {
-      borderBottom: `2px solid ${colorsPrendaMediumGrey}`,
+      borderBottom: `2px solid ${palette.grey.medium}`,
       fontSize: '18px',
-      color: colorsTextIconOnLightLowContrast,
+      color: palette.text.onLightLowContrast,
     },
   })(AppBar);
 

@@ -1,13 +1,12 @@
-import { colors } from './theme/colors';
-
+import { palette } from './theme/palette';
 export const MuiFormHelperTextStyleOverrides = {
   root: {
-    color: colors.colorsTextIconOnLightLowContrast,
+    color: palette.text.onLightLowContrast,
     fontSize: '1rem', // 12px
     lineHeight: '1.5rem', // 20px
     marginTop: '0.5rem', // 8px
     '&$disabled': {
-      color: colors.colorsPrendaDarkGrey,
+      color: palette.grey.dark,
     },
   },
 };
