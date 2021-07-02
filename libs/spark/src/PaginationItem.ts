@@ -5,7 +5,6 @@ export const MuiPaginationItemStyleOverrides = {
     margin: 0,
     borderRadius: 0,
   },
-  page: {},
   rounded: {
     borderRadius: 0,
   },
@@ -21,12 +20,12 @@ export const MuiPaginationItemStyleOverrides = {
       backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.grey.medium}`,
     },
-    '&$focusVisible': {
-      backgroundColor: palette.grey.light,
-    },
     '&:focus': {
       backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.blue[4]}`,
+    },
+    '&$focusVisible': {
+      backgroundColor: palette.grey.light,
     },
     '&$selected': {
       color: palette.common.white,
