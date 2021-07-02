@@ -1,4 +1,4 @@
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 
 export const MuiPaginationItemStyleOverrides = {
   root: {
@@ -10,26 +10,26 @@ export const MuiPaginationItemStyleOverrides = {
     borderRadius: 0,
   },
   outlined: {
-    backgroundColor: palette.neutral.white,
-    border: `solid 2px ${palette.neutral.mediumGrey}`,
+    backgroundColor: palette.common.white,
+    border: `solid 2px ${palette.grey.medium}`,
     borderRadius: 0,
     color: palette.text.onLight,
     fontSize: '1rem',
     fontWeight: 700,
     lineHeight: '1.25rem',
     '&:hover': {
-      backgroundColor: palette.neutral.lightGrey,
-      border: `solid 2px ${palette.neutral.mediumGrey}`,
+      backgroundColor: palette.grey.light,
+      border: `solid 2px ${palette.grey.medium}`,
     },
     '&$focusVisible': {
-      backgroundColor: palette.neutral.lightGrey,
+      backgroundColor: palette.grey.light,
     },
     '&:focus': {
-      backgroundColor: palette.neutral.lightGrey,
+      backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.blue[4]}`,
     },
     '&$selected': {
-      color: palette.neutral.white,
+      color: palette.common.white,
       backgroundColor: palette.blue[3],
       border: `solid 2px ${palette.blue[5]}`,
       '&:hover, &:focus, &$focusVisible': {
@@ -45,8 +45,8 @@ export const MuiPaginationItemStyleOverrides = {
   ellipsis: {
     height: '3rem',
     borderRadius: 0,
-    backgroundColor: palette.neutral.white,
-    border: `solid 2px ${palette.neutral.mediumGrey}`,
+    backgroundColor: palette.common.white,
+    border: `solid 2px ${palette.grey.medium}`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
