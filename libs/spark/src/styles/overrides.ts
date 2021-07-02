@@ -14,32 +14,6 @@ import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
-// import { Overrides as MuiOverrides } from '@material-ui/core/styles/overrides';
-// import { PaginationClassKey, PaginationItemClassKey } from '@material-ui/lab';
-// import { CSSProperties } from '@material-ui/styles';
-
-
-// declare module '@material-ui/core/styles/createMuiTheme' {
-//   interface Overrides {
-//     // Define additional lab components here as needed....
-//     MuiPagination: Partial<
-//       Record<PaginationClassKey, CSSProperties | (() => CSSProperties)>
-//     >;
-//     MuiPaginationItem: Partial<
-//       Record<PaginationItemClassKey, CSSProperties | (() => CSSProperties)>
-//     >;
-//   }
-// }
-
-// interface Overrides extends MuiOverrides {
-//   // Define additional lab components here as needed....
-//   MuiPagination: Partial<
-//     Record<PaginationClassKey, CSSProperties | (() => CSSProperties)>
-//   >;
-//   MuiPaginationItem: Partial<
-//     Record<PaginationItemClassKey, CSSProperties | (() => CSSProperties)>
-//   >;
-// }
 
 export const overrides = {
   MuiButtonBase: MuiButtonBaseStyleOverrides,
