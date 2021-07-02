@@ -35,6 +35,9 @@ export const MuiPaginationItemStyleOverrides = {
         backgroundColor: palette.blue[3],
         border: `solid 2px ${palette.blue[5]}`,
       },
+      '&$disabled': {
+        border: `solid 2px ${palette.grey.dark}`,
+      },
     },
   },
   sizeLarge: {
@@ -72,4 +75,13 @@ export const MuiPaginationItemStyleOverrides = {
       minWidth: '3rem',
     },
   },
+  icon: {
+    color: palette.text.onLightLowContrast,
+  },
+};
+
+export const MuiPaginationItemDefaultProps = {
+  variant: 'outlined' as const,
+  shape: 'rounded' as const,
+  size: 'large' as const,
 };
