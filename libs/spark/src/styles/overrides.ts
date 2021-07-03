@@ -12,6 +12,7 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
+import { MuiFormLabelStyleOverrides } from '../FormLabel';
 
 export const overrides = {
   MuiButtonBase: MuiButtonBaseStyleOverrides,
@@ -30,6 +31,7 @@ export const overrides = {
   MuiCheckbox: MuiCheckboxStyleOverrides,
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
+  MuiFormLabel: MuiFormLabelStyleOverrides,
   MuiInput: MuiInputStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,

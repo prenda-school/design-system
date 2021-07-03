@@ -106,8 +106,8 @@ function SparkRadioButtonIcon({
 export const MuiRadioStyleOverrides = {
   root: {
     // Split 8px of padding / margin so icon can use background-color instead of box-shadow
-    padding: '0.25rem',
-    margin: '0.25rem',
+    padding: '4px',
+    margin: '4px',
     // Clear Mui's primary/secondary color bgcolor
     backgroundColor: 'unset',
     color: palette.grey.dark,
