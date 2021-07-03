@@ -1,8 +1,9 @@
 export const MuiPaginationStyleOverrides = {
   ul: {
-    '& > li:first-child > .MuiPaginationItem-root': {
-      borderTopLeftRadius: 8,
-      borderBottomLeftRadius: 8,
+    // TODO: Mui-v5 move to .MuiPaginationItem-previousNext / firstLast
+    '& > li:first-child > button': {
+      borderTopLeftRadius: '8px',
+      borderBottomLeftRadius: '8px',
     },
     '& > li:last-child > .MuiPaginationItem-root': {
       borderTopRightRadius: 8,
