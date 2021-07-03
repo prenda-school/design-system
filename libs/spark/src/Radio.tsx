@@ -3,75 +3,64 @@ import styled from 'styled-components';
 import { createSvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
+import { Theme } from '@material-ui/core';
 
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
-const StyledSpan = styled.span`
-  ${({ theme }) => `
-    position: relative;
-    display: flex;
-    border-radius: 50%;
-    
-    // Adjust for irregular svg size of radio unchecked button 
-    height: 26px;
-    width: 26px;
-    & .MuiSvgIcon-root{
-      width: 26px;
-      height: 26px;
-      background-color: white;
-    }
-    &:hover {
-      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
-    }
-    label:hover & {
-      color: ${theme.palette.blue[3]};
-      :not(.SparkRadioIcon-checked) {
-        color: ${theme.palette.text.onLight};
-      }
-    }
-    input:focus ~ & {
-      box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
-      &:not(.SparkRadioIcon-checked) .MuiSvgIcon-root {
-        transform: scale(0.9);
-        transition: ${theme.transitions.create('transform', {
-          easing: theme.transitions.easing.easeIn,
-          duration: theme.transitions.duration.shortest,
-        })};
-        &.SparkRadioIcon-dot {
-          transform: scale(0.8);
-          color: ${theme.palette.blue[1]};
-        }
-      }
-      & .SparkRadioIcon-checked .SparkRadioIcon-dot {
-        color: ${theme.palette.blue[3]};
-      }
-    }
-
-
-    &.SparkRadioIcon-checked .SparkRadioIcon-dot {
-      transform: scale(1);
-      transition: ${theme.transitions.create('transform', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.shortest,
-      })};
-    }
-    & .SparkRadioIcon-circle {
-      border-radius: 50%;
-      // (M-UI) Scale applied to prevent dot misalignment in Safari
-      transform: scale(1);
-    }
-    & .SparkRadioIcon-dot {
-      background-color: transparent;
-      position: absolute;
-      left: 0;
-      transform: scale(0);
-      transition: ${theme.transitions.create('transform', {
-        easing: theme.transitions.easing.easeIn,
-        duration: theme.transitions.duration.shortest,
-      })};
-    }
-  `}
-`;
+const StyledSpan = styled('span')(
+  ({ theme: { palette, transitions } }: { theme: Theme }) => ({
+    '&.SparkRadioIcon-root': {
+      position: 'relative' as const,
+      display: 'flex',
+      borderRadius: '50%',
+      // Adjust for irregular svg size of radio unchecked button
+      height: '26px',
+      width: '26px',
+      '& .MuiSvgIcon-root': {
+        height: '26px',
+        width: '26px',
+        backgroundColor: palette.common.white,
+      },
+      '&:hover, input:hover &, label:hover &': {
+        color: palette.text.onLight,
+        '&.SparkRadioIcon-checked': {
+          color: palette.blue[3],
+        },
+      },
+      '&:focus, input:focus ~ &': {
+        boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+        '&:not(.SparkRadioIcon-checked) .MuiSvgIcon-root.SparkRadioIcon-dot': {
+          color: palette.blue[1],
+        },
+        '& .SparkRadioIcon-checked .SparkRadioIcon-dot': {
+          color: palette.blue[3],
+        },
+      },
+      '&.SparkRadioIcon-checked .SparkRadioIcon-dot': {
+        transform: 'scale(1)',
+        transition: transitions.create('transform', {
+          easing: transitions.easing.easeOut,
+          duration: transitions.duration.shortest,
+        }),
+      },
+      '& .SparkRadioIcon-circle': {
+        borderRadius: '50%',
+        // (from Mui) Scale applied to prevent dot misalignment in Safari
+        transform: 'scale(1)',
+      },
+      '& .SparkRadioIcon-dot': {
+        backgroundColor: 'transparent',
+        position: 'absolute' as const,
+        left: 0,
+        transform: 'scale(0)',
+        transition: transitions.create('transform', {
+          easing: transitions.easing.easeIn,
+          duration: transitions.duration.shortest,
+        }),
+      },
+    },
+  })
+);
 
 // viewBox="0 0 26 26"
 const SparkRadioButtonUncheckedIcon = createSvgIcon(
@@ -125,16 +114,22 @@ export const MuiRadioStyleOverrides = {
       color: palette.text.onLight,
       backgroundColor: 'unset',
     },
-    '&.Mui-focusVisible': {
+    '&:focus, &.Mui-focusVisible': {
       color: palette.blue[3],
       backgroundColors: palette.blue[1],
     },
     '&$checked': {
       color: palette.blue[3],
     },
-    '&$disabled .MuiSvgIcon-root': {
-      backgroundColor: palette.grey.medium,
-      color: palette.grey.dark,
+    '&$disabled': {
+      '& > .MuiIconButton-label > .SparkRadioIcon-root': {
+        '& > .MuiSvgIcon-root': {
+          color: palette.grey.dark,
+        },
+        '& > .SparkRadioIcon-circle': {
+          backgroundColor: palette.grey.medium,
+        },
+      },
     },
   },
 };
