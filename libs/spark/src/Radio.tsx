@@ -7,7 +7,7 @@ import { Theme } from '@material-ui/core';
 
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
-const StyledSpan = styled('span')(
+const SparkRadioIconRoot = styled('span')(
   ({ theme: { palette, transitions } }: { theme: Theme }) => ({
     '&.SparkRadioIcon-root': {
       position: 'relative' as const,
@@ -63,42 +63,43 @@ const StyledSpan = styled('span')(
 );
 
 // viewBox="0 0 26 26"
-const SparkRadioButtonUncheckedIcon = createSvgIcon(
+const SparkRadioIconCircle = createSvgIcon(
   <path d="M13 2C6.92487 2 2 6.92487 2 13C2 19.0751 6.92487 24 13 24C19.0751 24 24 19.0751 24 13C24 6.92487 19.0751 2 13 2ZM0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z" />,
-  'SparkRadioButtonUnchecked'
+  'SparkRadioIconCircle'
 );
 
 // viewBox="0 0 26 26"
-const SparkRadioButtonCheckedIcon = createSvgIcon(
+const SparkRadioIconDot = createSvgIcon(
   <path d="M13 21C17.4183 21 21 17.4183 21 13C21 8.58172 17.4183 5 13 5C8.58172 5 5 8.58172 5 13C5 17.4183 8.58172 21 13 21Z" />,
-  'SparkRadioButtonChecked'
+  'SparkRadioIconDot'
 );
 
-function SparkRadioButtonIcon(props: {
+function SparkRadioButtonIcon({
+  checked,
+  fontSize,
+}: {
   checked?: boolean;
   fontSize?: 'small' | 'default';
 }) {
-  const { checked, fontSize } = props;
-
   return (
-    <StyledSpan
+    <SparkRadioIconRoot
       className={clsx('SparkRadioIcon-root', {
         'SparkRadioIcon-checked': checked,
       })}
     >
-      <SparkRadioButtonUncheckedIcon
+      <SparkRadioIconCircle
         color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-circle"
       />
-      <SparkRadioButtonCheckedIcon
+      <SparkRadioIconDot
         color="inherit"
         fontSize={fontSize}
         viewBox="0 0 26 26"
         className="SparkRadioIcon-dot"
       />
-    </StyledSpan>
+    </SparkRadioIconRoot>
   );
 }
 
