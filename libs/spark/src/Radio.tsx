@@ -130,6 +130,9 @@ export const MuiRadioStyleOverrides = {
         '& > .SparkRadioIcon-circle': {
           backgroundColor: palette.grey.medium,
         },
+        '& > .SparkRadioIcon-dot': {
+          color: palette.grey[400],
+        },
       },
     },
   },

@@ -55,7 +55,6 @@ CheckedFocus.parameters = { pseudo: { focus: true } };
 export const CheckedDisabled = Template.bind({});
 CheckedDisabled.args = { checked: true, disabled: true };
 
-
 export const Indeterminate = Template.bind({});
 Indeterminate.args = { indeterminate: true };
 

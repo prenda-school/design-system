@@ -157,6 +157,9 @@ export const MuiCheckboxStyleOverrides = {
         '& > .SparkCheckboxIcon-box': {
           backgroundColor: palette.grey.medium,
         },
+        '& > .SparkCheckboxIcon-check, .SparkCheckboxIcon-dash': {
+          color: palette.grey[400],
+        },
       },
     },
   },
