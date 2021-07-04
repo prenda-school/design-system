@@ -28,7 +28,7 @@ const SparkCheckboxIconRoot = styled('span')(
       },
       '&:focus, input:focus ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
-        '&:not(.SparkCheckboxIcon-checked) .MuiSvgIcon-root': {
+        '&:not(.SparkCheckboxIcon-checked):not(.SparkCheckboxIcon-indeterminate) .MuiSvgIcon-root': {
           '&.SparkCheckboxIcon-box': {
             color: palette.blue[3],
             backgroundColor: palette.common.white,
@@ -49,12 +49,25 @@ const SparkCheckboxIconRoot = styled('span')(
         backgroundColor: palette.blue[3],
       },
     },
+    '&.SparkCheckboxIcon-indeterminate': {
+      '& .MuiSvgIcon-root.SparkCheckboxIcon-dash': {
+        transform: 'scale(1)',
+        color: palette.common.white,
+        transition: transitions.create('transform', {
+          easing: transitions.easing.easeOut,
+          duration: transitions.duration.shortest,
+        }),
+      },
+      '& .MuiSvgIcon-root.SparkCheckboxIcon-box': {
+        backgroundColor: palette.blue[3],
+      },
+    },
     '& .MuiSvgIcon-root.SparkCheckboxIcon-box': {
       borderRadius: 2,
       // from Mui, scale applied to prevent dot misalignment in Safari
       transform: 'scale(1)',
     },
-    '& .MuiSvgIcon-root.SparkCheckboxIcon-check': {
+    '& .MuiSvgIcon-root.SparkCheckboxIcon-check, & .MuiSvgIcon-root.SparkCheckboxIcon-dash': {
       color: palette.blue[1],
       backgroundColor: 'transparent',
       position: 'absolute' as const,
@@ -80,17 +93,26 @@ const SparkCheckboxCheckIcon = createSvgIcon(
   'SparkCheckboxCheckIcon'
 );
 
+// viewBox="0 0 22 22"
+const SparkCheckboxIndeterminateIcon = createSvgIcon(
+  <path d="M6 12H16C16.5523 12 17 11.5523 17 11C17 10.4477 16.5523 10 16 10H6C5.44772 10 5 10.4477 5 11C5 11.5523 5.44772 12 6 12Z" />,
+  'SparkCheckboxIndeterminateIcon'
+);
+
 function SparkCheckboxIcon({
   checked,
+  indeterminate,
   fontSize,
 }: {
   checked?: boolean;
+  indeterminate?: boolean;
   fontSize?: 'small' | 'default';
 }) {
   return (
     <SparkCheckboxIconRoot
       className={clsx('SparkCheckboxIcon-root', {
         'SparkCheckboxIcon-checked': checked,
+        'SparkCheckboxIcon-indeterminate': indeterminate,
       })}
     >
       <SparkCheckboxBoxIcon
@@ -104,6 +126,12 @@ function SparkCheckboxIcon({
         fontSize={fontSize}
         viewBox="0 0 22 22"
         className="SparkCheckboxIcon-check"
+      />
+      <SparkCheckboxIndeterminateIcon
+        color="inherit"
+        fontSize={fontSize}
+        viewBox="0 0 22 22"
+        className="SparkCheckboxIcon-dash"
       />
     </SparkCheckboxIconRoot>
   );
@@ -132,10 +160,14 @@ export const MuiCheckboxStyleOverrides = {
       },
     },
   },
+  indeterminate: {
+    color: palette.blue[3],
+  },
 };
 
 export const MuiCheckboxDefaultProps = {
   color: 'default' as const,
   icon: <SparkCheckboxIcon />,
   checkedIcon: <SparkCheckboxIcon checked />,
+  indeterminateIcon: <SparkCheckboxIcon indeterminate />,
 };

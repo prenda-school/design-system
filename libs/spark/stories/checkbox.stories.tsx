@@ -9,12 +9,10 @@ export default {
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     checked: { control: 'boolean' },
+    indeterminate: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
-  args: {
-    checked: false,
-    disabled: false,
-  },
+  args: {},
 } as Meta;
 
 const Template: Story = (args) => (
@@ -57,8 +55,27 @@ CheckedFocus.parameters = { pseudo: { focus: true } };
 export const CheckedDisabled = Template.bind({});
 CheckedDisabled.args = { checked: true, disabled: true };
 
-const LabelTemplate: Story = (args) => (
-  <FormControlLabel label="Label" {...args} control={<Checkbox />} />
+
+export const Indeterminate = Template.bind({});
+Indeterminate.args = { indeterminate: true };
+
+export const IndeterminateHover = Template.bind({});
+IndeterminateHover.args = { indeterminate: true };
+IndeterminateHover.parameters = { pseudo: { hover: true } };
+
+export const IndeterminateFocus = Template.bind({});
+IndeterminateFocus.args = { indeterminate: true };
+IndeterminateFocus.parameters = { pseudo: { focus: true } };
+
+export const IndeterminateDisabled = Template.bind({});
+IndeterminateDisabled.args = { indeterminate: true, disabled: true };
+
+const LabelTemplate: Story = ({ disabled, ...args }) => (
+  <FormControlLabel
+    label="Label"
+    disabled={disabled}
+    control={<Checkbox {...args} />}
+  />
 );
 
 export const LabelUnchecked = LabelTemplate.bind({});
@@ -88,3 +105,17 @@ LabelCheckedFocus.parameters = { pseudo: { focus: true } };
 
 export const LabelCheckedDisabled = LabelTemplate.bind({});
 LabelCheckedDisabled.args = { checked: true, disabled: true };
+
+export const LabelIndeterminate = LabelTemplate.bind({});
+LabelIndeterminate.args = { indeterminate: true };
+
+export const LabelIndeterminateHover = LabelTemplate.bind({});
+LabelIndeterminateHover.args = { indeterminate: true };
+LabelIndeterminateHover.parameters = { pseudo: { hover: true } };
+
+export const LabelIndeterminateFocus = LabelTemplate.bind({});
+LabelIndeterminateFocus.args = { indeterminate: true };
+LabelIndeterminateFocus.parameters = { pseudo: { focus: true } };
+
+export const LabelIndeterminateDisabled = LabelTemplate.bind({});
+LabelIndeterminateDisabled.args = { indeterminate: true, disabled: true };
