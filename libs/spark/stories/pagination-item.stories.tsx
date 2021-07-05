@@ -15,20 +15,20 @@ export default {
         'next',
         'previous',
         'start-ellipsis',
-        'end-ellipsis'
-      ]
+        'end-ellipsis',
+      ],
     },
     page: { control: 'number' },
     selected: { control: 'boolean' },
-    disabled: { control: 'boolean' }
+    disabled: { control: 'boolean' },
   },
   args: {
     type: 'page',
-    page: 1
-  }
+    page: 1,
+  },
 } as Meta;
 
-const Template = args => (
+const Template = (args) => (
   <div style={{ margin: '1rem', height: '3rem', aspectRatio: '1' }}>
     <PaginationItem {...args} />
   </div>
