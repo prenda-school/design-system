@@ -128,4 +128,4 @@ export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
-LabeledStatesFocus.parameters = { pseudo: { focus: true } }; 
+LabeledStatesFocus.parameters = { pseudo: { focus: true } };
