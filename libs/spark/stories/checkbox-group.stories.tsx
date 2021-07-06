@@ -12,8 +12,7 @@ import {
 } from '@material-ui/core';
 
 export default {
-  title: 'prenda-spark/CheckboxGroup',
-  // component: FormGroup,
+  title: 'prenda-spark/Checkbox Group',
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     row: { control: 'boolean' },
@@ -70,26 +69,73 @@ const Template: Story = ({ required, error, disabled, value, ...args }) => (
 
 export const Configurable = Template.bind({});
 
-export const Required = Template.bind({});
-Required.args = { required: true };
+const StatesTemplate: Story = ({ row, pseudo }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Group label</FormLabel>
+      <FormGroup row={row}>
+        <FormControlLabel control={<Checkbox />} label="Option A" />
+        <FormControlLabel control={<Checkbox />} label="Option B" />
+        <FormControlLabel control={<Checkbox />} label="Option C" />
+        <FormControlLabel control={<Checkbox />} label="Option D" />
+      </FormGroup>
+      <FormHelperText>Helper text</FormHelperText>
+    </FormControl>
+    <FormControl component="fieldset" error>
+      <FormLabel component="legend">Group label</FormLabel>
+      <FormGroup row={row}>
+        <FormControlLabel control={<Checkbox />} label="Option A" />
+        <FormControlLabel control={<Checkbox />} label="Option B" />
+        <FormControlLabel control={<Checkbox />} label="Option C" />
+        <FormControlLabel control={<Checkbox />} label="Option D" />
+      </FormGroup>
+      <FormHelperText>Please select an option</FormHelperText>
+    </FormControl>
+    <FormControl component="fieldset" required>
+      <FormLabel component="legend">Group label</FormLabel>
+      <FormGroup row={row}>
+        <FormControlLabel control={<Checkbox />} label="Option A" />
+        <FormControlLabel control={<Checkbox />} label="Option B" />
+        <FormControlLabel control={<Checkbox />} label="Option C" />
+        <FormControlLabel control={<Checkbox />} label="Option D" />
+      </FormGroup>
+      <FormHelperText>Please select an option</FormHelperText>
+    </FormControl>
+    {pseudo ? null : (
+      <FormControl component="fieldset" disabled>
+        <FormLabel component="legend">Group label</FormLabel>
+        <FormGroup row={row}>
+          <FormControlLabel control={<Checkbox />} label="Option A" />
+          <FormControlLabel control={<Checkbox />} label="Option B" />
+          <FormControlLabel control={<Checkbox />} label="Option C" />
+          <FormControlLabel control={<Checkbox />} label="Option D" />
+        </FormGroup>
+        <FormHelperText>Please select an option</FormHelperText>
+      </FormControl>
+    )}
+  </div>
+);
 
-export const Error = Template.bind({});
-Error.args = { error: true };
+export const ColumnStates = StatesTemplate.bind({});
 
-export const Disabled = Template.bind({});
-Disabled.args = { disabled: true };
+export const ColumnStatesHover = StatesTemplate.bind({});
+ColumnStatesHover.args = { pseudo: true };
+ColumnStatesHover.parameters = { pseudo: { hover: true } };
 
-export const Row = Template.bind({});
-Row.args = { row: true };
+export const ColumnStatesFocus = StatesTemplate.bind({});
+ColumnStatesFocus.args = { pseudo: true };
+ColumnStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const RowRequired = Template.bind({});
-RowRequired.args = { row: true, required: true };
+export const RowStates = StatesTemplate.bind({});
+RowStates.args = { row: true };
 
-export const RowError = Template.bind({});
-RowError.args = { row: true, error: true };
+export const RowStatesHover = StatesTemplate.bind({});
+RowStatesHover.args = { pseudo: true, row: true };
+RowStatesHover.parameters = { pseudo: { hover: true } };
 
-export const RowDisabled = Template.bind({});
-RowDisabled.args = { row: true, disabled: true };
+export const RowStatesFocus = StatesTemplate.bind({});
+RowStatesFocus.args = { pseudo: true, row: true };
+RowStatesFocus.parameters = { pseudo: { focus: true } };
 
 function IndeterminateTemplate({ required, error, disabled, value, ...args }) {
   const [rows, setRows] = React.useState([false, true, false]);
