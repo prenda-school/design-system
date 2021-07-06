@@ -13,7 +13,8 @@ export const MuiInputStyleOverrides = {
     borderColor: palette.grey.medium,
     borderRadius: 8,
     width: '20rem', // 320px
-    padding: '.75rem 1rem',
+    padding: '12px 16px',
+    margin: 4, // needs to be as large as potential box-shadow
     fontSize: '1rem', // 16px
     lineHeight: '1.125rem', // 18px
     '&$focused, &:focus': {
