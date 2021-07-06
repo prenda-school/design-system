@@ -5,6 +5,7 @@ import { MuiCardActionsStyleOverrides } from '../CardActions';
 import { MuiCheckboxStyleOverrides } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
+import { MuiFormLabelStyleOverrides } from '../FormLabel';
 import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiMenuStyleOverrides } from '../Menu';
@@ -32,6 +33,7 @@ export const overrides = {
   MuiCheckbox: MuiCheckboxStyleOverrides,
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
+  MuiFormLabel: MuiFormLabelStyleOverrides,
   MuiInput: MuiInputStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,
