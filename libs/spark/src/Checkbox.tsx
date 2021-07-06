@@ -22,9 +22,6 @@ const SparkCheckboxIconRoot = styled('span')(
       },
       '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.onLight,
-        '& .SparkCheckboxIcon-checked': {
-          color: palette.blue[3],
-        },
       },
       '&:focus, input:focus ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
