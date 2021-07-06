@@ -1,17 +1,12 @@
-import React, { FC } from 'react';
-import {
-  Checkbox,
-  CheckboxProps as MuiCheckboxProps,
-  FormControlLabel,
-  createSvgIcon,
-} from '@material-ui/core';
-import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
+import React from 'react';
+import { createSvgIcon } from '@material-ui/core';
 import styled from 'styled-components';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
+
 // Recreation of Material-UI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
-const StyledSpan = styled.span`
+const SparkCheckboxIconRoot = styled.span`
   ${({ theme }) => `
     position: relative;
     display: flex;
@@ -45,14 +40,14 @@ const StyledSpan = styled.span`
           color: ${theme.palette.blue[3]};
           background-color: white;
         }
-        &.SparkCheckboxIcon-checkmark {
+        &.SparkCheckboxIcon-check {
           color: ${theme.palette.blue[1]};
         }
       }
     }
 
     &.SparkCheckboxIcon-checked {
-      .MuiSvgIcon-root.SparkCheckboxIcon-checkmark {
+      .MuiSvgIcon-root.SparkCheckboxIcon-check {
         transform: scale(1);
         color: white;
         transition: ${theme.transitions.create('transform', {
@@ -70,7 +65,7 @@ const StyledSpan = styled.span`
       // (M-UI) Scale applied to prevent dot misalignment in Safari
       transform: scale(1);
     }
-    & .MuiSvgIcon-root.SparkCheckboxIcon-checkmark {
+    & .MuiSvgIcon-root.SparkCheckboxIcon-check {
       color: ${theme.palette.blue[1]};
       background-color: transparent;
       position: absolute;
@@ -86,50 +81,44 @@ const StyledSpan = styled.span`
 `;
 
 // viewBox="0 0 22 22"
-const SparkCheckboxUncheckedIcon = createSvgIcon(
+const SparkCheckboxBoxIcon = createSvgIcon(
   <path d="M0 3C0 1.34315 1.34315 0 3 0H19C20.6569 0 22 1.34315 22 3V19C22 20.6569 20.6569 22 19 22H3C1.34315 22 0 20.6569 0 19V3ZM3 2C2.44772 2 2 2.44772 2 3V19C2 19.5523 2.44772 20 3 20H19C19.5523 20 20 19.5523 20 19V3C20 2.44772 19.5523 2 19 2H3Z" />,
-  'SparkCheckboxUnchecked'
+  'SparkCheckboxBoxIcon'
 );
 
 // viewBox="0 0 22 22"
-const SparkCheckboxCheckedIcon = createSvgIcon(
+const SparkCheckboxCheckIcon = createSvgIcon(
   <path d="M16.3688 7.90059C16.5321 8.08198 16.5246 8.35956 16.3517 8.53188L10.1972 14.6667C10.014 14.8492 9.71625 14.8443 9.53933 14.6557L5.95831 10.8389C5.79131 10.6609 5.7931 10.3833 5.96238 10.2074L6.69923 9.44209C6.88114 9.25314 7.1842 9.2551 7.36366 9.44637L9.90778 12.158L14.9914 7.09063C15.1772 6.90548 15.4801 6.91366 15.6556 7.10856L16.3688 7.90059Z" />,
-  'SparkCheckboxChecked'
+  'SparkCheckboxCheckIcon'
 );
 
-function SparkCheckboxIcon(props: {
+function SparkCheckboxIcon({
+  checked,
+  fontSize,
+}: {
   checked?: boolean;
   fontSize?: 'small' | 'default';
 }) {
-  const { checked, fontSize } = props;
-
   return (
-    <StyledSpan
+    <SparkCheckboxIconRoot
       className={clsx('SparkCheckboxIcon-root', {
         'SparkCheckboxIcon-checked': checked,
       })}
     >
-      <SparkCheckboxUncheckedIcon
+      <SparkCheckboxBoxIcon
         color="inherit"
         fontSize={fontSize}
         viewBox="0 0 22 22"
         className="SparkCheckboxIcon-box"
       />
-      <SparkCheckboxCheckedIcon
+      <SparkCheckboxCheckIcon
         color="inherit"
         fontSize={fontSize}
         viewBox="0 0 22 22"
-        className="SparkCheckboxIcon-checkmark"
+        className="SparkCheckboxIcon-check"
       />
-    </StyledSpan>
+    </SparkCheckboxIconRoot>
   );
-}
-
-// End custom checkbox icons, Begin Checkbox component
-
-export interface CheckboxProps
-  extends Omit<MuiFormControlLabelProps, 'control'> {
-  ControlCheckboxProps?: MuiCheckboxProps;
 }
 
 export const MuiCheckboxStyleOverrides = {
@@ -152,21 +141,7 @@ export const MuiCheckboxStyleOverrides = {
 };
 
 export const MuiCheckboxDefaultProps = {
-  disableRipple: true,
   color: 'default' as const,
   icon: <SparkCheckboxIcon />,
   checkedIcon: <SparkCheckboxIcon checked />,
 };
-
-export const SparkCheckbox: FC<CheckboxProps> = (props) => {
-  const { ControlCheckboxProps, ...other } = props;
-
-  return (
-    <FormControlLabel
-      {...other}
-      control={<Checkbox {...ControlCheckboxProps} />}
-    />
-  );
-};
-
-export { SparkCheckbox as Checkbox };
