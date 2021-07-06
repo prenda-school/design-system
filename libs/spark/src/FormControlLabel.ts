@@ -3,6 +3,9 @@ export const MuiFormControlLabelStyleOverrides = {
   root: {
     marginLeft: -8,
     color: palette.text.onLightLowContrast,
+    height: 40,
+    marginTop: 1,
+    marginBottom: 1,
     '&:hover, &:focus': {
       color: palette.text.onLight,
     },
