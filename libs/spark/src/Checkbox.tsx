@@ -92,7 +92,10 @@ const SparkCheckboxCheckIcon = createSvgIcon(
   'SparkCheckboxCheckIcon'
 );
 
-function SparkCheckboxIcon({ checked, fontSize }: {
+function SparkCheckboxIcon({
+  checked,
+  fontSize,
+}: {
   checked?: boolean;
   fontSize?: 'small' | 'default';
 }) {
