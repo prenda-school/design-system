@@ -20,7 +20,7 @@ const SparkCheckboxIconRoot = styled('span')(
         height: 22,
         backgroundColor: palette.common.white,
       },
-      '&:hover, label:hover &': {
+      '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.onLight,
         '& .SparkCheckboxIcon-checked': {
           color: palette.blue[3],
