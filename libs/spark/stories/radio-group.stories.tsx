@@ -66,37 +66,85 @@ const Template: Story = ({ required, error, disabled, value, ...args }) => (
 
 export const Configurable = Template.bind({});
 
-export const Required = Template.bind({});
-Required.args = { required: true };
+const StatesTemplate: Story = ({ row, pseudo }) => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Group label</FormLabel>
+      <RadioGroup row={row}>
+        <FormControlLabel value="valueA" control={<Radio />} label="Option A" />
+        <FormControlLabel value="valueB" control={<Radio />} label="Option B" />
+        <FormControlLabel value="valueC" control={<Radio />} label="Option C" />
+        <FormControlLabel value="valueD" control={<Radio />} label="Option D" />
+      </RadioGroup>
+      <FormHelperText>Helper text</FormHelperText>
+    </FormControl>
+    <FormControl component="fieldset" error>
+      <FormLabel component="legend">Group label</FormLabel>
+      <RadioGroup row={row}>
+        <FormControlLabel value="valueA" control={<Radio />} label="Option A" />
+        <FormControlLabel value="valueB" control={<Radio />} label="Option B" />
+        <FormControlLabel value="valueC" control={<Radio />} label="Option C" />
+        <FormControlLabel value="valueD" control={<Radio />} label="Option D" />
+      </RadioGroup>
+      <FormHelperText>Please select an option</FormHelperText>
+    </FormControl>
+    <FormControl component="fieldset" required>
+      <FormLabel component="legend">Group label</FormLabel>
+      <RadioGroup row={row}>
+        <FormControlLabel value="valueA" control={<Radio />} label="Option A" />
+        <FormControlLabel value="valueB" control={<Radio />} label="Option B" />
+        <FormControlLabel value="valueC" control={<Radio />} label="Option C" />
+        <FormControlLabel value="valueD" control={<Radio />} label="Option D" />
+      </RadioGroup>
+      <FormHelperText>Please select an option</FormHelperText>
+    </FormControl>
+    {pseudo ? null : (
+      <FormControl component="fieldset" disabled>
+        <FormLabel component="legend">Group label</FormLabel>
+        <RadioGroup row={row}>
+          <FormControlLabel
+            value="valueA"
+            control={<Radio />}
+            label="Option A"
+          />
+          <FormControlLabel
+            value="valueB"
+            control={<Radio />}
+            label="Option B"
+          />
+          <FormControlLabel
+            value="valueC"
+            control={<Radio />}
+            label="Option C"
+          />
+          <FormControlLabel
+            value="valueD"
+            control={<Radio />}
+            label="Option D"
+          />
+        </RadioGroup>
+        <FormHelperText>Please select an option</FormHelperText>
+      </FormControl>
+    )}
+  </div>
+);
 
-export const Error = Template.bind({});
-Error.args = { error: true };
+export const ColumnStates = StatesTemplate.bind({});
 
-export const Disabled = Template.bind({});
-Disabled.args = { disabled: true };
+export const ColumnStatesHover = StatesTemplate.bind({});
+ColumnStatesHover.args = { pseudo: true };
+ColumnStatesHover.parameters = { pseudo: { hover: true } };
 
-export const Hover = Template.bind({});
-Hover.parameters = { pseudo: { hover: true } };
+export const ColumnStatesFocus = StatesTemplate.bind({});
+ColumnStatesFocus.args = { pseudo: true };
+ColumnStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const Focus = Template.bind({});
-Focus.parameters = { pseudo: { focus: true } };
+export const RowStates = StatesTemplate.bind({});
 
-export const Row = Template.bind({});
-Row.args = { row: true };
+export const RowStatesHover = StatesTemplate.bind({});
+RowStatesHover.args = { pseudo: true };
+RowStatesHover.parameters = { pseudo: { hover: true } };
 
-export const RowRequired = Template.bind({});
-RowRequired.args = { row: true, required: true };
-
-export const RowError = Template.bind({});
-RowError.args = { row: true, error: true };
-
-export const RowDisabled = Template.bind({});
-RowDisabled.args = { row: true, disabled: true };
-
-export const RowHover = Template.bind({});
-RowHover.args = { row: true };
-RowHover.parameters = { pseudo: { hover: true } };
-
-export const RowFocus = Template.bind({});
-RowFocus.args = { row: true };
-RowFocus.parameters = { pseudo: { focus: true } };
+export const RowStatesFocus = StatesTemplate.bind({});
+RowStatesFocus.args = { pseudo: true };
+RowStatesFocus.parameters = { pseudo: { focus: true } };
