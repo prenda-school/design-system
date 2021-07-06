@@ -9,12 +9,10 @@ export default {
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     checked: { control: 'boolean' },
+    indeterminate: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
-  args: {
-    checked: false,
-    disabled: false,
-  },
+  args: {},
 } as Meta;
 
 const Template: Story = (args) => (
@@ -29,62 +27,105 @@ const Template: Story = (args) => (
 
 export const Configurable = Template.bind({});
 
-export const Unchecked = Template.bind({});
-Unchecked.args = { checked: false };
-
-export const UncheckedHover = Template.bind({});
-UncheckedHover.args = { checked: false };
-UncheckedHover.parameters = { pseudo: { hover: true } };
-
-export const UncheckedFocus = Template.bind({});
-UncheckedFocus.args = { checked: false };
-UncheckedFocus.parameters = { pseudo: { focus: true } };
-
-export const UncheckedDisabled = Template.bind({});
-UncheckedDisabled.args = { checked: false, disabled: true };
-
-export const Checked = Template.bind({});
-Checked.args = { checked: true };
-
-export const CheckedHover = Template.bind({});
-CheckedHover.args = { checked: true };
-CheckedHover.parameters = { pseudo: { hover: true } };
-
-export const CheckedFocus = Template.bind({});
-CheckedFocus.args = { checked: true };
-CheckedFocus.parameters = { pseudo: { focus: true } };
-
-export const CheckedDisabled = Template.bind({});
-CheckedDisabled.args = { checked: true, disabled: true };
-
-const LabelTemplate: Story = (args) => (
-  <FormControlLabel label="Label" {...args} control={<Checkbox />} />
+const StatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Checkbox
+      name="nameA"
+      value="valueA"
+      inputProps={{ 'aria-label': 'Name A' }}
+    />
+    <Checkbox
+      name="nameB"
+      value="valueB"
+      inputProps={{ 'aria-label': 'Name B' }}
+      disabled
+    />
+    <Checkbox
+      name="nameC"
+      value="valueC"
+      inputProps={{ 'aria-label': 'Name C' }}
+      checked
+    />
+    <Checkbox
+      name="nameD"
+      value="valueD"
+      inputProps={{ 'aria-label': 'Name D' }}
+      checked
+      disabled
+    />
+    <Checkbox
+      name="nameC"
+      value="valueC"
+      inputProps={{ 'aria-label': 'Name C' }}
+      indeterminate
+    />
+    <Checkbox
+      name="nameD"
+      value="valueD"
+      inputProps={{ 'aria-label': 'Name D' }}
+      indeterminate
+      disabled
+    />
+  </div>
 );
 
-export const LabelUnchecked = LabelTemplate.bind({});
-LabelUnchecked.args = { checked: false };
+const PseudoStatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Checkbox
+      name="nameA"
+      value="valueA"
+      inputProps={{ 'aria-label': 'Name A' }}
+    />
+    <Checkbox
+      name="nameB"
+      value="valueB"
+      inputProps={{ 'aria-label': 'Name B' }}
+      checked
+    />
+    <Checkbox
+      name="nameC"
+      value="valueC"
+      inputProps={{ 'aria-label': 'Name C' }}
+      indeterminate
+    />
+  </div>
+);
 
-export const LabelUncheckedHover = LabelTemplate.bind({});
-LabelUncheckedHover.args = { checked: false };
-LabelUncheckedHover.parameters = { pseudo: { hover: true } };
+export const States = StatesTemplate.bind({});
 
-export const LabelUncheckedFocus = LabelTemplate.bind({});
-LabelUncheckedFocus.args = { checked: false };
-LabelUncheckedFocus.parameters = { pseudo: { focus: true } };
+export const StatesHover = PseudoStatesTemplate.bind({});
+StatesHover.parameters = { pseudo: { hover: true } };
 
-export const LabelUncheckedDisabled = LabelTemplate.bind({});
-LabelUncheckedDisabled.args = { checked: false, disabled: true };
+export const StatesFocus = PseudoStatesTemplate.bind({});
+StatesFocus.parameters = { pseudo: { focus: true } };
 
-export const LabelChecked = LabelTemplate.bind({});
-LabelChecked.args = { checked: true };
+const LabeledStatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <FormControlLabel label="Label" control={<Checkbox />} />
+    <FormControlLabel label="Label" control={<Checkbox />} disabled />
+    <FormControlLabel label="Label" control={<Checkbox checked />} />
+    <FormControlLabel label="Label" control={<Checkbox checked />} disabled />
+    <FormControlLabel label="Label" control={<Checkbox indeterminate />} />
+    <FormControlLabel
+      label="Label"
+      control={<Checkbox indeterminate />}
+      disabled
+    />
+  </div>
+);
 
-export const LabelCheckedHover = LabelTemplate.bind({});
-LabelCheckedHover.args = { checked: true };
-LabelCheckedHover.parameters = { pseudo: { hover: true } };
+const PseudoLabeledStatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <FormControlLabel label="Label" control={<Checkbox />} />
+    <FormControlLabel label="Label" control={<Checkbox checked />} />
+    <FormControlLabel label="Label" control={<Checkbox indeterminate />} />
+  </div>
+);
 
-export const LabelCheckedFocus = LabelTemplate.bind({});
-LabelCheckedFocus.args = { checked: true };
-LabelCheckedFocus.parameters = { pseudo: { focus: true } };
+export const LabeledStates = LabeledStatesTemplate.bind({});
 
-export const LabelCheckedDisabled = LabelTemplate.bind({});
-LabelCheckedDisabled.args = { checked: true, disabled: true };
+export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
+LabeledStatesHover.parameters = { pseudo: { hover: true } };
+
+export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
+LabeledStatesFocus.parameters = { pseudo: { focus: true } };
