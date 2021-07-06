@@ -2,7 +2,7 @@ import { palette } from './styles/palette';
 export const MuiFormControlLabelStyleOverrides = {
   root: {
     color: palette.text.onLightLowContrast,
-    '&:hover': {
+    '&:hover, &:focus': {
       color: palette.text.onLight,
     },
     '&$disabled': {
