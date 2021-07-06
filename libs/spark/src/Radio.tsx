@@ -21,9 +21,9 @@ const SparkRadioIconRoot = styled('span')(
         width: '26px',
         backgroundColor: palette.common.white,
       },
-      '&:hover, input:hover &, label:hover &': {
+      '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.onLight,
-        '&.SparkRadioIcon-checked': {
+        '&.SparkRadioIcon-checked .SparkRadioIcon-dot': {
           color: palette.blue[3],
         },
       },

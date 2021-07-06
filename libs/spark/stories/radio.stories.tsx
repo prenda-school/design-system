@@ -55,12 +55,28 @@ const StatesTemplate: Story = () => (
   </div>
 );
 
+const PseudoStatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Radio
+      name="nameA"
+      value="valueA"
+      inputProps={{ 'aria-label': 'Name A' }}
+    />
+    <Radio
+      name="nameC"
+      value="valueC"
+      inputProps={{ 'aria-label': 'Name C' }}
+      checked
+    />
+  </div>
+);
+
 export const States = StatesTemplate.bind({});
 
-export const StatesHover = StatesTemplate.bind({});
+export const StatesHover = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
-export const StatesFocus = StatesTemplate.bind({});
+export const StatesFocus = PseudoStatesTemplate.bind({});
 StatesFocus.parameters = { pseudo: { focus: true } };
 
 const LabeledStatesTemplate: Story = () => (
@@ -72,10 +88,17 @@ const LabeledStatesTemplate: Story = () => (
   </div>
 );
 
+const PseudoLabeledStatesTemplate: Story = () => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <FormControlLabel label="Label" control={<Radio />} />
+    <FormControlLabel label="Label" control={<Radio />} checked />
+  </div>
+);
+
 export const LabeledStates = LabeledStatesTemplate.bind({});
 
-export const LabeledStatesHover = LabeledStatesTemplate.bind({});
+export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
-export const LabeledStatesFocus = LabeledStatesTemplate.bind({});
+export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
