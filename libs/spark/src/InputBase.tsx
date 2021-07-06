@@ -44,4 +44,7 @@ export const MuiInputBaseStyleOverrides = {
       },
     },
   },
+  multiline: {
+    padding: '.75rem 1rem',
+  },
 };
