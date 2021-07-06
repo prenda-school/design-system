@@ -8,7 +8,7 @@ import {
 import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
 import styled from 'styled-components';
 import clsx from 'clsx';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 // Recreation of Material-UI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
 const StyledSpan = styled.span`
@@ -151,7 +151,7 @@ export const MuiCheckboxStyleOverrides = {
   },
 };
 
-export const MuiCheckboxPropOverrides = {
+export const MuiCheckboxDefaultProps = {
   disableRipple: true,
   color: 'default' as const,
   icon: <SparkCheckboxIcon />,

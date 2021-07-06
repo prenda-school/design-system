@@ -9,7 +9,7 @@ import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/
 import styled from 'styled-components';
 import { createSvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
 const StyledSpan = styled.span`
@@ -151,7 +151,7 @@ export const MuiRadioStyleOverrides = {
   },
 };
 
-export const MuiRadioPropOverrides = {
+export const MuiRadioDefaultProps = {
   disableRipple: true,
   color: 'default' as const,
   icon: <SparkRadioButtonIcon />,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, withStyles } from '@material-ui/core/';
 import { PrendaMonogramDark } from './logos';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 
 export type NavbarProps = {
   children: React.ReactChild | React.ReactChild[];

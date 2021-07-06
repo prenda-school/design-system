@@ -1,4 +1,4 @@
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 export const MuiFormControlLabelStyleOverrides = {
   root: {
     color: palette.text.onLightLowContrast,

@@ -1,6 +1,17 @@
 import * as CSS from 'csstype';
 
-export const nunitoRegular: CSS.AtRule.FontFace = {
+export const typography = {
+  fontFamily: '"Nunito", Avenir, sans-serif',
+  fontSize: 16,
+  body1: {
+    fontSize: 16,
+  },
+  body2: {
+    fontSize: 14,
+  },
+};
+
+const nunitoRegular: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -11,7 +22,7 @@ export const nunitoRegular: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoMedium: CSS.AtRule.FontFace = {
+const nunitoMedium: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -22,7 +33,7 @@ export const nunitoMedium: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoRegularItalic: CSS.AtRule.FontFace = {
+const nunitoRegularItalic: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
@@ -33,7 +44,7 @@ export const nunitoRegularItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
+const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
@@ -44,7 +55,7 @@ export const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoExtrabold: CSS.AtRule.FontFace = {
+const nunitoExtrabold: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -55,7 +66,7 @@ export const nunitoExtrabold: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoBoldItalic: CSS.AtRule.FontFace = {
+const nunitoBoldItalic: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
@@ -66,7 +77,7 @@ export const nunitoBoldItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoBold: CSS.AtRule.FontFace = {
+const nunitoBold: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -77,7 +88,7 @@ export const nunitoBold: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoSemibold: CSS.AtRule.FontFace = {
+const nunitoSemibold: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -88,7 +99,7 @@ export const nunitoSemibold: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
+const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
   fontFamily: '"Nunito"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
@@ -99,7 +110,7 @@ export const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-export const sourceCodeProRegular: CSS.AtRule.FontFace = {
+const sourceCodeProRegular: CSS.AtRule.FontFace = {
   fontFamily: '"Source Code Pro"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
@@ -110,18 +121,18 @@ export const sourceCodeProRegular: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-// The font-face objects in this file pertain to JSS's format, but I cannot find the type for them.
-//  - See https://cssinjs.org/jss-syntax?v=v10.6.0#font-face
-//  - The "fallbacks" property is avoided because it creates an ill-formed font-face rule that not all modern browsers will handle correctly. Additionally, it's likely to be deprecated.
-//    - See https://github.com/cssinjs/jss/issues/1217
-//    - Instead, the fallbacks src values simply follow the primary values.
-//    - Fallback fonts are not compiled into completely distinct font-faces because of the unique/irregular changing of intended font size (ex: we use Raleway[700] as 500 weight)
-
-// Raleway files were downloaded from Font Squirrel
-//  - See https://www.fontsquirrel.com/fonts/raleway
-
-// Font Squirrel Font-face Generator Configuration File
-// {"mode":"expert","formats":["woff","woff2"],"tt_instructor":"default","fix_gasp":"xy","fix_vertical_metrics":"Y","metrics_ascent":"","metrics_descent":"","metrics_linegap":"","add_spaces":"Y","add_hyphens":"Y","fallback":"none","fallback_custom":"100","webonly":"Y","options_subset":"basic","subset_custom":"","subset_custom_range":"","subset_ot_features_list":"","css_stylesheet":"stylesheet.css","filename_suffix":"-web","emsquare":"2048","spacing_adjustment":"0"}
+export const fontFaces = [
+  nunitoRegular,
+  nunitoRegularItalic,
+  nunitoMedium,
+  nunitoBold,
+  nunitoBoldItalic,
+  nunitoExtrabold,
+  nunitoExtraboldItalic,
+  nunitoSemibold,
+  nunitoSemiboldItalic,
+  sourceCodeProRegular,
+];
 
 // Unicode Ranges are copied from google's suggested ranges
 

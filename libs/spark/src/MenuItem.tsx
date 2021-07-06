@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MenuItem, MenuItemProps as MuiMenuItemProps } from '@material-ui/core';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 export interface MenuItemProps extends MuiMenuItemProps {
   startIcon?: React.ReactNode;
   // Fix mismatch on Mui's end

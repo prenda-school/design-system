@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 
 export const NavbarLink = styled.a`
   height: 48px;

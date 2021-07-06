@@ -10,7 +10,7 @@ import {
   Theme,
 } from '@material-ui/core/';
 import { FormHelperTextProps as MuiFormHelperTextProps } from '@material-ui/core/FormHelperText';
-import { palette } from './theme/palette';
+import { palette } from './styles/palette';
 export interface InputProps extends MuiInputProps {
   success?: boolean;
   label?: string;
@@ -19,7 +19,7 @@ export interface InputProps extends MuiInputProps {
   FormHelperTextProps?: MuiFormHelperTextProps;
 }
 
-export const MuiInputPropOverrides = {
+export const MuiInputDefaultProps = {
   disableUnderline: true,
 };
 
