@@ -38,7 +38,7 @@ export const BasicCard = () => (
   </Card>
 );
 
-const MyHeadingImg = styled.img`
+const StyledImage = styled.img`
   width: 100%;
   max-height: 300px;
   object-fit: cover;
@@ -46,7 +46,7 @@ const MyHeadingImg = styled.img`
   vertical-align: bottom;
 `;
 
-const MyFloatingFavButton = styled(IconButton)`
+const FloatingIconButton = styled(IconButton)`
   position: absolute;
   right: 24px;
   top: 24px;
@@ -55,13 +55,13 @@ const MyFloatingFavButton = styled(IconButton)`
 export const CardWithImage = () => (
   <Card style={{ maxWidth: 580 }}>
     <CardMedia style={{ position: 'relative' }}>
-      <MyHeadingImg
-        src="https://placekitten.com/300/200"
-        alt="Kitten placeholder"
+      <StyledImage
+        src="/img/multicolor-blobs.jpg"
+        alt="Multicolor blobs, blurred on light grey background"
       />
-      <MyFloatingFavButton variant="outlined" size="large">
+      <FloatingIconButton variant="outlined" size="large">
         <HeartIconDuotone />
-      </MyFloatingFavButton>
+      </FloatingIconButton>
     </CardMedia>
     <CardContent>
       <Typography
@@ -71,7 +71,7 @@ export const CardWithImage = () => (
       >
         Title
       </Typography>
-      <Typography variant="paragraph-xl" color="textOnLight">
+      <Typography variant="paragraph-xl" color="textOnLightLowContrast">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis turpis
         interdum hendrerit massa imperdiet.
       </Typography>
