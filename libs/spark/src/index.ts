@@ -37,8 +37,6 @@ export {
 } from './logos';
 export { MenuItem } from './MenuItem';
 export type { MenuItemProps } from './MenuItem';
-export { Radio } from './Radio';
-export type { RadioProps } from './Radio';
 export { SparkThemeProvider } from './SparkThemeProvider';
 export { SvgIcon } from './SvgIcon';
 export type { SvgIconProps } from './SvgIcon';

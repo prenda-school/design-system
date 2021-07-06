@@ -1,15 +1,9 @@
-import React, { FC } from 'react';
-import {
-  Radio,
-  RadioProps as MuiRadioProps,
-  FormControlLabel,
-  Theme,
-} from '@material-ui/core';
-import { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
+import * as React from 'react';
 import styled from 'styled-components';
 import { createSvgIcon } from '@material-ui/core';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
+
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
 const StyledSpan = styled.span`
@@ -119,12 +113,6 @@ function SparkRadioButtonIcon(props: {
   );
 }
 
-// End custom radio button, Begin Radio
-
-export interface RadioProps extends Omit<MuiFormControlLabelProps, 'control'> {
-  ControlRadioProps?: MuiRadioProps;
-}
-
 export const MuiRadioStyleOverrides = {
   root: {
     // Split 8px of padding / margin so icon can use background-color instead of box-shadow
@@ -152,18 +140,7 @@ export const MuiRadioStyleOverrides = {
 };
 
 export const MuiRadioDefaultProps = {
-  disableRipple: true,
   color: 'default' as const,
   icon: <SparkRadioButtonIcon />,
   checkedIcon: <SparkRadioButtonIcon checked />,
 };
-
-const SparkRadio: FC<RadioProps> = (props) => {
-  const { ControlRadioProps, ...other } = props;
-
-  return (
-    <FormControlLabel {...other} control={<Radio {...ControlRadioProps} />} />
-  );
-};
-
-export { SparkRadio as Radio };
