@@ -140,11 +140,12 @@ ColumnStatesFocus.args = { pseudo: true };
 ColumnStatesFocus.parameters = { pseudo: { focus: true } };
 
 export const RowStates = StatesTemplate.bind({});
+RowStates.args = { row: true };
 
 export const RowStatesHover = StatesTemplate.bind({});
-RowStatesHover.args = { pseudo: true };
+RowStatesHover.args = { pseudo: true, row: true };
 RowStatesHover.parameters = { pseudo: { hover: true } };
 
 export const RowStatesFocus = StatesTemplate.bind({});
-RowStatesFocus.args = { pseudo: true };
+RowStatesFocus.args = { pseudo: true, row: true };
 RowStatesFocus.parameters = { pseudo: { focus: true } };
