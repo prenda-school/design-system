@@ -9,6 +9,8 @@ import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiMenuStyleOverrides } from '../Menu';
 import { MuiMenuItemStyleOverrides } from '../MenuItem';
+import { MuiPaginationStyleOverrides } from '../Pagination';
+import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
@@ -34,6 +36,8 @@ export const overrides = {
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,
   MuiMenuItem: MuiMenuItemStyleOverrides,
+  MuiPagination: MuiPaginationStyleOverrides,
+  MuiPaginationItem: MuiPaginationItemStyleOverrides,
   MuiRadio: MuiRadioStyleOverrides,
   MuiSvgIcon: MuiSvgIconStyleOverrides,
 };
