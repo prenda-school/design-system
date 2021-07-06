@@ -21,8 +21,6 @@ export {
   ConquerIllustration,
   CreateIllustration,
 } from './illustrations';
-export { Input } from './Input';
-export type { InputProps } from './Input';
 export { Logo } from './Logo';
 export type { LogoProps } from './Logo';
 export {
