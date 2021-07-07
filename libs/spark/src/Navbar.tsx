@@ -3,11 +3,11 @@ import { AppBar, AppBarProps, Toolbar, withStyles } from '@material-ui/core/';
 import { PrendaMonogramDark } from './logos';
 import { palette } from './styles/palette';
 
-export interface NavbarProps extends AppBarProps {
+export interface NavBarProps extends AppBarProps {
   color?: 'default';
 }
 
-export const Navbar = ({ color = 'default', ...other }: NavbarProps) => {
+export const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
   const PrendaAppBar = withStyles({
     root: {
       borderBottom: `2px solid ${palette.grey.medium}`,

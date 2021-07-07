@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
-import { Navbar, NavbarProps, NavbarLink } from '../src';
+import { NavBar, NavBarProps, NavbarLink } from '../src';
 import {
   HomeIconDuotone,
   CheckCircleIconDuotone,
@@ -12,8 +12,8 @@ import {
 } from '../src/icons';
 
 export default {
-  title: 'prenda-spark/Navbar',
-  component: Navbar,
+  title: 'prenda-spark/NavBar',
+  component: NavBar,
   argTypes: {},
   args: {},
 } as Meta;
@@ -23,8 +23,8 @@ const UserMenu = styled.div`
   align-items: center;
 `;
 
-const NavbarTemplate = (args: NavbarProps) => (
-  <Navbar {...args}>
+const NavBarTemplate = (args: NavBarProps) => (
+  <NavBar {...args}>
     <NavbarLink href="/">
       <HomeIconDuotone fillColor="transparent" />
       <span>Dashboard</span>
@@ -44,9 +44,9 @@ const NavbarTemplate = (args: NavbarProps) => (
     <UserMenu>
       <UserIconDuotone fillColor="pink" />
     </UserMenu>
-  </Navbar>
+  </NavBar>
 );
-export const BasicNavbar = NavbarTemplate.bind({});
+export const BasicNavBar = NavBarTemplate.bind({});
 
 const NavbarLinkTemplate = (args) => (
   <NavbarLink as="a">
