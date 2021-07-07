@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {
-  Menu as MuiMenu,
+  Menu,
   MenuProps as MuiMenuProps,
   MenuItemProps as MuiMenuItemProps,
   Divider as MuiDivider,
-  Theme,
 } from '@material-ui/core';
 import { Button, ButtonProps } from './Button';
 import styled from 'styled-components';
@@ -40,12 +39,6 @@ export interface DropdownMenuItemProps
   // Fix mismatch from MUI
   button?: true | undefined;
 }
-
-const StyledMenu = styled(MuiMenu)`
-  ${({ theme }: { theme: Theme }) => `
-    inset: 8px 0 0 0 !important;
-  `}
-`;
 
 const SparkDropdownDivider = styled(MuiDivider)`
   height: 2px;
@@ -96,11 +89,11 @@ const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
 };
 
 const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
-  (props, ref) => {
+  ({ classes, ...other }, ref) => {
     const { id, anchorEl, handleClose } = React.useContext(Context);
 
     return (
-      <StyledMenu
+      <Menu
         id={id}
         getContentAnchorEl={null}
         anchorEl={anchorEl}
@@ -116,7 +109,8 @@ const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
           horizontal: 'right',
         }}
         ref={ref}
-        {...props}
+        PaperProps={{ className: 'SparkMenu-paperOffsetTop' }}
+        {...other}
       />
     );
   }
