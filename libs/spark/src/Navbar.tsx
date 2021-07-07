@@ -1,21 +1,13 @@
 import React from 'react';
-import { AppBar, Toolbar, withStyles } from '@material-ui/core/';
+import { AppBar, AppBarProps, Toolbar, withStyles } from '@material-ui/core/';
 import { PrendaMonogramDark } from './logos';
 import { palette } from './styles/palette';
 
-export const MuiAppBarStyleOverrides = {};
-export const MuiAppBarDefaultProps = {};
+export interface NavbarProps extends AppBarProps {
+  color?: 'default';
+}
 
-export type NavbarProps = {
-  children: React.ReactChild | React.ReactChild[];
-};
-
-export const Navbar = (props: NavbarProps) => {
-  /**
-   * Navbar
-   *
-   */
-
+export const Navbar = ({ color = 'default', ...other }: NavbarProps) => {
   const PrendaAppBar = withStyles({
     root: {
       borderBottom: `2px solid ${palette.grey.medium}`,
@@ -28,7 +20,7 @@ export const Navbar = (props: NavbarProps) => {
     <PrendaAppBar position="fixed" color="inherit" elevation={0}>
       <Toolbar>
         <PrendaMonogramDark fontSize="62px" />
-        {props.children}
+        {other.children}
       </Toolbar>
     </PrendaAppBar>
   );
