@@ -49,15 +49,15 @@ const StatesTemplate: Story = ({ pseudo, ...args }) => (
       <Input multiline rows={3} value="Value" {...args} />
     </InnerGroup>
     <InnerGroup>
-      <Input className={'SparkInput-success'} {...args} />
-      <Input className={'SparkInput-success'} value="Value" {...args} />
+      <Input className="Spark-success" {...args} />
+      <Input className="Spark-success" value="Value" {...args} />
     </InnerGroup>
     <InnerGroup>
-      <Input multiline rows={3} className={'SparkInput-success'} {...args} />
+      <Input multiline rows={3} className="Spark-success" {...args} />
       <Input
         multiline
         rows={3}
-        className={'SparkInput-success'}
+        className="Spark-success"
         value="Value"
         {...args}
       />

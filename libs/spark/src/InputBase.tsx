@@ -9,7 +9,6 @@ export const MuiInputBaseStyleOverrides = {
     borderColor: palette.grey.medium,
     borderRadius: 8,
     width: '20rem', // 320px
-    padding: '.75rem 1rem',
     margin: 4, // potential box-shadow width
     fontSize: '1rem', // 16px
     lineHeight: '1.125rem', // 18px
@@ -18,7 +17,7 @@ export const MuiInputBaseStyleOverrides = {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       backgroundColor: palette.common.white,
     },
-    '&.SparkInput-success': {
+    '&.Spark-success': {
       borderColor: palette.green[3],
       boxShadow: `0 0 0 4px ${palette.green[1]}`,
     },
@@ -32,7 +31,8 @@ export const MuiInputBaseStyleOverrides = {
     },
   },
   input: {
-    padding: 0,
+    padding: '.75rem 1rem',
+    borderRadius: 8,
     color: palette.text.onLight,
     '&::placeholder': {
       color: palette.text.onLightLowContrast,
