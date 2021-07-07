@@ -9,7 +9,7 @@ export interface NavBarProps extends AppBarProps {
 const StyledAppBar = withStyles({
   root: {
     borderBottom: `2px solid ${palette.grey.medium}`,
-    fontSize: '18px',
+    fontSize: '1.125rem',
     color: palette.text.onLightLowContrast,
   },
 })(AppBar);
