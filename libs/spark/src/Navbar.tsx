@@ -3,6 +3,9 @@ import { AppBar, Toolbar, withStyles } from '@material-ui/core/';
 import { PrendaMonogramDark } from './logos';
 import { palette } from './styles/palette';
 
+export const MuiAppBarStyleOverrides = {};
+export const MuiAppBarDefaultProps = {};
+
 export type NavbarProps = {
   children: React.ReactChild | React.ReactChild[];
 };
