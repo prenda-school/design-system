@@ -6,12 +6,12 @@ export const MuiSelectDefaultProps = {
   MenuProps: {
     getContentAnchorEl: null,
     anchorOrigin: {
-      vertical: 'bottom',
-      horizontal: 'right',
+      vertical: 'bottom' as const,
+      horizontal: 'right' as const,
     },
     transformOrigin: {
-      vertical: 'top',
-      horizontal: 'right',
+      vertical: 'top' as const,
+      horizontal: 'right' as const,
     },
     classes: { paper: 'Spark-offsetTop' },
   },
