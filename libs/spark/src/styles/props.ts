@@ -6,6 +6,7 @@ import { MuiMenuDefaultProps } from '../Menu';
 import { MuiPaginationDefaultProps } from '../Pagination';
 import { MuiPaginationItemDefaultProps } from '../PaginationItem';
 import { MuiRadioDefaultProps } from '../Radio';
+import { MuiSelectDefaultProps } from '../Select';
 import { MuiSvgIconDefaultProps } from '../SvgIcon';
 
 export const props = {
@@ -17,5 +18,6 @@ export const props = {
   MuiPagination: MuiPaginationDefaultProps,
   MuiPaginationItem: MuiPaginationItemDefaultProps,
   MuiRadio: MuiRadioDefaultProps,
+  MuiSelect: MuiSelectDefaultProps,
   MuiSvgIcon: MuiSvgIconDefaultProps,
 };
