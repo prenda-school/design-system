@@ -10,6 +10,7 @@ export const MuiInputBaseStyleOverrides = {
     borderRadius: 8,
     width: '20rem', // 320px
     padding: '.75rem 1rem',
+    margin: 4, // potential box-shadow width
     fontSize: '1rem', // 16px
     lineHeight: '1.125rem', // 18px
     '&$focused, &:focus': {
