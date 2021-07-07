@@ -1,11 +1,11 @@
 import React from 'react';
-import { AppBar, AppBarProps, Toolbar, withStyles } from '@material-ui/core/';
-import { PrendaMonogramDark } from './logos';
+import { AppBar, AppBarProps, withStyles } from '@material-ui/core/';
 import { palette } from './styles/palette';
 
 export interface NavBarProps extends AppBarProps {
   color?: 'default';
 }
+
 const StyledAppBar = withStyles({
   root: {
     borderBottom: `2px solid ${palette.grey.medium}`,
@@ -16,11 +16,6 @@ const StyledAppBar = withStyles({
 
 export const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
   return (
-    <StyledAppBar position="fixed" color={co} elevation={0}>
-      <Toolbar>
-        <PrendaMonogramDark fontSize="62px" />
-        {other.children}
-      </Toolbar>
-    </StyledAppBar>
+    <StyledAppBar position="fixed" elevation={0} color={color} {...other} />
   );
 };
