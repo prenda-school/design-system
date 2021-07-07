@@ -39,6 +39,6 @@ export type { SvgIconProps } from './SvgIcon';
 export { theme } from './styles';
 export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
-export { NavBar } from './NavBarNEW';
-export type { NavBarProps } from './NavBarNEW';
+export { NavBar } from './NavBar';
+export type { NavBarProps } from './NavBar';
 export { NavbarLink } from './NavbarLink';
