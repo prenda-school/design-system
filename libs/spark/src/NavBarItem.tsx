@@ -4,13 +4,21 @@ import {
   Button,
   ButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
+  ButtonProps,
 } from '@material-ui/core';
-import { ButtonProps } from './Button';
 import { theme } from './styles';
-// import clsx from 'clsx';
-// import { capitalize } from './utils';
 
-export type NavBarItemProps = ButtonProps;
+export interface NavBarItemProps
+  extends Omit<ButtonProps, 'variant' | 'color' | 'size'> {
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  disabled?: boolean;
+  disableElevation?: boolean;
+  disableFocusRipple?: boolean;
+  fullWidth?: boolean;
+  href?: string;
+}
 
 export const NavBarItem = withStyles({
   root: {
@@ -42,56 +50,3 @@ export const NavBarItem = withStyles({
   disabled: {},
   focused: {},
 })(Button);
-
-// const SparkNavBarItem: FC<ButtonProps> = ({
-//   className,
-//   variant = 'solid',
-//   size = 'medium',
-//   children,
-//   startIcon,
-//   endIcon,
-//   ...other
-// }) => {
-//   return (
-//     <ButtonBase
-//       className={clsx(
-//         className,
-//         'SparkButton-root',
-//         `SparkButton-variant${capitalize(variant)}`,
-//         `SparkButton-size${capitalize(size)}`
-//       )}
-//       {...other}
-//     >
-//       {/* FROM-MUI
-//        * The inner <span> is required to vertically align the children.
-//        * Browsers don't support `display: flex` on a <button> element.
-//        * https://github.com/philipwalton/flexbugs/blob/master/README.md#flexbug-9
-//        */}
-//       <span className="SparkButton-content">
-//         {startIcon ? (
-//           <span
-//             className={clsx(
-//               'SparkButton-startIcon',
-//               `SparkButton-iconSize${capitalize(size)}`
-//             )}
-//           >
-//             {startIcon}
-//           </span>
-//         ) : null}
-//         {children}
-//         {endIcon ? (
-//           <span
-//             className={clsx(
-//               'SparkButton-endIcon',
-//               `SparkButton-iconSize${capitalize(size)}`
-//             )}
-//           >
-//             {endIcon}
-//           </span>
-//         ) : null}
-//       </span>
-//     </ButtonBase>
-//   );
-// };
-
-// export { SparkNavBarItem as NavBarItem };
