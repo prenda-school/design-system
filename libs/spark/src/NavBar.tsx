@@ -16,6 +16,12 @@ const StyledAppBar = withStyles({
 
 export const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
   return (
-    <StyledAppBar position="fixed" elevation={0} color={color} {...other} />
+    <StyledAppBar
+      component="nav"
+      position="fixed"
+      elevation={0}
+      color={color}
+      {...other}
+    />
   );
 };
