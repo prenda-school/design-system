@@ -100,14 +100,6 @@ const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
         keepMounted
         onClose={handleClose}
         open={Boolean(anchorEl)}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
         ref={ref}
         PaperProps={{ className: 'SparkMenu-paperOffsetTop' }}
         {...other}
