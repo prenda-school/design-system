@@ -1,8 +1,5 @@
 {
   "name": "@prenda/spark-icons",
   "author": "Prenda",
-  "license": "MIT",
-  "scripts": {
-    "src:icons": "cd ../../ && UV_THREADPOOL_SIZE=64 babel-node --config-file ./babel.config.js packages/material-ui-icons/builder.js --output-dir packages/material-ui-icons/src --svg-dir packages/material-ui-icons/material-icons --renameFilter ./renameFilters/material-design-icons.js"
-  }
+  "license": "MIT"
 }
