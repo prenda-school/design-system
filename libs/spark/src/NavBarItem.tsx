@@ -1,32 +1,24 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import {
-  Button,
-  ButtonBase,
-  ButtonBaseProps as MuiButtonBaseProps,
-  ButtonProps,
-} from '@material-ui/core';
+import { Button, ButtonProps } from '@material-ui/core';
 import { theme } from './styles';
 
 export interface NavBarItemProps
   extends Omit<ButtonProps, 'variant' | 'color' | 'size'> {
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
   children?: React.ReactNode;
-  disabled?: boolean;
-  disableElevation?: boolean;
-  disableFocusRipple?: boolean;
-  fullWidth?: boolean;
-  href?: string;
 }
 
 export const NavBarItem = withStyles({
   root: {
+    fontWeight: 500,
     height: 48,
     borderRadius: 8,
     padding: 8,
     marginLeft: 8,
     cursor: 'pointer',
+    textTransform: 'none',
+    color: theme.palette.text.onLightLowContrast,
+    fontSize: '1.125rem',
     '&$disabled': {
       opacity: '0.56',
       pointerEvents: 'none',
@@ -39,14 +31,11 @@ export const NavBarItem = withStyles({
       border: theme.palette.blue[5],
       outline: 'none',
     },
-    '&$checked': {
-      color: theme.palette.blue[5],
+    '&$active': {
+      backgroundColor: theme.palette.blue[1],
     },
   },
-  label: {
-    color: theme.palette.text.onLightLowContrast,
-    fontSize: '1.125rem',
-  },
+  label: {},
   disabled: {},
   focused: {},
 })(Button);
