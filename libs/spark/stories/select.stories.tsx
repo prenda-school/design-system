@@ -63,8 +63,8 @@ const StatesTemplate: Story = ({ pseudo, ...args }) => (
       <Template {...args} value="value" />
     </InnerGroup>
     <InnerGroup>
-      <Template {...args} className="SparkInputBase-success" value="" />
-      <Template {...args} className="SparkInputBase-success" value="value" />
+      <Template {...args} className="Spark-success" value="" />
+      <Template {...args} className="Spark-success" value="value" />
     </InnerGroup>
     <InnerGroup>
       <Template {...args} error value="" />
