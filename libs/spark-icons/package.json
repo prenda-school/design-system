@@ -1,5 +1,6 @@
 {
   "name": "@prenda/spark-icons",
   "author": "Prenda",
-  "license": "MIT"
+  "license": "MIT",
+  "version": "0.0.1"
 }

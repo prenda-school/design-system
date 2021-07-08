@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button, ButtonProps } from '../src';
-import { ChevronDownIconLine } from '../src/icons';
+import ChevronDownIcon from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/Button',
@@ -42,15 +42,15 @@ export default {
 
 interface TemplateButtonProps
   extends Omit<ButtonProps, 'startIcon' | 'endIcon'> {
-  startIcon?: typeof ChevronDownIconLine;
-  endIcon?: typeof ChevronDownIconLine;
+  startIcon?: typeof ChevronDownIcon;
+  endIcon?: typeof ChevronDownIcon;
 }
 
 const Template = (args: TemplateButtonProps) => (
   <Button
     {...args}
-    startIcon={args.startIcon ? <ChevronDownIconLine /> : undefined}
-    endIcon={args.endIcon ? <ChevronDownIconLine /> : undefined}
+    startIcon={args.startIcon ? <ChevronDownIcon /> : undefined}
+    endIcon={args.endIcon ? <ChevronDownIcon /> : undefined}
   >
     Label
   </Button>

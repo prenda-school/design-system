@@ -144,6 +144,25 @@
       "sourceRoot": "libs/spark-icons/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/spark-icons",
+            "tsConfig": "libs/spark-icons/tsconfig.lib.json",
+            "project": "libs/spark-icons/package.json",
+            "entryFile": "libs/spark-icons/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/spark-icons/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
