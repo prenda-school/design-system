@@ -18,7 +18,9 @@ npm run src:icons
 
 Prerequisite: you must _manually_ bulk-export SVG icons from Figma.
 
-- Use the [SVG Export](https://www.figma.com/community/plugin/814345141907543603/SVG-Export), with a preset that applies _no_ optimizations.
+- Use the [SVG Export](https://www.figma.com/community/plugin/814345141907543603/SVG-Export), with a preset that applies only these optimizations (these two help avoid there being a `<g fillRule="evenodd">...</g>` parent tag to two paths in some Duotone icons, like Rocket):
+  - Move group attrs to elements
+  - Collapse useless groups
 - Save each `.zip` with the name as their respective page name (`line`, `filled`, `duotone`).
 - Unzip and move folders under `libs/spark-icons/svg-files`.
 
