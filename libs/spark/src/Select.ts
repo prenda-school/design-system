@@ -1,9 +1,9 @@
-import { ChevronDownIconLine } from './icons';
+import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
 import { palette } from './styles/palette';
 
 export const MuiSelectDefaultProps = {
   displayEmpty: true,
-  IconComponent: ChevronDownIconLine,
+  IconComponent: ChevronDownIcon,
   MenuProps: {
     getContentAnchorEl: null,
     anchorOrigin: {

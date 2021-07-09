@@ -4,7 +4,7 @@ import { Card, CardContent, CardMedia, CardActions } from '@material-ui/core';
 import { Typography } from '../src/Typography';
 import { Button } from '@material-ui/core';
 import { IconButton } from '../src/IconButton';
-import { HeartIconDuotone } from '../src/icons';
+import HeartDuotoneIcon from '@prenda/spark-icons/HeartDuotone';
 import styled from 'styled-components';
 
 export default {
@@ -60,7 +60,7 @@ export const CardWithImage = () => (
         alt="Multicolor blobs, blurred on light grey background"
       />
       <FloatingIconButton variant="outlined" size="large">
-        <HeartIconDuotone />
+        <HeartDuotoneIcon />
       </FloatingIconButton>
     </CardMedia>
     <CardContent>
