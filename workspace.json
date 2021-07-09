@@ -152,7 +152,12 @@
             "tsConfig": "libs/spark-icons/tsconfig.lib.json",
             "project": "libs/spark-icons/package.json",
             "entryFile": "libs/spark-icons/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": [
+              "react/jsx-runtime",
+              "react",
+              "react-dom",
+              "@material-ui"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -174,6 +179,48 @@
           "outputs": ["coverage/libs/spark-icons"],
           "options": {
             "jestConfig": "libs/spark-icons/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "@prenda-spark-icons-buildable": {
+      "root": "libs/@prenda/spark-icons-buildable",
+      "sourceRoot": "libs/@prenda/spark-icons-buildable/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/@prenda/spark-icons-buildable",
+            "tsConfig": "libs/@prenda/spark-icons-buildable/tsconfig.lib.json",
+            "project": "libs/@prenda/spark-icons-buildable/package.json",
+            "entryFile": "libs/@prenda/spark-icons-buildable/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/@prenda/spark-icons-buildable/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/@prenda/spark-icons-buildable/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/@prenda/spark-icons-buildable"],
+          "options": {
+            "jestConfig": "libs/@prenda/spark-icons-buildable/jest.config.js",
             "passWithNoTests": true
           }
         }
