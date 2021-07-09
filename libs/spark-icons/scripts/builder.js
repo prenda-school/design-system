@@ -5,15 +5,13 @@ import yargs from 'yargs';
 import path from 'path';
 import rimraf from 'rimraf';
 import Mustache from 'mustache';
-import Queue from 'modules/waterfall/Queue';
+import Queue from '../modules/waterfall/Queue';
 import util from 'util';
-import intersection from 'lodash/intersection';
 import glob from 'glob';
 import SVGO from 'svgo';
 
 const globAsync = util.promisify(glob);
-export const RENAME_FILTER_DEFAULT = './renameFilters/default';
-export const RENAME_FILTER_MUI = './renameFilters/material-design-icons';
+export const RENAME_FILTER_DEFAULT = '../defaults/renameFilter';
 
 const svgo = new SVGO({
   floatPrecision: 4,
@@ -73,11 +71,11 @@ const svgo = new SVGO({
  * @returns {string} class name
  */
 export function getComponentName(destPath) {
-  const splitregex = new RegExp(`[\\${path.sep}-]+`);
+  const splitRegEx = new RegExp(`[\\${path.sep}-]+`);
 
   const parts = destPath
     .replace('.js', '')
-    .split(splitregex)
+    .split(splitRegEx)
     .map((part) => part.charAt(0).toUpperCase() + part.substring(1));
 
   return parts.join('');
@@ -92,35 +90,23 @@ async function generateIndex(options) {
     })
     .join('');
 
-  await fse.writeFile(path.join(options.outputDir, 'index.js'), index);
+  await fse.writeFile(path.join(options.outputDir, 'index.ts'), index);
 }
 
-// Noise introduced by Google by mistake
-const noises = [
-  ['="M0 0h24v24H0V0zm0 0h24v24H0V0z', '="'],
-  ['="M0 0h24v24H0zm0 0h24v24H0zm0 0h24v24H0z', '="'],
-];
-
-function removeNoise(input, prevInput = null) {
-  if (input === prevInput) {
-    return input;
-  }
-
-  let output = input;
-
-  noises.forEach(([search, replace]) => {
-    if (output.indexOf(search) !== -1) {
-      output = output.replace(search, replace);
-    }
-  });
-
-  return removeNoise(output, input);
-}
-
-export async function cleanPaths({ svgPath, data }) {
+export async function cleanPaths({ data }) {
   // Remove hardcoded color fill before optimizing so that empty groups are removed
   const input = data
-    .replace(/ fill="#010101"/g, '')
+    .replace(/ fill="none"/g, '')
+    .replace(/ fill="#072E44"/g, '')
+    .replace(/ fill-opacity="0.72"/g, '')
+    .replace(/ fillOpacity="0.72"/g, '')
+    .replace(/ fill-opacity=".72"/g, '')
+    .replace(/ fillOpacity=".72"/g, '')
+    // clip-rule can be safely removed when the path it's on is not a child of a clipPath
+    //  this replacement doesn't check for that, but surveying of >100 icon files has
+    //  shown no use of such a tag, so this removal should be safe.
+    .replace(/ clip-rule="evenodd"/g, '')
+    .replace(/ clipRule="evenodd"/g, '')
     .replace(/<rect fill="none" width="24" height="24"\/>/g, '')
     .replace(/<rect id="SVGID_1_" width="24" height="24"\/>/g, '');
 
@@ -139,23 +125,29 @@ export async function cleanPaths({ svgPath, data }) {
     .replace(/ clip-path=".+?"/g, '') // Fix visibility issue and save some bytes.
     .replace(/<clipPath.+?<\/clipPath>/g, ''); // Remove unused definitions
 
-  const sizeMatch = svgPath.match(/^.*_([0-9]+)px.svg$/);
-  const size = sizeMatch ? Number(sizeMatch[1]) : null;
+  const viewBoxMatch = result.data.match(/viewBox=".+?"/g);
+  const viewBox = viewBoxMatch
+    ? viewBoxMatch[0].replace(/(viewBox=)|(")/g, '')
+    : null;
+  const [width, height] = viewBox
+    .split(' ')
+    .slice(2)
+    .map((dim) => Number(dim));
 
-  if (size !== 24) {
-    const scale = Math.round((24 / size) * 100) / 100; // Keep a maximum of 2 decimals
+  if (width !== 24 || height !== 24) {
+    // Keep a maximum of 2 decimals
+    const scaleX = Math.round((24 / width) * 100) / 100;
+    const scaleY = Math.round((24 / height) * 100) / 100;
     paths = paths.replace('clipPath="url(#b)" ', '');
     paths = paths.replace(
       /<path /g,
-      `<path transform="scale(${scale}, ${scale})" `
+      `<path transform="scale(${scaleX}, ${scaleY})" `
     );
   }
 
-  paths = removeNoise(paths);
-
   // Add a fragment when necessary.
   if ((paths.match(/\/>/g) || []).length > 1) {
-    paths = `<React.Fragment>${paths}</React.Fragment>`;
+    paths = `<>${paths}</>`;
   }
 
   return paths;
@@ -226,7 +218,7 @@ export async function main(options) {
 
     const [svgPaths, template] = await Promise.all([
       globAsync(path.join(options.svgDir, options.glob)),
-      fse.readFile(path.join(__dirname, 'templateSvgIcon.js'), {
+      fse.readFile(path.join(__dirname, '../defaults/templateSvgIcon.js'), {
         encoding: 'utf8',
       }),
     ]);
@@ -244,19 +236,6 @@ export async function main(options) {
 
     queue.push(svgPaths);
     await queue.wait({ empty: true });
-
-    let legacyFiles = await globAsync(path.join(__dirname, '/legacy', '*.js'));
-    legacyFiles = legacyFiles.map((file) => path.basename(file));
-    let generatedFiles = await globAsync(path.join(options.outputDir, '*.js'));
-    generatedFiles = generatedFiles.map((file) => path.basename(file));
-
-    if (intersection(legacyFiles, generatedFiles).length > 0) {
-      console.warn(intersection(legacyFiles, generatedFiles));
-      throw new Error('Duplicated icons in legacy folder');
-    }
-
-    await fse.copy(path.join(__dirname, '/legacy'), options.outputDir);
-    await fse.copy(path.join(__dirname, '/custom'), options.outputDir);
 
     await generateIndex(options);
 
