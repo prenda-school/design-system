@@ -28,7 +28,7 @@ function myDestRewriter(svgPathObj) {
     ? SUFFIXES[maybeSuffix]
     : '';
 
-  fileName = fileName.slice(0, -3).concat(suffix).concat(fileName.slice(-3));
+  fileName = fileName.split('.tsx')[0].concat(suffix).concat('.tsx');
 
   return fileName;
 }
