@@ -8,61 +8,10 @@ import Mustache from 'mustache';
 import Queue from '../modules/waterfall/Queue';
 import util from 'util';
 import glob from 'glob';
-import SVGO from 'svgo';
+import * as svgo from 'svgo';
 
 const globAsync = util.promisify(glob);
 export const RENAME_FILTER_DEFAULT = '../defaults/renameFilter';
-
-const svgo = new SVGO({
-  floatPrecision: 4,
-  plugins: [
-    { cleanupAttrs: true },
-    { removeDoctype: true },
-    { removeXMLProcInst: true },
-    { removeComments: true },
-    { removeMetadata: true },
-    { removeTitle: true },
-    { removeDesc: true },
-    { removeUselessDefs: true },
-    { removeXMLNS: true },
-    { removeEditorsNSData: true },
-    { removeEmptyAttrs: true },
-    { removeHiddenElems: true },
-    { removeEmptyText: true },
-    { removeEmptyContainers: true },
-    { removeViewBox: true },
-    { cleanupEnableBackground: true },
-    { minifyStyles: true },
-    { convertStyleToAttrs: true },
-    { convertColors: true },
-    { convertPathData: true },
-    { convertTransform: true },
-    { removeUnknownsAndDefaults: true },
-    { removeNonInheritableGroupAttrs: true },
-    {
-      removeUselessStrokeAndFill: {
-        // https://github.com/svg/svgo/issues/727#issuecomment-303115276
-        removeNone: true,
-      },
-    },
-    { removeUnusedNS: true },
-    { cleanupIDs: true },
-    { cleanupNumericValues: true },
-    { cleanupListOfValues: true },
-    { moveElemsAttrsToGroup: true },
-    { moveGroupAttrsToElems: true },
-    { collapseGroups: true },
-    { removeRasterImages: true },
-    { mergePaths: true },
-    { convertShapeToPath: true },
-    { sortAttrs: true },
-    { removeDimensions: true },
-    { removeAttrs: true },
-    { removeElementsByAttr: true },
-    { removeStyleElement: true },
-    { removeScriptElement: true },
-  ],
-});
 
 /**
  * Return Pascal-Cased component name.
@@ -93,7 +42,7 @@ async function generateIndex(options) {
   await fse.writeFile(path.join(options.outputDir, 'index.ts'), index);
 }
 
-export async function cleanPaths({ data }) {
+export function cleanPaths({ data }) {
   // Remove hardcoded color fill before optimizing so that empty groups are removed
   const input = data
     .replace(/ fill="none"/g, '')
@@ -103,20 +52,111 @@ export async function cleanPaths({ data }) {
     .replace(/ fill-opacity=".72"/g, '')
     .replace(/ fillOpacity=".72"/g, '')
     // clip-rule can be safely removed when the path it's on is not a child of a clipPath
-    //  this replacement doesn't check for that, but surveying of >100 icon files has
-    //  shown no use of such a tag, so this removal should be safe.
+    //  this replacement doesn't check for that though, so its risky
     .replace(/ clip-rule="evenodd"/g, '')
     .replace(/ clipRule="evenodd"/g, '')
     .replace(/<rect fill="none" width="24" height="24"\/>/g, '')
-    .replace(/<rect id="SVGID_1_" width="24" height="24"\/>/g, '');
+    .replace(/<rect id="SVGID_1_" width="24" height="24"\/>/g, '')
+    // this is always a useless clipPath for us
+    .replace(
+      /<clipPath id="clip0"><rect width="24" height="24" fill="white"\/><\/clipPath>/g,
+      ''
+    )
+    .replace(/<rect width="24" height="24" fill="white"\/>/g, '');
 
-  const result = await svgo.optimize(input);
+  const result = svgo.optimize(input, {
+    floatPrecision: 4,
+    multipass: true,
+    plugins: [
+      { name: 'cleanupAttrs' },
+      { name: 'removeDoctype' },
+      { name: 'removeXMLProcInst' },
+      { name: 'removeComments' },
+      { name: 'removeMetadata' },
+      { name: 'removeTitle' },
+      { name: 'removeDesc' },
+      { name: 'removeUselessDefs' },
+      { name: 'removeXMLNS' },
+      { name: 'removeEditorsNSData' },
+      { name: 'removeEmptyAttrs' },
+      { name: 'removeHiddenElems' },
+      { name: 'removeEmptyText' },
+      { name: 'removeViewBox' },
+      { name: 'cleanupEnableBackground' },
+      { name: 'minifyStyles' },
+      { name: 'convertStyleToAttrs' },
+      { name: 'convertColors' },
+      { name: 'convertPathData' },
+      { name: 'convertTransform' },
+      { name: 'removeUnknownsAndDefaults' },
+      { name: 'removeNonInheritableGroupAttrs' },
+      {
+        name: 'removeUselessStrokeAndFill',
+        params: {
+          // https://github.com/svg/svgo/issues/727#issuecomment-303115276
+          removeNone: true,
+        },
+      },
+      { name: 'removeUnusedNS' },
+      { name: 'cleanupIDs' },
+      { name: 'cleanupNumericValues' },
+      { name: 'cleanupListOfValues' },
+      { name: 'moveElemsAttrsToGroup' },
+      { name: 'moveGroupAttrsToElems' },
+      { name: 'collapseGroups' },
+      { name: 'removeRasterImages' },
+      { name: 'mergePaths' },
+      { name: 'convertShapeToPath' },
+      { name: 'sortAttrs' },
+      { name: 'removeDimensions' },
+      { name: 'removeAttrs' },
+      { name: 'removeElementsByAttr' },
+      { name: 'removeStyleElement' },
+      { name: 'removeScriptElement' },
+      { name: 'removeEmptyContainers' },
+    ],
+  });
 
-  // Extract the paths from the svg string
+  // True if the svg has multiple children
+  let childrenAsArray = false;
+  const jsxResult = svgo.optimize(result.data, {
+    plugins: [
+      {
+        name: 'svgAsReactFragment',
+        type: 'visitor',
+        fn: () => {
+          return {
+            root: {
+              enter(root) {
+                const [svg, ...rootChildren] = root.children;
+                if (rootChildren.length > 0) {
+                  throw new Error('Expected a single child of the root');
+                }
+                if (svg.type !== 'element' || svg.name !== 'svg') {
+                  throw new Error('Expected an svg element as the root child');
+                }
+
+                if (svg.children.length > 1) {
+                  childrenAsArray = true;
+                  svg.children.forEach((svgChild, index) => {
+                    svgChild.addAttr({ name: 'key', value: index });
+                    // Original name will be restored later
+                    // We just need a mechanism to convert the resulting
+                    // svg string into an array of JSX elements
+                    svgChild.renameElem(`SVGChild:${svgChild.name}`);
+                  });
+                }
+                root.spliceContent(0, svg.children.length, svg.children);
+              },
+            },
+          };
+        },
+      },
+    ],
+  });
+
   // Clean xml paths
-  let paths = result.data
-    .replace(/<svg[^>]*>/g, '')
-    .replace(/<\/svg>/g, '')
+  let paths = jsxResult.data
     .replace(/"\/>/g, '" />')
     .replace(/fill-opacity=/g, 'fillOpacity=')
     .replace(/xlink:href=/g, 'xlinkHref=')
@@ -145,10 +185,15 @@ export async function cleanPaths({ data }) {
     );
   }
 
-  // Add a fragment when necessary.
-  if ((paths.match(/\/>/g) || []).length > 1) {
-    paths = `<>${paths}</>`;
+  if (childrenAsArray) {
+    const pathsCommaSeparated = paths
+      // handle self-closing tags
+      .replace(/key="\d+" \/>/g, '$&,')
+      // handle the rest
+      .replace(/<\/SVGChild:(\w+)>/g, '</$1>,');
+    paths = `[${pathsCommaSeparated}]`;
   }
+  paths = paths.replace(/SVGChild:/g, '');
 
   return paths;
 }
@@ -173,7 +218,7 @@ async function worker({ svgPath, options, renameFilter, template }) {
   }
 
   const data = await fse.readFile(svgPath, { encoding: 'utf8' });
-  const paths = await cleanPaths({ svgPath, data });
+  const paths = cleanPaths({ svgPath, data });
 
   const fileString = Mustache.render(template, {
     paths,
