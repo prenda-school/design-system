@@ -3,14 +3,10 @@ import { withStyles } from '@material-ui/core/styles';
 import { Button, ButtonProps } from '@material-ui/core';
 import { theme } from './styles';
 
-export interface NavBarItemProps
-  extends Omit<ButtonProps, 'variant' | 'color' | 'size'> {
-  children?: React.ReactNode;
-}
+export type NavBarItemProps = Omit<ButtonProps, 'variant' | 'color' | 'size'>;
 
 export const NavBarItem = withStyles({
   root: {
-    fontWeight: 500,
     height: 48,
     borderRadius: 8,
     padding: 8,
@@ -19,23 +15,28 @@ export const NavBarItem = withStyles({
     textTransform: 'none',
     color: theme.palette.text.onLightLowContrast,
     fontSize: '1.125rem',
+    '&[aria-current=page]': {
+      backgroundColor: theme.palette.grey.light,
+    },
     '&$disabled': {
       opacity: '0.56',
       pointerEvents: 'none',
       cursor: 'default',
     },
     '&$hover': {
-      backgroundColor: theme.palette.grey.light,
+      '&$focused': {
+        '&$active': {
+          backgroundColor: theme.palette.grey.light,
+        },
+      },
     },
-    '&$focused': {
-      border: theme.palette.blue[5],
+    '&$focused, &:focus': {
+      border: `2px solid ${theme.palette.blue[4]}`,
       outline: 'none',
     },
-    '&$active': {
-      backgroundColor: theme.palette.blue[1],
-    },
+    '& .MuiSvgIcon-root': { marginRight: 7 },
+    '& .MuiButton-label': { fontWeight: 700 },
   },
-  label: {},
   disabled: {},
   focused: {},
 })(Button);

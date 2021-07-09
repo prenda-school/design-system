@@ -9,7 +9,6 @@ import InboxFilledIconDuotone from '../src/icons/duotone/InboxFilled';
 import UsersIconDuotone from '../src/icons/duotone/Users';
 import UserIconDuotone from '../src/icons/duotone/User';
 import Toolbar from '@material-ui/core/Toolbar';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -26,28 +25,26 @@ const UserMenu = styled.div`
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar>
-      <Router>
-        <PrendaMonogramDark fontSize="62px" />
-        <NavBarItem component={Link} to={`/`}>
-          <HomeIconDuotone fillColor="transparent" />
-          <span>Dashboard</span>
-        </NavBarItem>
-        <NavBarItem component={Link} to={`/`} active>
-          <CheckCircleIconDuotone />
-          <span>Active</span>
-        </NavBarItem>
-        <NavBarItem component={Link} to={`/`} disabled>
-          <RocketIconDuotone />
-          <span>Disabled</span>
-        </NavBarItem>
-        <NavBarItem style={{ marginLeft: 'auto' }}>
-          <InboxFilledIconDuotone />
-          <span>0</span>
-        </NavBarItem>
-        <UserMenu>
-          <UserIconDuotone fillColor="pink" />
-        </UserMenu>
-      </Router>
+      <PrendaMonogramDark fontSize="62px" />
+      <NavBarItem href={`/`}>
+        <HomeIconDuotone fillColor="transparent" />
+        <span>Dashboard</span>
+      </NavBarItem>
+      <NavBarItem href={`/`} aria-current="page">
+        <CheckCircleIconDuotone />
+        <span>Active</span>
+      </NavBarItem>
+      <NavBarItem href={`/`} disabled>
+        <RocketIconDuotone />
+        <span>Disabled</span>
+      </NavBarItem>
+      <NavBarItem href={`/`} style={{ marginLeft: 'auto' }}>
+        <InboxFilledIconDuotone />
+        <span>0</span>
+      </NavBarItem>
+      <UserMenu>
+        <UserIconDuotone fillColor="pink" />
+      </UserMenu>
     </Toolbar>
   </NavBar>
 );
@@ -55,7 +52,7 @@ const Template = (args: NavBarProps) => (
 export const Basic = Template.bind({});
 
 const NavBarItemTemplate = () => (
-  <NavBarItem component={Link} to="/">
+  <NavBarItem href="/">
     <UsersIconDuotone />
     <span>Link Text</span>
   </NavBarItem>
