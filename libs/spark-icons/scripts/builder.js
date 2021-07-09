@@ -23,7 +23,7 @@ export function getComponentName(destPath) {
   const splitRegEx = new RegExp(`[\\${path.sep}-]+`);
 
   const parts = destPath
-    .replace('.js', '')
+    .replace('.tsx', '')
     .split(splitRegEx)
     .map((part) => part.charAt(0).toUpperCase() + part.substring(1));
 
@@ -31,10 +31,10 @@ export function getComponentName(destPath) {
 }
 
 async function generateIndex(options) {
-  const files = await globAsync(path.join(options.outputDir, '*.js'));
+  const files = await globAsync(path.join(options.outputDir, '*.tsx'));
   const index = files
     .map((file) => {
-      const typename = path.basename(file).replace('.js', '');
+      const typename = path.basename(file).replace('.tsx', '');
       return `export { default as ${typename} } from './${typename}';\n`;
     })
     .join('');
@@ -246,7 +246,10 @@ export async function main(options) {
       };
     }
 
-    rimraf.sync(`${options.outputDir}/*.js`); // Clean old files
+    // Clean old files
+    rimraf.sync(`${options.outputDir}/*.js`);
+    rimraf.sync(`${options.outputDir}/*.ts`);
+    rimraf.sync(`${options.outputDir}/*.tsx`);
 
     let renameFilter = options.renameFilter;
     if (typeof renameFilter === 'string') {
@@ -263,7 +266,7 @@ export async function main(options) {
 
     const [svgPaths, template] = await Promise.all([
       globAsync(path.join(options.svgDir, options.glob)),
-      fse.readFile(path.join(__dirname, '../defaults/templateSvgIcon.js'), {
+      fse.readFile(path.join(__dirname, '../defaults/templateSvgIcon.tsx'), {
         encoding: 'utf8',
       }),
     ]);

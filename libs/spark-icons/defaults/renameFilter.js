@@ -12,7 +12,7 @@ function myDestRewriter(svgPathObj) {
   let fileName = svgPathObj.base;
 
   fileName = fileName
-    .replace(/.svg/, '.js')
+    .replace(/.svg/, '.tsx')
     .replace(
       /(^.)|(_)(.)|( - )(.)|( )(.)/g,
       (match, p1, p2, p3, p4, p5, p6, p7) =>

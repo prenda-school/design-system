@@ -25,7 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "prepare": "husky install",
-    "src:icons": "UV_THREADPOOL_SIZE=64 babel-node --config-file ./libs/spark-icons/babel.config.js libs/spark-icons/scripts/builder.js --output-dir libs/spark-icons/src --svg-dir libs/spark-icons/svg-files"
+    "src:icons": "UV_THREADPOOL_SIZE=64 babel-node --config-file ./libs/spark-icons/defaults/babel.config.js libs/spark-icons/scripts/builder.js --output-dir libs/spark-icons/src --svg-dir libs/spark-icons/svg-files"
   },
   "private": true,
   "dependencies": {
