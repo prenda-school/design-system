@@ -225,6 +225,46 @@
           }
         }
       }
+    },
+    "spark-icons-x": {
+      "root": "libs/spark-icons-x",
+      "sourceRoot": "libs/spark-icons-x/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/spark-icons-x",
+            "tsConfig": "libs/spark-icons-x/tsconfig.lib.json",
+            "project": "libs/spark-icons-x/package.json",
+            "entryFile": "libs/spark-icons-x/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/spark-icons-x/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/spark-icons-x/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/spark-icons-x"],
+          "options": {
+            "jestConfig": "libs/spark-icons-x/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

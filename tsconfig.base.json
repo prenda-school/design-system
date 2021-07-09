@@ -17,12 +17,11 @@
     "baseUrl": ".",
     "paths": {
       "@prenda/spark": ["libs/spark/src/index.ts"],
-      "@prenda/spark-icons": [
-        "libs/spark-icons/src/index.ts"
-      ],
+      "@prenda/spark-icons": ["libs/spark-icons/src/index.ts"],
       "@prenda/spark-icons-buildable": [
         "libs/@prenda/spark-icons-buildable/src/index.ts"
-      ]
+      ],
+      "@prenda/spark-icons-x": ["libs/spark-icons-x/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

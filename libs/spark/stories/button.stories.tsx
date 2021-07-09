@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button, ButtonProps } from '../src';
-import { ChevronDown as ChevronDownIcon } from '@prenda/spark-icons-buildable';
+import { ChevronDown as ChevronDownIcon } from '@prenda/spark-icons-x';
 
 export default {
   title: 'prenda-spark/Button',

@@ -40,6 +40,9 @@
     },
     "@prenda-spark-icons-buildable": {
       "tags": []
+    },
+    "spark-icons-x": {
+      "tags": []
     }
   }
 }

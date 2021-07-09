@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/libs/spark',
     '<rootDir>/libs/spark-icons',
     '<rootDir>/libs/@prenda/spark-icons-buildable',
+    '<rootDir>/libs/spark-icons-x',
   ],
 };
