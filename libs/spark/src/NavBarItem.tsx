@@ -40,7 +40,6 @@ export const NavBarItem = withStyles({
     },
 
     '& .MuiSvgIcon-root': {
-      marginRight: 7,
       color: theme.palette.text.onLightLowContrast,
       '& .MuiSvgIcon-colorPrimary': {
         fill: theme.palette.text.onLightLowContrast,

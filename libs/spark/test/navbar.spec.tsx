@@ -8,9 +8,8 @@ describe('Button', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
         <NavBar>
-          <NavBarItem href="/">
-            <QuestionIconDuotone />
-            <span>Dashboard</span>
+          <NavBarItem href="/" startIcon={<QuestionIconDuotone />}>
+            Dashboard
           </NavBarItem>
         </NavBar>
       </SparkThemeProvider>

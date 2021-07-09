@@ -11,7 +11,7 @@ export type {
   DropdownMenuProps,
   DropdownMenuItemProps,
 } from './Dropdown';
-export { NavBarItem } from './NavBarItem';
+export { NavBarItem, NavBarItemProps } from './NavBarItem';
 export { IconButton } from './IconButton';
 export type { IconButtonProps } from './IconButton';
 export {
