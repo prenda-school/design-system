@@ -40,4 +40,4 @@ export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
 export { NavBar } from './NavBar';
 export type { NavBarProps } from './NavBar';
-export { NavBarItem } from './NavbarItem';
+export { NavBarItem } from './NavBarItem';
