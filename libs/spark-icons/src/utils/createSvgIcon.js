@@ -1,13 +1,12 @@
 // Original credit to https://github.com/mui-org/material-ui/blob/1c5beec4be20eae30e75c69ab513bbfec3e9baaf/packages/material-ui/src/utils/createSvgIcon.js
-import React from 'react';
-import SvgIcon from '../SvgIcon';
+//  Changes made since
 
-/**
- * Private module reserved for @material-ui/x packages.
- */
+import React from 'react';
+import SvgIcon from '@material-ui/core/SvgIcon';
+
 export default function createSvgIcon(path, displayName) {
   const Component = (props, ref) => (
-    <SvgIcon data-mui-test={`${displayName}Icon`} ref={ref} {...props}>
+    <SvgIcon ref={ref} {...props}>
       {path}
     </SvgIcon>
   );
