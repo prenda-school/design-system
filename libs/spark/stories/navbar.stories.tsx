@@ -9,6 +9,7 @@ import InboxFilledIconDuotone from '../src/icons/duotone/InboxFilled';
 import UsersIconDuotone from '../src/icons/duotone/Users';
 import UserIconDuotone from '../src/icons/duotone/User';
 import Toolbar from '@material-ui/core/Toolbar';
+import { theme } from '../src/styles';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -31,7 +32,7 @@ const Template = (args: NavBarProps) => (
         <span>Dashboard</span>
       </NavBarItem>
       <NavBarItem href={`/`} aria-current="page">
-        <CheckCircleIconDuotone />
+        <CheckCircleIconDuotone fillColor={theme.palette.brand.lightBlue} />
         <span>Active</span>
       </NavBarItem>
       <NavBarItem href={`/`} disabled>

@@ -17,6 +17,10 @@ export const NavBarItem = withStyles({
     fontSize: '1.125rem',
     '&[aria-current=page]': {
       backgroundColor: theme.palette.grey.light,
+      color: theme.palette.blue[5],
+      '& .MuiSvgIcon-colorPrimary': {
+        color: theme.palette.blue[5],
+      },
     },
     '&$disabled': {
       opacity: '0.56',
@@ -34,7 +38,14 @@ export const NavBarItem = withStyles({
       border: `2px solid ${theme.palette.blue[4]}`,
       outline: 'none',
     },
-    '& .MuiSvgIcon-root': { marginRight: 7 },
+
+    '& .MuiSvgIcon-root': {
+      marginRight: 7,
+      color: theme.palette.text.onLightLowContrast,
+      '& .MuiSvgIcon-colorPrimary': {
+        fill: theme.palette.text.onLightLowContrast,
+      },
+    },
     '& .MuiButton-label': { fontWeight: 700 },
   },
   disabled: {},
