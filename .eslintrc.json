@@ -10,7 +10,7 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": ["@prenda/spark-icons", "@prenda/spark-icons/*"],
             "depConstraints": [
               {
                 "sourceTag": "*",
