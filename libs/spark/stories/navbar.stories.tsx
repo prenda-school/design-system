@@ -28,13 +28,13 @@ const Template = (args: NavBarProps) => (
     <Toolbar>
       <PrendaMonogramDark fontSize="62px" />
       <NavBarItem
-        href={`/`}
+        href={`#`}
         startIcon={<HomeIconDuotone fillColor="transparent" />}
       >
         Dashboard
       </NavBarItem>
       <NavBarItem
-        href={`/`}
+        href={`#`}
         startIcon={
           <CheckCircleIconDuotone fillColor={theme.palette.brand.lightBlue} />
         }
@@ -42,11 +42,11 @@ const Template = (args: NavBarProps) => (
       >
         Active
       </NavBarItem>
-      <NavBarItem href={`/`} startIcon={<RocketIconDuotone />} disabled>
+      <NavBarItem href={`#`} startIcon={<RocketIconDuotone />} disabled>
         Disabled
       </NavBarItem>
       <NavBarItem
-        href={`/`}
+        href={`#`}
         startIcon={<InboxFilledIconDuotone />}
         style={{ marginLeft: 'auto' }}
       >
