@@ -6,7 +6,6 @@ import HomeIconDuotone from '../src/icons/duotone/Home';
 import CheckCircleIconDuotone from '../src/icons/duotone/CheckCircle';
 import RocketIconDuotone from '../src/icons/duotone/Rocket';
 import InboxFilledIconDuotone from '../src/icons/duotone/InboxFilled';
-import UsersIconDuotone from '../src/icons/duotone/Users';
 import UserIconDuotone from '../src/icons/duotone/User';
 import Toolbar from '@material-ui/core/Toolbar';
 import { theme } from '../src/styles';

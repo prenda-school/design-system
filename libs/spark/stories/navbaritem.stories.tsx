@@ -1,5 +1,6 @@
-import { NavBarItem } from '@prenda/spark';
-import { UsersIconDuotone } from '../src/icons';
+import React from 'react';
+import { NavBarItem } from '../src';
+import UsersIconDuotone from '../src/icons/duotone/Users';
 import { Meta } from '@storybook/react/types-6-0';
 
 export default {
