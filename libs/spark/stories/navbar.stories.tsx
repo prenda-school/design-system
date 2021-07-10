@@ -22,6 +22,12 @@ const UserMenu = styled.div`
   align-items: center;
 `;
 
+const CustomUserDuotoneIcon = styled(UserDuotoneIcon)({
+  '& path[fill="#F0F1F2"]': {
+    fill: 'pink',
+  },
+});
+
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar>
@@ -43,7 +49,7 @@ const Template = (args: NavBarProps) => (
         <span>0</span>
       </NavbarLink>
       <UserMenu>
-        <UserDuotoneIcon htmlColor="pink" color="inherit" />
+        <CustomUserDuotoneIcon />
       </UserMenu>
     </Toolbar>
   </NavBar>
