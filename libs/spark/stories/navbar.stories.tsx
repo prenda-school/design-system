@@ -27,7 +27,7 @@ const Template = (args: NavBarProps) => (
     <Toolbar>
       <PrendaMonogramDark fontSize="62px" />
       <NavbarLink href="/">
-        <HomeDuotoneIcon fillColor="transparent" />
+        <HomeDuotoneIcon />
         <span>Dashboard</span>
       </NavbarLink>
       <NavbarLink href="/" aria-current="page">
@@ -43,7 +43,7 @@ const Template = (args: NavBarProps) => (
         <span>0</span>
       </NavbarLink>
       <UserMenu>
-        <UserDuotoneIcon fillColor="pink" />
+        <UserDuotoneIcon htmlColor="pink" color="inherit" />
       </UserMenu>
     </Toolbar>
   </NavBar>
