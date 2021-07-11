@@ -1,4 +1,4 @@
-import { MuiButtonBaseStyleOverrides } from '../ButtonBase';
+import { MuiButtonStyleOverrides } from '../Button';
 import { MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
@@ -13,12 +13,12 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
+import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
-import { MuiSelectStylesOverrides } from '../Select';
 
 export const overrides = {
-  MuiButtonBase: MuiButtonBaseStyleOverrides,
+  MuiButton: MuiButtonStyleOverrides,
   MuiCssBaseline: {
     '@global': {
       body: {

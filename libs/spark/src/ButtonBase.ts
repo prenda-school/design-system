@@ -1,5 +1,6 @@
 import transitions from '@material-ui/core/styles/transitions';
 import { palette } from './styles/palette';
+
 export const MuiButtonBaseDefaultProps = {
   disableRipple: true,
   disableTouchRipple: true,

@@ -9,6 +9,12 @@ export const typography = {
   body2: {
     fontSize: 14,
   },
+  button: {
+    textTransform: 'none' as const,
+    fontSize: '1rem', // 16px
+    fontWeight: 700,
+    lineHeight: '1.25rem', // 20px},
+  },
 };
 
 const nunitoRegular: CSS.AtRule.FontFace = {

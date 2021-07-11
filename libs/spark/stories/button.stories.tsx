@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Button, ButtonProps } from '../src';
+import { Button } from '@material-ui/core';
 import { ChevronDownIconLine } from '../src/icons';
 import Box from '@material-ui/core/Box';
 
@@ -11,7 +11,7 @@ export default {
     onClick: { actions: 'clicked' },
     variant: {
       control: 'select',
-      options: ['solid', 'outlined', 'flat'],
+      options: ['contained', 'outlined', 'text'],
     },
     size: {
       control: 'select',
@@ -19,27 +19,21 @@ export default {
     },
     startIcon: {
       control: 'select',
-      options: [undefined, 'caret-down'],
+      options: [undefined, 'ChevronDown'],
     },
     endIcon: {
       control: 'select',
-      options: [undefined, 'caret-down'],
+      options: [undefined, 'ChevronDown'],
     },
     disabled: { control: 'boolean' },
   },
   args: {
-    variant: 'solid',
-    size: 'medium',
+    variant: 'contained',
+    size: 'large',
   },
 } as Meta;
 
-interface TemplateButtonProps
-  extends Omit<ButtonProps, 'startIcon' | 'endIcon'> {
-  startIcon?: typeof ChevronDownIconLine;
-  endIcon?: typeof ChevronDownIconLine;
-}
-
-const Template = (args: TemplateButtonProps) => (
+const Template = (args) => (
   <Button
     {...args}
     startIcon={args.startIcon ? <ChevronDownIconLine /> : undefined}
@@ -69,19 +63,19 @@ const VariantAndSizeTemplate = (args) => (
     <span>Medium</span>
     <span>Small</span>
 
-    <span>Solid</span>
+    <span>Contained</span>
     <span>
-      <Button {...args} variant="solid" size="large">
+      <Button {...args} variant="contained" size="large">
         Label
       </Button>
     </span>
     <span>
-      <Button {...args} variant="solid" size="medium">
+      <Button {...args} variant="contained" size="medium">
         Label
       </Button>
     </span>
     <span>
-      <Button {...args} variant="solid" size="small">
+      <Button {...args} variant="contained" size="small">
         Label
       </Button>
     </span>
@@ -103,19 +97,19 @@ const VariantAndSizeTemplate = (args) => (
       </Button>
     </span>
 
-    <span>Flat</span>
+    <span>Text</span>
     <span>
-      <Button {...args} variant="flat" size="large">
+      <Button {...args} variant="text" size="large">
         Label
       </Button>
     </span>
     <span>
-      <Button {...args} variant="flat" size="medium">
+      <Button {...args} variant="text" size="medium">
         Label
       </Button>
     </span>
     <span>
-      <Button {...args} variant="flat" size="small">
+      <Button {...args} variant="text" size="small">
         Label
       </Button>
     </span>
