@@ -89,10 +89,9 @@ export const MuiButtonStyleOverrides = {
     },
     '&:active': {
       boxShadow: 'none',
-      color: palette.blue[5],
+      color: palette.blue[4],
     },
   },
-  // Y-paddings are subtracted by 2 to account for border-width
   sizeLarge: {
     fontSize: '1.125rem', // 18px
     lineHeight: '1.5rem', // 20px
@@ -103,57 +102,41 @@ export const MuiButtonStyleOverrides = {
     lineHeight: '1rem', // 12px
     padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
   },
+  label: {
+    color: 'inherit',
+    fontSize: 'inherit',
+    lineHeight: 'inherit',
+  },
   startIcon: {
     display: 'inherit',
     marginRight: 8,
-    '.MuiButton-contained > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.common.white,
-    },
-    '.MuiButton-outlined > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.blue[3],
-    },
-    '.MuiButton-text > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.blue[3],
-      '&:hover': {
-        color: palette.blue[4],
-      },
-      '&:active': {
-        color: palette.blue[4],
-      },
+    color: 'inherit',
+    '& > .MuiSvgIcon-root': {
+      color: 'inherit',
+      fontSize: 'inherit',
+      lineHeight: 'inherit',
     },
   },
   endIcon: {
     display: 'inherit',
     marginLeft: 8,
-    '.MuiButton-contained > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.common.white,
-    },
-    '.MuiButton-outlined > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.blue[3],
-    },
-    '.MuiButton-text > .MuiButton-label > &  > .MuiSvgIcon-root': {
-      color: palette.blue[3],
-      '&:hover': {
-        color: palette.blue[4],
-      },
-      '&:active': {
-        color: palette.blue[4],
-      },
+    color: 'inherit',
+    '& > .MuiSvgIcon-root': {
+      color: 'inherit',
+      fontSize: 'inherit',
+      lineHeight: 'inherit',
     },
   },
   iconSizeSmall: {
-    '& > .MuiSvgIcon-root': {
-      fontSize: '1rem', // 16px
-    },
+    fontSize: '1rem', // 16px
+    lineHeight: '1rem',
   },
   iconSizeMedium: {
-    '& > .MuiSvgIcon-root': {
-      fontSize: '1.25rem', // 20px
-    },
+    fontSize: '1.25rem', // 20px
+    lineHeight: '1.25rem',
   },
   iconSizeLarge: {
-    '& > .MuiSvgIcon-root': {
-      fontSize: '1.5rem', // 24px
-    },
+    fontSize: '1.5rem', // 24px
+    lineHeight: '1.5rem',
   },
 };
