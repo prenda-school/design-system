@@ -37,7 +37,7 @@ export const ButtonBase = styled(MuiButtonBase)`
     flex: 0 0 auto;
     overflow: visible; // Explicitly set the default value to solve a bug on IE 11.
 
-    &.Mui-focusVisible {
+    &.Mui-focusVisible, &:focus {
       box-shadow: 0 0 0 4px ${theme.palette.blue[1]};
     }
     &.Mui-disabled {
@@ -47,55 +47,62 @@ export const ButtonBase = styled(MuiButtonBase)`
     &.SparkIconButton-variantSolid {
       border-color: ${theme.palette.blue[3]};
       background-color: ${theme.palette.blue[3]};
-      color: white;
+      & > .MuiSvgIcon-root {
+        color: white;
+      }
       &:hover {
         border-color: ${theme.palette.blue[4]};
         background-color: ${theme.palette.blue[4]};
+      }
+      &:active {
+        border-color: ${theme.palette.blue[5]};
+        color: ${theme.palette.blue[4]}
       }
     }
     &.SparkIconButton-variantOutlined {
       border-color: ${theme.palette.grey.medium};
       background-color: white;
-      color: ${theme.palette.blue[3]};
+      & > .MuiSvgIcon-root {
+        color: ${theme.palette.blue[3]};
+      }
       &:hover {
         background-color: ${theme.palette.grey.light};
+      }
+      &:active {
+        background-color: ${theme.palette.grey.light};
+        border-color: ${theme.palette.blue[5]};
       }
     }
     &.SparkIconButton-variantFlat {
       border-color: transparent;
       background-color: transparent;
-      color: ${theme.palette.blue[3]};
+      & > .MuiSvgIcon-root {
+        color: ${theme.palette.blue[3]};
+      }
       &:hover {
         color: ${theme.palette.blue[4]};
       }
-      &.Mui-focusVisible {
+      &.Mui-focusVisible, &:focus {
         border-color: ${theme.palette.blue[3]};
         background-color: ${theme.palette.blue[1]};
       }
+      &:active {
+        color: ${theme.palette.blue[4]};
+      }
     }
     &.SparkIconButton-sizeLarge {
-      font-size: 1.5rem; // 24px
-      line-height: 1.5rem; // 24px
-      padding: .75rem; // 12px
-      & .SparkButton-content {
-        height: 1.5rem; // 24px
+      padding: .675rem; // 10px (plus 2px border width for 12px)
+      & > .MuiSvgIcon-root {
+        font-size: 1.5rem; // 24px
+        line-height: 1.5rem; // 24px
       }
     }
     &.SparkIconButton-sizeMedium {
-      font-size: 1.25rem; // 20px
-      line-height: 1.25rem; // 20px
-      padding: .375rem; // 6px
-      & .SparkButton-content {
-        height: 1.25rem; // 20px
+      padding: .25rem; // 4px (plus 2px border width for 6px)
+      & > .MuiSvgIcon-root {
+        font-size: 1.25rem; // 20px
+        line-height: 1.25rem; // 20px
       }
-    }
-
-    & .SparkIconButton-content {
-      // FROM-MUI
-      width: 100%; // Ensure the correct width for iOS Safari
-      display: inherit;
-      align-items: inherit;
-      justify-content: inherit;
     }
   `}
 `;
@@ -103,7 +110,7 @@ export const ButtonBase = styled(MuiButtonBase)`
 const SparkIconButton: FC<IconButtonProps> = ({
   className,
   variant = 'solid',
-  size = 'medium',
+  size = 'large',
   children,
   ...other
 }) => {
@@ -120,12 +127,7 @@ const SparkIconButton: FC<IconButtonProps> = ({
       )}
       {...other}
     >
-      {/* FROM-MUI
-       * The inner <span> is required to vertically align the children.
-       * Browsers don't support `display: flex` on a <button> element.
-       * https://github.com/philipwalton/flexbugs/blob/master/README.md#flexbug-9
-       */}
-      <span className="SparkIconButton-content">{children}</span>
+      {children}
     </ButtonBase>
   );
 };
