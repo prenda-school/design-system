@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { IconButton, IconButtonProps } from '../src';
+import { IconButton, IconButtonProps } from '@material-ui/core';
 import { ChevronDownIconLine } from '../src/icons';
 import Box from '@material-ui/core/Box';
 
@@ -9,13 +9,17 @@ export default {
   component: IconButton,
   argTypes: {
     onClick: { actions: 'clicked' },
-    variant: {
+    className: {
       control: 'select',
-      options: ['solid', 'outlined', 'flat'],
+      options: [
+        'SparkIconButton-variantPrimary',
+        'SparkIconButton-variantSecondary',
+        'SparkIconButton-variantGhost',
+      ],
     },
     size: {
       control: 'select',
-      options: ['large', 'medium'],
+      options: ['medium', 'small'],
     },
     children: {
       control: 'select',
@@ -24,8 +28,8 @@ export default {
     disabled: { control: 'boolean' },
   },
   args: {
-    variant: 'solid',
-    size: 'large',
+    className: 'SparkIconButton-variantPrimary',
+    size: 'medium',
     children: 'ChevronDown',
   },
 } as Meta;
@@ -56,41 +60,65 @@ const GridContainer = (props) => (
 const VariantAndSizeTemplate = (args) => (
   <GridContainer>
     <span>Variant / Size</span>
-    <span>Large</span>
     <span>Medium</span>
+    <span>Small</span>
 
-    <span>Solid</span>
+    <span>Contained</span>
     <span>
-      <IconButton {...args} variant="solid" size="large">
+      <IconButton
+        {...args}
+        size="medium"
+        className="SparkIconButton-variantPrimary"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton {...args} variant="solid" size="medium">
+      <IconButton
+        {...args}
+        size="small"
+        className="SparkIconButton-variantPrimary"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
-      <IconButton {...args} variant="outlined" size="large">
+      <IconButton
+        {...args}
+        size="medium"
+        className="SparkIconButton-variantSecondary"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton {...args} variant="outlined" size="medium">
+      <IconButton
+        {...args}
+        size="small"
+        className="SparkIconButton-variantSecondary"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>
 
-    <span>Flat</span>
+    <span>Text</span>
     <span>
-      <IconButton {...args} variant="flat" size="large">
+      <IconButton
+        {...args}
+        size="medium"
+        className="SparkIconButton-variantGhost"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton {...args} variant="flat" size="medium">
+      <IconButton
+        {...args}
+        size="small"
+        className="SparkIconButton-variantGhost"
+      >
         <ChevronDownIconLine />
       </IconButton>
     </span>

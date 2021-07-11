@@ -16,6 +16,7 @@ import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
 import { MuiSelectStylesOverrides } from '../Select';
+import { MuiIconButtonStyleOverrides } from '../IconButton';
 
 export const overrides = {
   MuiButtonBase: MuiButtonBaseStyleOverrides,
@@ -35,6 +36,7 @@ export const overrides = {
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
   MuiFormLabel: MuiFormLabelStyleOverrides,
+  MuiIconButton: MuiIconButtonStyleOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,

@@ -13,8 +13,6 @@ export type {
   DropdownMenuProps,
   DropdownMenuItemProps,
 } from './Dropdown';
-export { IconButton } from './IconButton';
-export type { IconButtonProps } from './IconButton';
 export {
   BookIllustration,
   CollaborateIllustration,

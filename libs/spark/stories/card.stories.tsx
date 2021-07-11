@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Card, CardContent, CardMedia, CardActions } from '@material-ui/core';
 import { Typography } from '../src/Typography';
 import { Button } from '../src/Button';
-import { IconButton } from '../src/IconButton';
+import { IconButton } from '@material-ui/core';
 import { HeartIconDuotone } from '../src/icons';
 import styled from 'styled-components';
 
@@ -59,7 +59,10 @@ export const CardWithImage = () => (
         src="/img/multicolor-blobs.jpg"
         alt="Multicolor blobs, blurred on light grey background"
       />
-      <FloatingIconButton variant="outlined" size="large">
+      <FloatingIconButton
+        className="SparkIconButton-variantSecondary"
+        size="medium"
+      >
         <HeartIconDuotone />
       </FloatingIconButton>
     </CardMedia>
