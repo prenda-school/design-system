@@ -59,10 +59,7 @@ export const CardWithImage = () => (
         src="/img/multicolor-blobs.jpg"
         alt="Multicolor blobs, blurred on light grey background"
       />
-      <FloatingIconButton
-        className="SparkIconButton-variantSecondary"
-        size="medium"
-      >
+      <FloatingIconButton className="variantSecondary" size="medium">
         <HeartIconDuotone />
       </FloatingIconButton>
     </CardMedia>

@@ -20,7 +20,7 @@ export const MuiIconButtonStyleOverrides = {
     '&:focus': {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
     },
-    '&.SparkIconButton-variantPrimary': {
+    '&.variantPrimary': {
       borderColor: palette.blue[3],
       backgroundColor: palette.blue[3],
       color: palette.common.white,
@@ -32,7 +32,7 @@ export const MuiIconButtonStyleOverrides = {
         borderColor: palette.blue[5],
       },
     },
-    '&.SparkIconButton-variantSecondary': {
+    '&.variantSecondary': {
       borderColor: palette.grey.medium,
       backgroundColor: palette.common.white,
       color: palette.blue[3],
@@ -43,7 +43,7 @@ export const MuiIconButtonStyleOverrides = {
         borderColor: palette.blue[5],
       },
     },
-    '&.SparkIconButton-variantGhost': {
+    '&.variantGhost': {
       borderColor: 'transparent',
       backgroundColor: 'transparent',
       color: palette.blue[3],

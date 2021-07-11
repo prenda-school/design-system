@@ -11,11 +11,7 @@ export default {
     onClick: { actions: 'clicked' },
     className: {
       control: 'select',
-      options: [
-        'SparkIconButton-variantPrimary',
-        'SparkIconButton-variantSecondary',
-        'SparkIconButton-variantGhost',
-      ],
+      options: ['variantPrimary', 'variantSecondary', 'variantGhost'],
     },
     size: {
       control: 'select',
@@ -28,7 +24,7 @@ export default {
     disabled: { control: 'boolean' },
   },
   args: {
-    className: 'SparkIconButton-variantPrimary',
+    className: 'variantPrimary',
     size: 'medium',
     children: 'ChevronDown',
   },
@@ -65,60 +61,36 @@ const VariantAndSizeTemplate = (args) => (
 
     <span>Contained</span>
     <span>
-      <IconButton
-        {...args}
-        size="medium"
-        className="SparkIconButton-variantPrimary"
-      >
+      <IconButton {...args} size="medium" className="variantPrimary">
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton
-        {...args}
-        size="small"
-        className="SparkIconButton-variantPrimary"
-      >
+      <IconButton {...args} size="small" className="variantPrimary">
         <ChevronDownIconLine />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
-      <IconButton
-        {...args}
-        size="medium"
-        className="SparkIconButton-variantSecondary"
-      >
+      <IconButton {...args} size="medium" className="variantSecondary">
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton
-        {...args}
-        size="small"
-        className="SparkIconButton-variantSecondary"
-      >
+      <IconButton {...args} size="small" className="variantSecondary">
         <ChevronDownIconLine />
       </IconButton>
     </span>
 
     <span>Text</span>
     <span>
-      <IconButton
-        {...args}
-        size="medium"
-        className="SparkIconButton-variantGhost"
-      >
+      <IconButton {...args} size="medium" className="variantGhost">
         <ChevronDownIconLine />
       </IconButton>
     </span>
     <span>
-      <IconButton
-        {...args}
-        size="small"
-        className="SparkIconButton-variantGhost"
-      >
+      <IconButton {...args} size="small" className="variantGhost">
         <ChevronDownIconLine />
       </IconButton>
     </span>
