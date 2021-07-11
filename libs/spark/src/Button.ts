@@ -1,6 +1,8 @@
 import { palette } from './styles/palette';
 
 export const MuiButtonDefaultProps = {
+  // No disableElevation: true because it makes styling box-shadow's
+  //  VERY difficult. Instead, just override wherever it pops up.
   disableFocusRipple: true,
   disableRipple: true,
   variant: 'contained' as const,
