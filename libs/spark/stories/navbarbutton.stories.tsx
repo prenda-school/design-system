@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 const Template = () => (
-  <NavBarButton href="#" startIcon={<UsersIconDuotone />}>
+  <NavBarButton href="" startIcon={<UsersIconDuotone />}>
     Link Text
   </NavBarButton>
 );
