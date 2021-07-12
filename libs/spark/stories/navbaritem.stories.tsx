@@ -1,18 +1,18 @@
 import React from 'react';
-import { NavBarItem } from '../src';
+import { NavBarButton } from '../src';
 import UsersIconDuotone from '../src/icons/duotone/Users';
 import { Meta } from '@storybook/react/types-6-0';
 
 export default {
-  title: 'prenda-spark/NavBarItem',
-  component: NavBarItem,
+  title: 'prenda-spark/NavBarButton',
+  component: NavBarButton,
   argTypes: {},
   args: {},
 } as Meta;
 
 const Template = () => (
-  <NavBarItem href="#" startIcon={<UsersIconDuotone />}>
+  <NavBarButton href="#" startIcon={<UsersIconDuotone />}>
     Link Text
-  </NavBarItem>
+  </NavBarButton>
 );
 export const Basic = Template.bind({});

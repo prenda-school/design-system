@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
-import { NavBar, NavBarProps, PrendaMonogramDark, NavBarItem } from '../src';
+import { NavBar, NavBarProps, PrendaMonogramDark, NavBarButton } from '../src';
 import HomeIconDuotone from '../src/icons/duotone/Home';
 import CheckCircleIconDuotone from '../src/icons/duotone/CheckCircle';
-import RocketIconDuotone from '../src/icons/duotone/Rocket';
+// import RocketIconDuotone from '../src/icons/duotone/Rocket';
 import InboxFilledIconDuotone from '../src/icons/duotone/InboxFilled';
 import UserIconDuotone from '../src/icons/duotone/User';
 import Toolbar from '@material-ui/core/Toolbar';
 import { theme } from '../src/styles';
+import UsersIconDuotone from '../src/icons/duotone/Users';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -24,35 +25,39 @@ const UserMenu = styled.div`
 
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
-    <Toolbar>
-      <PrendaMonogramDark fontSize="62px" />
-      <NavBarItem
-        href={`#`}
-        startIcon={<HomeIconDuotone fillColor="transparent" />}
-      >
-        Dashboard
-      </NavBarItem>
-      <NavBarItem
-        href={`#`}
-        startIcon={
-          <CheckCircleIconDuotone fillColor={theme.palette.brand.lightBlue} />
-        }
+    <Toolbar style={{ gap: 8 }}>
+      <PrendaMonogramDark fontSize="72px" />
+      <NavBarButton
+        href=""
+        startIcon={<HomeIconDuotone size="large" />}
         aria-current="page"
       >
-        Active
-      </NavBarItem>
-      <NavBarItem href={`#`} startIcon={<RocketIconDuotone />} disabled>
-        Disabled
-      </NavBarItem>
-      <NavBarItem
-        href={`#`}
-        startIcon={<InboxFilledIconDuotone />}
+        Home
+      </NavBarButton>
+      <NavBarButton
+        href=""
+        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+      >
+        Conquer
+      </NavBarButton>
+      <NavBarButton href="" startIcon={<UsersIconDuotone fontSize="large" />}>
+        Collaborate
+      </NavBarButton>
+      <NavBarButton
+        href=""
+        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+      >
+        Create
+      </NavBarButton>
+      <NavBarButton
+        href=""
+        startIcon={<InboxFilledIconDuotone fontSize="large" />}
         style={{ marginLeft: 'auto' }}
       >
         0
-      </NavBarItem>
+      </NavBarButton>
       <UserMenu>
-        <UserIconDuotone fillColor="pink" />
+        <UserIconDuotone fontSize="large" />
       </UserMenu>
     </Toolbar>
   </NavBar>

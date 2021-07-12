@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import 'jest-styled-components';
-import { SparkThemeProvider, NavBar, NavBarItem } from '../src';
+import { SparkThemeProvider, NavBar, NavBarButton } from '../src';
 import { QuestionIconDuotone } from '../src/icons';
 
 describe('Button', () => {
@@ -8,9 +8,9 @@ describe('Button', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
         <NavBar>
-          <NavBarItem href="/" startIcon={<QuestionIconDuotone />}>
+          <NavBarButton href="/" startIcon={<QuestionIconDuotone />}>
             Dashboard
-          </NavBarItem>
+          </NavBarButton>
         </NavBar>
       </SparkThemeProvider>
     );
