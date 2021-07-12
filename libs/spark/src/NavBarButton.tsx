@@ -15,6 +15,7 @@ export const NavBarButton = withStyles({
     fontSize: '1.125rem',
     '& .MuiSvgIcon-root': {
       color: theme.palette.text.onLightLowContrast,
+      fontSize: '2rem',
       '& .MuiSvgIcon-colorPrimary': {
         fill: theme.palette.text.onLightLowContrast,
       },

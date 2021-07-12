@@ -26,7 +26,7 @@ const UserMenu = styled.div`
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar style={{ gap: 8 }}>
-      <PrendaMonogramDark fontSize="72px" />
+      <PrendaMonogramDark fontSize="4.5rem" />
       <NavBarButton href="" startIcon={<HomeIconDuotone />} aria-current="page">
         Home
       </NavBarButton>
