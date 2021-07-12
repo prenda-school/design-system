@@ -34,10 +34,7 @@ const Template = (args: NavBarProps) => (
       >
         Home
       </NavBarButton>
-      <NavBarButton
-        href=""
-        startIcon={<CheckCircleIconDuotone fontSize="large" />}
-      >
+      <NavBarButton href="" startIcon={<CheckCircleIconDuotone size="large" />}>
         Conquer
       </NavBarButton>
       <NavBarButton href="" startIcon={<UsersIconDuotone fontSize="large" />}>
