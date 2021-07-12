@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 import {
   ButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
-  Theme,
 } from '@material-ui/core';
-import styled from 'styled-components';
 import clsx from 'clsx';
 import { capitalize } from './utils';
 
@@ -18,7 +16,7 @@ export interface ButtonProps extends MuiButtonBaseProps {
 const SparkButton: FC<ButtonProps> = ({
   className,
   variant = 'solid',
-  size = 'medium',
+  size = 'large',
   children,
   startIcon,
   endIcon,
