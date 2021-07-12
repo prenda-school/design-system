@@ -15,7 +15,7 @@ export const NavBarButton = withStyles({
     fontSize: '1.125rem',
     '& .MuiSvgIcon-root': {
       color: theme.palette.text.onLightLowContrast,
-      fontSize: '2rem',
+      // fontSize: '2rem',
       '& .MuiSvgIcon-colorPrimary': {
         fill: theme.palette.text.onLightLowContrast,
       },
@@ -40,6 +40,14 @@ export const NavBarButton = withStyles({
       },
     },
     label: { fontWeight: 700 },
+  },
+  iconSizeMedium: {
+    '& > *:first-child': {
+      fontSize: '1.5rem', // small/medium/large for icons is 16px/24px/32px
+      '&.MuiSvgIcon-fontSizeLarge': {
+        fontSize: '2rem',
+      },
+    },
   },
   disabled: { color: theme.palette.grey.dark },
   focusVisible: {

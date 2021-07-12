@@ -27,21 +27,31 @@ const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar style={{ gap: 8 }}>
       <PrendaMonogramDark fontSize="4.5rem" />
-      <NavBarButton href="" startIcon={<HomeIconDuotone />} aria-current="page">
+      <NavBarButton
+        href="#"
+        startIcon={<HomeIconDuotone fontSize="large" />}
+        aria-current="page"
+      >
         Home
       </NavBarButton>
-      <NavBarButton href="" startIcon={<CheckCircleIconDuotone />}>
+      <NavBarButton
+        href="#"
+        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+      >
         Conquer
       </NavBarButton>
-      <NavBarButton href="" startIcon={<UsersIconDuotone />}>
+      <NavBarButton href="#" startIcon={<UsersIconDuotone fontSize="large" />}>
         Collaborate
       </NavBarButton>
-      <NavBarButton href="" startIcon={<CheckCircleIconDuotone />}>
+      <NavBarButton
+        href="#"
+        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+      >
         Create
       </NavBarButton>
       <NavBarButton
-        href=""
-        startIcon={<InboxFilledIconDuotone />}
+        href="#"
+        startIcon={<InboxFilledIconDuotone fontSize="large" />}
         style={{ marginLeft: 'auto' }}
       >
         0
