@@ -48,7 +48,15 @@ export const NavBarButton = withStyles({
       },
     },
   },
-  disabled: { color: theme.palette.grey.dark },
+  disabled: {
+    color: theme.palette.grey.dark,
+    '& .MuiSvgIcon-colorPrimary': {
+      color: theme.palette.grey.dark,
+      '& > path:first-child': {
+        color: theme.palette.grey.dark,
+      },
+    },
+  },
   focusVisible: {
     backgroundColor: theme.palette.grey.light,
   },
