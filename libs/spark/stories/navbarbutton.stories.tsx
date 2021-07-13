@@ -42,40 +42,49 @@ const Template: Story = (args: TemplateButtonProps) => (
     Label
   </NavBarButton>
 );
-export const ConfigurableInput = Template.bind({});
+export const Configurable = Template.bind({});
 
 const GridContainer = (props) => (
   <Box
     m={1}
     display="grid"
-    gridTemplateColumns="1fr 1fr 1fr 1fr"
+    gridTemplateColumns="1fr 1fr 1fr"
     gridGap="16px"
-    alignItems="end"
+    alignItems="center"
     {...props}
   />
 );
 
 const AllTemplate: Story = (args) => (
   <GridContainer>
-    <span>Label</span>
-    <NavBarButton {...args}>Label</NavBarButton>
-    <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
-      Label
-    </NavBarButton>
-    <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
-      Label
-    </NavBarButton>
-    <span>Link</span>
-
-    <NavBarButton href="#" {...args}>
-      Link
-    </NavBarButton>
-    <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
-      Link
-    </NavBarButton>
-    <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
-      Link
-    </NavBarButton>
+    <span>
+      <NavBarButton {...args}>Label</NavBarButton>
+    </span>
+    <span>
+      <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
+        Label
+      </NavBarButton>
+    </span>
+    <span>
+      <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
+        Label
+      </NavBarButton>
+    </span>
+    <span>
+      <NavBarButton href="#" {...args}>
+        Link
+      </NavBarButton>
+    </span>
+    <span>
+      <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
+        Link
+      </NavBarButton>
+    </span>
+    <span>
+      <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
+        Link
+      </NavBarButton>
+    </span>
   </GridContainer>
 );
 
