@@ -16,7 +16,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@prenda/spark": ["libs/spark/src/index.ts"]
+      "@prenda/spark": ["libs/spark/src/index.ts"],
+      "@prenda/spark-icons": ["libs/spark-icons/src/index.ts"],
+      "@prenda/spark-icons/*": ["libs/spark-icons/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -9,7 +9,7 @@
   "affected": {
     "defaultBase": "main"
   },
-  "npmScope": "prenda-spark",
+  "npmScope": "prenda",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -33,6 +33,9 @@
       "implicitDependencies": ["spark"]
     },
     "workspace": {
+      "tags": []
+    },
+    "spark-icons": {
       "tags": []
     }
   }
