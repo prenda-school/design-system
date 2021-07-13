@@ -2,6 +2,7 @@ import { ChevronDownIconLine } from './icons';
 import { palette } from './styles/palette';
 
 export const MuiSelectDefaultProps = {
+  displayEmpty: true,
   IconComponent: ChevronDownIconLine,
   MenuProps: {
     getContentAnchorEl: null,
@@ -19,8 +20,10 @@ export const MuiSelectDefaultProps = {
 
 export const MuiSelectStylesOverrides = {
   root: {
-    color: ({ value }) =>
-      value === '' ? palette.text.onLightLowContrast : palette.text.onLight,
+    color: ({ value, defaultValue }) =>
+      value || defaultValue
+        ? palette.text.onLight
+        : palette.text.onLightLowContrast,
   },
   select: {
     borderRadius: 8,

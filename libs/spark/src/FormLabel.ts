@@ -11,5 +11,8 @@ export const MuiFormLabelStyleOverrides = {
     '&$focused': {
       color: palette.blue[3],
     },
+    '&$error.MuiInputLabel-root': {
+      color: 'inherit',
+    },
   },
 };

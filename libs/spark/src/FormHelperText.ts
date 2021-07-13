@@ -5,12 +5,15 @@ export const MuiFormHelperTextStyleOverrides = {
     color: palette.text.onLightLowContrast,
     fontSize: '1rem', // 12px
     lineHeight: '1.5rem', // 20px
-    marginTop: 8,
+    marginTop: 4,
     '&$disabled': {
       color: palette.grey.dark,
     },
     '.MuiFormGroup-root ~ &': {
       marginTop: 3,
+    },
+    '.MuiTextField-root > &$error': {
+      color: palette.text.onLightLowContrast,
     },
   },
 };
