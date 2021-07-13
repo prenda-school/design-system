@@ -19,13 +19,12 @@ export const MuiButtonBaseStyleOverrides = {
       borderWidth: '2px',
       borderStyle: 'solid' as const,
       fontWeight: 700,
-      '&.Mui-focusVisible': {
+      '&.Mui-focusVisible, &:focus': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       },
       '&$disabled': {
         opacity: '50%',
       },
-
       '&.SparkButton-variantSolid': {
         borderColor: palette.blue[3],
         backgroundColor: palette.blue[3],
@@ -33,6 +32,9 @@ export const MuiButtonBaseStyleOverrides = {
         '&:hover': {
           borderColor: palette.blue[4],
           backgroundColor: palette.blue[4],
+        },
+        '&:active': {
+          borderColor: palette.blue[5],
         },
       },
       '&.SparkButton-variantOutlined': {
@@ -42,6 +44,9 @@ export const MuiButtonBaseStyleOverrides = {
         '&:hover': {
           backgroundColor: palette.grey.light,
         },
+        '&:active': {
+          borderColor: palette.blue[5],
+        },
       },
       '&.SparkButton-variantFlat': {
         borderColor: 'transparent',
@@ -50,15 +55,18 @@ export const MuiButtonBaseStyleOverrides = {
         '&:hover': {
           color: palette.blue[4],
         },
-        '&.Mui-focusVisible': {
+        '&.Mui-focusVisible, &:focus': {
           borderColor: palette.blue[3],
           backgroundColor: palette.blue[1],
+        },
+        '&:active': {
+          color: palette.blue[5],
         },
       },
       // Y-paddings are subtracted by 2 to account for border-width
       '&.SparkButton-sizeLarge': {
         fontSize: '1.125rem', // 18px
-        lineHeight: '1.25rem', // 20px
+        lineHeight: '1.5rem', // 20px
         padding: '.75rem 1rem', // 12px (accounting for 2px border width) 16px
       },
       '&.SparkButton-sizeMedium': {
@@ -68,32 +76,41 @@ export const MuiButtonBaseStyleOverrides = {
       },
       '&.SparkButton-sizeSmall': {
         fontSize: '0.75rem', // 12px
-        lineHeight: '0.75rem', // 12px
-        padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+        lineHeight: '1rem', // 12px
+        padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
       },
-      '& .SparkButton-content': {
-        // taken from Mui
-        width: '100%', // Ensure the correct width for iOS Safari
+      '& .SparkButton-startIcon, & .SparkButton-endIcon': {
         display: 'inherit',
-        alignItems: 'inherit',
-        justifyContent: 'inherit',
-        '& .SparkButton-startIcon': {
-          display: 'inherit',
-          marginRight: '.5rem', // 8px
+        '.SparkButton-variantSolid& > .MuiSvgIcon-root': {
+          color: palette.common.white,
         },
-        '& .SparkButton-endIcon': {
-          display: 'inherit',
-          marginLeft: '.5rem', // 8px
+        '.SparkButton-variantOutlined& > .MuiSvgIcon-root': {
+          color: palette.blue[3],
         },
-        '& .SparkButton-iconSizeSmall': {
-          fontSize: '1rem', // 16px
+        '.SparkButton-variantFlat& > .MuiSvgIcon-root': {
+          color: palette.blue[3],
+          '&:hover': {
+            color: palette.blue[4],
+          },
+          '&:active': {
+            color: palette.blue[4],
+          },
         },
-        '& .SparkButton-iconSizeMedium': {
-          fontSize: '1.25rem', // 20px
-        },
-        '& .SparkButton-iconSizeLarge': {
-          fontSize: '1.5rem', // 24px
-        },
+      },
+      '& .SparkButton-startIcon': {
+        marginRight: 8,
+      },
+      '& .SparkButton-endIcon': {
+        marginLeft: 8,
+      },
+      '& .SparkButton-iconSizeSmall > .MuiSvgIcon-root': {
+        fontSize: '1rem', // 16px
+      },
+      '& .SparkButton-iconSizeMedium > .MuiSvgIcon-root': {
+        fontSize: '1.25rem', // 20px
+      },
+      '& .SparkButton-iconSizeLarge > .MuiSvgIcon-root': {
+        fontSize: '1.5rem', // 24px
       },
     },
   },
