@@ -2,6 +2,7 @@ import React from 'react';
 import { NavBarButton, NavBarButtonProps } from '../src';
 import UsersIconDuotone from '../src/icons/duotone/Users';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import Box from '@material-ui/core/Box';
 
 export default {
   title: 'prenda-spark/NavBarButton',
@@ -34,38 +35,48 @@ interface TemplateButtonProps
 
 const Template: Story = (args: TemplateButtonProps) => (
   <NavBarButton
+    {...args}
     startIcon={args.startIcon ? <UsersIconDuotone /> : undefined}
     endIcon={args.endIcon ? <UsersIconDuotone /> : undefined}
-    {...args}
   >
     Label
   </NavBarButton>
 );
 export const ConfigurableInput = Template.bind({});
 
+const GridContainer = (props) => (
+  <Box
+    m={1}
+    display="grid"
+    gridTemplateColumns="1fr 1fr 1fr 1fr"
+    gridGap="16px"
+    alignItems="end"
+    {...props}
+  />
+);
+
 const AllTemplate: Story = (args) => (
-  <>
-    <div>
-      <NavBarButton {...args}>Label</NavBarButton>
-      <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
-        Label
-      </NavBarButton>
-      <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
-        Label
-      </NavBarButton>
-    </div>
-    <div>
-      <NavBarButton href="#" {...args}>
-        Link
-      </NavBarButton>
-      <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
-        Link
-      </NavBarButton>
-      <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
-        Link
-      </NavBarButton>
-    </div>
-  </>
+  <GridContainer>
+    <span>Label</span>
+    <NavBarButton {...args}>Label</NavBarButton>
+    <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
+      Label
+    </NavBarButton>
+    <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
+      Label
+    </NavBarButton>
+    <span>Link</span>
+
+    <NavBarButton href="#" {...args}>
+      Link
+    </NavBarButton>
+    <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
+      Link
+    </NavBarButton>
+    <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
+      Link
+    </NavBarButton>
+  </GridContainer>
 );
 
 export const All = AllTemplate.bind({});
