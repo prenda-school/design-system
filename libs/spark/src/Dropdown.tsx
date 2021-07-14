@@ -5,7 +5,7 @@ import {
   MenuItemProps as MuiMenuItemProps,
   Divider as MuiDivider,
 } from '@material-ui/core';
-import { Button, ButtonProps } from './Button';
+import { Button, ButtonProps } from '@material-ui/core';
 import styled from 'styled-components';
 import { MenuItem } from './MenuItem';
 

@@ -1,3 +1,4 @@
+import { MuiButtonDefaultProps } from '../Button';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase';
 import { MuiCardDefaultProps } from '../Card';
 import { MuiCheckboxDefaultProps } from '../Checkbox';
@@ -11,6 +12,7 @@ import { MuiSelectDefaultProps } from '../Select';
 import { MuiSvgIconDefaultProps } from '../SvgIcon';
 
 export const props = {
+  MuiButton: MuiButtonDefaultProps,
   MuiButtonBase: MuiButtonBaseDefaultProps,
   MuiCard: MuiCardDefaultProps,
   MuiCheckbox: MuiCheckboxDefaultProps,

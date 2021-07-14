@@ -1,4 +1,5 @@
 /dist
 /coverage
+/libs/spark/src/icons/**/*
 /libs/spark/src/icons/*
 /libs/spark-icons/defaults/templateSvgIcon.tsx 
