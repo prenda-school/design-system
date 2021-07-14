@@ -17,7 +17,6 @@ export default {
   },
   args: {
     value: '',
-    displayEmpty: true,
   },
 } as Meta;
 

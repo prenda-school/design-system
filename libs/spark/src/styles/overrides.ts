@@ -6,6 +6,7 @@ import { MuiCheckboxStyleOverrides } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiFormLabelStyleOverrides } from '../FormLabel';
+import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputBaseStyleOverrides } from '../InputBase';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiMenuStyleOverrides } from '../Menu';
@@ -13,9 +14,9 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
+import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
-import { MuiSelectStylesOverrides } from '../Select';
 
 export const overrides = {
   MuiButtonBase: MuiButtonBaseStyleOverrides,
@@ -35,6 +36,7 @@ export const overrides = {
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
   MuiFormLabel: MuiFormLabelStyleOverrides,
+  MuiInput: MuiInputStyleOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,

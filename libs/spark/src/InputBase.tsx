@@ -17,7 +17,7 @@ export const MuiInputBaseStyleOverrides = {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       backgroundColor: palette.common.white,
     },
-    '&.Spark-success': {
+    '&.Spark-success, .MuiTextField-root.Spark-success > &': {
       borderColor: palette.green[3],
       boxShadow: `0 0 0 4px ${palette.green[1]}`,
     },
@@ -47,5 +47,14 @@ export const MuiInputBaseStyleOverrides = {
   },
   multiline: {
     padding: '.75rem 1rem',
+  },
+  formControl: {
+    // needs high specificity to override default !important
+    'label[data-shrink="false"] + &$root > $input::placeholder': {
+      opacity: '1 !important',
+    },
+    'label[data-shrink="false"] + &$root$disabled > $input::placeholder': {
+      opacity: '0.42 !important',
+    },
   },
 };

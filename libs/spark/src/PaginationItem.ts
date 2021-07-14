@@ -67,7 +67,7 @@ export const MuiPaginationItemStyleOverrides = {
       paddingBottom: '.375rem',
       // extra for this being ::after
       visibility: 'visible',
-      position: 'absolute',
+      position: 'absolute' as const,
       inset: 'auto',
       content: "'...'",
       letterSpacing: '1px',
