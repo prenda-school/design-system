@@ -58,7 +58,7 @@ export const NavBarButton = withStyles({
       border: 'transparent',
       '& .MuiSvgIcon-colorPrimary': {
         color: theme.palette.grey.dark,
-        '& > path:first-child': {
+        '& > *:first-child': {
           color: theme.palette.grey.dark,
         },
       },
