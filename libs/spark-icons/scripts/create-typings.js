@@ -7,7 +7,10 @@ import fse from 'fs-extra';
 import glob from 'glob';
 
 const SRC_DIR = path.resolve(__dirname, '../src');
-const TARGET_DIR = path.resolve(__dirname, '../../../dist/libs/spark-icons-2');
+const TARGET_DIR = path.resolve(
+  __dirname,
+  '../../../dist/libs/spark-icons-alt'
+);
 
 function normalizeFileName(file) {
   return path.parse(file).name;

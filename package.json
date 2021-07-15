@@ -26,8 +26,8 @@
     "help": "nx help",
     "prepare": "husky install",
     "src:icons": "UV_THREADPOOL_SIZE=64 babel-node --config-file ./libs/spark-icons/defaults/babel.config.js libs/spark-icons/scripts/builder.js --output-dir libs/spark-icons/src --svg-dir libs/spark-icons/svg-files",
-    "build:icons": "rimraf ./dist/libs/spark-icons-2 && npm run build:icons:envs && npm run build:icons-typings && npm run build:icons-copy-files",
-    "build:icons:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel --config-file ./libs/spark-icons/defaults/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons-2 && BABEL_ENV=\"esm\" babel --config-file ./libs/spark-icons/defaults/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons-2/esm",
+    "build:icons": "rimraf ./dist/libs/spark-icons-alt && npm run build:icons:envs && npm run build:icons-typings && npm run build:icons-copy-files",
+    "build:icons:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel --config-file ./libs/spark-icons/defaults/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons-alt && BABEL_ENV=\"esm\" babel --config-file ./libs/spark-icons/defaults/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons-alt/esm",
     "build:icons-typings": "babel-node --config-file ./libs/spark-icons/defaults/babel.config.js libs/spark-icons/scripts/create-typings.js",
     "build:icons-copy-files": "node ./libs/spark-icons/scripts/copy-files.js"
   },

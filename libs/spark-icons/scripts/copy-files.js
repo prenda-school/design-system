@@ -4,7 +4,7 @@ const fse = require('fs-extra');
 const glob = require('glob');
 
 const packagePath = process.cwd();
-const buildPath = path.join(packagePath, './dist/libs/spark-icons-2');
+const buildPath = path.join(packagePath, './dist/libs/spark-icons-alt');
 const srcPath = path.join(packagePath, './libs/spark-icons/src');
 
 async function includeFileInBuild(file) {
