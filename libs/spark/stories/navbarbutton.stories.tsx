@@ -58,30 +58,42 @@ const GridContainer = (props) => (
 const AllTemplate: Story = (args) => (
   <GridContainer>
     <span>
-      <NavBarButton {...args}>Label</NavBarButton>
-    </span>
-    <span>
-      <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
+      <NavBarButton size="large" {...args}>
         Label
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
+      <NavBarButton size="large" {...args} startIcon={<UsersIconDuotone />}>
         Label
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton href="#" {...args}>
+      <NavBarButton size="large" {...args} endIcon={<UsersIconDuotone />}>
+        Label
+      </NavBarButton>
+    </span>
+    <span>
+      <NavBarButton size="large" href="#" {...args}>
         Link
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
+      <NavBarButton
+        size="large"
+        href="#"
+        {...args}
+        startIcon={<UsersIconDuotone />}
+      >
         Link
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
+      <NavBarButton
+        size="large"
+        href="#"
+        {...args}
+        endIcon={<UsersIconDuotone />}
+      >
         Link
       </NavBarButton>
     </span>

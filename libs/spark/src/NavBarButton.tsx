@@ -3,16 +3,22 @@ import { withStyles } from '@material-ui/core/styles';
 import { Button, ButtonProps } from '@material-ui/core';
 import { theme } from './styles';
 
-export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color' | 'size'>;
+export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
 export const NavBarButton = withStyles({
   root: {
-    height: 48,
     borderRadius: 8,
+    backgroundColor: 'transparent',
+    border: '2px solid transparent',
     padding: 8,
     textTransform: 'none',
     color: theme.palette.text.onLightLowContrast,
-    fontSize: '1.125rem',
+    transition: theme.transitions.create(
+      ['background-color', 'box-shadow', 'color'],
+      {
+        duration: theme.transitions.duration.short,
+      }
+    ),
     '& .MuiSvgIcon-root': {
       color: theme.palette.text.onLightLowContrast,
       '& .MuiSvgIcon-colorPrimary': {
@@ -21,8 +27,10 @@ export const NavBarButton = withStyles({
     },
     '&:hover': {
       backgroundColor: theme.palette.grey.light,
+      border: `2px solid ${theme.palette.grey.light}`,
     },
     '&:focus': {
+      boxShadow: 'none',
       border: `2px solid ${theme.palette.blue[4]}`,
       outline: 'none',
       backgroundColor: theme.palette.grey.light,
@@ -40,7 +48,7 @@ export const NavBarButton = withStyles({
     },
     label: { fontWeight: 700 },
   },
-  iconSizeMedium: {
+  iconSizeLarge: {
     '& > *:first-child': {
       fontSize: '1.5rem', // small/medium/large for icons is 16px/24px/32px
       '&.MuiSvgIcon-fontSizeLarge': {
@@ -49,11 +57,16 @@ export const NavBarButton = withStyles({
     },
   },
   disabled: {
-    color: theme.palette.grey.dark,
-    '& .MuiSvgIcon-colorPrimary': {
+    '&.MuiButton-contained': {
+      opacity: '100%',
       color: theme.palette.grey.dark,
-      '& > path:first-child': {
+      backgroundColor: 'transparent',
+      border: 'transparent',
+      '& .MuiSvgIcon-colorPrimary': {
         color: theme.palette.grey.dark,
+        '& > path:first-child': {
+          color: theme.palette.grey.dark,
+        },
       },
     },
   },
