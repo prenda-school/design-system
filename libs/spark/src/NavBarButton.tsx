@@ -10,7 +10,7 @@ export const NavBarButton = withStyles({
     borderRadius: 8,
     backgroundColor: 'transparent',
     border: '2px solid transparent',
-    padding: 8,
+    padding: 6,
     textTransform: 'none',
     color: theme.palette.text.onLightLowContrast,
     '& .MuiSvgIcon-root': {
