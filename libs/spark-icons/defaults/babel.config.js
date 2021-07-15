@@ -19,10 +19,7 @@ if (process.env.BABEL_ENV === 'es') {
   ];
 }
 
-const productionPlugins = [
-  '@babel/plugin-transform-react-constant-elements',
-  'babel-plugin-transform-dev-warning',
-];
+const productionPlugins = ['@babel/plugin-transform-react-constant-elements'];
 
 module.exports = {
   presets: defaultPresets.concat([
