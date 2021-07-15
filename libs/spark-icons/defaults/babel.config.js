@@ -19,18 +19,48 @@ if (process.env.BABEL_ENV === 'es') {
   ];
 }
 
+const productionPlugins = [
+  '@babel/plugin-transform-react-constant-elements',
+  'babel-plugin-transform-dev-warning',
+];
+
 module.exports = {
-  presets: defaultPresets,
-  plugins: [['@babel/plugin-proposal-class-properties', { loose: true }]],
+  presets: defaultPresets.concat([
+    '@babel/preset-react',
+    '@babel/preset-typescript',
+  ]),
+  plugins: [
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+    ['@babel/plugin-proposal-object-rest-spread', { loose: true }],
+    ['@babel/plugin-transform-runtime', { version: '^7.4.4' }],
+  ],
   env: {
     cjs: {
-      plugins: [],
+      plugins: productionPlugins,
     },
     es: {
-      plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
+      plugins: [
+        ...productionPlugins,
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+      ],
     },
     esm: {
-      plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
+      plugins: [
+        ...productionPlugins,
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+      ],
+    },
+    production: {
+      plugins: [
+        ...productionPlugins,
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+      ],
+    },
+    'production-umd': {
+      plugins: [
+        ...productionPlugins,
+        ['@babel/plugin-transform-runtime', { useESModules: true }],
+      ],
     },
   },
 };
