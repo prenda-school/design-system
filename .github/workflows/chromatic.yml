@@ -1,9 +1,14 @@
 name: 'Chromatic'
 
-on: [push, workflow_dispatch]
+on:  
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
 
 jobs:
   chromatic-deployment:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v1
