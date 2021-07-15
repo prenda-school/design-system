@@ -8,7 +8,8 @@ import {
   DropdownMenuItem,
   DropdownDivider,
 } from '../src';
-import { UserIconDuotone, ChevronDownIconLine } from '../src/icons';
+import UserDuotoneIcon from '@prenda/spark-icons/UserDuotone';
+import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
 import { Box } from '@material-ui/core';
 
 export default {
@@ -30,11 +31,11 @@ const Template = ({ disabled, open, ...otherArgs }) => {
   return (
     <Box mx={16} my={4}>
       <DropdownContext id="dropdown">
-        <DropdownButton endIcon={<ChevronDownIconLine />} {...buttonProps}>
+        <DropdownButton endIcon={<ChevronDownIcon />} {...buttonProps}>
           Options
         </DropdownButton>
         <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={<UserIconDuotone />}>
+          <DropdownMenuItem startIcon={<UserDuotoneIcon />}>
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>Resources</DropdownMenuItem>

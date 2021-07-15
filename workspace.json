@@ -152,7 +152,7 @@
             "tsConfig": "libs/spark-icons/tsconfig.lib.json",
             "project": "libs/spark-icons/package.json",
             "entryFile": "libs/spark-icons/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": ["react", "react-dom", "react-is", "@material-ui"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {

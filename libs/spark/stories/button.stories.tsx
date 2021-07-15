@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { Button } from '@material-ui/core';
-import { ChevronDownIconLine } from '../src/icons';
+import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
 import Box from '@material-ui/core/Box';
 
 export default {
@@ -36,8 +36,8 @@ export default {
 const Template = (args) => (
   <Button
     {...args}
-    startIcon={args.startIcon ? <ChevronDownIconLine /> : undefined}
-    endIcon={args.endIcon ? <ChevronDownIconLine /> : undefined}
+    startIcon={args.startIcon ? <ChevronDownIcon /> : undefined}
+    endIcon={args.endIcon ? <ChevronDownIcon /> : undefined}
   >
     Label
   </Button>
@@ -131,43 +131,43 @@ export const VariantAndSizeActive = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 export const StartIconVariantAndSize = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSize.args = { startIcon: <ChevronDownIconLine /> };
+StartIconVariantAndSize.args = { startIcon: <ChevronDownIcon /> };
 
 export const StartIconVariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
 StartIconVariantAndSizeDisabled.args = {
   disabled: true,
-  startIcon: <ChevronDownIconLine />,
+  startIcon: <ChevronDownIcon />,
 };
 
 export const StartIconVariantAndSizeHover = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeHover.args = { startIcon: <ChevronDownIconLine /> };
+StartIconVariantAndSizeHover.args = { startIcon: <ChevronDownIcon /> };
 StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const StartIconVariantAndSizeFocus = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeFocus.args = { startIcon: <ChevronDownIconLine /> };
+StartIconVariantAndSizeFocus.args = { startIcon: <ChevronDownIcon /> };
 StartIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
 export const StartIconVariantAndSizeActive = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeActive.args = { startIcon: <ChevronDownIconLine /> };
+StartIconVariantAndSizeActive.args = { startIcon: <ChevronDownIcon /> };
 StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 export const EndIconVariantAndSize = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSize.args = { endIcon: <ChevronDownIconLine /> };
+EndIconVariantAndSize.args = { endIcon: <ChevronDownIcon /> };
 
 export const EndIconVariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
 EndIconVariantAndSizeDisabled.args = {
   disabled: true,
-  endIcon: <ChevronDownIconLine />,
+  endIcon: <ChevronDownIcon />,
 };
 
 export const EndIconVariantAndSizeHover = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeHover.args = { endIcon: <ChevronDownIconLine /> };
+EndIconVariantAndSizeHover.args = { endIcon: <ChevronDownIcon /> };
 EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const EndIconVariantAndSizeFocus = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeFocus.args = { endIcon: <ChevronDownIconLine /> };
+EndIconVariantAndSizeFocus.args = { endIcon: <ChevronDownIcon /> };
 EndIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
 export const EndIconVariantAndSizeActive = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeActive.args = { endIcon: <ChevronDownIconLine /> };
+EndIconVariantAndSizeActive.args = { endIcon: <ChevronDownIcon /> };
 EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };

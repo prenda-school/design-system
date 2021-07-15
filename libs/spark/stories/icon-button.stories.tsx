@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { IconButton, IconButtonProps } from '../src';
-import { ChevronDownIconLine } from '../src/icons';
-import Box from '@material-ui/core/Box';
+import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
+import { Box } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/IconButton',
@@ -35,9 +35,7 @@ interface TemplateIconButtonProps extends IconButtonProps {
 }
 
 const Template = (args: TemplateIconButtonProps) => (
-  <IconButton {...args}>
-    <ChevronDownIconLine />
-  </IconButton>
+  <IconButton {...args}>{<ChevronDownIcon />}</IconButton>
 );
 
 export const Configurable = Template.bind({});
@@ -62,36 +60,36 @@ const VariantAndSizeTemplate = (args) => (
     <span>Solid</span>
     <span>
       <IconButton {...args} variant="solid" size="large">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="solid" size="medium">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
       <IconButton {...args} variant="outlined" size="large">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="outlined" size="medium">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
 
     <span>Flat</span>
     <span>
       <IconButton {...args} variant="flat" size="large">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="flat" size="medium">
-        <ChevronDownIconLine />
+        <ChevronDownIcon />
       </IconButton>
     </span>
   </GridContainer>
