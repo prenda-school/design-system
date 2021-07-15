@@ -13,12 +13,6 @@ export const NavBarButton = withStyles({
     padding: 8,
     textTransform: 'none',
     color: theme.palette.text.onLightLowContrast,
-    transition: theme.transitions.create(
-      ['background-color', 'box-shadow', 'color'],
-      {
-        duration: theme.transitions.duration.short,
-      }
-    ),
     '& .MuiSvgIcon-root': {
       color: theme.palette.text.onLightLowContrast,
       '& .MuiSvgIcon-colorPrimary': {
