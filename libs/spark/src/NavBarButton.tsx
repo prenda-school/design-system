@@ -34,7 +34,7 @@ export const NavBarButton = withStyles({
       color: theme.palette.text.onLight,
       '& .MuiSvgIcon-colorPrimary': {
         color: theme.palette.text.onLight,
-        '& > path:first-child': {
+        '& > *:first-child': {
           fill: theme.palette.blue[3],
           fillOpacity: '0.24',
         },
