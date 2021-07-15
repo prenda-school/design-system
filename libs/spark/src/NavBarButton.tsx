@@ -55,7 +55,7 @@ export const NavBarButton = withStyles({
       opacity: '100%',
       color: theme.palette.grey.dark,
       backgroundColor: 'transparent',
-      border: 'transparent',
+      borderColor: 'transparent',
       '& .MuiSvgIcon-colorPrimary': {
         color: theme.palette.grey.dark,
         '& > *:first-child': {
