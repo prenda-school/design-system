@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import 'jest-styled-components';
 import { SparkThemeProvider, NavBar, NavbarLink } from '../src';
-import { QuestionIconDuotone } from '../src/icons';
+import QuestionDuotoneIcon from '@prenda/spark-icons/QuestionDuotone';
 
 describe('Button', () => {
   it('is truthy', () => {
@@ -9,7 +9,7 @@ describe('Button', () => {
       <SparkThemeProvider>
         <NavBar>
           <NavbarLink href="/">
-            <QuestionIconDuotone />
+            <QuestionDuotoneIcon />
             <span>Dashboard</span>
           </NavbarLink>
         </NavBar>

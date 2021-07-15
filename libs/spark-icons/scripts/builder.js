@@ -266,7 +266,7 @@ export async function main(options) {
 
     const [svgPaths, template] = await Promise.all([
       globAsync(path.join(options.svgDir, options.glob)),
-      fse.readFile(path.join(__dirname, '../defaults/templateSvgIcon.tsx'), {
+      fse.readFile(path.join(__dirname, '../defaults/templateSvgIcon.js'), {
         encoding: 'utf8',
       }),
     ]);
