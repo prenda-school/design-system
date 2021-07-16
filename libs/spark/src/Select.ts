@@ -1,4 +1,4 @@
-import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
+import ChevronDownIcon from './internal/ChevronDown';
 import { palette } from './styles/palette';
 
 export const MuiSelectDefaultProps = {
