@@ -285,6 +285,8 @@ export async function main(options) {
     queue.push(svgPaths);
     await queue.wait({ empty: true });
 
+    await fse.copy(path.join(__dirname, '../custom'), options.outputDir);
+
     await generateIndex(options);
 
     if (options.disableLog) {
