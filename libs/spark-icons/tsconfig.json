@@ -12,6 +12,7 @@
   },
   "files": [],
   "include": [],
+  "exclude": ["./custom/*.tsx"],
   "references": [
     {
       "path": "./tsconfig.lib.json"
