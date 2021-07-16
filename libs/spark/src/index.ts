@@ -13,22 +13,6 @@ export type {
 } from './Dropdown';
 export { IconButton } from './IconButton';
 export type { IconButtonProps } from './IconButton';
-export {
-  BookIllustration,
-  CollaborateIllustration,
-  ConquerIllustration,
-  CreateIllustration,
-} from './illustrations';
-export { Logo } from './Logo';
-export type { LogoProps } from './Logo';
-export {
-  PrendaWordmarkDark,
-  PrendaWordmarkLight,
-  PrendaMonogramDark,
-  PrendaMonogramLight,
-  SparkLogoDark,
-  SparkLogoLight,
-} from './logos';
 export { MenuItem } from './MenuItem';
 export type { MenuItemProps } from './MenuItem';
 export { SparkThemeProvider } from './SparkThemeProvider';

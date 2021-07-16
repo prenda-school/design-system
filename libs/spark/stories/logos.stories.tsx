@@ -1,61 +1,81 @@
-import React from 'react';
-import styled from 'styled-components';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
+import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
+import { styled } from '@material-ui/core';
 import {
-  PrendaWordmarkDark,
-  PrendaWordmarkLight,
-  PrendaMonogramDark,
-  PrendaMonogramLight,
-  SparkLogoDark,
-  SparkLogoLight,
-} from '../src';
-import { Theme, useTheme } from '@material-ui/core';
+  PrendaWordmark,
+  PrendaMonogram,
+  SparkMonogram,
+} from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/Logos',
-  component: PrendaWordmarkDark,
 } as Meta;
 
-export const PrendaLogos = () => {
-  const theme: Theme = useTheme();
-  return (
-    <GridContainer>
-      <ColumnContainer
-        style={{ backgroundColor: theme.palette.background.lightGrey }}
-      >
-        <CellContainer>
-          <PrendaWordmarkDark fontSize={'167'} />
-          <PrendaMonogramDark fontSize={'65'} />
-        </CellContainer>
-        <CellContainer style={{ justifyContent: 'center' }}>
-          <SparkLogoDark fontSize={'64'} />
-        </CellContainer>
-      </ColumnContainer>
-      <ColumnContainer
-        style={{ backgroundColor: theme.palette.background.navy }}
-      >
-        <CellContainer>
-          <PrendaWordmarkLight fontSize={'84'} />
-          <PrendaMonogramLight fontSize={'33'} />
-        </CellContainer>
-        <CellContainer style={{ justifyContent: 'center' }}>
-          <SparkLogoLight fontSize={'32'} />
-        </CellContainer>
-      </ColumnContainer>
-    </GridContainer>
-  );
-};
+const GridContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'row',
+  '& > div:first-child': {
+    backgroundColor: theme.palette.background.lightGrey,
+  },
+  '& > div:last-child': {
+    backgroundColor: theme.palette.background.navy,
+  },
+}));
+const ColumnContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  '& > div:last-child': {
+    justifyContent: 'center',
+  },
+});
+const CellContainer = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
+const BluePrendaWordmark = styled(PrendaWordmark)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.brand.blue,
+}));
+const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.brand.blue,
+}));
+const BlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.brand.blue,
+}));
+const LightBluePrendaWordmark = styled(PrendaWordmark)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.blue[1],
+}));
+const LightBluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.blue[1],
+}));
+const LightBlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.blue[1],
+}));
 
-const GridContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const ColumnContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const CellContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
+export const Logos = () => (
+  <GridContainer>
+    <ColumnContainer>
+      <CellContainer>
+        <BluePrendaWordmark />
+        <BluePrendaMonogram />
+      </CellContainer>
+      <CellContainer>
+        <BlueSparkMonogram />
+      </CellContainer>
+    </ColumnContainer>
+    <ColumnContainer>
+      <CellContainer>
+        <LightBluePrendaWordmark />
+        <LightBluePrendaMonogram />
+      </CellContainer>
+      <CellContainer>
+        <LightBlueSparkMonogram />
+      </CellContainer>
+    </ColumnContainer>
+  </GridContainer>
+);
