@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
+import { styled } from '@material-ui/core';
 import { NavBar, NavBarProps, NavbarLink } from '../src';
 import { PrendaMonogram } from '@prenda/spark-icons';
 import HomeDuotoneIcon from '@prenda/spark-icons/HomeDuotone';
@@ -18,21 +18,24 @@ export default {
   args: {},
 } as Meta;
 
-const UserMenu = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
+const UserMenu = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
 const CustomUserDuotoneIcon = styled(UserDuotoneIcon)({
   '& path[fill="#F0F1F2"]': {
     fill: 'pink',
   },
 });
+const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
+  fontSize: '62px',
+  fill: theme.palette.brand.blue,
+}));
 
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar>
-      <PrendaMonogram style={{ fontSize: '62px' }} />
+      <BluePrendaMonogram />
       <NavbarLink href="/">
         <HomeDuotoneIcon />
         <span>Dashboard</span>
@@ -64,4 +67,5 @@ const NavbarLinkTemplate = (args) => (
     <span>Link Text</span>
   </NavbarLink>
 );
+
 export const BasicNavbarLink = NavbarLinkTemplate.bind({});

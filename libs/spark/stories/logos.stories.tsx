@@ -6,63 +6,76 @@ import {
   PrendaMonogram,
   SparkMonogram,
 } from '@prenda/spark-icons';
-import { Theme, useTheme } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/Logos',
 } as Meta;
 
-const GridContainer = styled('div')({
+const GridContainer = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'row',
-});
+  '& > div:first-child': {
+    backgroundColor: theme.palette.background.lightGrey,
+  },
+  '& > div:last-child': {
+    backgroundColor: theme.palette.background.navy,
+  },
+}));
 const ColumnContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
+  '& > div:last-child': {
+    justifyContent: 'center',
+  },
 });
 const CellContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
 });
+const BluePrendaWordmark = styled(PrendaWordmark)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.brand.blue,
+}));
+const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.brand.blue,
+}));
+const BlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.brand.blue,
+}));
+const LightBluePrendaWordmark = styled(PrendaWordmark)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.blue[1],
+}));
+const LightBluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
+  fontSize: '88px',
+  fill: theme.palette.blue[1],
+}));
+const LightBlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.blue[1],
+}));
 
-export const Art = () => {
-  const theme: Theme = useTheme();
-  return (
-    <GridContainer>
-      <ColumnContainer
-        style={{ backgroundColor: theme.palette.background.lightGrey }}
-      >
-        <CellContainer>
-          <PrendaWordmark
-            style={{ fill: theme.palette.blue[4], fontSize: '88px' }}
-          />
-          <PrendaMonogram
-            style={{ fill: theme.palette.blue[4], fontSize: '88px' }}
-          />
-        </CellContainer>
-        <CellContainer style={{ justifyContent: 'center' }}>
-          <SparkMonogram
-            style={{ fill: theme.palette.blue[4], fontSize: '80px' }}
-          />
-        </CellContainer>
-      </ColumnContainer>
-      <ColumnContainer
-        style={{ backgroundColor: theme.palette.background.navy }}
-      >
-        <CellContainer>
-          <PrendaWordmark
-            style={{ fill: theme.palette.blue[1], fontSize: '88px' }}
-          />
-          <PrendaMonogram
-            style={{ fill: theme.palette.blue[1], fontSize: '88px' }}
-          />
-        </CellContainer>
-        <CellContainer style={{ justifyContent: 'center' }}>
-          <SparkMonogram
-            style={{ fill: theme.palette.blue[1], fontSize: '80px' }}
-          />
-        </CellContainer>
-      </ColumnContainer>
-    </GridContainer>
-  );
-};
+export const Logos = () => (
+  <GridContainer>
+    <ColumnContainer>
+      <CellContainer>
+        <BluePrendaWordmark />
+        <BluePrendaMonogram />
+      </CellContainer>
+      <CellContainer>
+        <BlueSparkMonogram />
+      </CellContainer>
+    </ColumnContainer>
+    <ColumnContainer>
+      <CellContainer>
+        <LightBluePrendaWordmark />
+        <LightBluePrendaMonogram />
+      </CellContainer>
+      <CellContainer>
+        <LightBlueSparkMonogram />
+      </CellContainer>
+    </ColumnContainer>
+  </GridContainer>
+);
