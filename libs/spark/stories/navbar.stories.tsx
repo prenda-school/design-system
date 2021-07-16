@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
-import { NavBar, NavBarProps, NavbarLink, PrendaMonogramDark } from '../src';
+import { NavBar, NavBarProps, NavbarLink } from '../src';
+import { PrendaMonogram } from '@prenda/spark-icons';
 import HomeDuotoneIcon from '@prenda/spark-icons/HomeDuotone';
 import CheckCircleDuotoneIcon from '@prenda/spark-icons/CheckCircleDuotone';
 import RocketDuotoneIcon from '@prenda/spark-icons/RocketDuotone';
@@ -31,7 +32,7 @@ const CustomUserDuotoneIcon = styled(UserDuotoneIcon)({
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <Toolbar>
-      <PrendaMonogramDark fontSize="62px" />
+      <PrendaMonogram style={{ fontSize: '62px' }} />
       <NavbarLink href="/">
         <HomeDuotoneIcon />
         <span>Dashboard</span>
