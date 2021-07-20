@@ -11,7 +11,7 @@ export const MuiButtonDefaultProps = {
 
 export const MuiButtonStyleOverrides = {
   root: {
-    borderRadius: 8,
+    borderRadius: 24,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
     '&$disabled': {
@@ -94,12 +94,12 @@ export const MuiButtonStyleOverrides = {
   },
   sizeLarge: {
     fontSize: '1.125rem', // 18px
-    lineHeight: '1.5rem', // 20px
-    padding: '.75rem 1rem', // 12px (accounting for 2px border width) 16px
+    lineHeight: '1.5rem', // 24px (label box)
+    padding: '.625rem 1rem', // 10px (accounting for 2px border width) 16px
   },
   sizeSmall: {
     fontSize: '0.75rem', // 12px
-    lineHeight: '1rem', // 12px
+    lineHeight: '1rem', // 16px
     padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
   },
   label: {
@@ -109,6 +109,7 @@ export const MuiButtonStyleOverrides = {
   },
   startIcon: {
     display: 'inherit',
+    marginLeft: 0,
     marginRight: 8,
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
@@ -120,6 +121,7 @@ export const MuiButtonStyleOverrides = {
   endIcon: {
     display: 'inherit',
     marginLeft: 8,
+    marginRight: 0,
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
       color: 'inherit',
