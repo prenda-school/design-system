@@ -29,7 +29,8 @@
               "react-dom",
               "react-is",
               "styled-components",
-              "@material-ui"
+              "@material-ui/core",
+              "@material-ui/lab"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -156,7 +157,7 @@
               "react",
               "react-dom",
               "react-is",
-              "@material-ui",
+              "@material-ui/core",
               "react/jsx-runtime"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
