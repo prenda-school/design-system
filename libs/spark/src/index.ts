@@ -23,4 +23,4 @@ export { Typography } from './Typography';
 export type { TypographyProps } from './Typography';
 export { NavBar } from './NavBar';
 export type { NavBarProps } from './NavBar';
-export { NavbarLink } from './NavbarLink';
+export { NavBarButton } from './NavBarButton';
