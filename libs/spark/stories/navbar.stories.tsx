@@ -23,7 +23,7 @@ const UserMenu = styled.div`
 `;
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
-  fontSize: '88px',
+  fontSize: '62px',
   fill: theme.palette.brand.blue,
 }));
 
