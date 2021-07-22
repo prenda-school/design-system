@@ -45,7 +45,7 @@ export const NavBarButton = withStyles({
   },
   iconSizeLarge: {
     '& > *:first-child': {
-      fontSize: '1.5rem', // small/medium/large for icons is 16px/24px/32px
+      fontSize: '2rem', // small/medium/large for icons is 16px/24px/32px
       '&.MuiSvgIcon-fontSizeLarge': {
         fontSize: '2rem',
       },
