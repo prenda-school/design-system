@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { MenuItem, MenuItemProps as MuiMenuItemProps } from '@material-ui/core';
 import { palette } from './styles/palette';
-export interface MenuItemProps extends MuiMenuItemProps {
-  startIcon?: React.ReactNode;
-  // Fix mismatch on Mui's end
-  button?: true | undefined;
-}
 
 export const MuiMenuItemStyleOverrides = {
   root: {
@@ -37,9 +32,6 @@ export const MuiMenuItemStyleOverrides = {
         color: palette.text.onLight,
       },
     },
-    '&$disabled': {
-      color: palette.grey.dark,
-    },
 
     '.SparkMenuItem-startIcon': {
       display: 'inherit',
@@ -48,6 +40,12 @@ export const MuiMenuItemStyleOverrides = {
     },
   },
 };
+
+export interface MenuItemProps extends MuiMenuItemProps {
+  startIcon?: React.ReactNode;
+  // Fix mismatch on Mui's end
+  button?: true | undefined;
+}
 
 const SparkMenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
   ({ startIcon, children, ...other }, ref) => {

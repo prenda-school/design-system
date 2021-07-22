@@ -17,6 +17,7 @@ import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { fontFaces, typography } from './typography';
+import { MuiListItemStyleOverrides } from '../ListItem';
 
 export const overrides = {
   MuiButton: MuiButtonStyleOverrides,
@@ -39,6 +40,7 @@ export const overrides = {
   MuiInput: MuiInputStyleOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
+  MuiListItem: MuiListItemStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,
   MuiMenuItem: MuiMenuItemStyleOverrides,
   MuiPagination: MuiPaginationStyleOverrides,
