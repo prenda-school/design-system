@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavBarButton, NavBarButtonProps } from '../src';
-import UsersIconDuotone from '../src/icons/duotone/Users';
+import CheckCircleDuotone from '@prenda/spark-icons/CheckCircleDuotone';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Box from '@material-ui/core/Box';
 
@@ -13,13 +13,13 @@ export default {
     startIcon: {
       control: {
         type: 'select',
-        options: [undefined, `users-icon-duotone`],
+        options: [undefined, `check-circle-duotone`],
       },
     },
     endIcon: {
       control: {
         type: 'select',
-        options: [undefined, `users-icon-duotone`],
+        options: [undefined, `check-circle-duotone`],
       },
     },
     href: { control: 'text' },
@@ -29,15 +29,15 @@ export default {
 
 interface TemplateButtonProps
   extends Omit<NavBarButtonProps, 'startIcon' | 'endIcon'> {
-  startIcon?: typeof UsersIconDuotone;
-  endIcon?: typeof UsersIconDuotone;
+  startIcon?: typeof CheckCircleDuotone;
+  endIcon?: typeof CheckCircleDuotone;
 }
 
 const Template: Story = (args: TemplateButtonProps) => (
   <NavBarButton
     {...args}
-    startIcon={args.startIcon ? <UsersIconDuotone /> : undefined}
-    endIcon={args.endIcon ? <UsersIconDuotone /> : undefined}
+    startIcon={args.startIcon ? <CheckCircleDuotone /> : undefined}
+    endIcon={args.endIcon ? <CheckCircleDuotone /> : undefined}
   >
     Label
   </NavBarButton>
@@ -61,12 +61,12 @@ const AllTemplate: Story = (args) => (
       <NavBarButton {...args}>Label</NavBarButton>
     </span>
     <span>
-      <NavBarButton {...args} startIcon={<UsersIconDuotone />}>
+      <NavBarButton {...args} startIcon={<CheckCircleDuotone />}>
         Label
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton {...args} endIcon={<UsersIconDuotone />}>
+      <NavBarButton {...args} endIcon={<CheckCircleDuotone />}>
         Label
       </NavBarButton>
     </span>
@@ -76,12 +76,12 @@ const AllTemplate: Story = (args) => (
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton href="#" {...args} startIcon={<UsersIconDuotone />}>
+      <NavBarButton href="#" {...args} startIcon={<CheckCircleDuotone />}>
         Link
       </NavBarButton>
     </span>
     <span>
-      <NavBarButton href="#" {...args} endIcon={<UsersIconDuotone />}>
+      <NavBarButton href="#" {...args} endIcon={<CheckCircleDuotone />}>
         Link
       </NavBarButton>
     </span>
@@ -95,3 +95,5 @@ export const AllHover = AllTemplate.bind({});
 AllHover.parameters = { pseudo: { hover: true } };
 export const AllFocus = AllTemplate.bind({});
 AllFocus.parameters = { pseudo: { focus: true } };
+export const AllActive = AllTemplate.bind({});
+AllActive.parameters = { pseudo: { active: true } };

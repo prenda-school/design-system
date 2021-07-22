@@ -1,15 +1,13 @@
 import React from 'react';
+import CheckCircleDuotone from '@prenda/spark-icons/CheckCircleDuotone';
+import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
+import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
+import Toolbar from '@material-ui/core/Toolbar';
+import UserDuotone from '@prenda/spark-icons/UserDuotone';
+import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
-
 import { NavBar, NavBarProps, PrendaMonogramDark, NavBarButton } from '../src';
-import HomeIconDuotone from '../src/icons/duotone/Home';
-import CheckCircleIconDuotone from '../src/icons/duotone/CheckCircle';
-import InboxFilledIconDuotone from '../src/icons/duotone/InboxFilled';
-import UserIconDuotone from '../src/icons/duotone/User';
-
-import Toolbar from '@material-ui/core/Toolbar';
-import UsersIconDuotone from '../src/icons/duotone/Users';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -23,7 +21,7 @@ const UserMenu = styled.div`
   align-items: center;
 `;
 
-const CustomUserDuotoneIcon = styled(UserDuotoneIcon)({
+const CustomUserDuotoneIcon = styled(UserDuotone)({
   '& path[fill="#F0F1F2"]': {
     fill: 'pink',
   },
@@ -35,39 +33,38 @@ const Template = (args: NavBarProps) => (
       <PrendaMonogramDark fontSize="4.5rem" />
       <NavBarButton
         href="#"
-        startIcon={<HomeIconDuotone fontSize="large" />}
+        startIcon={<HomeDuotone fontSize="large" />}
         aria-current="page"
       >
         Home
       </NavBarButton>
       <NavBarButton
         href="#"
-        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+        startIcon={<CheckCircleDuotone fontSize="large" />}
       >
         Conquer
       </NavBarButton>
-      <NavBarButton href="#" startIcon={<UsersIconDuotone fontSize="large" />}>
+      <NavBarButton href="#" startIcon={<UsersDuotone fontSize="large" />}>
         Collaborate
       </NavBarButton>
       <NavBarButton
         href="#"
-        startIcon={<CheckCircleIconDuotone fontSize="large" />}
+        startIcon={<CheckCircleDuotone fontSize="large" />}
       >
         Create
       </NavBarButton>
       <NavBarButton
         href="#"
-        startIcon={<InboxFilledIconDuotone fontSize="large" />}
+        startIcon={<InboxFilledDuotone fontSize="large" />}
         style={{ marginLeft: 'auto' }}
       >
         0
       </NavBarButton>
       <UserMenu>
-        <UserIconDuotone fontSize="large" />
+        <UserDuotone fontSize="large" />
       </UserMenu>
     </Toolbar>
   </NavBar>
 );
 
 export const Basic = Template.bind({});
-
