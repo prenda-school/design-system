@@ -30,6 +30,7 @@ export const NavBarButton = withStyles({
       backgroundColor: theme.palette.grey.light,
     },
     '&:active, &[aria-current=page]': {
+      border: `2px solid ${theme.palette.grey.light}`,
       backgroundColor: theme.palette.grey.light,
       color: theme.palette.text.onLight,
       '& .MuiSvgIcon-colorPrimary': {
