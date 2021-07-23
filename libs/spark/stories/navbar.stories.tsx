@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
 import { NavBar, NavBarProps, NavBarButton } from '../src';
 import { PrendaMonogram } from '@prenda/spark-icons';
+import { withStyles } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -28,9 +29,24 @@ const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
   fill: theme.palette.brand.blue,
 }));
 
+const CustomToolbar = withStyles({
+  root: {
+    gap: 8,
+  },
+})(Toolbar);
+
+const InboxNavBarButton = withStyles({
+  root: {
+    marginLeft: 'auto',
+  },
+  startIcon: {
+    marginRight: 2,
+  },
+})(NavBarButton);
+
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
-    <Toolbar style={{ gap: 8 }}>
+    <CustomToolbar>
       <BluePrendaMonogram />
       <NavBarButton
         href="#"
@@ -48,19 +64,17 @@ const Template = (args: NavBarProps) => (
       <NavBarButton href="#" startIcon={<BeakerDuotone fontSize="large" />}>
         Create
       </NavBarButton>
-      <NavBarButton
+      <InboxNavBarButton
         href="#"
-        startIcon={
-          <InboxFilledDuotone style={{ marginRight: -6 }} fontSize="large" />
-        }
+        startIcon={<InboxFilledDuotone fontSize="large" />}
         style={{ marginLeft: 'auto' }}
       >
         0
-      </NavBarButton>
+      </InboxNavBarButton>
       <UserMenu>
         <UserDuotone fontSize="large" />
       </UserMenu>
-    </Toolbar>
+    </CustomToolbar>
   </NavBar>
 );
 
