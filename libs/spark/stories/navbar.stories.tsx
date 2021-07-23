@@ -1,15 +1,16 @@
 import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { styled } from '@material-ui/core';
-import { NavBar, NavBarProps, NavbarLink } from '../src';
-import { PrendaMonogram } from '@prenda/spark-icons';
-import HomeDuotoneIcon from '@prenda/spark-icons/HomeDuotone';
-import CheckCircleDuotoneIcon from '@prenda/spark-icons/CheckCircleDuotone';
-import RocketDuotoneIcon from '@prenda/spark-icons/RocketDuotone';
-import InboxFilledDuotoneIcon from '@prenda/spark-icons/InboxFilledDuotone';
-import UsersDuotoneIcon from '@prenda/spark-icons/UsersDuotone';
-import UserDuotoneIcon from '@prenda/spark-icons/UserDuotone';
+import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
+import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
+import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
+import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
 import Toolbar from '@material-ui/core/Toolbar';
+import UserDuotone from '@prenda/spark-icons/UserDuotone';
+import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
+import styled from 'styled-components';
+import { Meta } from '@storybook/react/types-6-0';
+import { NavBar, NavBarProps, NavBarButton } from '../src';
+import { PrendaMonogram } from '@prenda/spark-icons';
+import { withStyles } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -18,54 +19,62 @@ export default {
   args: {},
 } as Meta;
 
-const UserMenu = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-});
-const CustomUserDuotoneIcon = styled(UserDuotoneIcon)({
-  '& path[fill="#F0F1F2"]': {
-    fill: 'pink',
-  },
-});
+const UserMenu = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
   fontSize: '62px',
   fill: theme.palette.brand.blue,
 }));
 
+const CustomToolbar = withStyles({
+  root: {
+    gap: 8,
+  },
+})(Toolbar);
+
+const InboxNavBarButton = withStyles({
+  root: {
+    marginLeft: 'auto',
+  },
+  startIcon: {
+    marginRight: 2,
+  },
+})(NavBarButton);
+
 const Template = (args: NavBarProps) => (
   <NavBar {...args}>
-    <Toolbar>
+    <CustomToolbar>
       <BluePrendaMonogram />
-      <NavbarLink href="/">
-        <HomeDuotoneIcon />
-        <span>Dashboard</span>
-      </NavbarLink>
-      <NavbarLink href="/" aria-current="page">
-        <CheckCircleDuotoneIcon />
-        <span>Active</span>
-      </NavbarLink>
-      <NavbarLink className="disabled">
-        <RocketDuotoneIcon />
-        <span>Disabled</span>
-      </NavbarLink>
-      <NavbarLink style={{ marginLeft: 'auto' }}>
-        <InboxFilledDuotoneIcon />
-        <span>0</span>
-      </NavbarLink>
+      <NavBarButton
+        href="#"
+        startIcon={<HomeDuotone fontSize="large" />}
+        aria-current="page"
+      >
+        Home
+      </NavBarButton>
+      <NavBarButton href="#" startIcon={<MountainDuotone fontSize="large" />}>
+        Conquer
+      </NavBarButton>
+      <NavBarButton href="#" startIcon={<UsersDuotone fontSize="large" />}>
+        Collaborate
+      </NavBarButton>
+      <NavBarButton href="#" startIcon={<BeakerDuotone fontSize="large" />}>
+        Create
+      </NavBarButton>
+      <InboxNavBarButton
+        href="#"
+        startIcon={<InboxFilledDuotone fontSize="large" />}
+      >
+        0
+      </InboxNavBarButton>
       <UserMenu>
-        <CustomUserDuotoneIcon />
+        <UserDuotone fontSize="large" />
       </UserMenu>
-    </Toolbar>
+    </CustomToolbar>
   </NavBar>
 );
 
 export const Basic = Template.bind({});
-
-const NavbarLinkTemplate = (args) => (
-  <NavbarLink as="a">
-    <UsersDuotoneIcon />
-    <span>Link Text</span>
-  </NavbarLink>
-);
-
-export const BasicNavbarLink = NavbarLinkTemplate.bind({});
