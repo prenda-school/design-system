@@ -1,11 +1,10 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Button, ButtonProps } from '@material-ui/core';
-import { theme } from './styles';
 
 export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
-export const NavBarButton = withStyles({
+export const NavBarButton = withStyles(({ theme }) => ({
   root: {
     borderRadius: 8,
     backgroundColor: 'transparent',
