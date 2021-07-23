@@ -4,7 +4,7 @@ import { Button, ButtonProps } from '@material-ui/core';
 
 export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
-export const NavBarButton = withStyles(({ theme }) => ({
+export const NavBarButton = withStyles((theme) => ({
   root: {
     borderRadius: 8,
     backgroundColor: 'transparent',
@@ -45,7 +45,7 @@ export const NavBarButton = withStyles(({ theme }) => ({
   },
   iconSizeLarge: {
     '& > *:first-child': {
-      fontSize: '2rem',
+      fontSize: '2rem', // small/medium/large for icons is 16px/24px/32px
       '&.MuiSvgIcon-fontSizeLarge': {
         fontSize: '2rem',
       },
@@ -68,4 +68,4 @@ export const NavBarButton = withStyles(({ theme }) => ({
   focusVisible: {
     backgroundColor: theme.palette.grey.light,
   },
-})(Button);
+}))(Button);

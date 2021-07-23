@@ -1,7 +1,8 @@
 import React from 'react';
-import CheckCircleDuotone from '@prenda/spark-icons/CheckCircleDuotone';
+import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
 import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
 import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
+import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
 import Toolbar from '@material-ui/core/Toolbar';
 import UserDuotone from '@prenda/spark-icons/UserDuotone';
 import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
@@ -38,24 +39,20 @@ const Template = (args: NavBarProps) => (
       >
         Home
       </NavBarButton>
-      <NavBarButton
-        href="#"
-        startIcon={<CheckCircleDuotone fontSize="large" />}
-      >
+      <NavBarButton href="#" startIcon={<MountainDuotone fontSize="large" />}>
         Conquer
       </NavBarButton>
       <NavBarButton href="#" startIcon={<UsersDuotone fontSize="large" />}>
         Collaborate
       </NavBarButton>
-      <NavBarButton
-        href="#"
-        startIcon={<CheckCircleDuotone fontSize="large" />}
-      >
+      <NavBarButton href="#" startIcon={<BeakerDuotone fontSize="large" />}>
         Create
       </NavBarButton>
       <NavBarButton
         href="#"
-        startIcon={<InboxFilledDuotone fontSize="large" />}
+        startIcon={
+          <InboxFilledDuotone style={{ marginRight: -6 }} fontSize="large" />
+        }
         style={{ marginLeft: 'auto' }}
       >
         0

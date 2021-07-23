@@ -96,7 +96,9 @@ AllDisabled.args = { disabled: true };
 
 export const AllHover = AllTemplate.bind({});
 AllHover.parameters = { pseudo: { hover: true } };
+
 export const AllFocus = AllTemplate.bind({});
 AllFocus.parameters = { pseudo: { focus: true } };
+
 export const AllActive = AllTemplate.bind({});
 AllActive.parameters = { pseudo: { active: true } };
