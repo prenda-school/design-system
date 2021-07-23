@@ -90,8 +90,10 @@ const AllTemplate: Story = (args) => (
 );
 
 export const All = AllTemplate.bind({});
+
 export const AllDisabled = AllTemplate.bind({});
 AllDisabled.args = { disabled: true };
+
 export const AllHover = AllTemplate.bind({});
 AllHover.parameters = { pseudo: { hover: true } };
 export const AllFocus = AllTemplate.bind({});
