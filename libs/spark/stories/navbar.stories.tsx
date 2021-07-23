@@ -67,7 +67,6 @@ const Template = (args: NavBarProps) => (
       <InboxNavBarButton
         href="#"
         startIcon={<InboxFilledDuotone fontSize="large" />}
-        style={{ marginLeft: 'auto' }}
       >
         0
       </InboxNavBarButton>
