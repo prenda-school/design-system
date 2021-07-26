@@ -23,7 +23,7 @@ jobs:
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-development
+          SLACK_CHANNEL: spark-webhooks
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
@@ -35,7 +35,7 @@ jobs:
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-development
+          SLACK_CHANNEL: spark-webhooks
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
@@ -52,7 +52,7 @@ jobs:
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-development
+          SLACK_CHANNEL: spark-webhooks
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
@@ -64,7 +64,7 @@ jobs:
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-development
+          SLACK_CHANNEL: spark-webhooks
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
