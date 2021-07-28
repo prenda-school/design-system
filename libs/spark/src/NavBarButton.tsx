@@ -67,4 +67,4 @@ export const NavBarButton = withStyles((theme) => ({
   focusVisible: {
     backgroundColor: theme.palette.grey.light,
   },
-}))(Button);
+}))((props: NavBarButtonProps) => <Button {...props} />);
