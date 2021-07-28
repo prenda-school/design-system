@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import styled from 'styled-components';
+import { HeartDuotone } from '@prenda/spark-icons';
 import {
   Card,
   CardContent,
@@ -9,8 +11,6 @@ import {
   IconButton,
   Typography,
 } from '../src';
-import { HeartDuotone } from '@prenda/spark-icons';
-import styled from 'styled-components';
 
 export default {
   title: 'prenda-spark/Card',

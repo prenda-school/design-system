@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import styled from 'styled-components';
 import {
   BeakerDuotone,
   HomeDuotone,
@@ -8,8 +10,6 @@ import {
   UsersDuotone,
   PrendaMonogram,
 } from '@prenda/spark-icons';
-import styled from 'styled-components';
-import { Meta, Story } from '@storybook/react/types-6-0';
 import { NavBar, NavBarProps, NavBarButton, withStyles, Toolbar } from '../src';
 
 export default {

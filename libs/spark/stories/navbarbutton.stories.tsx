@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { NavBarButton } from '../src';
-import { CheckCircleDuotone } from '@prenda/spark-icons';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Box, NavBarButtonProps } from '../src';
+import { CheckCircleDuotone } from '@prenda/spark-icons';
+import { NavBarButton, Box, NavBarButtonProps } from '../src';
 
 export default {
   title: 'prenda-spark/NavBarButton',

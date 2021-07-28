@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { styled } from '../src';
 import {
   PrendaWordmark,
   PrendaMonogram,
   SparkMonogram,
 } from '@prenda/spark-icons';
+import { styled } from '../src';
 
 export default {
   title: 'prenda-spark/Logos',

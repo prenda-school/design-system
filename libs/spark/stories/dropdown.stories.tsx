@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 import {
   DropdownContext,
   DropdownButton,
@@ -8,7 +9,6 @@ import {
   DropdownDivider,
   Box,
 } from '../src';
-import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/Dropdown',

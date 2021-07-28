@@ -1,6 +1,6 @@
 import * as React from 'react';
-import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
+import styled from 'styled-components';
 import { AlertCircleDuotone } from '@prenda/spark-icons';
 
 const Wrapper = styled.div`
