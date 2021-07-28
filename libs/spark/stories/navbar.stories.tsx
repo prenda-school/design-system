@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
 import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
 import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';

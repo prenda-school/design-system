@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { NavBarButton } from '../src';
 import CheckCircleDuotone from '@prenda/spark-icons/CheckCircleDuotone';
 import { Meta, Story } from '@storybook/react/types-6-0';

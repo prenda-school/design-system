@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { withStyles, Button, ButtonProps } from '@material-ui/core';
 
 export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;

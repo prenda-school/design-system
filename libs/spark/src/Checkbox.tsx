@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { createSvgIcon, Theme } from '@material-ui/core';
 import styled from 'styled-components';
 import clsx from 'clsx';

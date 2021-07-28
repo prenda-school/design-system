@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {
   ButtonBase as MuiButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
