@@ -5,10 +5,9 @@ import {
   withStyles,
   createStyles,
   Theme,
-} from '@material-ui/core/styles';
-import MuiTypography, {
+  Typography as MuiTypography,
   TypographyProps as MuiTypographyProps,
-} from '@material-ui/core/Typography';
+} from '@material-ui/core';
 import clsx from 'clsx';
 
 const styles = (theme: Theme) =>

@@ -2,8 +2,7 @@
 //  Changes made since
 
 import React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import { SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
+import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
 
 export default function createSvgIcon(
   path: React.ReactNode,

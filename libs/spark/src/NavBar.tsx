@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, AppBarProps, withStyles } from '@material-ui/core/';
+import { AppBar, AppBarProps, withStyles } from '@material-ui/core';
 import { palette } from './styles/palette';
 
 export interface NavBarProps extends AppBarProps {
