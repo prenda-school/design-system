@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
 import styled from 'styled-components';
-import { Theme, useTheme } from '../src';
+import { useTheme } from '../src';
 
 interface ColorBoxProps {
   color: string;
@@ -42,7 +42,7 @@ export default {
 } as Meta;
 
 export const PrendaColors = () => {
-  const theme: Theme = useTheme();
+  const theme = useTheme();
 
   return (
     <>
