@@ -4,9 +4,10 @@ import {
   MenuProps as MuiMenuProps,
   MenuItemProps as MuiMenuItemProps,
   Divider as MuiDivider,
+  withStyles,
+  Button,
+  ButtonProps,
 } from '@material-ui/core';
-import { Button, ButtonProps } from '@material-ui/core';
-import styled from 'styled-components';
 import { MenuItem } from './MenuItem';
 
 type DropdownContextType = {
@@ -40,11 +41,13 @@ export interface DropdownMenuItemProps
   button?: true | undefined;
 }
 
-const SparkDropdownDivider = styled(MuiDivider)`
-  height: 2px;
-  // margin collapses with items
-  margin: 4px 0;
-`;
+const SparkDropdownDivider = withStyles({
+  root: {
+    height: 2,
+    // margin collapses with items
+    margin: '4px 0',
+  },
+})(MuiDivider);
 
 // FROM-MUI Lab/TabContext
 function useUniqueId() {
@@ -55,7 +58,7 @@ function useUniqueId() {
   return id;
 }
 
-const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
+function SparkDropdownContext(props: DropdownContextProps) {
   const id = useUniqueId();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -74,9 +77,9 @@ const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
   );
 
   return <Context.Provider value={value} {...props} />;
-};
+}
 
-const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
+function SparkDropdownButton(props: DropdownButtonProps) {
   const { id, handleClick } = React.useContext(Context);
   return (
     <Button
@@ -86,7 +89,7 @@ const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
       {...props}
     />
   );
-};
+}
 
 const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
   ({ classes, ...other }, ref) => {

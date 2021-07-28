@@ -1,11 +1,17 @@
-import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { Card, CardContent, CardMedia, CardActions } from '@material-ui/core';
-import { Typography } from '../src/Typography';
-import { Button } from '@material-ui/core';
-import { IconButton } from '../src/IconButton';
-import HeartDuotoneIcon from '@prenda/spark-icons/HeartDuotone';
-import styled from 'styled-components';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { HeartDuotone } from '@prenda/spark-icons';
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Button,
+  IconButton,
+  Typography,
+  styled,
+  withStyles,
+} from '../src';
 
 export default {
   title: 'prenda-spark/Card',
@@ -14,7 +20,7 @@ export default {
   args: {},
 } as Meta;
 
-export const BasicCard = () => (
+export const BasicCard: Story = () => (
   <Card style={{ maxWidth: 400 }}>
     <CardContent>
       <Typography
@@ -38,21 +44,23 @@ export const BasicCard = () => (
   </Card>
 );
 
-const StyledImage = styled.img`
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  object-position: 50% 10%;
-  vertical-align: bottom;
-`;
+const StyledImage = styled('img')({
+  width: '100%',
+  maxHeight: 300,
+  objectFit: 'cover',
+  objectPosition: '50% 10%',
+  verticalAlign: 'bottom',
+});
 
-const FloatingIconButton = styled(IconButton)`
-  position: absolute;
-  right: 24px;
-  top: 24px;
-`;
+const FloatingIconButton = withStyles({
+  root: {
+    position: 'absolute',
+    right: 24,
+    top: 24,
+  },
+})(IconButton);
 
-export const CardWithImage = () => (
+export const CardWithImage: Story = () => (
   <Card style={{ maxWidth: 580 }}>
     <CardMedia style={{ position: 'relative' }}>
       <StyledImage
@@ -60,7 +68,7 @@ export const CardWithImage = () => (
         alt="Multicolor blobs, blurred on light grey background"
       />
       <FloatingIconButton variant="outlined" size="large">
-        <HeartDuotoneIcon />
+        <HeartDuotone />
       </FloatingIconButton>
     </CardMedia>
     <CardContent>

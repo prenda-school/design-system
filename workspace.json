@@ -28,7 +28,6 @@
               "react",
               "react-dom",
               "react-is",
-              "styled-components",
               "@material-ui/core",
               "@material-ui/lab"
             ],

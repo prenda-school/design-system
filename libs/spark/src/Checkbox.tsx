@@ -1,6 +1,5 @@
-import React from 'react';
-import { createSvgIcon, Theme } from '@material-ui/core';
-import styled from 'styled-components';
+import * as React from 'react';
+import { createSvgIcon, Theme, styled } from '@material-ui/core';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
 
@@ -18,7 +17,6 @@ const SparkCheckboxIconRoot = styled('span')(
       '& .MuiSvgIcon-root': {
         width: 22,
         height: 22,
-        backgroundColor: palette.common.white,
       },
       '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.onLight,

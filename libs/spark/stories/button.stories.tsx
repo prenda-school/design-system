@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { Button } from '@material-ui/core';
-import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
-import Box from '@material-ui/core/Box';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { ChevronDown } from '@prenda/spark-icons';
+import { Button, Box } from '../src';
 
 export default {
   title: 'prenda-spark/Button',
@@ -36,14 +35,14 @@ export default {
 const Template = (args) => (
   <Button
     {...args}
-    startIcon={args.startIcon ? <ChevronDownIcon /> : undefined}
-    endIcon={args.endIcon ? <ChevronDownIcon /> : undefined}
+    startIcon={args.startIcon ? <ChevronDown /> : undefined}
+    endIcon={args.endIcon ? <ChevronDown /> : undefined}
   >
     Label
   </Button>
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const GridContainer = (props) => (
   <Box
@@ -116,58 +115,74 @@ const VariantAndSizeTemplate = (args) => (
   </GridContainer>
 );
 
-export const VariantAndSize = VariantAndSizeTemplate.bind({});
+export const VariantAndSize: Story = VariantAndSizeTemplate.bind({});
 
-export const VariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeDisabled.args = { disabled: true };
 
-export const VariantAndSizeHover = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
-export const VariantAndSizeFocus = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
-export const VariantAndSizeActive = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
 
-export const StartIconVariantAndSize = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSize.args = { startIcon: <ChevronDownIcon /> };
+export const StartIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
+StartIconVariantAndSize.args = { startIcon: <ChevronDown /> };
 
-export const StartIconVariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
+export const StartIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
+  {}
+);
 StartIconVariantAndSizeDisabled.args = {
   disabled: true,
-  startIcon: <ChevronDownIcon />,
+  startIcon: <ChevronDown />,
 };
 
-export const StartIconVariantAndSizeHover = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeHover.args = { startIcon: <ChevronDownIcon /> };
+export const StartIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeHover.args = { startIcon: <ChevronDown /> };
 StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
-export const StartIconVariantAndSizeFocus = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeFocus.args = { startIcon: <ChevronDownIcon /> };
+export const StartIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeFocus.args = { startIcon: <ChevronDown /> };
 StartIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
-export const StartIconVariantAndSizeActive = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSizeActive.args = { startIcon: <ChevronDownIcon /> };
+export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeActive.args = { startIcon: <ChevronDown /> };
 StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
 
-export const EndIconVariantAndSize = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSize.args = { endIcon: <ChevronDownIcon /> };
+export const EndIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
+EndIconVariantAndSize.args = { endIcon: <ChevronDown /> };
 
-export const EndIconVariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
+export const EndIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
+  {}
+);
 EndIconVariantAndSizeDisabled.args = {
   disabled: true,
-  endIcon: <ChevronDownIcon />,
+  endIcon: <ChevronDown />,
 };
 
-export const EndIconVariantAndSizeHover = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeHover.args = { endIcon: <ChevronDownIcon /> };
+export const EndIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeHover.args = { endIcon: <ChevronDown /> };
 EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
-export const EndIconVariantAndSizeFocus = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeFocus.args = { endIcon: <ChevronDownIcon /> };
+export const EndIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeFocus.args = { endIcon: <ChevronDown /> };
 EndIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
-export const EndIconVariantAndSizeActive = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSizeActive.args = { endIcon: <ChevronDownIcon /> };
+export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeActive.args = { endIcon: <ChevronDown /> };
 EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };

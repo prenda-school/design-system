@@ -1,16 +1,22 @@
-import React from 'react';
-import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
-import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
-import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
-import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
-import Toolbar from '@material-ui/core/Toolbar';
-import UserDuotone from '@prenda/spark-icons/UserDuotone';
-import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
-import styled from 'styled-components';
-import { Meta } from '@storybook/react/types-6-0';
-import { NavBar, NavBarProps, NavBarButton } from '../src';
-import { PrendaMonogram } from '@prenda/spark-icons';
-import { withStyles } from '@material-ui/core';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import {
+  BeakerDuotone,
+  HomeDuotone,
+  InboxFilledDuotone,
+  MountainDuotone,
+  UserDuotone,
+  UsersDuotone,
+  PrendaMonogram,
+} from '@prenda/spark-icons';
+import {
+  NavBar,
+  NavBarProps,
+  NavBarButton,
+  withStyles,
+  Toolbar,
+  styled,
+} from '../src';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -19,10 +25,10 @@ export default {
   args: {},
 } as Meta;
 
-const UserMenu = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const UserMenu = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
   fontSize: '62px',
@@ -44,7 +50,7 @@ const InboxNavBarButton = withStyles({
   },
 })(NavBarButton);
 
-const Template = (args: NavBarProps) => (
+const Template: Story<NavBarProps> = (args) => (
   <NavBar {...args}>
     <CustomToolbar>
       <BluePrendaMonogram />

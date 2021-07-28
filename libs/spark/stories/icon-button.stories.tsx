@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { IconButton, IconButtonProps } from '../src';
-import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
-import { Box } from '@material-ui/core';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { ChevronDown } from '@prenda/spark-icons';
+import { IconButton, IconButtonProps, Box } from '../src';
 
 export default {
   title: 'prenda-spark/IconButton',
@@ -34,8 +33,8 @@ interface TemplateIconButtonProps extends IconButtonProps {
   children?: 'ChevronDown';
 }
 
-const Template = (args: TemplateIconButtonProps) => (
-  <IconButton {...args}>{<ChevronDownIcon />}</IconButton>
+const Template: Story = (args: TemplateIconButtonProps) => (
+  <IconButton {...args}>{<ChevronDown />}</IconButton>
 );
 
 export const Configurable = Template.bind({});
@@ -51,7 +50,7 @@ const GridContainer = (props) => (
   />
 );
 
-const VariantAndSizeTemplate = (args) => (
+const VariantAndSizeTemplate: Story = (args) => (
   <GridContainer>
     <span>Variant / Size</span>
     <span>Large</span>
@@ -60,36 +59,36 @@ const VariantAndSizeTemplate = (args) => (
     <span>Solid</span>
     <span>
       <IconButton {...args} variant="solid" size="large">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="solid" size="medium">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
       <IconButton {...args} variant="outlined" size="large">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="outlined" size="medium">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
 
     <span>Flat</span>
     <span>
       <IconButton {...args} variant="flat" size="large">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="flat" size="medium">
-        <ChevronDownIcon />
+        <ChevronDown />
       </IconButton>
     </span>
   </GridContainer>

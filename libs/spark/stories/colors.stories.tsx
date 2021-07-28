@@ -1,9 +1,6 @@
-import React, { FC } from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
+import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import styled from 'styled-components';
-import { TextFormatter } from '../src/utils/story-util';
-import { Theme, useTheme } from '@material-ui/core';
+import { useTheme, styled } from '../src';
 
 interface ColorBoxProps {
   color: string;
@@ -11,7 +8,7 @@ interface ColorBoxProps {
   textColor: string;
 }
 
-const ColorBox: FC<ColorBoxProps> = (props) => {
+function ColorBox(props: ColorBoxProps) {
   return (
     <div
       style={{
@@ -35,7 +32,7 @@ const ColorBox: FC<ColorBoxProps> = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default {
   title: 'prenda-spark/Colors',
@@ -43,10 +40,10 @@ export default {
 } as Meta;
 
 export const PrendaColors = () => {
-  const theme: Theme = useTheme();
+  const theme = useTheme();
 
   return (
-    <TextFormatter>
+    <>
       <ColorContainerTitle>Prenda colors</ColorContainerTitle>
       <ColorContainer>
         <RowContainer>
@@ -356,22 +353,24 @@ export const PrendaColors = () => {
           />
         </div>
       </ColorContainer>
-    </TextFormatter>
+    </>
   );
 };
 
-const RowContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const ColorContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  font-weight: 200;
-`;
-const ColorContainerTitle = styled.div`
-  font-weight: 500;
-  font-size: 24px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-`;
+const RowContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+const ColorContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  fontWeight: 200,
+});
+
+const ColorContainerTitle = styled('div')({
+  fontWeight: 500,
+  fontSize: 24,
+  paddingBottom: 8,
+  paddingLeft: 5,
+});

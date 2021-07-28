@@ -1,15 +1,14 @@
-import React from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import styled from 'styled-components';
+import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import AlertCircleDuotoneIcon from '@prenda/spark-icons/AlertCircleDuotone';
+import { styled } from '../src';
+import { AlertCircleDuotone } from '@prenda/spark-icons';
 
-const Wrapper = styled.div`
-  vertical-align: middle;
-  color: red;
-`;
+const Wrapper = styled('div')({
+  verticalAlign: 'middle',
+  color: 'red',
+});
 
-export const ExampleIcon = (props) => <AlertCircleDuotoneIcon />;
+export const ExampleIcon = (props) => <AlertCircleDuotone />;
 
 export default {
   title: 'prenda-spark/Icons',

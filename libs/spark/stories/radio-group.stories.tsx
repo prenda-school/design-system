@@ -1,6 +1,5 @@
-import React from 'react';
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import {
   FormControl,
   FormLabel,
@@ -8,7 +7,7 @@ import {
   FormControlLabel,
   Radio,
   FormHelperText,
-} from '@material-ui/core';
+} from '../src';
 
 export default {
   title: 'prenda-spark/RadioGroup',

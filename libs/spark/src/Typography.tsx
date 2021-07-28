@@ -1,14 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
   WithStyles,
   withStyles,
   createStyles,
   Theme,
-} from '@material-ui/core/styles';
-import MuiTypography, {
+  Typography as MuiTypography,
   TypographyProps as MuiTypographyProps,
-} from '@material-ui/core/Typography';
+} from '@material-ui/core';
 import clsx from 'clsx';
 
 const styles = (theme: Theme) =>
@@ -229,13 +228,13 @@ export interface TypographyProps
   color?: Color;
 }
 
-const Typography: React.FC<TypographyProps> = ({
+function Typography({
   classes,
   className,
   variant = 'paragraph-lg' as Variant,
   color = 'textOnLight' as Color,
   ...other
-}) => {
+}: TypographyProps) {
   return (
     <MuiTypography
       className={clsx(
@@ -251,7 +250,7 @@ const Typography: React.FC<TypographyProps> = ({
       component={other.component || defaultVariantMapping[variant]}
     />
   );
-};
+}
 
 Typography.propTypes = {
   /**

@@ -1,9 +1,7 @@
-import React from 'react';
-import { NavBarButton } from '../src';
-import CheckCircleDuotone from '@prenda/spark-icons/CheckCircleDuotone';
+import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Box from '@material-ui/core/Box';
-import { NavBarButtonProps } from '../src/NavBarButton';
+import { CheckCircleDuotone } from '@prenda/spark-icons';
+import { NavBarButton, Box, NavBarButtonProps } from '../src';
 
 export default {
   title: 'prenda-spark/NavBarButton',
@@ -34,7 +32,7 @@ interface TemplateButtonProps
   endIcon?: typeof CheckCircleDuotone;
 }
 
-const Template: Story = (args: TemplateButtonProps) => (
+const Template: Story<TemplateButtonProps> = (args) => (
   <NavBarButton
     {...args}
     startIcon={args.startIcon ? <CheckCircleDuotone /> : undefined}

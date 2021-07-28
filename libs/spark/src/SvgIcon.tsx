@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import * as React from 'react';
 import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
 import { palette } from './styles/palette';
 import clsx from 'clsx';
@@ -37,11 +37,11 @@ export const MuiSvgIconStyleOverrides = {
   },
 };
 
-const SparkSvgIcon: FC<SvgIconProps> = ({
+function SparkSvgIcon({
   contrast = 'high',
   className,
   ...other
-}) => {
+}: SvgIconProps) {
   return (
     <SvgIcon
       className={clsx(
@@ -51,6 +51,6 @@ const SparkSvgIcon: FC<SvgIconProps> = ({
       {...other}
     />
   );
-};
+}
 
 export { SparkSvgIcon as SvgIcon };

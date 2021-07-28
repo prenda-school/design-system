@@ -1,6 +1,5 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Button, ButtonProps } from '@material-ui/core';
+import * as React from 'react';
+import { withStyles, Button, ButtonProps } from '@material-ui/core';
 
 export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
@@ -68,4 +67,4 @@ export const NavBarButton = withStyles((theme) => ({
   focusVisible: {
     backgroundColor: theme.palette.grey.light,
   },
-}))(Button);
+}))((props: NavBarButtonProps) => <Button {...props} />);

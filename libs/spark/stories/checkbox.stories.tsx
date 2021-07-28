@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
-import { Checkbox, FormControlLabel } from '@material-ui/core';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Checkbox, FormControlLabel } from '../src';
 
 export default {
   title: 'prenda-spark/Checkbox',

@@ -1,16 +1,14 @@
-import React from 'react';
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 import {
   DropdownContext,
   DropdownButton,
   DropdownMenu,
   DropdownMenuItem,
   DropdownDivider,
+  Box,
 } from '../src';
-import UserDuotoneIcon from '@prenda/spark-icons/UserDuotone';
-import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
-import { Box } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/Dropdown',
@@ -21,7 +19,7 @@ export default {
   },
 } as Meta;
 
-const Template = ({ disabled, open, ...otherArgs }) => {
+const Template: Story = ({ disabled, open, ...otherArgs }) => {
   const menuProps: { open?: boolean } = {};
   if (open !== undefined) menuProps.open = open;
 
@@ -31,11 +29,11 @@ const Template = ({ disabled, open, ...otherArgs }) => {
   return (
     <Box mx={16} my={4}>
       <DropdownContext id="dropdown">
-        <DropdownButton endIcon={<ChevronDownIcon />} {...buttonProps}>
+        <DropdownButton endIcon={<ChevronDown />} {...buttonProps}>
           Options
         </DropdownButton>
         <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={<UserDuotoneIcon />}>
+          <DropdownMenuItem startIcon={<UserDuotone />}>
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>Resources</DropdownMenuItem>
@@ -47,4 +45,5 @@ const Template = ({ disabled, open, ...otherArgs }) => {
     </Box>
   );
 };
+
 export const ConfigurableInput = Template.bind({});

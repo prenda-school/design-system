@@ -1,6 +1,6 @@
-import React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { PaginationItem } from '@material-ui/lab';
+import * as React from 'react';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { PaginationItem } from '../src';
 
 export default {
   title: 'prenda-spark/Pagination Item',
@@ -28,7 +28,7 @@ export default {
   },
 } as Meta;
 
-const Template = (args) => (
+const Template: Story = (args) => (
   <div style={{ margin: '1rem', height: '3rem', aspectRatio: '1' }}>
     <PaginationItem {...args} />
   </div>
@@ -36,7 +36,7 @@ const Template = (args) => (
 
 export const Configurable = Template.bind({});
 
-const DefaultTemplate = () => (
+const DefaultTemplate: Story = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} />
     <PaginationItem type="first" />
@@ -50,7 +50,7 @@ const DefaultTemplate = () => (
 
 export const Default = DefaultTemplate.bind({});
 
-const PseudoTemplate = () => (
+const PseudoTemplate: Story = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} />
     <PaginationItem type="first" />
@@ -66,7 +66,7 @@ DefaultHover.parameters = { pseudo: { hover: true } };
 export const DefaultFocus = PseudoTemplate.bind({});
 DefaultFocus.parameters = { pseudo: { focus: true } };
 
-const SelectedTemplate = () => (
+const SelectedTemplate: Story = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} selected />
   </div>

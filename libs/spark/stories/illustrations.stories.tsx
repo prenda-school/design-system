@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { styled } from '@material-ui/core';
 import {
   BookIllustration,
   CollaborateIllustration,
   ConquerIllustration,
   CreateIllustration,
 } from '@prenda/spark-icons';
+import { styled } from '../src';
 
 export default {
   title: 'prenda-spark/Illustrations',

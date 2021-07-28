@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import {
   FormControl,
   FormLabel,
@@ -9,7 +8,7 @@ import {
   FormHelperText,
   FormGroup,
   Box,
-} from '@material-ui/core';
+} from '../src';
 
 export default {
   title: 'prenda-spark/Checkbox Group',
@@ -137,7 +136,13 @@ export const RowStatesFocus = StatesTemplate.bind({});
 RowStatesFocus.args = { pseudo: true, row: true };
 RowStatesFocus.parameters = { pseudo: { focus: true } };
 
-function IndeterminateTemplate({ required, error, disabled, value, ...args }) {
+const IndeterminateTemplate: Story = ({
+  required,
+  error,
+  disabled,
+  value,
+  ...args
+}) => {
   const [rows, setRows] = React.useState([false, true, false]);
 
   const handleChange = (event) => {
@@ -200,7 +205,7 @@ function IndeterminateTemplate({ required, error, disabled, value, ...args }) {
       <FormHelperText>Select the rows to view</FormHelperText>
     </FormControl>
   );
-}
+};
 
 export const Indeterminate = IndeterminateTemplate.bind({});
 Indeterminate.decorators = [(Story) => <Story />];

@@ -1,4 +1,5 @@
-import Shadows from '@material-ui/core/styles/shadows';
+import { Shadows } from '@material-ui/core/styles/shadows';
+
 const shadowKeyUmbraOpacity = 0.1;
 const shadowKeyPenumbraOpacity = 0.07;
 const shadowAmbientShadowOpacity = 0.06;
@@ -11,7 +12,7 @@ function createShadow(...px) {
   ].join(',');
 }
 
-const shadows: typeof Shadows = [
+const shadows: Shadows = [
   'none',
   createShadow(0, 1, 3, 0, 0, 1, 1, 0, 0, 2, 1, -1),
   createShadow(0, 1, 5, 0, 0, 2, 2, 0, 0, 3, 1, -2),

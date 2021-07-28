@@ -1,8 +1,6 @@
 import * as React from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
-import { Input, styled } from '@material-ui/core';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import { Input, styled } from '../src';
 
 export default {
   title: 'prenda-spark/Input',
@@ -21,6 +19,7 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => <Input {...args} />;
+
 export const ConfigurableInput = Template.bind({});
 
 const OuterGroup = styled('span')({
