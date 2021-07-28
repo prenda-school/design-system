@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
 import styled from 'styled-components';
-import { TextFormatter } from '../src/utils/story-util';
 import { Theme, useTheme } from '../src';
 
 interface ColorBoxProps {
@@ -46,7 +45,7 @@ export const PrendaColors = () => {
   const theme: Theme = useTheme();
 
   return (
-    <TextFormatter>
+    <>
       <ColorContainerTitle>Prenda colors</ColorContainerTitle>
       <ColorContainer>
         <RowContainer>
@@ -356,7 +355,7 @@ export const PrendaColors = () => {
           />
         </div>
       </ColorContainer>
-    </TextFormatter>
+    </>
   );
 };
 
