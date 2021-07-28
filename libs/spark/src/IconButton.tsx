@@ -10,20 +10,21 @@ import { capitalize } from './utils';
 export const MuiIconButtonDefaultProps = {
   disableFocusRipple: true,
   disableRipple: true,
-  variant: 'contained' as const,
-  size: 'medium' as const,
 };
 
 export const MuiIconButtonStyleOverrides = {
   root: {
-    borderRadius: '50%',
-    borderWidth: 2,
-    borderStyle: 'solid' as const,
-    '&$disabled': {
-      opacity: '50%',
-    },
-    '&:focus': {
-      boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+    // IconButton is used in Radio/Checkbox, so we have to specifically scope this.
+    '&.SparkIconButton-root': {
+      borderRadius: '50%',
+      borderWidth: 2,
+      borderStyle: 'solid' as const,
+      '&$disabled': {
+        opacity: '50%',
+      },
+      '&:focus': {
+        boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+      },
     },
     '&.SparkIconButton-variantContained': {
       borderColor: palette.blue[3],
@@ -77,13 +78,16 @@ export const MuiIconButtonStyleOverrides = {
     },
   },
   label: {
-    color: 'inherit',
-    fontSize: '1.5rem', // 24px
-    lineHeight: '1.5rem', // 24px
-    '& > .MuiSvgIcon-root': {
+    // see above scope comment
+    '.SparkIconButton-root > &': {
       color: 'inherit',
-      fontSize: 'inherit',
-      lineHeight: 'inherit',
+      fontSize: '1.5rem', // 24px
+      lineHeight: '1.5rem', // 24px
+      '& > .MuiSvgIcon-root': {
+        color: 'inherit',
+        fontSize: 'inherit',
+        lineHeight: 'inherit',
+      },
     },
   },
   sizeSmall: {},
@@ -105,6 +109,7 @@ function SparkIconButton({
     <MuiIconButton
       className={clsx(
         className,
+        'SparkIconButton-root',
         `SparkIconButton-variant${capitalize(variant)}`,
         `SparkIconButton-size${capitalize(size)}`
       )}
