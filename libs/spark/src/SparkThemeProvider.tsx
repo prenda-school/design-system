@@ -9,7 +9,6 @@ import { theme } from './styles';
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'spark',
-  seed: 'spark',
 });
 
 export const SparkThemeProvider = (props) => {
