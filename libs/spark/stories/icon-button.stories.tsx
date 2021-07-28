@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { IconButton, IconButtonProps, Box } from '../src';
 import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
 
@@ -33,7 +33,7 @@ interface TemplateIconButtonProps extends IconButtonProps {
   children?: 'ChevronDown';
 }
 
-const Template = (args: TemplateIconButtonProps) => (
+const Template: Story = (args: TemplateIconButtonProps) => (
   <IconButton {...args}>{<ChevronDownIcon />}</IconButton>
 );
 
@@ -50,7 +50,7 @@ const GridContainer = (props) => (
   />
 );
 
-const VariantAndSizeTemplate = (args) => (
+const VariantAndSizeTemplate: Story = (args) => (
   <GridContainer>
     <span>Variant / Size</span>
     <span>Large</span>

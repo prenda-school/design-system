@@ -6,7 +6,7 @@ import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
 import UserDuotone from '@prenda/spark-icons/UserDuotone';
 import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
 import styled from 'styled-components';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { NavBar, NavBarProps, NavBarButton, withStyles, Toolbar } from '../src';
 import { PrendaMonogram } from '@prenda/spark-icons';
 
@@ -42,7 +42,7 @@ const InboxNavBarButton = withStyles({
   },
 })(NavBarButton);
 
-const Template = (args: NavBarProps) => (
+const Template: Story<NavBarProps> = (args) => (
   <NavBar {...args}>
     <CustomToolbar>
       <BluePrendaMonogram />

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Story } from '@storybook/react';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import {
   DropdownContext,
   DropdownButton,
@@ -21,7 +20,7 @@ export default {
   },
 } as Meta;
 
-const Template = ({ disabled, open, ...otherArgs }) => {
+const Template: Story = ({ disabled, open, ...otherArgs }) => {
   const menuProps: { open?: boolean } = {};
   if (open !== undefined) menuProps.open = open;
 
@@ -47,4 +46,5 @@ const Template = ({ disabled, open, ...otherArgs }) => {
     </Box>
   );
 };
+
 export const ConfigurableInput = Template.bind({});

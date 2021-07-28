@@ -33,7 +33,7 @@ interface TemplateButtonProps
   endIcon?: typeof CheckCircleDuotone;
 }
 
-const Template: Story = (args: TemplateButtonProps) => (
+const Template: Story<TemplateButtonProps> = (args) => (
   <NavBarButton
     {...args}
     startIcon={args.startIcon ? <CheckCircleDuotone /> : undefined}

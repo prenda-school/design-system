@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ export default {
   args: {},
 } as Meta;
 
-export const BasicCard = () => (
+export const BasicCard: Story = () => (
   <Card style={{ maxWidth: 400 }}>
     <CardContent>
       <Typography
@@ -57,7 +57,7 @@ const FloatingIconButton = styled(IconButton)`
   top: 24px;
 `;
 
-export const CardWithImage = () => (
+export const CardWithImage: Story = () => (
   <Card style={{ maxWidth: 580 }}>
     <CardMedia style={{ position: 'relative' }}>
       <StyledImage
