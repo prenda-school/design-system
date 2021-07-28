@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ interface ColorBoxProps {
   textColor: string;
 }
 
-const ColorBox: FC<ColorBoxProps> = (props) => {
+function ColorBox(props: ColorBoxProps) {
   return (
     <div
       style={{
@@ -34,7 +34,7 @@ const ColorBox: FC<ColorBoxProps> = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default {
   title: 'prenda-spark/Colors',

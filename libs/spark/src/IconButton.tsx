@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import {
   ButtonBase as MuiButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
@@ -107,13 +107,13 @@ export const ButtonBase = styled(MuiButtonBase)`
   `}
 `;
 
-const SparkIconButton: FC<IconButtonProps> = ({
+function SparkIconButton({
   className,
   variant = 'solid',
   size = 'large',
   children,
   ...other
-}) => {
+}: IconButtonProps) {
   return (
     <ButtonBase
       disableRipple={true}
@@ -130,6 +130,6 @@ const SparkIconButton: FC<IconButtonProps> = ({
       {children}
     </ButtonBase>
   );
-};
+}
 
 export { SparkIconButton as IconButton };

@@ -14,13 +14,13 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 
 1. A designer completes an initial component design.
 2. The designer files a "New Component" Issue in this repository. The description should:
-    - Provide a link to the corresponding Figma page.
-    - Describe the motivation and use-case of component, if necessary.
-    - Enumerate descriptors like variants, sizes, etc.
-    - Describe component makeup, if the component has, or is, a composition pattern.
+   - Provide a link to the corresponding Figma page.
+   - Describe the motivation and use-case of component, if necessary.
+   - Enumerate descriptors like variants, sizes, etc.
+   - Describe component makeup, if the component has, or is, a composition pattern.
 3. An engineer assesses the description, communicates with the designer as necessary, and produces an initial written assessment:
-    - Formalize enumerated descriptors to props
-    - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
+   - Formalize enumerated descriptors to props
+   - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
 5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
@@ -28,16 +28,17 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 
 1. A designers makes a change to a completed component.
 2. The designer files a "Change to Component" Issue in this repository. The description should:
-    - Provide a link to the corresponding Figma page.
-    - Describe the before-and-after of the change.
-2. An engineer assesses the description, communicates with the designer as necessary, and produces a change plan.
-custom-styled or modified to produce the new component.
+   - Provide a link to the corresponding Figma page.
+   - Describe the before-and-after of the change.
+3. An engineer assesses the description, communicates with the designer as necessary, and produces a change plan.
+   custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
 5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
 ### Implementation Work
 
-Spark components should adhere closely to these *guidelines*:
+Spark components should adhere closely to these _guidelines_:
+
 - Based on a Material-UI component(s).
 - Uses named imports from Material-UI, prefixed with `Mui`.
 - Defines props as a TypeScript interface that extends the underlying component's props.
@@ -48,14 +49,15 @@ Spark components should adhere closely to these *guidelines*:
 - One component per file
   - internal (sub-)components can be moved to `~/src/internal/` as needed.
 - Component and Props interface are exported in `~/src/index.ts`.
+
 ```tsx
 // FILE: src/Button.tsx
-import { 
+import {
   ButtonBase as MuiButtonBase,
   ButtonBaseProps as MuiButtonBaseProps,
 } from '@material-ui/core';
 
-export interface ButtonProps 
+export interface ButtonProps
   extends Omit<MuiButtonBaseProps, 'unwanted_prop'> {
     custom_prop?: 'value';
   }
@@ -66,7 +68,7 @@ const Button = styled(MuiButton)`
   `}
 `;
 
-const SparkButton: FC<ButtonProps> = ({ capturedProp, ...other}) => {
+function SparkButton({ capturedProp, ...other}: ButtonProps) {
   ... // something with `capturedProp` & other logic
 
   return (
@@ -77,15 +79,17 @@ const SparkButton: FC<ButtonProps> = ({ capturedProp, ...other}) => {
 };
 
 export { SparkButton as Button };
-``` 
-- Components with composition patterns that customize other existing Spark components should also be prefixed accordingly 
+```
+
+- Components with composition patterns that customize other existing Spark components should also be prefixed accordingly
+
 ```tsx
 // FILE: src/DropdownButton.tsx
 import { Button, ButtonProps } from './Button';
 
 export interface DropdownButtonProps = ButtonProps;
 
-const SparkDropdownButton: React.FC<DropdownButtonProps> = props => {
+function SparkDropdownButton(props: DropdownButtonProps) {
   const { id, handleClick } = React.useContext(Context);
   return (
     <Button
@@ -119,16 +123,19 @@ Before working on any change besides chores, it is best to open an issue first a
 1. Initial setup depends on if you are inside or outside of Prenda. See [Inside of Prenda?](##-inside-of-prenda) or [Outside of Prenda?](##-outside-of-prenda).
 
 2. Install dependencies.
+
 ```sh
 npm install
 ```
 
 3. Create a new topic branch.
+
 ```sh
 git checkout -b my-topic-branch
 ```
 
 From here, your next steps will be project specific. See project README's:
+
 - [Spark](/libs/spark/README.md)
 
 ## Inside of Prenda

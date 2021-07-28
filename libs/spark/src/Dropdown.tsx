@@ -55,7 +55,7 @@ function useUniqueId() {
   return id;
 }
 
-const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
+function SparkDropdownContext(props: DropdownContextProps) {
   const id = useUniqueId();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -74,9 +74,9 @@ const SparkDropdownContext: React.FC<DropdownContextProps> = (props) => {
   );
 
   return <Context.Provider value={value} {...props} />;
-};
+}
 
-const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
+function SparkDropdownButton(props: DropdownButtonProps) {
   const { id, handleClick } = React.useContext(Context);
   return (
     <Button
@@ -86,7 +86,7 @@ const SparkDropdownButton: React.FC<DropdownButtonProps> = (props) => {
       {...props}
     />
   );
-};
+}
 
 const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
   ({ classes, ...other }, ref) => {
