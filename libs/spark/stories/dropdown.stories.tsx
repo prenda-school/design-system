@@ -8,8 +8,7 @@ import {
   DropdownDivider,
   Box,
 } from '../src';
-import UserDuotoneIcon from '@prenda/spark-icons/UserDuotone';
-import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
+import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/Dropdown',
@@ -30,11 +29,11 @@ const Template: Story = ({ disabled, open, ...otherArgs }) => {
   return (
     <Box mx={16} my={4}>
       <DropdownContext id="dropdown">
-        <DropdownButton endIcon={<ChevronDownIcon />} {...buttonProps}>
+        <DropdownButton endIcon={<ChevronDown />} {...buttonProps}>
           Options
         </DropdownButton>
         <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={<UserDuotoneIcon />}>
+          <DropdownMenuItem startIcon={<UserDuotone />}>
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>Resources</DropdownMenuItem>

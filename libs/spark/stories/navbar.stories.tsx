@@ -1,14 +1,16 @@
 import * as React from 'react';
-import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
-import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
-import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
-import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
-import UserDuotone from '@prenda/spark-icons/UserDuotone';
-import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
+import {
+  BeakerDuotone,
+  HomeDuotone,
+  InboxFilledDuotone,
+  MountainDuotone,
+  UserDuotone,
+  UsersDuotone,
+  PrendaMonogram,
+} from '@prenda/spark-icons';
 import styled from 'styled-components';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { NavBar, NavBarProps, NavBarButton, withStyles, Toolbar } from '../src';
-import { PrendaMonogram } from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/NavBar',

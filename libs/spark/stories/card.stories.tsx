@@ -9,7 +9,7 @@ import {
   IconButton,
   Typography,
 } from '../src';
-import HeartDuotoneIcon from '@prenda/spark-icons/HeartDuotone';
+import { HeartDuotone } from '@prenda/spark-icons';
 import styled from 'styled-components';
 
 export default {
@@ -65,7 +65,7 @@ export const CardWithImage: Story = () => (
         alt="Multicolor blobs, blurred on light grey background"
       />
       <FloatingIconButton variant="outlined" size="large">
-        <HeartDuotoneIcon />
+        <HeartDuotone />
       </FloatingIconButton>
     </CardMedia>
     <CardContent>
