@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import styled from 'styled-components';
-import { useTheme } from '../src';
+import { useTheme, styled } from '../src';
 
 interface ColorBoxProps {
   color: string;
@@ -358,18 +357,20 @@ export const PrendaColors = () => {
   );
 };
 
-const RowContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-const ColorContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  font-weight: 200;
-`;
-const ColorContainerTitle = styled.div`
-  font-weight: 500;
-  font-size: 24px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-`;
+const RowContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+});
+
+const ColorContainer = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  fontWeight: 200,
+});
+
+const ColorContainerTitle = styled('div')({
+  fontWeight: 500,
+  fontSize: 24,
+  paddingBottom: 8,
+  paddingLeft: 5,
+});

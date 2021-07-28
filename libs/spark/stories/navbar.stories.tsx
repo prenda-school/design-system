@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import styled from 'styled-components';
 import {
   BeakerDuotone,
   HomeDuotone,
@@ -10,7 +9,14 @@ import {
   UsersDuotone,
   PrendaMonogram,
 } from '@prenda/spark-icons';
-import { NavBar, NavBarProps, NavBarButton, withStyles, Toolbar } from '../src';
+import {
+  NavBar,
+  NavBarProps,
+  NavBarButton,
+  withStyles,
+  Toolbar,
+  styled,
+} from '../src';
 
 export default {
   title: 'prenda-spark/NavBar',
@@ -19,10 +25,10 @@ export default {
   args: {},
 } as Meta;
 
-const UserMenu = styled.div`
-  display: flex;
-  align-items: center;
-`;
+const UserMenu = styled('div')({
+  display: 'flex',
+  alignItems: 'center',
+});
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
   fontSize: '62px',

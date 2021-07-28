@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import styled from 'styled-components';
 import { HeartDuotone } from '@prenda/spark-icons';
 import {
   Card,
@@ -10,6 +9,8 @@ import {
   Button,
   IconButton,
   Typography,
+  styled,
+  withStyles,
 } from '../src';
 
 export default {
@@ -43,19 +44,21 @@ export const BasicCard: Story = () => (
   </Card>
 );
 
-const StyledImage = styled.img`
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  object-position: 50% 10%;
-  vertical-align: bottom;
-`;
+const StyledImage = styled('img')({
+  width: '100%',
+  maxHeight: 300,
+  objectFit: 'cover',
+  objectPosition: '50% 10%',
+  verticalAlign: 'bottom',
+});
 
-const FloatingIconButton = styled(IconButton)`
-  position: absolute;
-  right: 24px;
-  top: 24px;
-`;
+const FloatingIconButton = withStyles({
+  root: {
+    position: 'absolute',
+    right: 24,
+    top: 24,
+  },
+})(IconButton);
 
 export const CardWithImage: Story = () => (
   <Card style={{ maxWidth: 580 }}>

@@ -43,7 +43,7 @@ Spark components should adhere closely to these _guidelines_:
 - Uses named imports from Material-UI, prefixed with `Mui`.
 - Defines props as a TypeScript interface that extends the underlying component's props.
 - Passes through all unknown props.
-- Styled using `styled-components` or `emotion`.
+- Styled using `@material-ui/styles`.
 - Is a functional React component.
 - Prefixed with "Spark" but exported as proper name.
 - One component per file

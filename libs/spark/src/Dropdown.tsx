@@ -4,9 +4,10 @@ import {
   MenuProps as MuiMenuProps,
   MenuItemProps as MuiMenuItemProps,
   Divider as MuiDivider,
+  withStyles,
+  Button,
+  ButtonProps,
 } from '@material-ui/core';
-import { Button, ButtonProps } from '@material-ui/core';
-import styled from 'styled-components';
 import { MenuItem } from './MenuItem';
 
 type DropdownContextType = {
@@ -40,11 +41,13 @@ export interface DropdownMenuItemProps
   button?: true | undefined;
 }
 
-const SparkDropdownDivider = styled(MuiDivider)`
-  height: 2px;
-  // margin collapses with items
-  margin: 4px 0;
-`;
+const SparkDropdownDivider = withStyles({
+  root: {
+    height: 2,
+    // margin collapses with items
+    margin: '4px 0',
+  },
+})(MuiDivider);
 
 // FROM-MUI Lab/TabContext
 function useUniqueId() {

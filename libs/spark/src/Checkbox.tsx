@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { createSvgIcon, Theme } from '@material-ui/core';
-import styled from 'styled-components';
+import { createSvgIcon, Theme, styled } from '@material-ui/core';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
 

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import styled from 'styled-components';
-import { Typography, TypographyProps } from '../src';
+import { Typography, TypographyProps, styled } from '../src';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -308,41 +307,32 @@ type TypogPageProps = {
   variantBase: Bases;
 };
 
-const OverviewContainer = styled.div`
-  // display: flex;
-`;
+const SizeSection = styled('div')({
+  margin: '2.5rem 0',
+  display: 'grid',
+  gridTemplateColumns: '11rem 1.5rem auto',
+  gridTemplateRows: '1.5rem auto',
 
-const BaseSection = styled.div`
-  // margin-right: 2rem;
-  // max-width: 52.5rem;
-`;
+  '& .pos-1': {
+    gridColumn: 1,
+    gridRow: 1,
+  },
 
-const SizeSection = styled.div`
-  margin: 2.5rem 0;
-  display: grid;
-  grid-template-columns: 11rem 1.5rem auto;
-  grid-template-rows: 1.5rem auto;
+  '& .pos-2': {
+    gridColumn: 1,
+    gridRow: 2,
+    paddingTop: '0.5rem',
+  },
 
-  .pos-1 {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .pos-2 {
-    grid-column: 1;
-    grid-row: 2;
-    padding-top: 0.5rem;
-  }
-
-  .pos-3 {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-  }
-`;
+  '& .pos-3': {
+    gridColumn: 3,
+    gridRow: '1 / span 2',
+  },
+});
 
 const TypogPage = ({ variantBase }: TypogPageProps) => {
   return (
-    <BaseSection>
+    <div>
       <Typography variant="heading-lg">{variantBase}</Typography>
       <hr />
       {baseMap[variantBase].map(
@@ -376,17 +366,17 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
           </SizeSection>
         )
       )}
-    </BaseSection>
+    </div>
   );
 };
 
 export const Overview = () => (
-  <OverviewContainer>
+  <div>
     <TypogPage variantBase={Bases.Display} />
     <TypogPage variantBase={Bases.Heading} />
     <TypogPage variantBase={Bases.Smallcaps} />
     <TypogPage variantBase={Bases.Labels} />
     <TypogPage variantBase={Bases.Paragraph} />
     <TypogPage variantBase={Bases.Code} />
-  </OverviewContainer>
+  </div>
 );
