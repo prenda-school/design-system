@@ -2,6 +2,7 @@ import { MuiButtonDefaultProps } from '../Button';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase';
 import { MuiCardDefaultProps } from '../Card';
 import { MuiCheckboxDefaultProps } from '../Checkbox';
+import { MuiIconButtonDefaultProps } from '../IconButton';
 import { MuiInputDefaultProps } from '../Input';
 import { MuiInputLabelDefaultProps } from '../InputLabel';
 import { MuiMenuDefaultProps } from '../Menu';
@@ -16,6 +17,7 @@ export const props = {
   MuiButtonBase: MuiButtonBaseDefaultProps,
   MuiCard: MuiCardDefaultProps,
   MuiCheckbox: MuiCheckboxDefaultProps,
+  MuiIconButton: MuiIconButtonDefaultProps,
   MuiInput: MuiInputDefaultProps,
   MuiInputLabel: MuiInputLabelDefaultProps,
   MuiMenu: MuiMenuDefaultProps,
