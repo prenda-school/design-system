@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { FormControlLabel, Radio } from '@material-ui/core';
+import { FormControlLabel, Radio } from '../src';
 
 export default {
   title: 'prenda-spark/Radio',

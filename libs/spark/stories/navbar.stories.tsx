@@ -3,14 +3,12 @@ import BeakerDuotone from '@prenda/spark-icons/BeakerDuotone';
 import HomeDuotone from '@prenda/spark-icons/HomeDuotone';
 import InboxFilledDuotone from '@prenda/spark-icons/InboxFilledDuotone';
 import MountainDuotone from '@prenda/spark-icons/MountainDuotone';
-import Toolbar from '@material-ui/core/Toolbar';
 import UserDuotone from '@prenda/spark-icons/UserDuotone';
 import UsersDuotone from '@prenda/spark-icons/UsersDuotone';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react/types-6-0';
-import { NavBar, NavBarProps, NavBarButton } from '../src';
+import { NavBar, NavBarProps, NavBarButton, withStyles, Toolbar } from '../src';
 import { PrendaMonogram } from '@prenda/spark-icons';
-import { withStyles } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/NavBar',

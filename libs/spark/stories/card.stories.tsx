@@ -1,9 +1,14 @@
 import React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Card, CardContent, CardMedia, CardActions } from '@material-ui/core';
-import { Typography } from '../src/Typography';
-import { Button } from '@material-ui/core';
-import { IconButton } from '../src/IconButton';
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Button,
+  IconButton,
+  Typography,
+} from '../src';
 import HeartDuotoneIcon from '@prenda/spark-icons/HeartDuotone';
 import styled from 'styled-components';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Story } from '@storybook/react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Select, styled, MenuItem } from '@material-ui/core';
+import { Select, styled, MenuItem } from '../src';
 
 export default {
   title: 'prenda-spark/Select',

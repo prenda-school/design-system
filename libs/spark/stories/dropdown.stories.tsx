@@ -7,10 +7,10 @@ import {
   DropdownMenu,
   DropdownMenuItem,
   DropdownDivider,
+  Box,
 } from '../src';
 import UserDuotoneIcon from '@prenda/spark-icons/UserDuotone';
 import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
-import { Box } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/Dropdown',

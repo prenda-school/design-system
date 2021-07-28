@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { styled } from '@material-ui/core';
+import { styled } from '../src';
 import {
   PrendaWordmark,
   PrendaMonogram,

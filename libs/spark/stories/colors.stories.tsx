@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import styled from 'styled-components';
 import { TextFormatter } from '../src/utils/story-util';
-import { Theme, useTheme } from '@material-ui/core';
+import { Theme, useTheme } from '../src';
 
 interface ColorBoxProps {
   color: string;

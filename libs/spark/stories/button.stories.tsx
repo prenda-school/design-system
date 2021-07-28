@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Button } from '@material-ui/core';
+import { Button, Box } from '../src';
 import ChevronDownIcon from '@prenda/spark-icons/ChevronDown';
-import Box from '@material-ui/core/Box';
 
 export default {
   title: 'prenda-spark/Button',

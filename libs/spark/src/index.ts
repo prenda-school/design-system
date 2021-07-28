@@ -28,3 +28,4 @@ export type { TypographyProps } from './Typography';
 export { NavBar } from './NavBar';
 export type { NavBarProps } from './NavBar';
 export { NavBarButton } from './NavBarButton';
+export type { NavBarButtonProps } from './NavBarButton';

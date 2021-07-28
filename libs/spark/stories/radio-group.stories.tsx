@@ -8,7 +8,7 @@ import {
   FormControlLabel,
   Radio,
   FormHelperText,
-} from '@material-ui/core';
+} from '../src';
 
 export default {
   title: 'prenda-spark/RadioGroup',
