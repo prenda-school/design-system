@@ -33,7 +33,7 @@ npm install @prenda/spark
 
 ## Usage
 
-Here is am example to get you started.
+Here is an example to get you started.
 
 ```tsx
 import * as React from 'react';
