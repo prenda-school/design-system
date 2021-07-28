@@ -17,7 +17,6 @@ const SparkCheckboxIconRoot = styled('span')(
       '& .MuiSvgIcon-root': {
         width: 22,
         height: 22,
-        backgroundColor: palette.common.white,
       },
       '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.onLight,
