@@ -6,11 +6,21 @@ import { capitalize } from './utils';
 
 export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
   contrast?: 'high' | 'low';
-  color?: 'onLight' | 'onDark' | 'disabled' | 'error' | 'inherit';
+  color?:
+    | 'inherit'
+    | 'onLight'
+    | 'onDark'
+    | 'disabled'
+    | 'error'
+    | 'success'
+    | 'warning'
+    | 'info'
+    | 'white';
 }
 
 export const MuiSvgIconDefaultProps = {};
 
+// :NOTE: Duotone fill selector is & > *[fill="#F0F1F2"]
 export const MuiSvgIconStyleOverrides = {
   root: {
     // fontSizeDefault/Medium
@@ -18,6 +28,34 @@ export const MuiSvgIconStyleOverrides = {
     // contrastHigh is `opacity: 1` which is just the default CSS value
     '&.SparkSvgIcon-contrastLow': {
       opacity: 0.72,
+    },
+    // custom colors
+    '&.SparkSvgIcon-colorSuccess': {
+      color: palette.green[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: palette.green[1],
+        opacity: 0.72,
+      },
+    },
+    '&.SparkSvgIcon-colorWarning': {
+      color: palette.yellow[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: palette.yellow[1],
+        opacity: 0.72,
+      },
+    },
+    '&.SparkSvgIcon-colorInfo': {
+      color: palette.blue[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: palette.blue[1],
+        opacity: 0.72,
+      },
+    },
+    '&.SparkSvgIcon-colorWhite': {
+      color: palette.common.white,
+      '& > *[fill="#F0F1F2"]': {
+        opacity: 0.72,
+      },
     },
   },
   fontSizeSmall: {
@@ -31,8 +69,14 @@ export const MuiSvgIconStyleOverrides = {
   },
   colorSecondary: {
     color: palette.text.onDark,
-    // Duotone fill selector
     '& > *[fill="#F0F1F2"]': {
+      opacity: 0.72,
+    },
+  },
+  colorError: {
+    color: palette.red[2],
+    '& > *[fill="#F0F1F2"]': {
+      fill: palette.red[1],
       opacity: 0.72,
     },
   },
@@ -43,15 +87,34 @@ const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
   ref: React.ForwardedRef<SVGSVGElement>
 ) {
   let muiColor;
-  if (color === 'onLight') muiColor = 'primary';
-  else if (color === 'onDark') muiColor = 'secondary';
-  else muiColor = color;
+  let sparkColor = 'inherit';
+  if (color === 'onLight') {
+    muiColor = 'primary';
+  } else if (color === 'onDark') {
+    muiColor = 'secondary';
+  } else if (color === 'success') {
+    sparkColor = 'success';
+    muiColor = 'inherit';
+  } else if (color === 'warning') {
+    sparkColor = 'warning';
+    muiColor = 'inherit';
+  } else if (color === 'info') {
+    sparkColor = 'info';
+    muiColor = 'inherit';
+  } else if (color === 'white') {
+    sparkColor = 'white';
+    muiColor = 'inherit';
+  } else {
+    muiColor = color;
+  }
 
   return (
     <SvgIcon
       color={muiColor}
       className={clsx(className, {
         [`SparkSvgIcon-contrast${capitalize(contrast)}`]: contrast !== 'high',
+        [`SparkSvgIcon-color${capitalize(sparkColor)}`]:
+          sparkColor !== 'inherit',
       })}
       {...other}
     />
