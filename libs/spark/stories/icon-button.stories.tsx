@@ -10,7 +10,7 @@ export default {
     onClick: { actions: 'clicked' },
     variant: {
       control: 'select',
-      options: ['solid', 'outlined', 'flat'],
+      options: ['contained', 'outlined', 'text'],
     },
     size: {
       control: 'select',
@@ -23,7 +23,7 @@ export default {
     disabled: { control: 'boolean' },
   },
   args: {
-    variant: 'solid',
+    variant: 'contained',
     size: 'large',
     children: 'ChevronDown',
   },
@@ -56,14 +56,14 @@ const VariantAndSizeTemplate: Story = (args) => (
     <span>Large</span>
     <span>Medium</span>
 
-    <span>Solid</span>
+    <span>Contained</span>
     <span>
-      <IconButton {...args} variant="solid" size="large">
+      <IconButton {...args} variant="contained" size="large">
         <ChevronDown />
       </IconButton>
     </span>
     <span>
-      <IconButton {...args} variant="solid" size="medium">
+      <IconButton {...args} variant="contained" size="medium">
         <ChevronDown />
       </IconButton>
     </span>
@@ -80,14 +80,14 @@ const VariantAndSizeTemplate: Story = (args) => (
       </IconButton>
     </span>
 
-    <span>Flat</span>
+    <span>Text</span>
     <span>
-      <IconButton {...args} variant="flat" size="large">
+      <IconButton {...args} variant="text" size="large">
         <ChevronDown />
       </IconButton>
     </span>
     <span>
-      <IconButton {...args} variant="flat" size="medium">
+      <IconButton {...args} variant="text" size="medium">
         <ChevronDown />
       </IconButton>
     </span>
