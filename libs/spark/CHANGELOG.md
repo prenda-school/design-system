@@ -12,6 +12,37 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### Features
 
+#### Breaking Changes
+
+All icons added in v0.8.0 were removed. They are now located under `@prenda/spark-icons` under new names and with a new prop signature. They should be treated as completely new. See that project's changelog for details.
+
+All illustrations and logos were removed. They are now located under `@prenda/spark-icons` with a new prop signature. They should be treated as completely new.
+
+Many components faced breaking prop API changes (and theme-wide default props) and breaking styling changes (through theme-wide style overrides). Theme-wide overrides or default will affect all Material-UI components under `SparkThemeProvider` regardless of if they are imported from Spark.
+
+- **Button:**
+  - Prop: `variant`
+    - `"solid"` is now `"contained"`
+    - `"flat"` is now `"text"`
+    - (`"outlined"` was not changed)
+- **Checkbox:**
+  - Is no longer a meld of `FormControlLabel` and `Checkbox`
+  - Please treat this component as completely new.
+- **IconButton:**
+  - Prop: `variant`
+    - `"solid"` is now `"contained"`
+    - `"flat"` is now `"text"`
+    - (`"outlined"` was not changed)
+- **Navbar:**
+  - Renamed to **NavBar**.
+- **NabarLink:**
+  - Replaced by **NavBarButton** (treat as completely new).
+- **Radio:**
+  - Is no longer a meld of `FormControlLabel` and `Radio`
+  - Please treat this component as completely new.
+
+#### All
+
 - simplify dependency narrative ([#169](https://github.com/prenda-school/prenda-spark/issues/169)) ([9936891](https://github.com/prenda-school/prenda-spark/commit/99368918c86ef8f9fa67139e4a3c2701cda02ec5))
 - **Button:** update styles ([#158](https://github.com/prenda-school/prenda-spark/issues/158)) ([d914340](https://github.com/prenda-school/prenda-spark/commit/d914340561167e1f5da7dfc2480496d33a4c0194)), ([#142](https://github.com/prenda-school/prenda-spark/issues/142)) ([aa2aacc](https://github.com/prenda-school/prenda-spark/commit/aa2aaccbe3fb879f30ecc1828f875c5ffd54cc0f))
 - **ButtonBase:** add theme default props ([#98](https://github.com/prenda-school/prenda-spark/issues/98)) ([6761097](https://github.com/prenda-school/prenda-spark/commit/6761097329d36ca564d9ab2b34f15123811f4ec6))
@@ -31,6 +62,8 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 - **InputLabel:** add theme style overrides ([#92](https://github.com/prenda-school/prenda-spark/issues/92)) ([892aca5](https://github.com/prenda-school/prenda-spark/commit/892aca5cbc3a0dd8ead5062f8cc20de8cbc6aa43))
 - **Menu:** add theme style overrides and default props ([#97](https://github.com/prenda-school/prenda-spark/issues/97)) ([e6aa00b](https://github.com/prenda-school/prenda-spark/commit/e6aa00ba900c528e503cf00b3de026856de8bb58))
 - **MenuItem:** update component styles and add theme style overrides ([#99](https://github.com/prenda-school/prenda-spark/issues/99)) ([faf6b4c](https://github.com/prenda-school/prenda-spark/commit/faf6b4c3f45bf69ec191c9f380400aa72d282b92))
+- **NavBar:** renamed Navbar; remove forced composition ([#125](https://github.com/prenda-school/prenda-spark/issues/125)) ([faf6b4c](https://github.com/prenda-school/prenda-spark/commit/0d18582f4d3f1bd4d09cc211ef3cba2456f6949e))
+- **NavBarButton:** renamed NavbarLink; improved styles and API ([#166](https://github.com/prenda-school/prenda-spark/issues/166)) ([faf6b4c](https://github.com/prenda-school/prenda-spark/commit/2045814943169d41a362dfcd099094d45a0f9db8))
 - **Pagination:** initial implementation ([#110](https://github.com/prenda-school/prenda-spark/issues/110)) ([4955311](https://github.com/prenda-school/prenda-spark/commit/4955311291a7559afbe49e19d929c65038cb58b7))
 - **PaginationItem:** initial implementation ([#110](https://github.com/prenda-school/prenda-spark/issues/110)) ([4955311](https://github.com/prenda-school/prenda-spark/commit/4955311291a7559afbe49e19d929c65038cb58b7))
 - **palette:**
