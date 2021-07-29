@@ -2,8 +2,7 @@
 //  Changes made since
 
 import * as React from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import { SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
+import { SvgIcon, SvgIconProps } from '@prenda/spark';
 
 export default function createSvgIcon(
   path: React.ReactNode,
@@ -12,7 +11,7 @@ export default function createSvgIcon(
   width?: string,
   height?: string
 ): typeof SvgIcon {
-  const Component = (props: MuiSvgIconProps, ref: React.ForwardedRef<SVGSVGElement>) => (
+  const Component = (props: SvgIconProps, ref: React.ForwardedRef<SVGSVGElement>) => (
     <SvgIcon ref={ref} viewBox={viewBox} width={width} height={height} {...props}>
       {path}
     </SvgIcon>

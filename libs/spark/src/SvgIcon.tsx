@@ -4,21 +4,18 @@ import { palette } from './styles/palette';
 import clsx from 'clsx';
 import { capitalize } from './utils';
 
-export interface SvgIconProps extends MuiSvgIconProps {
+export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
   contrast?: 'high' | 'low';
+  color?: 'onLight' | 'onDark' | 'disabled' | 'error' | 'inherit';
 }
 
-export const MuiSvgIconDefaultProps = {
-  color: 'primary' as const,
-};
+export const MuiSvgIconDefaultProps = {};
 
 export const MuiSvgIconStyleOverrides = {
   root: {
-    // fontSizeDefault
+    // fontSizeDefault/Medium
     fontSize: '1.5rem', // 24px
-    '&.SparkSvgIcon-contrastHigh': {
-      opacity: 0.72,
-    },
+    // contrastHigh is `opacity: 1` which is just the default CSS value
     '&.SparkSvgIcon-contrastLow': {
       opacity: 0.72,
     },
@@ -34,23 +31,31 @@ export const MuiSvgIconStyleOverrides = {
   },
   colorSecondary: {
     color: palette.text.onDark,
+    // Duotone fill selector
+    '& > *[fill="#F0F1F2"]': {
+      opacity: 0.72,
+    },
   },
 };
 
-function SparkSvgIcon({
-  contrast = 'high',
-  className,
-  ...other
-}: SvgIconProps) {
+const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
+  { contrast = 'high', color = 'inherit', className, ...other }: SvgIconProps,
+  ref: React.ForwardedRef<SVGSVGElement>
+) {
+  let muiColor;
+  if (color === 'onLight') muiColor = 'primary';
+  else if (color === 'onDark') muiColor = 'secondary';
+  else muiColor = color;
+
   return (
     <SvgIcon
-      className={clsx(
-        className,
-        `SparkSvgIcon-contrast${capitalize(contrast)}`
-      )}
+      color={muiColor}
+      className={clsx(className, {
+        [`SparkSvgIcon-contrast${capitalize(contrast)}`]: contrast !== 'high',
+      })}
       {...other}
     />
   );
-}
+});
 
 export { SparkSvgIcon as SvgIcon };
