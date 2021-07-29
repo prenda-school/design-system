@@ -77,7 +77,7 @@ const Template: Story<NavBarProps> = (args) => (
         0
       </InboxNavBarButton>
       <UserMenu>
-        <UserDuotone fontSize="large" />
+        <UserDuotone color="onLight" fontSize="large" />
       </UserMenu>
     </CustomToolbar>
   </NavBar>
