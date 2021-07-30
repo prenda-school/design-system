@@ -14,6 +14,8 @@ jobs:
       - run: npm ci
       - run: npx nx run spark:test
       - run: npx nx run spark-e2e:e2e
+      # stories & tests depend on @prenda/spark-icons, but aren't included in build
+      #  without this, Nx prevents build and requires icons be built first (circular dep)
       - run: rm -rf ./libs/spark/stories ./libs/spark/test
       - run: npx nx run spark:build
       - uses: JS-DevTools/npm-publish@v1
@@ -45,6 +47,9 @@ jobs:
           SLACK_TITLE: '@prenda/spark'
           SLACK_MESSAGE: Failure
       - run: npm run build:icons
+        # see https://github.com/JS-DevTools/npm-publish/issues/15
+        env:
+          INPUT_TOKEN: ''
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
