@@ -3,6 +3,10 @@
   "version": "0.9.0",
   "author": "Prenda",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "clsx": "^1.1.1"
   },
