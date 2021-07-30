@@ -14,6 +14,7 @@ jobs:
       - run: npm ci
       - run: npx nx run spark:test
       - run: npx nx run spark-e2e:e2e
+      - run: rm -rf ./libs/spark/stories ./libs/spark/test
       - run: npx nx run spark:build
       - uses: JS-DevTools/npm-publish@v1
         with:
