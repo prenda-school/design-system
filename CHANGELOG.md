@@ -2,13 +2,11 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+See project specific changelogs for details
+
+- [`@prenda/spark` here](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark/CHANGELOG.md)
+- [`@prenda/spark-icons` here](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark-icons/CHANGELOG.md)
+
+# [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
+
 # [0.8.0](https://github.com/prenda-school/prenda-spark/compare/v0.7.3...v0.8.0) (2021-06-22)
-
-### Features
-
-#### Spark
-
-- **Card:** initial implementation, theme style overrides ([#71](https://github.com/prenda-school/prenda-spark/issues/71)) ([85068ec](https://github.com/prenda-school/prenda-spark/commit/85068ec14bad64c8251d47be482b12d85474dcb8))
-- **CardContent:** initial implementation, theme style overrides ([#71](https://github.com/prenda-school/prenda-spark/issues/71)) ([85068ec](https://github.com/prenda-school/prenda-spark/commit/85068ec14bad64c8251d47be482b12d85474dcb8))
-- **CardActions:** initial implementation, theme style overrides ([#71](https://github.com/prenda-school/prenda-spark/issues/71)) ([85068ec](https://github.com/prenda-school/prenda-spark/commit/85068ec14bad64c8251d47be482b12d85474dcb8))
-- **theme:** custom shadows ([#71](https://github.com/prenda-school/prenda-spark/issues/71)) ([85068ec](https://github.com/prenda-school/prenda-spark/commit/85068ec14bad64c8251d47be482b12d85474dcb8))
