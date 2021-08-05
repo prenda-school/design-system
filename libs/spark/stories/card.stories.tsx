@@ -7,11 +7,10 @@ import {
   CardMedia,
   CardActions,
   Button,
-  IconButton,
-  Typography,
   styled,
   withStyles,
-} from '../src';
+} from '@material-ui/core';
+import { IconButton, Typography } from '../src';
 
 export default {
   title: 'prenda-spark/Card',

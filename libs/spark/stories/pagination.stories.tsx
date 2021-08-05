@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { Pagination } from '../src';
+import { Pagination } from '@material-ui/lab';
 
 export default {
   title: 'prenda-spark/Pagination',

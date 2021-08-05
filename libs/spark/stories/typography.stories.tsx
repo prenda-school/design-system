@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Typography, TypographyProps, styled } from '../src';
+import { styled } from '@material-ui/core';
+import { Typography, TypographyProps } from '../src';
 
 export default {
   title: 'prenda-spark/Typography',

@@ -8,7 +8,7 @@ import {
   FormHelperText,
   FormGroup,
   Box,
-} from '../src';
+} from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/Checkbox Group',

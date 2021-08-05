@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, SvgIcon, theme } from '../src';
+import { styled } from '@material-ui/core';
+import { SvgIcon, theme } from '../src';
 import {
   AlertCircle,
   AlertCircleFilled,

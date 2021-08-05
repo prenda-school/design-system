@@ -5,7 +5,7 @@ import {
   PrendaMonogram,
   SparkMonogram,
 } from '@prenda/spark-icons';
-import { styled } from '../src';
+import { styled } from '@material-ui/core';
 
 export default {
   title: 'prenda-spark/Logos',

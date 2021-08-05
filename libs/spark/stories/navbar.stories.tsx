@@ -9,14 +9,8 @@ import {
   UsersDuotone,
   PrendaMonogram,
 } from '@prenda/spark-icons';
-import {
-  NavBar,
-  NavBarProps,
-  NavBarButton,
-  withStyles,
-  Toolbar,
-  styled,
-} from '../src';
+import { withStyles, Toolbar, styled } from '@material-ui/core';
+import { NavBar, NavBarProps, NavBarButton } from '../src';
 
 export default {
   title: 'prenda-spark/NavBar',

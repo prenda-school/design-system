@@ -1,7 +1,3 @@
-export * from '@material-ui/core';
-// Have to be specific here, /core and /lab have overlapping exports.
-//  This is a fine reality though, /lab has few necessary component exports.
-export { Pagination, PaginationItem } from '@material-ui/lab';
 export {
   DropdownContext,
   DropdownButton,

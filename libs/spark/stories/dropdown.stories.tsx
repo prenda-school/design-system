@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
+import { Box } from '@material-ui/core';
 import {
   DropdownContext,
   DropdownButton,
   DropdownMenu,
   DropdownMenuItem,
   DropdownDivider,
-  Box,
 } from '../src';
 
 export default {
