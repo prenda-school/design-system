@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
+
+### Bug Fixes
+
+- Build issue (v0.9) ([#178](https://github.com/prenda-school/prenda-spark/issues/178)) ([ae86e4b](https://github.com/prenda-school/prenda-spark/commit/ae86e4b3224374f640a28f9122a7c732b91a2a59))
+
+#### Breaking Changes
+
+Spark no longer exports all of `@material-ui/core`, only components it themes, in addition to re-exporting the following theme related utilities from Mui core: `{ styled, useTheme, withStyles, makeStyles }`
+
 # [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
 
 ### Bug Fixes
