@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { Button } from '@material-ui/core';
+
 export const MuiButtonDefaultProps = {
   // No disableElevation: true because it makes styling box-shadow's
   //  VERY difficult. Instead, just override wherever it pops up.

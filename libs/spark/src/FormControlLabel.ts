@@ -1,4 +1,7 @@
 import { palette } from './styles/palette';
+
+export { FormControlLabel } from '@material-ui/core';
+
 export const MuiFormControlLabelStyleOverrides = {
   root: {
     marginLeft: -8,

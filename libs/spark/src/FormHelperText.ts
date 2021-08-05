@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { FormHelperText } from '@material-ui/core';
+
 export const MuiFormHelperTextStyleOverrides = {
   root: {
     color: palette.text.onLightLowContrast,

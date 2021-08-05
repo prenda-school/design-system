@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { InputBase } from '@material-ui/core';
+
 export const MuiInputBaseStyleOverrides = {
   root: {
     boxSizing: 'border-box' as const,

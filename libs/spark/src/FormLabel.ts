@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { FormLabel } from '@material-ui/core';
+
 export const MuiFormLabelStyleOverrides = {
   root: {
     fontSize: '1rem',

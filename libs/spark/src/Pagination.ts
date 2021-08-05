@@ -1,3 +1,5 @@
+export { Pagination } from '@material-ui/lab';
+
 export const MuiPaginationStyleOverrides = {
   ul: {
     // TODO: Mui-v5 move to .MuiPaginationItem-previousNext / firstLast

@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { PaginationItem } from '@material-ui/lab';
+
 export const MuiPaginationItemStyleOverrides = {
   root: {
     margin: 0,
