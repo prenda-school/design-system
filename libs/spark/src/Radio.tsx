@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { palette } from './styles/palette';
 import { Theme } from '@material-ui/core';
 
+export { Radio } from '@material-ui/core';
+
 // Recreation of Material-UI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
 const SparkRadioIconRoot = styled('span')(

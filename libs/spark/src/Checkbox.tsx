@@ -3,6 +3,8 @@ import { createSvgIcon, Theme, styled } from '@material-ui/core';
 import clsx from 'clsx';
 import { palette } from './styles/palette';
 
+export { Checkbox } from '@material-ui/core';
+
 // Recreation of Material-UI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
 const SparkCheckboxIconRoot = styled('span')(

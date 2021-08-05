@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { InputLabel } from '@material-ui/core';
+
 export const MuiInputLabelDefaultProps = {
   disableAnimation: true,
 };

@@ -1,6 +1,8 @@
 import ChevronDownIcon from './internal/ChevronDown';
 import { palette } from './styles/palette';
 
+export { Select } from '@material-ui/core';
+
 export const MuiSelectDefaultProps = {
   displayEmpty: true,
   IconComponent: ChevronDownIcon,

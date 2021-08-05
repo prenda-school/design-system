@@ -1,5 +1,7 @@
 import { palette } from './styles/palette';
 
+export { Menu } from '@material-ui/core';
+
 export const MuiMenuDefaultProps = {
   elevation: 3,
 };
