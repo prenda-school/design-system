@@ -14,7 +14,7 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       '& strong, b': {
-        fontWeight: 500,
+        fontWeight: 600,
       },
     },
     initial: {}, // to satisfy TS
@@ -39,83 +39,83 @@ const styles = (theme: Theme) =>
     'display-lg': {
       fontSize: '4rem',
       lineHeight: '4rem',
-      fontWeight: 700,
+      fontWeight: 800,
     },
     'display-md': {
       fontSize: '3.5rem',
       lineHeight: '3.5rem',
-      fontWeight: 700,
+      fontWeight: 800,
     },
     'display-sm': {
       fontSize: '3rem',
       lineHeight: '3rem',
-      fontWeight: 700,
+      fontWeight: 800,
     },
     'heading-xxl': {
       fontSize: '2.5rem',
       lineHeight: '2.5rem',
-      fontWeight: 500,
+      fontWeight: 600,
     },
     'heading-xl': {
       fontSize: '2.125rem',
       lineHeight: '2.125rem',
-      fontWeight: 500,
+      fontWeight: 600,
     },
     'heading-lg': {
       fontSize: '1.75rem',
       lineHeight: '1.875rem',
-      fontWeight: 500,
+      fontWeight: 600,
     },
     'heading-md': {
       fontSize: '1.5rem',
       lineHeight: '1.625rem',
-      fontWeight: 500,
+      fontWeight: 600,
     },
     'heading-sm': {
       fontSize: '1.25rem',
       lineHeight: '1.375rem',
-      fontWeight: 500,
+      fontWeight: 600,
     },
     'smallcaps-lg': {
       fontSize: '1rem',
       lineHeight: '1rem',
       letterSpacing: '.1em',
-      fontWeight: 600,
+      fontWeight: 800,
       textTransform: 'uppercase',
     },
     'smallcaps-md': {
       fontSize: '0.875rem',
       lineHeight: '0.875rem',
       letterSpacing: '.1em',
-      fontWeight: 600,
+      fontWeight: 800,
       textTransform: 'uppercase',
     },
     'smallcaps-sm': {
       fontSize: '0.75rem',
       lineHeight: '0.75rem',
       letterSpacing: '.1em',
-      fontWeight: 600,
+      fontWeight: 800,
       textTransform: 'uppercase',
     },
     'label-xl': {
       fontSize: '1.125rem',
       lineHeight: '1.5rem',
-      fontWeight: 400,
+      fontWeight: 500,
     },
     'label-lg': {
       fontSize: '1rem',
       lineHeight: '1.5rem',
-      fontWeight: 400,
+      fontWeight: 500,
     },
     'label-md': {
       fontSize: '0.875rem',
       lineHeight: '1.25rem',
-      fontWeight: 400,
+      fontWeight: 500,
     },
     'label-sm': {
       fontSize: '0.75rem',
       lineHeight: '1.25rem',
-      fontWeight: 400,
+      fontWeight: 500,
     },
     'paragraph-xl': {
       fontSize: '1.125rem',
