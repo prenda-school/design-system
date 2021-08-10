@@ -35,6 +35,8 @@ Now you can develop components within the `libs/spark/src/` directory and see ch
 
 Depending on your preferred IDE, consider downloading a [community IDE plugin for Nx workspaces](https://nx.dev/latest/react/getting-started/console#download).
 
+The Spark theme refers to font files for _Nunito_, which should be served at the `/fonts` path. These fonts are available in this library in `libs/spark/public/fonts`.
+
 ## Testing
 
 Run tests with `nx run spark:test`.

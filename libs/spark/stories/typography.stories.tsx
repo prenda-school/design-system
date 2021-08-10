@@ -115,8 +115,9 @@ enum Sizes {
 }
 
 enum Styles {
+  Extrabold = 'ExtraBold',
   Bold = 'Bold',
-  Semibold = 'Condensed/Semibold',
+  Semibold = 'Condensed/SemiBold',
   Medium = 'Medium',
   Regular = 'Regular',
 }
@@ -133,19 +134,19 @@ const baseMap = {
     {
       text: Sizes.Large,
       values: '64px/64px',
-      style: Styles.Bold,
+      style: Styles.Extrabold,
       variant: 'display-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
       values: '56px/56px',
-      style: Styles.Bold,
+      style: Styles.Extrabold,
       variant: 'display-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
       values: '48px/48px',
-      style: Styles.Bold,
+      style: Styles.Extrabold,
       variant: 'display-sm',
     } as BaseInfo,
   ],
@@ -153,31 +154,31 @@ const baseMap = {
     {
       text: Sizes.XXLarge,
       values: '40px/40px',
-      style: Styles.Medium,
+      style: Styles.Bold,
       variant: 'heading-xxl',
     } as BaseInfo,
     {
       text: Sizes.XLarge,
       values: '34px/34px',
-      style: Styles.Medium,
+      style: Styles.Bold,
       variant: 'heading-xl',
     } as BaseInfo,
     {
       text: Sizes.Large,
       values: '28px/30px',
-      style: Styles.Medium,
+      style: Styles.Bold,
       variant: 'heading-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
       values: '24px/26px',
-      style: Styles.Medium,
+      style: Styles.Bold,
       variant: 'heading-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
       values: '20px/22px',
-      style: Styles.Medium,
+      style: Styles.Bold,
       variant: 'heading-sm',
     } as BaseInfo,
   ],
@@ -185,19 +186,19 @@ const baseMap = {
     {
       text: Sizes.Large,
       values: '16px/16px/10%',
-      style: Styles.Semibold,
+      style: Styles.Extrabold,
       variant: 'smallcaps-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
       values: '14px/14px/10%',
-      style: Styles.Semibold,
+      style: Styles.Extrabold,
       variant: 'smallcaps-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
       values: '12px/12px/10%',
-      style: Styles.Semibold,
+      style: Styles.Extrabold,
       variant: 'smallcaps-sm',
     } as BaseInfo,
   ],
@@ -205,7 +206,7 @@ const baseMap = {
     {
       text: Sizes.XLarge,
       values: '18px/24px',
-      style: Styles.Regular,
+      style: Styles.Semibold,
       variant: 'label-xl',
     } as BaseInfo,
     {
@@ -218,7 +219,7 @@ const baseMap = {
     {
       text: Sizes.Large,
       values: '16px/24px',
-      style: Styles.Regular,
+      style: Styles.Semibold,
       variant: 'label-lg',
     } as BaseInfo,
     {
@@ -231,7 +232,7 @@ const baseMap = {
     {
       text: Sizes.Medium,
       values: '14px/20px',
-      style: Styles.Regular,
+      style: Styles.Semibold,
       variant: 'label-md',
     } as BaseInfo,
     {
@@ -244,7 +245,7 @@ const baseMap = {
     {
       text: Sizes.Small,
       values: '12px/20px',
-      style: Styles.Regular,
+      style: Styles.Semibold,
       variant: 'label-sm',
     } as BaseInfo,
     {
