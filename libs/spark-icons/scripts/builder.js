@@ -51,6 +51,12 @@ export function cleanPaths({ data }) {
     .replace(/ fillOpacity="0.72"/g, '')
     .replace(/ fill-opacity=".72"/g, '')
     .replace(/ fillOpacity=".72"/g, '')
+    //Replace hyphenated stroke attributes with camelCased ones
+    .replace(/\bstroke-linecap\b/g, 'strokeLinecap')
+    .replace(/\bstroke-linejoin\b/g, 'strokeLinejoin')
+    .replace(/\bstroke-width\b/g, 'strokeWidth')
+    .replace(/\bstroke-miterlimit\b/g, 'strokeMiterlimit')
+    .replace(/\bstroke-opacity\b/g, 'strokeOpacity')
     // clip-rule can be safely removed when the path it's on is not a child of a clipPath
     //  this replacement doesn't check for that though, so its risky
     .replace(/ clip-rule="evenodd"/g, '')
