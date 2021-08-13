@@ -1,8 +1,13 @@
 import * as CSS from 'csstype';
 
+const fontFamily = '"Nunito", Avenir, sans-serif';
+const defaultFontSize = 16;
+const pxToRem = (size) => `${size / defaultFontSize}rem`;
+
 export const typography = {
-  fontFamily: '"Nunito", Avenir, sans-serif',
-  fontSize: 16,
+  fontFamily,
+  fontSize: defaultFontSize,
+  pxToRem,
   body1: {
     fontSize: 16,
   },
