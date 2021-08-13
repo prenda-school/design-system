@@ -1,8 +1,9 @@
 export { Card } from '@material-ui/core';
 
 export const MuiCardDefaultProps = {
-  elevation: 4,
+  elevation: 2, // E200
 };
+
 export const MuiCardStyleOverrides = {
   root: {
     borderRadius: 16,

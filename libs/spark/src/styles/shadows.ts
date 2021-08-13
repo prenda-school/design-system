@@ -20,11 +20,11 @@ const highestElevationShadow = createElevationShadow(18, 28, 0.15);
 
 const shadows: Shadows = [
   'none',
-  createElevationShadow(1, 1, 0.24),
-  createElevationShadow(3, 5, 0.2),
-  createElevationShadow(8, 12, 0.15),
-  createElevationShadow(10, 18, 0.15),
-  highestElevationShadow,
+  createElevationShadow(1, 1, 0.24), // E100
+  createElevationShadow(3, 5, 0.2), // E200
+  createElevationShadow(8, 12, 0.15), // E300
+  createElevationShadow(10, 18, 0.15), // E400
+  highestElevationShadow, // E500
   highestElevationShadow,
   highestElevationShadow,
   highestElevationShadow,
