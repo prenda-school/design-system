@@ -12,8 +12,8 @@ import { Shadows } from '@material-ui/core/styles/shadows';
 function createElevationShadow(yOffset, blurRadius, transparency) {
   return [
     '0 0 1px 0 rgba(7, 46, 68, 0.31)',
-    `0 ${yOffset} ${blurRadius} rgba(7, 46, 68, ${transparency})`,
-  ].join(',');
+    `0 ${yOffset}px ${blurRadius}px rgba(7, 46, 68, ${transparency})`,
+  ].join(', ');
 }
 
 const highestElevationShadow = createElevationShadow(18, 28, 0.15);
