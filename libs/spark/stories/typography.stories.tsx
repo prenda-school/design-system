@@ -18,9 +18,9 @@ export default {
           'heading-lg',
           'heading-md',
           'heading-sm',
-          'smallcaps-lg',
-          'smallcaps-md',
-          'smallcaps-sm',
+          'uppercase-lg',
+          'uppercase-md',
+          'uppercase-sm',
           'label-xl',
           'label-lg',
           'label-md',
@@ -59,7 +59,7 @@ export default {
 type TextKey =
   | 'display'
   | 'heading'
-  | 'smallcaps'
+  | 'uppercase'
   | 'label'
   | 'paragraph'
   | 'code';
@@ -67,7 +67,7 @@ type TextKey =
 const text = {
   display: 'Empower learners everywhere',
   heading: 'Empower learners everywhere',
-  smallcaps: 'Passion to learn',
+  uppercase: 'Passion to learn',
   label: 'Label',
   paragraph:
     'When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.',
@@ -180,19 +180,19 @@ const baseMap = {
       text: Sizes.Large,
       values: '16px/16px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-lg',
+      variant: 'uppercase-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
       values: '14px/14px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-md',
+      variant: 'uppercase-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
       values: '12px/12px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-sm',
+      variant: 'uppercase-sm',
     } as BaseInfo,
   ],
   [Bases.Labels]: [
