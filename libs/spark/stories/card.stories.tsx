@@ -20,8 +20,15 @@ export default {
   args: {},
 } as Meta;
 
+const CustomCard = withStyles({
+  root: {
+    maxWidth: 400,
+    margin: 8,
+  },
+})(Card);
+
 export const BasicCard: Story = () => (
-  <Card style={{ maxWidth: 400 }}>
+  <CustomCard>
     <CardContent>
       <Typography
         variant="heading-md"
@@ -41,7 +48,7 @@ export const BasicCard: Story = () => (
         Action
       </Button>
     </CardActions>
-  </Card>
+  </CustomCard>
 );
 
 const StyledImage = styled('img')({
