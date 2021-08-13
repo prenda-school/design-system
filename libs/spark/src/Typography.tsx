@@ -51,11 +51,6 @@ const styles = (theme: Theme) =>
       lineHeight: '3rem',
       fontWeight: 800,
     },
-    'heading-xxl': {
-      fontSize: '2.5rem',
-      lineHeight: '2.5rem',
-      fontWeight: 600,
-    },
     'heading-xl': {
       fontSize: '2.125rem',
       lineHeight: '2.125rem',
@@ -165,7 +160,6 @@ export type Variant =
   | 'display-lg'
   | 'display-md'
   | 'display-sm'
-  | 'heading-xxl'
   | 'heading-xl'
   | 'heading-lg'
   | 'heading-md'
@@ -200,7 +194,6 @@ const defaultVariantMapping: Partial<Record<Variant, string>> = {
   'display-lg': 'h1',
   'display-md': 'h1',
   'display-sm': 'h1',
-  'heading-xxl': 'h2',
   'heading-xl': 'h3',
   'heading-lg': 'h4',
   'heading-md': 'h5',
@@ -260,7 +253,6 @@ Typography.propTypes = {
     'display-lg',
     'display-md',
     'display-sm',
-    'heading-xxl',
     'heading-xl',
     'heading-lg',
     'heading-md',

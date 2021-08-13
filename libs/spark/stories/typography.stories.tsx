@@ -14,7 +14,6 @@ export default {
           'display-lg',
           'display-md',
           'display-sm',
-          'heading-xxl',
           'heading-xl',
           'heading-lg',
           'heading-md',
@@ -151,12 +150,6 @@ const baseMap = {
     } as BaseInfo,
   ],
   [Bases.Heading]: [
-    {
-      text: Sizes.XXLarge,
-      values: '40px/40px',
-      style: Styles.Bold,
-      variant: 'heading-xxl',
-    } as BaseInfo,
     {
       text: Sizes.XLarge,
       values: '34px/34px',
