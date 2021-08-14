@@ -17,8 +17,7 @@ export const MuiFormControlLabelStyleOverrides = {
     },
   },
   label: {
-    // Figma says 600, but that appears heavier in-browser than in design
-    fontWeight: 500,
+    fontWeight: 600,
     lineHeight: '1.125rem',
   },
 };
