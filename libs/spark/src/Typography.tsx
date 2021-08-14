@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {
   WithStyles,
   withStyles,
@@ -9,6 +8,7 @@ import {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core';
 import clsx from 'clsx';
+import { SparkVariant } from './styles/typography';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -34,147 +34,69 @@ const styles = (theme: Theme) =>
       color: theme.palette.text.onLightLowContrast,
     },
     'display-lg': {
-      fontSize: theme.typography.pxToRem(64),
-      lineHeight: theme.typography.pxToRem(72),
-      fontWeight: 800,
+      ...theme.typography['display-lg'],
     },
     'display-md': {
-      fontSize: theme.typography.pxToRem(56),
-      lineHeight: theme.typography.pxToRem(64),
-      fontWeight: 800,
+      ...theme.typography['display-md'],
     },
     'display-sm': {
-      fontSize: theme.typography.pxToRem(48),
-      lineHeight: theme.typography.pxToRem(56),
-      fontWeight: 800,
+      ...theme.typography['display-sm'],
     },
     'heading-xl': {
-      fontSize: theme.typography.pxToRem(34),
-      lineHeight: theme.typography.pxToRem(48),
-      fontWeight: 700,
+      ...theme.typography['display-xl'],
     },
     'heading-lg': {
-      fontSize: theme.typography.pxToRem(28),
-      lineHeight: theme.typography.pxToRem(40),
-      fontWeight: 700,
+      ...theme.typography['heading-lg'],
     },
     'heading-md': {
-      fontSize: theme.typography.pxToRem(24),
-      lineHeight: theme.typography.pxToRem(32),
-      fontWeight: 700,
+      ...theme.typography['heading-md'],
     },
     'heading-sm': {
-      fontSize: theme.typography.pxToRem(20),
-      lineHeight: theme.typography.pxToRem(32),
-      fontWeight: 700,
+      ...theme.typography['heading-sm'],
     },
     'uppercase-lg': {
-      fontSize: theme.typography.pxToRem(16),
-      lineHeight: theme.typography.pxToRem(16),
-      letterSpacing: '.1em',
-      fontWeight: 800,
-      textTransform: 'uppercase',
+      ...theme.typography['uppercase-lg'],
     },
     'uppercase-md': {
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(14),
-      letterSpacing: '.1em',
-      fontWeight: 800,
-      textTransform: 'uppercase',
+      ...theme.typography['uppercase-md'],
     },
     'uppercase-sm': {
-      fontSize: theme.typography.pxToRem(12),
-      lineHeight: theme.typography.pxToRem(12),
-      letterSpacing: '.1em',
-      fontWeight: 800,
-      textTransform: 'uppercase',
+      ...theme.typography['uppercase-sm'],
     },
     'label-xl': {
-      fontSize: theme.typography.pxToRem(18),
-      lineHeight: theme.typography.pxToRem(20),
-      fontWeight: 600,
+      ...theme.typography['label-xl'],
     },
     'label-lg': {
-      fontSize: theme.typography.pxToRem(16),
-      lineHeight: theme.typography.pxToRem(20),
-      fontWeight: 600,
+      ...theme.typography['label-lg'],
     },
     'label-md': {
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(18),
-      fontWeight: 600,
+      ...theme.typography['label-md'],
     },
     'label-sm': {
-      fontSize: theme.typography.pxToRem(12),
-      lineHeight: theme.typography.pxToRem(14),
-      fontWeight: 600,
+      ...theme.typography['label-sm'],
     },
     'paragraph-xl': {
-      fontSize: theme.typography.pxToRem(18),
-      lineHeight: theme.typography.pxToRem(28),
-      fontWeight: 400,
+      ...theme.typography['paragraph-xl'],
     },
     'paragraph-lg': {
-      fontSize: theme.typography.pxToRem(16),
-      lineHeight: theme.typography.pxToRem(24),
-      fontWeight: 400,
+      ...theme.typography['paragraph-lg'],
     },
     'paragraph-md': {
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(20),
-      fontWeight: 400,
+      ...theme.typography['paragraph-md'],
     },
     'paragraph-sm': {
-      fontSize: theme.typography.pxToRem(12),
-      lineHeight: theme.typography.pxToRem(20),
-      fontWeight: 400,
+      ...theme.typography['paragraph-sm'],
     },
     'code-lg': {
-      fontFamily:
-        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: theme.typography.pxToRem(18),
-      lineHeight: theme.typography.pxToRem(28),
-      fontWeight: 400,
+      ...theme.typography['code-lg'],
     },
     'code-md': {
-      fontFamily:
-        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: theme.typography.pxToRem(16),
-      lineHeight: theme.typography.pxToRem(24),
-      fontWeight: 400,
+      ...theme.typography['code-md'],
     },
     'code-sm': {
-      fontFamily:
-        '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: theme.typography.pxToRem(14),
-      lineHeight: theme.typography.pxToRem(20),
-      fontWeight: 400,
+      ...theme.typography['code-sm'],
     },
   });
-
-export type Variant =
-  | 'inherit'
-  | 'display-lg'
-  | 'display-md'
-  | 'display-sm'
-  | 'heading-xl'
-  | 'heading-lg'
-  | 'heading-md'
-  | 'heading-sm'
-  | 'uppercase-lg'
-  | 'uppercase-md'
-  | 'uppercase-sm'
-  | 'label-xl'
-  | 'label-lg'
-  | 'label-md'
-  | 'label-sm'
-  | 'paragraph-xl'
-  | 'paragraph-lg'
-  | 'paragraph-md'
-  | 'paragraph-sm'
-  | 'code-lg'
-  | 'code-md'
-  | 'code-sm';
 
 export type Color =
   | 'initial'
@@ -184,12 +106,12 @@ export type Color =
   | 'textOnLight'
   | 'textOnLightLowContrast';
 
-type ClassKey = Variant | Color;
+type ClassKey = 'inherit' | SparkVariant | Color;
 
-const defaultVariantMapping: Partial<Record<Variant, string>> = {
+const defaultVariantMapping: Partial<Record<SparkVariant, string>> = {
   'display-lg': 'h1',
   'display-md': 'h1',
-  'display-sm': 'h1',
+  'display-sm': 'h2',
   'heading-xl': 'h3',
   'heading-lg': 'h4',
   'heading-md': 'h5',
@@ -213,14 +135,14 @@ const defaultVariantMapping: Partial<Record<Variant, string>> = {
 export interface TypographyProps
   extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
     WithStyles<typeof styles> {
-  variant?: Variant;
+  variant?: SparkVariant | 'inherit';
   color?: Color;
 }
 
 function Typography({
   classes,
   className,
-  variant = 'paragraph-lg' as Variant,
+  variant = 'paragraph-lg' as SparkVariant,
   color = 'textOnLight' as Color,
   ...other
 }: TypographyProps) {
@@ -240,46 +162,6 @@ function Typography({
     />
   );
 }
-
-Typography.propTypes = {
-  /**
-   * Applies the theme typography styles.
-   */
-  variant: PropTypes.oneOf<Variant>([
-    'display-lg',
-    'display-md',
-    'display-sm',
-    'heading-xl',
-    'heading-lg',
-    'heading-md',
-    'heading-sm',
-    'uppercase-lg',
-    'uppercase-md',
-    'uppercase-sm',
-    'label-xl',
-    'label-lg',
-    'label-md',
-    'label-sm',
-    'paragraph-xl',
-    'paragraph-lg',
-    'paragraph-md',
-    'paragraph-sm',
-    'code-lg',
-    'code-md',
-    'code-sm',
-  ]),
-  /**
-   * The color of the component. It supports those theme colors that make sense for this component.
-   */
-  color: PropTypes.oneOf<Color>([
-    'initial',
-    'inherit',
-    'textOnDark',
-    'textOnDarkLowContrast',
-    'textOnLight',
-    'textOnLightLowContrast',
-  ]),
-};
 
 const SparkTypography = withStyles(styles, {
   name: 'SparkTypography',
