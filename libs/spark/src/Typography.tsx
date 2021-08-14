@@ -14,7 +14,7 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       '& strong, b': {
-        fontWeight: 600,
+        fontWeight: 700,
       },
     },
     initial: {}, // to satisfy TS
@@ -32,9 +32,6 @@ const styles = (theme: Theme) =>
     },
     textOnLightLowContrast: {
       color: theme.palette.text.onLightLowContrast,
-    },
-    tertiaryBlue2: {
-      color: theme.palette.blue[2],
     },
     'display-lg': {
       fontSize: theme.typography.pxToRem(64),
@@ -185,8 +182,7 @@ export type Color =
   | 'textOnDark'
   | 'textOnDarkLowContrast'
   | 'textOnLight'
-  | 'textOnLightLowContrast'
-  | 'tertiaryBlue2';
+  | 'textOnLightLowContrast';
 
 type ClassKey = Variant | Color;
 
@@ -282,7 +278,6 @@ Typography.propTypes = {
     'textOnDarkLowContrast',
     'textOnLight',
     'textOnLightLowContrast',
-    'tertiaryBlue2',
   ]),
 };
 

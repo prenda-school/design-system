@@ -11,6 +11,7 @@ import {
   Typography,
   styled,
   withStyles,
+  Box,
 } from '../src';
 
 export default {
@@ -79,13 +80,19 @@ export const CardWithImage: Story = () => (
       </FloatingIconButton>
     </CardMedia>
     <CardContent>
-      <Typography
-        variant="heading-md"
-        color="textOnLight"
-        style={{ marginBottom: '1rem' }}
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb="16px"
       >
-        Title
-      </Typography>
+        <Typography variant="heading-md" color="textOnLight">
+          Title
+        </Typography>
+        <Typography variant="uppercase-lg" color="textOnLightLowContrast">
+          Optional Text
+        </Typography>
+      </Box>
       <Typography variant="paragraph-xl" color="textOnLightLowContrast">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis turpis
         interdum hendrerit massa imperdiet.
