@@ -17,7 +17,6 @@ const styles = (theme: Theme) =>
         fontWeight: 700,
       },
     },
-    initial: {}, // to satisfy TS
     inherit: {
       color: 'inherit',
     },
@@ -108,7 +107,7 @@ export type Color =
 
 type ClassKey = 'inherit' | SparkVariant | Color;
 
-const defaultVariantMapping: Partial<Record<SparkVariant, string>> = {
+const defaultVariantMapping: Record<SparkVariant, string> = {
   'display-lg': 'h1',
   'display-md': 'h1',
   'display-sm': 'h2',
@@ -142,8 +141,8 @@ export interface TypographyProps
 function Typography({
   classes,
   className,
-  variant = 'paragraph-lg' as SparkVariant,
-  color = 'textOnLight' as Color,
+  variant = 'paragraph-lg',
+  color = 'textOnLight',
   ...other
 }: TypographyProps) {
   return (
@@ -151,8 +150,8 @@ function Typography({
       className={clsx(
         classes.root,
         {
-          [classes[variant as ClassKey]]: variant !== 'inherit',
-          [classes[color as ClassKey]]: color !== 'initial',
+          [classes[variant]]: variant !== 'inherit',
+          [classes[color]]: color !== 'initial',
         },
         className
       )}
