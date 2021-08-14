@@ -116,8 +116,8 @@ const sourceCodeProRegular: CSS.AtRule.FontFace = {
   fontDisplay: 'swap',
   fontWeight: 500,
   src: [
-    'url(/fonts/sourcecodepro-web-medium.woff2) format("woff2")',
-    'url(/fonts/sourcecodepro-web-medium.woff) format("woff")',
+    'url(/fonts/sourcecodepro-medium-webfont.woff2) format("woff2")',
+    'url(/fonts/sourcecodepro-medium-webfont.woff) format("woff")',
   ].join(', '),
 };
 
