@@ -365,7 +365,7 @@ const RowContainer = styled('div')({
 const ColorContainer = styled('div')({
   display: 'flex',
   flexDirection: 'row',
-  fontWeight: 200,
+  fontWeight: 400,
 });
 
 const ColorContainerTitle = styled('div')({

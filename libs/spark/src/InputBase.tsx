@@ -1,8 +1,12 @@
+import { InputBase, InputBaseClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { InputBase } from '@material-ui/core';
+export { InputBase };
 
-export const MuiInputBaseStyleOverrides = {
+export const MuiInputBaseStyleOverrides: Partial<
+  StyleRules<InputBaseClassKey>
+> = {
   root: {
     boxSizing: 'border-box' as const,
     backgroundColor: palette.grey.lighter,
@@ -12,8 +16,7 @@ export const MuiInputBaseStyleOverrides = {
     borderRadius: 8,
     width: '20rem', // 320px
     margin: 4, // potential box-shadow width
-    fontSize: '1rem', // 16px
-    lineHeight: '1.125rem', // 18px
+    ...typography['label-lg'],
     '&$focused, &:focus': {
       borderColor: palette.blue[3],
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,

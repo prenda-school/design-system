@@ -1,6 +1,8 @@
+import { Button, ButtonClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { Button } from '@material-ui/core';
+export { Button };
 
 export const MuiButtonDefaultProps = {
   // No disableElevation: true because it makes styling box-shadow's
@@ -11,8 +13,9 @@ export const MuiButtonDefaultProps = {
   size: 'large' as const,
 };
 
-export const MuiButtonStyleOverrides = {
+export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   root: {
+    ...typography['label-md'],
     borderRadius: 24,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
@@ -95,13 +98,11 @@ export const MuiButtonStyleOverrides = {
     },
   },
   sizeLarge: {
-    fontSize: '1.125rem', // 18px
-    lineHeight: '1.5rem', // 24px (label box)
+    ...typography['label-xl'],
     padding: '.625rem 1rem', // 10px (accounting for 2px border width) 16px
   },
   sizeSmall: {
-    fontSize: '0.75rem', // 12px
-    lineHeight: '1rem', // 16px
+    ...typography['label-sm'],
     padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
   },
   label: {
