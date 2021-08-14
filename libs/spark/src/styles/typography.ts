@@ -7,7 +7,7 @@ import {
   FontStyleOptions,
 } from '@material-ui/core/styles/createTypography';
 
-type SparkVariant =
+export type SparkVariant =
   | 'display-lg'
   | 'display-md'
   | 'display-sm'
@@ -25,14 +25,17 @@ type SparkVariant =
   | 'paragraph-xl'
   | 'paragraph-lg'
   | 'paragraph-md'
-  | 'paragraph-sm';
+  | 'paragraph-sm'
+  | 'code-lg'
+  | 'code-md'
+  | 'code-sm';
 
 interface SparkTypographyOptions
   extends TypographyOptions,
     TypographyUtils,
     Partial<Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions> {}
 
-// Augment global interface
+// Augment global interface at top level
 declare module '@material-ui/core/index' {
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface TypographyOptions
@@ -45,7 +48,22 @@ declare module '@material-ui/core/index' {
   interface Typography extends Record<SparkVariant, TypographyStyle> {}
 }
 
-const fontFamily = '"Nunito", Avenir, sans-serif';
+// Augment global interface at source -- affects Theme interface
+declare module '@material-ui/core/styles/createTypography' {
+  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+  interface TypographyOptions
+    extends TypographyUtils,
+      Partial<
+        Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
+      > {}
+
+  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
+  interface Typography extends Record<SparkVariant, TypographyStyle> {}
+}
+
+const defaultFontFamily = '"Nunito", Avenir, sans-serif';
+const codeFontFamily =
+  '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace';
 const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
 
@@ -57,6 +75,7 @@ const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
  * @param {number} lineHeight numeric value in pixel units
  * @param {number} [letterSpacing] numeric value in em units.
  * @param {('uppercase')} [textTransform]
+ * @param {string} [fontFamily]
  * @returns {object}
  */
 function buildVariant(
@@ -64,7 +83,8 @@ function buildVariant(
   fontSize: number,
   lineHeight: number,
   letterSpacing: number = undefined,
-  textTransform: 'uppercase' = undefined
+  textTransform: 'uppercase' = undefined,
+  fontFamily: string = defaultFontFamily
 ) {
   return {
     fontFamily,
@@ -96,11 +116,14 @@ const customVariants: Record<SparkVariant, TypographyStyle> = {
   'paragraph-lg': buildVariant(400, 16, 24),
   'paragraph-md': buildVariant(400, 14, 20),
   'paragraph-sm': buildVariant(400, 12, 20),
+  'code-lg': buildVariant(500, 18, 28, undefined, undefined, codeFontFamily),
+  'code-md': buildVariant(500, 16, 24, undefined, undefined, codeFontFamily),
+  'code-sm': buildVariant(500, 14, 20, undefined, undefined, codeFontFamily),
 };
 
 export const typography: SparkTypographyOptions = {
   // override default Roboto
-  fontFamily,
+  fontFamily: defaultFontFamily,
   // override default 14px
   fontSize: defaultFontSize,
   // override default division by 14
