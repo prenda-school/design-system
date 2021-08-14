@@ -1,4 +1,5 @@
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
 export { FormControlLabel } from '@material-ui/core';
 
@@ -16,8 +17,5 @@ export const MuiFormControlLabelStyleOverrides = {
       color: palette.grey.dark,
     },
   },
-  label: {
-    fontWeight: 600,
-    lineHeight: '1.125rem',
-  },
+  label: typography['label-lg'],
 };
