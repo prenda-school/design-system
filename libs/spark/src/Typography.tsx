@@ -113,13 +113,13 @@ function Typography({
   return (
     <MuiTypography
       className={clsx(
-        classes.root,
         {
           [classes[variant]]: variant !== 'inherit',
           [classes[`color${capitalize(color)}`]]: color !== 'initial',
         },
         className
       )}
+      classes={classes}
       {...other}
       // @ts-expect-error: Property 'component' does not exist on type
       component={other.component || defaultVariantMapping[variant]}
@@ -128,7 +128,8 @@ function Typography({
 }
 
 const SparkTypography = withStyles(styles, {
-  name: 'SparkTypography',
+  // MuiTypography.muiName, but TS doesn't like that
+  name: 'MuiTypography',
 })(Typography);
 
 export { SparkTypography as Typography };
