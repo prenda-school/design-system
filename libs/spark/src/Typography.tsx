@@ -32,69 +32,27 @@ const styles = (theme: Theme) =>
     textOnLightLowContrast: {
       color: theme.palette.text.onLightLowContrast,
     },
-    'display-lg': {
-      ...theme.typography['display-lg'],
-    },
-    'display-md': {
-      ...theme.typography['display-md'],
-    },
-    'display-sm': {
-      ...theme.typography['display-sm'],
-    },
-    'heading-xl': {
-      ...theme.typography['display-xl'],
-    },
-    'heading-lg': {
-      ...theme.typography['heading-lg'],
-    },
-    'heading-md': {
-      ...theme.typography['heading-md'],
-    },
-    'heading-sm': {
-      ...theme.typography['heading-sm'],
-    },
-    'uppercase-lg': {
-      ...theme.typography['uppercase-lg'],
-    },
-    'uppercase-md': {
-      ...theme.typography['uppercase-md'],
-    },
-    'uppercase-sm': {
-      ...theme.typography['uppercase-sm'],
-    },
-    'label-xl': {
-      ...theme.typography['label-xl'],
-    },
-    'label-lg': {
-      ...theme.typography['label-lg'],
-    },
-    'label-md': {
-      ...theme.typography['label-md'],
-    },
-    'label-sm': {
-      ...theme.typography['label-sm'],
-    },
-    'paragraph-xl': {
-      ...theme.typography['paragraph-xl'],
-    },
-    'paragraph-lg': {
-      ...theme.typography['paragraph-lg'],
-    },
-    'paragraph-md': {
-      ...theme.typography['paragraph-md'],
-    },
-    'paragraph-sm': {
-      ...theme.typography['paragraph-sm'],
-    },
-    'code-lg': {
-      ...theme.typography['code-lg'],
-    },
-    'code-md': {
-      ...theme.typography['code-md'],
-    },
-    'code-sm': {
-      ...theme.typography['code-sm'],
-    },
+    'display-lg': theme.typography['display-lg'],
+    'display-md': theme.typography['display-md'],
+    'display-sm': theme.typography['display-sm'],
+    'heading-xl': theme.typography['display-xl'],
+    'heading-lg': theme.typography['heading-lg'],
+    'heading-md': theme.typography['heading-md'],
+    'heading-sm': theme.typography['heading-sm'],
+    'uppercase-lg': theme.typography['uppercase-lg'],
+    'uppercase-md': theme.typography['uppercase-md'],
+    'uppercase-sm': theme.typography['uppercase-sm'],
+    'label-xl': theme.typography['label-xl'],
+    'label-lg': theme.typography['label-lg'],
+    'label-md': theme.typography['label-md'],
+    'label-sm': theme.typography['label-sm'],
+    'paragraph-xl': theme.typography['paragraph-xl'],
+    'paragraph-lg': theme.typography['paragraph-lg'],
+    'paragraph-md': theme.typography['paragraph-md'],
+    'paragraph-sm': theme.typography['paragraph-sm'],
+    'code-lg': theme.typography['code-lg'],
+    'code-md': theme.typography['code-md'],
+    'code-sm': theme.typography['code-sm'],
   });
 
 export type Color =
