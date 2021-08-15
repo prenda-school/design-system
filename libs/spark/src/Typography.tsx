@@ -1,17 +1,56 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import {
-  WithStyles,
   withStyles,
   createStyles,
   Theme,
   Typography as MuiTypography,
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core';
-import clsx from 'clsx';
+import {
+  OverrideProps,
+  OverridableComponent,
+} from '@material-ui/core/OverridableComponent';
 import { SparkVariant } from './styles/typography';
 import { capitalize } from './utils';
 
-type Variant = SparkVariant;
+export type Color =
+  | 'initial'
+  | 'inherit'
+  | 'onDark'
+  | 'onDarkLowContrast'
+  | 'onLight'
+  | 'onLightLowContrast';
+export interface TypographyTypeMap<
+  P = Record<string, unknown>,
+  D extends React.ElementType = 'span'
+> {
+  props: P &
+    Omit<MuiTypographyProps, 'variant' | 'color'> & {
+      variant?: SparkVariant | 'inherit';
+      color?: Color;
+    };
+  defaultComponent: D;
+  classKey: TypographyClassKey;
+}
+
+export type TypographyProps<
+  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+  P = Record<string, unknown>
+> = OverrideProps<TypographyTypeMap<P, D>, D>;
+
+export type TypographyClassKey =
+  | 'root'
+  | SparkVariant
+  | 'alignLeft'
+  | 'alignCenter'
+  | 'alignRight'
+  | 'alignJustify'
+  | 'noWrap'
+  | 'gutterBottom'
+  | `color${Color}`
+  | 'displayInline'
+  | 'displayBlock';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -90,42 +129,34 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
   'code-sm': 'pre',
 };
 
-export interface TypographyProps
-  extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
-    WithStyles<typeof styles> {
-  variant?: SparkVariant | 'inherit';
-  color?:
-    | 'initial'
-    | 'inherit'
-    | 'onDark'
-    | 'onDarkLowContrast'
-    | 'onLight'
-    | 'onLightLowContrast';
-}
+const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
+  function Typography(props, ref) {
+    const {
+      classes,
+      className,
+      variant = 'paragraph-lg',
+      color = 'onLight',
+      component = 'span',
+      ...other
+    } = props;
 
-function Typography({
-  classes,
-  className,
-  variant = 'paragraph-lg',
-  color = 'onLight',
-  ...other
-}: TypographyProps) {
-  return (
-    <MuiTypography
-      className={clsx(
-        {
-          [classes[variant]]: variant !== 'inherit',
-          [classes[`color${capitalize(color)}`]]: color !== 'initial',
-        },
-        className
-      )}
-      classes={classes}
-      {...other}
-      // @ts-expect-error: Property 'component' does not exist on type
-      component={other.component || defaultVariantMapping[variant]}
-    />
-  );
-}
+    return (
+      <MuiTypography
+        className={clsx(
+          {
+            [classes[variant]]: variant !== 'inherit',
+            [classes[`color${capitalize(color)}`]]: color !== 'initial',
+          },
+          className
+        )}
+        classes={classes}
+        component={component || defaultVariantMapping[variant]}
+        {...other}
+        ref={ref}
+      />
+    );
+  }
+);
 
 const SparkTypography = withStyles(styles, {
   // MuiTypography.muiName, but TS doesn't like that
