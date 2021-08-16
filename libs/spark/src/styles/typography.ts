@@ -96,7 +96,7 @@ function buildVariant(
     // convert to unit-less
     lineHeight: `${lineHeight / fontSize}`,
     fontWeight,
-    ...(letterSpacing ? { letterSpacing } : {}),
+    ...(letterSpacing ? { letterSpacing: `${letterSpacing}em` } : {}),
     ...(textTransform ? { textTransform } : {}),
   };
 }
