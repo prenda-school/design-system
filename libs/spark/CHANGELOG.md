@@ -1,6 +1,6 @@
 # Changelog
 
-# [vNext](todo:compareUrl) (yyyy-mm-dd)
+# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...vNext) (yyyy-mm-dd)
 
 ### Fixes
 
@@ -13,6 +13,42 @@
   - New variant prop values: `uppercase-lg`, `uppercase-md`, `uppercase-sm` (renamed from `smallcaps-*`)
 - **theme**
   - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
+  - Added custom `theme.typography` keys:
+    - `theme.typography['display-lg']`
+    - `theme.typography['display-md']`
+    - `theme.typography['display-sm']`
+    - `theme.typography['heading-xl']`
+    - `theme.typography['heading-lg']`
+    - `theme.typography['heading-md']`
+    - `theme.typography['heading-sm']`
+    - `theme.typography['uppercase-lg']`
+    - `theme.typography['uppercase-md']`
+    - `theme.typography['uppercase-sm']`
+    - `theme.typography['label-xl']`
+    - `theme.typography['label-lg']`
+    - `theme.typography['label-md']`
+    - `theme.typography['label-sm']`
+    - `theme.typography['paragraph-xl']`
+    - `theme.typography['paragraph-lg']`
+    - `theme.typography['paragraph-md']`
+    - `theme.typography['paragraph-sm']`
+    - `theme.typography['code-lg']`
+    - `theme.typography['code-md']`
+    - `theme.typography['code-sm']`
+  - Customized default `theme.typography` keys
+    - `theme.typography.h1` as `theme.typography['display-md']`
+    - `theme.typography.h2` as `theme.typography['display-sm']`
+    - `theme.typography.h3` as `theme.typography['heading-xl']`
+    - `theme.typography.h4` as `theme.typography['heading-lg']`
+    - `theme.typography.h5` as `theme.typography['heading-md']`
+    - `theme.typography.h6` as `theme.typography['heading-sm']`
+    - `theme.typography.subtitle1` as `theme.typography['label-lg']`
+    - `theme.typography.subtitle2` as `theme.typography['label-md']`
+    - `theme.typography.body1` as `theme.typography['paragraph-lg']`
+    - `theme.typography.body2` as `theme.typography['paragraph-md']`
+    - `theme.typography.button` as `theme.typography['label-lg']`
+    - `theme.typography.caption` as `theme.typography['label-sm']`
+    - `theme.typography.overline` as `theme.typography['uppercase-sm']`
 
 #### Breaking Changes
 
