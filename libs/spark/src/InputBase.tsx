@@ -9,6 +9,7 @@ export const MuiInputBaseStyleOverrides: Partial<
 > = {
   root: {
     ...typography['label-lg'],
+    lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
     backgroundColor: palette.grey.lighter,
     borderWidth: 2,
@@ -16,6 +17,7 @@ export const MuiInputBaseStyleOverrides: Partial<
     borderColor: palette.grey.medium,
     borderRadius: 8,
     width: '20rem', // 320px
+    height: 'min-content',
     margin: 4, // potential box-shadow width
     '&$focused, &:focus': {
       borderColor: palette.blue[3],
@@ -37,6 +39,7 @@ export const MuiInputBaseStyleOverrides: Partial<
   },
   input: {
     padding: '.75rem 1rem',
+    height: 'min-content',
     borderRadius: 8,
     color: palette.text.onLight,
     '&::placeholder': {
