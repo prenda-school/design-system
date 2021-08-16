@@ -1,26 +1,26 @@
 # Changelog
 
-# [vNext]()
-
-### Changes
-
-- **Typography**
-  - New variant prop values: `uppercase-lg`, `uppercase-md`, `uppercase-sm` (renamed from `smallcaps-*`)
-- **theme**
-  - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
+# [vNext](todo:compareUrl) (yyyy-mm-dd)
 
 ### Fixes
 
 - Re-generated Nunito font files. Added missing Source Code Pro font files. If you copied these files to your project, please replace with new copies.
 - Nunito "Semibold" (600 weight) font-face at-rules link to correct `semibold` font file, not `bold`.
 
-### Breaking Changes
+### Features
+
+- **Typography**
+  - New variant prop values: `uppercase-lg`, `uppercase-md`, `uppercase-sm` (renamed from `smallcaps-*`)
+- **theme**
+  - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
+
+#### Breaking Changes
 
 - **Typography**
   - Removed variant prop values: `smallcaps-lg`, `smallcaps-md`, `smallcaps-sm`.
 - Styles using `font-weight: 600` will appear lighter than previously.
-  - Migration: change to `font-weight: 700`.
-  - The following Spark components were migrated: `FormControlLabel`, `MenuItem`, `Typography`.
+  - Migration: use `font-weight: 700`.
+  - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.
 
 # [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 
