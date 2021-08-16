@@ -37,7 +37,7 @@ const styles = (theme: Theme) =>
     'display-lg': theme.typography['display-lg'],
     'display-md': theme.typography['display-md'],
     'display-sm': theme.typography['display-sm'],
-    'heading-xl': theme.typography['display-xl'],
+    'heading-xl': theme.typography['heading-xl'],
     'heading-lg': theme.typography['heading-lg'],
     'heading-md': theme.typography['heading-md'],
     'heading-sm': theme.typography['heading-sm'],
