@@ -35,13 +35,22 @@ export const NavBarButton = withStyles((theme) => ({
     height: 32,
   },
   startIcon: {
-    margin: '-2px 8px -2px 0',
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginRight: '8px',
+    marginLeft: 0,
   },
   endIcon: {
-    margin: '-2px 0 -2px 8px',
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginLeft: '8px',
+    marginRight: 0,
   },
   iconSizeLarge: {
-    '& > *:first-child': {
+    // artificially increase specificity to win battle with default
+    '&& > :first-child': {
       fontSize: '2rem',
     },
   },

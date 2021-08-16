@@ -128,7 +128,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
-    // artificially increase specificity
+    // artificially increase specificity to win battle with default
     '&& > :first-child': {
       fontSize: 'inherit',
     },
@@ -147,7 +147,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
-    // artificially increase specificity
+    // artificially increase specificity to win battle with default
     '&& > :first-child': {
       fontSize: 'inherit',
     },
