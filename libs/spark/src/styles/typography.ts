@@ -139,7 +139,7 @@ export const typography: SparkTypographyOptions = {
   subtitle2: customVariants['label-md'],
   body1: customVariants['paragraph-lg'],
   body2: customVariants['paragraph-md'],
-  button: customVariants['label-lg'],
+  button: { ...customVariants['label-lg'], textTransform: 'none' },
   caption: customVariants['label-sm'],
   overline: customVariants['uppercase-sm'],
   ...customVariants,
