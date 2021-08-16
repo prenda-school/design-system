@@ -105,6 +105,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   sizeSmall: {
     ...typography['label-sm-strong'],
+    lineHeight: typography.pxToRem(12),
     // x-dim accounts for 2px border width
     padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
   },
@@ -127,7 +128,8 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
-    '& > :first-child': {
+    // artificially increase specificity
+    '&& > :first-child': {
       fontSize: 'inherit',
     },
   },
@@ -145,7 +147,8 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
-    '& > :first-child': {
+    // artificially increase specificity
+    '&& > :first-child': {
       fontSize: 'inherit',
     },
   },
