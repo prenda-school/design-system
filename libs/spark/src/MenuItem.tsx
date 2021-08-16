@@ -8,8 +8,7 @@ export const MuiMenuItemStyleOverrides = {
     color: palette.text.onLight,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
-    // Figma says 600 but that appears too heavy
-    fontWeight: 500,
+    fontWeight: 600,
     fontSize: '1rem',
     lineHeight: '1.125rem',
     // margins collapse with other menu items

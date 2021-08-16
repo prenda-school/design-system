@@ -14,7 +14,7 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       '& strong, b': {
-        fontWeight: 600,
+        fontWeight: 700,
       },
     },
     initial: {}, // to satisfy TS
@@ -33,129 +33,121 @@ const styles = (theme: Theme) =>
     textOnLightLowContrast: {
       color: theme.palette.text.onLightLowContrast,
     },
-    tertiaryBlue2: {
-      color: theme.palette.blue[2],
-    },
     'display-lg': {
-      fontSize: '4rem',
-      lineHeight: '4rem',
+      fontSize: theme.typography.pxToRem(64),
+      lineHeight: theme.typography.pxToRem(72),
       fontWeight: 800,
     },
     'display-md': {
-      fontSize: '3.5rem',
-      lineHeight: '3.5rem',
+      fontSize: theme.typography.pxToRem(56),
+      lineHeight: theme.typography.pxToRem(64),
       fontWeight: 800,
     },
     'display-sm': {
-      fontSize: '3rem',
-      lineHeight: '3rem',
+      fontSize: theme.typography.pxToRem(48),
+      lineHeight: theme.typography.pxToRem(56),
       fontWeight: 800,
-    },
-    'heading-xxl': {
-      fontSize: '2.5rem',
-      lineHeight: '2.5rem',
-      fontWeight: 600,
     },
     'heading-xl': {
-      fontSize: '2.125rem',
-      lineHeight: '2.125rem',
-      fontWeight: 600,
+      fontSize: theme.typography.pxToRem(34),
+      lineHeight: theme.typography.pxToRem(48),
+      fontWeight: 700,
     },
     'heading-lg': {
-      fontSize: '1.75rem',
-      lineHeight: '1.875rem',
-      fontWeight: 600,
+      fontSize: theme.typography.pxToRem(28),
+      lineHeight: theme.typography.pxToRem(40),
+      fontWeight: 700,
     },
     'heading-md': {
-      fontSize: '1.5rem',
-      lineHeight: '1.625rem',
-      fontWeight: 600,
+      fontSize: theme.typography.pxToRem(24),
+      lineHeight: theme.typography.pxToRem(32),
+      fontWeight: 700,
     },
     'heading-sm': {
-      fontSize: '1.25rem',
-      lineHeight: '1.375rem',
-      fontWeight: 600,
+      fontSize: theme.typography.pxToRem(20),
+      lineHeight: theme.typography.pxToRem(32),
+      fontWeight: 700,
     },
-    'smallcaps-lg': {
-      fontSize: '1rem',
-      lineHeight: '1rem',
+    'uppercase-lg': {
+      fontSize: theme.typography.pxToRem(16),
+      lineHeight: theme.typography.pxToRem(16),
       letterSpacing: '.1em',
       fontWeight: 800,
       textTransform: 'uppercase',
     },
-    'smallcaps-md': {
-      fontSize: '0.875rem',
-      lineHeight: '0.875rem',
+    'uppercase-md': {
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(14),
       letterSpacing: '.1em',
       fontWeight: 800,
       textTransform: 'uppercase',
     },
-    'smallcaps-sm': {
-      fontSize: '0.75rem',
-      lineHeight: '0.75rem',
+    'uppercase-sm': {
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(12),
       letterSpacing: '.1em',
       fontWeight: 800,
       textTransform: 'uppercase',
     },
     'label-xl': {
-      fontSize: '1.125rem',
-      lineHeight: '1.5rem',
-      fontWeight: 500,
+      fontSize: theme.typography.pxToRem(18),
+      lineHeight: theme.typography.pxToRem(20),
+      fontWeight: 600,
     },
     'label-lg': {
-      fontSize: '1rem',
-      lineHeight: '1.5rem',
-      fontWeight: 500,
+      fontSize: theme.typography.pxToRem(16),
+      lineHeight: theme.typography.pxToRem(20),
+      fontWeight: 600,
     },
     'label-md': {
-      fontSize: '0.875rem',
-      lineHeight: '1.25rem',
-      fontWeight: 500,
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(18),
+      fontWeight: 600,
     },
     'label-sm': {
-      fontSize: '0.75rem',
-      lineHeight: '1.25rem',
-      fontWeight: 500,
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(14),
+      fontWeight: 600,
     },
     'paragraph-xl': {
-      fontSize: '1.125rem',
-      lineHeight: '1.75rem',
+      fontSize: theme.typography.pxToRem(18),
+      lineHeight: theme.typography.pxToRem(28),
       fontWeight: 400,
     },
     'paragraph-lg': {
-      fontSize: '1rem',
-      lineHeight: '1.5rem',
+      fontSize: theme.typography.pxToRem(16),
+      lineHeight: theme.typography.pxToRem(24),
       fontWeight: 400,
     },
     'paragraph-md': {
-      fontSize: '0.875rem',
-      lineHeight: '1.25rem',
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(20),
       fontWeight: 400,
     },
     'paragraph-sm': {
-      fontSize: '0.75rem',
-      lineHeight: '1.125rem',
+      fontSize: theme.typography.pxToRem(12),
+      lineHeight: theme.typography.pxToRem(20),
       fontWeight: 400,
     },
     'code-lg': {
       fontFamily:
         '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: '1.125rem',
-      lineHeight: '1.75rem',
+      fontSize: theme.typography.pxToRem(18),
+      lineHeight: theme.typography.pxToRem(28),
       fontWeight: 400,
     },
     'code-md': {
       fontFamily:
         '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: '1rem',
-      lineHeight: '1.5rem',
+      fontSize: theme.typography.pxToRem(16),
+      lineHeight: theme.typography.pxToRem(24),
       fontWeight: 400,
     },
     'code-sm': {
       fontFamily:
         '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace',
-      fontSize: '0.875rem',
-      lineHeight: '1.25rem',
+      fontSize: theme.typography.pxToRem(14),
+      lineHeight: theme.typography.pxToRem(20),
       fontWeight: 400,
     },
   });
@@ -165,14 +157,13 @@ export type Variant =
   | 'display-lg'
   | 'display-md'
   | 'display-sm'
-  | 'heading-xxl'
   | 'heading-xl'
   | 'heading-lg'
   | 'heading-md'
   | 'heading-sm'
-  | 'smallcaps-lg'
-  | 'smallcaps-md'
-  | 'smallcaps-sm'
+  | 'uppercase-lg'
+  | 'uppercase-md'
+  | 'uppercase-sm'
   | 'label-xl'
   | 'label-lg'
   | 'label-md'
@@ -191,8 +182,7 @@ export type Color =
   | 'textOnDark'
   | 'textOnDarkLowContrast'
   | 'textOnLight'
-  | 'textOnLightLowContrast'
-  | 'tertiaryBlue2';
+  | 'textOnLightLowContrast';
 
 type ClassKey = Variant | Color;
 
@@ -200,14 +190,13 @@ const defaultVariantMapping: Partial<Record<Variant, string>> = {
   'display-lg': 'h1',
   'display-md': 'h1',
   'display-sm': 'h1',
-  'heading-xxl': 'h2',
   'heading-xl': 'h3',
   'heading-lg': 'h4',
   'heading-md': 'h5',
   'heading-sm': 'h6',
-  'smallcaps-lg': 'span',
-  'smallcaps-md': 'span',
-  'smallcaps-sm': 'span',
+  'uppercase-lg': 'span',
+  'uppercase-md': 'span',
+  'uppercase-sm': 'span',
   'label-xl': 'span',
   'label-lg': 'span',
   'label-md': 'span',
@@ -260,14 +249,13 @@ Typography.propTypes = {
     'display-lg',
     'display-md',
     'display-sm',
-    'heading-xxl',
     'heading-xl',
     'heading-lg',
     'heading-md',
     'heading-sm',
-    'smallcaps-lg',
-    'smallcaps-md',
-    'smallcaps-sm',
+    'uppercase-lg',
+    'uppercase-md',
+    'uppercase-sm',
     'label-xl',
     'label-lg',
     'label-md',
@@ -290,7 +278,6 @@ Typography.propTypes = {
     'textOnDarkLowContrast',
     'textOnLight',
     'textOnLightLowContrast',
-    'tertiaryBlue2',
   ]),
 };
 

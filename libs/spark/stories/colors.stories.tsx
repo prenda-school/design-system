@@ -369,7 +369,7 @@ const ColorContainer = styled('div')({
 });
 
 const ColorContainerTitle = styled('div')({
-  fontWeight: 500,
+  fontWeight: 600,
   fontSize: 24,
   paddingBottom: 8,
   paddingLeft: 5,

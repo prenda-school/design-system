@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Typography, TypographyProps, styled } from '../src';
+import { Typography, TypographyProps, styled, withStyles } from '../src';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -14,14 +14,13 @@ export default {
           'display-lg',
           'display-md',
           'display-sm',
-          'heading-xxl',
           'heading-xl',
           'heading-lg',
           'heading-md',
           'heading-sm',
-          'smallcaps-lg',
-          'smallcaps-md',
-          'smallcaps-sm',
+          'uppercase-lg',
+          'uppercase-md',
+          'uppercase-sm',
           'label-xl',
           'label-lg',
           'label-md',
@@ -46,7 +45,6 @@ export default {
           'textOnDarkLowContrast',
           'textOnLight',
           'textOnLightLowContrast',
-          'tertiaryBlue2',
         ],
       },
     },
@@ -60,7 +58,7 @@ export default {
 type TextKey =
   | 'display'
   | 'heading'
-  | 'smallcaps'
+  | 'uppercase'
   | 'label'
   | 'paragraph'
   | 'code';
@@ -68,7 +66,7 @@ type TextKey =
 const text = {
   display: 'Empower learners everywhere',
   heading: 'Empower learners everywhere',
-  smallcaps: 'Passion to learn',
+  uppercase: 'Passion to learn',
   label: 'Label',
   paragraph:
     'When we allow students to own their education, connect them with quality learning tools, caring adults, and a community, their natural love of learning takes over and they become unstoppable.',
@@ -117,7 +115,7 @@ enum Sizes {
 enum Styles {
   Extrabold = 'ExtraBold',
   Bold = 'Bold',
-  Semibold = 'Condensed/SemiBold',
+  Semibold = 'SemiBold',
   Medium = 'Medium',
   Regular = 'Regular',
 }
@@ -133,51 +131,45 @@ const baseMap = {
   [Bases.Display]: [
     {
       text: Sizes.Large,
-      values: '64px/64px',
+      values: '64px/72px',
       style: Styles.Extrabold,
       variant: 'display-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
-      values: '56px/56px',
+      values: '56px/64px',
       style: Styles.Extrabold,
       variant: 'display-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
-      values: '48px/48px',
+      values: '48px/56px',
       style: Styles.Extrabold,
       variant: 'display-sm',
     } as BaseInfo,
   ],
   [Bases.Heading]: [
     {
-      text: Sizes.XXLarge,
-      values: '40px/40px',
-      style: Styles.Bold,
-      variant: 'heading-xxl',
-    } as BaseInfo,
-    {
       text: Sizes.XLarge,
-      values: '34px/34px',
+      values: '34px/48px',
       style: Styles.Bold,
       variant: 'heading-xl',
     } as BaseInfo,
     {
       text: Sizes.Large,
-      values: '28px/30px',
+      values: '28px/40px',
       style: Styles.Bold,
       variant: 'heading-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
-      values: '24px/26px',
+      values: '24px/32px',
       style: Styles.Bold,
       variant: 'heading-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
-      values: '20px/22px',
+      values: '20px/32px',
       style: Styles.Bold,
       variant: 'heading-sm',
     } as BaseInfo,
@@ -187,71 +179,71 @@ const baseMap = {
       text: Sizes.Large,
       values: '16px/16px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-lg',
+      variant: 'uppercase-lg',
     } as BaseInfo,
     {
       text: Sizes.Medium,
       values: '14px/14px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-md',
+      variant: 'uppercase-md',
     } as BaseInfo,
     {
       text: Sizes.Small,
       values: '12px/12px/10%',
       style: Styles.Extrabold,
-      variant: 'smallcaps-sm',
+      variant: 'uppercase-sm',
     } as BaseInfo,
   ],
   [Bases.Labels]: [
     {
       text: Sizes.XLarge,
-      values: '18px/24px',
+      values: '18px/20px',
       style: Styles.Semibold,
       variant: 'label-xl',
     } as BaseInfo,
     {
       text: Sizes.XLargeStrong,
-      values: '18px/24px',
-      style: Styles.Medium,
+      values: '18px/20px',
+      style: Styles.Bold,
       variant: 'label-xl',
       isStrong: true,
     } as BaseInfo,
     {
       text: Sizes.Large,
-      values: '16px/24px',
+      values: '16px/20px',
       style: Styles.Semibold,
       variant: 'label-lg',
     } as BaseInfo,
     {
       text: Sizes.LargeStrong,
-      values: '16px/24px',
-      style: Styles.Medium,
+      values: '16px/20px',
+      style: Styles.Bold,
       variant: 'label-lg',
       isStrong: true,
     } as BaseInfo,
     {
       text: Sizes.Medium,
-      values: '14px/20px',
+      values: '14px/18px',
       style: Styles.Semibold,
       variant: 'label-md',
     } as BaseInfo,
     {
       text: Sizes.MediumStrong,
-      values: '14px/20px',
-      style: Styles.Medium,
+      values: '14px/18px',
+      style: Styles.Bold,
       variant: 'label-md',
       isStrong: true,
     } as BaseInfo,
     {
       text: Sizes.Small,
-      values: '12px/20px',
+      values: '12px/14px',
       style: Styles.Semibold,
       variant: 'label-sm',
     } as BaseInfo,
     {
       text: Sizes.SmallStrong,
-      values: '12px/20px',
-      style: Styles.Medium,
+      values: '12px/14px',
+      style: Styles.Bold,
       variant: 'label-sm',
       isStrong: true,
     } as BaseInfo,
@@ -277,7 +269,7 @@ const baseMap = {
     } as BaseInfo,
     {
       text: Sizes.Small,
-      values: '12px/18px',
+      values: '12px/20px',
       style: Styles.Regular,
       variant: 'paragraph-sm',
     } as BaseInfo,
@@ -331,6 +323,12 @@ const SizeSection = styled('div')({
   },
 });
 
+const BlueTypog = withStyles((theme) => ({
+  root: {
+    color: theme.palette.blue[3],
+  },
+}))(Typography);
+
 const TypogPage = ({ variantBase }: TypogPageProps) => {
   return (
     <div>
@@ -339,23 +337,15 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
       {baseMap[variantBase].map(
         ({ text, values, style, variant, isStrong }: BaseInfo) => (
           <SizeSection key={text}>
-            <Typography
-              variant="heading-sm"
-              color="tertiaryBlue2"
-              className="pos-1"
-            >
+            <BlueTypog variant="heading-sm" className="pos-1">
               {text}
-            </Typography>
+            </BlueTypog>
 
-            <Typography
-              variant="paragraph-md"
-              color="tertiaryBlue2"
-              className="pos-2"
-            >
+            <BlueTypog variant="code-md" className="pos-2">
               {values}
               <br />
               {style}
-            </Typography>
+            </BlueTypog>
 
             <Typography variant={variant} className="pos-3">
               {isStrong ? (
