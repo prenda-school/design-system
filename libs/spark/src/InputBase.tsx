@@ -17,7 +17,6 @@ export const MuiInputBaseStyleOverrides: Partial<
     borderColor: palette.grey.medium,
     borderRadius: 8,
     width: '20rem', // 320px
-    height: 'min-content',
     margin: 4, // potential box-shadow width
     '&$focused, &:focus': {
       borderColor: palette.blue[3],
@@ -38,8 +37,10 @@ export const MuiInputBaseStyleOverrides: Partial<
     },
   },
   input: {
-    padding: '.75rem 1rem',
-    height: 'min-content',
+    // -2px to account for border-width
+    padding: '10px 16px',
+    // override weird default `em` height
+    height: 'unset',
     borderRadius: 8,
     color: palette.text.onLight,
     '&::placeholder': {
@@ -54,7 +55,8 @@ export const MuiInputBaseStyleOverrides: Partial<
     },
   },
   multiline: {
-    padding: '.75rem 1rem',
+    // -2px to account for border-width
+    padding: '10px 16px',
   },
   formControl: {
     // needs high specificity to override default !important
