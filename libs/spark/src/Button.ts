@@ -130,7 +130,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   endIcon: {
     display: 'inherit',
     // -2px accounts for label vs icon size difference
-    margin: '-2px 8px -2px 0',
+    margin: '-2px 0 -2px 8px',
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
       color: 'inherit',
