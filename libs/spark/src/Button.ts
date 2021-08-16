@@ -25,7 +25,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   contained: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    padding: '4px 16px', // y-dim accounts for 2px border width
     border: `2px solid ${palette.blue[3]}`,
     backgroundColor: palette.blue[3],
     color: palette.common.white,
@@ -49,7 +49,7 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   outlined: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    padding: '4px 16px', // y-dim accounts for 2px border width
     // re-declare to override default outlined style
     border: `2px solid ${palette.grey.medium}`,
     backgroundColor: palette.common.white,
@@ -115,36 +115,42 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   startIcon: {
     display: 'inherit',
-    marginLeft: 0,
-    marginRight: 8,
+    // -2px accounts for label vs icon size difference
+    margin: '-2px 8px -2px 0',
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
       color: 'inherit',
       fontSize: 'inherit',
       lineHeight: 'inherit',
+    },
+    '& > :first-child': {
+      fontSize: 'inherit',
     },
   },
   endIcon: {
     display: 'inherit',
-    marginLeft: 8,
-    marginRight: 0,
+    // -2px accounts for label vs icon size difference
+    margin: '-2px 8px -2px 0',
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
       color: 'inherit',
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
+    '& > :first-child': {
+      fontSize: 'inherit',
+    },
   },
   iconSizeSmall: {
-    fontSize: '1rem', // 16px
-    lineHeight: '1rem',
+    fontSize: typography.pxToRem(16),
+    lineHeight: typography.pxToRem(16),
   },
   iconSizeMedium: {
-    fontSize: '1.25rem', // 20px
-    lineHeight: '1.25rem',
+    fontSize: typography.pxToRem(20),
+    lineHeight: typography.pxToRem(20),
   },
   iconSizeLarge: {
-    fontSize: '1.5rem', // 24px
-    lineHeight: '1.5rem',
+    fontSize: typography.pxToRem(24),
+    lineHeight: typography.pxToRem(24),
   },
 };
