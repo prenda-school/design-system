@@ -6,6 +6,13 @@
 
 - Re-generated Nunito font files. Added missing Source Code Pro font files. If you copied these files to your project, please replace with new copies.
 - Nunito "Semibold" (600 weight) font-face at-rules link to correct `semibold` font file, not `bold`.
+- **Button**
+  - Corrected start/end icon margins.
+  - Corrected height when `size="small"`.
+- **InputBase** (extends to **Input**, **Select**, **TextField**)
+  - Corrected height.
+- **NavBarButton**
+  - Corrected height when no start/end icon given.
 
 ### Features
 
@@ -19,6 +26,7 @@
     - `label-lg-strong`
     - `label-md-strong`
     - `label-sm-strong`
+    - NOTE: these "strong" label styles are NOT meant to replace use of the `<strong>` tag. The `<strong>` tag has semantic significance that is communicated to assistive technology, whereas the `font-weight` CSS property is _purely_ stylistic. Read more [here on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong#usage_notes).
 - **theme**
   - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
   - Added custom `theme.typography` keys:
