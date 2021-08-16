@@ -16,12 +16,11 @@ export const MuiPaginationItemStyleOverrides: Partial<
     borderRadius: 0,
   },
   outlined: {
+    ...typography['label-lg-strong'],
     backgroundColor: palette.common.white,
     border: `solid 2px ${palette.grey.medium}`,
     borderRadius: 0,
     color: palette.text.onLight,
-    ...typography['label-lg'],
-    fontWeight: 700,
     '&:hover': {
       backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.grey.medium}`,

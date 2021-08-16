@@ -10,7 +10,15 @@
 ### Features
 
 - **Typography**
-  - New variant prop values: `uppercase-lg`, `uppercase-md`, `uppercase-sm` (renamed from `smallcaps-*`)
+  - Renamed variant prop values:
+    - from `smallcaps-lg` to `uppercase-lg`
+    - from `smallcaps-md` to `uppercase-md`
+    - from `smallcaps-sm` to `uppercase-sm`
+  - New variant prop values:
+    - `label-xl-strong`
+    - `label-lg-strong`
+    - `label-md-strong`
+    - `label-sm-strong`
 - **theme**
   - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
   - Added custom `theme.typography` keys:
@@ -25,9 +33,13 @@
     - `theme.typography['uppercase-md']`
     - `theme.typography['uppercase-sm']`
     - `theme.typography['label-xl']`
+    - `theme.typography['label-xl-strong']`
     - `theme.typography['label-lg']`
+    - `theme.typography['label-lg-strong']`
     - `theme.typography['label-md']`
+    - `theme.typography['label-md-strong']`
     - `theme.typography['label-sm']`
+    - `theme.typography['label-sm-strong']`
     - `theme.typography['paragraph-xl']`
     - `theme.typography['paragraph-lg']`
     - `theme.typography['paragraph-md']`
@@ -54,6 +66,7 @@
 
 - **Typography**
   - Removed variant prop values: `smallcaps-lg`, `smallcaps-md`, `smallcaps-sm`.
+    - Migration, use `uppercase-lg`, `uppercase-md`, `uppercase-sm`, respectively.
 - Styles using `font-weight: 600` will appear lighter than previously.
   - Migration: use `font-weight: 700`.
   - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.

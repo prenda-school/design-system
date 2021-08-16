@@ -10,6 +10,8 @@ import {
 import clsx from 'clsx';
 import { SparkVariant } from './styles/typography';
 
+type Variant = SparkVariant;
+
 const styles = (theme: Theme) =>
   createStyles({
     root: {
@@ -43,9 +45,13 @@ const styles = (theme: Theme) =>
     'uppercase-md': theme.typography['uppercase-md'],
     'uppercase-sm': theme.typography['uppercase-sm'],
     'label-xl': theme.typography['label-xl'],
+    'label-xl-strong': theme.typography['label-xl-strong'],
     'label-lg': theme.typography['label-lg'],
+    'label-lg-strong': theme.typography['label-lg-strong'],
     'label-md': theme.typography['label-md'],
+    'label-md-strong': theme.typography['label-md-strong'],
     'label-sm': theme.typography['label-sm'],
+    'label-sm-strong': theme.typography['label-sm-strong'],
     'paragraph-xl': theme.typography['paragraph-xl'],
     'paragraph-lg': theme.typography['paragraph-lg'],
     'paragraph-md': theme.typography['paragraph-md'],
@@ -63,9 +69,9 @@ export type Color =
   | 'textOnLight'
   | 'textOnLightLowContrast';
 
-type ClassKey = 'inherit' | SparkVariant | Color;
+type ClassKey = 'inherit' | Variant | Color;
 
-const defaultVariantMapping: Record<SparkVariant, string> = {
+const defaultVariantMapping: Record<Variant, string> = {
   'display-lg': 'h1',
   'display-md': 'h1',
   'display-sm': 'h2',
@@ -77,9 +83,13 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
   'uppercase-md': 'span',
   'uppercase-sm': 'span',
   'label-xl': 'span',
+  'label-xl-strong': 'span',
   'label-lg': 'span',
+  'label-lg-strong': 'span',
   'label-md': 'span',
+  'label-md-strong': 'span',
   'label-sm': 'span',
+  'label-sm-strong': 'span',
   'paragraph-xl': 'p',
   'paragraph-lg': 'p',
   'paragraph-md': 'p',
@@ -92,7 +102,7 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
 export interface TypographyProps
   extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
     WithStyles<typeof styles> {
-  variant?: SparkVariant | 'inherit';
+  variant?: Variant | 'inherit';
   color?: Color;
 }
 

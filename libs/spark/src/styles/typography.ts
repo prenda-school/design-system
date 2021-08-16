@@ -19,9 +19,13 @@ export type SparkVariant =
   | 'uppercase-md'
   | 'uppercase-sm'
   | 'label-xl'
+  | 'label-xl-strong'
   | 'label-lg'
+  | 'label-lg-strong'
   | 'label-md'
+  | 'label-md-strong'
   | 'label-sm'
+  | 'label-sm-strong'
   | 'paragraph-xl'
   | 'paragraph-lg'
   | 'paragraph-md'
@@ -109,9 +113,13 @@ const customVariants: Record<SparkVariant, TypographyStyle> = {
   'uppercase-md': buildVariant(800, 14, 14, 0.1, 'uppercase'),
   'uppercase-sm': buildVariant(800, 12, 12, 0.1, 'uppercase'),
   'label-xl': buildVariant(600, 18, 20),
+  'label-xl-strong': buildVariant(700, 18, 20),
   'label-lg': buildVariant(600, 16, 20),
+  'label-lg-strong': buildVariant(700, 16, 20),
   'label-md': buildVariant(600, 14, 18),
+  'label-md-strong': buildVariant(700, 14, 18),
   'label-sm': buildVariant(600, 12, 14),
+  'label-sm-strong': buildVariant(700, 12, 14),
   'paragraph-xl': buildVariant(400, 18, 28),
   'paragraph-lg': buildVariant(400, 16, 24),
   'paragraph-md': buildVariant(400, 14, 20),

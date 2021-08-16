@@ -12,11 +12,11 @@ export const MuiMenuItemStyleOverrides: Partial<
   StyleRules<MenuItemClassKey>
 > = {
   root: {
+    ...typography['label-lg'],
     boxSizing: 'border-box' as const,
     color: palette.text.onLight,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
-    ...typography['label-lg'],
     // margins collapse with other menu items
     margin: '4px 0',
     '&:first-child': {

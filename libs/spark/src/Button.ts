@@ -15,7 +15,7 @@ export const MuiButtonDefaultProps = {
 
 export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   root: {
-    ...typography['label-md'],
+    ...typography['label-lg-strong'],
     borderRadius: 24,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
@@ -73,7 +73,8 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   text: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
     border: '2px solid transparent',
     backgroundColor: 'transparent',
     color: palette.blue[3],
@@ -98,12 +99,14 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
     },
   },
   sizeLarge: {
-    ...typography['label-xl'],
-    padding: '.625rem 1rem', // 10px (accounting for 2px border width) 16px
+    ...typography['label-xl-strong'],
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(12)} ${typography.pxToRem(16)}`,
   },
   sizeSmall: {
-    ...typography['label-sm'],
-    padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
+    ...typography['label-sm-strong'],
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
   },
   label: {
     color: 'inherit',

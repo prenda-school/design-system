@@ -8,6 +8,7 @@ export const MuiInputBaseStyleOverrides: Partial<
   StyleRules<InputBaseClassKey>
 > = {
   root: {
+    ...typography['label-lg'],
     boxSizing: 'border-box' as const,
     backgroundColor: palette.grey.lighter,
     borderWidth: 2,
@@ -16,7 +17,6 @@ export const MuiInputBaseStyleOverrides: Partial<
     borderRadius: 8,
     width: '20rem', // 320px
     margin: 4, // potential box-shadow width
-    ...typography['label-lg'],
     '&$focused, &:focus': {
       borderColor: palette.blue[3],
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
