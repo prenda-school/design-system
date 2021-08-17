@@ -20,6 +20,8 @@
 
 ### Features
 
+- **Tag**
+  - Initial implementation.
 - **Typography**
   - New `color` prop values:
     - `'onLight'`
