@@ -142,7 +142,11 @@ const H1 = (props) => (
 
 const H2 = withStyles({
   root: { marginLeft: 8 },
-})((props) => <Typography variant="heading-sm" component="h2" {...props} />);
+})((props) => (
+  // TODO: remove me once #200 merged
+  // @ts-expect-error No overload matches this call.
+  <Typography variant="heading-sm" component="h2" {...props} />
+));
 
 const SmCode = withStyles((theme) => ({
   root: {
