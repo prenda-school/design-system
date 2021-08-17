@@ -26,13 +26,14 @@ export default {
 } as Meta;
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
-  fontSize: '62px',
+  fontSize: '72px',
   fill: theme.palette.brand.blue,
 }));
 
 const CustomToolbar = withStyles({
   root: {
     gap: 8,
+    height: 80,
   },
 })(Toolbar);
 
@@ -44,13 +45,6 @@ const InboxNavBarButton = withStyles({
     marginRight: 2,
   },
 })(NavBarButton);
-
-const CustomAvatar = withStyles({
-  root: {
-    width: 38,
-    height: 38,
-  },
-})(Avatar);
 
 const Template: Story<NavBarProps> = (args) => (
   <NavBar {...args}>
@@ -78,7 +72,7 @@ const Template: Story<NavBarProps> = (args) => (
       >
         0
       </InboxNavBarButton>
-      <CustomAvatar src="/img/student-boy-2.png" alt="john doe" />
+      <Avatar src="/img/student-boy-2.png" alt="john doe" size="medium" />
     </CustomToolbar>
   </NavBar>
 );
