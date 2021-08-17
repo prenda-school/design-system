@@ -17,6 +17,11 @@
 ### Features
 
 - **Typography**
+  - Renamed color prop values:
+    - from `textOnLight` to `onLight`
+    - from `textOnLightLowContrast` to `onLightLowContrast`
+    - from `textOnDark` to `onDark`
+    - from `textOnDarkLowContrast` to `onDarkLowContrast`
   - Renamed variant prop values:
     - from `smallcaps-lg` to `uppercase-lg`
     - from `smallcaps-md` to `uppercase-md`
@@ -75,6 +80,8 @@
 - **Typography**
   - Removed variant prop values: `smallcaps-lg`, `smallcaps-md`, `smallcaps-sm`.
     - Migration, use `uppercase-lg`, `uppercase-md`, `uppercase-sm`, respectively.
+  - Removed color prop values: `textOnLight`, `textOnLightLowContrast`, `textOnDark`, `textOnDarkLowContrast`.
+    - Migration: use `onLight`, `onLightLowContrast`, `onDark`, `onDarkLowContrast`, respectively.
 - Styles using `font-weight: 600` will appear lighter than previously.
   - Migration: use `font-weight: 700`.
   - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.

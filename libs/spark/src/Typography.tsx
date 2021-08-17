@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import clsx from 'clsx';
 import { SparkVariant } from './styles/typography';
+import { capitalize } from './utils';
 
 type Variant = SparkVariant;
 
@@ -19,19 +20,19 @@ const styles = (theme: Theme) =>
         fontWeight: 700,
       },
     },
-    inherit: {
+    colorInherit: {
       color: 'inherit',
     },
-    textOnDark: {
+    colorOnDark: {
       color: theme.palette.text.onDark,
     },
-    textOnDarkLowContrast: {
+    colorOnDarkLowContrast: {
       color: theme.palette.text.onDarkLowContrast,
     },
-    textOnLight: {
+    colorOnLight: {
       color: theme.palette.text.onLight,
     },
-    textOnLightLowContrast: {
+    colorOnLightLowContrast: {
       color: theme.palette.text.onLightLowContrast,
     },
     'display-lg': theme.typography['display-lg'],
@@ -61,17 +62,7 @@ const styles = (theme: Theme) =>
     'code-sm': theme.typography['code-sm'],
   });
 
-export type Color =
-  | 'initial'
-  | 'inherit'
-  | 'textOnDark'
-  | 'textOnDarkLowContrast'
-  | 'textOnLight'
-  | 'textOnLightLowContrast';
-
-type ClassKey = 'inherit' | Variant | Color;
-
-const defaultVariantMapping: Record<Variant, string> = {
+const defaultVariantMapping: Record<SparkVariant, string> = {
   'display-lg': 'h1',
   'display-md': 'h1',
   'display-sm': 'h2',
@@ -102,15 +93,21 @@ const defaultVariantMapping: Record<Variant, string> = {
 export interface TypographyProps
   extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
     WithStyles<typeof styles> {
-  variant?: Variant | 'inherit';
-  color?: Color;
+  variant?: SparkVariant | 'inherit';
+  color?:
+    | 'initial'
+    | 'inherit'
+    | 'onDark'
+    | 'onDarkLowContrast'
+    | 'onLight'
+    | 'onLightLowContrast';
 }
 
 function Typography({
   classes,
   className,
   variant = 'paragraph-lg',
-  color = 'textOnLight',
+  color = 'onLight',
   ...other
 }: TypographyProps) {
   return (
@@ -119,7 +116,7 @@ function Typography({
         classes.root,
         {
           [classes[variant]]: variant !== 'inherit',
-          [classes[color]]: color !== 'initial',
+          [classes[`color${capitalize(color)}`]]: color !== 'initial',
         },
         className
       )}

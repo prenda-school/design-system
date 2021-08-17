@@ -41,17 +41,17 @@ export default {
         options: [
           'initial',
           'inherit',
-          'textOnDark',
-          'textOnDarkLowContrast',
-          'textOnLight',
-          'textOnLightLowContrast',
+          'onDark',
+          'onDarkLowContrast',
+          'onLight',
+          'onLightLowContrast',
         ],
       },
     },
   },
   args: {
     variant: 'paragraph-lg',
-    color: 'textOnLight',
+    color: 'onLight',
   },
 } as Meta;
 
