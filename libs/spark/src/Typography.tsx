@@ -150,8 +150,7 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
     const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
       ...baseCustomClasses,
     };
-    // @ts-expect-error The left-hand side of a 'for...in' statement cannot be a destructuring pattern.
-    for (const [key, value] in Object.entries(passedClasses)) {
+    for (const [key, value] of Object.entries(passedClasses)) {
       const customValue = customClasses[key];
       if (customValue) {
         customClasses[key] = `${customValue} ${value}`;
@@ -163,7 +162,7 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
     return (
       <MuiTypography
         classes={{
-          ...passedClasses,
+          ...underlyingClasses,
           root: clsx(underlyingClasses.root, {
             [customClasses[variant]]: variant !== 'inherit',
             [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
@@ -176,8 +175,5 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
     );
   }
 );
-
-// @ts-expect-error Property 'muiName' does not exist on type
-Typography.muiName = 'MuiTypography';
 
 export { Typography };
