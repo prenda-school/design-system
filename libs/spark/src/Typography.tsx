@@ -12,8 +12,7 @@ import {
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
 import { SparkVariant } from './styles/typography';
-import { capitalize } from './utils';
-import { useMergeClasses } from './hooks';
+import { capitalize, ClassNameMap } from './utils';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
@@ -39,8 +38,7 @@ export type TypographyProps<
   P = Record<string, unknown>
 > = OverrideProps<TypographyTypeMap<P, D>, D>;
 
-export type TypographyClassKey =
-  | MuiTypographyClassKey
+type CustomClassKey =
   | SparkVariant
   | 'colorInitial'
   | 'colorInherit'
@@ -48,6 +46,8 @@ export type TypographyClassKey =
   | 'colorOnLightLowContrast'
   | 'colorOnDark'
   | 'colorOnDarkLowContrast';
+
+export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
 
 export const MuiTypographyStyleOverrides = {
   root: {
@@ -100,7 +100,7 @@ const useStyles = makeStyles(
     'code-md': theme.typography['code-md'],
     'code-sm': theme.typography['code-sm'],
   }),
-  { name: 'MuiTypography' }
+  { name: 'SparkTypography' }
 );
 
 const defaultVariantMapping: Record<SparkVariant, string> = {
@@ -134,31 +134,44 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
 const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   function Typography(props, ref) {
     const {
-      classes: passedClasses,
-      className,
+      classes: passedClasses = {},
       variant = 'paragraph-lg',
       color = 'onLight',
       component,
       ...other
     } = props;
 
-    const localClasses = useStyles();
+    const baseCustomClasses = useStyles();
 
-    const classes = useMergeClasses(localClasses, passedClasses);
+    // extract custom class keys from passed classes
+    //  => produce union of customClasses and extraction
+    //     & produce intersection of passed classes and complement of custom classes
+    const underlyingClasses: Partial<ClassNameMap<MuiTypographyClassKey>> = {};
+    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
+      ...baseCustomClasses,
+    };
+    // @ts-expect-error The left-hand side of a 'for...in' statement cannot be a destructuring pattern.
+    for (const [key, value] in Object.entries(passedClasses)) {
+      const customValue = customClasses[key];
+      if (customValue) {
+        customClasses[key] = `${customValue} ${value}`;
+      } else {
+        underlyingClasses[key] = value;
+      }
+    }
 
     return (
       <MuiTypography
-        className={clsx(
-          {
-            [classes[variant]]: variant !== 'inherit',
-            [classes[`color${capitalize(color)}`]]: color !== 'initial',
-          },
-          className
-        )}
-        classes={classes}
+        classes={{
+          ...passedClasses,
+          root: clsx(underlyingClasses.root, {
+            [customClasses[variant]]: variant !== 'inherit',
+            [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
+          }),
+        }}
         component={component || defaultVariantMapping[variant]}
-        {...other}
         ref={ref}
+        {...other}
       />
     );
   }
