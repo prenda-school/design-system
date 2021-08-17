@@ -1,9 +1,15 @@
+import { InputBase, InputBaseClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { InputBase } from '@material-ui/core';
+export { InputBase };
 
-export const MuiInputBaseStyleOverrides = {
+export const MuiInputBaseStyleOverrides: Partial<
+  StyleRules<InputBaseClassKey>
+> = {
   root: {
+    ...typography['label-lg'],
+    lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
     backgroundColor: palette.grey.lighter,
     borderWidth: 2,
@@ -12,8 +18,6 @@ export const MuiInputBaseStyleOverrides = {
     borderRadius: 8,
     width: '20rem', // 320px
     margin: 4, // potential box-shadow width
-    fontSize: '1rem', // 16px
-    lineHeight: '1.125rem', // 18px
     '&$focused, &:focus': {
       borderColor: palette.blue[3],
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
@@ -33,7 +37,10 @@ export const MuiInputBaseStyleOverrides = {
     },
   },
   input: {
-    padding: '.75rem 1rem',
+    // -2px to account for border-width
+    padding: '10px 16px',
+    // override weird default `em` height
+    height: 'unset',
     borderRadius: 8,
     color: palette.text.onLight,
     '&::placeholder': {
@@ -48,7 +55,8 @@ export const MuiInputBaseStyleOverrides = {
     },
   },
   multiline: {
-    padding: '.75rem 1rem',
+    // -2px to account for border-width
+    padding: '10px 16px',
   },
   formControl: {
     // needs high specificity to override default !important

@@ -30,11 +30,27 @@ export const NavBarButton = withStyles((theme) => ({
         fillOpacity: '0.24',
       },
     },
-    label: { fontWeight: 700 },
+  },
+  label: {
+    height: 32,
+  },
+  startIcon: {
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginRight: '8px',
+    marginLeft: 0,
+  },
+  endIcon: {
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginLeft: '8px',
+    marginRight: 0,
   },
   iconSizeLarge: {
-    // override Mui selector
-    '& > *:first-child': {
+    // artificially increase specificity to win battle with default
+    '&& > :first-child': {
       fontSize: '2rem',
     },
   },

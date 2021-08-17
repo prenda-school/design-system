@@ -124,29 +124,28 @@ type BaseInfo = Pick<TypographyProps, 'variant'> & {
   text: Sizes;
   values: string;
   style: Styles;
-  isStrong?: boolean;
 };
 
-const baseMap = {
+const baseMap: Record<Bases, Array<BaseInfo>> = {
   [Bases.Display]: [
     {
       text: Sizes.Large,
       values: '64px/72px',
       style: Styles.Extrabold,
       variant: 'display-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Medium,
       values: '56px/64px',
       style: Styles.Extrabold,
       variant: 'display-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Small,
       values: '48px/56px',
       style: Styles.Extrabold,
       variant: 'display-sm',
-    } as BaseInfo,
+    },
   ],
   [Bases.Heading]: [
     {
@@ -154,25 +153,25 @@ const baseMap = {
       values: '34px/48px',
       style: Styles.Bold,
       variant: 'heading-xl',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Large,
       values: '28px/40px',
       style: Styles.Bold,
       variant: 'heading-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Medium,
       values: '24px/32px',
       style: Styles.Bold,
       variant: 'heading-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Small,
       values: '20px/32px',
       style: Styles.Bold,
       variant: 'heading-sm',
-    } as BaseInfo,
+    },
   ],
   [Bases.Smallcaps]: [
     {
@@ -180,19 +179,19 @@ const baseMap = {
       values: '16px/16px/10%',
       style: Styles.Extrabold,
       variant: 'uppercase-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Medium,
       values: '14px/14px/10%',
       style: Styles.Extrabold,
       variant: 'uppercase-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Small,
       values: '12px/12px/10%',
       style: Styles.Extrabold,
       variant: 'uppercase-sm',
-    } as BaseInfo,
+    },
   ],
   [Bases.Labels]: [
     {
@@ -200,53 +199,49 @@ const baseMap = {
       values: '18px/20px',
       style: Styles.Semibold,
       variant: 'label-xl',
-    } as BaseInfo,
+    },
     {
       text: Sizes.XLargeStrong,
       values: '18px/20px',
       style: Styles.Bold,
-      variant: 'label-xl',
-      isStrong: true,
-    } as BaseInfo,
+      variant: 'label-xl-strong',
+    },
     {
       text: Sizes.Large,
       values: '16px/20px',
       style: Styles.Semibold,
       variant: 'label-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.LargeStrong,
       values: '16px/20px',
       style: Styles.Bold,
-      variant: 'label-lg',
-      isStrong: true,
-    } as BaseInfo,
+      variant: 'label-lg-strong',
+    },
     {
       text: Sizes.Medium,
-      values: '14px/18px',
+      values: '14px/20px',
       style: Styles.Semibold,
       variant: 'label-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.MediumStrong,
-      values: '14px/18px',
+      values: '14px/20px',
       style: Styles.Bold,
-      variant: 'label-md',
-      isStrong: true,
-    } as BaseInfo,
+      variant: 'label-md-strong',
+    },
     {
       text: Sizes.Small,
-      values: '12px/14px',
+      values: '12px/20px',
       style: Styles.Semibold,
       variant: 'label-sm',
-    } as BaseInfo,
+    },
     {
       text: Sizes.SmallStrong,
-      values: '12px/14px',
+      values: '12px/20px',
       style: Styles.Bold,
-      variant: 'label-sm',
-      isStrong: true,
-    } as BaseInfo,
+      variant: 'label-sm-strong',
+    },
   ],
   [Bases.Paragraph]: [
     {
@@ -254,25 +249,25 @@ const baseMap = {
       values: '18px/28px',
       style: Styles.Regular,
       variant: 'paragraph-xl',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Large,
       values: '16px/24px',
       style: Styles.Regular,
       variant: 'paragraph-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Medium,
       values: '14px/20px',
       style: Styles.Regular,
       variant: 'paragraph-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Small,
       values: '12px/20px',
       style: Styles.Regular,
       variant: 'paragraph-sm',
-    } as BaseInfo,
+    },
   ],
   [Bases.Code]: [
     {
@@ -280,19 +275,19 @@ const baseMap = {
       values: '18px/28px',
       style: Styles.Regular,
       variant: 'code-lg',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Medium,
       values: '16px/24px',
       style: Styles.Regular,
       variant: 'code-md',
-    } as BaseInfo,
+    },
     {
       text: Sizes.Small,
       values: '14px/20px',
       style: Styles.Regular,
       variant: 'code-sm',
-    } as BaseInfo,
+    },
   ],
 };
 
@@ -335,7 +330,7 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
       <Typography variant="heading-lg">{variantBase}</Typography>
       <hr />
       {baseMap[variantBase].map(
-        ({ text, values, style, variant, isStrong }: BaseInfo) => (
+        ({ text, values, style, variant }: BaseInfo) => (
           <SizeSection key={text}>
             <BlueTypog variant="heading-sm" className="pos-1">
               {text}
@@ -347,13 +342,9 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
               {style}
             </BlueTypog>
 
-            <Typography variant={variant} className="pos-3">
-              {isStrong ? (
-                <strong>{getText(variant)}</strong>
-              ) : (
-                getText(variant)
-              )}
-            </Typography>
+            <span className="pos-3">
+              <Typography variant={variant}>{getText(variant)}</Typography>
+            </span>
           </SizeSection>
         )
       )}

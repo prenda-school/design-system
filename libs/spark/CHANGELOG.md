@@ -1,23 +1,80 @@
 # Changelog
 
-# [vNext](todo:compareUrl) (yyyy-mm-dd)
+# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...vNext) (yyyy-mm-dd)
 
 ### Fixes
 
 - Re-generated Nunito font files. Added missing Source Code Pro font files. If you copied these files to your project, please replace with new copies.
 - Nunito "Semibold" (600 weight) font-face at-rules link to correct `semibold` font file, not `bold`.
+- **Button**
+  - Corrected start/end icon margins.
+  - Corrected height when `size="small"`.
+- **InputBase** (extends to **Input**, **Select**, **TextField**)
+  - Corrected height.
+- **NavBarButton**
+  - Corrected height when no start/end icon given.
 
 ### Features
 
 - **Typography**
-  - New variant prop values: `uppercase-lg`, `uppercase-md`, `uppercase-sm` (renamed from `smallcaps-*`)
+  - Renamed variant prop values:
+    - from `smallcaps-lg` to `uppercase-lg`
+    - from `smallcaps-md` to `uppercase-md`
+    - from `smallcaps-sm` to `uppercase-sm`
+  - New variant prop values:
+    - `label-xl-strong`
+    - `label-lg-strong`
+    - `label-md-strong`
+    - `label-sm-strong`
+    - NOTE: these "strong" label styles are NOT meant to replace use of the `<strong>` tag. The `<strong>` tag has semantic significance that is communicated to assistive technology, whereas the `font-weight` CSS property is _purely_ stylistic. Read more [here on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong#usage_notes).
 - **theme**
   - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
+  - Added custom `theme.typography` keys:
+    - `theme.typography['display-lg']`
+    - `theme.typography['display-md']`
+    - `theme.typography['display-sm']`
+    - `theme.typography['heading-xl']`
+    - `theme.typography['heading-lg']`
+    - `theme.typography['heading-md']`
+    - `theme.typography['heading-sm']`
+    - `theme.typography['uppercase-lg']`
+    - `theme.typography['uppercase-md']`
+    - `theme.typography['uppercase-sm']`
+    - `theme.typography['label-xl']`
+    - `theme.typography['label-xl-strong']`
+    - `theme.typography['label-lg']`
+    - `theme.typography['label-lg-strong']`
+    - `theme.typography['label-md']`
+    - `theme.typography['label-md-strong']`
+    - `theme.typography['label-sm']`
+    - `theme.typography['label-sm-strong']`
+    - `theme.typography['paragraph-xl']`
+    - `theme.typography['paragraph-lg']`
+    - `theme.typography['paragraph-md']`
+    - `theme.typography['paragraph-sm']`
+    - `theme.typography['code-lg']`
+    - `theme.typography['code-md']`
+    - `theme.typography['code-sm']`
+  - Customized default `theme.typography` keys
+    - `theme.typography.h1` as `theme.typography['display-md']`
+    - `theme.typography.h2` as `theme.typography['display-sm']`
+    - `theme.typography.h3` as `theme.typography['heading-xl']`
+    - `theme.typography.h4` as `theme.typography['heading-lg']`
+    - `theme.typography.h5` as `theme.typography['heading-md']`
+    - `theme.typography.h6` as `theme.typography['heading-sm']`
+    - `theme.typography.subtitle1` as `theme.typography['label-lg']`
+    - `theme.typography.subtitle2` as `theme.typography['label-md']`
+    - `theme.typography.body1` as `theme.typography['paragraph-lg']`
+    - `theme.typography.body2` as `theme.typography['paragraph-md']`
+    - `theme.typography.button` as `theme.typography['label-lg']`
+    - `theme.typography.caption` as `theme.typography['label-sm']`
+    - `theme.typography.overline` as `theme.typography['uppercase-sm']`
 
 #### Breaking Changes
 
 - **Typography**
   - Removed variant prop values: `smallcaps-lg`, `smallcaps-md`, `smallcaps-sm`.
+    - Migration, use `uppercase-lg`, `uppercase-md`, `uppercase-sm`, respectively.
 - Styles using `font-weight: 600` will appear lighter than previously.
   - Migration: use `font-weight: 700`.
   - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.

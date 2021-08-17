@@ -1,12 +1,14 @@
+import { FormLabel, FormLabelClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { FormLabel } from '@material-ui/core';
+export { FormLabel };
 
-export const MuiFormLabelStyleOverrides = {
+export const MuiFormLabelStyleOverrides: Partial<
+  StyleRules<FormLabelClassKey>
+> = {
   root: {
-    fontSize: '1rem',
-    lineHeight: 1.25,
-    fontWeight: 700,
+    ...typography['label-lg-strong'],
     color: palette.text.onLight,
     marginBottom: 3,
     // Design doesn't specify focus style, but it improves a11y

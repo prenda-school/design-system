@@ -1,18 +1,20 @@
+import { InputLabel, InputLabelClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { InputLabel } from '@material-ui/core';
+export { InputLabel };
 
 export const MuiInputLabelDefaultProps = {
   disableAnimation: true,
 };
 
-export const MuiInputLabelStyleOverrides = {
+export const MuiInputLabelStyleOverrides: Partial<
+  StyleRules<InputLabelClassKey>
+> = {
   root: {
+    ...typography['label-lg-strong'],
     color: palette.text.onLight,
     marginBottom: 4,
-    fontWeight: 700,
-    fontSize: '1rem', // 16px
-    lineHeight: '1.125rem', // 18px
     '&$disabled': {
       color: palette.grey.dark,
     },

@@ -1,6 +1,8 @@
+import { Button, ButtonClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { Button } from '@material-ui/core';
+export { Button };
 
 export const MuiButtonDefaultProps = {
   // No disableElevation: true because it makes styling box-shadow's
@@ -11,8 +13,9 @@ export const MuiButtonDefaultProps = {
   size: 'large' as const,
 };
 
-export const MuiButtonStyleOverrides = {
+export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   root: {
+    ...typography['label-lg-strong'],
     borderRadius: 24,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
@@ -22,7 +25,7 @@ export const MuiButtonStyleOverrides = {
   },
   contained: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    padding: '4px 16px', // y-dim accounts for 2px border width
     border: `2px solid ${palette.blue[3]}`,
     backgroundColor: palette.blue[3],
     color: palette.common.white,
@@ -46,7 +49,7 @@ export const MuiButtonStyleOverrides = {
   },
   outlined: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    padding: '4px 16px', // y-dim accounts for 2px border width
     // re-declare to override default outlined style
     border: `2px solid ${palette.grey.medium}`,
     backgroundColor: palette.common.white,
@@ -70,7 +73,8 @@ export const MuiButtonStyleOverrides = {
   },
   text: {
     boxShadow: 'none',
-    padding: '.25rem 1rem', // 4px (accounting for 2px border width) 16px
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
     border: '2px solid transparent',
     backgroundColor: 'transparent',
     color: palette.blue[3],
@@ -95,14 +99,15 @@ export const MuiButtonStyleOverrides = {
     },
   },
   sizeLarge: {
-    fontSize: '1.125rem', // 18px
-    lineHeight: '1.5rem', // 24px (label box)
-    padding: '.625rem 1rem', // 10px (accounting for 2px border width) 16px
+    ...typography['label-xl-strong'],
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(12)} ${typography.pxToRem(16)}`,
   },
   sizeSmall: {
-    fontSize: '0.75rem', // 12px
-    lineHeight: '1rem', // 16px
-    padding: '.125rem 1rem', // 4px (accounting for 2px border width) 16px
+    ...typography['label-sm-strong'],
+    lineHeight: typography.pxToRem(12),
+    // x-dim accounts for 2px border width
+    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
   },
   label: {
     color: 'inherit',
@@ -111,18 +116,30 @@ export const MuiButtonStyleOverrides = {
   },
   startIcon: {
     display: 'inherit',
+    // -2px accounts for label vs icon size difference
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginRight: '8px',
     marginLeft: 0,
-    marginRight: 8,
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
       color: 'inherit',
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
+    // artificially increase specificity to win battle with default
+    '&& > :first-child': {
+      fontSize: 'inherit',
+    },
   },
   endIcon: {
     display: 'inherit',
-    marginLeft: 8,
+    // -2px accounts for label vs icon size difference
+    // have to specify individually to override defaults
+    marginTop: '-2px',
+    marginBottom: '-2px',
+    marginLeft: '8px',
     marginRight: 0,
     color: 'inherit',
     '& > .MuiSvgIcon-root': {
@@ -130,17 +147,21 @@ export const MuiButtonStyleOverrides = {
       fontSize: 'inherit',
       lineHeight: 'inherit',
     },
+    // artificially increase specificity to win battle with default
+    '&& > :first-child': {
+      fontSize: 'inherit',
+    },
   },
   iconSizeSmall: {
-    fontSize: '1rem', // 16px
-    lineHeight: '1rem',
+    fontSize: typography.pxToRem(16),
+    lineHeight: typography.pxToRem(16),
   },
   iconSizeMedium: {
-    fontSize: '1.25rem', // 20px
-    lineHeight: '1.25rem',
+    fontSize: typography.pxToRem(20),
+    lineHeight: typography.pxToRem(20),
   },
   iconSizeLarge: {
-    fontSize: '1.5rem', // 24px
-    lineHeight: '1.5rem',
+    fontSize: typography.pxToRem(24),
+    lineHeight: typography.pxToRem(24),
   },
 };

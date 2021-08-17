@@ -1,16 +1,22 @@
 import * as React from 'react';
-import { MenuItem, MenuItemProps as MuiMenuItemProps } from '@material-ui/core';
+import {
+  MenuItem,
+  MenuItemProps as MuiMenuItemProps,
+  MenuItemClassKey,
+  StyleRules,
+} from '@material-ui/core';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export const MuiMenuItemStyleOverrides = {
+export const MuiMenuItemStyleOverrides: Partial<
+  StyleRules<MenuItemClassKey>
+> = {
   root: {
+    ...typography['label-lg'],
     boxSizing: 'border-box' as const,
     color: palette.text.onLight,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
-    fontWeight: 600,
-    fontSize: '1rem',
-    lineHeight: '1.125rem',
     // margins collapse with other menu items
     margin: '4px 0',
     '&:first-child': {

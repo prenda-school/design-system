@@ -1,8 +1,13 @@
+import { StyleRules } from '@material-ui/core';
+import { PaginationItem, PaginationItemClassKey } from '@material-ui/lab';
 import { palette } from './styles/palette';
+import { typography } from './styles/typography';
 
-export { PaginationItem } from '@material-ui/lab';
+export { PaginationItem };
 
-export const MuiPaginationItemStyleOverrides = {
+export const MuiPaginationItemStyleOverrides: Partial<
+  StyleRules<PaginationItemClassKey>
+> = {
   root: {
     margin: 0,
     borderRadius: 0,
@@ -11,13 +16,11 @@ export const MuiPaginationItemStyleOverrides = {
     borderRadius: 0,
   },
   outlined: {
+    ...typography['label-lg-strong'],
     backgroundColor: palette.common.white,
     border: `solid 2px ${palette.grey.medium}`,
     borderRadius: 0,
     color: palette.text.onLight,
-    fontSize: '1rem',
-    fontWeight: 700,
-    lineHeight: '1.25rem',
     '&:hover': {
       backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.grey.medium}`,
