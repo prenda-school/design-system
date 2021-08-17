@@ -146,10 +146,12 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
     // extract custom class keys from passed classes
     //  => produce union of customClasses and extraction
     //     & produce intersection of passed classes and complement of custom classes
+    // TODO: once WET, extract to common utility func / hook
     const underlyingClasses: Partial<ClassNameMap<MuiTypographyClassKey>> = {};
     const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
       ...baseCustomClasses,
     };
+
     for (const [key, value] of Object.entries(passedClasses)) {
       const customValue = customClasses[key];
       if (customValue) {
