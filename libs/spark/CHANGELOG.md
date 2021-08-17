@@ -13,25 +13,28 @@
   - Corrected height.
 - **NavBarButton**
   - Corrected height when no start/end icon given.
+- **Typography**
+  - TS interface accepts the `component` prop.
+  - TS interface specifies all custom and underlying `classes` slots.
+  - Corrected forwarding of custom and underlying `classes`.
 
 ### Features
 
 - **Typography**
-  - Renamed color prop values:
-    - from `textOnLight` to `onLight`
-    - from `textOnLightLowContrast` to `onLightLowContrast`
-    - from `textOnDark` to `onDark`
-    - from `textOnDarkLowContrast` to `onDarkLowContrast`
-  - Renamed variant prop values:
-    - from `smallcaps-lg` to `uppercase-lg`
-    - from `smallcaps-md` to `uppercase-md`
-    - from `smallcaps-sm` to `uppercase-sm`
-  - New variant prop values:
-    - `label-xl-strong`
-    - `label-lg-strong`
-    - `label-md-strong`
-    - `label-sm-strong`
-    - NOTE: these "strong" label styles are NOT meant to replace use of the `<strong>` tag. The `<strong>` tag has semantic significance that is communicated to assistive technology, whereas the `font-weight` CSS property is _purely_ stylistic. Read more [here on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong#usage_notes).
+  - New `color` prop values:
+    - `'onLight'`
+    - `'onLightLowContrast'`
+    - `'onDark'`
+    - `'onDarkLowContrast'`
+  - New `variant` prop values:
+    - `'uppercase-lg'`
+    - `'uppercase-md'`
+    - `'uppercase-sm'`
+    - `'label-xl-strong'`
+    - `'label-lg-strong'`
+    - `'label-md-strong'`
+    - `'label-sm-strong'`
+    - NOTE: "strong" label styles are NOT meant to replace use of the `<strong>` tag. The `<strong>` tag has semantic significance that is communicated to assistive technology, whereas the `font-weight` CSS property is _purely_ stylistic. Read more [here on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong#usage_notes).
 - **theme**
   - `theme.typography.pxToRem` is now customized to treat `16px` as the base font size instead of the default `14px`.
   - Added custom `theme.typography` keys:
@@ -78,10 +81,10 @@
 #### Breaking Changes
 
 - **Typography**
-  - Removed variant prop values: `smallcaps-lg`, `smallcaps-md`, `smallcaps-sm`.
-    - Migration, use `uppercase-lg`, `uppercase-md`, `uppercase-sm`, respectively.
-  - Removed color prop values: `textOnLight`, `textOnLightLowContrast`, `textOnDark`, `textOnDarkLowContrast`.
-    - Migration: use `onLight`, `onLightLowContrast`, `onDark`, `onDarkLowContrast`, respectively.
+  - Removed variant prop values: `'smallcaps-lg'`, `'smallcaps-md'`, `'smallcaps-sm'`.
+    - Migration, use `'uppercase-lg'`, `'uppercase-md'`, `'uppercase-sm'`, respectively.
+  - Removed color prop values: `'textOnLight'`, `'textOnLightLowContrast'`, `'textOnDark'`, `'textOnDarkLowContrast'`.
+    - Migration: use `'onLight'`, `'onLightLowContrast'`, `'onDark'`, `'onDarkLowContrast'`, respectively.
 - Styles using `font-weight: 600` will appear lighter than previously.
   - Migration: use `font-weight: 700`.
   - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.
