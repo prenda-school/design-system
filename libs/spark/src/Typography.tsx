@@ -1,25 +1,64 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import {
-  WithStyles,
-  withStyles,
-  createStyles,
+  makeStyles,
   Theme,
   Typography as MuiTypography,
   TypographyProps as MuiTypographyProps,
+  TypographyClassKey as MuiTypographyClassKey,
 } from '@material-ui/core';
-import clsx from 'clsx';
+import {
+  OverrideProps,
+  OverridableComponent,
+} from '@material-ui/core/OverridableComponent';
 import { SparkVariant } from './styles/typography';
-import { capitalize } from './utils';
+import { capitalize, ClassNameMap } from './utils';
 
-type Variant = SparkVariant;
+export interface TypographyTypeMap<
+  P = Record<string, unknown>,
+  D extends React.ElementType = 'span'
+> {
+  props: P &
+    Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
+      variant?: SparkVariant | 'inherit';
+      color?:
+        | 'initial'
+        | 'inherit'
+        | 'onDark'
+        | 'onDarkLowContrast'
+        | 'onLight'
+        | 'onLightLowContrast';
+    };
+  defaultComponent: D;
+  classKey: TypographyClassKey;
+}
 
-const styles = (theme: Theme) =>
-  createStyles({
-    root: {
-      '& strong, b': {
-        fontWeight: 700,
-      },
+export type TypographyProps<
+  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+  P = Record<string, unknown>
+> = OverrideProps<TypographyTypeMap<P, D>, D>;
+
+type CustomClassKey =
+  | SparkVariant
+  | 'colorInitial'
+  | 'colorInherit'
+  | 'colorOnLight'
+  | 'colorOnLightLowContrast'
+  | 'colorOnDark'
+  | 'colorOnDarkLowContrast';
+
+export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
+
+export const MuiTypographyStyleOverrides = {
+  root: {
+    '& strong, b': {
+      fontWeight: 700,
     },
+  },
+};
+
+const useStyles = makeStyles(
+  (theme: Theme) => ({
     colorInherit: {
       color: 'inherit',
     },
@@ -60,7 +99,9 @@ const styles = (theme: Theme) =>
     'code-lg': theme.typography['code-lg'],
     'code-md': theme.typography['code-md'],
     'code-sm': theme.typography['code-sm'],
-  });
+  }),
+  { name: 'SparkTypography' }
+);
 
 const defaultVariantMapping: Record<SparkVariant, string> = {
   'display-lg': 'h1',
@@ -90,45 +131,51 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
   'code-sm': 'pre',
 };
 
-export interface TypographyProps
-  extends Omit<MuiTypographyProps, 'variant' | 'classes' | 'color'>,
-    WithStyles<typeof styles> {
-  variant?: SparkVariant | 'inherit';
-  color?:
-    | 'initial'
-    | 'inherit'
-    | 'onDark'
-    | 'onDarkLowContrast'
-    | 'onLight'
-    | 'onLightLowContrast';
-}
+const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
+  function Typography(props, ref) {
+    const {
+      classes: passedClasses = {},
+      variant = 'paragraph-lg',
+      color = 'onLight',
+      component,
+      ...other
+    } = props;
 
-function Typography({
-  classes,
-  className,
-  variant = 'paragraph-lg',
-  color = 'onLight',
-  ...other
-}: TypographyProps) {
-  return (
-    <MuiTypography
-      className={clsx(
-        classes.root,
-        {
-          [classes[variant]]: variant !== 'inherit',
-          [classes[`color${capitalize(color)}`]]: color !== 'initial',
-        },
-        className
-      )}
-      {...other}
-      // @ts-expect-error: Property 'component' does not exist on type
-      component={other.component || defaultVariantMapping[variant]}
-    />
-  );
-}
+    const baseCustomClasses = useStyles();
 
-const SparkTypography = withStyles(styles, {
-  name: 'SparkTypography',
-})(Typography);
+    // extract custom class keys from passed classes
+    //  => produce union of customClasses and extraction
+    //     & produce intersection of passed classes and complement of custom classes
+    // TODO: once WET, extract to common utility func / hook
+    const underlyingClasses: Partial<ClassNameMap<MuiTypographyClassKey>> = {};
+    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
+      ...baseCustomClasses,
+    };
 
-export { SparkTypography as Typography };
+    for (const [key, value] of Object.entries(passedClasses)) {
+      const customValue = customClasses[key];
+      if (customValue) {
+        customClasses[key] = `${customValue} ${value}`;
+      } else {
+        underlyingClasses[key] = value;
+      }
+    }
+
+    return (
+      <MuiTypography
+        classes={{
+          ...underlyingClasses,
+          root: clsx(underlyingClasses.root, {
+            [customClasses[variant]]: variant !== 'inherit',
+            [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
+          }),
+        }}
+        component={component || defaultVariantMapping[variant]}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
+
+export { Typography };
