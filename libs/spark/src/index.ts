@@ -29,6 +29,7 @@ export { FormLabel } from './FormLabel';
 export { IconButton } from './IconButton';
 export type { IconButtonProps } from './IconButton';
 export { Input } from './Input';
+export { InputAdornment } from './InputAdornment';
 export { InputBase } from './InputBase';
 export { InputLabel } from './InputLabel';
 export { ListItem } from './ListItem';
