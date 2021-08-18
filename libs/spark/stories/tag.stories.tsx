@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Tag, Box, Typography, withStyles } from '../src';
+import { DocTemplate } from './documentation-template';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/Tag',
@@ -134,173 +136,103 @@ export const ColorVariantDeleteDisabled: Story = ColorAndVariantTemplate.bind(
 );
 ColorVariantDeleteDisabled.args = { onDelete: handleDelete, disabled: true };
 
-// TODO: extract these to reusable decorator/template?
+const AvatarDocTemplate = (args) => <DocTemplate {...args} />;
 
-const H1 = (props) => (
-  <Typography variant="heading-md" component="h1" gutterBottom {...props} />
-);
-
-const H2 = withStyles({
-  root: { marginLeft: 8 },
-})((props) => <Typography variant="heading-sm" component="h2" {...props} />);
-
-const SmCode = withStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.lightGrey,
-    padding: '0 2px',
+export const Documentation: Story = AvatarDocTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'Avatar',
+    href: 'https://material-ui.com/components/avatars/#avatar',
   },
-}))((props) => <Typography variant="code-sm" display="inline" {...props} />);
+  props: {
+    extends: {
+      href: 'https://material-ui.com/api/avatar/#props',
+    },
+    omits: [
+      {
+        name: 'color',
+        defaultValue: "'default'",
+      },
+      {
+        name: 'size',
+        defaultValue: "'medium'",
+      },
+      {
+        name: 'variant',
+        defaultValue: "'default'",
+      },
+    ],
+    adds: [
+      {
+        name: 'color',
+        type:
+          "'default' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple'",
+        defaultValue: "'default'",
+      },
+      {
+        name: 'variant',
+        type: "'subtle' | 'bold'",
+        defaultValue: "'subtle'",
+      },
+    ],
+  },
+  css: {
+    extends: {
+      href: 'https://material-ui.com/api/chip/#css',
+    },
+    adds: [
+      'colorRed',
+      'colorOrange',
+      'colorYellow',
+      'colorGreen',
+      'colorBlue',
+      'colorPurple',
+      'bold',
+      'boldColorRed',
+      'boldColorOrange',
+      'boldColorYellow',
+      'boldColorGreen',
+      'boldColorBlue',
+      'boldColorPurple',
+      'labelColorRed',
+      'labelColorOrange',
+      'labelColorYellow',
+      'labelColorGreen',
+      'labelColorBlue',
+      'labelColorPurple',
+      'labelBold',
+      'labelBoldColorRed',
+      'labelBoldColorOrange',
+      'labelBoldColorYellow',
+      'labelBoldColorGreen',
+      'labelBoldColorBlue',
+      'labelBoldColorPurple',
+      'deleteIconColorRed',
+      'deleteIconColorOrange',
+      'deleteIconColorYellow',
+      'deleteIconColorGreen',
+      'deleteIconColorBlue',
+      'deleteIconColorPurple',
+      'deleteIconBold',
+      'deleteIconBoldColorRed',
+      'deleteIconBoldColorOrange',
+      'deleteIconBoldColorYellow',
+      'deleteIconBoldColorGreen',
+      'deleteIconBoldColorBlue',
+      'deleteIconBoldColorPurple',
+    ],
+  },
+};
 
-const Li = (props) => (
-  <Typography variant="paragraph-lg" component="li" {...props} />
-);
+const AvatarChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
 
-const LiCode = (props) => (
-  <Li>
-    <SmCode {...props} />
-  </Li>
-);
-
-const DocumentationTemplate = () => (
-  <>
-    <H1>Underlying Component</H1>
-    <ul>
-      <Li>
-        Chip,{' '}
-        <a href="https://material-ui.com/components/chips/#chip">
-          https://material-ui.com/components/chips/#chip
-        </a>
-      </Li>
-    </ul>
-    <Box m={1} />
-    <H1>API</H1>
-    <H2>Prop Names</H2>
-    <ul>
-      <Li>
-        Extends{' '}
-        <a href="https://material-ui.com/api/chip/#props">
-          https://material-ui.com/api/chip/#props
-        </a>
-      </Li>
-      <Li>Omits:</Li>
-      <ul>
-        <Li>
-          <SmCode>color</SmCode>
-          <ul>
-            <Li>
-              default underlying value: <SmCode>'default'</SmCode>
-            </Li>
-          </ul>
-        </Li>
-        <Li>
-          <SmCode>size</SmCode>
-          <ul>
-            <Li>
-              default underlying value: <SmCode>'medium'</SmCode>
-            </Li>
-          </ul>
-        </Li>
-        <Li>
-          <SmCode>variant</SmCode>
-          <ul>
-            <Li>
-              default underlying value: <SmCode>'default'</SmCode>
-            </Li>
-          </ul>
-        </Li>
-      </ul>
-      <Li>
-        Adds:
-        <ul>
-          <LiCode>color</LiCode>
-          <ul>
-            <Li>
-              type:{' '}
-              <SmCode>
-                'default' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' |
-                'purple
-              </SmCode>
-            </Li>
-            <Li>
-              default: <SmCode>'default'</SmCode>
-            </Li>
-          </ul>
-          <LiCode>variant</LiCode>
-          <ul>
-            <Li>
-              type: <SmCode>'subtle' | 'bold'</SmCode>
-            </Li>
-            <Li>
-              default: <SmCode>'subtle'</SmCode>
-            </Li>
-          </ul>
-        </ul>
-      </Li>
-    </ul>
-    <H2>CSS Rule Names</H2>
-    <ul>
-      <Li>
-        Extends{' '}
-        <a href="https://material-ui.com/api/chip/#css">
-          https://material-ui.com/api/chip/#css
-        </a>
-      </Li>
-      <Li>
-        Adds:
-        <ul>
-          <LiCode>colorRed</LiCode>
-          <LiCode>colorOrange</LiCode>
-          <LiCode>colorYellow</LiCode>
-          <LiCode>colorGreen</LiCode>
-          <LiCode>colorBlue</LiCode>
-          <LiCode>colorPurple</LiCode>
-          <LiCode>bold</LiCode>
-          <LiCode>boldColorRed</LiCode>
-          <LiCode>boldColorOrange</LiCode>
-          <LiCode>boldColorYellow</LiCode>
-          <LiCode>boldColorGreen</LiCode>
-          <LiCode>boldColorBlue</LiCode>
-          <LiCode>boldColorPurple</LiCode>
-          <LiCode>labelColorRed</LiCode>
-          <LiCode>labelColorOrange</LiCode>
-          <LiCode>labelColorYellow</LiCode>
-          <LiCode>labelColorGreen</LiCode>
-          <LiCode>labelColorBlue</LiCode>
-          <LiCode>labelColorPurple</LiCode>
-          <LiCode>labelBold</LiCode>
-          <LiCode>labelBoldColorRed</LiCode>
-          <LiCode>labelBoldColorOrange</LiCode>
-          <LiCode>labelBoldColorYellow</LiCode>
-          <LiCode>labelBoldColorGreen</LiCode>
-          <LiCode>labelBoldColorBlue</LiCode>
-          <LiCode>labelBoldColorPurple</LiCode>
-          <LiCode>deleteIconColorRed</LiCode>
-          <LiCode>deleteIconColorOrange</LiCode>
-          <LiCode>deleteIconColorYellow</LiCode>
-          <LiCode>deleteIconColorGreen</LiCode>
-          <LiCode>deleteIconColorBlue</LiCode>
-          <LiCode>deleteIconColorPurple</LiCode>
-          <LiCode>deleteIconBold</LiCode>
-          <LiCode>deleteIconBoldColorRed</LiCode>
-          <LiCode>deleteIconBoldColorOrange</LiCode>
-          <LiCode>deleteIconBoldColorYellow</LiCode>
-          <LiCode>deleteIconBoldColorGreen</LiCode>
-          <LiCode>deleteIconBoldColorBlue</LiCode>
-          <LiCode>deleteIconBoldColorPurple</LiCode>
-        </ul>
-      </Li>
-    </ul>
-  </>
-);
-
-export const Documentation: Story = DocumentationTemplate.bind({});
-
-const ChangelogTemplate = () => (
-  <ul>
-    <Li>
-      <SmCode>vNext (yyyy-mm-dd)</SmCode>: initial implementation
-    </Li>
-  </ul>
-);
-
-export const Changelog: Story = ChangelogTemplate.bind({});
+export const Changelog: Story = AvatarChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Initial implementation'],
+    },
+  ],
+};

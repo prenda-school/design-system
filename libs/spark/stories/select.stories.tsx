@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Select, styled, MenuItem, InputAdornment } from '../src';
 import { GearDuotone } from '@prenda/spark-icons';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/Select',
@@ -119,8 +120,20 @@ export const StatesFocus = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-// TODO: once standardized, add Changelog story
-// vNext (yyyy-mm-dd)
-//   - See [Input](to-input-base)
-// vHistory
-//   - todo: crawl through history
+const SelectChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = SelectChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['See Input'],
+    },
+    {
+      version: 'vHistory',
+      versionDate: '...',
+      changes: ['missing'],
+    },
+  ],
+};
