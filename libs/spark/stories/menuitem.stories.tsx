@@ -149,7 +149,7 @@ Changelog.args = {
       versionDate: 'yyyy-mm-dd',
       changes: [
         'Added styling for pseudo-states: `:hover`, `:focus`, `:active`',
-        'Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`, `FormControlLabel`',
+        'Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`',
         'Added styling when prop `selected` is `true`.',
       ],
     },
