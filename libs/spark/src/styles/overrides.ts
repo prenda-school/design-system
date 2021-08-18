@@ -9,9 +9,13 @@ import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiFormLabelStyleOverrides } from '../FormLabel';
 import { MuiIconButtonStyleOverrides } from '../IconButton';
 import { MuiInputStyleOverrides } from '../Input';
+import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 import { MuiInputBaseStyleOverrides } from '../InputBase';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
 import { MuiListItemStyleOverrides } from '../ListItem';
+import { MuiListItemAvatarStyleOverrides } from '../ListItemAvatar';
+import { MuiListItemIconStyleOverrides } from '../ListItemIcon';
+import { MuiListItemTextStyleOverrides } from '../ListItemText';
 import { MuiMenuStyleOverrides } from '../Menu';
 import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
@@ -21,7 +25,6 @@ import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiTypographyStyleOverrides } from '../Typography';
 import { fontFaces, typography } from './typography';
-import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 
 export const overrides = {
   MuiAvatar: MuiAvatarStyleOverrides,
@@ -48,6 +51,9 @@ export const overrides = {
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiListItem: MuiListItemStyleOverrides,
+  MuiListItemAvatar: MuiListItemAvatarStyleOverrides,
+  MuiListItemIcon: MuiListItemIconStyleOverrides,
+  MuiListItemText: MuiListItemTextStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,
   MuiMenuItem: MuiMenuItemStyleOverrides,
   MuiPagination: MuiPaginationStyleOverrides,

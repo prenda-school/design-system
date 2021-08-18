@@ -1,12 +1,9 @@
 import * as React from 'react';
-import {
-  MenuItem,
-  MenuItemProps as MuiMenuItemProps,
-  MenuItemClassKey,
-  StyleRules,
-} from '@material-ui/core';
+import { MenuItem, MenuItemClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
 import { typography } from './styles/typography';
+
+export { MenuItem };
 
 export const MuiMenuItemStyleOverrides: Partial<
   StyleRules<MenuItemClassKey>
@@ -17,6 +14,12 @@ export const MuiMenuItemStyleOverrides: Partial<
     color: palette.text.onLight,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
+    border: '2px solid transparent',
+    // have to separate to override
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingRight: 14,
+    paddingLeft: 14,
     // margins collapse with other menu items
     margin: '4px 0',
     '&:first-child': {
@@ -27,42 +30,43 @@ export const MuiMenuItemStyleOverrides: Partial<
     },
     '&:hover': {
       backgroundColor: palette.grey.light,
-      '.SparkMenuItem-startIcon': {
-        color: palette.text.onLight,
-      },
+      borderColor: palette.grey.light,
     },
-    '&.Mui-focusVisible': {
-      backgroundColor: palette.blue[1],
-      '.SparkMenuItem-startIcon': {
-        color: palette.text.onLight,
-      },
+    '&:focus': {
+      backgroundColor: palette.grey.light,
+      borderColor: palette.blue[4],
+    },
+    '&:active': {
+      backgroundColor: palette.grey.medium,
+      borderColor: palette.blue[4],
     },
 
-    '.SparkMenuItem-startIcon': {
-      display: 'inherit',
-      marginRight: '.5rem', // 8px
-      color: palette.text.onLightLowContrast,
+    '& > .MuiFormControlLabel-root': {
+      height: 28,
+      marginLeft: 0,
+      '& > .MuiCheckbox-root': {
+        padding: '2px 9px 2px 1px',
+      },
+    },
+    '&$selected': {
+      backgroundColor: palette.blue[3],
+      borderColor: palette.blue[3],
+      color: palette.common.white,
+    },
+    '&$selected:hover': {
+      backgroundColor: palette.blue[4],
+      borderColor: palette.blue[4],
+      color: palette.common.white,
+    },
+    '&$selected:focus': {
+      backgroundColor: palette.blue[3],
+      borderColor: palette.blue[5],
+      color: palette.common.white,
+    },
+    '&$selected:active': {
+      backgroundColor: palette.blue[4],
+      borderColor: palette.blue[5],
+      color: palette.common.white,
     },
   },
 };
-
-export interface MenuItemProps extends MuiMenuItemProps {
-  startIcon?: React.ReactNode;
-  // Fix mismatch on Mui's end
-  button?: true | undefined;
-}
-
-const SparkMenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
-  ({ startIcon, children, ...other }, ref) => {
-    return (
-      <MenuItem ref={ref} {...other}>
-        {startIcon ? (
-          <span className="SparkMenuItem-startIcon">{startIcon}</span>
-        ) : null}
-        {children}
-      </MenuItem>
-    );
-  }
-);
-
-export { SparkMenuItem as MenuItem };
