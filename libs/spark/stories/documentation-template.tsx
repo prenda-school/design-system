@@ -53,7 +53,7 @@ export const DocTemplate = ({
     extends?: {
       href: string;
     };
-    adds: Array<string>;
+    adds?: Array<string>;
   };
 }) => (
   <>
@@ -117,7 +117,7 @@ export const DocTemplate = ({
           Extends <a href={css.extends.href}>{css.extends.href}</a>
         </Li>
       ) : null}
-      {css.adds.length ? (
+      {css.adds?.length ? (
         <Li>
           Adds:
           <ul>

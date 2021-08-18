@@ -141,7 +141,7 @@ const AvatarDocTemplate = (args) => <DocTemplate {...args} />;
 export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
-    name: 'Avatar',
+    name: 'Chip',
     href: 'https://material-ui.com/components/avatars/#avatar',
   },
   props: {
