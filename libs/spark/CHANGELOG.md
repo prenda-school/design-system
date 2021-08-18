@@ -20,6 +20,8 @@
 
 ### Features
 
+- **Avatar**
+  - Initial implementation.
 - **Typography**
   - New `color` prop values:
     - `'onLight'`
