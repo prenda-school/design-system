@@ -29,9 +29,17 @@ export default {
   },
 } as Meta;
 
-const Container = styled('div')({
-  width: 224,
-});
+const Container = (props) => (
+  <Box
+    m={0.5}
+    display="grid"
+    gridTemplateColumns="224px"
+    gridGap="4px"
+    alignItems="center"
+    width={224}
+    {...props}
+  />
+);
 
 const Template: Story = ({ text, startIcon, args }) => (
   <Container>
@@ -48,19 +56,8 @@ const Template: Story = ({ text, startIcon, args }) => (
 
 export const Configurable: Story = Template.bind({});
 
-const GridContainer = (props) => (
-  <Box
-    m={0.5}
-    display="grid"
-    gridTemplateColumns="224px"
-    gridGap="4px"
-    alignItems="center"
-    {...props}
-  />
-);
-
 const CompositionsTemplate: Story = ({ startIcon, ...args }) => (
-  <GridContainer>
+  <Container>
     <MenuItem {...args}>
       <ListItemText primary="Menu item" />
     </MenuItem>
@@ -88,7 +85,7 @@ const CompositionsTemplate: Story = ({ startIcon, ...args }) => (
       </ListItemIcon>
       <ListItemText id="menu-item-label" primary="Menu item" />
     </MenuItem>
-  </GridContainer>
+  </Container>
 );
 
 export const Compositions = CompositionsTemplate.bind({});
