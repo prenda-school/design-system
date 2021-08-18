@@ -12,6 +12,8 @@ import {
   FormControlLabel,
 } from '../src';
 import { GearDuotone } from '@prenda/spark-icons';
+import { DocTemplate } from './documentation-template';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/MenuItem',
@@ -125,3 +127,45 @@ CompositionsSelectedFocus.parameters = { pseudo: { focus: true } };
 
 export const CompositionsSelectedDisabled = CompositionsTemplate.bind({});
 CompositionsSelectedDisabled.args = { selected: true, disabled: true };
+
+const MenuItemDocTemplate = (args) => <DocTemplate {...args} />;
+
+export const Documentation: Story = MenuItemDocTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'MenuItem',
+    href: 'https://material-ui.com/api/menu-item/',
+  },
+  props: {
+    extends: {
+      href: 'https://material-ui.com/api/menu-item/#props',
+    },
+  },
+  css: {
+    extends: {
+      href: 'https://material-ui.com/api/menu-item/#css',
+    },
+  },
+};
+
+const MenuItemChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = MenuItemChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: [
+        'Added styling for pseudo-states: `:hover`, `:focus`, `:active`',
+        'Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`, `FormControlLabel`',
+        'Added styling when prop `selected` is `true`.',
+      ],
+    },
+    {
+      version: 'vHistory',
+      versionDate: '...',
+      changes: ['missing'],
+    },
+  ],
+};
