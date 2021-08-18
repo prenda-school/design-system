@@ -30,6 +30,8 @@
   - Added styling for `startAdornment` and `endAdornment` props.
 - **Select**
   - See **InputBase**.
+- **Tag**
+  - Initial implementation.
 - **TextField**
   - See **InputBase**.
 - **Typography**
