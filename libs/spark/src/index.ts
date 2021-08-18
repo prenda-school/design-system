@@ -43,6 +43,7 @@ export { Select } from './Select';
 export { SparkThemeProvider } from './SparkThemeProvider';
 export { SvgIcon } from './SvgIcon';
 export type { SvgIconProps } from './SvgIcon';
+export { Tag } from './Tag';
 export { TextField } from './TextField';
 export { Toolbar } from './Toolbar';
 export { theme } from './styles';

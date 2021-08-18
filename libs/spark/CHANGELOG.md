@@ -22,6 +22,8 @@
 
 - **Avatar**
   - Initial implementation.
+- **Tag**
+  - Initial implementation.
 - **Typography**
   - New `color` prop values:
     - `'onLight'`
