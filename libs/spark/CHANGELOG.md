@@ -20,6 +20,8 @@
 
 ### Features
 
+- **Avatar**
+  - Initial implementation.
 - **Tag**
   - Initial implementation.
 - **Typography**

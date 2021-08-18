@@ -1,4 +1,5 @@
 export { styled, useTheme, withStyles, makeStyles } from '@material-ui/core';
+export { Avatar } from './Avatar';
 export { Box } from './Box';
 export { Button } from './Button';
 export { ButtonBase } from './ButtonBase';

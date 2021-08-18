@@ -5,7 +5,6 @@ import {
   HomeDuotone,
   InboxFilledDuotone,
   MountainDuotone,
-  UserDuotone,
   UsersDuotone,
   PrendaMonogram,
 } from '@prenda/spark-icons';
@@ -16,6 +15,7 @@ import {
   withStyles,
   Toolbar,
   styled,
+  Avatar,
 } from '../src';
 
 export default {
@@ -25,19 +25,15 @@ export default {
   args: {},
 } as Meta;
 
-const UserMenu = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-});
-
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
-  fontSize: '62px',
+  fontSize: '72px',
   fill: theme.palette.brand.blue,
 }));
 
 const CustomToolbar = withStyles({
   root: {
     gap: 8,
+    height: 80,
   },
 })(Toolbar);
 
@@ -76,9 +72,7 @@ const Template: Story<NavBarProps> = (args) => (
       >
         0
       </InboxNavBarButton>
-      <UserMenu>
-        <UserDuotone color="onLight" fontSize="large" />
-      </UserMenu>
+      <Avatar src="/img/student-boy-2.png" alt="john doe" size="medium" />
     </CustomToolbar>
   </NavBar>
 );

@@ -1,3 +1,4 @@
+import { MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
 import { MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
@@ -22,6 +23,7 @@ import { MuiTypographyStyleOverrides } from '../Typography';
 import { fontFaces, typography } from './typography';
 
 export const overrides = {
+  MuiAvatar: MuiAvatarStyleOverrides,
   MuiButton: MuiButtonStyleOverrides,
   MuiCssBaseline: {
     '@global': {
