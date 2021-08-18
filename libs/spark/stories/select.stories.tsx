@@ -31,7 +31,7 @@ const Template: Story = ({ value: propValue, startAdornment, ...args }) => {
     <Select
       startAdornment={
         startAdornment ? (
-          <InputAdornment position="end">
+          <InputAdornment position="start">
             <GearDuotone />
           </InputAdornment>
         ) : undefined
