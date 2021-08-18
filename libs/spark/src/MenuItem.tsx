@@ -5,7 +5,9 @@ import { typography } from './styles/typography';
 
 export { MenuItem };
 
-export const MuiMenuItemStyleOverrides: Partial<StyleRules<MenuItemClassKey>> = {
+export const MuiMenuItemStyleOverrides: Partial<
+  StyleRules<MenuItemClassKey>
+> = {
   root: {
     ...typography['label-lg'],
     boxSizing: 'border-box' as const,
