@@ -5,9 +5,7 @@ import { typography } from './styles/typography';
 
 export { MenuItem };
 
-export const MuiMenuItemStyleOverrides: Partial<
-  StyleRules<MenuItemClassKey>
-> = {
+export const MuiMenuItemStyleOverrides: Partial<StyleRules<MenuItemClassKey>> = {
   root: {
     ...typography['label-lg'],
     boxSizing: 'border-box' as const,
@@ -41,13 +39,6 @@ export const MuiMenuItemStyleOverrides: Partial<
       borderColor: palette.blue[4],
     },
 
-    '& > .MuiFormControlLabel-root': {
-      height: 28,
-      marginLeft: 0,
-      '& > .MuiCheckbox-root': {
-        padding: '2px 9px 2px 1px',
-      },
-    },
     '&$selected': {
       backgroundColor: palette.blue[3],
       borderColor: palette.blue[3],

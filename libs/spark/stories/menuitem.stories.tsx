@@ -76,27 +76,18 @@ const CompositionsTemplate: Story = ({ startIcon, ...args }) => (
       </ListItemAvatar>
       <ListItemText primary="Menu item" />
     </MenuItem>
-    {args.selected ? null : (
-      <>
-        <MenuItem {...args}>
-          <ListItemIcon>
-            <Checkbox
-              tabIndex={-1}
-              inputProps={{ 'aria-labelledby': 'menu-item-label' }}
-              disabled={args.disabled}
-            />
-          </ListItemIcon>
-          <ListItemText id="menu-item-label" primary="Menu item" />
-        </MenuItem>
-        <MenuItem {...args}>
-          <FormControlLabel
-            label="Menu item"
-            control={<Checkbox />}
-            disabled={args.disabled}
-          />
-        </MenuItem>
-      </>
-    )}
+    <MenuItem {...args}>
+      <ListItemIcon>
+        <Checkbox
+          tabIndex={-1}
+          inputProps={{ 'aria-labelledby': 'menu-item-label' }}
+          disabled={args.disabled}
+          // let this be uncontrolled if selected not specified
+          {...(args.selected !== undefined ? { checked: args.selected } : {})}
+        />
+      </ListItemIcon>
+      <ListItemText id="menu-item-label" primary="Menu item" />
+    </MenuItem>
   </GridContainer>
 );
 
