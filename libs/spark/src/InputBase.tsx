@@ -9,6 +9,7 @@ export const MuiInputBaseStyleOverrides: Partial<
 > = {
   root: {
     ...typography['label-lg'],
+    color: palette.text.onLightLowContrast,
     lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
     backgroundColor: palette.grey.lighter,
@@ -55,6 +56,9 @@ export const MuiInputBaseStyleOverrides: Partial<
     },
   },
   multiline: {
+    padding: '0px',
+  },
+  inputMultiline: {
     // -2px to account for border-width
     padding: '10px 16px',
   },
@@ -66,5 +70,23 @@ export const MuiInputBaseStyleOverrides: Partial<
     'label[data-shrink="false"] + &$root$disabled > $input::placeholder': {
       opacity: '0.42 !important',
     },
+  },
+  adornedStart: {
+    paddingLeft: 14,
+    '$multiline&': {
+      paddingLeft: 14,
+    },
+  },
+  adornedEnd: {
+    paddingRight: 14,
+    '$multiline&': {
+      paddingRight: 14,
+    },
+  },
+  inputAdornedStart: {
+    paddingLeft: 8,
+  },
+  inputAdornedEnd: {
+    paddingRight: 8,
   },
 };

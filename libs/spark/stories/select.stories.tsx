@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Select, styled, MenuItem } from '../src';
+import { Select, styled, MenuItem, InputAdornment } from '../src';
+import { GearDuotone } from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/Select',
@@ -13,19 +14,32 @@ export default {
     success: { control: 'boolean' },
     disabled: { control: 'boolean' },
     open: { control: 'boolean' },
+    startAdornment: { control: 'select', options: [undefined, 'GearDuotone'] },
   },
   args: {
     value: '',
+    startAdornment: undefined,
   },
 } as Meta;
 
-const Template: Story = ({ value: propValue, ...args }) => {
+const Template: Story = ({ value: propValue, startAdornment, ...args }) => {
   const [value, setValue] = React.useState(propValue);
 
   const handleChange = (event) => setValue(event.target.value);
 
   return (
-    <Select value={value} {...args} onChange={handleChange}>
+    <Select
+      startAdornment={
+        startAdornment ? (
+          <InputAdornment position="start">
+            <GearDuotone />
+          </InputAdornment>
+        ) : undefined
+      }
+      value={value}
+      {...args}
+      onChange={handleChange}
+    >
       <MenuItem value="" disabled>
         Placeholder
       </MenuItem>
@@ -38,6 +52,28 @@ const Template: Story = ({ value: propValue, ...args }) => {
 
 export const Configurable = Template.bind({});
 Configurable.decorators = [(Story) => <Story />];
+
+export const Open = Template.bind({});
+Open.decorators = [(Story) => <Story />];
+Open.args = { open: true };
+
+const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
+  <OuterGroup>
+    <InnerGroup>
+      <Template {...args} value="" />
+      <Template {...args} value="value" />
+    </InnerGroup>
+  </OuterGroup>
+);
+
+export const StartAdornment = AdornmentsTemplate.bind({});
+StartAdornment.args = {
+  startAdornment: (
+    <InputAdornment position="start">
+      <GearDuotone />
+    </InputAdornment>
+  ),
+};
 
 const OuterGroup = styled('span')({
   display: 'flex',
@@ -83,5 +119,8 @@ export const StatesFocus = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-export const Open = Template.bind({});
-Open.args = { open: true };
+// TODO: once standardized, add Changelog story
+// vNext (yyyy-mm-dd)
+//   - See [Input](to-input-base)
+// vHistory
+//   - todo: crawl through history

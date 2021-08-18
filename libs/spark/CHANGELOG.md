@@ -9,7 +9,9 @@
 - **Button**
   - Corrected start/end icon margins.
   - Corrected height when `size="small"`.
-- **InputBase** (extends to **Input**, **Select**, **TextField**)
+- **Input**
+  - See **InputBase**.
+- **InputBase**
   - Corrected height.
 - **NavBarButton**
   - Corrected height when no start/end icon given.
@@ -22,8 +24,16 @@
 
 - **Avatar**
   - Initial implementation.
+- **Input**
+  - See **InputBase**.
+- **InputBase**
+  - Added styling for `startAdornment` and `endAdornment` props.
+- **Select**
+  - See **InputBase**.
 - **Tag**
   - Initial implementation.
+- **TextField**
+  - See **InputBase**.
 - **Typography**
   - New `color` prop values:
     - `'onLight'`

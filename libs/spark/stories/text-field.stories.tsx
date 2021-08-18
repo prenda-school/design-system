@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { TextField, styled, MenuItem } from '../src';
+import { TextField, styled, MenuItem, InputAdornment } from '../src';
+import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
 
 export default {
   title: 'prenda-spark/TextField',
@@ -19,15 +20,38 @@ export default {
     rows: { control: 'number' },
     rowsMax: { control: 'number' },
     fullWidth: { control: 'boolean' },
+    startAdornment: { control: 'select', options: [undefined, 'GearDuotone'] },
+    endAdornment: {
+      control: 'select',
+      options: [undefined, 'QuestionDuotone'],
+    },
   },
   args: {
     label: 'Label',
     placeholder: 'Placeholder',
     helperText: 'Helper text',
+    startAdornment: undefined,
+    endAdornment: undefined,
   },
 } as Meta;
 
-const Template: Story = (args) => <TextField {...args} />;
+const Template: Story = ({ startAdornment, endAdornment, ...args }) => (
+  <TextField
+    InputProps={{
+      startAdornment: startAdornment ? (
+        <InputAdornment position="start">
+          <GearDuotone />
+        </InputAdornment>
+      ) : undefined,
+      endAdornment: endAdornment ? (
+        <InputAdornment position="end">
+          <QuestionDuotone />
+        </InputAdornment>
+      ) : undefined,
+    }}
+    {...args}
+  />
+);
 
 export const Configurable = Template.bind({});
 
@@ -170,3 +194,64 @@ export const States = StatesTemplate.bind({});
 export const StatesFocus = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
 StatesFocus.parameters = { pseudo: { focus: true } };
+
+const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
+  <OuterGroup>
+    <InnerGroup>
+      <TextField {...args} />
+      <TextField value="Value" {...args} />
+    </InnerGroup>
+    <InnerGroup>
+      <TextField multiline rows={3} {...args} />
+      <TextField multiline rows={3} value="Value" {...args} />
+    </InnerGroup>
+    {args.InputProps?.endAdornment ? null : (
+      <InnerGroup>
+        <TextField select value="" {...args}>
+          <MenuItem value="" disabled>
+            Placeholder
+          </MenuItem>
+          <MenuItem value="value">Option</MenuItem>
+          <MenuItem value="valueB">Option B</MenuItem>
+          <MenuItem value="valueC">Option C</MenuItem>
+        </TextField>
+        <TextField select value="value" {...args}>
+          <MenuItem value="" disabled>
+            Placeholder
+          </MenuItem>
+          <MenuItem value="value">Option</MenuItem>
+          <MenuItem value="valueB">Option B</MenuItem>
+          <MenuItem value="valueC">Option C</MenuItem>
+        </TextField>
+      </InnerGroup>
+    )}
+  </OuterGroup>
+);
+
+export const StartAdornment = AdornmentsTemplate.bind({});
+StartAdornment.args = {
+  InputProps: {
+    startAdornment: (
+      <InputAdornment position="start">
+        <GearDuotone />
+      </InputAdornment>
+    ),
+  },
+};
+
+export const EndAdornment = AdornmentsTemplate.bind({});
+EndAdornment.args = {
+  InputProps: {
+    endAdornment: (
+      <InputAdornment position="end">
+        <QuestionDuotone />
+      </InputAdornment>
+    ),
+  },
+};
+
+// TODO: once standardized, add Changelog story
+// vNext (yyyy-mm-dd)
+//   - See [Input](to-input-base)
+// vHistory
+//   - todo: crawl through history

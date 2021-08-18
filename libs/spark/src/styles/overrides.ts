@@ -21,6 +21,7 @@ import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiTypographyStyleOverrides } from '../Typography';
 import { fontFaces, typography } from './typography';
+import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 
 export const overrides = {
   MuiAvatar: MuiAvatarStyleOverrides,
@@ -43,6 +44,7 @@ export const overrides = {
   MuiFormLabel: MuiFormLabelStyleOverrides,
   MuiIconButton: MuiIconButtonStyleOverrides,
   MuiInput: MuiInputStyleOverrides,
+  MuiInputAdornment: MuiInputAdornmentStylesOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
   MuiListItem: MuiListItemStyleOverrides,
