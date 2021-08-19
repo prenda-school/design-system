@@ -8,6 +8,10 @@ export { CardActions } from './CardActions';
 export { CardContent } from './CardContent';
 export { CardMedia } from './CardMedia';
 export { Checkbox } from './Checkbox';
+
+export { default as Divider } from './Divider';
+export * from './Divider';
+
 export {
   DropdownContext,
   DropdownButton,
@@ -36,10 +40,22 @@ export { ListItem } from './ListItem';
 export { ListItemAvatar } from './ListItemAvatar';
 export { ListItemIcon } from './ListItemIcon';
 export { ListItemText } from './ListItemText';
+
+export { default as ListSubheader } from './ListSubheader';
+export * from './ListSubheader';
+
 export { Menu } from './Menu';
 export { MenuItem } from './MenuItem';
+
+export { default as MenuList } from './MenuList';
+export * from './MenuList';
+
 export { Pagination } from './Pagination';
 export { PaginationItem } from './PaginationItem';
+
+export { default as Paper } from './Paper';
+export * from './Paper';
+
 export { Radio } from './Radio';
 export { RadioGroup } from './RadioGroup';
 export { Select } from './Select';
