@@ -16,6 +16,8 @@ export const MuiButtonDefaultProps = {
 export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   root: {
     ...typography['label-lg-strong'],
+    // account for 2px border width
+    padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
     borderRadius: 24,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
@@ -25,7 +27,6 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   contained: {
     boxShadow: 'none',
-    padding: '4px 16px', // y-dim accounts for 2px border width
     border: `2px solid ${palette.blue[3]}`,
     backgroundColor: palette.blue[3],
     color: palette.common.white,
@@ -49,7 +50,6 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   outlined: {
     boxShadow: 'none',
-    padding: '4px 16px', // y-dim accounts for 2px border width
     // re-declare to override default outlined style
     border: `2px solid ${palette.grey.medium}`,
     backgroundColor: palette.common.white,
@@ -73,8 +73,6 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   text: {
     boxShadow: 'none',
-    // x-dim accounts for 2px border width
-    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
     border: '2px solid transparent',
     backgroundColor: 'transparent',
     color: palette.blue[3],
@@ -100,14 +98,13 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
   },
   sizeLarge: {
     ...typography['label-xl-strong'],
-    // x-dim accounts for 2px border width
-    padding: `${typography.pxToRem(12)} ${typography.pxToRem(16)}`,
+    // account for 2px border width
+    padding: `${typography.pxToRem(14 - 2)} ${typography.pxToRem(16 - 2)}`,
   },
   sizeSmall: {
     ...typography['label-sm-strong'],
-    lineHeight: typography.pxToRem(12),
-    // x-dim accounts for 2px border width
-    padding: `${typography.pxToRem(4)} ${typography.pxToRem(16)}`,
+    // account for 2px border width
+    padding: `${typography.pxToRem(2 - 2)} ${typography.pxToRem(16 - 2)}`,
   },
   label: {
     color: 'inherit',
