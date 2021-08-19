@@ -1,5 +1,4 @@
-import { List } from '@material-ui/core';
-import type { ListProps } from '@material-ui/core';
+import { List, ListProps } from '@material-ui/core';
 
 export default List;
 

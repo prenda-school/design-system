@@ -1,5 +1,4 @@
-import { Divider } from '@material-ui/core';
-import type { DividerProps } from '@material-ui/core';
+import { Divider, DividerProps } from '@material-ui/core';
 import { palette } from './styles/palette';
 
 export default Divider;

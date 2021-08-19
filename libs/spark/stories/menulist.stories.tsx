@@ -9,7 +9,6 @@ import {
   ListSubheader,
   MenuItem,
   MenuList,
-  styled,
   Divider,
   Paper,
   withStyles,
