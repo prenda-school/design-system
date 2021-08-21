@@ -25,10 +25,16 @@
 
 - **Avatar**
   - Initial implementation.
+- **Divider**
+  - Added re-export.
+  - Added minimal styling related to **MenuList** styling support.
 - **Input**
   - See **InputBase**.
 - **InputBase**
   - Added styling for `startAdornment` and `endAdornment` props.
+- **List**
+  - Added re-export.
+  - Added minimal styling related to **MenuList** styling support.
 - **ListItem**
   - Added minimal styling related to **MenuItem** styling support.
 - **ListItemAvatar**
@@ -40,10 +46,19 @@
 - **ListItemText**
   - Added re-export.
   - Added minimal styling related to **MenuItem** styling support.
+- **ListSubheader**
+  - Added re-export.
+  - Added minimal styling related to **MenuList** styling support.
 - **MenuItem**
   - Added styling for pseudo-states: `:hover`, `:focus`, `:active`
   - Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`
   - Added styling when prop `selected` is `true`.
+- **MenuList**
+  - Added re-export.
+  - Confirmed styling.
+- **Paper**
+  - Added re-export.
+  - Added minimal styling related to **MenuList** styling support.
 - **Select**
   - See **InputBase**.
 - **Tag**

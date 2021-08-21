@@ -142,11 +142,11 @@ export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Chip',
-    href: 'https://material-ui.com/components/avatars/#avatar',
+    href: 'https://material-ui.com/components/chips/#chip',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/avatar/#props',
+      href: 'https://material-ui.com/api/chip/#props',
     },
     omits: [
       {

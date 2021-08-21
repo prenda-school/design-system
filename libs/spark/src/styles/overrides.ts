@@ -1,5 +1,6 @@
 import { MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
+import { MuiDividerStyleOverrides } from '../Divider';
 import { MuiCardStyleOverrides } from '../Card';
 import { MuiCardContentStyleOverrides } from '../CardContent';
 import { MuiCardActionsStyleOverrides } from '../CardActions';
@@ -12,10 +13,12 @@ import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 import { MuiInputBaseStyleOverrides } from '../InputBase';
 import { MuiInputLabelStyleOverrides } from '../InputLabel';
+import { MuiListStyleOverrides } from '../List';
 import { MuiListItemStyleOverrides } from '../ListItem';
 import { MuiListItemAvatarStyleOverrides } from '../ListItemAvatar';
 import { MuiListItemIconStyleOverrides } from '../ListItemIcon';
 import { MuiListItemTextStyleOverrides } from '../ListItemText';
+import { MuiListSubheaderStyleOverrides } from '../ListSubheader';
 import { MuiMenuStyleOverrides } from '../Menu';
 import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
@@ -42,6 +45,7 @@ export const overrides = {
   MuiCardContent: MuiCardContentStyleOverrides,
   MuiCardActions: MuiCardActionsStyleOverrides,
   MuiCheckbox: MuiCheckboxStyleOverrides,
+  MuiDivider: MuiDividerStyleOverrides,
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
   MuiFormLabel: MuiFormLabelStyleOverrides,
@@ -50,10 +54,12 @@ export const overrides = {
   MuiInputAdornment: MuiInputAdornmentStylesOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
   MuiInputLabel: MuiInputLabelStyleOverrides,
+  MuiList: MuiListStyleOverrides,
   MuiListItem: MuiListItemStyleOverrides,
   MuiListItemAvatar: MuiListItemAvatarStyleOverrides,
   MuiListItemIcon: MuiListItemIconStyleOverrides,
   MuiListItemText: MuiListItemTextStyleOverrides,
+  MuiListSubheader: MuiListSubheaderStyleOverrides,
   MuiMenu: MuiMenuStyleOverrides,
   MuiMenuItem: MuiMenuItemStyleOverrides,
   MuiPagination: MuiPaginationStyleOverrides,

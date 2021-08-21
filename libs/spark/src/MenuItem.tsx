@@ -20,8 +20,7 @@ export const MuiMenuItemStyleOverrides: Partial<
     paddingBottom: 4,
     paddingRight: 14,
     paddingLeft: 14,
-    // margins collapse with other menu items
-    margin: '4px 0',
+    margin: 0,
     '&:first-child': {
       marginTop: 0,
     },
