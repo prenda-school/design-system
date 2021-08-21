@@ -29,6 +29,21 @@
   - See **InputBase**.
 - **InputBase**
   - Added styling for `startAdornment` and `endAdornment` props.
+- **ListItem**
+  - Added minimal styling related to **MenuItem** styling support.
+- **ListItemAvatar**
+  - Added re-export.
+  - Added minimal styling related to **MenuItem** styling support.
+- **ListItemIcon**
+  - Added re-export.
+  - Added minimal styling related to **MenuItem** styling support.
+- **ListItemText**
+  - Added re-export.
+  - Added minimal styling related to **MenuItem** styling support.
+- **MenuItem**
+  - Added styling for pseudo-states: `:hover`, `:focus`, `:active`
+  - Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`
+  - Added styling when prop `selected` is `true`.
 - **Select**
   - See **InputBase**.
 - **Tag**
@@ -95,14 +110,18 @@
 
 #### Breaking Changes
 
+- **MenuItem**
+  - Eliminated custom wrapper.
+  - Removed support for `startIcon` prop.
+    - _Migration:_ use `ListItemIcon` component as first child.
 - **Typography**
   - Removed variant prop values: `'smallcaps-lg'`, `'smallcaps-md'`, `'smallcaps-sm'`.
-    - Migration, use `'uppercase-lg'`, `'uppercase-md'`, `'uppercase-sm'`, respectively.
+    - _Migration:_ use `'uppercase-lg'`, `'uppercase-md'`, `'uppercase-sm'`, respectively.
   - Removed color prop values: `'textOnLight'`, `'textOnLightLowContrast'`, `'textOnDark'`, `'textOnDarkLowContrast'`.
-    - Migration: use `'onLight'`, `'onLightLowContrast'`, `'onDark'`, `'onDarkLowContrast'`, respectively.
+    - _Migration:_ use `'onLight'`, `'onLightLowContrast'`, `'onDark'`, `'onDarkLowContrast'`, respectively.
 - Styles using `font-weight: 600` will appear lighter than previously.
-  - Migration: use `font-weight: 700`.
-  - Migrated components: `FormControlLabel`, `MenuItem`, `Typography`.
+  - _Migration:_ use `font-weight: 700`.
+  - Affected components: `FormControlLabel`, `MenuItem`, `Typography`.
 
 # [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 

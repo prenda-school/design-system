@@ -60,19 +60,18 @@ export const MuiAvatarStyleOverrides = {
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
-    // sizes have -2px from design to account for border width
     sizeLarge: {
       ...theme.typography['heading-lg'],
-      width: 78,
-      height: 78,
+      width: 80,
+      height: 80,
       '& > .MuiSvgIcon-root': {
         fontSize: theme.typography.pxToRem(40),
       },
     },
     sizeMedium: {
       ...theme.typography['heading-md'],
-      width: 54,
-      height: 54,
+      width: 56,
+      height: 56,
       '& > .MuiSvgIcon-root': {
         fontSize: theme.typography.pxToRem(28),
       },
@@ -80,15 +79,15 @@ const useStyles = makeStyles(
     sizeSmall: {
       ...theme.typography['label-md'],
       fontWeight: 700,
-      width: 30,
-      height: 30,
+      width: 32,
+      height: 32,
       '& > .MuiSvgIcon-root': {
         fontSize: theme.typography.pxToRem(16),
       },
     },
     sizeXsmall: {
-      width: 22,
-      height: 22,
+      width: 24,
+      height: 24,
       fontSize: theme.typography.pxToRem(8),
       lineHeight: 1.5,
       fontWeight: 700,
