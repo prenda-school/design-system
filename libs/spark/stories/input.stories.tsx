@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Input, InputAdornment, styled } from '../src';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/Input',
@@ -147,8 +148,20 @@ EndAdornment.args = {
   ),
 };
 
-// TODO: once standardized, add Changelog story
-// vNext (yyyy-mm-dd)
-//   - Added styling for `startAdornment` and `endAdornment` props.
-// vHistory
-//   - todo: crawl through history
+const InputChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = InputChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Added styling for `startAdornment` and `endAdornment` props.'],
+    },
+    {
+      version: 'vHistory',
+      versionDate: '...',
+      changes: ['missing'],
+    },
+  ],
+};

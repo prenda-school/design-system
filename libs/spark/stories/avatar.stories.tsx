@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone } from '@prenda/spark-icons';
 import { Avatar, Box, Typography, withStyles } from '../src';
+import { DocTemplate } from './documentation-template';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/Avatar',
@@ -117,109 +119,49 @@ const ContentAndSizeTemplate = ({ src, alt, ...other }) => (
 
 export const ContentAndSize: Story = ContentAndSizeTemplate.bind({});
 
-// TODO: extract these to reusable decorator/template?
+const AvatarDocTemplate = (args) => <DocTemplate {...args} />;
 
-const H1 = (props) => (
-  <Typography variant="heading-md" component="h1" gutterBottom {...props} />
-);
-
-const H2 = withStyles({
-  root: { marginLeft: 8 },
-})((props) => <Typography variant="heading-sm" component="h2" {...props} />);
-
-const SmCode = withStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.lightGrey,
-    padding: '0 2px',
+export const Documentation: Story = AvatarDocTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'Avatar',
+    href: 'https://material-ui.com/components/avatars/#avatar',
   },
-}))((props) => <Typography variant="code-sm" display="inline" {...props} />);
+  props: {
+    extends: {
+      href: 'https://material-ui.com/api/avatar/#props',
+    },
+    omits: [
+      {
+        name: 'variant',
+        defaultValue: "'circular'",
+      },
+    ],
+    adds: [
+      {
+        name: 'size',
+        type: "'large' | 'medium' | 'small' | 'xsmall'",
+        defaultValue: "'medium'",
+      },
+    ],
+  },
+  css: {
+    extends: {
+      href: 'https://material-ui.com/api/avatar/#css',
+    },
+    adds: ['sizeLarge', 'sizeMedium', 'sizeSmall', 'sizeXsmall'],
+  },
+};
 
-const Li = (props) => (
-  <Typography variant="paragraph-lg" component="li" {...props} />
-);
+const AvatarChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
 
-const LiCode = (props) => (
-  <Li>
-    <SmCode {...props} />
-  </Li>
-);
-
-const DocumentationTemplate = () => (
-  <>
-    <H1>Underlying Component</H1>
-    <ul>
-      <Li>
-        Avatar,{' '}
-        <a href="https://material-ui.com/components/avatars/#avatar">
-          https://material-ui.com/components/avatars/#avatar
-        </a>
-      </Li>
-    </ul>
-    <Box m={1} />
-    <H1>API</H1>
-    <H2>Prop Names</H2>
-    <ul>
-      <Li>
-        Extends{' '}
-        <a href="https://material-ui.com/api/avatar/#props">
-          https://material-ui.com/api/avatar/#props
-        </a>
-      </Li>
-      <Li>Omits:</Li>
-      <ul>
-        <Li>
-          <SmCode>variant</SmCode>
-          <ul>
-            <Li>
-              underlying default value: <SmCode>'circular'</SmCode>
-            </Li>
-          </ul>
-        </Li>
-      </ul>
-      <Li>
-        Adds:
-        <ul>
-          <LiCode>size</LiCode>
-          <ul>
-            <Li>
-              type: <SmCode>'large' | 'medium' | 'small' | 'xsmall'</SmCode>
-            </Li>
-            <Li>
-              default: <SmCode>'medium'</SmCode>
-            </Li>
-          </ul>
-        </ul>
-      </Li>
-    </ul>
-    <H2>CSS Rule Names</H2>
-    <ul>
-      <Li>
-        Extends{' '}
-        <a href="https://material-ui.com/api/avatar/#css">
-          https://material-ui.com/api/avatar/#css
-        </a>
-      </Li>
-      <Li>
-        Adds:
-        <ul>
-          <LiCode>sizeLarge</LiCode>
-          <LiCode>sizeMedium</LiCode>
-          <LiCode>sizeSmall</LiCode>
-          <LiCode>sizeXsmall</LiCode>
-        </ul>
-      </Li>
-    </ul>
-  </>
-);
-
-export const Documentation: Story = DocumentationTemplate.bind({});
-
-const ChangelogTemplate = () => (
-  <ul>
-    <Li>
-      <SmCode>vNext (yyyy-mm-dd)</SmCode>: initial implementation
-    </Li>
-  </ul>
-);
-
-export const Changelog: Story = ChangelogTemplate.bind({});
+export const Changelog: Story = AvatarChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Initial implementation'],
+    },
+  ],
+};
