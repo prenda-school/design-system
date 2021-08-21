@@ -1,4 +1,8 @@
 export { styled, useTheme, withStyles, makeStyles } from '@material-ui/core';
+
+export { default as Autocomplete } from './Autocomplete';
+export * from './Autocomplete';
+
 export { Avatar } from './Avatar';
 export { Box } from './Box';
 export { Button } from './Button';

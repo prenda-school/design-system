@@ -23,6 +23,9 @@
 
 ### Features
 
+- **Autocomplete**
+  - Added re-export.
+  - Added initial styling support: multiple Checkboxes.
 - **Avatar**
   - Initial implementation.
 - **Divider**
