@@ -9,6 +9,7 @@
 - **Button**
   - Corrected start/end icon margins.
   - Corrected height when `size="small"`.
+  - Corrected padding for all sizes.
 - **Input**
   - See **InputBase**.
 - **InputBase**
