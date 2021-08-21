@@ -1,3 +1,4 @@
+import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
 import { MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
 import { MuiDividerStyleOverrides } from '../Divider';
@@ -30,6 +31,7 @@ import { MuiTypographyStyleOverrides } from '../Typography';
 import { fontFaces, typography } from './typography';
 
 export const overrides = {
+  MuiAutocomplete: MuiAutocompleteStyleOverrides,
   MuiAvatar: MuiAvatarStyleOverrides,
   MuiButton: MuiButtonStyleOverrides,
   MuiCssBaseline: {
