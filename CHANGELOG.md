@@ -7,7 +7,7 @@ See project specific changelogs for details
 - [`@prenda/spark` here](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark/CHANGELOG.md)
 - [`@prenda/spark-icons` here](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark-icons/CHANGELOG.md)
 
-# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...vNext) (yyyy-mm-dd)
+# [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
 # [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 

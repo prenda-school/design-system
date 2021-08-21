@@ -1,6 +1,11 @@
 # Changelog
 
-This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+# [0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
+
+### Fixes
+
+- camelCase missed `stroke-*` attributes
+  - affected icons: `BeakerDuotone`, `HighFiveDuotone`, `MountainDuotone`, `Users3Duotone`
 
 # [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 
