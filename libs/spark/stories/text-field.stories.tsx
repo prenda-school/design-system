@@ -257,8 +257,8 @@ export const Changelog: Story = TextFieldChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
-      version: 'vNext',
-      versionDate: 'yyyy-mm-dd',
+      version: 'v0.11.0',
+      versionDate: '2021-08-21',
       changes: ['See Input'],
     },
     {

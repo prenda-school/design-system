@@ -142,8 +142,8 @@ export const Changelog: Story = MenuItemChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
-      version: 'vNext',
-      versionDate: 'yyyy-mm-dd',
+      version: 'v0.11.0',
+      versionDate: '2021-08-21',
       changes: [
         'Added styling for pseudo-states: `:hover`, `:focus`, `:active`',
         'Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`',

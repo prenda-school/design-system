@@ -1,6 +1,6 @@
 # Changelog
 
-# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...vNext) (yyyy-mm-dd)
+# [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
 ### Fixes
 
@@ -28,6 +28,8 @@
   - Added initial styling support: multiple Checkboxes.
 - **Avatar**
   - Initial implementation.
+- **Card**
+  - Updated elevation (design change).
 - **Divider**
   - Added re-export.
   - Added minimal styling related to **MenuList** styling support.
@@ -52,6 +54,8 @@
 - **ListSubheader**
   - Added re-export.
   - Added minimal styling related to **MenuList** styling support.
+- **Menu**
+  - Updated elevation (design change).
 - **MenuItem**
   - Added styling for pseudo-states: `:hover`, `:focus`, `:active`
   - Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`
@@ -69,6 +73,7 @@
 - **TextField**
   - See **InputBase**.
 - **Typography**
+  - Updated variant font-weights (design change).
   - New `color` prop values:
     - `'onLight'`
     - `'onLightLowContrast'`
@@ -111,7 +116,7 @@
     - `theme.typography['code-lg']`
     - `theme.typography['code-md']`
     - `theme.typography['code-sm']`
-  - Customized default `theme.typography` keys
+  - Customized default `theme.typography` keys:
     - `theme.typography.h1` as `theme.typography['display-md']`
     - `theme.typography.h2` as `theme.typography['display-sm']`
     - `theme.typography.h3` as `theme.typography['heading-xl']`
@@ -125,6 +130,8 @@
     - `theme.typography.button` as `theme.typography['label-lg']`
     - `theme.typography.caption` as `theme.typography['label-sm']`
     - `theme.typography.overline` as `theme.typography['uppercase-sm']`
+  - Updated `theme.shadows` (design change).
+    - Design specifies five elevations (shadows): E100, E200, ..., E500. These correspond to `theme.shadows[1...5]`, respectively. The remaining keys (6...24) are equal to the highest elevation, E500 (`theme.shadows[5]`).
 
 #### Breaking Changes
 
