@@ -4,9 +4,21 @@ import { Tag, Box, Typography, withStyles } from '../src';
 import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
+const handleDelete = () => {
+  return;
+};
+
 export default {
   title: 'prenda-spark/Tag',
   component: Tag,
+  parameters: {
+    actions: {
+      // override default actions regex
+      //  deleteIcon rendering is based on onDelete being supplied, so substitute
+      //  custom argType control below.
+      argTypesRegex: '^on(?!Delete).*',
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
@@ -25,7 +37,7 @@ export default {
       ],
     },
     disabled: { control: 'boolean' },
-    onDelete: { control: 'select', options: ['undefined', 'function() {}'] },
+    onDelete: { control: 'select', options: [undefined, handleDelete] },
   },
   args: {
     variant: 'subtle',
@@ -35,13 +47,14 @@ export default {
   },
 } as Meta;
 
-const handleDelete = () => console.log('delete');
-
-const Template = ({ onDelete, args }) => (
+const Template = (args) => (
   <Box p={1}>
     <Tag
       label="Label"
-      onDelete={onDelete ? handleDelete : undefined}
+      // onDelete={(() => {
+      //   console.log(onDelete);
+      //   return onDelete ? handleDelete : undefined;
+      // })()}
       {...args}
     />
   </Box>
@@ -63,7 +76,7 @@ const GridContainer = (props) => (
 
 const ColorAndVariantTemplate = (args) => (
   <GridContainer>
-    <span>Color / Variant (Delete)</span>
+    <span>Color / Variant</span>
     <span>subtle</span>
     <span>bold</span>
     <span>default</span>
