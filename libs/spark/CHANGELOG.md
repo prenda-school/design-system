@@ -1,5 +1,11 @@
 # Changelog
 
+# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...vNext) (yyyy-mm-dd)
+
+### Fixes
+
+- Replace internal call of `createMuiTheme` with `createTheme`
+
 # [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
 ### Fixes
