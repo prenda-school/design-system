@@ -9,6 +9,7 @@ import {
   ButtonProps,
 } from '@material-ui/core';
 import { MenuItem } from './MenuItem';
+import { useUniqueId } from './utils';
 
 type DropdownContextType = {
   id: string;
@@ -48,15 +49,6 @@ const SparkDropdownDivider = withStyles({
     margin: '4px 0',
   },
 })(MuiDivider);
-
-// FROM-MUI Lab/TabContext
-function useUniqueId() {
-  const [id, setId] = React.useState<string>('');
-  React.useEffect(() => {
-    setId(`spark-d-${Math.round(Math.random() * 1e5)}`);
-  }, []);
-  return id;
-}
 
 function SparkDropdownContext(props: DropdownContextProps) {
   const id = useUniqueId();
