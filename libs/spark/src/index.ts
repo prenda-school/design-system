@@ -34,8 +34,10 @@ export { FormControlLabel } from './FormControlLabel';
 export { FormGroup } from './FormGroup';
 export { FormHelperText } from './FormHelperText';
 export { FormLabel } from './FormLabel';
-export { IconButton } from './IconButton';
-export type { IconButtonProps } from './IconButton';
+
+export { default as IconButton } from './IconButton';
+export * from './IconButton';
+
 export { Input } from './Input';
 export { InputAdornment } from './InputAdornment';
 export { InputBase } from './InputBase';

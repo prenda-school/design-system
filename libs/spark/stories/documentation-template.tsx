@@ -54,6 +54,7 @@ export const DocTemplate = ({
       href: string;
     };
     adds?: Array<string>;
+    omits?: Array<string>;
   };
 }) => (
   <>
@@ -122,6 +123,16 @@ export const DocTemplate = ({
           Adds:
           <ul>
             {css.adds.map((className) => (
+              <LiCode key={className}>{className}</LiCode>
+            ))}
+          </ul>
+        </Li>
+      ) : null}
+      {css.omits?.length ? (
+        <Li>
+          Omits:
+          <ul>
+            {css.omits.map((className) => (
               <LiCode key={className}>{className}</LiCode>
             ))}
           </ul>

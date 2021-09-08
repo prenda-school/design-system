@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import { IconButton, IconButtonProps, Box } from '../src';
+import { IconButton, Box } from '../src';
+import { ChangelogTemplate } from './changelog-template';
+import { DocTemplate } from './documentation-template';
 
 export default {
   title: 'prenda-spark/IconButton',
@@ -29,11 +31,7 @@ export default {
   },
 } as Meta;
 
-interface TemplateIconButtonProps extends IconButtonProps {
-  children?: 'ChevronDown';
-}
-
-const Template: Story = (args: TemplateIconButtonProps) => (
+const Template: Story = (args) => (
   <IconButton {...args}>{<ChevronDown />}</IconButton>
 );
 
@@ -107,3 +105,72 @@ VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
 export const VariantAndSizeActive = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
+
+const IconButtonDocTemplate = (args) => <DocTemplate {...args} />;
+
+export const Documentation: Story = IconButtonDocTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'IconButton',
+    href: 'https://material-ui.com/components/buttons/#icon-buttons',
+  },
+  props: {
+    extends: {
+      href: 'https://material-ui.com/api/icon-button/#props',
+    },
+    omits: [
+      {
+        name: 'size',
+        defaultValue: 'medium',
+      },
+    ],
+    adds: [
+      {
+        name: 'size',
+        type: "'medium' | 'large'",
+        defaultValue: "'large'",
+      },
+      {
+        name: 'variant',
+        type: "'contained' | 'outlined' | 'text'",
+        defaultValue: "'contained'",
+      },
+    ],
+  },
+  css: {
+    extends: {
+      href: 'https://material-ui.com/api/icon-button/#css',
+    },
+    adds: [
+      'contained',
+      'outlined',
+      'text',
+      'sizeLarge',
+      'sizeMedium',
+      'labelSizeLarge',
+      'labelSizeMedium',
+    ],
+    omits: ['sizeSmall'],
+  },
+};
+
+const IconButtonChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = IconButtonChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: [
+        'Feat: Forwards ref.',
+        'Fix: Custom classes not being global or part of classes signature.',
+      ],
+    },
+    {
+      version: 'vPrevious',
+      versionDate: 'unknown',
+      changes: ['Missing.'],
+    },
+  ],
+};
