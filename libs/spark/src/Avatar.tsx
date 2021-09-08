@@ -8,10 +8,11 @@ import {
   AvatarClassKey as MuiAvatarClassKey,
 } from '@material-ui/core';
 import {
-  OverrideProps,
+  capitalize,
   OverridableComponent,
-} from '@material-ui/core/OverridableComponent';
-import { capitalize, useTriMergeClasses } from './utils';
+  OverrideProps,
+  useTriMergeClasses,
+} from './utils';
 import { palette } from './styles/palette';
 
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;

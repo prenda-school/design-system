@@ -8,10 +8,11 @@ import {
   ChipClassKey as MuiChipClassKey,
 } from '@material-ui/core';
 import {
-  OverrideProps,
+  capitalize,
   OverridableComponent,
-} from '@material-ui/core/OverridableComponent';
-import { capitalize, useTriMergeClasses } from './utils';
+  OverrideProps,
+  useTriMergeClasses,
+} from './utils';
 import { Cross } from './internal';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
