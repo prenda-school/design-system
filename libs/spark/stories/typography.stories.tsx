@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Typography, TypographyProps, styled, withStyles } from '../src';
+import { ChangelogTemplate } from './changelog-template';
 
 export default {
   title: 'prenda-spark/Typography',
@@ -362,3 +363,21 @@ export const Overview = () => (
     <TypogPage variantBase={Bases.Code} />
   </div>
 );
+
+const TypographyChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = TypographyChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Fix: custom class names not being global.'],
+    },
+    {
+      version: 'vPrevious',
+      versionDate: 'unknown',
+      changes: ['Missing.'],
+    },
+  ],
+};

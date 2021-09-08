@@ -38,6 +38,8 @@ export type TypographyProps<
   P = Record<string, unknown>
 > = OverrideProps<TypographyTypeMap<P, D>, D>;
 
+export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
+
 type CustomClassKey =
   | SparkVariant
   | 'colorInitial'
@@ -46,8 +48,6 @@ type CustomClassKey =
   | 'colorOnLightLowContrast'
   | 'colorOnDark'
   | 'colorOnDarkLowContrast';
-
-export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
 
 export const MuiTypographyStyleOverrides = {
   root: {
@@ -100,7 +100,7 @@ const useStyles = makeStyles(
     'code-md': theme.typography['code-md'],
     'code-sm': theme.typography['code-sm'],
   }),
-  { name: 'SparkTypography' }
+  { name: 'MuiSparkTypography' }
 );
 
 const defaultVariantMapping: Record<SparkVariant, string> = {

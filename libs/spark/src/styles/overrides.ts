@@ -1,5 +1,5 @@
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
-import { MuiAvatarStyleOverrides } from '../Avatar';
+import { AvatarClassKey, MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
 import { MuiDividerStyleOverrides } from '../Divider';
 import { MuiCardStyleOverrides } from '../Card';
@@ -28,12 +28,14 @@ import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { TagClassKey } from '../Tag';
-import { MuiTypographyStyleOverrides } from '../Typography';
+import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
 import { fontFaces, typography } from './typography';
 
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
+    MuiSparkAvatar: AvatarClassKey;
     MuiSparkTag: TagClassKey;
+    MuiSparkTypography: TypographyClassKey;
   }
 }
 
@@ -77,6 +79,4 @@ export const overrides = {
   MuiSelect: MuiSelectStylesOverrides,
   MuiSvgIcon: MuiSvgIconStyleOverrides,
   MuiTypography: MuiTypographyStyleOverrides,
-  // custom Spark components
-  MuiSparkTag: {},
 };
