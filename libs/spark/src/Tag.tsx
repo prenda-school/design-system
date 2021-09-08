@@ -11,19 +11,12 @@ import {
   OverrideProps,
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
-import { capitalize } from './utils';
+import { capitalize, ClassNameMap } from './utils';
 import Cross from './internal/Cross';
 
-// TEMPORARY, REMOVE ME
-/* Full credit to https://github.com/mui-org/material-ui/blob/5cc1d0fc8756534f181d55af02a5a0d65b486603/packages/material-ui-styles/src/withStyles/withStyles.d.ts#L81 */
-export type ClassNameMap<ClassKey extends string = string> = Record<
-  ClassKey,
-  string
->;
+export type MuiSparkTagClassKey = MuiChipClassKey | SparkTagClassKey;
 
-export type TagClassKey = MuiChipClassKey | CustomClassKey;
-
-type CustomClassKey =
+type SparkTagClassKey =
   | 'colorRed'
   | 'colorOrange'
   | 'colorYellow'
@@ -87,7 +80,7 @@ export interface TagTypeMap<
       variant?: 'subtle' | 'bold';
     };
   defaultComponent: D;
-  classKey: TagClassKey;
+  classKey: MuiSparkTagClassKey;
 }
 
 export type TagProps<
@@ -126,7 +119,7 @@ const useUnderlyingStyles = makeStyles(
       },
     },
   }),
-  { name: 'SparkTag' }
+  { name: 'MuiSparkTag' }
 );
 
 const useCustomStyles = makeStyles(
@@ -332,7 +325,7 @@ const useCustomStyles = makeStyles(
       color: theme.palette.common.white,
     },
   }),
-  { name: 'SparkTag' }
+  { name: 'MuiSparkTag' }
 );
 
 const DeleteIcon = (props) => <Cross {...props} />;
@@ -353,7 +346,7 @@ export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
     const underlyingClasses: Partial<ClassNameMap<MuiChipClassKey>> = {
       ...baseUnderlyingClasses,
     };
-    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
+    const customClasses: Partial<ClassNameMap<SparkTagClassKey>> = {
       ...baseCustomClasses,
     };
 
