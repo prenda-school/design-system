@@ -11,7 +11,7 @@ import {
   OverrideProps,
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
-import { capitalize, ClassNameMap } from './utils';
+import { capitalize, useTriMergeClasses } from './utils';
 import { palette } from './styles/palette';
 
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
@@ -51,7 +51,7 @@ export const MuiAvatarStyleOverrides = {
   },
 };
 
-const useStyles = makeStyles(
+const useCustomStyles = makeStyles(
   (theme: Theme) => ({
     sizeLarge: {
       ...theme.typography['heading-lg'],
@@ -93,28 +93,20 @@ const useStyles = makeStyles(
 );
 
 export const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
-  function Avatar(props, ref) {
-    const { classes: passedClasses = {}, size = 'medium', ...other } = props;
+  function Avatar(
+    { classes: passedClasses = {}, size = 'medium', ...other },
+    ref
+  ) {
+    const baseCustomClasses = useCustomStyles();
 
-    const baseCustomClasses = useStyles();
-
-    // extract custom class keys from passed classes
-    //  => produce union of customClasses and extraction
-    //     & produce intersection of passed classes and complement of custom classes
-    // TODO: once WET, extract to common utility func / hook
-    const underlyingClasses: Partial<ClassNameMap<MuiAvatarClassKey>> = {};
-    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
-      ...baseCustomClasses,
-    };
-
-    for (const [key, value] of Object.entries(passedClasses)) {
-      const customValue = customClasses[key];
-      if (customValue) {
-        customClasses[key] = `${customValue} ${value}`;
-      } else {
-        underlyingClasses[key] = value;
-      }
-    }
+    const { underlyingClasses, customClasses } = useTriMergeClasses<
+      MuiAvatarClassKey,
+      CustomClassKey
+    >({
+      baseUnderlyingClasses: {},
+      baseCustomClasses,
+      passedClasses,
+    });
 
     return (
       <MuiAvatar
