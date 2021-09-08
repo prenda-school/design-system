@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 import {
+  Box,
+  Divider,
   DropdownContext,
   DropdownButton,
   DropdownMenu,
-  DropdownMenuItem,
-  DropdownDivider,
-  Box,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
 } from '../src';
 
 export default {
@@ -33,13 +35,22 @@ const Template: Story = ({ disabled, open, ...otherArgs }) => {
           Options
         </DropdownButton>
         <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={<UserDuotone />}>
-            Profile
-          </DropdownMenuItem>
-          <DropdownMenuItem>Resources</DropdownMenuItem>
-          <DropdownMenuItem disabled>Menu item</DropdownMenuItem>
-          <DropdownDivider />
-          <DropdownMenuItem>Sign out</DropdownMenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <UserDuotone />
+            </ListItemIcon>
+            <ListItemText primary="Profile" />
+          </MenuItem>
+          <MenuItem>
+            <ListItemText primary="Resources" />
+          </MenuItem>
+          <MenuItem disabled>
+            <ListItemText primary="Menu item" />
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <ListItemText primary="Sign out" />
+          </MenuItem>
         </DropdownMenu>
       </DropdownContext>
     </Box>

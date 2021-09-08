@@ -32,23 +32,6 @@ export type DropdownButtonProps = ButtonProps;
 export interface DropdownMenuProps extends Omit<MuiMenuProps, 'open'> {
   open?: boolean | undefined;
 }
-export interface DropdownMenuItemProps
-  extends Omit<
-    MuiMenuItemProps,
-    'button' | 'disableRipple' | 'disableTouchRipple'
-  > {
-  startIcon?: React.ReactNode;
-  // Fix mismatch from MUI
-  button?: true | undefined;
-}
-
-const SparkDropdownDivider = withStyles({
-  root: {
-    height: 2,
-    // margin collapses with items
-    margin: '4px 0',
-  },
-})(MuiDivider);
 
 function SparkDropdownContext(props: DropdownContextProps) {
   const id = useUniqueId();
@@ -103,17 +86,8 @@ const SparkDropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
   }
 );
 
-const SparkDropdownMenuItem = React.forwardRef<
-  HTMLLIElement,
-  DropdownMenuItemProps
->((props, ref) => {
-  return <MenuItem {...props} />;
-});
-
 export {
   SparkDropdownContext as DropdownContext,
   SparkDropdownButton as DropdownButton,
   SparkDropdownMenu as DropdownMenu,
-  SparkDropdownMenuItem as DropdownMenuItem,
-  SparkDropdownDivider as DropdownDivider,
 };

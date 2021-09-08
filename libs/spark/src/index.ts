@@ -16,18 +16,11 @@ export { Checkbox } from './Checkbox';
 export { default as Divider } from './Divider';
 export * from './Divider';
 
-export {
-  DropdownContext,
-  DropdownButton,
-  DropdownMenu,
-  DropdownMenuItem,
-  DropdownDivider,
-} from './Dropdown';
+export { DropdownContext, DropdownButton, DropdownMenu } from './Dropdown';
 export type {
   DropdownContextProps,
   DropdownButtonProps,
   DropdownMenuProps,
-  DropdownMenuItemProps,
 } from './Dropdown';
 export { FormControl } from './FormControl';
 export { FormControlLabel } from './FormControlLabel';

@@ -4,8 +4,6 @@ import {
   DropdownContext,
   DropdownButton,
   DropdownMenu,
-  DropdownMenuItem,
-  DropdownDivider,
 } from '../src';
 
 describe('DropdownContext', () => {
@@ -34,26 +32,6 @@ describe('DropdownMenu', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
         <DropdownMenu />
-      </SparkThemeProvider>
-    );
-    expect(baseElement).toBeTruthy();
-  });
-});
-describe('DropdownMenuItem', () => {
-  it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <DropdownMenuItem />
-      </SparkThemeProvider>
-    );
-    expect(baseElement).toBeTruthy();
-  });
-});
-describe('DropdownDivider', () => {
-  it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <DropdownDivider />
       </SparkThemeProvider>
     );
     expect(baseElement).toBeTruthy();
