@@ -2,20 +2,18 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...vNext) (yyyy-mm-dd)
 
+# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
+
 ### Fixes
 
+- **theme**
+  - Replace internal call of `createMuiTheme` (deprecated) with `createTheme`.
 - **Avatar**
-  - custom classes not being global.
+  - Custom classes not being global.
 - **Tag**
-  - custom classes not being global.
+  - Custom classes not being global.
 - **Typography**
-  - custom classes not being global.
-
-# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-07)
-
-### Fixes
-
-- Replace internal call of `createMuiTheme` with `createTheme`
+  - Custom classes not being global.
 
 # [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
