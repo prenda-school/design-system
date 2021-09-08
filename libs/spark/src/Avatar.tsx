@@ -11,15 +11,8 @@ import {
   OverrideProps,
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
-import { capitalize } from './utils';
+import { capitalize, ClassNameMap } from './utils';
 import { palette } from './styles/palette';
-
-// TEMPORARY, REMOVE ME
-/* Full credit to https://github.com/mui-org/material-ui/blob/5cc1d0fc8756534f181d55af02a5a0d65b486603/packages/material-ui-styles/src/withStyles/withStyles.d.ts#L81 */
-export type ClassNameMap<ClassKey extends string = string> = Record<
-  ClassKey,
-  string
->;
 
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
 
@@ -96,7 +89,7 @@ const useStyles = makeStyles(
       },
     },
   }),
-  { name: 'SparkAvatar' }
+  { name: 'MuiSparkAvatar' }
 );
 
 export const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
