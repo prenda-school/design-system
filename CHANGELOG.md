@@ -9,7 +9,7 @@ See project specific changelogs for details
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...vNext) (yyyy-mm-dd)
 
-# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-07)
+# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
 
 # [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
