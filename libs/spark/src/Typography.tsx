@@ -14,7 +14,6 @@ import {
   OverrideProps,
   useTriMergeClasses,
 } from './utils';
-import { SparkVariant } from './styles/typography';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
