@@ -5,7 +5,7 @@ import {
   AutocompleteProps,
 } from '@material-ui/lab';
 import { palette } from './styles/palette';
-import ChevronDownIcon from './internal/ChevronDown';
+import { ChevronDown } from './internal';
 import { typography } from './styles/typography';
 import { StyleRules } from '@material-ui/core';
 
@@ -88,5 +88,5 @@ export const MuiAutocompleteStyleOverrides: Partial<
 };
 
 export const MuiAutocompleteDefaultProps = {
-  popupIcon: <ChevronDownIcon />,
+  popupIcon: <ChevronDown />,
 };

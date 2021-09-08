@@ -12,7 +12,7 @@ import {
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
 import { capitalize, useTriMergeClasses } from './utils';
-import Cross from './internal/Cross';
+import { Cross } from './internal';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
@@ -328,8 +328,6 @@ const useCustomStyles = makeStyles(
   { name: 'MuiSparkTag' }
 );
 
-const DeleteIcon = (props) => <Cross {...props} />;
-
 export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
   function Tag(
     {
@@ -382,7 +380,7 @@ export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
             ]]: variant !== 'subtle' && color !== 'default',
           }),
         }}
-        deleteIcon={<DeleteIcon />}
+        deleteIcon={<Cross />}
         ref={ref}
         {...other}
       />

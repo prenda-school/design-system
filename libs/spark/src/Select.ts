@@ -1,11 +1,11 @@
-import ChevronDownIcon from './internal/ChevronDown';
+import { ChevronDown } from './internal';
 import { palette } from './styles/palette';
 
 export { Select } from '@material-ui/core';
 
 export const MuiSelectDefaultProps = {
   displayEmpty: true,
-  IconComponent: ChevronDownIcon,
+  IconComponent: ChevronDown,
   MenuProps: {
     getContentAnchorEl: null,
     anchorOrigin: {
