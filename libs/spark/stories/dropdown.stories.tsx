@@ -21,7 +21,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ disabled, open, ...otherArgs }) => {
+const ConfigurableTemplate: Story = ({ disabled, open, ...otherArgs }) => {
   const menuProps: { open?: boolean } = {};
   if (open !== undefined) menuProps.open = open;
 
@@ -30,7 +30,7 @@ const Template: Story = ({ disabled, open, ...otherArgs }) => {
 
   return (
     <Box mx={16} my={4}>
-      <DropdownContext id="dropdown">
+      <DropdownContext>
         <DropdownButton endIcon={<ChevronDown />} {...buttonProps}>
           Options
         </DropdownButton>
@@ -57,4 +57,4 @@ const Template: Story = ({ disabled, open, ...otherArgs }) => {
   );
 };
 
-export const ConfigurableInput = Template.bind({});
+export const Configurable = ConfigurableTemplate.bind({});

@@ -6,32 +6,14 @@ import {
   DropdownMenu,
 } from '../src';
 
-describe('DropdownContext', () => {
+describe('Dropdown', () => {
   it('is truthy', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
-        <DropdownContext />
-      </SparkThemeProvider>
-    );
-    expect(baseElement).toBeTruthy();
-  });
-});
-
-describe('DropdownButton', () => {
-  it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <DropdownButton />
-      </SparkThemeProvider>
-    );
-    expect(baseElement).toBeTruthy();
-  });
-});
-describe('DropdownMenu', () => {
-  it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <DropdownMenu />
+        <DropdownContext>
+          <DropdownButton />
+          <DropdownMenu />
+        </DropdownContext>
       </SparkThemeProvider>
     );
     expect(baseElement).toBeTruthy();
