@@ -1,21 +1,59 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import {
+  makeStyles,
   IconButton as MuiIconButton,
   IconButtonProps as MuiIconButtonProps,
+  IconButtonClassKey as MuiIconButtonClassKey,
 } from '@material-ui/core';
-import clsx from 'clsx';
-import { palette } from './styles/palette';
-import { capitalize } from './utils';
+import { capitalize, OverridableComponent, useTriMergeClasses } from './utils';
 
 export const MuiIconButtonDefaultProps = {
   disableFocusRipple: true,
   disableRipple: true,
 };
 
-export const MuiIconButtonStyleOverrides = {
-  root: {
-    // IconButton is used in Radio/Checkbox, so we have to specifically scope this.
-    '&.SparkIconButton-root': {
+export interface IconButtonTypeMap<
+  P = Record<string, unknown>,
+  D extends React.ElementType = 'button'
+> {
+  props: P &
+    Omit<MuiIconButtonProps, 'classes' | 'size'> & {
+      /**
+       * The size of the icon button.
+       */
+      size?: 'large' | 'medium';
+      /**
+       * The variant of the icon button.
+       */
+      variant?: 'contained' | 'outlined' | 'text';
+    };
+  defaultComponent: D;
+  classKey: IconButtonClassKey;
+}
+
+export type IconButtonClassKey = MuiIconButtonClassKey | CustomClassKey;
+
+// IconButton is used in Radio/Checkbox, so all used classes must be
+// scoped specifically to the custom component so they don't affect
+// auxiliary, global use.
+type CustomClassKey =
+  // re-defined
+  | 'root'
+  | 'label'
+  | 'disabled'
+  // truly custom
+  | 'contained'
+  | 'outlined'
+  | 'text'
+  | 'sizeLarge'
+  | 'sizeMedium'
+  | 'labelSizeLarge'
+  | 'labelSizeMedium';
+
+const useCustomStyles = makeStyles(
+  ({ palette }) => ({
+    root: {
       borderRadius: '50%',
       borderWidth: 2,
       borderStyle: 'solid' as const,
@@ -26,10 +64,27 @@ export const MuiIconButtonStyleOverrides = {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       },
     },
-    '&.SparkIconButton-variantContained': {
+    label: {
+      color: 'inherit',
+      fontSize: '1.5rem', // 24px
+      lineHeight: '1.5rem', // 24px
+      '& > .MuiSvgIcon-root': {
+        color: 'inherit',
+        fontSize: 'inherit',
+        lineHeight: 'inherit',
+      },
+    },
+    disabled: {
+      // opacity: '50%',
+    },
+    contained: {
       borderColor: palette.blue[3],
       backgroundColor: palette.blue[3],
       color: palette.common.white,
+      '&$disabled': {
+        backgroundColor: palette.blue[3],
+        color: palette.common.white,
+      },
       '&:hover': {
         borderColor: palette.blue[4],
         backgroundColor: palette.blue[4],
@@ -38,10 +93,14 @@ export const MuiIconButtonStyleOverrides = {
         borderColor: palette.blue[5],
       },
     },
-    '&.SparkIconButton-variantOutlined': {
+    outlined: {
       borderColor: palette.grey.medium,
       backgroundColor: palette.common.white,
       color: palette.blue[3],
+      '&$disabled': {
+        backgroundColor: palette.common.white,
+        color: palette.blue[3],
+      },
       '&:hover': {
         backgroundColor: palette.grey.light,
       },
@@ -50,10 +109,14 @@ export const MuiIconButtonStyleOverrides = {
         borderColor: palette.blue[5],
       },
     },
-    '&.SparkIconButton-variantText': {
+    text: {
       borderColor: 'transparent',
       backgroundColor: 'transparent',
       color: palette.blue[3],
+      '&$disabled': {
+        backgroundColor: 'transparent',
+        color: palette.blue[3],
+      },
       '&:hover': {
         color: palette.blue[4],
         backgroundColor: 'transparent',
@@ -66,58 +129,67 @@ export const MuiIconButtonStyleOverrides = {
         color: palette.blue[4],
       },
     },
-    '&.SparkIconButton-sizeLarge': {
+    sizeLarge: {
       padding: 10, // plus 2px border width for 12px
     },
-    '&.SparkIconButton-sizeMedium': {
+    sizeMedium: {
       padding: 4, // plus 2px border width for 6px
-      '& > .MuiIconButton-label': {
-        fontSize: '1.25rem', // 20px
-        lineHeight: '1.25rem', // 20px
-      },
     },
-  },
-  label: {
-    // see above scope comment
-    '.SparkIconButton-root > &': {
-      color: 'inherit',
-      fontSize: '1.5rem', // 24px
-      lineHeight: '1.5rem', // 24px
-      '& > .MuiSvgIcon-root': {
-        color: 'inherit',
-        fontSize: 'inherit',
-        lineHeight: 'inherit',
-      },
+    labelSizeLarge: {},
+    labelSizeMedium: {
+      fontSize: '1.25rem', // 20px
+      lineHeight: '1.25rem', // 20px
     },
-  },
-  sizeSmall: {},
-};
+  }),
+  { name: 'MuiSparkIconButton' }
+);
 
-export interface IconButtonProps extends Omit<MuiIconButtonProps, 'size'> {
-  variant?: 'contained' | 'outlined' | 'text';
-  size?: 'large' | 'medium';
-}
+const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
+  function IconButton(
+    {
+      classes: passedClasses = {},
+      variant = 'contained',
+      size = 'large',
+      children,
+      ...other
+    },
+    ref
+  ) {
+    const baseCustomClasses = useCustomStyles();
 
-function SparkIconButton({
-  className,
-  variant = 'contained',
-  size = 'large',
-  children,
-  ...other
-}: IconButtonProps) {
-  return (
-    <MuiIconButton
-      className={clsx(
-        className,
-        'SparkIconButton-root',
-        `SparkIconButton-variant${capitalize(variant)}`,
-        `SparkIconButton-size${capitalize(size)}`
-      )}
-      {...other}
-    >
-      {children}
-    </MuiIconButton>
-  );
-}
+    const { underlyingClasses, customClasses } = useTriMergeClasses<
+      MuiIconButtonClassKey,
+      CustomClassKey
+    >({
+      baseUnderlyingClasses: {},
+      baseCustomClasses,
+      passedClasses,
+    });
 
-export { SparkIconButton as IconButton };
+    return (
+      <MuiIconButton
+        ref={ref}
+        classes={{
+          ...underlyingClasses,
+          root: clsx(
+            underlyingClasses.root,
+            customClasses.root,
+            customClasses[variant],
+            customClasses[`size${capitalize(size)}`]
+          ),
+          label: clsx(
+            underlyingClasses.label,
+            customClasses.label,
+            customClasses[`labelSize${capitalize(size)}`]
+          ),
+          disabled: clsx(underlyingClasses.disabled, customClasses.disabled),
+        }}
+        {...other}
+      >
+        {children}
+      </MuiIconButton>
+    );
+  }
+);
+
+export default IconButton;

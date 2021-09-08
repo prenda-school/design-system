@@ -9,7 +9,7 @@ import { MuiCheckboxStyleOverrides } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiFormLabelStyleOverrides } from '../FormLabel';
-import { MuiIconButtonStyleOverrides } from '../IconButton';
+import { IconButtonClassKey } from '../IconButton';
 import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 import { MuiInputBaseStyleOverrides } from '../InputBase';
@@ -34,6 +34,7 @@ import { fontFaces, typography } from './typography';
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
     MuiSparkAvatar: AvatarClassKey;
+    MuiSparkIconButton: IconButtonClassKey;
     MuiSparkTag: TagClassKey;
     MuiSparkTypography: TypographyClassKey;
   }
@@ -60,7 +61,6 @@ export const overrides = {
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
   MuiFormHelperText: MuiFormHelperTextStyleOverrides,
   MuiFormLabel: MuiFormLabelStyleOverrides,
-  MuiIconButton: MuiIconButtonStyleOverrides,
   MuiInput: MuiInputStyleOverrides,
   MuiInputAdornment: MuiInputAdornmentStylesOverrides,
   MuiInputBase: MuiInputBaseStyleOverrides,
