@@ -14,9 +14,9 @@ import {
 import { capitalize, ClassNameMap } from './utils';
 import Cross from './internal/Cross';
 
-export type MuiSparkTagClassKey = MuiChipClassKey | SparkTagClassKey;
+export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
-type SparkTagClassKey =
+type CustomClassKey =
   | 'colorRed'
   | 'colorOrange'
   | 'colorYellow'
@@ -80,7 +80,7 @@ export interface TagTypeMap<
       variant?: 'subtle' | 'bold';
     };
   defaultComponent: D;
-  classKey: MuiSparkTagClassKey;
+  classKey: TagClassKey;
 }
 
 export type TagProps<
@@ -346,7 +346,7 @@ export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
     const underlyingClasses: Partial<ClassNameMap<MuiChipClassKey>> = {
       ...baseUnderlyingClasses,
     };
-    const customClasses: Partial<ClassNameMap<SparkTagClassKey>> = {
+    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
       ...baseCustomClasses,
     };
 
