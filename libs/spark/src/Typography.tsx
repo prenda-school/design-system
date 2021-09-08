@@ -12,7 +12,7 @@ import {
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
 import { SparkVariant } from './styles/typography';
-import { capitalize, ClassNameMap } from './utils';
+import { capitalize, useTriMergeClasses } from './utils';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
@@ -57,8 +57,9 @@ export const MuiTypographyStyleOverrides = {
   },
 };
 
-const useStyles = makeStyles(
+const useCustomStyles = makeStyles(
   (theme: Theme) => ({
+    colorInitial: {},
     colorInherit: {
       color: 'inherit',
     },
@@ -132,34 +133,26 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
 };
 
 const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
-  function Typography(props, ref) {
-    const {
+  function Typography(
+    {
       classes: passedClasses = {},
       variant = 'paragraph-lg',
       color = 'onLight',
       component,
       ...other
-    } = props;
+    },
+    ref
+  ) {
+    const baseCustomClasses = useCustomStyles();
 
-    const baseCustomClasses = useStyles();
-
-    // extract custom class keys from passed classes
-    //  => produce union of customClasses and extraction
-    //     & produce intersection of passed classes and complement of custom classes
-    // TODO: once WET, extract to common utility func / hook
-    const underlyingClasses: Partial<ClassNameMap<MuiTypographyClassKey>> = {};
-    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
-      ...baseCustomClasses,
-    };
-
-    for (const [key, value] of Object.entries(passedClasses)) {
-      const customValue = customClasses[key];
-      if (customValue) {
-        customClasses[key] = `${customValue} ${value}`;
-      } else {
-        underlyingClasses[key] = value;
-      }
-    }
+    const { underlyingClasses, customClasses } = useTriMergeClasses<
+      MuiTypographyClassKey,
+      CustomClassKey
+    >({
+      baseUnderlyingClasses: {},
+      baseCustomClasses,
+      passedClasses,
+    });
 
     return (
       <MuiTypography

@@ -11,7 +11,7 @@ import {
   OverrideProps,
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
-import { capitalize, ClassNameMap } from './utils';
+import { capitalize, useTriMergeClasses } from './utils';
 import Cross from './internal/Cross';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
@@ -331,34 +331,27 @@ const useCustomStyles = makeStyles(
 const DeleteIcon = (props) => <Cross {...props} />;
 
 export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
-  function Tag(props, ref) {
-    const {
+  function Tag(
+    {
       classes: passedClasses = {},
       color = 'default',
       variant = 'subtle',
       ...other
-    } = props;
+    },
+    ref
+  ) {
+    const baseUnderlyingClasses = useUnderlyingStyles();
 
     const baseCustomClasses = useCustomStyles();
 
-    const baseUnderlyingClasses = useUnderlyingStyles();
-
-    const underlyingClasses: Partial<ClassNameMap<MuiChipClassKey>> = {
-      ...baseUnderlyingClasses,
-    };
-    const customClasses: Partial<ClassNameMap<CustomClassKey>> = {
-      ...baseCustomClasses,
-    };
-
-    for (const [key, value] of Object.entries(passedClasses)) {
-      const customValue = customClasses[key];
-      if (customValue) {
-        customClasses[key] = `${customValue} ${value}`;
-      } else {
-        const underlyingValue = underlyingClasses[key];
-        underlyingClasses[key] = clsx(underlyingValue, value);
-      }
-    }
+    const { underlyingClasses, customClasses } = useTriMergeClasses<
+      MuiChipClassKey,
+      CustomClassKey
+    >({
+      baseUnderlyingClasses,
+      baseCustomClasses,
+      passedClasses,
+    });
 
     return (
       <MuiChip
