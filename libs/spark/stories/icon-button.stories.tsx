@@ -163,8 +163,8 @@ Changelog.args = {
       version: 'vNext',
       versionDate: 'yyyy-mm-dd',
       changes: [
-        'Feat: ref-forwarding.',
-        'Fix: custom class names not being global or part of type map.',
+        'Feat: Forwards ref.',
+        'Fix: Custom classes not being global or part of classes signature.',
       ],
     },
     {
