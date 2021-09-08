@@ -11,15 +11,8 @@ import {
   OverrideProps,
   OverridableComponent,
 } from '@material-ui/core/OverridableComponent';
-import { capitalize } from './utils';
+import { capitalize, ClassNameMap } from './utils';
 import Cross from './internal/Cross';
-
-// TEMPORARY, REMOVE ME
-/* Full credit to https://github.com/mui-org/material-ui/blob/5cc1d0fc8756534f181d55af02a5a0d65b486603/packages/material-ui-styles/src/withStyles/withStyles.d.ts#L81 */
-export type ClassNameMap<ClassKey extends string = string> = Record<
-  ClassKey,
-  string
->;
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
@@ -126,7 +119,7 @@ const useUnderlyingStyles = makeStyles(
       },
     },
   }),
-  { name: 'SparkTag' }
+  { name: 'MuiSparkTag' }
 );
 
 const useCustomStyles = makeStyles(
@@ -332,7 +325,7 @@ const useCustomStyles = makeStyles(
       color: theme.palette.common.white,
     },
   }),
-  { name: 'SparkTag' }
+  { name: 'MuiSparkTag' }
 );
 
 const DeleteIcon = (props) => <Cross {...props} />;

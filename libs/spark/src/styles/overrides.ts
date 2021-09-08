@@ -27,8 +27,15 @@ import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
+import { TagClassKey } from '../Tag';
 import { MuiTypographyStyleOverrides } from '../Typography';
 import { fontFaces, typography } from './typography';
+
+declare module '@material-ui/core/styles/overrides' {
+  interface ComponentNameToClassKey {
+    MuiSparkTag: TagClassKey;
+  }
+}
 
 export const overrides = {
   MuiAutocomplete: MuiAutocompleteStyleOverrides,
@@ -70,4 +77,6 @@ export const overrides = {
   MuiSelect: MuiSelectStylesOverrides,
   MuiSvgIcon: MuiSvgIconStyleOverrides,
   MuiTypography: MuiTypographyStyleOverrides,
+  // custom Spark components
+  MuiSparkTag: {},
 };

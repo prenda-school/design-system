@@ -1,5 +1,12 @@
 # Changelog
 
+# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...vNext) (yyyy-mm-dd)
+
+### Fixes
+
+- **Tag**
+  - custom classes not being global.
+
 # [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-07)
 
 ### Fixes

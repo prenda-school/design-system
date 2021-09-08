@@ -243,9 +243,14 @@ export const Changelog: Story = AvatarChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Fix: custom class names not being global.'],
+    },
+    {
       version: 'v0.11.0',
       versionDate: '2021-08-21',
-      changes: ['Initial implementation'],
+      changes: ['Initial implementation.'],
     },
   ],
 };
