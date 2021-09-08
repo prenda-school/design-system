@@ -7,12 +7,13 @@ import {
   TypographyProps as MuiTypographyProps,
   TypographyClassKey as MuiTypographyClassKey,
 } from '@material-ui/core';
-import {
-  OverrideProps,
-  OverridableComponent,
-} from '@material-ui/core/OverridableComponent';
 import { SparkVariant } from './styles/typography';
-import { capitalize, useTriMergeClasses } from './utils';
+import {
+  capitalize,
+  OverridableComponent,
+  OverrideProps,
+  useTriMergeClasses,
+} from './utils';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
