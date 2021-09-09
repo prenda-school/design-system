@@ -4,15 +4,13 @@ import { typography } from './styles/typography';
 
 export { InputBase };
 
-export const MuiInputBaseStyleOverrides: Partial<
-  StyleRules<InputBaseClassKey>
-> = {
+export const MuiInputBaseStyleOverrides: Partial<StyleRules<InputBaseClassKey>> = {
   root: {
     ...typography['label-lg'],
     color: palette.text.onLightLowContrast,
     lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
-    backgroundColor: palette.grey.lighter,
+    backgroundColor: palette.common.white,
     borderWidth: 2,
     borderStyle: 'solid',
     borderColor: palette.grey.medium,
