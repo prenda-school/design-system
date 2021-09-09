@@ -11,6 +11,8 @@
 
 - **IconButton**
   - Custom classes not being global or part of classes signature.
+- **InputBase**
+  - Improve default text contrast.
 
 # [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
 
