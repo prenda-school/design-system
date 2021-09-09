@@ -4,13 +4,32 @@
 
 ### Features
 
+- **DropdownMenu**
+  - Add `placement` prop.
+    - `'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'`
 - **IconButton**
   - Forwards ref.
 
 ### Fixes
 
+- **DropdownButton**
+  - Don't swallow `onClick` if passed.
+- **DropdownMenu**
+  - Don't swallow `onClick` if passed.
+  - Vertical offset of Paper from anchor when appearing below anchor.
 - **IconButton**
   - Custom classes not being global or part of classes signature.
+- **Select**
+  - Vertical offset of Menu Paper from input field.
+
+### Breaking Changes
+
+- **DropdownDivider**
+  - Removed.
+    - Migration: use **Divider** instead.
+- **DropdownMenuItem**
+  - Removed.
+    - Migration: use **MenuItem** instead.
 
 # [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
 
