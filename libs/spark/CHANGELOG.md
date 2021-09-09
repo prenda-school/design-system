@@ -5,7 +5,7 @@
 ### Features
 
 - **DropdownAnchor**
-  - Initial implementation.
+  - Initial implementation. Abstraction of removed **DropdownButton**.
     - Supports the `component` prop where **Button** is supplied by default, but any element with an `onClick` event can be used (e.g. **IconButton**).
 - **DropdownMenu**
   - Add `placement` prop.
@@ -15,6 +15,8 @@
 
 ### Fixes
 
+- **DropdownButton** (removed, but carries to new **DropdownAnchor**)
+  - Don't swallow `onClick` if passed.
 - **DropdownMenu**
   - Don't swallow `onClick` if passed.
   - Vertical offset of Paper from anchor when appearing below anchor.
