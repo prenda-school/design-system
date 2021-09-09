@@ -5,14 +5,21 @@ import { useDropdownContext } from './DropdownContext';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface DropdownButtonProps extends ButtonProps {}
 
-export default function DropdownButton(props: DropdownButtonProps) {
-  const { id, handleClick } = useDropdownContext();
+export default function DropdownButton({
+  onClick,
+  ...other
+}: DropdownButtonProps) {
+  const { id, openDropdown } = useDropdownContext();
+
   return (
     <Button
       aria-controls={id}
       aria-haspopup="true"
-      onClick={handleClick}
-      {...props}
+      onClick={(event) => {
+        onClick?.(event);
+        openDropdown(event);
+      }}
+      {...other}
     />
   );
 }

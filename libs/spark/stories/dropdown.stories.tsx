@@ -18,23 +18,27 @@ export default {
   argTypes: {
     open: { control: 'boolean' },
     disabled: { control: 'boolean' },
+    placement: {
+      control: 'select',
+      options: ['bottom-left', 'bottom-right', 'top-left', 'top-right'],
+    },
+  },
+  args: {
+    placement: 'bottom-left',
   },
 } as Meta;
 
-const ConfigurableTemplate: Story = ({ disabled, open, ...otherArgs }) => {
-  const menuProps: { open?: boolean } = {};
-  if (open !== undefined) menuProps.open = open;
-
-  const buttonProps: { disabled?: boolean } = {};
-  if (disabled !== undefined) buttonProps.disabled = disabled;
+const ConfigurableTemplate: Story = ({ disabled, open, placement }) => {
+  const optionalMenuProps: { open?: boolean } = {};
+  if (open !== undefined) optionalMenuProps.open = open;
 
   return (
-    <Box mx={16} my={4}>
+    <Box mx={14} my={20}>
       <DropdownContext>
-        <DropdownButton endIcon={<ChevronDown />} {...buttonProps}>
-          Options
+        <DropdownButton endIcon={<ChevronDown />} disabled={disabled}>
+          Label
         </DropdownButton>
-        <DropdownMenu {...menuProps}>
+        <DropdownMenu placement={placement} {...optionalMenuProps}>
           <MenuItem>
             <ListItemIcon>
               <UserDuotone />

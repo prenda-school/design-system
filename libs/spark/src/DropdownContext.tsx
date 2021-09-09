@@ -7,8 +7,8 @@ import { useUniqueId } from './utils';
 export interface DropdownContextValue {
   id: string;
   anchorEl: null | HTMLElement;
-  handleClick: (event: React.MouseEvent<HTMLElement>) => void;
-  handleClose: (event: React.MouseEvent<HTMLElement>) => void;
+  openDropdown: (event: React.MouseEvent<HTMLElement>) => void;
+  closeDropdown: () => void;
 }
 
 const Context = React.createContext<DropdownContextValue | null>(null);
@@ -31,16 +31,16 @@ export default function DropdownContext(
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  const openDropdown = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const closeDropdown = () => {
     setAnchorEl(null);
   };
 
   const value = React.useMemo(
-    () => ({ id, anchorEl, handleClick, handleClose }),
+    () => ({ id, anchorEl, openDropdown, closeDropdown }),
     [id, anchorEl]
   );
 
