@@ -16,8 +16,8 @@ export { Checkbox } from './Checkbox';
 export { default as Divider } from './Divider';
 export * from './Divider';
 
-export { default as DropdownButton } from './DropdownButton';
-export * from './DropdownButton';
+export { default as DropdownAnchor } from './DropdownAnchor';
+export * from './DropdownAnchor';
 
 export { default as DropdownContext } from './DropdownContext';
 export * from './DropdownContext';

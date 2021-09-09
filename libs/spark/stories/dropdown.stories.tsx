@@ -5,11 +5,12 @@ import {
   Box,
   Divider,
   DropdownContext,
-  DropdownButton,
   DropdownMenu,
   ListItemIcon,
   ListItemText,
   MenuItem,
+  DropdownAnchor,
+  IconButton,
 } from '../src';
 
 export default {
@@ -35,9 +36,9 @@ const ConfigurableTemplate: Story = ({ disabled, open, placement }) => {
   return (
     <Box mx={14} my={20}>
       <DropdownContext>
-        <DropdownButton endIcon={<ChevronDown />} disabled={disabled}>
-          Label
-        </DropdownButton>
+        <DropdownAnchor component={IconButton} disabled={disabled}>
+          <ChevronDown />
+        </DropdownAnchor>
         <DropdownMenu placement={placement} {...optionalMenuProps}>
           <MenuItem>
             <ListItemIcon>
