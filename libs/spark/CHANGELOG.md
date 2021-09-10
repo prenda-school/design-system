@@ -19,6 +19,8 @@
   - Vertical offset of Paper from anchor when appearing below anchor.
 - **IconButton**
   - Custom classes not being global or part of classes signature.
+- **InputBase**
+  - Improve default text contrast.
 - **Select**
   - Vertical offset of Menu Paper from input field.
 

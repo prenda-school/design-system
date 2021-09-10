@@ -12,7 +12,7 @@ export const MuiInputBaseStyleOverrides: Partial<
     color: palette.text.onLightLowContrast,
     lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
-    backgroundColor: palette.grey.lighter,
+    backgroundColor: palette.common.white,
     borderWidth: 2,
     borderStyle: 'solid',
     borderColor: palette.grey.medium,
