@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 import {
+  Box,
+  Divider,
   DropdownContext,
   DropdownButton,
   DropdownMenu,
-  DropdownMenuItem,
-  DropdownDivider,
-  Box,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
 } from '../src';
 
 export default {
@@ -16,34 +18,47 @@ export default {
   argTypes: {
     open: { control: 'boolean' },
     disabled: { control: 'boolean' },
+    placement: {
+      control: 'select',
+      options: ['bottom-left', 'bottom-right', 'top-left', 'top-right'],
+    },
+  },
+  args: {
+    placement: 'bottom-left',
   },
 } as Meta;
 
-const Template: Story = ({ disabled, open, ...otherArgs }) => {
-  const menuProps: { open?: boolean } = {};
-  if (open !== undefined) menuProps.open = open;
-
-  const buttonProps: { disabled?: boolean } = {};
-  if (disabled !== undefined) buttonProps.disabled = disabled;
+const ConfigurableTemplate: Story = ({ disabled, open, placement }) => {
+  const optionalMenuProps: { open?: boolean } = {};
+  if (open !== undefined) optionalMenuProps.open = open;
 
   return (
-    <Box mx={16} my={4}>
-      <DropdownContext id="dropdown">
-        <DropdownButton endIcon={<ChevronDown />} {...buttonProps}>
-          Options
+    <Box mx={14} my={20}>
+      <DropdownContext>
+        <DropdownButton endIcon={<ChevronDown />} disabled={disabled}>
+          Label
         </DropdownButton>
-        <DropdownMenu {...menuProps}>
-          <DropdownMenuItem startIcon={<UserDuotone />}>
-            Profile
-          </DropdownMenuItem>
-          <DropdownMenuItem>Resources</DropdownMenuItem>
-          <DropdownMenuItem disabled>Menu item</DropdownMenuItem>
-          <DropdownDivider />
-          <DropdownMenuItem>Sign out</DropdownMenuItem>
+        <DropdownMenu placement={placement} {...optionalMenuProps}>
+          <MenuItem>
+            <ListItemIcon>
+              <UserDuotone />
+            </ListItemIcon>
+            <ListItemText primary="Profile" />
+          </MenuItem>
+          <MenuItem>
+            <ListItemText primary="Resources" />
+          </MenuItem>
+          <MenuItem disabled>
+            <ListItemText primary="Menu item" />
+          </MenuItem>
+          <Divider />
+          <MenuItem>
+            <ListItemText primary="Sign out" />
+          </MenuItem>
         </DropdownMenu>
       </DropdownContext>
     </Box>
   );
 };
 
-export const ConfigurableInput = Template.bind({});
+export const Configurable = ConfigurableTemplate.bind({});

@@ -16,7 +16,7 @@ export const MuiSelectDefaultProps = {
       vertical: 'top' as const,
       horizontal: 'right' as const,
     },
-    classes: { paper: 'Spark-offsetTop' },
+    classes: { paper: 'MuiSparkMenu-offsetTop' },
   },
 };
 

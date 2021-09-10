@@ -1,8 +1,9 @@
-import { Button, ButtonClassKey, StyleRules } from '@material-ui/core';
+import { ButtonClassKey, StyleRules } from '@material-ui/core';
 import { palette } from './styles/palette';
 import { typography } from './styles/typography';
 
-export { Button };
+export { Button } from '@material-ui/core';
+export type { ButtonProps } from '@material-ui/core';
 
 export const MuiButtonDefaultProps = {
   // No disableElevation: true because it makes styling box-shadow's
