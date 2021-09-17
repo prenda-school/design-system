@@ -12,7 +12,7 @@ import { MuiPaginationItemDefaultProps } from '../PaginationItem';
 import { MuiRadioDefaultProps } from '../Radio';
 import { MuiSelectDefaultProps } from '../Select';
 
-export const props = {
+const props = {
   MuiAutocomplete: MuiAutocompleteDefaultProps,
   MuiButton: MuiButtonDefaultProps,
   MuiButtonBase: MuiButtonBaseDefaultProps,
@@ -27,3 +27,5 @@ export const props = {
   MuiRadio: MuiRadioDefaultProps,
   MuiSelect: MuiSelectDefaultProps,
 };
+
+export default props;

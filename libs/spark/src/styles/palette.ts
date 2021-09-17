@@ -139,7 +139,7 @@ const text = {
 
 // Only customizations are specified, view all other default theme.palette properties
 //  at https://material-ui.com/customization/default-theme/?expand-path=$.palette
-export const palette = createPalette({
+const palette = createPalette({
   // Mui default properties, only customizations specified
   error: {
     main: red[3],
@@ -175,3 +175,5 @@ export const palette = createPalette({
   blue,
   purple,
 });
+
+export default palette;

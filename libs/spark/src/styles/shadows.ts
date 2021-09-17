@@ -51,4 +51,4 @@ const shadows: Shadows = [
   highestElevationShadow,
 ];
 
-export { shadows };
+export default shadows;

@@ -1,7 +1,7 @@
 import type {} from '@material-ui/lab/themeAugmentation';
-import { Theme } from '@material-ui/core';
-import { Overrides } from '@material-ui/core/styles/overrides';
-import { fontFaces } from './typography';
+import type { Theme } from '@material-ui/core';
+import type { Overrides } from '@material-ui/core/styles/overrides';
+import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
 import { AvatarClassKey, MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
@@ -43,7 +43,7 @@ declare module '@material-ui/core/styles/overrides' {
   }
 }
 
-export const overrides = (theme: Theme): Overrides => ({
+const overrides = (theme: Theme): Overrides => ({
   MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),
   MuiAvatar: MuiAvatarStyleOverrides(theme),
   MuiButton: MuiButtonStyleOverrides(theme),
@@ -83,3 +83,5 @@ export const overrides = (theme: Theme): Overrides => ({
   MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
   MuiTypography: MuiTypographyStyleOverrides,
 });
+
+export default overrides;
