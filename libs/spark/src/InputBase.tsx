@@ -1,12 +1,16 @@
-import { InputBase, InputBaseClassKey, StyleRules } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
+import {
+  InputBase,
+  InputBaseClassKey,
+  StyleRules,
+  Theme,
+} from '@material-ui/core';
 
 export { InputBase };
 
-export const MuiInputBaseStyleOverrides: Partial<
-  StyleRules<InputBaseClassKey>
-> = {
+export const MuiInputBaseStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<InputBaseClassKey>> => ({
   root: {
     ...typography['label-lg'],
     color: palette.text.onLightLowContrast,
@@ -89,4 +93,4 @@ export const MuiInputBaseStyleOverrides: Partial<
   inputAdornedEnd: {
     paddingRight: 8,
   },
-};
+});

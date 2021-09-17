@@ -1,6 +1,4 @@
-import { ButtonClassKey, StyleRules } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
+import { ButtonClassKey, StyleRules, Theme } from '@material-ui/core';
 
 export { Button } from '@material-ui/core';
 export type { ButtonProps } from '@material-ui/core';
@@ -14,7 +12,10 @@ export const MuiButtonDefaultProps = {
   size: 'large' as const,
 };
 
-export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
+export const MuiButtonStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<ButtonClassKey>> => ({
   root: {
     ...typography['label-lg-strong'],
     // account for 2px border width
@@ -162,4 +163,4 @@ export const MuiButtonStyleOverrides: Partial<StyleRules<ButtonClassKey>> = {
     fontSize: typography.pxToRem(24),
     lineHeight: typography.pxToRem(24),
   },
-};
+});

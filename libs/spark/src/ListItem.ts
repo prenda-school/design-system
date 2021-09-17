@@ -1,10 +1,8 @@
-import { ListItem } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { transitions } from './styles/transitions';
+import { ListItem, Theme } from '@material-ui/core';
 
 export { ListItem };
 
-export const MuiListItemStyleOverrides = {
+export const MuiListItemStyleOverrides = ({ palette, transitions }: Theme) => ({
   root: {
     '&$disabled': {
       color: palette.grey.dark,
@@ -15,4 +13,4 @@ export const MuiListItemStyleOverrides = {
       duration: transitions.duration.shortest,
     }),
   },
-};
+});

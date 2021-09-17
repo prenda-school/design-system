@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
-import { palette } from './styles/palette';
+import {
+  SvgIcon,
+  SvgIconProps as MuiSvgIconProps,
+  Theme,
+} from '@material-ui/core';
 import clsx from 'clsx';
 import { capitalize } from './utils';
 
@@ -21,7 +24,7 @@ export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
 export const MuiSvgIconDefaultProps = {};
 
 // :NOTE: Duotone fill selector is & > *[fill="#F0F1F2"]
-export const MuiSvgIconStyleOverrides = {
+export const MuiSvgIconStyleOverrides = ({ palette }: Theme) => ({
   root: {
     // fontSizeDefault/Medium
     fontSize: '1.5rem', // 24px
@@ -80,7 +83,7 @@ export const MuiSvgIconStyleOverrides = {
       opacity: 0.72,
     },
   },
-};
+});
 
 const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
   { contrast = 'high', color = 'inherit', className, ...other }: SvgIconProps,

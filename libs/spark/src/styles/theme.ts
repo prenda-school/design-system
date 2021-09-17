@@ -5,10 +5,14 @@ import { props } from './props';
 import { shadows } from './shadows';
 import { typography } from './typography';
 
-export const theme = createTheme({
-  overrides,
+const initialTheme = createTheme({
   palette,
   props,
   shadows,
   typography,
+});
+
+export const theme = createTheme({
+  ...initialTheme,
+  overrides: overrides(initialTheme),
 });

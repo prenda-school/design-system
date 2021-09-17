@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { MenuItem, MenuItemClassKey, StyleRules } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
+import {
+  MenuItem,
+  MenuItemClassKey,
+  StyleRules,
+  Theme,
+} from '@material-ui/core';
 
 export { MenuItem };
 
-export const MuiMenuItemStyleOverrides: Partial<
-  StyleRules<MenuItemClassKey>
-> = {
+export const MuiMenuItemStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<MenuItemClassKey>> => ({
   root: {
     ...typography['label-lg'],
     boxSizing: 'border-box' as const,
@@ -61,4 +65,4 @@ export const MuiMenuItemStyleOverrides: Partial<
       color: palette.common.white,
     },
   },
-};
+});
