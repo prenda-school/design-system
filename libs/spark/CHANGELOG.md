@@ -4,6 +4,9 @@
 
 ### Features
 
+- **DropdownAnchor**
+  - Initial implementation. Abstraction of removed **DropdownButton**.
+    - Supports the `component` prop where **Button** is supplied by default, but any element with an `onClick` event can be used (e.g. **IconButton**).
 - **DropdownMenu**
   - Add `placement` prop.
     - `'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'`
@@ -12,7 +15,7 @@
 
 ### Fixes
 
-- **DropdownButton**
+- **DropdownButton** (removed, but carries to new **DropdownAnchor**)
   - Don't swallow `onClick` if passed.
 - **DropdownMenu**
   - Don't swallow `onClick` if passed.
@@ -26,6 +29,9 @@
 
 ### Breaking Changes
 
+- **DropdownButton**
+  - Removed.
+    - Migration: use **DropdownAnchor** instead
 - **DropdownDivider**
   - Removed.
     - Migration: use **Divider** instead.

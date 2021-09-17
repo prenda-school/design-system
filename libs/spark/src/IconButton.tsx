@@ -192,4 +192,7 @@ const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
   }
 );
 
+// @ts-expect-error property displayName does not exist
+IconButton.displayName = 'IconButton';
+
 export default IconButton;

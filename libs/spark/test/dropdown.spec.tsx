@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import {
   SparkThemeProvider,
   DropdownContext,
-  DropdownButton,
+  DropdownAnchor,
   DropdownMenu,
 } from '../src';
 
@@ -11,7 +11,7 @@ describe('Dropdown', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
         <DropdownContext>
-          <DropdownButton />
+          <DropdownAnchor />
           <DropdownMenu />
         </DropdownContext>
       </SparkThemeProvider>
