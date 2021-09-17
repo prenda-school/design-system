@@ -1,12 +1,15 @@
 import * as React from 'react';
-import {
-  MenuItem,
+import type {
   MenuItemClassKey,
+  MenuItemProps,
   StyleRules,
   Theme,
 } from '@material-ui/core';
+import MenuItem from '@material-ui/core/MenuItem';
 
-export { MenuItem };
+export default MenuItem;
+
+export type { MenuItemProps };
 
 export const MuiMenuItemStyleOverrides = ({
   palette,

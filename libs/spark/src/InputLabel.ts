@@ -1,11 +1,14 @@
-import {
-  InputLabel,
+import type {
   InputLabelClassKey,
+  InputLabelProps,
   StyleRules,
   Theme,
 } from '@material-ui/core';
+import InputLabel from '@material-ui/core/InputLabel';
 
-export { InputLabel };
+export default InputLabel;
+
+export type { InputLabelProps };
 
 export const MuiInputLabelDefaultProps = {
   disableAnimation: true,

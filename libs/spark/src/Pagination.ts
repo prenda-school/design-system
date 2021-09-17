@@ -1,4 +1,9 @@
-export { Pagination } from '@material-ui/lab';
+import type { PaginationProps } from '@material-ui/lab';
+import Pagination from '@material-ui/lab/Pagination';
+
+export default Pagination;
+
+export type { PaginationProps };
 
 export const MuiPaginationStyleOverrides = {
   ul: {

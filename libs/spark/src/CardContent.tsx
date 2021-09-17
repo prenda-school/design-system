@@ -1,4 +1,9 @@
-export { CardContent } from '@material-ui/core';
+import type { CardContentProps } from '@material-ui/core';
+import CardContent from '@material-ui/core/CardContent';
+
+export default CardContent;
+
+export type { CardContentProps };
 
 export const MuiCardContentStyleOverrides = {
   root: {

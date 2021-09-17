@@ -1,10 +1,7 @@
 import * as React from 'react';
-import {
-  SvgIcon,
-  SvgIconProps as MuiSvgIconProps,
-  Theme,
-} from '@material-ui/core';
 import clsx from 'clsx';
+import type { SvgIconProps as MuiSvgIconProps, Theme } from '@material-ui/core';
+import MuiSvgIcon from '@material-ui/core/SvgIcon';
 import { capitalize } from './utils';
 
 export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
@@ -20,8 +17,6 @@ export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
     | 'info'
     | 'white';
 }
-
-export const MuiSvgIconDefaultProps = {};
 
 // :NOTE: Duotone fill selector is & > *[fill="#F0F1F2"]
 export const MuiSvgIconStyleOverrides = ({ palette }: Theme) => ({
@@ -85,7 +80,7 @@ export const MuiSvgIconStyleOverrides = ({ palette }: Theme) => ({
   },
 });
 
-const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
+const SvgIcon = React.forwardRef(function SvgIcon(
   { contrast = 'high', color = 'inherit', className, ...other }: SvgIconProps,
   ref: React.ForwardedRef<SVGSVGElement>
 ) {
@@ -112,7 +107,7 @@ const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
   }
 
   return (
-    <SvgIcon
+    <MuiSvgIcon
       color={muiColor}
       className={clsx(className, {
         [`SparkSvgIcon-contrast${capitalize(contrast)}`]: contrast !== 'high',
@@ -124,4 +119,4 @@ const SparkSvgIcon = React.forwardRef(function SparkSvgIcon(
   );
 });
 
-export { SparkSvgIcon as SvgIcon };
+export default SvgIcon;

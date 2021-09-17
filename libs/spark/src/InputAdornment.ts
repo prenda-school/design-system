@@ -1,4 +1,9 @@
-export { InputAdornment } from '@material-ui/core';
+import type { InputAdornmentProps } from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
+
+export default InputAdornment;
+
+export type { InputAdornmentProps };
 
 export const MuiInputAdornmentStylesOverrides = {
   root: {
