@@ -49,11 +49,12 @@ const ConfigurableTemplate: Story = ({
   const optionalMenuProps: { open?: boolean } = {};
   if (open !== undefined) optionalMenuProps.open = open;
 
-  const position = getPosition(placement);
+  const positioningStyles = getPositioningStyles(placement);
 
   return (
+    // menu height + (largest) anchor el height + space between; menu width
     <Box position="relative" height={182 + 48 + 8} width={232}>
-      <Box {...position}>
+      <Box {...positioningStyles}>
         <DropdownContext>
           <DropdownAnchor
             component={component}
@@ -92,7 +93,7 @@ const ConfigurableTemplate: Story = ({
 
 export const Configurable = ConfigurableTemplate.bind({});
 
-function getPosition(placement) {
+function getPositioningStyles(placement) {
   let top, left, right, bottom;
   if (placement === 'bottom-left') {
     top = 0;
