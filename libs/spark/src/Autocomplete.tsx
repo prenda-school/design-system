@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { StyleRules, Theme } from '@material-ui/core';
-import {
-  Autocomplete,
-  AutocompleteClassKey,
-  AutocompleteProps,
-} from '@material-ui/lab';
+import type { StyleRules, Theme } from '@material-ui/core';
+import type { AutocompleteClassKey, AutocompleteProps } from '@material-ui/lab';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import { ChevronDown } from './internal';
 
 export default Autocomplete;

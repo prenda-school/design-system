@@ -1,7 +1,8 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { useDropdownContext } from './DropdownContext';
-import { Menu, MenuProps } from './Menu';
+import type { MenuProps } from './Menu';
+import Menu from './Menu';
 
 type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 

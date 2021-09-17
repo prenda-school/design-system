@@ -1,16 +1,16 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import {
-  makeStyles,
-  Theme,
-  Chip as MuiChip,
-  ChipProps as MuiChipProps,
+import type {
   ChipClassKey as MuiChipClassKey,
+  ChipProps as MuiChipProps,
+  Theme,
 } from '@material-ui/core';
+import MuiChip from '@material-ui/core/Chip';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
-  capitalize,
   OverridableComponent,
   OverrideProps,
+  capitalize,
   useTriMergeClasses,
 } from './utils';
 import { Cross } from './internal';
@@ -329,62 +329,61 @@ const useCustomStyles = makeStyles(
   { name: 'MuiSparkTag' }
 );
 
-export const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(
-  function Tag(
-    {
-      classes: passedClasses = {},
-      color = 'default',
-      variant = 'subtle',
-      ...other
-    },
-    ref
-  ) {
-    const baseUnderlyingClasses = useUnderlyingStyles();
+const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
+  {
+    classes: passedClasses = {},
+    color = 'default',
+    variant = 'subtle',
+    ...other
+  },
+  ref
+) {
+  const baseUnderlyingClasses = useUnderlyingStyles();
 
-    const baseCustomClasses = useCustomStyles();
+  const baseCustomClasses = useCustomStyles();
 
-    const { underlyingClasses, customClasses } = useTriMergeClasses<
-      MuiChipClassKey,
-      CustomClassKey
-    >({
-      baseUnderlyingClasses,
-      baseCustomClasses,
-      passedClasses,
-    });
+  const { underlyingClasses, customClasses } = useTriMergeClasses<
+    MuiChipClassKey,
+    CustomClassKey
+  >({
+    baseUnderlyingClasses,
+    baseCustomClasses,
+    passedClasses,
+  });
 
-    return (
-      <MuiChip
-        classes={{
-          ...underlyingClasses,
-          root: clsx(underlyingClasses.root, {
-            [customClasses[`color${capitalize(color)}`]]: color !== 'default',
-            [customClasses[variant]]: variant !== 'subtle',
-            [customClasses[`${variant}Color${capitalize(color)}`]]:
-              variant !== 'subtle' && color !== 'default',
-          }),
-          label: clsx(underlyingClasses.label, {
-            [customClasses[`labelColor${capitalize(color)}`]]:
-              color !== 'default',
-            [customClasses[`label${capitalize(variant)}`]]:
-              variant !== 'subtle',
-            [customClasses[
-              `label${capitalize(variant)}Color${capitalize(color)}`
-            ]]: variant !== 'subtle' && color !== 'default',
-          }),
-          deleteIcon: clsx(underlyingClasses.deleteIcon, {
-            [customClasses[`deleteIcon${capitalize(variant)}`]]:
-              variant !== 'subtle',
-            [customClasses[`deleteIconColor${capitalize(color)}`]]:
-              color !== 'default',
-            [customClasses[
-              `deleteIcon${capitalize(variant)}Color${capitalize(color)}`
-            ]]: variant !== 'subtle' && color !== 'default',
-          }),
-        }}
-        deleteIcon={<Cross />}
-        ref={ref}
-        {...other}
-      />
-    );
-  }
-);
+  return (
+    <MuiChip
+      classes={{
+        ...underlyingClasses,
+        root: clsx(underlyingClasses.root, {
+          [customClasses[`color${capitalize(color)}`]]: color !== 'default',
+          [customClasses[variant]]: variant !== 'subtle',
+          [customClasses[`${variant}Color${capitalize(color)}`]]:
+            variant !== 'subtle' && color !== 'default',
+        }),
+        label: clsx(underlyingClasses.label, {
+          [customClasses[`labelColor${capitalize(color)}`]]:
+            color !== 'default',
+          [customClasses[`label${capitalize(variant)}`]]: variant !== 'subtle',
+          [customClasses[
+            `label${capitalize(variant)}Color${capitalize(color)}`
+          ]]: variant !== 'subtle' && color !== 'default',
+        }),
+        deleteIcon: clsx(underlyingClasses.deleteIcon, {
+          [customClasses[`deleteIcon${capitalize(variant)}`]]:
+            variant !== 'subtle',
+          [customClasses[`deleteIconColor${capitalize(color)}`]]:
+            color !== 'default',
+          [customClasses[
+            `deleteIcon${capitalize(variant)}Color${capitalize(color)}`
+          ]]: variant !== 'subtle' && color !== 'default',
+        }),
+      }}
+      deleteIcon={<Cross />}
+      ref={ref}
+      {...other}
+    />
+  );
+});
+
+export default Tag;

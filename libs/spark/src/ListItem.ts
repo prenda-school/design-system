@@ -1,6 +1,9 @@
-import { ListItem, Theme } from '@material-ui/core';
+import type { ListItemProps, Theme } from '@material-ui/core';
+import ListItem from '@material-ui/core/ListItem';
 
-export { ListItem };
+export default ListItem;
+
+export type { ListItemProps };
 
 export const MuiListItemStyleOverrides = ({ palette, transitions }: Theme) => ({
   root: {

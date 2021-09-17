@@ -1,10 +1,10 @@
-import {
-  ListSubheader,
+import type {
   ListSubheaderClassKey,
-  StyleRules,
   ListSubheaderProps,
+  StyleRules,
   Theme,
 } from '@material-ui/core';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 export default ListSubheader;
 
