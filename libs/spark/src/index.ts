@@ -117,6 +117,9 @@ export { default as SparkThemeProvider } from './SparkThemeProvider';
 export { default as SvgIcon } from './SvgIcon';
 export * from './SvgIcon';
 
+export { default as Switch } from './Switch';
+export * from './Switch';
+
 export { default as Tag } from './Tag';
 export * from './Tag';
 
