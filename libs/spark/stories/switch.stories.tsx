@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { Switch, FormControlLabel } from '../src';
+import { ChangelogTemplate } from './changelog-template';
+import { DocTemplate } from './documentation-template';
 
 export default {
   title: 'prenda-spark/Switch',
@@ -264,3 +266,53 @@ LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
+
+const SwitchDocTemplate = (args) => <DocTemplate {...args} />;
+
+export const Documentation: Story = SwitchDocTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'Switch',
+    href: 'https://v4.mui.com/components/switches',
+  },
+  props: {
+    extends: {
+      href: 'https://v4.mui.com/api/switch/#props',
+    },
+    omits: [
+      {
+        name: 'color',
+        defaultValue: "'default'",
+      },
+      {
+        name: 'size',
+        defaultValue: "'small'",
+      },
+    ],
+    adds: [
+      {
+        name: 'size',
+        type: "'small' | 'large'",
+        defaultValue: "'small'",
+      },
+    ],
+  },
+  css: {
+    extends: {
+      href: 'https://v4.mui.com/api/switch/#css',
+    },
+  },
+};
+
+const SwitchChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
+
+export const Changelog: Story = SwitchChangelogTemplate.bind({});
+Changelog.args = {
+  history: [
+    {
+      version: 'vNext',
+      versionDate: 'yyyy-mm-dd',
+      changes: ['Initial implementation.'],
+    },
+  ],
+};
