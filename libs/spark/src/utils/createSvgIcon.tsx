@@ -2,7 +2,8 @@
 //  Changes made since
 
 import * as React from 'react';
-import { SvgIcon, SvgIconProps as MuiSvgIconProps } from '@material-ui/core';
+import SvgIcon from '../SvgIcon';
+import type { SvgIconProps } from '../SvgIcon';
 
 export default function createSvgIcon(
   path: React.ReactNode,
@@ -12,7 +13,7 @@ export default function createSvgIcon(
   height?: string
 ): typeof SvgIcon {
   const Component = (
-    props: MuiSvgIconProps,
+    props: SvgIconProps,
     ref: React.ForwardedRef<SVGSVGElement>
   ) => (
     <SvgIcon
