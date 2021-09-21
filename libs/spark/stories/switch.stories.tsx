@@ -42,9 +42,16 @@ const Template: Story = (args) => (
 
 export const Configurable = Template.bind({});
 
+const Container = styled('div')({
+  display: 'flex',
+  gap: '1rem',
+  margin: '1rem',
+  width: 'min-content',
+});
+
 const StatesTemplate: Story = () => (
   <>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Container>
       <Switch
         name="nameA"
         value="valueA"
@@ -69,8 +76,8 @@ const StatesTemplate: Story = () => (
         checked
         disabled
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <Switch
         name="nameA"
         value="valueA"
@@ -99,13 +106,13 @@ const StatesTemplate: Story = () => (
         checked
         disabled
       />
-    </div>
+    </Container>
   </>
 );
 
 const PseudoStatesTemplate: Story = () => (
   <>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Container>
       <Switch
         name="nameA"
         value="valueA"
@@ -117,8 +124,8 @@ const PseudoStatesTemplate: Story = () => (
         inputProps={{ 'aria-label': 'Name B' }}
         checked
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <Switch
         name="nameA"
         value="valueA"
@@ -132,7 +139,7 @@ const PseudoStatesTemplate: Story = () => (
         size="large"
         checked
       />
-    </div>
+    </Container>
   </>
 );
 
@@ -146,13 +153,13 @@ StatesFocus.parameters = { pseudo: { focus: true } };
 
 const LabeledStatesTemplate: Story = () => (
   <>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Container>
       <FormControlLabel label="Label" control={<Switch />} />
       <FormControlLabel label="Label" control={<Switch />} disabled />
       <FormControlLabel label="Label" control={<Switch checked />} />
       <FormControlLabel label="Label" control={<Switch checked />} disabled />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel label="Label" control={<Switch size="large" />} />
       <FormControlLabel
         label="Label"
@@ -168,8 +175,8 @@ const LabeledStatesTemplate: Story = () => (
         control={<Switch size="large" checked />}
         disabled
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel
         label="Label"
         labelPlacement="start"
@@ -192,8 +199,8 @@ const LabeledStatesTemplate: Story = () => (
         control={<Switch checked />}
         disabled
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel
         label="Label"
         labelPlacement="start"
@@ -216,17 +223,17 @@ const LabeledStatesTemplate: Story = () => (
         control={<Switch size="large" checked />}
         disabled
       />
-    </div>
+    </Container>
   </>
 );
 
 const PseudoLabeledStatesTemplate: Story = (args) => (
   <>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <Container>
       <FormControlLabel label="Label" control={<Switch />} {...args} />
       <FormControlLabel label="Label" control={<Switch checked />} {...args} />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel
         label="Label"
         control={<Switch size="large" />}
@@ -237,8 +244,8 @@ const PseudoLabeledStatesTemplate: Story = (args) => (
         control={<Switch size="large" checked />}
         {...args}
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel
         label="Label"
         labelPlacement="start"
@@ -251,8 +258,8 @@ const PseudoLabeledStatesTemplate: Story = (args) => (
         control={<Switch checked />}
         {...args}
       />
-    </div>
-    <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    </Container>
+    <Container>
       <FormControlLabel
         label="Label"
         labelPlacement="start"
@@ -265,7 +272,7 @@ const PseudoLabeledStatesTemplate: Story = (args) => (
         control={<Switch size="large" checked />}
         {...args}
       />
-    </div>
+    </Container>
   </>
 );
 
@@ -306,7 +313,8 @@ const RightAlignedListItemText = withStyles({
 })(ListItemText);
 
 const LabeledInListTemplate: Story = (args) => (
-  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+  // `width: min-content` will shrink the cards, so set 2 card widths + gap.
+  <Container style={{ width: 256 * 2 + 16 }}>
     <CustomCard>
       <List disablePadding>
         <PaddedListItem divider disableGutters>
@@ -384,7 +392,7 @@ const LabeledInListTemplate: Story = (args) => (
         </PaddedListItem>
       </List>
     </CustomCard>
-  </div>
+  </Container>
 );
 
 export const LabeledInList = LabeledInListTemplate.bind({});
