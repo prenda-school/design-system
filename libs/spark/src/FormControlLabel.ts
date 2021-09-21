@@ -1,9 +1,11 @@
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
+import { Theme } from '@material-ui/core';
 
 export { FormControlLabel } from '@material-ui/core';
 
-export const MuiFormControlLabelStyleOverrides = {
+export const MuiFormControlLabelStyleOverrides = ({
+  palette,
+  typography,
+}: Theme) => ({
   root: {
     marginLeft: -8,
     color: palette.text.onLightLowContrast,
@@ -18,4 +20,4 @@ export const MuiFormControlLabelStyleOverrides = {
     },
   },
   label: typography['label-lg'],
-};
+});

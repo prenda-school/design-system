@@ -1,12 +1,16 @@
-import { FormLabel, FormLabelClassKey, StyleRules } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
+import {
+  FormLabel,
+  FormLabelClassKey,
+  StyleRules,
+  Theme,
+} from '@material-ui/core';
 
 export { FormLabel };
 
-export const MuiFormLabelStyleOverrides: Partial<
-  StyleRules<FormLabelClassKey>
-> = {
+export const MuiFormLabelStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<FormLabelClassKey>> => ({
   root: {
     ...typography['label-lg-strong'],
     color: palette.text.onLight,
@@ -19,4 +23,4 @@ export const MuiFormLabelStyleOverrides: Partial<
       color: 'inherit',
     },
   },
-};
+});

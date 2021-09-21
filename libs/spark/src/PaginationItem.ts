@@ -1,13 +1,12 @@
-import { StyleRules } from '@material-ui/core';
+import { StyleRules, Theme } from '@material-ui/core';
 import { PaginationItem, PaginationItemClassKey } from '@material-ui/lab';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
 
 export { PaginationItem };
 
-export const MuiPaginationItemStyleOverrides: Partial<
-  StyleRules<PaginationItemClassKey>
-> = {
+export const MuiPaginationItemStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<PaginationItemClassKey>> => ({
   root: {
     margin: 0,
     borderRadius: 0,
@@ -83,7 +82,7 @@ export const MuiPaginationItemStyleOverrides: Partial<
   icon: {
     color: palette.text.onLightLowContrast,
   },
-};
+});
 
 export const MuiPaginationItemDefaultProps = {
   variant: 'outlined' as const,

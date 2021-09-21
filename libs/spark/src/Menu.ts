@@ -1,4 +1,4 @@
-import { palette } from './styles/palette';
+import { Theme } from '@material-ui/core';
 
 export { Menu } from '@material-ui/core';
 export type { MenuProps } from '@material-ui/core';
@@ -7,7 +7,7 @@ export const MuiMenuDefaultProps = {
   elevation: 4, // E400
 };
 
-export const MuiMenuStyleOverrides = {
+export const MuiMenuStyleOverrides = ({ palette }: Theme) => ({
   paper: {
     borderRadius: 8,
     // This is a poor hack. The internal calculations of a Menu's Popover
@@ -26,4 +26,4 @@ export const MuiMenuStyleOverrides = {
     border: `2px solid ${palette.grey.medium}`,
     borderRadius: 8,
   },
-};
+});

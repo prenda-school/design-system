@@ -1,21 +1,20 @@
 import * as React from 'react';
+import { StyleRules, Theme } from '@material-ui/core';
 import {
   Autocomplete,
   AutocompleteClassKey,
   AutocompleteProps,
 } from '@material-ui/lab';
-import { palette } from './styles/palette';
 import { ChevronDown } from './internal';
-import { typography } from './styles/typography';
-import { StyleRules } from '@material-ui/core';
 
 export default Autocomplete;
 
 export type { AutocompleteProps };
 
-export const MuiAutocompleteStyleOverrides: Partial<
-  StyleRules<AutocompleteClassKey>
-> = {
+export const MuiAutocompleteStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<AutocompleteClassKey>> => ({
   input: {
     padding: '10px 16px',
   },
@@ -85,7 +84,7 @@ export const MuiAutocompleteStyleOverrides: Partial<
       color: palette.common.white,
     },
   },
-};
+});
 
 export const MuiAutocompleteDefaultProps = {
   popupIcon: <ChevronDown />,

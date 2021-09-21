@@ -1,3 +1,7 @@
+import type {} from '@material-ui/lab/themeAugmentation';
+import { Theme } from '@material-ui/core';
+import { Overrides } from '@material-ui/core/styles/overrides';
+import { fontFaces } from './typography';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
 import { AvatarClassKey, MuiAvatarStyleOverrides } from '../Avatar';
 import { MuiButtonStyleOverrides } from '../Button';
@@ -29,7 +33,6 @@ import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { TagClassKey } from '../Tag';
 import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
-import { fontFaces, typography } from './typography';
 
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
@@ -40,15 +43,15 @@ declare module '@material-ui/core/styles/overrides' {
   }
 }
 
-export const overrides = {
-  MuiAutocomplete: MuiAutocompleteStyleOverrides,
-  MuiAvatar: MuiAvatarStyleOverrides,
-  MuiButton: MuiButtonStyleOverrides,
+export const overrides = (theme: Theme): Overrides => ({
+  MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),
+  MuiAvatar: MuiAvatarStyleOverrides(theme),
+  MuiButton: MuiButtonStyleOverrides(theme),
   MuiCssBaseline: {
     '@global': {
       body: {
-        fontFamily: typography.fontFamily,
-        fontSize: typography.fontSize,
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.typography.fontSize,
       },
       '@font-face': fontFaces,
     },
@@ -56,27 +59,27 @@ export const overrides = {
   MuiCard: MuiCardStyleOverrides,
   MuiCardContent: MuiCardContentStyleOverrides,
   MuiCardActions: MuiCardActionsStyleOverrides,
-  MuiCheckbox: MuiCheckboxStyleOverrides,
-  MuiDivider: MuiDividerStyleOverrides,
-  MuiFormControlLabel: MuiFormControlLabelStyleOverrides,
-  MuiFormHelperText: MuiFormHelperTextStyleOverrides,
-  MuiFormLabel: MuiFormLabelStyleOverrides,
+  MuiCheckbox: MuiCheckboxStyleOverrides(theme),
+  MuiDivider: MuiDividerStyleOverrides(theme),
+  MuiFormControlLabel: MuiFormControlLabelStyleOverrides(theme),
+  MuiFormHelperText: MuiFormHelperTextStyleOverrides(theme),
+  MuiFormLabel: MuiFormLabelStyleOverrides(theme),
   MuiInput: MuiInputStyleOverrides,
   MuiInputAdornment: MuiInputAdornmentStylesOverrides,
-  MuiInputBase: MuiInputBaseStyleOverrides,
-  MuiInputLabel: MuiInputLabelStyleOverrides,
+  MuiInputBase: MuiInputBaseStyleOverrides(theme),
+  MuiInputLabel: MuiInputLabelStyleOverrides(theme),
   MuiList: MuiListStyleOverrides,
-  MuiListItem: MuiListItemStyleOverrides,
+  MuiListItem: MuiListItemStyleOverrides(theme),
   MuiListItemAvatar: MuiListItemAvatarStyleOverrides,
-  MuiListItemIcon: MuiListItemIconStyleOverrides,
-  MuiListItemText: MuiListItemTextStyleOverrides,
-  MuiListSubheader: MuiListSubheaderStyleOverrides,
-  MuiMenu: MuiMenuStyleOverrides,
-  MuiMenuItem: MuiMenuItemStyleOverrides,
+  MuiListItemIcon: MuiListItemIconStyleOverrides(theme),
+  MuiListItemText: MuiListItemTextStyleOverrides(theme),
+  MuiListSubheader: MuiListSubheaderStyleOverrides(theme),
+  MuiMenu: MuiMenuStyleOverrides(theme),
+  MuiMenuItem: MuiMenuItemStyleOverrides(theme),
   MuiPagination: MuiPaginationStyleOverrides,
-  MuiPaginationItem: MuiPaginationItemStyleOverrides,
-  MuiRadio: MuiRadioStyleOverrides,
-  MuiSelect: MuiSelectStylesOverrides,
-  MuiSvgIcon: MuiSvgIconStyleOverrides,
+  MuiPaginationItem: MuiPaginationItemStyleOverrides(theme),
+  MuiRadio: MuiRadioStyleOverrides(theme),
+  MuiSelect: MuiSelectStylesOverrides(theme),
+  MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
   MuiTypography: MuiTypographyStyleOverrides,
-};
+});

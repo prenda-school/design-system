@@ -2,15 +2,15 @@ import {
   FormHelperText,
   FormHelperTextClassKey,
   StyleRules,
+  Theme,
 } from '@material-ui/core';
-import { palette } from './styles/palette';
-import { typography } from './styles/typography';
 
 export { FormHelperText };
 
-export const MuiFormHelperTextStyleOverrides: Partial<
-  StyleRules<FormHelperTextClassKey>
-> = {
+export const MuiFormHelperTextStyleOverrides = ({
+  palette,
+  typography,
+}: Theme): Partial<StyleRules<FormHelperTextClassKey>> => ({
   root: {
     color: palette.text.onLightLowContrast,
     ...typography['paragraph-lg'],
@@ -25,4 +25,4 @@ export const MuiFormHelperTextStyleOverrides: Partial<
       color: palette.text.onLightLowContrast,
     },
   },
-};
+});

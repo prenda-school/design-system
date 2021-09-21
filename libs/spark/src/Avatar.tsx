@@ -13,7 +13,6 @@ import {
   OverrideProps,
   useTriMergeClasses,
 } from './utils';
-import { palette } from './styles/palette';
 
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
 
@@ -39,7 +38,7 @@ export type AvatarProps<
   P = Record<string, unknown>
 > = OverrideProps<AvatarTypeMap<P, D>, D>;
 
-export const MuiAvatarStyleOverrides = {
+export const MuiAvatarStyleOverrides = ({ palette }: Theme) => ({
   root: {
     border: `2px solid ${palette.grey.medium}`,
   },
@@ -50,7 +49,7 @@ export const MuiAvatarStyleOverrides = {
       color: palette.text.onLightLowContrast,
     },
   },
-};
+});
 
 const useCustomStyles = makeStyles(
   (theme: Theme) => ({

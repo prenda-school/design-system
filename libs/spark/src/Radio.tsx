@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { createSvgIcon, styled } from '@material-ui/core';
+import { Theme, createSvgIcon, styled } from '@material-ui/core';
 import clsx from 'clsx';
-import { palette } from './styles/palette';
-import { Theme } from '@material-ui/core';
 
 export { Radio } from '@material-ui/core';
 
@@ -104,7 +102,7 @@ function SparkRadioButtonIcon({
   );
 }
 
-export const MuiRadioStyleOverrides = {
+export const MuiRadioStyleOverrides = ({ palette }: Theme) => ({
   root: {
     // Split 8px of padding / margin so icon can use background-color instead of box-shadow
     padding: '4px',
@@ -137,7 +135,7 @@ export const MuiRadioStyleOverrides = {
       },
     },
   },
-};
+});
 
 export const MuiRadioDefaultProps = {
   color: 'default' as const,

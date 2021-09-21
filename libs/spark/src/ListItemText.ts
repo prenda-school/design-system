@@ -2,15 +2,15 @@ import {
   ListItemText,
   ListItemTextClassKey,
   StyleRules,
+  Theme,
 } from '@material-ui/core';
-import { typography } from './styles/typography';
 
 export { ListItemText };
 
-export const MuiListItemTextStyleOverrides: Partial<
-  StyleRules<ListItemTextClassKey>
-> = {
+export const MuiListItemTextStyleOverrides = ({
+  typography,
+}: Theme): Partial<StyleRules<ListItemTextClassKey>> => ({
   primary: {
     ...typography['label-lg'],
   },
-};
+});

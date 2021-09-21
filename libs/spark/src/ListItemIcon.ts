@@ -1,8 +1,8 @@
-import { palette } from './styles/palette';
+import { Theme } from '@material-ui/core';
 
 export { ListItemIcon } from '@material-ui/core';
 
-export const MuiListItemIconStyleOverrides = {
+export const MuiListItemIconStyleOverrides = ({ palette }: Theme) => ({
   root: {
     color: palette.text.onLightLowContrast,
     minWidth: 'unset',
@@ -17,4 +17,4 @@ export const MuiListItemIconStyleOverrides = {
       },
     },
   },
-};
+});

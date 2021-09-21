@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createSvgIcon, Theme, styled } from '@material-ui/core';
 import clsx from 'clsx';
-import { palette } from './styles/palette';
 
 export { Checkbox } from '@material-ui/core';
 
@@ -134,7 +133,7 @@ function SparkCheckboxIcon({
   );
 }
 
-export const MuiCheckboxStyleOverrides = {
+export const MuiCheckboxStyleOverrides = ({ palette }: Theme) => ({
   root: {
     padding: 8,
     backgroundColor: 'unset',
@@ -163,7 +162,7 @@ export const MuiCheckboxStyleOverrides = {
   indeterminate: {
     color: palette.blue[3],
   },
-};
+});
 
 export const MuiCheckboxDefaultProps = {
   color: 'default' as const,

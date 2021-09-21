@@ -1,5 +1,5 @@
+import { Theme } from '@material-ui/core';
 import { ChevronDown } from './internal';
-import { palette } from './styles/palette';
 
 export { Select } from '@material-ui/core';
 
@@ -20,7 +20,7 @@ export const MuiSelectDefaultProps = {
   },
 };
 
-export const MuiSelectStylesOverrides = {
+export const MuiSelectStylesOverrides = ({ palette }: Theme) => ({
   root: {
     color: ({ value, defaultValue }) =>
       value || defaultValue
@@ -38,4 +38,4 @@ export const MuiSelectStylesOverrides = {
     marginRight: 14,
     transition: 'transform 250ms ease',
   },
-};
+});
