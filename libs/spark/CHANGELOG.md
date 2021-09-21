@@ -12,6 +12,8 @@
     - `'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'`
 - **IconButton**
   - Forwards ref.
+- **Switch**
+  - Initial implementation.
 
 ### Fixes
 
