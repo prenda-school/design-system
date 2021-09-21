@@ -34,6 +34,7 @@ import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiSwitchStyleOverrides } from '../Switch';
 import { TagClassKey } from '../Tag';
 import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
+import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAction';
 
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
@@ -74,6 +75,7 @@ const overrides = (theme: Theme): Overrides => ({
   MuiListItemAvatar: MuiListItemAvatarStyleOverrides,
   MuiListItemIcon: MuiListItemIconStyleOverrides(theme),
   MuiListItemText: MuiListItemTextStyleOverrides(theme),
+  MuiListItemSecondaryAction: MuiListItemSecondaryActionStyleOverrides,
   MuiListSubheader: MuiListSubheaderStyleOverrides(theme),
   MuiMenu: MuiMenuStyleOverrides(theme),
   MuiMenuItem: MuiMenuItemStyleOverrides(theme),

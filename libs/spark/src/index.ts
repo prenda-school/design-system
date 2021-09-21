@@ -70,6 +70,9 @@ export * from './InputBase';
 export { default as InputLabel } from './InputLabel';
 export * from './InputLabel';
 
+export { default as List } from './List';
+export * from './List';
+
 export { default as ListItem } from './ListItem';
 export * from './ListItem';
 
@@ -81,6 +84,9 @@ export * from './ListItemIcon';
 
 export { default as ListItemText } from './ListItemText';
 export * from './ListItemText';
+
+export { default as ListItemSecondaryAction } from './ListItemSecondaryAction';
+export * from './ListItemSecondaryAction';
 
 export { default as ListSubheader } from './ListSubheader';
 export * from './ListSubheader';
