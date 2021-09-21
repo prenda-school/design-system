@@ -27,6 +27,11 @@ export type SwitchProps<
   P = Record<string, unknown>
 > = OverrideProps<SwitchTypeMap<P, D>, D>;
 
+// :NOTE: the focus styling is implemented with a box-shadow. To prevent layout
+// shifts when that is applied, a padding of equal width is applied to the root
+// element. Property value calculations with "... + 8" or "... + 4" are explicitly
+// taking that into account where the "..." value is more reflective of the design
+// measurement than the raw sum would be.
 export const MuiSwitchStyleOverrides = ({ palette }: Theme) => ({
   edgeEnd: {
     marginRight: -4,
