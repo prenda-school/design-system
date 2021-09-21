@@ -139,7 +139,7 @@ export { default as makeStyles } from './makeStyles';
 
 export { default as styled } from './styled';
 
-export * from './styles';
+export { theme } from './styles';
 
 export { default as useTheme } from './useTheme';
 
