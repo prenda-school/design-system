@@ -7,25 +7,21 @@ export interface NavBarProps extends AppBarProps {
   color?: 'default';
 }
 
-const StyledAppBar = withStyles(({ palette }) => ({
+const NavBar = withStyles(({ palette }) => ({
   root: {
     backgroundColor: palette.common.white,
     borderBottom: `2px solid ${palette.grey.medium}`,
     fontSize: '1.125rem',
     color: palette.text.onLightLowContrast,
   },
-}))(AppBar);
-
-const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
-  return (
-    <StyledAppBar
-      component="nav"
-      position="fixed"
-      elevation={0}
-      color={color}
-      {...other}
-    />
-  );
-};
+}))(({ color = 'default', ...other }: NavBarProps) => (
+  <AppBar
+    component="nav"
+    position="fixed"
+    elevation={0}
+    color={color}
+    {...other}
+  />
+));
 
 export default NavBar;
