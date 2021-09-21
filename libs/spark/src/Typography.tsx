@@ -1,19 +1,19 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import {
-  makeStyles,
+import type {
   Theme,
-  Typography as MuiTypography,
-  TypographyProps as MuiTypographyProps,
   TypographyClassKey as MuiTypographyClassKey,
+  TypographyProps as MuiTypographyProps,
 } from '@material-ui/core';
-import { SparkVariant } from './styles/typography';
+import MuiTypography from '@material-ui/core/Typography';
+import makeStyles from '@material-ui/core/styles/makeStyles';
 import {
-  capitalize,
   OverridableComponent,
   OverrideProps,
+  capitalize,
   useTriMergeClasses,
 } from './utils';
+import type { SparkVariant } from './styles/typography';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
@@ -172,4 +172,4 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   }
 );
 
-export { Typography };
+export default Typography;

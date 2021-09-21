@@ -1,11 +1,14 @@
-import {
-  FormHelperText,
+import type {
   FormHelperTextClassKey,
+  FormHelperTextProps,
   StyleRules,
   Theme,
 } from '@material-ui/core';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
-export { FormHelperText };
+export default FormHelperText;
+
+export type { FormHelperTextProps };
 
 export const MuiFormHelperTextStyleOverrides = ({
   palette,

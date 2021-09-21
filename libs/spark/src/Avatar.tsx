@@ -1,16 +1,16 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import {
-  makeStyles,
+import type {
   Theme,
-  Avatar as MuiAvatar,
-  AvatarProps as MuiAvatarProps,
   AvatarClassKey as MuiAvatarClassKey,
+  AvatarProps as MuiAvatarProps,
 } from '@material-ui/core';
+import MuiAvatar from '@material-ui/core/Avatar';
+import makeStyles from './makeStyles';
 import {
-  capitalize,
   OverridableComponent,
   OverrideProps,
+  capitalize,
   useTriMergeClasses,
 } from './utils';
 
@@ -92,7 +92,7 @@ const useCustomStyles = makeStyles(
   { name: 'MuiSparkAvatar' }
 );
 
-export const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
+const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
   function Avatar(
     { classes: passedClasses = {}, size = 'medium', ...other },
     ref
@@ -123,3 +123,5 @@ export const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
     );
   }
 );
+
+export default Avatar;

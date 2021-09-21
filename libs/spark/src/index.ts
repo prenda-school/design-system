@@ -1,17 +1,32 @@
-export { styled, useTheme, withStyles, makeStyles } from '@material-ui/core';
-
 export { default as Autocomplete } from './Autocomplete';
 export * from './Autocomplete';
 
-export { Avatar } from './Avatar';
-export { Box } from './Box';
-export { Button } from './Button';
-export { ButtonBase } from './ButtonBase';
-export { Card } from './Card';
-export { CardActions } from './CardActions';
-export { CardContent } from './CardContent';
-export { CardMedia } from './CardMedia';
-export { Checkbox } from './Checkbox';
+export { default as Avatar } from './Avatar';
+export * from './Avatar';
+
+export { default as Box } from './Box';
+export * from './Box';
+
+export { default as Button } from './Button';
+export * from './Button';
+
+export { default as ButtonBase } from './ButtonBase';
+export * from './ButtonBase';
+
+export { default as Card } from './Card';
+export * from './Card';
+
+export { default as CardActions } from './CardActions';
+export * from './CardActions';
+
+export { default as CardContent } from './CardContent';
+export * from './CardContent';
+
+export { default as CardMedia } from './CardMedia';
+export * from './CardMedia';
+
+export { default as Checkbox } from './Checkbox';
+export * from './Checkbox';
 
 export { default as Divider } from './Divider';
 export * from './Divider';
@@ -25,52 +40,107 @@ export * from './DropdownContext';
 export { default as DropdownMenu } from './DropdownMenu';
 export * from './DropdownMenu';
 
-export { FormControl } from './FormControl';
-export { FormControlLabel } from './FormControlLabel';
-export { FormGroup } from './FormGroup';
-export { FormHelperText } from './FormHelperText';
-export { FormLabel } from './FormLabel';
+export { default as FormControl } from './FormControl';
+export * from './FormControl';
+
+export { default as FormControlLabel } from './FormControlLabel';
+export * from './FormControlLabel';
+
+export { default as FormGroup } from './FormGroup';
+export * from './FormGroup';
+
+export { default as FormHelperText } from './FormHelperText';
+export * from './FormHelperText';
+
+export { default as FormLabel } from './FormLabel';
+export * from './FormLabel';
 
 export { default as IconButton } from './IconButton';
 export * from './IconButton';
 
-export { Input } from './Input';
-export { InputAdornment } from './InputAdornment';
-export { InputBase } from './InputBase';
-export { InputLabel } from './InputLabel';
-export { ListItem } from './ListItem';
-export { ListItemAvatar } from './ListItemAvatar';
-export { ListItemIcon } from './ListItemIcon';
-export { ListItemText } from './ListItemText';
+export { default as Input } from './Input';
+export * from './Input';
+
+export { default as InputAdornment } from './InputAdornment';
+export * from './InputAdornment';
+
+export { default as InputBase } from './InputBase';
+export * from './InputBase';
+
+export { default as InputLabel } from './InputLabel';
+export * from './InputLabel';
+
+export { default as ListItem } from './ListItem';
+export * from './ListItem';
+
+export { default as ListItemAvatar } from './ListItemAvatar';
+export * from './ListItemAvatar';
+
+export { default as ListItemIcon } from './ListItemIcon';
+export * from './ListItemIcon';
+
+export { default as ListItemText } from './ListItemText';
+export * from './ListItemText';
 
 export { default as ListSubheader } from './ListSubheader';
 export * from './ListSubheader';
 
-export { Menu } from './Menu';
-export { MenuItem } from './MenuItem';
+export { default as Menu } from './Menu';
+export * from './Menu';
+
+export { default as MenuItem } from './MenuItem';
+export * from './MenuItem';
 
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
 
-export { Pagination } from './Pagination';
-export { PaginationItem } from './PaginationItem';
+export { default as Pagination } from './Pagination';
+export * from './Pagination';
+
+export { default as PaginationItem } from './PaginationItem';
+export * from './PaginationItem';
 
 export { default as Paper } from './Paper';
 export * from './Paper';
 
-export { Radio } from './Radio';
-export { RadioGroup } from './RadioGroup';
-export { Select } from './Select';
-export { SparkThemeProvider } from './SparkThemeProvider';
-export { SvgIcon } from './SvgIcon';
-export type { SvgIconProps } from './SvgIcon';
-export { Tag } from './Tag';
-export { TextField } from './TextField';
-export { Toolbar } from './Toolbar';
-export { theme } from './styles';
-export { Typography } from './Typography';
-export type { TypographyProps } from './Typography';
-export { NavBar } from './NavBar';
-export type { NavBarProps } from './NavBar';
-export { NavBarButton } from './NavBarButton';
-export type { NavBarButtonProps } from './NavBarButton';
+export { default as Radio } from './Radio';
+export * from './Radio';
+
+export { default as RadioGroup } from './RadioGroup';
+export * from './RadioGroup';
+
+export { default as Select } from './Select';
+export * from './Select';
+
+export { default as SparkThemeProvider } from './SparkThemeProvider';
+
+export { default as SvgIcon } from './SvgIcon';
+export * from './SvgIcon';
+
+export { default as Tag } from './Tag';
+export * from './Tag';
+
+export { default as TextField } from './TextField';
+export * from './TextField';
+
+export { default as Toolbar } from './Toolbar';
+export * from './Toolbar';
+
+export { default as Typography } from './Typography';
+export * from './Typography';
+
+export { default as NavBar } from './NavBar';
+export * from './NavBar';
+
+export { default as NavBarButton } from './NavBarButton';
+export * from './NavBarButton';
+
+export { default as makeStyles } from './makeStyles';
+
+export { default as styled } from './styled';
+
+export * from './styles';
+
+export { default as useTheme } from './useTheme';
+
+export { default as withStyles } from './withStyles';

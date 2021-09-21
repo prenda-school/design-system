@@ -1,21 +1,22 @@
 import * as React from 'react';
-import { AppBar, AppBarProps, withStyles } from '@material-ui/core';
-import { palette } from './styles/palette';
+import type { AppBarProps } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import withStyles from './withStyles';
 
 export interface NavBarProps extends AppBarProps {
   color?: 'default';
 }
 
-const StyledAppBar = withStyles({
+const StyledAppBar = withStyles(({ palette }) => ({
   root: {
     backgroundColor: palette.common.white,
     borderBottom: `2px solid ${palette.grey.medium}`,
     fontSize: '1.125rem',
     color: palette.text.onLightLowContrast,
   },
-})(AppBar);
+}))(AppBar);
 
-export const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
+const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
   return (
     <StyledAppBar
       component="nav"
@@ -26,3 +27,5 @@ export const NavBar = ({ color = 'default', ...other }: NavBarProps) => {
     />
   );
 };
+
+export default NavBar;

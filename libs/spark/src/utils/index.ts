@@ -2,6 +2,8 @@ export { default as capitalize } from './capitalize';
 
 export * from './ClassNameMap';
 
+export { default as createSvgIcon } from './createSvgIcon';
+
 export * from './OverridableComponent';
 
 export { default as useTriMergeClasses } from './useTriMergeClasses';

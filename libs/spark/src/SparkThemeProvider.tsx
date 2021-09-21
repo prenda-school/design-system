@@ -1,17 +1,17 @@
 import * as React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import {
-  ThemeProvider,
   StylesProvider,
-  CssBaseline,
+  ThemeProvider,
   createGenerateClassName,
-} from '@material-ui/core';
+} from '@material-ui/core/styles';
 import { theme } from './styles';
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'spark',
 });
 
-export const SparkThemeProvider = (props) => {
+const SparkThemeProvider = (props) => {
   return (
     <StylesProvider injectFirst generateClassName={generateClassName}>
       <ThemeProvider theme={theme}>
@@ -21,3 +21,5 @@ export const SparkThemeProvider = (props) => {
     </StylesProvider>
   );
 };
+
+export default SparkThemeProvider;
