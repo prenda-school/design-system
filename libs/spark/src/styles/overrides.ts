@@ -31,8 +31,10 @@ import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
+import { MuiSwitchStyleOverrides } from '../Switch';
 import { TagClassKey } from '../Tag';
 import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
+import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAction';
 
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
@@ -73,6 +75,7 @@ const overrides = (theme: Theme): Overrides => ({
   MuiListItemAvatar: MuiListItemAvatarStyleOverrides,
   MuiListItemIcon: MuiListItemIconStyleOverrides(theme),
   MuiListItemText: MuiListItemTextStyleOverrides(theme),
+  MuiListItemSecondaryAction: MuiListItemSecondaryActionStyleOverrides,
   MuiListSubheader: MuiListSubheaderStyleOverrides(theme),
   MuiMenu: MuiMenuStyleOverrides(theme),
   MuiMenuItem: MuiMenuItemStyleOverrides(theme),
@@ -81,6 +84,7 @@ const overrides = (theme: Theme): Overrides => ({
   MuiRadio: MuiRadioStyleOverrides(theme),
   MuiSelect: MuiSelectStylesOverrides(theme),
   MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
+  MuiSwitch: MuiSwitchStyleOverrides(theme),
   MuiTypography: MuiTypographyStyleOverrides,
 });
 

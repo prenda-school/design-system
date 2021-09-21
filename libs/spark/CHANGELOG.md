@@ -12,6 +12,14 @@
     - `'bottom-left' | 'bottom-right' | 'top-left' | 'top-right'`
 - **IconButton**
   - Forwards ref.
+- **List**
+  - Added re-export.
+  - Added minimal styling.
+- **ListItemSecondaryAction**
+  - Added re-export.
+  - Added minimal styling.
+- **Switch**
+  - Initial implementation.
 
 ### Fixes
 
