@@ -1,6 +1,16 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Switch, FormControlLabel } from '../src';
+import {
+  Switch,
+  FormControlLabel,
+  Card,
+  ListItem,
+  ListItemText,
+  List,
+  withStyles,
+  ListItemIcon,
+  styled,
+} from '../src';
 import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
@@ -266,6 +276,118 @@ LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
+
+const CustomCard = withStyles({
+  root: {
+    maxWidth: 256,
+    width: '100%',
+    padding: '0 16px',
+  },
+})(Card);
+
+const PaddedListItem = withStyles({
+  root: {
+    paddingTop: 12,
+    paddingBottom: 12,
+  },
+  // without cast, TS infers wrong props signature
+})(ListItem) as typeof ListItem;
+
+const ListItemEndIcon = styled('div')(({ theme }) => ({
+  color: theme.palette.action.active,
+  flexShrink: 0,
+  display: 'inline-flex',
+}));
+
+const RightAlignedListItemText = withStyles({
+  root: {
+    textAlign: 'right',
+  },
+})(ListItemText);
+
+const LabeledInListTemplate: Story = (args) => (
+  <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
+    <CustomCard>
+      <List disablePadding>
+        <PaddedListItem divider disableGutters>
+          <ListItemText id="switch-list-label-1" primary="List label" />
+          <ListItemEndIcon>
+            <Switch
+              edge="end"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-1' }}
+              {...args}
+            />
+          </ListItemEndIcon>
+        </PaddedListItem>
+        <PaddedListItem divider disableGutters>
+          <ListItemText id="switch-list-label-2" primary="List label" />
+          <ListItemEndIcon>
+            <Switch
+              edge="end"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-2' }}
+              {...args}
+            />
+          </ListItemEndIcon>
+        </PaddedListItem>
+        <PaddedListItem disableGutters>
+          <ListItemText id="switch-list-label-3" primary="List label" />
+          <ListItemEndIcon>
+            <Switch
+              edge="end"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-3' }}
+              {...args}
+            />
+          </ListItemEndIcon>
+        </PaddedListItem>
+      </List>
+    </CustomCard>
+    <CustomCard>
+      <List disablePadding>
+        <PaddedListItem divider disableGutters>
+          <ListItemIcon>
+            <Switch
+              edge="start"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-4' }}
+              {...args}
+            />
+          </ListItemIcon>
+          <RightAlignedListItemText
+            id="switch-list-label-4"
+            primary="List label"
+          />
+        </PaddedListItem>
+        <PaddedListItem divider disableGutters>
+          <ListItemIcon>
+            <Switch
+              edge="start"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-5' }}
+              {...args}
+            />
+          </ListItemIcon>
+          <RightAlignedListItemText
+            id="switch-list-label-5"
+            primary="List label"
+          />
+        </PaddedListItem>
+        <PaddedListItem disableGutters>
+          <ListItemIcon>
+            <Switch
+              edge="start"
+              inputProps={{ 'aria-labelledby': 'switch-list-label-6' }}
+              {...args}
+            />
+          </ListItemIcon>
+          <RightAlignedListItemText
+            id="switch-list-label-6"
+            primary="List label"
+          />
+        </PaddedListItem>
+      </List>
+    </CustomCard>
+  </div>
+);
+
+export const LabeledInList = LabeledInListTemplate.bind({});
 
 const SwitchDocTemplate = (args) => <DocTemplate {...args} />;
 

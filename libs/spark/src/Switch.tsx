@@ -28,6 +28,12 @@ export type SwitchProps<
 > = OverrideProps<SwitchTypeMap<P, D>, D>;
 
 export const MuiSwitchStyleOverrides = ({ palette }: Theme) => ({
+  edgeEnd: {
+    marginRight: -4,
+  },
+  edgeStart: {
+    marginLeft: -4,
+  },
   root: {
     height: 32 + 8,
     width: 56 + 8,
