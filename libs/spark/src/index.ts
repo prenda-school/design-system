@@ -126,6 +126,21 @@ export * from './SvgIcon';
 export { default as Switch } from './Switch';
 export * from './Switch';
 
+export { default as Tab } from './Tab';
+export * from './Tab';
+
+export { default as TabContext } from './TabContext';
+export * from './TabContext';
+
+export { default as TabList } from './TabList';
+export * from './TabList';
+
+export { default as TabPanel } from './TabPanel';
+export * from './TabPanel';
+
+export { default as Tabs } from './Tabs';
+export * from './Tabs';
+
 export { default as Tag } from './Tag';
 export * from './Tag';
 

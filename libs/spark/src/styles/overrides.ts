@@ -32,6 +32,9 @@ import { MuiRadioStyleOverrides } from '../Radio';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiSwitchStyleOverrides } from '../Switch';
+import { MuiTabStyleOverrides } from '../Tab';
+import { MuiTabsStyleOverrides } from '../Tabs';
+import { MuiTabPanelStyleOverrides } from '../TabPanel';
 import { TagClassKey } from '../Tag';
 import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
 import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAction';
@@ -85,6 +88,9 @@ const overrides = (theme: Theme): Overrides => ({
   MuiSelect: MuiSelectStylesOverrides(theme),
   MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
   MuiSwitch: MuiSwitchStyleOverrides(theme),
+  MuiTab: MuiTabStyleOverrides(theme),
+  MuiTabPanel: MuiTabPanelStyleOverrides,
+  MuiTabs: MuiTabsStyleOverrides(theme),
   MuiTypography: MuiTypographyStyleOverrides,
 });
 
