@@ -13,7 +13,7 @@ import {
   capitalize,
   useTriMergeClasses,
 } from './utils';
-import { Cross } from './internal';
+import { CrossSmall } from './internal';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
@@ -379,7 +379,7 @@ const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
           ]]: variant !== 'subtle' && color !== 'default',
         }),
       }}
-      deleteIcon={<Cross />}
+      deleteIcon={<CrossSmall />}
       ref={ref}
       {...other}
     />
