@@ -20,6 +20,17 @@
   - Added minimal styling.
 - **Switch**
   - Initial implementation.
+- **Tab**
+  - Initial implementation.
+- **TabContext**
+  - Added re-export.
+- **TabList**
+  - Added re-export.
+- **TabPanel**
+  - Added re-export.
+- **Tabs**
+  - Added re-export.
+  - Added minimal default props and styling.
 
 ### Fixes
 
