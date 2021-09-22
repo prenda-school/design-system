@@ -1,4 +1,4 @@
-import { MuiAutocompleteDefaultProps } from '..';
+import { MuiAutocompleteDefaultProps } from '../Autocomplete';
 import { MuiButtonDefaultProps } from '../Button';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase';
 import { MuiCardDefaultProps } from '../Card';
@@ -11,6 +11,7 @@ import { MuiPaginationDefaultProps } from '../Pagination';
 import { MuiPaginationItemDefaultProps } from '../PaginationItem';
 import { MuiRadioDefaultProps } from '../Radio';
 import { MuiSelectDefaultProps } from '../Select';
+import { MuiTabsDefaultProps } from '../Tabs';
 
 const props = {
   MuiAutocomplete: MuiAutocompleteDefaultProps,
@@ -26,6 +27,7 @@ const props = {
   MuiPaginationItem: MuiPaginationItemDefaultProps,
   MuiRadio: MuiRadioDefaultProps,
   MuiSelect: MuiSelectDefaultProps,
+  MuiTabs: MuiTabsDefaultProps,
 };
 
 export default props;
