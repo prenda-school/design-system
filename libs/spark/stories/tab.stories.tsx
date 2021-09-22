@@ -19,6 +19,9 @@ export default {
     value: 'value',
     disabled: false,
     selected: false,
+    // not a public prop, but in absense of Tab being a child of Tabs, we
+    // should explicitly set it
+    textColor: 'primary',
   },
 } as Meta;
 
