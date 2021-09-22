@@ -118,6 +118,12 @@ export * from './Radio';
 export { default as RadioGroup } from './RadioGroup';
 export * from './RadioGroup';
 
+export { default as SectionMessage } from './SectionMessage';
+export * from './SectionMessage';
+
+export { default as SectionMessageTitle } from './SectionMessageTitle';
+export * from './SectionMessageTitle';
+
 export { default as Select } from './Select';
 export * from './Select';
 
