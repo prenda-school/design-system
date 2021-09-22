@@ -22,19 +22,25 @@ export interface BannerProps extends Omit<AlertProps, 'variant'> {
 
 export type BannerClassKey = AlertClassKey;
 
-const CustomIconButton = withStyles({
+const CustomIconButton = withStyles((theme) => ({
   root: {
     color: 'inherit',
     padding: 4,
+    '&:focus, &:active': {
+      color: theme.palette.text.onLight,
+    },
   },
-})(IconButton);
+}))(IconButton);
 
-const CustomButton = withStyles({
+const CustomButton = withStyles((theme) => ({
   root: {
     borderColor: 'transparent',
     padding: 4,
+    '&:focus, &:active': {
+      color: theme.palette.text.onLight,
+    },
   },
-})(Button);
+}))(Button);
 
 const actionMapping = {
   Close: ({ closeText, onClose }) => (
