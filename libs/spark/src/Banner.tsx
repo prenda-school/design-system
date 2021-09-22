@@ -1,19 +1,11 @@
 import type { CSSProperties } from 'react';
-import type { AlertProps, AlertClassKey } from '@material-ui/lab';
-import Alert from '@material-ui/lab/Alert';
+import type { AlertProps, AlertClassKey } from './Alert';
+import Alert from './Alert';
 import Button from './Button';
 import IconButton from './IconButton';
-import {
-  AlertOctagonFilled,
-  AlertTriangleFilled,
-  ArrowRight,
-  CheckCircleFilled,
-  Cross,
-  InfoFilled,
-} from './internal';
+import { ArrowRight, Cross } from './internal';
 import withStyles from './withStyles';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface BannerProps extends Omit<AlertProps, 'variant'> {
   /**
    * Override the default label for the *details popup* button.
@@ -29,13 +21,6 @@ export interface BannerProps extends Omit<AlertProps, 'variant'> {
 }
 
 export type BannerClassKey = AlertClassKey;
-
-const iconMapping = {
-  error: <AlertOctagonFilled fontSize="inherit" />,
-  info: <InfoFilled fontSize="inherit" />,
-  success: <CheckCircleFilled fontSize="inherit" />,
-  warning: <AlertTriangleFilled fontSize="inherit" />,
-};
 
 const CustomIconButton = withStyles({
   root: {
@@ -126,12 +111,7 @@ const Banner = withStyles(
   }
 
   return (
-    <Alert
-      action={Action ? <Action /> : null}
-      {...props}
-      variant="filled"
-      iconMapping={iconMapping}
-    />
+    <Alert action={Action ? <Action /> : null} {...props} variant="filled" />
   );
 });
 
