@@ -64,12 +64,28 @@ SeverityClose.args = {
   },
 };
 
+export const SeverityCloseFocus = SeverityTemplate.bind({});
+SeverityCloseFocus.args = {
+  onClose: () => {
+    return;
+  },
+};
+SeverityCloseFocus.parameters = { pseudo: { focus: true } };
+
 export const SeverityDetails = SeverityTemplate.bind({});
 SeverityDetails.args = {
   onDetails: () => {
     return;
   },
 };
+
+export const SeverityDetailsFocus = SeverityTemplate.bind({});
+SeverityDetailsFocus.args = {
+  onDetails: () => {
+    return;
+  },
+};
+SeverityDetailsFocus.parameters = { pseudo: { focus: true } };
 
 const BannerDocTemplate = (args) => <DocTemplate {...args} />;
 
