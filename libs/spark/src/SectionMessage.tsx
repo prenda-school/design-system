@@ -10,12 +10,15 @@ export interface SectionMessageProps extends Omit<AlertProps, 'variant'> {}
 
 export type SectionMessageClassKey = AlertClassKey;
 
-const CustomIconButton = withStyles({
+const CustomIconButton = withStyles((theme) => ({
   root: {
     color: 'inherit',
     padding: 4,
+    '&:focus, &:active': {
+      color: theme.palette.text.onLight,
+    },
   },
-})(IconButton);
+}))(IconButton);
 
 const actionMapping = {
   Close: ({ closeText, onClose }) => (
