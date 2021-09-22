@@ -92,26 +92,20 @@ const Banner = withStyles(
   {
     name: 'MuiSparkBanner',
   }
-)((props: BannerProps) => {
+)(({ onClose, closeText, onDetails, detailsText, ...other }: BannerProps) => {
   let Action = null;
-  if (props.onClose) {
+  if (onClose) {
     Action = () => (
-      <actionMapping.Close
-        onClose={props.onClose}
-        closeText={props.closeText}
-      />
+      <actionMapping.Close onClose={onClose} closeText={closeText} />
     );
-  } else if (props.onDetails) {
+  } else if (onDetails) {
     Action = () => (
-      <actionMapping.Details
-        onDetails={props.onDetails}
-        detailsText={props.detailsText}
-      />
+      <actionMapping.Details onDetails={onDetails} detailsText={detailsText} />
     );
   }
 
   return (
-    <Alert action={Action ? <Action /> : null} {...props} variant="filled" />
+    <Alert action={Action ? <Action /> : null} {...other} variant="filled" />
   );
 });
 
