@@ -80,19 +80,16 @@ const SectionMessage = withStyles(
   {
     name: 'MuiSparkSectionMessage',
   }
-)((props: SectionMessageProps) => {
+)(({ onClose, closeText, ...other }: SectionMessageProps) => {
   let Action = null;
-  if (props.onClose) {
+  if (onClose) {
     Action = () => (
-      <actionMapping.Close
-        onClose={props.onClose}
-        closeText={props.closeText}
-      />
+      <actionMapping.Close onClose={onClose} closeText={closeText} />
     );
   }
 
   return (
-    <Alert action={Action ? <Action /> : null} {...props} variant="standard" />
+    <Alert action={Action ? <Action /> : null} {...other} variant="standard" />
   );
 });
 
