@@ -63,6 +63,14 @@ SeverityClose.args = {
   },
 };
 
+export const SeverityCloseFocus = SeverityTemplate.bind({});
+SeverityCloseFocus.args = {
+  onClose: () => {
+    return;
+  },
+};
+SeverityCloseFocus.parameters = { pseudo: { focus: true } };
+
 const SectionMessageDocTemplate = (args) => <DocTemplate {...args} />;
 
 export const Documentation: Story = SectionMessageDocTemplate.bind({});
