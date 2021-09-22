@@ -13,24 +13,26 @@
 - **IconButton**
   - Forwards ref.
 - **List**
-  - Added re-export.
-  - Added minimal styling.
+  - Re-exported.
+  - Customized styling.
 - **ListItemSecondaryAction**
-  - Added re-export.
-  - Added minimal styling.
+  - Re-exported.
+  - Customized styling.
 - **Switch**
   - Initial implementation.
 - **Tab**
-  - Initial implementation.
+  - Re-exported.
+  - Customized styling.
 - **TabContext**
-  - Added re-export.
+  - Re-exported.
 - **TabList**
-  - Added re-export.
+  - Re-exported.
 - **TabPanel**
-  - Added re-export.
+  - Re-exported.
+  - Customized styling.
 - **Tabs**
-  - Added re-export.
-  - Added minimal default props and styling.
+  - Re-exported.
+  - Customized default props and styling.
 
 ### Fixes
 
@@ -95,35 +97,35 @@
 ### Features
 
 - **Autocomplete**
-  - Added re-export.
+  - Re-exported.
   - Added initial styling support: multiple Checkboxes.
 - **Avatar**
   - Initial implementation.
 - **Card**
   - Updated elevation (design change).
 - **Divider**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuList** styling support.
 - **Input**
   - See **InputBase**.
 - **InputBase**
   - Added styling for `startAdornment` and `endAdornment` props.
 - **List**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuList** styling support.
 - **ListItem**
   - Added minimal styling related to **MenuItem** styling support.
 - **ListItemAvatar**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuItem** styling support.
 - **ListItemIcon**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuItem** styling support.
 - **ListItemText**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuItem** styling support.
 - **ListSubheader**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuList** styling support.
 - **Menu**
   - Updated elevation (design change).
@@ -132,10 +134,10 @@
   - Added styling for content: `ListItemText`, `ListItemIcon`, `ListItemAvatar`, `ListItem`
   - Added styling when prop `selected` is `true`.
 - **MenuList**
-  - Added re-export.
+  - Re-exported.
   - Confirmed styling.
 - **Paper**
-  - Added re-export.
+  - Re-exported.
   - Added minimal styling related to **MenuList** styling support.
 - **Select**
   - See **InputBase**.
