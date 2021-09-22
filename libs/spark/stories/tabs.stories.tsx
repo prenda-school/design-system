@@ -45,10 +45,18 @@ const Template: Story = (args) => {
           <Tab value="value-3" label="Label" />
           <Tab value="value-4" label="Label" />
         </TabList>
-        <TabPanel value="value-1">Panel 1</TabPanel>
-        <TabPanel value="value-2">Panel 2</TabPanel>
-        <TabPanel value="value-3">Panel 3</TabPanel>
-        <TabPanel value="value-4">Panel 4</TabPanel>
+        <TabPanel value="value-1">
+          <Box pt={1}>Panel 1</Box>
+        </TabPanel>
+        <TabPanel value="value-2">
+          <Box pt={1}>Panel 2</Box>
+        </TabPanel>
+        <TabPanel value="value-3">
+          <Box pt={1}>Panel 3</Box>
+        </TabPanel>
+        <TabPanel value="value-4">
+          <Box pt={1}>Panel 4</Box>
+        </TabPanel>
       </TabContext>
 
       <Box mt={4}>
