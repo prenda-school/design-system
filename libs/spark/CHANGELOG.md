@@ -4,6 +4,8 @@
 
 ### Features
 
+- **Banner**
+  - Initial implementation.
 - **DropdownAnchor**
   - Initial implementation. Abstraction of removed **DropdownButton**.
     - Supports the `component` prop where **Button** is supplied by default, but any element with an `onClick` event can be used (e.g. **IconButton**).

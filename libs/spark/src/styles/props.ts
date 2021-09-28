@@ -1,4 +1,5 @@
 import { MuiAutocompleteDefaultProps } from '../Autocomplete';
+import { MuiAlertDefaultProps } from '../Alert';
 import { MuiButtonDefaultProps } from '../Button';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase';
 import { MuiCardDefaultProps } from '../Card';
@@ -14,6 +15,7 @@ import { MuiSelectDefaultProps } from '../Select';
 import { MuiTabsDefaultProps } from '../Tabs';
 
 const props = {
+  MuiAlert: MuiAlertDefaultProps,
   MuiAutocomplete: MuiAutocompleteDefaultProps,
   MuiButton: MuiButtonDefaultProps,
   MuiButtonBase: MuiButtonBaseDefaultProps,

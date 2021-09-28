@@ -4,6 +4,7 @@ import type { Overrides } from '@material-ui/core/styles/overrides';
 import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
 import { AvatarClassKey, MuiAvatarStyleOverrides } from '../Avatar';
+import { BannerClassKey } from '../Banner';
 import { MuiButtonStyleOverrides } from '../Button';
 import { MuiDividerStyleOverrides } from '../Divider';
 import { MuiCardStyleOverrides } from '../Card';
@@ -42,6 +43,7 @@ import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAc
 declare module '@material-ui/core/styles/overrides' {
   interface ComponentNameToClassKey {
     MuiSparkAvatar: AvatarClassKey;
+    MuiSparkBanner: BannerClassKey;
     MuiSparkIconButton: IconButtonClassKey;
     MuiSparkTag: TagClassKey;
     MuiSparkTypography: TypographyClassKey;

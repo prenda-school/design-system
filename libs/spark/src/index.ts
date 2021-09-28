@@ -4,6 +4,9 @@ export * from './Autocomplete';
 export { default as Avatar } from './Avatar';
 export * from './Avatar';
 
+export { default as Banner } from './Banner';
+export * from './Banner';
+
 export { default as Box } from './Box';
 export * from './Box';
 
