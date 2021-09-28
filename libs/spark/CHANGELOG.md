@@ -20,6 +20,10 @@
 - **ListItemSecondaryAction**
   - Re-exported.
   - Customized styling.
+- **SectionMessage**
+  - Initial implementation.
+- **SectionMessageTitle**
+  - Initial implementation.
 - **Switch**
   - Initial implementation.
 - **Tab**

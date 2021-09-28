@@ -30,6 +30,8 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
+import { SectionMessageClassKey } from '../SectionMessage';
+import { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiSwitchStyleOverrides } from '../Switch';
@@ -45,6 +47,8 @@ declare module '@material-ui/core/styles/overrides' {
     MuiSparkAvatar: AvatarClassKey;
     MuiSparkBanner: BannerClassKey;
     MuiSparkIconButton: IconButtonClassKey;
+    MuiSparkSectionMessage: SectionMessageClassKey;
+    MuiSparkSectionTitleMessage: SectionMessageTitleClassKey;
     MuiSparkTag: TagClassKey;
     MuiSparkTypography: TypographyClassKey;
   }
