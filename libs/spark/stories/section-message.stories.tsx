@@ -105,8 +105,8 @@ export const Changelog: Story = SectionMessageChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
-      version: 'vNext',
-      versionDate: 'yyyy-mm-dd',
+      version: 'v0.12.0',
+      versionDate: '2021-09-28',
       changes: ['Feat: Initial implementation.'],
     },
   ],

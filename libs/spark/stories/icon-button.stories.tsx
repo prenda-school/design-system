@@ -160,8 +160,8 @@ export const Changelog: Story = IconButtonChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
-      version: 'vNext',
-      versionDate: 'yyyy-mm-dd',
+      version: 'v0.12.0',
+      versionDate: '2021-09-28',
       changes: [
         'Feat: Forwards ref.',
         'Fix: Custom classes not being global or part of classes signature.',
