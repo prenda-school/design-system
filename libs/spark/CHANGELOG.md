@@ -2,6 +2,11 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...vNext) (yyyy-mm-dd)
 
+### Features
+
+- Support deeper file imports
+  - example: `import Avatar from '@prenda/spark/Avatar';`
+
 # [v0.12.0](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...v0.12.0) (2021-09-28)
 
 ### Features
