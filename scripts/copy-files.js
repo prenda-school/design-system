@@ -14,7 +14,7 @@ if (!relativeInDir) {
 }
 if (!relativeOutDir) {
   console.error(
-    'Forgot to supply first positional argument after filename: "out-dir'
+    'Forgot to supply second positional argument after filename: "out-dir'
   );
   process.exit(1);
 }
