@@ -5,7 +5,7 @@ import {
   ThemeProvider,
   createGenerateClassName,
 } from '@material-ui/core/styles';
-import { theme } from './styles';
+import theme from './theme';
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'spark',

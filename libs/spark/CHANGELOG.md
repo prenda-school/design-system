@@ -2,6 +2,10 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- Support import transform for `theme` from named at top-level to default at second-level.
+
 # [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
 
 ### Features

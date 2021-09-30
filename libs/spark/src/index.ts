@@ -172,7 +172,7 @@ export { default as makeStyles } from './makeStyles';
 
 export { default as styled } from './styled';
 
-export * from './styles';
+export { default as theme } from './theme';
 
 export { default as useTheme } from './useTheme';
 
