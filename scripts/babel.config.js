@@ -11,9 +11,7 @@ if (process.env.BABEL_ENV === 'es') {
       '@babel/preset-env',
       {
         bugfixes: true,
-        modules: ['esm', 'production-umd'].includes(process.env.BABEL_ENV)
-          ? false
-          : 'commonjs',
+        modules: ['esm'].includes(process.env.BABEL_ENV) ? false : 'commonjs',
       },
     ],
   ];
@@ -27,6 +25,7 @@ module.exports = {
     '@babel/preset-typescript',
   ]),
   plugins: [
+    'babel-plugin-optimize-clsx',
     ['@babel/plugin-proposal-class-properties', { loose: true }],
     ['@babel/plugin-proposal-object-rest-spread', { loose: true }],
     ['@babel/plugin-transform-runtime', { version: '^7.4.4' }],

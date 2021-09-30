@@ -3,9 +3,25 @@ const path = require('path');
 const fse = require('fs-extra');
 const glob = require('glob');
 
+const relativeInDir = process.argv[2];
+const relativeOutDir = process.argv[3];
+
+if (!relativeInDir) {
+  console.error(
+    'Forgot to supply first positional argument after filename: "in-dir'
+  );
+  process.exit(1);
+}
+if (!relativeOutDir) {
+  console.error(
+    'Forgot to supply second positional argument after filename: "out-dir'
+  );
+  process.exit(1);
+}
+
 const packagePath = process.cwd();
-const buildPath = path.join(packagePath, './dist/libs/spark-icons-alt');
-const srcPath = path.join(packagePath, './libs/spark-icons/src');
+const buildPath = path.join(packagePath, relativeOutDir);
+const srcPath = path.join(packagePath, relativeInDir, './src');
 
 async function includeFileInBuild(file) {
   const sourcePath = path.resolve(packagePath, file);
@@ -58,7 +74,9 @@ async function typescriptCopy({ from, to }) {
     return [];
   }
 
-  const files = glob.sync('**/*.d.ts', { cwd: from });
+  const files = glob.sync(path.resolve(relativeInDir, '**/*.d.ts'), {
+    cwd: from,
+  });
   const cmds = files.map((file) =>
     fse.copy(path.resolve(from, file), path.resolve(to, file))
   );
@@ -67,7 +85,7 @@ async function typescriptCopy({ from, to }) {
 
 async function createPackageFile() {
   const packageData = await fse.readFile(
-    path.resolve(packagePath, './libs/spark-icons/package.json'),
+    path.resolve(packagePath, relativeInDir, './package.json'),
     'utf8'
   );
   const {
@@ -102,9 +120,9 @@ async function run() {
 
     await Promise.all(
       [
-        './libs/spark-icons/README.md',
-        // './libs/spark-icons/CHANGELOG.md',
-        // './libs/spark-icons/LICENSE',
+        path.resolve(relativeInDir, './README.md'),
+        // path.resolve(relativeInDir, './CHANGELOG.md'),
+        // path.resolve(relativeInDir, './LICENSE'),
       ].map((file) => includeFileInBuild(file))
     );
 
