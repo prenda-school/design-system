@@ -13,7 +13,7 @@ import {
   capitalize,
   useTriMergeClasses,
 } from './utils';
-import type { SparkVariant } from './styles/typography';
+import type { SparkVariant } from './theme/typography';
 
 export interface TypographyTypeMap<
   P = Record<string, unknown>,
