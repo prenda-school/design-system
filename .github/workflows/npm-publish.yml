@@ -49,7 +49,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark  ${GITHUB_REF}'
+          SLACK_TITLE: '@prenda/spark ${{ github.ref }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
@@ -62,7 +62,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark  ${GITHUB_REF}'
+          SLACK_TITLE: '@prenda/spark ${{ github.ref }}'
           SLACK_MESSAGE: Failure
 
       - name: Build @prenda/spark-icons
@@ -87,7 +87,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons ${GITHUB_REF}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ github.ref }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
@@ -100,5 +100,5 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons  ${GITHUB_REF}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ github.ref }}'
           SLACK_MESSAGE: Failure
