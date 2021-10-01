@@ -5,6 +5,8 @@
 ### Fixes
 
 - Support import transform for `theme` from named at top-level to default at second-level.
+- **SectionMessage**
+  - Ensure `React` is in scope for component file.
 
 # [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
 
