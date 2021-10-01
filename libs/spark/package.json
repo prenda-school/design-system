@@ -1,12 +1,13 @@
 {
   "name": "@prenda/spark",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "author": "Prenda",
   "license": "MIT",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "sideEffects": false,
   "dependencies": {
     "clsx": "^1.1.1"
   },
