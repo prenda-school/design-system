@@ -22,8 +22,8 @@ export const MuiFormLabelStyleOverrides = ({
     '&$focused': {
       color: palette.blue[3],
     },
-    // artificially increase specificity to win battle with spark default
-    '&&$error': {
+    // ONLY override for Input (not in a Checkbox / Radio group)
+    '&$error[class*=MuiInputLabel-root]': {
       color: 'inherit',
     },
   },
