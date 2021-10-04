@@ -12,20 +12,20 @@ export const MuiPaginationStyleOverrides = {
       borderTopLeftRadius: '8px',
       borderBottomLeftRadius: '8px',
     },
-    '& > li:last-child > .MuiPaginationItem-root': {
+    '& > li:last-child > [class*=MuiPaginationItem-root]': {
       borderTopRightRadius: 8,
       borderBottomRightRadius: 8,
     },
-    '& > li:not(:last-child) > .MuiPaginationItem-root': {
+    '& > li:not(:last-child) > [class*=MuiPaginationItem-root]': {
       marginRight: -1,
     },
-    '& > li:not(:first-child) > .MuiPaginationItem-root': {
+    '& > li:not(:first-child) > [class*=MuiPaginationItem-root]': {
       marginLeft: -1,
     },
-    '& > li > .MuiPaginationItem-root.Mui-selected': {
+    '& > li > [class*=MuiPaginationItem-root].Mui-selected': {
       zIndex: 2,
     },
-    '& > li > .MuiPaginationItem-root:hover, .MuiPaginationItem-root:focus, button.Mui-focusVisible': {
+    '& > li > [class*=MuiPaginationItem-root]:hover, [class*=MuiPaginationItem-root]:focus, button.Mui-focusVisible': {
       zIndex: 1,
     },
   },

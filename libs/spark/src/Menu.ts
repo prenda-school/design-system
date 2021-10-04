@@ -20,7 +20,7 @@ export const MuiMenuStyleOverrides = ({ palette }: Theme) => ({
     // have the desired affect, but other combos do not work.
     // TODO: open issue and submit PR for a new prop that gets factored into
     // the absolute positioning of the Paper, like `additionalContentOffset`.
-    '&.MuiSparkMenu-offsetTop': {
+    '&[class*=MuiSparkMenu-offsetTop]': {
       marginTop: 8,
     },
   },

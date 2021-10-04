@@ -270,37 +270,37 @@ const useCustomStyles = makeStyles(
     },
     deleteIconColorRed: {
       color: theme.palette.red[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.red[5],
       },
     },
     deleteIconColorOrange: {
       color: theme.palette.orange[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.orange[5],
       },
     },
     deleteIconColorYellow: {
       color: theme.palette.yellow[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.yellow[5],
       },
     },
     deleteIconColorGreen: {
       color: theme.palette.green[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.green[5],
       },
     },
     deleteIconColorBlue: {
       color: theme.palette.blue[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.blue[5],
       },
     },
     deleteIconColorPurple: {
       color: theme.palette.purple[5],
-      '&:hover, .MuiChip-root:focus > &': {
+      '&:hover, [class*=MuiChip-root]:focus > &': {
         backgroundColor: theme.palette.purple[5],
       },
     },

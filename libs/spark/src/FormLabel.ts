@@ -22,7 +22,8 @@ export const MuiFormLabelStyleOverrides = ({
     '&$focused': {
       color: palette.blue[3],
     },
-    '&$error.MuiInputLabel-root': {
+    // artificially increase specificity to win battle with spark default
+    '&&$error': {
       color: 'inherit',
     },
   },
