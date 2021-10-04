@@ -31,6 +31,12 @@ export * from './CardMedia';
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
 
+export { default as Collapse } from './Collapse';
+export * from './Collapse';
+
+export { default as CssBaseline } from './CssBaseline';
+export * from './CssBaseline';
+
 export { default as Divider } from './Divider';
 export * from './Divider';
 
@@ -57,6 +63,9 @@ export * from './FormHelperText';
 
 export { default as FormLabel } from './FormLabel';
 export * from './FormLabel';
+
+export { default as Grid } from './Grid';
+export * from './Grid';
 
 export { default as IconButton } from './IconButton';
 export * from './IconButton';
@@ -118,6 +127,9 @@ export * from './Radio';
 export { default as RadioGroup } from './RadioGroup';
 export * from './RadioGroup';
 
+export { default as ScopedCssBaseline } from './ScopedCssBaseline';
+export * from './ScopedCssBaseline';
+
 export { default as SectionMessage } from './SectionMessage';
 export * from './SectionMessage';
 
@@ -126,6 +138,9 @@ export * from './SectionMessageTitle';
 
 export { default as Select } from './Select';
 export * from './Select';
+
+export { default as Skeleton } from './Skeleton';
+export * from './Skeleton';
 
 export { default as SparkThemeProvider } from './SparkThemeProvider';
 
@@ -156,6 +171,9 @@ export * from './Tag';
 export { default as TextField } from './TextField';
 export * from './TextField';
 
+export { default as ThemeProvider } from './ThemeProvider';
+export * from './ThemeProvider';
+
 export { default as Toolbar } from './Toolbar';
 export * from './Toolbar';
 
@@ -171,9 +189,14 @@ export * from './NavBarButton';
 export { default as makeStyles } from './makeStyles';
 
 export { default as styled } from './styled';
+export * from './styled';
 
 export { default as theme } from './theme';
+export * from './theme';
+
+export { default as useMediaQuery } from './useMediaQuery';
 
 export { default as useTheme } from './useTheme';
 
 export { default as withStyles } from './withStyles';
+export * from './withStyles';
