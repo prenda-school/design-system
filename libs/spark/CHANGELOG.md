@@ -8,6 +8,29 @@
   - Example: When two `ThemeProvider`'s are used, `'MuiSvgIcon-root'` would change to `'MuiSvgIcon-root-10'`. To address this, selectors like `'& .MuiSvgIcon-root'` were changed to `'& [class*=MuiSvgIcon-root]'`.
   - Affected components: **Avatar**, **Button**, **Checkbox**, **FormHelperText**, **FormLabel**, **IconButton**, **InputAdornment**, **InputBase**, **ListItemIcon**, **Menu**, **NavBarButton**, **Pagination**, **Radio**, **Switch**, **Tag**.
 
+### Features
+
+- **Collapse**
+  - Re-exported.
+- **CssBaseline**
+  - Re-exported.
+- **Grid**
+  - Re-exported.
+- **ScopedCssBaseline**
+  - Re-exported.
+- **Skeleton**
+  - Re-exported.
+- **styled**
+  - Re-exported typing (**Styled**).
+- **ThemeProvider**
+  - Re-exported.
+- **useMediaQuery**
+  - Re-exported.
+- **withStyles**
+  - Re-exported typing (**WithStyles**).
+- **theme**
+  - Re-exported typing (**Theme**).
+
 # [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
 
 ### Fixes

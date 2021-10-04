@@ -1,4 +1,5 @@
 import createTheme from '@material-ui/core/styles/createTheme';
+import type { Theme } from '@material-ui/core/styles/createTheme';
 import overrides from './overrides';
 import palette from './palette';
 import props from './props';
@@ -18,3 +19,5 @@ const theme = createTheme({
 });
 
 export default theme;
+
+export type { Theme };
