@@ -20,7 +20,7 @@ const SparkCheckboxIconRoot = styled('span')(
       // Adjust for irregular svg size of checkbox icons
       height: 22,
       width: 22,
-      '& .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         width: 22,
         height: 22,
       },
@@ -29,16 +29,14 @@ const SparkCheckboxIconRoot = styled('span')(
       },
       '&:focus, input:focus ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
-        '&:not(.SparkCheckboxIcon-checked):not(.SparkCheckboxIcon-indeterminate) .MuiSvgIcon-root': {
-          '&.SparkCheckboxIcon-box': {
-            color: palette.blue[3],
-            backgroundColor: palette.common.white,
-          },
+        '&:not(.SparkCheckboxIcon-checked):not(.SparkCheckboxIcon-indeterminate) .SparkCheckboxIcon-box': {
+          color: palette.blue[3],
+          backgroundColor: palette.common.white,
         },
       },
     },
     '&.SparkCheckboxIcon-checked': {
-      '& .MuiSvgIcon-root.SparkCheckboxIcon-check': {
+      '& .SparkCheckboxIcon-check': {
         transform: 'scale(1)',
         color: palette.common.white,
         transition: transitions.create('transform', {
@@ -46,12 +44,12 @@ const SparkCheckboxIconRoot = styled('span')(
           duration: transitions.duration.shortest,
         }),
       },
-      '& .MuiSvgIcon-root.SparkCheckboxIcon-box': {
+      '& .SparkCheckboxIcon-box': {
         backgroundColor: palette.blue[3],
       },
     },
     '&.SparkCheckboxIcon-indeterminate': {
-      '& .MuiSvgIcon-root.SparkCheckboxIcon-dash': {
+      '& .SparkCheckboxIcon-dash': {
         transform: 'scale(1)',
         color: palette.common.white,
         transition: transitions.create('transform', {
@@ -59,16 +57,16 @@ const SparkCheckboxIconRoot = styled('span')(
           duration: transitions.duration.shortest,
         }),
       },
-      '& .MuiSvgIcon-root.SparkCheckboxIcon-box': {
+      '& .SparkCheckboxIcon-box': {
         backgroundColor: palette.blue[3],
       },
     },
-    '& .MuiSvgIcon-root.SparkCheckboxIcon-box': {
+    '& .SparkCheckboxIcon-box': {
       borderRadius: 2,
       // from Mui, scale applied to prevent dot misalignment in Safari
       transform: 'scale(1)',
     },
-    '& .MuiSvgIcon-root.SparkCheckboxIcon-check, & .MuiSvgIcon-root.SparkCheckboxIcon-dash': {
+    '& .SparkCheckboxIcon-check, & .SparkCheckboxIcon-dash': {
       color: palette.blue[1],
       backgroundColor: 'transparent',
       position: 'absolute' as const,
@@ -151,14 +149,14 @@ export const MuiCheckboxStyleOverrides = ({ palette }: Theme) => ({
       color: palette.blue[3],
     },
     '&$disabled': {
-      '& > .MuiIconButton-label > .SparkCheckboxIcon-root': {
-        '& > .MuiSvgIcon-root': {
+      '& .SparkCheckboxIcon-root': {
+        '& [class*=MuiSvgIcon-root]': {
           color: palette.grey.dark,
         },
-        '& > .SparkCheckboxIcon-box': {
+        '& .SparkCheckboxIcon-box': {
           backgroundColor: palette.grey.medium,
         },
-        '& > .SparkCheckboxIcon-check, .SparkCheckboxIcon-dash': {
+        '& .SparkCheckboxIcon-check, & .SparkCheckboxIcon-dash': {
           color: palette.grey[400],
         },
       },

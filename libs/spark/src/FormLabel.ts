@@ -22,7 +22,8 @@ export const MuiFormLabelStyleOverrides = ({
     '&$focused': {
       color: palette.blue[3],
     },
-    '&$error.MuiInputLabel-root': {
+    // ONLY override for Input (not in a Checkbox / Radio group)
+    '&$error[class*=MuiInputLabel-root]': {
       color: 'inherit',
     },
   },

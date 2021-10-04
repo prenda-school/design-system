@@ -20,7 +20,7 @@ const SparkRadioIconRoot = styled('span')(
       // Adjust for irregular svg size of radio unchecked button
       height: '26px',
       width: '26px',
-      '& .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         height: '26px',
         width: '26px',
         backgroundColor: palette.common.white,
@@ -33,7 +33,7 @@ const SparkRadioIconRoot = styled('span')(
       },
       '&:focus, input:focus ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
-        '&:not(.SparkRadioIcon-checked) .MuiSvgIcon-root.SparkRadioIcon-dot': {
+        '&:not(.SparkRadioIcon-checked) .SparkRadioIcon-dot': {
           color: palette.blue[1],
         },
         '& .SparkRadioIcon-checked .SparkRadioIcon-dot': {
@@ -127,14 +127,14 @@ export const MuiRadioStyleOverrides = ({ palette }: Theme) => ({
       color: palette.blue[3],
     },
     '&$disabled': {
-      '& > .MuiIconButton-label > .SparkRadioIcon-root': {
-        '& > .MuiSvgIcon-root': {
+      '& .SparkRadioIcon-root': {
+        '& [class*=MuiSvgIcon-root]': {
           color: palette.grey.dark,
         },
-        '& > .SparkRadioIcon-circle': {
+        '& .SparkRadioIcon-circle': {
           backgroundColor: palette.grey.medium,
         },
-        '& > .SparkRadioIcon-dot': {
+        '& .SparkRadioIcon-dot': {
           color: palette.grey[400],
         },
       },

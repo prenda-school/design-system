@@ -7,7 +7,7 @@ export type { InputAdornmentProps };
 
 export const MuiInputAdornmentStylesOverrides = {
   root: {
-    '.MuiInputBase-multiline > &': {
+    '[class*=MuiInputBase-multiline] > &': {
       alignSelf: 'flex-start',
       // half of typical 24px icon height + 10px input top margin
       marginTop: 22,

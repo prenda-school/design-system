@@ -52,7 +52,7 @@ type CustomClassKey =
   | 'labelSizeMedium';
 
 const useCustomStyles = makeStyles(
-  ({ palette }) => ({
+  ({ palette, typography }) => ({
     root: {
       borderRadius: '50%',
       borderWidth: 2,
@@ -66,17 +66,12 @@ const useCustomStyles = makeStyles(
     },
     label: {
       color: 'inherit',
-      fontSize: '1.5rem', // 24px
-      lineHeight: '1.5rem', // 24px
-      '& > .MuiSvgIcon-root': {
-        color: 'inherit',
+      // :TODO: delete when SvgIcon implements 'medium' class and removes default `fontSize: 1.5rem`
+      '& [class*=MuiSvgIcon-root]': {
         fontSize: 'inherit',
-        lineHeight: 'inherit',
       },
     },
-    disabled: {
-      // opacity: '50%',
-    },
+    disabled: {},
     contained: {
       borderColor: palette.blue[3],
       backgroundColor: palette.blue[3],
@@ -135,10 +130,13 @@ const useCustomStyles = makeStyles(
     sizeMedium: {
       padding: 4, // plus 2px border width for 6px
     },
-    labelSizeLarge: {},
+    labelSizeLarge: {
+      fontSize: typography.pxToRem(24),
+      lineHeight: typography.pxToRem(24),
+    },
     labelSizeMedium: {
-      fontSize: '1.25rem', // 20px
-      lineHeight: '1.25rem', // 20px
+      fontSize: typography.pxToRem(20),
+      lineHeight: typography.pxToRem(20),
     },
   }),
   { name: 'MuiSparkIconButton' }

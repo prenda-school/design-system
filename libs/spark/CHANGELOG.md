@@ -2,6 +2,12 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- Styles no longer rely on fully-deterministic global Mui class names.
+  - Example: When two `ThemeProvider`'s are used, `'MuiSvgIcon-root'` would change to `'MuiSvgIcon-root-10'`. To address this, selectors like `'& .MuiSvgIcon-root'` were changed to `'& [class*=MuiSvgIcon-root]'`.
+  - Affected components: **Avatar**, **Button**, **Checkbox**, **FormHelperText**, **FormLabel**, **IconButton**, **InputAdornment**, **InputBase**, **ListItemIcon**, **Menu**, **NavBarButton**, **Pagination**, **Radio**, **Switch**, **Tag**.
+
 ### Features
 
 - **Collapse**
