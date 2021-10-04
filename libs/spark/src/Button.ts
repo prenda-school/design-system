@@ -129,11 +129,6 @@ export const MuiButtonStyleOverrides = ({
     marginRight: '8px',
     marginLeft: 0,
     color: 'inherit',
-    '& > .MuiSvgIcon-root': {
-      color: 'inherit',
-      fontSize: 'inherit',
-      lineHeight: 'inherit',
-    },
     // artificially increase specificity to win battle with default
     '&& > :first-child': {
       fontSize: 'inherit',
@@ -148,11 +143,6 @@ export const MuiButtonStyleOverrides = ({
     marginLeft: '8px',
     marginRight: 0,
     color: 'inherit',
-    '& > .MuiSvgIcon-root': {
-      color: 'inherit',
-      fontSize: 'inherit',
-      lineHeight: 'inherit',
-    },
     // artificially increase specificity to win battle with default
     '&& > :first-child': {
       fontSize: 'inherit',

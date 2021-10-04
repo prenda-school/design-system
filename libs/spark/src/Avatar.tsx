@@ -45,7 +45,7 @@ export const MuiAvatarStyleOverrides = ({ palette }: Theme) => ({
   colorDefault: {
     backgroundColor: palette.common.white,
     color: palette.text.onLight,
-    '& > .MuiSvgIcon-root': {
+    '& [class*=MuiSvgIcon-root]': {
       color: palette.text.onLightLowContrast,
     },
   },
@@ -57,7 +57,7 @@ const useCustomStyles = makeStyles(
       ...theme.typography['heading-lg'],
       width: 80,
       height: 80,
-      '& > .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         fontSize: theme.typography.pxToRem(40),
       },
     },
@@ -65,7 +65,7 @@ const useCustomStyles = makeStyles(
       ...theme.typography['heading-md'],
       width: 56,
       height: 56,
-      '& > .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         fontSize: theme.typography.pxToRem(28),
       },
     },
@@ -74,7 +74,7 @@ const useCustomStyles = makeStyles(
       fontWeight: 700,
       width: 32,
       height: 32,
-      '& > .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         fontSize: theme.typography.pxToRem(16),
       },
     },
@@ -84,7 +84,7 @@ const useCustomStyles = makeStyles(
       fontSize: theme.typography.pxToRem(8),
       lineHeight: 1.5,
       fontWeight: 700,
-      '& > .MuiSvgIcon-root': {
+      '& [class*=MuiSvgIcon-root]': {
         fontSize: theme.typography.pxToRem(12),
       },
     },

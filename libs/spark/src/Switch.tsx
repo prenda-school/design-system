@@ -43,9 +43,9 @@ export const MuiSwitchStyleOverrides = ({ palette }: Theme) => ({
     height: 32 + 8,
     width: 56 + 8,
     padding: 4,
-    '& + .MuiFormControlLabel-label': {
+    '& + [class*=MuiFormControlLabel-label]': {
       marginLeft: 4,
-      '.MuiFormControlLabel-labelPlacementStart &': {
+      '[class*=MuiFormControlLabel-labelPlacementStart] &': {
         marginLeft: 0,
         marginRight: 4,
       },

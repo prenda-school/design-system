@@ -10,7 +10,7 @@ export const MuiListItemIconStyleOverrides = ({ palette }: Theme) => ({
     color: palette.text.onLightLowContrast,
     minWidth: 'unset',
     marginRight: 8,
-    '& .MuiCheckbox-root': {
+    '& [class*=MuiCheckbox-root]': {
       padding: 1,
     },
     '.Mui-selected > &': {

@@ -27,7 +27,7 @@ const NavBarButton = withStyles((theme) => ({
       border: `2px solid ${theme.palette.grey.light}`,
       backgroundColor: theme.palette.grey.light,
       color: theme.palette.text.onLight,
-      '& .MuiSvgIcon-root > *[fill="#F0F1F2"]': {
+      '& *[fill="#F0F1F2"]': {
         fill: theme.palette.blue[3],
         fillOpacity: '0.24',
       },
@@ -51,13 +51,14 @@ const NavBarButton = withStyles((theme) => ({
     marginRight: 0,
   },
   iconSizeLarge: {
-    // artificially increase specificity to win battle with default
+    // artificially increase specificity to win battle with mui default
     '&& > :first-child': {
       fontSize: '2rem',
     },
   },
   disabled: {
-    '&.MuiButton-contained': {
+    // artificially increase specificity to win battle with spark default
+    '&&': {
       opacity: '100%',
       color: theme.palette.grey.dark,
       backgroundColor: 'transparent',

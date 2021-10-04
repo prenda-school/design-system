@@ -31,7 +31,7 @@ export const MuiInputBaseStyleOverrides = ({
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       backgroundColor: palette.common.white,
     },
-    '&.Spark-success, .MuiTextField-root.Spark-success > &': {
+    '&.Spark-success, [class*=MuiTextField-root].Spark-success > &': {
       borderColor: palette.green[3],
       boxShadow: `0 0 0 4px ${palette.green[1]}`,
     },

@@ -21,10 +21,10 @@ export const MuiFormHelperTextStyleOverrides = ({
     '&$disabled': {
       color: palette.grey.dark,
     },
-    '.MuiFormGroup-root ~ &': {
+    '[class*=MuiFormGroup-root] ~ &': {
       marginTop: 3,
     },
-    '.MuiTextField-root > &$error': {
+    '[class*=MuiTextField-root] > &$error': {
       color: palette.text.onLightLowContrast,
     },
   },
