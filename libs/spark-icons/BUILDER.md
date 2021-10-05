@@ -2,7 +2,7 @@ Original Credit to https://github.com/mui-org/material-ui/blob/1c5beec4be20eae30
 
 # @prenda/spark-icons builder (Derived from @material-ui/icons-builder)
 
-This tool generates Material-UI SvgIcon components for a set of svg icons.
+This tool generates MUI SvgIcon components for a set of svg icons.
 
 ## Running the builder
 

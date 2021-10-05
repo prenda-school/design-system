@@ -112,11 +112,11 @@ export const Documentation: Story = IconButtonDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'IconButton',
-    href: 'https://material-ui.com/components/buttons/#icon-buttons',
+    href: 'https://v4.mui.com/components/buttons/#icon-buttons',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/icon-button/#props',
+      href: 'https://v4.mui.com/api/icon-button/#props',
     },
     omits: [
       {
@@ -139,7 +139,7 @@ Documentation.args = {
   },
   css: {
     extends: {
-      href: 'https://material-ui.com/api/icon-button/#css',
+      href: 'https://v4.mui.com/api/icon-button/#css',
     },
     adds: [
       'contained',

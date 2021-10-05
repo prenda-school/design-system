@@ -20,7 +20,7 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
    - Describe component makeup, if the component has, or is, a composition pattern.
 3. An engineer assesses the description, communicates with the designer as necessary, and produces an initial written assessment:
    - Formalize enumerated descriptors to props
-   - Suggest which components from [Material-UI](https://material-ui.com) can be custom-styled or modified to produce the new component.
+   - Suggest which components from [MUI](https://v4.mui.com) can be custom-styled or modified to produce the new component.
 4. Label the issue with "ready" (to be worked on).
 5. A engineer "claims" the issue (assigns themselves), create a new branch, begins work on implementation.
 
@@ -39,8 +39,8 @@ Prenda Spark represents a collaborative effort between the Design and Engineerin
 
 Spark components should adhere closely to these _guidelines_:
 
-- Based on a Material-UI component(s).
-- Uses named imports from Material-UI, prefixed with `Mui`.
+- Based on a MUI component(s).
+- Uses named imports from MUI, prefixed with `Mui`.
 - Defines props as a TypeScript interface that extends the underlying component's props.
 - Passes through all unknown props.
 - Styled using `@material-ui/styles`.

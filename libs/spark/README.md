@@ -15,7 +15,7 @@
 
 > Official Docs: https://prenda-school.github.io/prenda-documentation/
 
-Prenda Spark extends Material UI react components (https://material-ui.com/) by overriding select styles to match the Prenda Design System philosophy.
+Prenda Spark extends Material UI react components (https://v4.mui.com/) by overriding select styles to match the Prenda Design System philosophy.
 
 ## Development
 

@@ -299,7 +299,7 @@ All icons added in v0.8.0 were removed. They are now located under `@prenda/spar
 
 All illustrations and logos were removed. They are now located under `@prenda/spark-icons` with a new prop signature. They should be treated as completely new.
 
-Many components faced breaking prop API changes (and theme-wide default props) and breaking styling changes (through theme-wide style overrides). Theme-wide overrides or default will affect all Material-UI components under `SparkThemeProvider` regardless of if they are imported from Spark.
+Many components faced breaking prop API changes (and theme-wide default props) and breaking styling changes (through theme-wide style overrides). Theme-wide overrides or default will affect all MUI components under `SparkThemeProvider` regardless of if they are imported from Spark.
 
 - **Button:**
   - Prop: `variant`

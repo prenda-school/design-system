@@ -155,11 +155,11 @@ export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Chip',
-    href: 'https://material-ui.com/components/chips/#chip',
+    href: 'https://v4.mui.com/components/chips/#chip',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/chip/#props',
+      href: 'https://v4.mui.com/api/chip/#props',
     },
     omits: [
       {
@@ -191,7 +191,7 @@ Documentation.args = {
   },
   css: {
     extends: {
-      href: 'https://material-ui.com/api/chip/#css',
+      href: 'https://v4.mui.com/api/chip/#css',
     },
     adds: [
       'colorRed',
