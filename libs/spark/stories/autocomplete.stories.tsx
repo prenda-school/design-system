@@ -73,16 +73,16 @@ export const Documentation: Story = AutocompleteDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Autocomplete',
-    href: 'https://material-ui.com/components/autocomplete',
+    href: 'https://v4.mui.com/components/autocomplete',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/autocomplete/#props',
+      href: 'https://v4.mui.com/api/autocomplete/#props',
     },
   },
   css: {
     extends: {
-      href: 'https://material-ui.com/api/autocomplete/#css',
+      href: 'https://v4.mui.com/api/autocomplete/#css',
     },
   },
 };

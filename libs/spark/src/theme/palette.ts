@@ -138,7 +138,7 @@ const text = {
 };
 
 // Only customizations are specified, view all other default theme.palette properties
-//  at https://material-ui.com/customization/default-theme/?expand-path=$.palette
+//  at https://v4.mui.com/customization/default-theme/?expand-path=$.palette
 const palette = createPalette({
   // Mui default properties, only customizations specified
   error: {

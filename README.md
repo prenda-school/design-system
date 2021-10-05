@@ -8,7 +8,7 @@
 
 <div align="center">
   <p>
-    The official monorepo for libraries implementing the <a href="https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034" rel="noopener" target="_blank">Spark Design System</a>, intended for use in <a href="https://www.prenda.com/" rel="noopener" target="_blank">Prenda</a> applications. Spark libraries include customized <a href="https://material-ui.com/" rel="noopener" target="_blank">Material-UI</a> components and Prenda illustrations and icons.
+    The official monorepo for libraries implementing the <a href="https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034" rel="noopener" target="_blank">Spark Design System</a>, intended for use in <a href="https://www.prenda.com/" rel="noopener" target="_blank">Prenda</a> applications. Spark libraries include customized <a href="https://v4.mui.com/" rel="noopener" target="_blank">MUI</a> components and Prenda illustrations and icons.
   </p>
 
 [![Contributors](https://img.shields.io/github/contributors/prenda-school/prenda-spark)](https://github.com/prenda-school/prenda-spark/graphs/contributors)

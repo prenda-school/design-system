@@ -9,7 +9,7 @@ export default Radio;
 
 export type { RadioProps };
 
-// Recreation of Material-UI's internal RadioButton component,
+// Recreation of MUI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)
 const SparkRadioIconRoot = styled('span')(
   ({ theme: { palette, transitions } }: { theme: Theme }) => ({

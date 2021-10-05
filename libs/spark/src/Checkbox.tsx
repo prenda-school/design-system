@@ -9,7 +9,7 @@ export default Checkbox;
 
 export type { CheckboxProps };
 
-// Recreation of Material-UI's internal RadioButton component, but
+// Recreation of MUI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)
 const SparkCheckboxIconRoot = styled('span')(
   ({ theme: { palette, transitions } }: { theme: Theme }) => ({

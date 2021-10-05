@@ -125,11 +125,11 @@ export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Avatar',
-    href: 'https://material-ui.com/components/avatars/#avatar',
+    href: 'https://v4.mui.com/components/avatars/#avatar',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/avatar/#props',
+      href: 'https://v4.mui.com/api/avatar/#props',
     },
     omits: [
       {
@@ -147,7 +147,7 @@ Documentation.args = {
   },
   css: {
     extends: {
-      href: 'https://material-ui.com/api/avatar/#css',
+      href: 'https://v4.mui.com/api/avatar/#css',
     },
     adds: ['sizeLarge', 'sizeMedium', 'sizeSmall', 'sizeXsmall'],
   },

@@ -122,16 +122,16 @@ export const Documentation: Story = MenuItemDocTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'MenuItem',
-    href: 'https://material-ui.com/api/menu-item/',
+    href: 'https://v4.mui.com/api/menu-item/',
   },
   props: {
     extends: {
-      href: 'https://material-ui.com/api/menu-item/#props',
+      href: 'https://v4.mui.com/api/menu-item/#props',
     },
   },
   css: {
     extends: {
-      href: 'https://material-ui.com/api/menu-item/#css',
+      href: 'https://v4.mui.com/api/menu-item/#css',
     },
   },
 };
