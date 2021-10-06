@@ -4,7 +4,7 @@ import { Typography, TypographyProps, styled, withStyles } from '../src';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/Typography',
+  title: 'pds/@ps/Typography',
   component: Typography,
   argTypes: {
     variant: {

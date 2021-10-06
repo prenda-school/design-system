@@ -6,7 +6,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'prenda-spark/IconButton',
+  title: 'pds/@ps/IconButton',
   component: IconButton,
   argTypes: {
     onClick: { actions: 'clicked' },

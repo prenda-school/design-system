@@ -19,7 +19,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'prenda-spark/NavBar',
+  title: 'pds/@ps/NavBar',
   component: NavBar,
   argTypes: {},
   args: {},

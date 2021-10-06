@@ -11,7 +11,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'prenda-spark/Checkbox Group',
+  title: 'pds/@ps/Checkbox Group',
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     row: { control: 'boolean' },

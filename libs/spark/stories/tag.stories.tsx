@@ -9,7 +9,7 @@ const handleDelete = () => {
 };
 
 export default {
-  title: 'prenda-spark/Tag',
+  title: 'pds/@ps/Tag',
   component: Tag,
   parameters: {
     actions: {

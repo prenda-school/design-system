@@ -10,7 +10,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'prenda-spark/RadioGroup',
+  title: 'pds/@ps/RadioGroup',
   component: RadioGroup,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

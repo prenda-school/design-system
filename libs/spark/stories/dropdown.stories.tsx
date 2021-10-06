@@ -17,7 +17,7 @@ import {
 const components = { Button, IconButton };
 
 export default {
-  title: 'prenda-spark/Dropdown',
+  title: 'pds/@ps/Dropdown',
   component: DropdownContext,
   argTypes: {
     open: { control: 'boolean' },

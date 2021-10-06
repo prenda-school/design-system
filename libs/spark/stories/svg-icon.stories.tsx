@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import { capitalize } from '../src/utils';
 
 export default {
-  title: 'prenda-spark/SvgIcon',
+  title: 'pds/@ps/SvgIcon',
   component: SvgIcon,
   argTypes: {
     color: {
