@@ -27,8 +27,8 @@ jobs:
       # stories & tests depend on @prenda/spark-icons, but aren't included in build
       #  without this, Nx prevents build and requires icons be built first
       #  (false positive on circular dep)
-      - name: Strip directories
-        run: rm -rf ./libs/spark/stories ./libs/spark/test
+      - name: Strip stories and tests
+        run: rm ./**/*.stories.* ./**/*.spec.*
 
       - name: Build @prenda/spark
         run: npm run build:components
