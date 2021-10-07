@@ -19,7 +19,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'pds/@ps/NavBar',
+  title: 'PDS/@ps/NavBar',
   component: NavBar,
   argTypes: {},
   args: {},

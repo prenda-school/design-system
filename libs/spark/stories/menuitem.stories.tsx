@@ -16,7 +16,7 @@ import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'pds/@ps/MenuItem',
+  title: 'PDS/@ps/MenuItem',
   component: MenuItem,
   argTypes: {
     startIcon: { control: 'boolean' },

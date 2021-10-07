@@ -4,7 +4,7 @@ import { Typography, TypographyProps, styled, withStyles } from '../src';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'pds/@ps/Typography',
+  title: 'PDS/@ps/Typography',
   component: Typography,
   argTypes: {
     variant: {

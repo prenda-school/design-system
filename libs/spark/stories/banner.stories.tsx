@@ -5,7 +5,7 @@ import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'pds/@ps/Banner',
+  title: 'PDS/@ps/Banner',
   component: Banner,
   argTypes: {
     severity: {

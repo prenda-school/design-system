@@ -13,7 +13,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'pds/@ps/TabList',
+  title: 'PDS/@ps/TabList',
   component: TabList,
   argTypes: {
     'aria-label': { control: 'text' },

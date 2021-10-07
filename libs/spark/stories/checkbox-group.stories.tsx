@@ -11,7 +11,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'pds/@ps/Checkbox Group',
+  title: 'PDS/@ps/Checkbox Group',
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     row: { control: 'boolean' },

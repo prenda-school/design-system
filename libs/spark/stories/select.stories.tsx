@@ -5,7 +5,7 @@ import { GearDuotone } from '@prenda/spark-icons';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'pds/@ps/Select',
+  title: 'PDS/@ps/Select',
   component: Select,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

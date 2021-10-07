@@ -9,7 +9,7 @@ const handleDelete = () => {
 };
 
 export default {
-  title: 'pds/@ps/Tag',
+  title: 'PDS/@ps/Tag',
   component: Tag,
   parameters: {
     actions: {

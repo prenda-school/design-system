@@ -7,7 +7,7 @@ import { addons } from '@storybook/addons';
 //  Limitation is that slashes ("/") cannot be used in a name. Also
 //  these are just long.
 const nameToLabel = {
-  pds: 'Prenda Design System (PDS)',
+  PDS: 'Prenda Design System (PDS)',
   '@ps': '@prenda/spark',
   '@psi': '@prenda/spark-icons',
 };

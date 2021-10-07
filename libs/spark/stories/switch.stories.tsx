@@ -15,7 +15,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'pds/@ps/Switch',
+  title: 'PDS/@ps/Switch',
   component: Switch,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

@@ -15,7 +15,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'pds/@ps/Card',
+  title: 'PDS/@ps/Card',
   component: Card,
   argTypes: {},
   args: {},

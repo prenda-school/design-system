@@ -9,7 +9,7 @@ import {
 import { styled } from '../src';
 
 export default {
-  title: 'pds/@ps/Illustrations',
+  title: 'PDS/@ps/Illustrations',
 } as Meta;
 
 const Container = styled('div')({

@@ -4,7 +4,7 @@ import { CheckCircleDuotone } from '@prenda/spark-icons';
 import { NavBarButton, Box, NavBarButtonProps } from '../src';
 
 export default {
-  title: 'pds/@ps/NavBarButton',
+  title: 'PDS/@ps/NavBarButton',
   component: NavBarButton,
   argTypes: {
     onClick: { actions: 'clicked' },

@@ -10,7 +10,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'pds/@ps/RadioGroup',
+  title: 'PDS/@ps/RadioGroup',
   component: RadioGroup,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

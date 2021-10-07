@@ -17,7 +17,7 @@ import {
 const components = { Button, IconButton };
 
 export default {
-  title: 'pds/@ps/Dropdown',
+  title: 'PDS/@ps/Dropdown',
   component: DropdownContext,
   argTypes: {
     open: { control: 'boolean' },

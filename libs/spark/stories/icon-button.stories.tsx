@@ -6,7 +6,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'pds/@ps/IconButton',
+  title: 'PDS/@ps/IconButton',
   component: IconButton,
   argTypes: {
     onClick: { actions: 'clicked' },

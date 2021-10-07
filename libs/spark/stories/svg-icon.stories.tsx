@@ -10,7 +10,7 @@ import clsx from 'clsx';
 import { capitalize } from '../src/utils';
 
 export default {
-  title: 'pds/@ps/SvgIcon',
+  title: 'PDS/@ps/SvgIcon',
   component: SvgIcon,
   argTypes: {
     color: {

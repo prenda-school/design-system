@@ -5,7 +5,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'pds/@ps/Tab',
+  title: 'PDS/@ps/Tab',
   component: Tab,
   argTypes: {
     disabled: { control: 'boolean' },
