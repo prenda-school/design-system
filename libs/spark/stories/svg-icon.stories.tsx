@@ -33,13 +33,13 @@ export default {
     },
     fontSize: {
       control: 'select',
-      options: ['large', 'default', 'small', 'inherit'],
+      options: ['large', 'medium', 'small', 'inherit'],
     },
   },
   args: {
     color: 'inherit',
     contrast: 'high',
-    fontSize: 'default',
+    fontSize: 'medium',
   },
 } as Meta;
 
