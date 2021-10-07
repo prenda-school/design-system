@@ -1,23 +1,21 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
-import {
-  Box,
-  Button,
-  Divider,
-  DropdownAnchor,
-  DropdownContext,
-  DropdownMenu,
-  IconButton,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-} from '../src';
+import Box from '../Box';
+import Button from '../Button';
+import Divider from '../Divider';
+import DropdownAnchor from '../DropdownAnchor';
+import DropdownContext from './DropdownContext';
+import DropdownMenu from '../DropdownMenu';
+import IconButton from '../IconButton';
+import ListItemIcon from '../ListItemIcon';
+import ListItemText from '../ListItemText';
+import MenuItem from '../MenuItem';
 
 const components = { Button, IconButton };
 
 export default {
-  title: 'PDS/@ps/Dropdown',
+  title: 'PDS/@ps/DropdownContext',
   component: DropdownContext,
   argTypes: {
     open: { control: 'boolean' },

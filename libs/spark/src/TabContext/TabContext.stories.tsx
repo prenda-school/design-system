@@ -1,19 +1,20 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import Box from '../Box';
+import Tab from '../Tab';
+import TabContext from './TabContext';
+import TabList from '../TabList';
+import TabPanel from '../TabPanel';
+import Typography from '../Typography';
+import withStyles from '../withStyles';
 import {
-  Box,
-  Tab,
-  TabContext,
-  TabList,
-  TabPanel,
-  Typography,
-  withStyles,
-} from '../src';
-import { ChangelogTemplate, DocumentationTemplate } from './templates';
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
-  title: 'PDS/@ps/TabList',
-  component: TabList,
+  title: 'PDS/@ps/TabContext',
+  component: TabContext,
   argTypes: {
     'aria-label': { control: 'text' },
     onChange: { actions: 'changed' },
