@@ -9,6 +9,7 @@ describe('Input', () => {
         <MenuItem />
       </SparkThemeProvider>
     );
+
     expect(baseElement).toBeTruthy();
   });
 });

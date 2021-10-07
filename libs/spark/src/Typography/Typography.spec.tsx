@@ -9,6 +9,7 @@ describe('Typography', () => {
         <Typography />
       </SparkThemeProvider>
     );
+
     expect(baseElement).toBeTruthy();
   });
 });

@@ -9,6 +9,7 @@ describe('IconButton', () => {
         <IconButton />
       </SparkThemeProvider>
     );
+
     expect(baseElement).toBeTruthy();
   });
 });

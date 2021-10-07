@@ -1,19 +1,10 @@
 import { render } from '@testing-library/react';
-import DropdownAnchor from '../DropdownAnchor';
 import DropdownContext from './DropdownContext';
-import DropdownMenu from '../DropdownMenu';
-import SparkThemeProvider from '../SparkThemeProvider';
 
-describe('Dropdown', () => {
+describe('DropdownContext', () => {
   it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <DropdownContext>
-          <DropdownAnchor />
-          <DropdownMenu />
-        </DropdownContext>
-      </SparkThemeProvider>
-    );
+    const { baseElement } = render(<DropdownContext />);
+
     expect(baseElement).toBeTruthy();
   });
 });
