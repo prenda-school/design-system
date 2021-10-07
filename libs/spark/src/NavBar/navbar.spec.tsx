@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
-import { SparkThemeProvider, NavBar, NavBarButton } from '../src';
 import { QuestionDuotone } from '@prenda/spark-icons';
+import NavBar from './NavBar';
+import NavBarButton from '../NavBarButton';
+import SparkThemeProvider from '../SparkThemeProvider';
 
 describe('NavBar', () => {
   it('is truthy', () => {

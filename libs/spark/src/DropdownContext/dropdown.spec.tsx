@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react';
-import {
-  SparkThemeProvider,
-  DropdownContext,
-  DropdownAnchor,
-  DropdownMenu,
-} from '../src';
+import DropdownAnchor from '../DropdownAnchor';
+import DropdownContext from './DropdownContext';
+import DropdownMenu from '../DropdownMenu';
+import SparkThemeProvider from '../SparkThemeProvider';
 
 describe('Dropdown', () => {
   it('is truthy', () => {

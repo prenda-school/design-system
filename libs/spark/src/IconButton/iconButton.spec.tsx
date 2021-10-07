@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react';
-import { Typography, SparkThemeProvider } from '../src';
+import IconButton from './IconButton';
+import SparkThemeProvider from '../SparkThemeProvider';
 
-describe('Typography', () => {
+describe('IconButton', () => {
   it('is truthy', () => {
     const { baseElement } = render(
       <SparkThemeProvider>
-        <Typography />
+        <IconButton />
       </SparkThemeProvider>
     );
     expect(baseElement).toBeTruthy();
