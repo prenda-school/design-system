@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import { IconButton, Box } from '../src';
-import { ChangelogTemplate } from './changelog-template';
-import { DocTemplate } from './documentation-template';
+import Box from '../Box';
+import IconButton from './IconButton';
+import {
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/IconButton',
@@ -106,7 +109,7 @@ VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 export const VariantAndSizeActive = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
 
-const IconButtonDocTemplate = (args) => <DocTemplate {...args} />;
+const IconButtonDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = IconButtonDocTemplate.bind({});
 Documentation.args = {

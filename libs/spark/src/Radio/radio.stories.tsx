@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Checkbox, FormControlLabel } from '../src';
+import FormControlLabel from '../FormControlLabel';
+import Radio from './Radio';
 
 export default {
-  title: 'PDS/@ps/Checkbox',
-  component: Checkbox,
+  title: 'PDS/@ps/Radio',
+  component: Radio,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     checked: { control: 'boolean' },
-    indeterminate: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
   args: {},
 } as Meta;
 
 const Template: Story = (args) => (
-  <Checkbox
+  <Radio
     // a11y required props when there's no label
     name="Demo"
     value="value"
@@ -28,41 +28,28 @@ export const Configurable = Template.bind({});
 
 const StatesTemplate: Story = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
-    <Checkbox
+    <Radio
       name="nameA"
       value="valueA"
       inputProps={{ 'aria-label': 'Name A' }}
     />
-    <Checkbox
+    <Radio
       name="nameB"
       value="valueB"
       inputProps={{ 'aria-label': 'Name B' }}
       disabled
     />
-    <Checkbox
+    <Radio
       name="nameC"
       value="valueC"
       inputProps={{ 'aria-label': 'Name C' }}
       checked
     />
-    <Checkbox
+    <Radio
       name="nameD"
       value="valueD"
       inputProps={{ 'aria-label': 'Name D' }}
       checked
-      disabled
-    />
-    <Checkbox
-      name="nameC"
-      value="valueC"
-      inputProps={{ 'aria-label': 'Name C' }}
-      indeterminate
-    />
-    <Checkbox
-      name="nameD"
-      value="valueD"
-      inputProps={{ 'aria-label': 'Name D' }}
-      indeterminate
       disabled
     />
   </div>
@@ -70,22 +57,16 @@ const StatesTemplate: Story = () => (
 
 const PseudoStatesTemplate: Story = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
-    <Checkbox
+    <Radio
       name="nameA"
       value="valueA"
       inputProps={{ 'aria-label': 'Name A' }}
     />
-    <Checkbox
-      name="nameB"
-      value="valueB"
-      inputProps={{ 'aria-label': 'Name B' }}
-      checked
-    />
-    <Checkbox
+    <Radio
       name="nameC"
       value="valueC"
       inputProps={{ 'aria-label': 'Name C' }}
-      indeterminate
+      checked
     />
   </div>
 );
@@ -100,24 +81,17 @@ StatesFocus.parameters = { pseudo: { focus: true } };
 
 const LabeledStatesTemplate: Story = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
-    <FormControlLabel label="Label" control={<Checkbox />} />
-    <FormControlLabel label="Label" control={<Checkbox />} disabled />
-    <FormControlLabel label="Label" control={<Checkbox checked />} />
-    <FormControlLabel label="Label" control={<Checkbox checked />} disabled />
-    <FormControlLabel label="Label" control={<Checkbox indeterminate />} />
-    <FormControlLabel
-      label="Label"
-      control={<Checkbox indeterminate />}
-      disabled
-    />
+    <FormControlLabel label="Label" control={<Radio />} />
+    <FormControlLabel label="Label" control={<Radio />} disabled />
+    <FormControlLabel label="Label" control={<Radio />} checked />
+    <FormControlLabel label="Label" control={<Radio />} checked disabled />
   </div>
 );
 
 const PseudoLabeledStatesTemplate: Story = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
-    <FormControlLabel label="Label" control={<Checkbox />} />
-    <FormControlLabel label="Label" control={<Checkbox checked />} />
-    <FormControlLabel label="Label" control={<Checkbox indeterminate />} />
+    <FormControlLabel label="Label" control={<Radio />} />
+    <FormControlLabel label="Label" control={<Radio />} checked />
   </div>
 );
 

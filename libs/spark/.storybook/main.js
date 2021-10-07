@@ -7,10 +7,7 @@ rootMain.addons.push(
   '@storybook/addon-essentials',
   'storybook-addon-pseudo-states'
 );
-rootMain.stories.push(
-  '../stories/**/*.stories.mdx',
-  '../stories/**/*.stories.@(js|jsx|ts|tsx)'
-);
+rootMain.stories.push('../**/*.stories.@(js|jsx|ts|tsx|mdx)');
 
 rootMain.typescript = {
   check: true,

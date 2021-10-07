@@ -9,8 +9,7 @@ import {
   Typography,
   withStyles,
 } from '../src';
-import { ChangelogTemplate } from './changelog-template';
-import { DocTemplate } from './documentation-template';
+import { ChangelogTemplate, DocumentationTemplate } from './templates';
 
 export default {
   title: 'PDS/@ps/TabList',
@@ -76,7 +75,7 @@ const Template: Story = (args) => {
 export const Configurable = Template.bind({});
 Configurable.decorators = [(Story) => <Story />];
 
-const TabDocTemplate = (args) => <DocTemplate {...args} />;
+const TabDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = TabDocTemplate.bind({});
 Documentation.args = {

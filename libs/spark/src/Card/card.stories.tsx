@@ -1,18 +1,16 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { HeartDuotone } from '@prenda/spark-icons';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  CardActions,
-  Button,
-  IconButton,
-  Typography,
-  styled,
-  withStyles,
-  Box,
-} from '../src';
+import Box from '../Box';
+import Button from '../Button';
+import Card from './Card';
+import CardActions from '../CardActions';
+import CardContent from '../CardContent';
+import CardMedia from '../CardMedia';
+import IconButton from '../IconButton';
+import Typography from '../Typography';
+import styled from '../styled';
+import withStyles from '../withStyles';
 
 export default {
   title: 'PDS/@ps/Card',

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import { Button, Box } from '../src';
+import Button from './Button';
+import Box from '../Box';
 
 export default {
   title: 'PDS/@ps/Button',

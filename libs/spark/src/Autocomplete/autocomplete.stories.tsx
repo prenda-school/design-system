@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import Autocomplete from './Autocomplete';
+import Checkbox from '../Checkbox';
+import ListItemText from '../ListItemText';
+import ListItemIcon from '../ListItemIcon';
+import TextField from '../TextField';
+import Tag from '../Tag';
 import {
-  Autocomplete,
-  Checkbox,
-  ListItemText,
-  ListItemIcon,
-  TextField,
-  Tag,
-} from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Autocomplete',
@@ -67,7 +67,7 @@ export const MultipleValuesCheckboxes = (args) => (
   />
 );
 
-const AutocompleteDocTemplate = (args) => <DocTemplate {...args} />;
+const AutocompleteDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = AutocompleteDocTemplate.bind({});
 Documentation.args = {

@@ -1,13 +1,15 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, SvgIcon, theme } from '../src';
 import {
   AlertCircle,
   AlertCircleFilled,
   AlertCircleDuotone,
 } from '@prenda/spark-icons';
-import clsx from 'clsx';
-import { capitalize } from '../src/utils';
+import SvgIcon from './SvgIcon';
+import styled from '../styled';
+import theme from '../theme';
+import { capitalize } from '../utils';
 
 export default {
   title: 'PDS/@ps/SvgIcon',

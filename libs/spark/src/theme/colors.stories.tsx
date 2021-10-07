@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import { useTheme, styled } from '../src';
+import styled from '../styled';
+import useTheme from '../useTheme';
 
 interface ColorBoxProps {
   color: string;

@@ -8,15 +8,13 @@ import {
   UsersDuotone,
   PrendaMonogram,
 } from '@prenda/spark-icons';
-import {
-  NavBar,
-  NavBarProps,
-  NavBarButton,
-  withStyles,
-  Toolbar,
-  styled,
-  Avatar,
-} from '../src';
+import Avatar from '../Avatar';
+import NavBar from './NavBar';
+import type { NavBarProps } from './NavBar';
+import NavBarButton from '../NavBarButton';
+import Toolbar from '../Toolbar';
+import styled from '../styled';
+import withStyles from '../withStyles';
 
 export default {
   title: 'PDS/@ps/NavBar',

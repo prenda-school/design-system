@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Select, styled, MenuItem, InputAdornment } from '../src';
 import { GearDuotone } from '@prenda/spark-icons';
-import { ChangelogTemplate } from './changelog-template';
+import Select from './Select';
+import styled from '../styled';
+import MenuItem from '../MenuItem';
+import InputAdornment from '../InputAdornment';
+import { ChangelogTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Select',

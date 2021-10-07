@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { CheckCircleDuotone } from '@prenda/spark-icons';
-import { NavBarButton, Box, NavBarButtonProps } from '../src';
+import Box from '../Box';
+import NavBarButton from './NavBarButton';
+import type { NavBarButtonProps } from './NavBarButton';
 
 export default {
   title: 'PDS/@ps/NavBarButton',

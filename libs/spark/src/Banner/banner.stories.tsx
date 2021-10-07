@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Banner, styled } from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+import Banner from './Banner';
+import styled from '../styled';
+import {
+  DocumentationTemplate,
+  ChangelogTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Banner',
@@ -87,7 +90,7 @@ SeverityDetailsFocus.args = {
 };
 SeverityDetailsFocus.parameters = { pseudo: { focus: true } };
 
-const BannerDocTemplate = (args) => <DocTemplate {...args} />;
+const BannerDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = BannerDocTemplate.bind({});
 Documentation.args = {

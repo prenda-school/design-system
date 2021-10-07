@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { SectionMessage, SectionMessageTitle, styled } from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+import SectionMessage from './SectionMessage';
+import SectionMessageTitle from '../SectionMessageTitle';
+import styled from '../styled';
+import {
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/SectionMessage',
@@ -71,7 +75,7 @@ SeverityCloseFocus.args = {
 };
 SeverityCloseFocus.parameters = { pseudo: { focus: true } };
 
-const SectionMessageDocTemplate = (args) => <DocTemplate {...args} />;
+const SectionMessageDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = SectionMessageDocTemplate.bind({});
 Documentation.args = {

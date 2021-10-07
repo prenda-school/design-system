@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Typography, TypographyProps, styled, withStyles } from '../src';
-import { ChangelogTemplate } from './changelog-template';
+import Typography from './Typography';
+import type { TypographyProps } from './Typography';
+import styled from '../styled';
+import withStyles from '../withStyles';
+import { ChangelogTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Typography',

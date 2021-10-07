@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { TextField, styled, MenuItem, InputAdornment } from '../src';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
-import { ChangelogTemplate } from './changelog-template';
+import InputAdornment from '../InputAdornment';
+import MenuItem from '../MenuItem';
+import TextField from './TextField';
+import styled from '../styled';
+import { ChangelogTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/TextField',

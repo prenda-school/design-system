@@ -1,19 +1,17 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  Avatar,
-  Box,
-  Checkbox,
-  ListItemAvatar,
-  ListItemText,
-  ListItemIcon,
-  MenuItem,
-  styled,
-  FormControlLabel,
-} from '../src';
 import { GearDuotone } from '@prenda/spark-icons';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+import Avatar from '../Avatar';
+import Box from '../Box';
+import Checkbox from '../Checkbox';
+import ListItemAvatar from '../ListItemAvatar';
+import ListItemText from '../ListItemText';
+import ListItemIcon from '../ListItemIcon';
+import MenuItem from './MenuItem';
+import {
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/MenuItem',
@@ -116,7 +114,7 @@ CompositionsSelectedFocus.parameters = { pseudo: { focus: true } };
 export const CompositionsSelectedDisabled = CompositionsTemplate.bind({});
 CompositionsSelectedDisabled.args = { selected: true, disabled: true };
 
-const MenuItemDocTemplate = (args) => <DocTemplate {...args} />;
+const MenuItemDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = MenuItemDocTemplate.bind({});
 Documentation.args = {

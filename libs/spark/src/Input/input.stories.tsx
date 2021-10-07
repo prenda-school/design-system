@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Input, InputAdornment, styled } from '../src';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
-import { ChangelogTemplate } from './changelog-template';
+import Input from './Input';
+import InputAdornment from '../InputAdornment';
+import styled from '../styled';
+import { ChangelogTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Input',

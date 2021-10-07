@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import {
-  FormControl,
-  FormLabel,
-  FormControlLabel,
-  Checkbox,
-  FormHelperText,
-  FormGroup,
   Box,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormHelperText,
+  FormLabel,
 } from '../src';
 
 export default {

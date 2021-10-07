@@ -3,15 +3,15 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
 import {
   Box,
+  Button,
   Divider,
+  DropdownAnchor,
   DropdownContext,
   DropdownMenu,
+  IconButton,
   ListItemIcon,
   ListItemText,
   MenuItem,
-  DropdownAnchor,
-  Button,
-  IconButton,
 } from '../src';
 
 const components = { Button, IconButton };

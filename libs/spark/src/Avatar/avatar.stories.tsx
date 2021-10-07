@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone } from '@prenda/spark-icons';
-import { Avatar, Box, Typography, withStyles } from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+import Avatar from './Avatar';
+import Box from '../Box';
+import {
+  DocumentationTemplate,
+  ChangelogTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Avatar',
@@ -119,7 +122,7 @@ const ContentAndSizeTemplate = ({ src, alt, ...other }) => (
 
 export const ContentAndSize: Story = ContentAndSizeTemplate.bind({});
 
-const AvatarDocTemplate = (args) => <DocTemplate {...args} />;
+const AvatarDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Tab, styled } from '../src';
-import { ChangelogTemplate } from './changelog-template';
-import { DocTemplate } from './documentation-template';
+import Tab from './Tab';
+import styled from '../styled';
+import {
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Tab',
@@ -57,7 +60,7 @@ StatesFocus.parameters = { pseudo: { focus: true } };
 export const StatesActive = StatesTemplate.bind({});
 StatesActive.parameters = { pseudo: { active: true } };
 
-const TabDocTemplate = (args) => <DocTemplate {...args} />;
+const TabDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = TabDocTemplate.bind({});
 Documentation.args = {

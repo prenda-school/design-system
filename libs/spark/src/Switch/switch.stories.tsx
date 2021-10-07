@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import Card from '../Card';
+import FormControlLabel from '../FormControlLabel';
+import List from '../List';
+import ListItem from '../ListItem';
+import ListItemIcon from '../ListItemIcon';
+import ListItemText from '../ListItemText';
+import Switch from './Switch';
+import styled from '../styled';
+import withStyles from '../withStyles';
 import {
-  Switch,
-  FormControlLabel,
-  Card,
-  ListItem,
-  ListItemText,
-  List,
-  withStyles,
-  ListItemIcon,
-  styled,
-} from '../src';
-import { ChangelogTemplate } from './changelog-template';
-import { DocTemplate } from './documentation-template';
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Switch',
@@ -397,7 +397,7 @@ const LabeledInListTemplate: Story = (args) => (
 
 export const LabeledInList = LabeledInListTemplate.bind({});
 
-const SwitchDocTemplate = (args) => <DocTemplate {...args} />;
+const SwitchDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = SwitchDocTemplate.bind({});
 Documentation.args = {

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
-  FormHelperText,
-} from '../src';
+import FormControl from '../FormControl';
+import FormControlLabel from '../FormControlLabel';
+import FormHelperText from '../FormHelperText';
+import FormLabel from '../FormLabel';
+import Radio from '../Radio';
+import RadioGroup from './RadioGroup';
 
 export default {
   title: 'PDS/@ps/RadioGroup',

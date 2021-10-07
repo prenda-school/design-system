@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { Tag, Box, Typography, withStyles } from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+import Box from '../Box';
+import Tag from './Tag';
+import {
+  DocumentationTemplate,
+  ChangelogTemplate,
+} from '../../stories/templates';
 
 const handleDelete = () => {
   return;
@@ -149,7 +152,7 @@ export const ColorVariantDeleteDisabled: Story = ColorAndVariantTemplate.bind(
 );
 ColorVariantDeleteDisabled.args = { onDelete: handleDelete, disabled: true };
 
-const AvatarDocTemplate = (args) => <DocTemplate {...args} />;
+const AvatarDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = AvatarDocTemplate.bind({});
 Documentation.args = {

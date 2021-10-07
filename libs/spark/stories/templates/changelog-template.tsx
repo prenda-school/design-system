@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Li, SmCode } from './documentation-template';
 
-export const ChangelogTemplate = ({
+const ChangelogTemplate = ({
   history,
 }: {
   history: Array<{
@@ -25,3 +25,5 @@ export const ChangelogTemplate = ({
     ))}
   </ul>
 );
+
+export default ChangelogTemplate;

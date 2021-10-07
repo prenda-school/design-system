@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Typography, withStyles } from '../src';
+import { Box, Typography, withStyles } from '../../src';
 
 export const H1 = (props) => (
   <Typography variant="heading-md" component="h1" gutterBottom {...props} />
@@ -26,7 +26,7 @@ export const LiCode = (props) => (
   </Li>
 );
 
-export const DocTemplate = ({
+const DocTemplate = ({
   underlyingComponent,
   props,
   css,
@@ -141,3 +141,5 @@ export const DocTemplate = ({
     </ul>
   </>
 );
+
+export default DocTemplate;

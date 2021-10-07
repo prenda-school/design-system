@@ -1,20 +1,20 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
+import Avatar from '../Avatar';
+import Divider from '../Divider';
+import Checkbox from '../Checkbox';
+import ListItemAvatar from '../ListItemAvatar';
+import ListItemText from '../ListItemText';
+import ListItemIcon from '../ListItemIcon';
+import ListSubheader from '../ListSubheader';
+import MenuItem from '../MenuItem';
+import MenuList from './MenuList';
+import Paper from '../Paper';
+import withStyles from '../withStyles';
 import {
-  Avatar,
-  Checkbox,
-  ListItemAvatar,
-  ListItemText,
-  ListItemIcon,
-  ListSubheader,
-  MenuItem,
-  MenuList,
-  Divider,
-  Paper,
-  withStyles,
-} from '../src';
-import { DocTemplate } from './documentation-template';
-import { ChangelogTemplate } from './changelog-template';
+  ChangelogTemplate,
+  DocumentationTemplate,
+} from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/MenuList',
@@ -158,7 +158,7 @@ export const SectionTitle = (args) => (
   </CustomPaper>
 );
 
-const MenuListDocTemplate = (args) => <DocTemplate {...args} />;
+const MenuListDocTemplate = (args) => <DocumentationTemplate {...args} />;
 
 export const Documentation: Story = MenuListDocTemplate.bind({});
 Documentation.args = {
