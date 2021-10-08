@@ -5,7 +5,7 @@ import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/Input',
+  title: 'PDS/@ps/Input',
   component: Input,
   argTypes: {
     placeholder: { control: 'text' },

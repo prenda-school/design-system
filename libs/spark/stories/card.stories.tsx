@@ -15,7 +15,7 @@ import {
 } from '../src';
 
 export default {
-  title: 'prenda-spark/Card',
+  title: 'PDS/@ps/Card',
   component: Card,
   argTypes: {},
   args: {},

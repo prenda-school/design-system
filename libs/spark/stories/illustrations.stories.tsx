@@ -9,7 +9,7 @@ import {
 import { styled } from '../src';
 
 export default {
-  title: 'prenda-spark/Illustrations',
+  title: 'PDS/@ps/Illustrations',
 } as Meta;
 
 const Container = styled('div')({

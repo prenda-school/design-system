@@ -12,7 +12,7 @@ import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/Autocomplete',
+  title: 'PDS/@ps/Autocomplete',
   component: Autocomplete,
   argTypes: {},
   args: {},

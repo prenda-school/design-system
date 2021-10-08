@@ -35,7 +35,7 @@ function ColorBox(props: ColorBoxProps) {
 }
 
 export default {
-  title: 'prenda-spark/Colors',
+  title: 'PDS/@ps/Colors',
   component: ColorBox,
 } as Meta;
 

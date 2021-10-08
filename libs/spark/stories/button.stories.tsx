@@ -4,7 +4,7 @@ import { ChevronDown } from '@prenda/spark-icons';
 import { Button, Box } from '../src';
 
 export default {
-  title: 'prenda-spark/Button',
+  title: 'PDS/@ps/Button',
   component: Button,
   argTypes: {
     onClick: { actions: 'clicked' },

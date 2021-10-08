@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { FormControlLabel, Radio } from '../src';
 
 export default {
-  title: 'prenda-spark/Radio',
+  title: 'PDS/@ps/Radio',
   component: Radio,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

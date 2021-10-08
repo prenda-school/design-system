@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Pagination } from '../src';
 
 export default {
-  title: 'prenda-spark/Pagination',
+  title: 'PDS/@ps/Pagination',
   component: Pagination,
   argTypes: {
     count: { control: 'number' },

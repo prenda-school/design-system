@@ -8,7 +8,7 @@ import {
 import { styled } from '../src';
 
 export default {
-  title: 'prenda-spark/Logos',
+  title: 'PDS/@ps/Logos',
 } as Meta;
 
 const GridContainer = styled('div')(({ theme }) => ({

@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { Checkbox, FormControlLabel } from '../src';
 
 export default {
-  title: 'prenda-spark/Checkbox',
+  title: 'PDS/@ps/Checkbox',
   component: Checkbox,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {

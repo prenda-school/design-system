@@ -5,7 +5,7 @@ import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/TextField',
+  title: 'PDS/@ps/TextField',
   component: TextField,
   argTypes: {
     label: { control: 'text' },

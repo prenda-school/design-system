@@ -6,7 +6,7 @@ import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/Avatar',
+  title: 'PDS/@ps/Avatar',
   component: Avatar,
   argTypes: {
     size: {

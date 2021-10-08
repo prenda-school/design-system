@@ -13,7 +13,7 @@ import { ChangelogTemplate } from './changelog-template';
 import { DocTemplate } from './documentation-template';
 
 export default {
-  title: 'prenda-spark/TabList',
+  title: 'PDS/@ps/TabList',
   component: TabList,
   argTypes: {
     'aria-label': { control: 'text' },

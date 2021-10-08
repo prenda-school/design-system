@@ -17,7 +17,7 @@ import { DocTemplate } from './documentation-template';
 import { ChangelogTemplate } from './changelog-template';
 
 export default {
-  title: 'prenda-spark/MenuList',
+  title: 'PDS/@ps/MenuList',
   component: MenuList,
   argTypes: {},
   args: {},
