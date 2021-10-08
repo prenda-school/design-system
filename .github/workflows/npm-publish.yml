@@ -24,13 +24,6 @@ jobs:
       - name: Test
         run: npx nx run spark:test && npx nx run spark-e2e:e2e
 
-      # Since `*.stories.*` and `*.spec.*` files can depend on @prenda/spark-icons,
-      #  Nx sees a false circular dependency of the `libs/spark` project on
-      #  @prenda/spark-icons, preventing build and requiring ...-icons be built
-      #  first. But the package structure really excludes those.
-      - name: Strip directories
-        run: rm -rf ./libs/spark/stories ./libs/spark/test
-
       - name: Build @prenda/spark
         run: npm run build:components
 

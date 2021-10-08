@@ -30,7 +30,7 @@
     "build:icons:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons && BABEL_ENV=\"esm\" babel --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark-icons/src --out-dir ./dist/libs/spark-icons/esm",
     "build:icons:types": "babel-node --config-file ./scripts/babel.config.js libs/spark-icons/scripts/create-typings.js",
     "build:icons:copy-files": "node ./scripts/copy-files.js ./libs/spark-icons ./dist/libs/spark-icons",
-    "build:components": "rimraf ./dist/libs/spark && npm run build:components:envs && npm run build:components:copy-files && npm run build:components:types",
+    "build:components": "rimraf ./dist/libs/spark && rimraf ./**/*.stories.* ./**/*.spec.* && npm run build:components:envs && npm run build:components:copy-files && npm run build:components:types",
     "build:components:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" ./libs/spark/src --out-dir ./dist/libs/spark && BABEL_ENV=\"esm\" babel --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark/src --out-dir ./dist/libs/spark/esm && BABEL_ENV=\"es\" babel --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" libs/spark/src --out-dir ./dist/libs/spark/es",
     "build:components:types": "tsc -p ./libs/spark/tsconfig.build.json",
     "build:components:copy-files": "node ./scripts/copy-files.js ./libs/spark ./dist/libs/spark"
