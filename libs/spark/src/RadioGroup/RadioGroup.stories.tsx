@@ -6,6 +6,7 @@ import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 import Radio from '../Radio';
 import RadioGroup from './RadioGroup';
+import { DocumentationTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/RadioGroup',
@@ -146,3 +147,23 @@ RowStatesHover.parameters = { pseudo: { hover: true } };
 export const RowStatesFocus = StatesTemplate.bind({});
 RowStatesFocus.args = { pseudo: true, row: true };
 RowStatesFocus.parameters = { pseudo: { focus: true } };
+
+export const Documentation = DocumentationTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'RadioGroup',
+    href: 'https://v4.mui.com/components/radio-buttons/#radiogroup',
+  },
+  props: {
+    extends: {
+      href: 'https://v4.mui.com/api/radio-group/#props',
+    },
+  },
+  css: {
+    extends: {
+      href: 'https://v4.mui.com/api/radio-group/#css',
+    },
+  },
+  note:
+    'Looking for a group of checkboxes? Checkout the FormControl component stories.',
+};

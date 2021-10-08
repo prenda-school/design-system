@@ -30,15 +30,20 @@ const DocTemplate = ({
   underlyingComponent,
   props,
   css,
+  note,
 }: {
   underlyingComponent: {
     name: string;
     href: string;
   };
-  props: {
+  props?: {
     extends?: {
       href: string;
     };
+    defaults?: Array<{
+      name: string;
+      value: string;
+    }>;
     omits?: Array<{
       name: string;
       defaultValue: string;
@@ -49,15 +54,22 @@ const DocTemplate = ({
       defaultValue: string;
     }>;
   };
-  css: {
+  css?: {
     extends?: {
       href: string;
     };
     adds?: Array<string>;
     omits?: Array<string>;
   };
+  note?: string;
 }) => (
   <>
+    {note ? (
+      <p>
+        <em>Note: </em>
+        {note}
+      </p>
+    ) : null}
     <H1>Underlying Component</H1>
     <ul>
       <Li>
@@ -65,6 +77,7 @@ const DocTemplate = ({
         <a href={underlyingComponent.href}>{underlyingComponent.href}</a>
       </Li>
     </ul>
+
     <Box m={1} />
     <H1>API</H1>
     <H2>Prop Names</H2>
@@ -72,6 +85,18 @@ const DocTemplate = ({
       <Li>
         Extends <a href={props.extends.href}>{props.extends.href}</a>
       </Li>
+      {props.defaults?.length ? (
+        <Li>
+          Defaults:
+          <ul>
+            {props.defaults.map((prop) => (
+              <LiCode key={prop.name}>
+                {prop.name}: {prop.value}
+              </LiCode>
+            ))}
+          </ul>
+        </Li>
+      ) : null}
       {props.omits?.length ? (
         <Li>
           Omits:

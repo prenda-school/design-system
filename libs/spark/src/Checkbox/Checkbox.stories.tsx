@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Checkbox from './Checkbox';
 import FormControlLabel from '../FormControlLabel';
+import { DocumentationTemplate } from '../../stories/templates';
 
 export default {
   title: 'PDS/@ps/Checkbox',
@@ -129,3 +130,41 @@ LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
+
+export const Documentation = DocumentationTemplate.bind({});
+Documentation.args = {
+  underlyingComponent: {
+    name: 'Checkbox',
+    href: 'https://v4.mui.com/components/checkboxes/#checkbox',
+  },
+  props: {
+    extends: {
+      href: 'https://v4.mui.com/api/checkbox/#props',
+    },
+    defaults: [
+      {
+        name: 'color',
+        value: "'default'",
+      },
+      {
+        name: 'icon',
+        value: '<SparkCheckboxIcon />',
+      },
+      {
+        name: 'checkedIcon',
+        value: '<SparkCheckboxIcon checked />',
+      },
+      {
+        name: 'indeterminateIcon',
+        value: '<SparkCheckboxIcon indeterminate />',
+      },
+    ],
+  },
+  css: {
+    extends: {
+      href: 'https://v4.mui.com/api/checkbox/#css',
+    },
+  },
+  note:
+    'Looking for a group of checkboxes? Checkout the FormControl component stories.',
+};
