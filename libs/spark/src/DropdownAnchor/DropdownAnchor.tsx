@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { ButtonTypeMap } from '@material-ui/core';
-import Button from '../Button/Button';
+import Button from '../Button';
 import { useDropdownContext } from '../DropdownContext';
 import { OverridableComponent, OverrideProps } from '../utils';
 

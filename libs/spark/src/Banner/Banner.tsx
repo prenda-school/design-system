@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { CSSProperties } from 'react';
 import type { AlertProps, AlertClassKey } from '../Alert';
 import Alert from '../Alert';
-import Button from '../Button/Button';
+import Button from '../Button';
 import IconButton from '../IconButton';
 import { ArrowRight, Cross } from '../internal';
 import withStyles from '../withStyles';
