@@ -24,9 +24,10 @@ jobs:
       - name: Test
         run: npx nx run spark:test && npx nx run spark-e2e:e2e
 
-      # stories & tests depend on @prenda/spark-icons, but aren't included in build
-      #  without this, Nx prevents build and requires icons be built first
-      #  (false positive on circular dep)
+      # Since `*.stories.*` and `*.spec.*` files can depend on @prenda/spark-icons,
+      #  Nx sees a false circular dependency of the `libs/spark` project on
+      #  @prenda/spark-icons, preventing build and requiring ...-icons be built
+      #  first. But the package structure really excludes those.
       - name: Strip directories
         run: rm -rf ./libs/spark/stories ./libs/spark/test
 
@@ -39,6 +40,12 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./dist/libs/spark/package.json
 
+      - name: Output version string
+        id: vars
+        # `github.ref` in a `released`-triggered action is of form
+        #  `refs/tags/v*.*.*`. So substring from index 10 gives `v*.*.*`.
+        run: echo "::set-output name=version::${${{ github.ref }}:10}"
+
       - name: Notify Slack about success
         if: success()
         uses: rtCamp/action-slack-notify@v2
@@ -49,7 +56,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ github.ref }}'
+          SLACK_TITLE: '@prenda/spark ${{ steps.vars.outputs.version }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
@@ -62,7 +69,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ github.ref }}'
+          SLACK_TITLE: '@prenda/spark ${{ steps.vars.outputs.version }}'
           SLACK_MESSAGE: Failure
 
       - name: Build @prenda/spark-icons
@@ -87,7 +94,7 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons ${{ github.ref }}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ steps.vars.outputs.version }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
@@ -100,5 +107,5 @@ jobs:
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons ${{ github.ref }}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ steps.vars.outputs.version }}'
           SLACK_MESSAGE: Failure
