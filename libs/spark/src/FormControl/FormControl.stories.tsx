@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  Box,
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  FormHelperText,
-  FormLabel,
-} from '../src';
+import Box from '../Box';
+import Checkbox from '../Checkbox';
+import FormControl from './FormControl';
+import FormControlLabel from '../FormControlLabel';
+import FormGroup from '../FormGroup';
+import FormHelperText from '../FormHelperText';
+import FormLabel from '../FormLabel';
 
 export default {
-  title: 'PDS/@ps/Checkbox Group',
+  title: 'PDS/@ps/FormControl',
+  component: FormControl,
   parameters: { actions: { handles: ['change'] } },
   argTypes: {
     row: { control: 'boolean' },
@@ -29,7 +28,13 @@ export default {
   },
 } as Meta;
 
-const Template: Story = ({ required, error, disabled, value, ...args }) => (
+const CheckboxGroupTemplate: Story = ({
+  required,
+  error,
+  disabled,
+  value,
+  ...args
+}) => (
   <FormControl
     component="fieldset"
     error={error}
@@ -66,9 +71,10 @@ const Template: Story = ({ required, error, disabled, value, ...args }) => (
   </FormControl>
 );
 
-export const Configurable = Template.bind({});
+export const CheckboxGroup = CheckboxGroupTemplate.bind({});
+CheckboxGroup.storyName = 'Checkbox Group';
 
-const StatesTemplate: Story = ({ row, pseudo }) => (
+const CheckboxGroupStatesTemplate: Story = ({ row, pseudo }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
     <FormControl component="fieldset">
       <FormLabel component="legend">Group label</FormLabel>
@@ -115,28 +121,40 @@ const StatesTemplate: Story = ({ row, pseudo }) => (
   </div>
 );
 
-export const ColumnStates = StatesTemplate.bind({});
+export const CheckboxGroupColumnStates = CheckboxGroupStatesTemplate.bind({});
+CheckboxGroupColumnStates.storyName = 'Checkbox Group, states, column';
 
-export const ColumnStatesHover = StatesTemplate.bind({});
-ColumnStatesHover.args = { pseudo: true };
-ColumnStatesHover.parameters = { pseudo: { hover: true } };
+export const CheckboxGroupColumnStatesHover = CheckboxGroupStatesTemplate.bind(
+  {}
+);
+CheckboxGroupColumnStatesHover.storyName =
+  'Checkbox Group, states, column, hover';
+CheckboxGroupColumnStatesHover.args = { pseudo: true };
+CheckboxGroupColumnStatesHover.parameters = { pseudo: { hover: true } };
 
-export const ColumnStatesFocus = StatesTemplate.bind({});
-ColumnStatesFocus.args = { pseudo: true };
-ColumnStatesFocus.parameters = { pseudo: { focus: true } };
+export const CheckboxGroupColumnStatesFocus = CheckboxGroupStatesTemplate.bind(
+  {}
+);
+CheckboxGroupColumnStatesFocus.storyName =
+  'Checkbox Group, states, column, focus';
+CheckboxGroupColumnStatesFocus.args = { pseudo: true };
+CheckboxGroupColumnStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const RowStates = StatesTemplate.bind({});
-RowStates.args = { row: true };
+export const CheckboxGroupRowStates = CheckboxGroupStatesTemplate.bind({});
+CheckboxGroupRowStates.storyName = 'Checkbox Group, states, row';
+CheckboxGroupRowStates.args = { row: true };
 
-export const RowStatesHover = StatesTemplate.bind({});
-RowStatesHover.args = { pseudo: true, row: true };
-RowStatesHover.parameters = { pseudo: { hover: true } };
+export const CheckboxGroupRowStatesHover = CheckboxGroupStatesTemplate.bind({});
+CheckboxGroupRowStatesHover.storyName = 'Checkbox Group, states, row, hover';
+CheckboxGroupRowStatesHover.args = { pseudo: true, row: true };
+CheckboxGroupRowStatesHover.parameters = { pseudo: { hover: true } };
 
-export const RowStatesFocus = StatesTemplate.bind({});
-RowStatesFocus.args = { pseudo: true, row: true };
-RowStatesFocus.parameters = { pseudo: { focus: true } };
+export const CheckboxGroupRowStatesFocus = CheckboxGroupStatesTemplate.bind({});
+CheckboxGroupRowStatesFocus.storyName = 'Checkbox Group, states, row, focus';
+CheckboxGroupRowStatesFocus.args = { pseudo: true, row: true };
+CheckboxGroupRowStatesFocus.parameters = { pseudo: { focus: true } };
 
-const IndeterminateTemplate: Story = ({
+const CheckboxGroupIndeterminateTemplate: Story = ({
   required,
   error,
   disabled,
@@ -207,5 +225,8 @@ const IndeterminateTemplate: Story = ({
   );
 };
 
-export const Indeterminate = IndeterminateTemplate.bind({});
-Indeterminate.decorators = [(Story) => <Story />];
+export const CheckboxGroupIndeterminate = CheckboxGroupIndeterminateTemplate.bind(
+  {}
+);
+CheckboxGroupIndeterminate.storyName = 'Checkbox Group, indeterminate';
+CheckboxGroupIndeterminate.decorators = [(Story) => <Story />];
