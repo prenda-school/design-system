@@ -1,14 +1,9 @@
-import type {
-  InputBaseClassKey,
-  InputBaseProps,
-  StyleRules,
-  Theme,
-} from '@material-ui/core';
-import InputBase from '@material-ui/core/InputBase';
+import type { InputBaseClassKey } from '@material-ui/core/InputBase';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default InputBase;
-
-export type { InputBaseProps };
+export { default } from '@material-ui/core/InputBase';
+export * from '@material-ui/core/InputBase';
 
 export const MuiInputBaseStyleOverrides = ({
   palette,

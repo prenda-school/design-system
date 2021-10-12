@@ -1,9 +1,7 @@
-import type { ListItemIconProps, Theme } from '@material-ui/core';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import type { Theme } from '../theme';
 
-export default ListItemIcon;
-
-export type { ListItemIconProps };
+export { default } from '@material-ui/core/ListItemIcon';
+export * from '@material-ui/core/ListItemIcon';
 
 export const MuiListItemIconStyleOverrides = ({ palette }: Theme) => ({
   root: {

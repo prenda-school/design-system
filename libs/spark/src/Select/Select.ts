@@ -1,10 +1,8 @@
-import type { SelectProps, Theme } from '@material-ui/core';
-import Select from '@material-ui/core/Select';
+import type { Theme } from '../theme';
 import { ChevronDown } from '../internal';
 
-export default Select;
-
-export type { SelectProps };
+export { default } from '@material-ui/core/Select';
+export * from '@material-ui/core/Select';
 
 export const MuiSelectDefaultProps = {
   displayEmpty: true,

@@ -1,14 +1,9 @@
-import type {
-  StyleRules,
-  TabClassKey,
-  TabProps,
-  Theme,
-} from '@material-ui/core';
-import Tab from '@material-ui/core/Tab';
+import type { TabClassKey } from '@material-ui/core/Tab';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default Tab;
-
-export type { TabProps };
+export { default } from '@material-ui/core/Tab';
+export * from '@material-ui/core/Tab';
 
 // :NOTE: the focus styling is implemented with a border. To prevent layout
 // shifts when that is applied, a border is always present on the root element.

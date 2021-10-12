@@ -1,12 +1,11 @@
 import * as React from 'react';
-import type { StyleRules, Theme } from '@material-ui/core';
-import type { AutocompleteClassKey, AutocompleteProps } from '@material-ui/lab';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import type { AutocompleteClassKey } from '@material-ui/lab/Autocomplete';
 import { ChevronDown } from '../internal';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default Autocomplete;
-
-export type { AutocompleteProps };
+export { default } from '@material-ui/lab/Autocomplete';
+export * from '@material-ui/lab/Autocomplete';
 
 export const MuiAutocompleteStyleOverrides = ({
   palette,

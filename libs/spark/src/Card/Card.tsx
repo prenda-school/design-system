@@ -1,9 +1,5 @@
-import type { CardProps } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
-
-export default Card;
-
-export type { CardProps };
+export { default } from '@material-ui/core/Card';
+export * from '@material-ui/core/Card';
 
 export const MuiCardDefaultProps = {
   elevation: 2, // E200

@@ -1,7 +1,5 @@
 import * as React from 'react';
-import type { CSSProperties } from 'react';
-import type { AlertProps, AlertClassKey } from '../Alert';
-import Alert from '../Alert';
+import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import { ArrowRight, Cross } from '../internal';
@@ -92,7 +90,7 @@ const Banner = withStyles(
       marginRight: 8,
     },
     message: {
-      ...(theme.typography['label-lg-strong'] as CSSProperties),
+      ...(theme.typography['label-lg-strong'] as React.CSSProperties),
       padding: '9px 0',
     },
   }),

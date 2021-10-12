@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {
+import {
+  default as MuiSwitch,
   SwitchClassKey,
   SwitchProps as MuiSwitchProps,
-  Theme,
-} from '@material-ui/core';
-import MuiSwitch from '@material-ui/core/Switch';
+} from '@material-ui/core/Switch';
+import type { Theme } from '../theme';
 import { OverridableComponent, OverrideProps } from '../utils';
 
 export interface SwitchTypeMap<

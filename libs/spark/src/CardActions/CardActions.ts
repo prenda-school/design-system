@@ -1,9 +1,5 @@
-import type { CardActionsProps } from '@material-ui/core';
-import CardActions from '@material-ui/core/CardActions';
-
-export default CardActions;
-
-export type { CardActionsProps };
+export { default } from '@material-ui/core/CardActions';
+export * from '@material-ui/core/CardActions';
 
 export const MuiCardActionsStyleOverrides = {
   root: {

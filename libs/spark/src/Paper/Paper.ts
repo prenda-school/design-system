@@ -1,6 +1,2 @@
-import type { PaperProps } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
-
-export default Paper;
-
-export type { PaperProps };
+export { default } from '@material-ui/core/Paper';
+export * from '@material-ui/core/Paper';

@@ -1,13 +1,12 @@
 import * as React from 'react';
-import type { AppBarProps } from '@material-ui/core';
-import AppBar from '@material-ui/core/AppBar';
+import { default as AppBar, AppBarProps } from '@material-ui/core/AppBar';
 import withStyles from '../withStyles';
 
 export interface NavBarProps extends AppBarProps {
   color?: 'default';
 }
 
-const NavBar = withStyles(({ palette }) => ({
+export default withStyles(({ palette }) => ({
   root: {
     backgroundColor: palette.common.white,
     borderBottom: `2px solid ${palette.grey.medium}`,
@@ -23,5 +22,3 @@ const NavBar = withStyles(({ palette }) => ({
     {...other}
   />
 ));
-
-export default NavBar;

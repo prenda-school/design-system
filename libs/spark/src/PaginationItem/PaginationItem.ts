@@ -1,13 +1,9 @@
-import type { StyleRules, Theme } from '@material-ui/core';
-import type {
-  PaginationItemClassKey,
-  PaginationItemProps,
-} from '@material-ui/lab';
-import PaginationItem from '@material-ui/lab/PaginationItem';
+import type { PaginationItemClassKey } from '@material-ui/lab/PaginationItem';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default PaginationItem;
-
-export type { PaginationItemProps };
+export { default } from '@material-ui/lab/PaginationItem';
+export * from '@material-ui/lab/PaginationItem';
 
 export const MuiPaginationItemStyleOverrides = ({
   palette,

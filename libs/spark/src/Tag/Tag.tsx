@@ -1,19 +1,19 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type {
+import {
+  default as MuiChip,
   ChipClassKey as MuiChipClassKey,
   ChipProps as MuiChipProps,
-  Theme,
-} from '@material-ui/core';
-import MuiChip from '@material-ui/core/Chip';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+} from '@material-ui/core/Chip';
+import { CrossSmall } from '../internal';
+import makeStyles from '../makeStyles';
+import type { Theme } from '../theme';
 import {
   OverridableComponent,
   OverrideProps,
   capitalize,
   useTriMergeClasses,
 } from '../utils';
-import { CrossSmall } from '../internal';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 

@@ -1,9 +1,5 @@
-import type { TabPanelProps } from '@material-ui/lab';
-import TabPanel from '@material-ui/lab/TabPanel';
-
-export default TabPanel;
-
-export type { TabPanelProps };
+export { default } from '@material-ui/lab/TabPanel';
+export * from '@material-ui/lab/TabPanel';
 
 export const MuiTabPanelStyleOverrides = {
   root: {

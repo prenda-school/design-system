@@ -1,9 +1,5 @@
-import type { InputProps } from '@material-ui/core';
-import Input from '@material-ui/core/Input';
-
-export default Input;
-
-export type { InputProps };
+export { default } from '@material-ui/core/Input';
+export * from '@material-ui/core/Input';
 
 export const MuiInputDefaultProps = {
   disableUnderline: true,

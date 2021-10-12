@@ -1,10 +1,10 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type {
+import {
+  default as MuiIconButton,
   IconButtonClassKey as MuiIconButtonClassKey,
   IconButtonProps as MuiIconButtonProps,
-} from '@material-ui/core';
-import MuiIconButton from '@material-ui/core/IconButton';
+} from '@material-ui/core/IconButton';
 import makeStyles from '../makeStyles';
 import { capitalize, OverridableComponent, useTriMergeClasses } from '../utils';
 

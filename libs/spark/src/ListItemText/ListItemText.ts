@@ -1,14 +1,9 @@
-import type {
-  ListItemTextClassKey,
-  ListItemTextProps,
-  StyleRules,
-  Theme,
-} from '@material-ui/core';
-import ListItemText from '@material-ui/core/ListItemText';
+import type { ListItemTextClassKey } from '@material-ui/core/ListItemText';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default ListItemText;
-
-export type { ListItemTextProps };
+export { default } from '@material-ui/core/ListItemText';
+export * from '@material-ui/core/ListItemText';
 
 export const MuiListItemTextStyleOverrides = ({
   typography,

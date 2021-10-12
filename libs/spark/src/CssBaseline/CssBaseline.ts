@@ -1,6 +1,2 @@
-import CssBaseline from '@material-ui/core/CssBaseline';
-import type { CssBaselineProps } from '@material-ui/core/CssBaseline';
-
-export default CssBaseline;
-
-export type { CssBaselineProps };
+export { default } from '@material-ui/core/CssBaseline';
+export * from '@material-ui/core/CssBaseline';

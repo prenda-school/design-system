@@ -1,12 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type {
-  Theme,
+import {
+  default as MuiAvatar,
   AvatarClassKey as MuiAvatarClassKey,
   AvatarProps as MuiAvatarProps,
-} from '@material-ui/core';
-import MuiAvatar from '@material-ui/core/Avatar';
+} from '@material-ui/core/Avatar';
 import makeStyles from '../makeStyles';
+import type { Theme } from '../theme';
 import {
   OverridableComponent,
   OverrideProps,

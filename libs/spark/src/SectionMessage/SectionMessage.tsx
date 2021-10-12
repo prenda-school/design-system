@@ -1,7 +1,5 @@
 import * as React from 'react';
-import type { CSSProperties } from 'react';
-import type { AlertProps, AlertClassKey } from '../Alert';
-import Alert from '../Alert';
+import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
 import IconButton from '../IconButton';
 import { Cross } from '../internal';
 import withStyles from '../withStyles';
@@ -35,7 +33,7 @@ const actionMapping = {
   ),
 };
 
-const SectionMessage = withStyles(
+export default withStyles(
   (theme) => ({
     root: {
       borderRadius: 8,
@@ -77,13 +75,11 @@ const SectionMessage = withStyles(
       padding: 0,
     },
     message: {
-      ...(theme.typography['paragraph-lg'] as CSSProperties),
+      ...(theme.typography['paragraph-lg'] as React.CSSProperties),
       padding: '2px 0',
     },
   }),
-  {
-    name: 'MuiSparkSectionMessage',
-  }
+  { name: 'MuiSparkSectionMessage' }
 )(({ onClose, closeText, ...other }: SectionMessageProps) => {
   let Action = null;
   if (onClose) {
@@ -96,5 +92,3 @@ const SectionMessage = withStyles(
     <Alert action={Action ? <Action /> : null} {...other} variant="standard" />
   );
 });
-
-export default SectionMessage;
