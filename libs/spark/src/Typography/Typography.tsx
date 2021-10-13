@@ -1,18 +1,18 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type {
-  Theme,
+import {
+  default as MuiTypography,
   TypographyClassKey as MuiTypographyClassKey,
   TypographyProps as MuiTypographyProps,
-} from '@material-ui/core';
-import MuiTypography from '@material-ui/core/Typography';
-import makeStyles from '@material-ui/core/styles/makeStyles';
+} from '@material-ui/core/Typography';
+import makeStyles from '../makeStyles';
 import {
   OverridableComponent,
   OverrideProps,
   capitalize,
   useTriMergeClasses,
 } from '../utils';
+import type { Theme } from '../theme';
 import type { SparkVariant } from '../theme/typography';
 
 export interface TypographyTypeMap<

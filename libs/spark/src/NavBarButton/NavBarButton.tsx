@@ -1,11 +1,10 @@
 import * as React from 'react';
-import type { ButtonProps } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import { default as Button, ButtonProps } from '@material-ui/core/Button';
 import withStyles from '../withStyles';
 
 export type NavBarButtonProps = Omit<ButtonProps, 'variant' | 'color'>;
 
-const NavBarButton = withStyles((theme) => ({
+export default withStyles((theme) => ({
   root: {
     borderRadius: 8,
     backgroundColor: 'transparent',
@@ -69,5 +68,3 @@ const NavBarButton = withStyles((theme) => ({
     backgroundColor: theme.palette.grey.light,
   },
 }))((props: NavBarButtonProps) => <Button {...props} />);
-
-export default NavBarButton;

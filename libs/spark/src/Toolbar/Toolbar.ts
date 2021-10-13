@@ -1,6 +1,2 @@
-import type { ToolbarProps } from '@material-ui/core';
-import Toolbar from '@material-ui/core/Toolbar';
-
-export default Toolbar;
-
-export type { ToolbarProps };
+export { default } from '@material-ui/core/Toolbar';
+export * from '@material-ui/core/Toolbar';

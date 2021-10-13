@@ -1,6 +1,2 @@
-import Collapse from '@material-ui/core/Collapse';
-import type { CollapseProps } from '@material-ui/core/Collapse';
-
-export default Collapse;
-
-export type { CollapseProps };
+export { default } from '@material-ui/core/Collapse';
+export * from '@material-ui/core/Collapse';

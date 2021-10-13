@@ -1,14 +1,9 @@
-import type {
-  MenuItemClassKey,
-  MenuItemProps,
-  StyleRules,
-  Theme,
-} from '@material-ui/core';
-import MenuItem from '@material-ui/core/MenuItem';
+import type { MenuItemClassKey } from '@material-ui/core/MenuItem';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default MenuItem;
-
-export type { MenuItemProps };
+export { default } from '@material-ui/core/MenuItem';
+export * from '@material-ui/core/MenuItem';
 
 export const MuiMenuItemStyleOverrides = ({
   palette,

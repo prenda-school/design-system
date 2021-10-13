@@ -1,14 +1,9 @@
-import type {
-  ListSubheaderClassKey,
-  ListSubheaderProps,
-  StyleRules,
-  Theme,
-} from '@material-ui/core';
-import ListSubheader from '@material-ui/core/ListSubheader';
+import type { ListSubheaderClassKey } from '@material-ui/core/ListSubheader';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default ListSubheader;
-
-export type { ListSubheaderProps };
+export { default } from '@material-ui/core/ListSubheader';
+export * from '@material-ui/core/ListSubheader';
 
 export const MuiListSubheaderStyleOverrides = ({
   palette,

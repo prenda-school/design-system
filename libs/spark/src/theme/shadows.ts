@@ -1,4 +1,4 @@
-import { Shadows } from '@material-ui/core/styles/shadows';
+import type { Shadows } from '@material-ui/core/styles/shadows';
 
 /**
  * Generate Spark Design elevation shadows, a series of two box shadows. First

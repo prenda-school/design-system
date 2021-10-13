@@ -1,13 +1,11 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type { RadioProps, Theme } from '@material-ui/core';
-import Radio from '@material-ui/core/Radio';
+import type { Theme } from '../theme';
 import styled from '../styled';
 import { createSvgIcon } from '../utils';
 
-export default Radio;
-
-export type { RadioProps };
+export { default } from '@material-ui/core/Radio';
+export * from '@material-ui/core/Radio';
 
 // Recreation of MUI's internal RadioButton component,
 //  but with our icons (bit larger at 26x26, no empty border space)

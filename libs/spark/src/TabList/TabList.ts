@@ -1,6 +1,2 @@
-import type { TabListProps } from '@material-ui/lab';
-import TabList from '@material-ui/lab/TabList';
-
-export default TabList;
-
-export type { TabListProps };
+export { default } from '@material-ui/lab/TabList';
+export * from '@material-ui/lab/TabList';

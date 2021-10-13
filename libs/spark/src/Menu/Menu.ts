@@ -1,9 +1,7 @@
-import type { MenuProps, Theme } from '@material-ui/core';
-import Menu from '@material-ui/core/Menu';
+import type { Theme } from '../theme';
 
-export default Menu;
-
-export type { MenuProps };
+export { default } from '@material-ui/core/Menu';
+export * from '@material-ui/core/Menu';
 
 export const MuiMenuDefaultProps = {
   elevation: 4, // E400

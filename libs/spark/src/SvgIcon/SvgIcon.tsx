@@ -1,7 +1,10 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type { SvgIconProps as MuiSvgIconProps, Theme } from '@material-ui/core';
-import MuiSvgIcon from '@material-ui/core/SvgIcon';
+import {
+  default as MuiSvgIcon,
+  SvgIconProps as MuiSvgIconProps,
+} from '@material-ui/core/SvgIcon';
+import type { Theme } from '../theme';
 import { capitalize } from '../utils';
 
 export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
@@ -80,9 +83,9 @@ export const MuiSvgIconStyleOverrides = ({ palette }: Theme) => ({
   },
 });
 
-const SvgIcon = React.forwardRef(function SvgIcon(
-  { contrast = 'high', color = 'inherit', className, ...other }: SvgIconProps,
-  ref: React.ForwardedRef<SVGSVGElement>
+export default React.forwardRef<SVGSVGElement, SvgIconProps>(function SvgIcon(
+  { contrast = 'high', color = 'inherit', className, ...other },
+  ref
 ) {
   let muiColor;
   let sparkColor = 'inherit';
@@ -114,9 +117,8 @@ const SvgIcon = React.forwardRef(function SvgIcon(
         [`SparkSvgIcon-color${capitalize(sparkColor)}`]:
           sparkColor !== 'inherit',
       })}
+      ref={ref}
       {...other}
     />
   );
 });
-
-export default SvgIcon;

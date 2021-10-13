@@ -1,6 +1,2 @@
-import type { AlertTitleProps, AlertTitleClassKey } from '@material-ui/lab';
-import AlertTitle from '@material-ui/lab/AlertTitle';
-
-export default AlertTitle;
-
-export type { AlertTitleProps, AlertTitleClassKey };
+export { default } from '@material-ui/lab/AlertTitle';
+export * from '@material-ui/lab/AlertTitle';

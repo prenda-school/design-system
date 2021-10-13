@@ -1,9 +1,5 @@
-import type { ButtonBaseProps } from '@material-ui/core';
-import ButtonBase from '@material-ui/core/ButtonBase';
-
-export default ButtonBase;
-
-export type { ButtonBaseProps };
+export { default } from '@material-ui/core/ButtonBase';
+export * from '@material-ui/core/ButtonBase';
 
 export const MuiButtonBaseDefaultProps = {
   disableRipple: true,

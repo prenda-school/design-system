@@ -1,6 +1,2 @@
-import ScopedCssBaseline from '@material-ui/core/ScopedCssBaseline';
-import type { ScopedCssBaselineProps } from '@material-ui/core/ScopedCssBaseline';
-
-export default ScopedCssBaseline;
-
-export type { ScopedCssBaselineProps };
+export { default } from '@material-ui/core/ScopedCssBaseline';
+export * from '@material-ui/core/ScopedCssBaseline';

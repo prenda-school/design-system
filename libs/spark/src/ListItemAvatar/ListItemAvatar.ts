@@ -1,9 +1,5 @@
-import type { ListItemAvatarProps } from '@material-ui/core';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-
-export default ListItemAvatar;
-
-export type { ListItemAvatarProps };
+export { default } from '@material-ui/core/ListItemAvatar';
+export * from '@material-ui/core/ListItemAvatar';
 
 export const MuiListItemAvatarStyleOverrides = {
   root: {

@@ -1,9 +1,7 @@
-import type { TabsProps, Theme } from '@material-ui/core';
-import Tabs from '@material-ui/core/Tabs';
+import type { Theme } from '../theme';
 
-export default Tabs;
-
-export type { TabsProps };
+export { default } from '@material-ui/core/Tabs';
+export * from '@material-ui/core/Tabs';
 
 export const MuiTabsDefaultProps = {
   indicatorColor: 'primary' as const,

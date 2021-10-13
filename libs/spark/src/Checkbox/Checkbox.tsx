@@ -1,13 +1,11 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type { CheckboxProps, Theme } from '@material-ui/core';
-import Checkbox from '@material-ui/core/Checkbox';
 import styled from '../styled';
+import type { Theme } from '../theme';
 import { createSvgIcon } from '../utils';
 
-export default Checkbox;
-
-export type { CheckboxProps };
+export { default } from '@material-ui/core/Checkbox';
+export * from '@material-ui/core/Checkbox';
 
 // Recreation of MUI's internal RadioButton component, but
 //  with our icons(bit larger at 22x22, no empty border space)

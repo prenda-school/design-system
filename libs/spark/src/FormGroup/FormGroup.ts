@@ -1,6 +1,2 @@
-import type { FormGroupProps } from '@material-ui/core';
-import FormGroup from '@material-ui/core/FormGroup';
-
-export default FormGroup;
-
-export type { FormGroupProps };
+export { default } from '@material-ui/core/FormGroup';
+export * from '@material-ui/core/FormGroup';

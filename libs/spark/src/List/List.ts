@@ -1,9 +1,5 @@
-import type { ListProps } from '@material-ui/core';
-import List from '@material-ui/core/List';
-
-export default List;
-
-export type { ListProps };
+export { default } from '@material-ui/core/List';
+export * from '@material-ui/core/List';
 
 export const MuiListStyleOverrides = {
   subheader: {

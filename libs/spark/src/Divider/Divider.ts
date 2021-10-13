@@ -1,9 +1,7 @@
-import type { DividerProps, Theme } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
+import type { Theme } from '../theme';
 
-export default Divider;
-
-export type { DividerProps };
+export { default } from '@material-ui/core/Divider';
+export * from '@material-ui/core/Divider';
 
 export const MuiDividerStyleOverrides = ({ palette }: Theme) => ({
   root: {

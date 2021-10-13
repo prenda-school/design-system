@@ -1,8 +1,8 @@
 import * as React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '../CssBaseline';
+import ThemeProvider from '../ThemeProvider';
 import {
   StylesProvider,
-  ThemeProvider,
   createGenerateClassName,
 } from '@material-ui/core/styles';
 import theme from '../theme';

@@ -1,14 +1,9 @@
-import {
-  FormLabelClassKey,
-  FormLabelProps,
-  StyleRules,
-  Theme,
-} from '@material-ui/core';
-import FormLabel from '@material-ui/core/FormLabel';
+import type { FormLabelClassKey } from '@material-ui/core/FormLabel';
+import type { Theme } from '../theme';
+import type { StyleRules } from '../withStyles';
 
-export default FormLabel;
-
-export type { FormLabelProps };
+export { default } from '@material-ui/core/FormLabel';
+export * from '@material-ui/core/FormLabel';
 
 export const MuiFormLabelStyleOverrides = ({
   palette,
