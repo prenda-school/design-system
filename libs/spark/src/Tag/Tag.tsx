@@ -227,58 +227,56 @@ const useCustomStyles = makeStyles(
       width: '1em',
       height: '1em',
       color: theme.palette.text.onLight,
-      '&:hover, $root:focus > &': {
+      // artificially increase specificity to win over `$bold &`
+      '&&:hover, $root:focus > &': {
         color: theme.palette.common.white,
         backgroundColor: theme.palette.blue[5],
         borderRadius: 2,
       },
       '$colorRed &': {
         color: theme.palette.red[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.red[5],
         },
       },
       '$colorOrange &': {
         color: theme.palette.orange[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.orange[5],
         },
       },
       '$colorYellow &': {
         color: theme.palette.yellow[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.yellow[5],
         },
       },
       '$colorGreen &': {
         color: theme.palette.green[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.green[5],
         },
       },
       '$colorBlue &': {
         color: theme.palette.blue[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.blue[5],
         },
       },
       '$colorPurple &': {
         color: theme.palette.purple[5],
-        '&:hover, [class*=MuiChip-root]:focus > &': {
+        '&:hover, $root:focus&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.purple[5],
         },
       },
       '$bold &': {
         color: theme.palette.text.onLight,
-        '&:hover, $root:focus > &': {
-          color: theme.palette.common.white,
-        },
       },
       '$bold$colorRed &': {
         color: theme.palette.common.white,
