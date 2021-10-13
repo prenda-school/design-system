@@ -3,13 +3,19 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
 import InputAdornment from '../InputAdornment';
 import MenuItem from '../MenuItem';
-import TextField from './TextField';
+import { default as TextField, TextFieldProps } from './TextField';
 import styled from '../styled';
 import { ChangelogTemplate } from '../../stories/templates';
 
+export const TypedTextField = (props: TextFieldProps) => (
+  <TextField {...props} />
+);
+
 export default {
   title: 'PDS/@ps/TextField',
-  component: TextField,
+  component: TypedTextField,
+  excludeStories: ['TypedTextField'],
+  // Doesn't pick up most props
   argTypes: {
     label: { control: 'text' },
     placeholder: { control: 'text' },

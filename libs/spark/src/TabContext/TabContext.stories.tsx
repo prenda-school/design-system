@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Box from '../Box';
 import Tab from '../Tab';
-import TabContext from './TabContext';
+import { default as TabContext, TabContextProps } from './TabContext';
 import TabList from '../TabList';
 import TabPanel from '../TabPanel';
 import Typography from '../Typography';
@@ -12,9 +12,15 @@ import {
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedTabContext = (props: TabContextProps) => (
+  <TabContext {...props} />
+);
+
 export default {
   title: 'PDS/@ps/TabContext',
-  component: TabContext,
+  component: TypedTabContext,
+  excludeStories: ['TypedTabContext'],
+  // Doesn't pick up any props
   argTypes: {
     'aria-label': { control: 'text' },
     onChange: { actions: 'changed' },

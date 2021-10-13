@@ -11,33 +11,12 @@ import styled from '../styled';
 import theme from '../theme';
 import { capitalize } from '../utils';
 
+export const TypedSvgIcon = SvgIcon;
+
 export default {
   title: 'PDS/@ps/SvgIcon',
-  component: SvgIcon,
-  argTypes: {
-    color: {
-      control: 'select',
-      options: [
-        'inherit',
-        'onLight',
-        'onDark',
-        'disabled',
-        'error',
-        'success',
-        'warning',
-        'info',
-        'white',
-      ],
-    },
-    contrast: {
-      control: 'select',
-      options: ['high', 'low'],
-    },
-    fontSize: {
-      control: 'select',
-      options: ['large', 'medium', 'small', 'inherit'],
-    },
-  },
+  component: TypedSvgIcon,
+  excludeStories: ['TypedSvgIcon'],
   args: {
     color: 'inherit',
     contrast: 'high',

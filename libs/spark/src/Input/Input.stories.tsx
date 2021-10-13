@@ -1,14 +1,18 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
-import Input from './Input';
+import { default as Input, InputProps } from './Input';
 import InputAdornment from '../InputAdornment';
 import styled from '../styled';
 import { ChangelogTemplate } from '../../stories/templates';
 
+export const TypedInput = (props: InputProps) => <Input {...props} />;
+
 export default {
   title: 'PDS/@ps/Input',
-  component: Input,
+  component: TypedInput,
+  excludeStories: ['TypedInput'],
+  // Misses all props
   argTypes: {
     placeholder: { control: 'text' },
     error: { control: 'boolean' },

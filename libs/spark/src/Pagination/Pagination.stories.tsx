@@ -1,10 +1,16 @@
 import * as React from 'react';
 import { Meta } from '@storybook/react/types-6-0';
-import Pagination from './Pagination';
+import { default as Pagination, PaginationProps } from './Pagination';
+
+export const TypedPagination = (props: PaginationProps) => (
+  <Pagination {...props} />
+);
 
 export default {
   title: 'PDS/@ps/Pagination',
-  component: Pagination,
+  component: TypedPagination,
+  excludeStories: ['TypedPagination'],
+  // Doesn't pick up props
   argTypes: {
     count: { control: 'number' },
     defaultPage: { control: 'number' },

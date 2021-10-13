@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import SectionMessage from './SectionMessage';
+import {
+  default as SectionMessage,
+  SectionMessageProps,
+} from './SectionMessage';
 import SectionMessageTitle from '../SectionMessageTitle';
 import styled from '../styled';
 import {
@@ -8,9 +11,15 @@ import {
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedSectionMessage = (props: SectionMessageProps) => (
+  <SectionMessage {...props} />
+);
+
 export default {
   title: 'PDS/@ps/SectionMessage',
-  component: SectionMessage,
+  component: TypedSectionMessage,
+  excludeStories: ['TypedSectionMessage'],
+  // Doesn't pick up props
   argTypes: {
     severity: {
       control: 'select',

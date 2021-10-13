@@ -7,19 +7,21 @@ import Checkbox from '../Checkbox';
 import ListItemAvatar from '../ListItemAvatar';
 import ListItemText from '../ListItemText';
 import ListItemIcon from '../ListItemIcon';
-import MenuItem from './MenuItem';
+import { default as MenuItem, MenuItemTypeMap } from './MenuItem';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import type { OverridableComponent } from '../utils';
+
+export const TypedMenuItem: OverridableComponent<MenuItemTypeMap> = (props) => (
+  <MenuItem {...props} />
+);
 
 export default {
   title: 'PDS/@ps/MenuItem',
-  component: MenuItem,
-  argTypes: {
-    startIcon: { control: 'boolean' },
-    text: { control: 'text' },
-  },
+  component: TypedMenuItem,
+  excludeStories: ['TypedMenuItem'],
   args: {
     text: 'Menu item',
     startIcon: false,

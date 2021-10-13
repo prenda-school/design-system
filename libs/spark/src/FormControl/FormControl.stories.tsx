@@ -2,30 +2,21 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Box from '../Box';
 import Checkbox from '../Checkbox';
-import FormControl from './FormControl';
+import { default as FormControl, FormControlProps } from './FormControl';
 import FormControlLabel from '../FormControlLabel';
 import FormGroup from '../FormGroup';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 
+export const TypedFormControl = (props: FormControlProps) => (
+  <FormControl {...props} />
+);
+
 export default {
   title: 'PDS/@ps/FormControl',
-  component: FormControl,
+  component: TypedFormControl,
+  excludeStories: ['TypedFormControl'],
   parameters: { actions: { handles: ['change'] } },
-  argTypes: {
-    row: { control: 'boolean' },
-    error: { control: 'boolean' },
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-  },
-  args: {
-    'aria-label': 'example group',
-    name: 'exampleGroup',
-    row: false,
-    error: false,
-    required: false,
-    disabled: false,
-  },
 } as Meta;
 
 const CheckboxGroupTemplate: Story = ({

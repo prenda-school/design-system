@@ -8,34 +8,14 @@ import {
   ChangelogTemplate,
 } from '../../stories/templates';
 
+export const TypedAvatar = Avatar;
+
 export default {
   title: 'PDS/@ps/Avatar',
-  component: Avatar,
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['large', 'medium', 'small', 'xsmall'],
-    },
-    src: {
-      control: 'select',
-      options: [
-        '/img/guide-1.png',
-        '/img/guide-2.png',
-        '/img/guide-3.png',
-        '/img/student-boy-1.png',
-        '/img/student-boy-2.png',
-        '/img/student-boy-3.png',
-        '/img/student-girl-1.png',
-        '/img/student-girl-2.png',
-        '/img/student-girl-3.png',
-      ],
-    },
-    alt: { type: 'text' },
-  },
+  component: TypedAvatar,
+  excludeStories: ['TypedAvatar'],
   args: {
-    size: 'medium',
     src: '/img/guide-1.png',
-    alt: 'Jane Doe',
   },
 } as Meta;
 

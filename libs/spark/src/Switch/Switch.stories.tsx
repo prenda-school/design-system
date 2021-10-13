@@ -14,19 +14,21 @@ import {
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedSwitch = Switch;
+
 export default {
   title: 'PDS/@ps/Switch',
-  component: Switch,
+  component: TypedSwitch,
+  excludeStories: ['TypedSwitch'],
   parameters: { actions: { handles: ['change'] } },
+  // Doesn't pick up all props
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
-    size: { control: 'select', options: ['large', 'small'] },
   },
   args: {
     checked: false,
     disabled: false,
-    size: 'small',
   },
 } as Meta;
 

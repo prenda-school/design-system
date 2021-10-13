@@ -5,13 +5,19 @@ import FormControlLabel from '../FormControlLabel';
 import FormHelperText from '../FormHelperText';
 import FormLabel from '../FormLabel';
 import Radio from '../Radio';
-import RadioGroup from './RadioGroup';
+import { default as RadioGroup, RadioGroupProps } from './RadioGroup';
 import { DocumentationTemplate } from '../../stories/templates';
+
+export const TypedRadioGroup = (props: RadioGroupProps) => (
+  <RadioGroup {...props} />
+);
 
 export default {
   title: 'PDS/@ps/RadioGroup',
-  component: RadioGroup,
+  component: TypedRadioGroup,
+  excludeStories: ['TypedRadioGroup'],
   parameters: { actions: { handles: ['change'] } },
+  // Doesn't pickup props
   argTypes: {
     value: {
       control: { type: 'select' },

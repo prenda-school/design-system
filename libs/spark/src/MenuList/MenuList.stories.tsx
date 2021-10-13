@@ -8,7 +8,7 @@ import ListItemText from '../ListItemText';
 import ListItemIcon from '../ListItemIcon';
 import ListSubheader from '../ListSubheader';
 import MenuItem from '../MenuItem';
-import MenuList from './MenuList';
+import { default as MenuList, MenuListProps } from './MenuList';
 import Paper from '../Paper';
 import withStyles from '../withStyles';
 import {
@@ -16,11 +16,12 @@ import {
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedMenuList = (props: MenuListProps) => <MenuList {...props} />;
+
 export default {
   title: 'PDS/@ps/MenuList',
-  component: MenuList,
-  argTypes: {},
-  args: {},
+  component: TypedMenuList,
+  excludeStories: ['TypedMenuList'],
 } as Meta;
 
 const CustomPaper = withStyles((theme) => ({

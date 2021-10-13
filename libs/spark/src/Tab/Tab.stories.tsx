@@ -1,15 +1,20 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Tab from './Tab';
+import { ExtendButtonBase } from '../ButtonBase';
+import { default as Tab, TabTypeMap } from './Tab';
 import styled from '../styled';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedTab: ExtendButtonBase<TabTypeMap> = Tab;
+
 export default {
   title: 'PDS/@ps/Tab',
-  component: Tab,
+  component: TypedTab,
+  excludeStories: ['TypedTab'],
+  // Doesn't pick up any props
   argTypes: {
     disabled: { control: 'boolean' },
     label: { control: 'text' },

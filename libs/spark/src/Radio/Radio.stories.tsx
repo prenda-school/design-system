@@ -1,17 +1,20 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import FormControlLabel from '../FormControlLabel';
-import Radio from './Radio';
+import { default as Radio, RadioProps } from './Radio';
+
+export const TypedRadio = (props: RadioProps) => <Radio {...props} />;
 
 export default {
   title: 'PDS/@ps/Radio',
-  component: Radio,
+  component: TypedRadio,
+  excludeStories: ['TypedRadio'],
   parameters: { actions: { handles: ['change'] } },
+  // Doesn't pick up extended SwitchBaseProps
   argTypes: {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
-  args: {},
 } as Meta;
 
 const Template: Story = (args) => (
