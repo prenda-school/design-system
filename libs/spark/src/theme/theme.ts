@@ -1,23 +1,22 @@
-import createTheme from '@material-ui/core/styles/createTheme';
-import type { Theme } from '@material-ui/core/styles/createTheme';
+import {
+  default as createTheme,
+  Theme,
+} from '@material-ui/core/styles/createTheme';
+import initialTheme from './initialTheme';
 import overrides from './overrides';
-import palette from './palette';
 import props from './props';
-import shadows from './shadows';
-import typography from './typography';
 
-const initialTheme = createTheme({
-  palette,
-  props,
-  shadows,
-  typography,
-});
+export type { Theme } from '@material-ui/core/styles/createTheme';
 
-const theme = createTheme({
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface DefaultTheme extends Theme {}
+
+declare module '@material-ui/styles/defaultTheme' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
+export default createTheme({
   ...initialTheme,
+  props,
   overrides: overrides(initialTheme),
 });
-
-export default theme;
-
-export type { Theme };
