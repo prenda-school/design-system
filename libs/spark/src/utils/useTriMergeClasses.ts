@@ -27,12 +27,12 @@ export default function useTriMergeClasses<
 
   // build upon the above initial values
   for (const [key, value] of Object.entries(passedClasses)) {
-    // a short-circuit type check for whether this key should be merged with
+    // A short-circuit type check for whether this key should be merged with
     // the custom or underlying classes. if it exists in custom, then merge
-    // with that. bias towards custom classes is desired. this has correct
-    // results because customClasses is not a partial, whereas underlyingClasses
-    // is; spark may not fully override every underlying class, but it does
-    // *fully* define its custom classes.
+    // with that. bias towards custom classes is desired and possible since
+    // customClasses  is not a partial, whereas underlyingClasses is; spark
+    // may not fully override every underlying class, but it does  *fully*
+    // define its custom classes.
     const customValue = customClasses[key];
 
     if (customValue) {
