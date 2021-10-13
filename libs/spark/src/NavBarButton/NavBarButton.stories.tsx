@@ -2,12 +2,16 @@ import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { CheckCircleDuotone } from '@prenda/spark-icons';
 import Box from '../Box';
-import NavBarButton from './NavBarButton';
-import type { NavBarButtonProps } from './NavBarButton';
+import { default as NavBarButton, NavBarButtonProps } from './NavBarButton';
+
+export const TypedNavBarButton = (props: NavBarButtonProps) => (
+  <NavBarButton {...props} />
+);
 
 export default {
   title: 'PDS/@ps/NavBarButton',
-  component: NavBarButton,
+  component: TypedNavBarButton,
+  excludeStories: ['TypedNavBarButton'],
   argTypes: {
     onClick: { actions: 'clicked' },
     disabled: { control: 'boolean' },

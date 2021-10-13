@@ -1,15 +1,19 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Banner from './Banner';
+import { default as Banner, BannerProps } from './Banner';
 import styled from '../styled';
 import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
 
+export const TypedBanner = (props: BannerProps) => <Banner {...props} />;
+
 export default {
   title: 'PDS/@ps/Banner',
-  component: Banner,
+  component: TypedBanner,
+  excludeStories: ['TypedBanner'],
+  // Doesn't pick up extended AlertProps
   argTypes: {
     severity: {
       control: 'select',
@@ -30,7 +34,7 @@ const messages = {
 };
 
 const Template: Story = (args) => (
-  <Banner {...args}>{messages[args.severity]}</Banner>
+  <Banner {...args}>{messages[args.severity || 'success']}</Banner>
 );
 
 export const Configurable = Template.bind({});

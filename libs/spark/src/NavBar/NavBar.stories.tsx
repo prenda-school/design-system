@@ -9,18 +9,18 @@ import {
   PrendaMonogram,
 } from '@prenda/spark-icons';
 import Avatar from '../Avatar';
-import NavBar from './NavBar';
-import type { NavBarProps } from './NavBar';
+import { default as NavBar, NavBarProps } from './NavBar';
 import NavBarButton from '../NavBarButton';
 import Toolbar from '../Toolbar';
 import styled from '../styled';
 import withStyles from '../withStyles';
 
+export const TypedNavBar = (props: NavBarProps) => <NavBar {...props} />;
+
 export default {
   title: 'PDS/@ps/NavBar',
-  component: NavBar,
-  argTypes: {},
-  args: {},
+  component: TypedNavBar,
+  excludeStories: ['TypedNavBar'],
 } as Meta;
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({

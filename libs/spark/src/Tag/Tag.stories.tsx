@@ -7,13 +7,16 @@ import {
   ChangelogTemplate,
 } from '../../stories/templates';
 
+export const TypedTag = Tag;
+
 const handleDelete = () => {
   return;
 };
 
 export default {
   title: 'PDS/@ps/Tag',
-  component: Tag,
+  component: TypedTag,
+  excludeStories: ['TypedTag'],
   parameters: {
     actions: {
       // override default actions regex
@@ -23,29 +26,9 @@ export default {
     },
   },
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['subtle', 'bold'],
-    },
-    color: {
-      control: 'select',
-      options: [
-        'default',
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'blue',
-        'purple',
-      ],
-    },
-    disabled: { control: 'boolean' },
     onDelete: { control: 'select', options: [undefined, handleDelete] },
   },
   args: {
-    variant: 'subtle',
-    color: 'default',
-    disabled: false,
     onDelete: undefined,
   },
 } as Meta;

@@ -1,27 +1,19 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import PaginationItem from './PaginationItem';
+import {
+  default as PaginationItem,
+  PaginationItemTypeMap,
+} from './PaginationItem';
+import type { OverridableComponent } from '../utils';
+
+export const TypedPaginationItem: OverridableComponent<PaginationItemTypeMap> = (
+  props
+) => <PaginationItem {...props} />;
 
 export default {
   title: 'PDS/@ps/Pagination Item',
-  component: PaginationItem,
-  argTypes: {
-    type: {
-      control: 'select',
-      options: [
-        'page',
-        'first',
-        'last',
-        'next',
-        'previous',
-        'start-ellipsis',
-        'end-ellipsis',
-      ],
-    },
-    page: { control: 'number' },
-    selected: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-  },
+  component: TypedPaginationItem,
+  excludeStories: ['TypedPaginationItem'],
   args: {
     type: 'page',
     page: 1,

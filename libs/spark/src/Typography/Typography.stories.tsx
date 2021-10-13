@@ -1,62 +1,16 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Typography from './Typography';
-import type { TypographyProps } from './Typography';
+import { default as Typography, TypographyProps } from './Typography';
 import styled from '../styled';
 import withStyles from '../withStyles';
 import { ChangelogTemplate } from '../../stories/templates';
 
+export const TypedTypography = Typography;
+
 export default {
   title: 'PDS/@ps/Typography',
-  component: Typography,
-  argTypes: {
-    variant: {
-      control: {
-        type: 'select',
-        options: [
-          'inherit',
-          'display-lg',
-          'display-md',
-          'display-sm',
-          'heading-xl',
-          'heading-lg',
-          'heading-md',
-          'heading-sm',
-          'uppercase-lg',
-          'uppercase-md',
-          'uppercase-sm',
-          'label-xl',
-          'label-lg',
-          'label-md',
-          'label-sm',
-          'paragraph-xl',
-          'paragraph-lg',
-          'paragraph-md',
-          'paragraph-sm',
-          'code-lg',
-          'code-md',
-          'code-sm',
-        ],
-      },
-    },
-    color: {
-      control: {
-        type: 'select',
-        options: [
-          'initial',
-          'inherit',
-          'onDark',
-          'onDarkLowContrast',
-          'onLight',
-          'onLightLowContrast',
-        ],
-      },
-    },
-  },
-  args: {
-    variant: 'paragraph-lg',
-    color: 'onLight',
-  },
+  component: TypedTypography,
+  excludeStories: ['TypedTypography'],
 } as Meta;
 
 type TextKey =

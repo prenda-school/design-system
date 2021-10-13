@@ -65,7 +65,7 @@ const actionMapping = {
   ),
 };
 
-const Banner = withStyles(
+export default withStyles(
   (theme) => ({
     root: {
       borderRadius: 0,
@@ -113,5 +113,3 @@ const Banner = withStyles(
     <Alert action={Action ? <Action /> : null} {...other} variant="filled" />
   );
 });
-
-export default Banner;

@@ -1,13 +1,17 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Checkbox from './Checkbox';
+import { default as Checkbox, CheckboxProps } from './Checkbox';
 import FormControlLabel from '../FormControlLabel';
 import { DocumentationTemplate } from '../../stories/templates';
 
+export const TypedCheckbox = (props: CheckboxProps) => <Checkbox {...props} />;
+
 export default {
   title: 'PDS/@ps/Checkbox',
-  component: Checkbox,
+  component: TypedCheckbox,
+  excludeStories: ['TypedCheckbox'],
   parameters: { actions: { handles: ['change'] } },
+  // Doesn't pick up extended SwitchBaseProps
   argTypes: {
     checked: { control: 'boolean' },
     indeterminate: { control: 'boolean' },

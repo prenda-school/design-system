@@ -1,12 +1,19 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import Button from './Button';
+import { default as Button, ButtonTypeMap } from './Button';
 import Box from '../Box';
+import { ExtendButtonBase } from '../ButtonBase';
+
+export const TypedButton: ExtendButtonBase<ButtonTypeMap> = (props) => (
+  <Button {...props} />
+);
 
 export default {
   title: 'PDS/@ps/Button',
-  component: Button,
+  component: TypedButton,
+  excludeStories: ['TypedButton'],
+  // Doesn't pick up props
   argTypes: {
     onClick: { actions: 'clicked' },
     variant: {

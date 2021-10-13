@@ -8,28 +8,19 @@ import {
   DocumentationTemplate,
 } from '../../stories/templates';
 
+export const TypedIconButton = IconButton;
+
 export default {
   title: 'PDS/@ps/IconButton',
-  component: IconButton,
+  component: TypedIconButton,
+  excludeStories: ['TypedIconButton'],
   argTypes: {
-    onClick: { actions: 'clicked' },
-    variant: {
-      control: 'select',
-      options: ['contained', 'outlined', 'text'],
-    },
-    size: {
-      control: 'select',
-      options: ['large', 'medium'],
-    },
     children: {
       control: 'select',
       options: ['ChevronDown'],
     },
-    disabled: { control: 'boolean' },
   },
   args: {
-    variant: 'contained',
-    size: 'large',
     children: 'ChevronDown',
   },
 } as Meta;

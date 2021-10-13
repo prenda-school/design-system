@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { HeartDuotone } from '@prenda/spark-icons';
 import Box from '../Box';
 import Button from '../Button';
-import Card from './Card';
+import { default as Card, CardProps } from './Card';
 import CardActions from '../CardActions';
 import CardContent from '../CardContent';
 import CardMedia from '../CardMedia';
@@ -12,11 +12,12 @@ import Typography from '../Typography';
 import styled from '../styled';
 import withStyles from '../withStyles';
 
+export const TypedCard = (props: CardProps) => <Card {...props} />;
+
 export default {
   title: 'PDS/@ps/Card',
-  component: Card,
-  argTypes: {},
-  args: {},
+  component: TypedCard,
+  excludeStories: ['TypedCard'],
 } as Meta;
 
 const CustomCard = withStyles({

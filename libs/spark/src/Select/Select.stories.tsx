@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone } from '@prenda/spark-icons';
-import Select from './Select';
+import { default as Select, SelectProps } from './Select';
 import styled from '../styled';
 import MenuItem from '../MenuItem';
 import InputAdornment from '../InputAdornment';
 import { ChangelogTemplate } from '../../stories/templates';
 
+export const TypedSelect = (props: SelectProps) => <Select {...props} />;
+
 export default {
   title: 'PDS/@ps/Select',
-  component: Select,
+  component: TypedSelect,
+  excludeStories: ['TypedSelect'],
   parameters: { actions: { handles: ['change'] } },
+  // Doesn't pick up props
   argTypes: {
     value: { control: 'text' },
     displayEmpty: { control: 'boolean' },
