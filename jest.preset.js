@@ -1,3 +1,7 @@
 const nxPreset = require('@nrwl/jest/preset');
 
-module.exports = { ...nxPreset };
+const setupFiles = (nxPreset.setupFiles ?? []).concat([
+  '../../jest.overrides.js',
+]);
+
+module.exports = { ...nxPreset, setupFiles };
