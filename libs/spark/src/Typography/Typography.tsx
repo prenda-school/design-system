@@ -10,9 +10,8 @@ import {
   OverridableComponent,
   OverrideProps,
   capitalize,
-  useTriMergeClasses,
+  useCustomClasses,
 } from '../utils';
-import type { Theme } from '../theme';
 import type { SparkVariant } from '../theme/typography';
 
 export interface TypographyTypeMap<
@@ -43,6 +42,7 @@ export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
 
 type CustomClassKey =
   | SparkVariant
+  | 'root'
   | 'colorInitial'
   | 'colorInherit'
   | 'colorOnLight'
@@ -50,16 +50,13 @@ type CustomClassKey =
   | 'colorOnDark'
   | 'colorOnDarkLowContrast';
 
-export const MuiTypographyStyleOverrides = {
-  root: {
-    '& strong, b': {
-      fontWeight: 700,
+const useCustomStyles = makeStyles<CustomClassKey>(
+  (theme) => ({
+    root: {
+      '& strong, b': {
+        fontWeight: 700,
+      },
     },
-  },
-};
-
-const useCustomStyles = makeStyles(
-  (theme: Theme) => ({
     colorInitial: {},
     colorInherit: {
       color: 'inherit',
@@ -136,30 +133,29 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
 const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   function Typography(
     {
-      classes: passedClasses = {},
-      variant = 'paragraph-lg',
+      classes,
       color = 'onLight',
       component,
+      variant = 'paragraph-lg',
       ...other
     },
     ref
   ) {
     const baseCustomClasses = useCustomStyles();
 
-    const { underlyingClasses, customClasses } = useTriMergeClasses<
+    const { otherClasses, customClasses } = useCustomClasses<
       MuiTypographyClassKey,
       CustomClassKey
     >({
-      baseUnderlyingClasses: {},
+      classes,
       baseCustomClasses,
-      passedClasses,
     });
 
     return (
       <MuiTypography
         classes={{
-          ...underlyingClasses,
-          root: clsx(underlyingClasses.root, {
+          ...otherClasses,
+          root: clsx(customClasses.root, {
             [customClasses[variant]]: variant !== 'inherit',
             [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
           }),

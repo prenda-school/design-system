@@ -1,14 +1,9 @@
 import { render } from '@testing-library/react';
-import SparkThemeProvider from '../SparkThemeProvider';
 import Typography from './Typography';
 
 describe('Typography', () => {
-  it('is truthy', () => {
-    const { baseElement } = render(
-      <SparkThemeProvider>
-        <Typography />
-      </SparkThemeProvider>
-    );
+  it('renders', () => {
+    const { baseElement } = render(<Typography />);
 
     expect(baseElement).toBeTruthy();
   });
