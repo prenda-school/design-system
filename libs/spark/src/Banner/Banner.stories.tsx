@@ -19,9 +19,13 @@ export default {
       control: 'select',
       options: ['error', 'info', 'warning', 'success'],
     },
+    onClose: { action: 'closed' },
+    closeText: { control: 'text' },
   },
   args: {
     severity: 'info',
+    onDetails: null,
+    onClose: null,
   },
 } as Meta;
 

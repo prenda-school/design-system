@@ -14,6 +14,9 @@ export default {
   title: 'PDS/@ps/Avatar',
   component: TypedAvatar,
   excludeStories: ['TypedAvatar'],
+  args: {
+    src: '/img/guide-1.png',
+  },
 } as Meta;
 
 const Template = ({ src, alt, ...other }) => (
