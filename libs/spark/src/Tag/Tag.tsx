@@ -7,17 +7,19 @@ import {
 } from '@material-ui/core/Chip';
 import { CrossSmall } from '../internal';
 import makeStyles from '../makeStyles';
-import type { Theme } from '../theme';
 import {
   OverridableComponent,
   OverrideProps,
   capitalize,
-  useTriMergeClasses,
+  useCustomClasses,
 } from '../utils';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
 type CustomClassKey =
+  | 'root'
+  | 'label'
+  | 'deleteIcon'
   | 'colorRed'
   | 'colorOrange'
   | 'colorYellow'
@@ -89,8 +91,8 @@ export type TagProps<
   P = Record<string, unknown>
 > = OverrideProps<TagTypeMap<P, D>, D>;
 
-const useUnderlyingStyles = makeStyles(
-  (theme: Theme) => ({
+const useCustomStyles = makeStyles<CustomClassKey>(
+  (theme) => ({
     root: {
       backgroundColor: theme.palette.common.white,
       border: `2px solid ${theme.palette.grey.medium}`,
@@ -119,12 +121,6 @@ const useUnderlyingStyles = makeStyles(
         borderRadius: 2,
       },
     },
-  }),
-  { name: 'MuiSparkTag' }
-);
-
-const useCustomStyles = makeStyles(
-  (theme) => ({
     // order is important here
     //  - color should come before variant-color so variant-color will win
     colorRed: {
@@ -330,38 +326,30 @@ const useCustomStyles = makeStyles(
 );
 
 const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
-  {
-    classes: passedClasses = {},
-    color = 'default',
-    variant = 'subtle',
-    ...other
-  },
+  { classes, color = 'default', variant = 'subtle', ...other },
   ref
 ) {
-  const baseUnderlyingClasses = useUnderlyingStyles();
-
   const baseCustomClasses = useCustomStyles();
 
-  const { underlyingClasses, customClasses } = useTriMergeClasses<
-    MuiChipClassKey,
+  const { otherClasses, customClasses } = useCustomClasses<
+    TagClassKey,
     CustomClassKey
   >({
-    baseUnderlyingClasses,
+    classes,
     baseCustomClasses,
-    passedClasses,
   });
 
   return (
     <MuiChip
       classes={{
-        ...underlyingClasses,
-        root: clsx(underlyingClasses.root, {
+        ...otherClasses,
+        root: clsx(customClasses.root, {
           [customClasses[`color${capitalize(color)}`]]: color !== 'default',
           [customClasses[variant]]: variant !== 'subtle',
           [customClasses[`${variant}Color${capitalize(color)}`]]:
             variant !== 'subtle' && color !== 'default',
         }),
-        label: clsx(underlyingClasses.label, {
+        label: clsx(customClasses.label, {
           [customClasses[`labelColor${capitalize(color)}`]]:
             color !== 'default',
           [customClasses[`label${capitalize(variant)}`]]: variant !== 'subtle',
@@ -369,7 +357,7 @@ const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
             `label${capitalize(variant)}Color${capitalize(color)}`
           ]]: variant !== 'subtle' && color !== 'default',
         }),
-        deleteIcon: clsx(underlyingClasses.deleteIcon, {
+        deleteIcon: clsx(customClasses.deleteIcon, {
           [customClasses[`deleteIcon${capitalize(variant)}`]]:
             variant !== 'subtle',
           [customClasses[`deleteIconColor${capitalize(color)}`]]:
