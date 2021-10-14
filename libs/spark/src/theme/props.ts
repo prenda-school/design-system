@@ -1,20 +1,21 @@
-import { MuiAutocompleteDefaultProps } from '../Autocomplete';
-import { MuiAlertDefaultProps } from '../Alert';
-import { MuiButtonDefaultProps } from '../Button';
-import { MuiButtonBaseDefaultProps } from '../ButtonBase';
-import { MuiCardDefaultProps } from '../Card';
-import { MuiCheckboxDefaultProps } from '../Checkbox';
-import { MuiIconButtonDefaultProps } from '../IconButton';
-import { MuiInputDefaultProps } from '../Input';
-import { MuiInputLabelDefaultProps } from '../InputLabel';
-import { MuiMenuDefaultProps } from '../Menu';
-import { MuiPaginationDefaultProps } from '../Pagination';
-import { MuiPaginationItemDefaultProps } from '../PaginationItem';
-import { MuiRadioDefaultProps } from '../Radio';
-import { MuiSelectDefaultProps } from '../Select';
-import { MuiTabsDefaultProps } from '../Tabs';
+import { ComponentsProps } from '@material-ui/core/styles/props';
+import { MuiAutocompleteDefaultProps } from '../Autocomplete/defaults';
+import { MuiAlertDefaultProps } from '../Alert/defaults';
+import { MuiButtonDefaultProps } from '../Button/defaults';
+import { MuiButtonBaseDefaultProps } from '../ButtonBase/defaults';
+import { MuiCardDefaultProps } from '../Card/defaults';
+import { MuiCheckboxDefaultProps } from '../Checkbox/defaults';
+import { MuiIconButtonDefaultProps } from '../IconButton/defaults';
+import { MuiInputDefaultProps } from '../Input/defaults';
+import { MuiInputLabelDefaultProps } from '../InputLabel/defaults';
+import { MuiMenuDefaultProps } from '../Menu/defaults';
+import { MuiPaginationDefaultProps } from '../Pagination/defaults';
+import { MuiPaginationItemDefaultProps } from '../PaginationItem/defaults';
+import { MuiRadioDefaultProps } from '../Radio/defaults';
+import { MuiSelectDefaultProps } from '../Select/defaults';
+import { MuiTabsDefaultProps } from '../Tabs/defaults';
 
-const props = {
+export default {
   MuiAlert: MuiAlertDefaultProps,
   MuiAutocomplete: MuiAutocompleteDefaultProps,
   MuiButton: MuiButtonDefaultProps,
@@ -30,6 +31,4 @@ const props = {
   MuiRadio: MuiRadioDefaultProps,
   MuiSelect: MuiSelectDefaultProps,
   MuiTabs: MuiTabsDefaultProps,
-};
-
-export default props;
+} as ComponentsProps;
