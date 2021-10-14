@@ -4,13 +4,13 @@ import TabContext from '../TabContext';
 
 describe('TabPanel', () => {
   it('renders', async () => {
-    const { findByText } = render(
+    const { findByRole } = render(
       <TabContext value="x">
-        <TabPanel value="x">Label</TabPanel>
+        <TabPanel value="x" />
       </TabContext>
     );
 
-    const element = await findByText('Label');
+    const element = await findByRole('tabpanel');
 
     expect(element).toBeTruthy();
   });
