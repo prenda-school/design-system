@@ -116,6 +116,7 @@ const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
             customClasses.root,
             customClasses[`size${capitalize(size)}`]
           ),
+          colorDefault: customClasses.colorDefault,
         }}
         {...other}
         ref={ref}
