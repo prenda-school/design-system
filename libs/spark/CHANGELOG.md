@@ -2,12 +2,36 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...vNext) (yyyy-mm-dd)
 
+### Features
+
 - **makeStyles**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
 - **styled**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
 - **withStyles**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
+
+### Breaking
+
+- **Avatar**
+  - Removed CSS API rule names: `labelSizeLarge`, `labelSizeMedium`.
+    - Migration: use `$sizeLarge &`, `$sizeMedium &` respectively under the `label` rule.
+- **Tag**
+  - Removed CSS API rule names:
+    - `boldColorRed`, `boldColorOrange`, `boldColorYellow`, `boldColorGreen`, `boldColorBlue`, `boldColorPurple`.
+      - Migration: use `&$bold` under each `colorRed`, ... rule, respectively.
+    - `labelColorRed`, `labelColorOrange`, `labelColorYellow`, `labelColorGreen`, `labelColorBlue`, `labelColorPurple`.
+      - Migration: use `$colorRed &`, ..., respectively, under the `label` rule.
+    - `labelBold`
+      - Migration: use `$bold &` under the `label` rule.
+    - `labelBoldColorRed`, `labelBoldColorOrange`, `labelBoldColorYellow`, `labelBoldColorGreen`, `labelBoldColorBlue`, `labelBoldColorPurple`.
+      - Migration: use `$bold$colorRed &`, ..., respectively, under the `label` rule.
+    - `deleteIconColorRed`, `deleteIconColorOrange`, `deleteIconColorYellow`, `deleteIconColorGreen`, `deleteIconColorBlue`, `deleteIconColorPurple`.
+      - Migration: use `$colorRed &`, ..., respectively, under the `deleteIcon` rule.
+    - `deleteIconBold`.
+      - Migration: use `$bold &` under the `deleteIcon` rule.
+    - `deleteIconBoldColorRed`, `deleteIconBoldColorOrange`, `deleteIconBoldColorYellow`, `deleteIconBoldColorGreen`, `deleteIconBoldColorBlue`, `deleteIconBoldColorPurple`
+      - Migration: use `$bold$colorRed &`, ..., respectively, under the `deleteIcon` rule.
 
 # [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 

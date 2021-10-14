@@ -10,9 +10,8 @@ import {
   OverridableComponent,
   OverrideProps,
   capitalize,
-  useTriMergeClasses,
+  useClassesCapture,
 } from '../utils';
-import type { Theme } from '../theme';
 import type { SparkVariant } from '../theme/typography';
 
 export interface TypographyTypeMap<
@@ -42,24 +41,24 @@ export type TypographyProps<
 export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
 
 type CustomClassKey =
-  | SparkVariant
+  // from underlying
+  | 'root'
   | 'colorInitial'
   | 'colorInherit'
+  // custom
+  | SparkVariant
   | 'colorOnLight'
   | 'colorOnLightLowContrast'
   | 'colorOnDark'
   | 'colorOnDarkLowContrast';
 
-export const MuiTypographyStyleOverrides = {
-  root: {
-    '& strong, b': {
-      fontWeight: 700,
+const useCustomStyles = makeStyles<CustomClassKey>(
+  (theme) => ({
+    root: {
+      '& strong, b': {
+        fontWeight: 700,
+      },
     },
-  },
-};
-
-const useCustomStyles = makeStyles(
-  (theme: Theme) => ({
     colorInitial: {},
     colorInherit: {
       color: 'inherit',
@@ -136,7 +135,7 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
 const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   function Typography(
     {
-      classes: passedClasses = {},
+      classes,
       variant = 'paragraph-lg',
       color = 'onLight',
       component,
@@ -146,20 +145,19 @@ const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
   ) {
     const baseCustomClasses = useCustomStyles();
 
-    const { underlyingClasses, customClasses } = useTriMergeClasses<
-      MuiTypographyClassKey,
+    const { otherClasses, customClasses } = useClassesCapture<
+      TypographyClassKey,
       CustomClassKey
     >({
-      baseUnderlyingClasses: {},
       baseCustomClasses,
-      passedClasses,
+      classes,
     });
 
     return (
       <MuiTypography
         classes={{
-          ...underlyingClasses,
-          root: clsx(underlyingClasses.root, {
+          ...otherClasses,
+          root: clsx(customClasses.root, {
             [customClasses[variant]]: variant !== 'inherit',
             [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
           }),

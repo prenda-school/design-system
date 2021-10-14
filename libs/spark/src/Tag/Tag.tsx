@@ -7,28 +7,28 @@ import {
 } from '@material-ui/core/Chip';
 import { CrossSmall } from '../internal';
 import makeStyles from '../makeStyles';
-import type { Theme } from '../theme';
 import {
   OverridableComponent,
   OverrideProps,
   capitalize,
-  useTriMergeClasses,
+  useClassesCapture,
 } from '../utils';
 
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
 type CustomClassKey =
+  // underlying
+  | 'root'
+  | 'label'
+  | 'deleteIcon'
+  // custom
   | 'colorRed'
   | 'colorOrange'
   | 'colorYellow'
   | 'colorGreen'
   | 'colorBlue'
   | 'colorPurple'
-  | 'bold'
-  // underlying
-  | 'root'
-  | 'label'
-  | 'deleteIcon';
+  | 'bold';
 
 export interface TagTypeMap<
   P = Record<string, unknown>,
@@ -61,7 +61,7 @@ export type TagProps<
   P = Record<string, unknown>
 > = OverrideProps<TagTypeMap<P, D>, D>;
 
-const useCustomStyles = makeStyles(
+const useCustomStyles = makeStyles<CustomClassKey>(
   (theme) => ({
     root: {
       backgroundColor: theme.palette.common.white,
@@ -302,29 +302,23 @@ const useCustomStyles = makeStyles(
 );
 
 const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
-  {
-    classes: passedClasses = {},
-    color = 'default',
-    variant = 'subtle',
-    ...other
-  },
+  { classes, color = 'default', variant = 'subtle', ...other },
   ref
 ) {
   const baseCustomClasses = useCustomStyles();
 
-  const { underlyingClasses, customClasses } = useTriMergeClasses<
-    MuiChipClassKey,
+  const { otherClasses, customClasses } = useClassesCapture<
+    TagClassKey,
     CustomClassKey
   >({
-    baseUnderlyingClasses: {},
     baseCustomClasses,
-    passedClasses,
+    classes,
   });
 
   return (
     <MuiChip
       classes={{
-        ...underlyingClasses,
+        ...otherClasses,
         root: clsx(customClasses.root, {
           [customClasses[`color${capitalize(color)}`]]: color !== 'default',
           [customClasses[variant]]: variant !== 'subtle',

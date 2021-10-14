@@ -6,7 +6,7 @@ import {
   IconButtonProps as MuiIconButtonProps,
 } from '@material-ui/core/IconButton';
 import makeStyles from '../makeStyles';
-import { capitalize, OverridableComponent, useTriMergeClasses } from '../utils';
+import { OverridableComponent, capitalize, useClassesCapture } from '../utils';
 
 export const MuiIconButtonDefaultProps = {
   disableFocusRipple: true,
@@ -38,20 +38,18 @@ export type IconButtonClassKey = MuiIconButtonClassKey | CustomClassKey;
 // scoped specifically to the custom component so they don't affect
 // auxiliary, global use.
 type CustomClassKey =
-  // re-defined
+  // from underlying
   | 'root'
   | 'label'
   | 'disabled'
-  // truly custom
+  // custom
   | 'contained'
   | 'outlined'
   | 'text'
   | 'sizeLarge'
-  | 'sizeMedium'
-  | 'labelSizeLarge'
-  | 'labelSizeMedium';
+  | 'sizeMedium';
 
-const useCustomStyles = makeStyles(
+const useCustomStyles = makeStyles<CustomClassKey>(
   ({ palette, typography }) => ({
     root: {
       borderRadius: '50%',
@@ -66,9 +64,13 @@ const useCustomStyles = makeStyles(
     },
     label: {
       color: 'inherit',
-      // :TODO: delete when SvgIcon implements 'medium' class and removes default `fontSize: 1.5rem`
-      '& [class*=MuiSvgIcon-root]': {
-        fontSize: 'inherit',
+      '$sizeLarge &': {
+        fontSize: typography.pxToRem(24),
+        lineHeight: typography.pxToRem(24),
+      },
+      '$sizeMedium &': {
+        fontSize: typography.pxToRem(20),
+        lineHeight: typography.pxToRem(20),
       },
     },
     disabled: {},
@@ -130,57 +132,37 @@ const useCustomStyles = makeStyles(
     sizeMedium: {
       padding: 4, // plus 2px border width for 6px
     },
-    labelSizeLarge: {
-      fontSize: typography.pxToRem(24),
-      lineHeight: typography.pxToRem(24),
-    },
-    labelSizeMedium: {
-      fontSize: typography.pxToRem(20),
-      lineHeight: typography.pxToRem(20),
-    },
   }),
   { name: 'MuiSparkIconButton' }
 );
 
 const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
   function IconButton(
-    {
-      classes: passedClasses = {},
-      variant = 'contained',
-      size = 'large',
-      children,
-      ...other
-    },
+    { classes, variant = 'contained', size = 'large', children, ...other },
     ref
   ) {
     const baseCustomClasses = useCustomStyles();
 
-    const { underlyingClasses, customClasses } = useTriMergeClasses<
-      MuiIconButtonClassKey,
+    const { otherClasses, customClasses } = useClassesCapture<
+      IconButtonClassKey,
       CustomClassKey
     >({
-      baseUnderlyingClasses: {},
+      classes,
       baseCustomClasses,
-      passedClasses,
     });
 
     return (
       <MuiIconButton
         ref={ref}
         classes={{
-          ...underlyingClasses,
+          ...otherClasses,
           root: clsx(
-            underlyingClasses.root,
             customClasses.root,
             customClasses[variant],
             customClasses[`size${capitalize(size)}`]
           ),
-          label: clsx(
-            underlyingClasses.label,
-            customClasses.label,
-            customClasses[`labelSize${capitalize(size)}`]
-          ),
-          disabled: clsx(underlyingClasses.disabled, customClasses.disabled),
+          label: customClasses.label,
+          disabled: customClasses.disabled,
         }}
         {...other}
       >
