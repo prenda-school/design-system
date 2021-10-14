@@ -35,7 +35,6 @@ import type { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiSwitchStyleOverrides } from '../Switch';
-import { MuiTabStyleOverrides } from '../Tab';
 import type { TagClassKey } from '../Tag';
 import type { TypographyClassKey } from '../Typography';
 import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAction';
@@ -92,7 +91,6 @@ const overrides = (theme: Theme): Overrides => ({
   MuiSelect: MuiSelectStylesOverrides(theme),
   MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
   MuiSwitch: MuiSwitchStyleOverrides(theme),
-  MuiTab: MuiTabStyleOverrides(theme),
 });
 
 export default overrides;
