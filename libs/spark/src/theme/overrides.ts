@@ -3,8 +3,8 @@ import type { Theme } from '@material-ui/core';
 import type { Overrides } from '@material-ui/core/styles/overrides';
 import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete';
-import { AvatarClassKey, MuiAvatarStyleOverrides } from '../Avatar';
-import { BannerClassKey } from '../Banner';
+import type { AvatarClassKey } from '../Avatar';
+import type { BannerClassKey } from '../Banner';
 import { MuiButtonStyleOverrides } from '../Button';
 import { MuiDividerStyleOverrides } from '../Divider';
 import { MuiCardStyleOverrides } from '../Card';
@@ -14,7 +14,7 @@ import { MuiCheckboxStyleOverrides } from '../Checkbox';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText';
 import { MuiFormLabelStyleOverrides } from '../FormLabel';
-import { IconButtonClassKey } from '../IconButton';
+import type { IconButtonClassKey } from '../IconButton';
 import { MuiInputStyleOverrides } from '../Input';
 import { MuiInputAdornmentStylesOverrides } from '../InputAdornment';
 import { MuiInputBaseStyleOverrides } from '../InputBase';
@@ -30,16 +30,16 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem';
 import { MuiPaginationStyleOverrides } from '../Pagination';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem';
 import { MuiRadioStyleOverrides } from '../Radio';
-import { SectionMessageClassKey } from '../SectionMessage';
-import { SectionMessageTitleClassKey } from '../SectionMessageTitle';
+import type { SectionMessageClassKey } from '../SectionMessage';
+import type { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select';
 import { MuiSvgIconStyleOverrides } from '../SvgIcon';
 import { MuiSwitchStyleOverrides } from '../Switch';
 import { MuiTabStyleOverrides } from '../Tab';
 import { MuiTabsStyleOverrides } from '../Tabs';
 import { MuiTabPanelStyleOverrides } from '../TabPanel';
-import { TagClassKey } from '../Tag';
-import { MuiTypographyStyleOverrides, TypographyClassKey } from '../Typography';
+import type { TagClassKey } from '../Tag';
+import type { TypographyClassKey } from '../Typography';
 import { MuiListItemSecondaryActionStyleOverrides } from '../ListItemSecondaryAction';
 
 declare module '@material-ui/core/styles/overrides' {
@@ -56,7 +56,6 @@ declare module '@material-ui/core/styles/overrides' {
 
 const overrides = (theme: Theme): Overrides => ({
   MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),
-  MuiAvatar: MuiAvatarStyleOverrides(theme),
   MuiButton: MuiButtonStyleOverrides(theme),
   MuiCssBaseline: {
     '@global': {
@@ -97,7 +96,6 @@ const overrides = (theme: Theme): Overrides => ({
   MuiTab: MuiTabStyleOverrides(theme),
   MuiTabPanel: MuiTabPanelStyleOverrides,
   MuiTabs: MuiTabsStyleOverrides(theme),
-  MuiTypography: MuiTypographyStyleOverrides,
 });
 
 export default overrides;

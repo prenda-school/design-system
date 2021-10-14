@@ -6,6 +6,6 @@ export { default as createSvgIcon } from './createSvgIcon';
 
 export * from './OverridableComponent';
 
-export { default as useTriMergeClasses } from './useTriMergeClasses';
+export { default as useClassesCapture } from './useClassesCapture';
 
 export { default as useUniqueId } from './useUniqueId';

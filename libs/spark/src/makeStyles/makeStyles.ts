@@ -4,10 +4,10 @@ import initialTheme from '../theme/initialTheme';
 import type { ClassNameMap, Styles, WithStylesOptions } from '../withStyles';
 
 export default function makeStyles<
-  Theme = DefaultTheme,
+  ClassKey extends string = string,
   // eslint-disable-next-line @typescript-eslint/ban-types
   Props extends object = {},
-  ClassKey extends string = string
+  Theme = DefaultTheme
 >(
   styles: Styles<Theme, Props, ClassKey>,
   options?: Omit<WithStylesOptions<Theme>, 'withTheme'>

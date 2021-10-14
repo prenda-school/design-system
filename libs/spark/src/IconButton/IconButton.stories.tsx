@@ -26,7 +26,7 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <IconButton {...args}>{<ChevronDown />}</IconButton>
+  <IconButton {...args}>{<ChevronDown fontSize="inherit" />}</IconButton>
 );
 
 export const Configurable = Template.bind({});
@@ -51,36 +51,36 @@ const VariantAndSizeTemplate: Story = (args) => (
     <span>Contained</span>
     <span>
       <IconButton {...args} variant="contained" size="large">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="contained" size="medium">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
       <IconButton {...args} variant="outlined" size="large">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="outlined" size="medium">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
 
     <span>Text</span>
     <span>
       <IconButton {...args} variant="text" size="large">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="text" size="medium">
-        <ChevronDown />
+        <ChevronDown fontSize="inherit" />
       </IconButton>
     </span>
   </GridContainer>
@@ -135,15 +135,7 @@ Documentation.args = {
     extends: {
       href: 'https://v4.mui.com/api/icon-button/#css',
     },
-    adds: [
-      'contained',
-      'outlined',
-      'text',
-      'sizeLarge',
-      'sizeMedium',
-      'labelSizeLarge',
-      'labelSizeMedium',
-    ],
+    adds: ['contained', 'outlined', 'text', 'sizeLarge', 'sizeMedium'],
     omits: ['sizeSmall'],
   },
 };

@@ -6,17 +6,24 @@ import {
   AvatarProps as MuiAvatarProps,
 } from '@material-ui/core/Avatar';
 import makeStyles from '../makeStyles';
-import type { Theme } from '../theme';
 import {
   OverridableComponent,
   OverrideProps,
   capitalize,
-  useTriMergeClasses,
+  useClassesCapture,
 } from '../utils';
 
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
 
-type CustomClassKey = 'sizeLarge' | 'sizeMedium' | 'sizeSmall' | 'sizeXsmall';
+type CustomClassKey =
+  // from underlying
+  | 'root'
+  | 'colorDefault'
+  // custom
+  | 'sizeLarge'
+  | 'sizeMedium'
+  | 'sizeSmall'
+  | 'sizeXsmall';
 
 export interface AvatarTypeMap<
   P = Record<string, unknown>,
@@ -38,54 +45,51 @@ export type AvatarProps<
   P = Record<string, unknown>
 > = OverrideProps<AvatarTypeMap<P, D>, D>;
 
-export const MuiAvatarStyleOverrides = ({ palette }: Theme) => ({
-  root: {
-    border: `2px solid ${palette.grey.medium}`,
-  },
-  colorDefault: {
-    backgroundColor: palette.common.white,
-    color: palette.text.onLight,
-    '& [class*=MuiSvgIcon-root]': {
-      color: palette.text.onLightLowContrast,
+const useCustomStyles = makeStyles<CustomClassKey>(
+  ({ palette, typography }) => ({
+    root: {
+      border: `2px solid ${palette.grey.medium}`,
     },
-  },
-});
-
-const useCustomStyles = makeStyles(
-  (theme: Theme) => ({
+    colorDefault: {
+      backgroundColor: palette.common.white,
+      color: palette.text.onLight,
+      '& [class*=MuiSvgIcon-root]': {
+        color: palette.text.onLightLowContrast,
+      },
+    },
     sizeLarge: {
-      ...theme.typography['heading-lg'],
+      ...typography['heading-lg'],
       width: 80,
       height: 80,
       '& [class*=MuiSvgIcon-root]': {
-        fontSize: theme.typography.pxToRem(40),
+        fontSize: typography.pxToRem(40),
       },
     },
     sizeMedium: {
-      ...theme.typography['heading-md'],
+      ...typography['heading-md'],
       width: 56,
       height: 56,
       '& [class*=MuiSvgIcon-root]': {
-        fontSize: theme.typography.pxToRem(28),
+        fontSize: typography.pxToRem(28),
       },
     },
     sizeSmall: {
-      ...theme.typography['label-md'],
+      ...typography['label-md'],
       fontWeight: 700,
       width: 32,
       height: 32,
       '& [class*=MuiSvgIcon-root]': {
-        fontSize: theme.typography.pxToRem(16),
+        fontSize: typography.pxToRem(16),
       },
     },
     sizeXsmall: {
       width: 24,
       height: 24,
-      fontSize: theme.typography.pxToRem(8),
+      fontSize: typography.pxToRem(8),
       lineHeight: 1.5,
       fontWeight: 700,
       '& [class*=MuiSvgIcon-root]': {
-        fontSize: theme.typography.pxToRem(12),
+        fontSize: typography.pxToRem(12),
       },
     },
   }),
@@ -93,29 +97,26 @@ const useCustomStyles = makeStyles(
 );
 
 const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
-  function Avatar(
-    { classes: passedClasses = {}, size = 'medium', ...other },
-    ref
-  ) {
+  function Avatar({ classes, size = 'medium', ...other }, ref) {
     const baseCustomClasses = useCustomStyles();
 
-    const { underlyingClasses, customClasses } = useTriMergeClasses<
-      MuiAvatarClassKey,
+    const { otherClasses, customClasses } = useClassesCapture<
+      AvatarClassKey,
       CustomClassKey
     >({
-      baseUnderlyingClasses: {},
+      classes,
       baseCustomClasses,
-      passedClasses,
     });
 
     return (
       <MuiAvatar
         classes={{
-          ...underlyingClasses,
+          ...otherClasses,
           root: clsx(
-            underlyingClasses.root,
+            customClasses.root,
             customClasses[`size${capitalize(size)}`]
           ),
+          colorDefault: customClasses.colorDefault,
         }}
         {...other}
         ref={ref}
