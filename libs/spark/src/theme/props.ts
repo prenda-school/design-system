@@ -12,7 +12,6 @@ import { MuiPaginationDefaultProps } from '../Pagination';
 import { MuiPaginationItemDefaultProps } from '../PaginationItem';
 import { MuiRadioDefaultProps } from '../Radio';
 import { MuiSelectDefaultProps } from '../Select';
-import { MuiTabsDefaultProps } from '../Tabs';
 
 const props = {
   MuiAlert: MuiAlertDefaultProps,
@@ -29,7 +28,6 @@ const props = {
   MuiPaginationItem: MuiPaginationItemDefaultProps,
   MuiRadio: MuiRadioDefaultProps,
   MuiSelect: MuiSelectDefaultProps,
-  MuiTabs: MuiTabsDefaultProps,
 };
 
 export default props;

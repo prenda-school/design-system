@@ -162,9 +162,6 @@ export * from './TabList';
 export { default as TabPanel } from './TabPanel';
 export * from './TabPanel';
 
-export { default as Tabs } from './Tabs';
-export * from './Tabs';
-
 export { default as Tag } from './Tag';
 export * from './Tag';
 
