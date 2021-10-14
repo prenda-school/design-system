@@ -2,12 +2,25 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...vNext) (yyyy-mm-dd)
 
+### Features
+
+- **Tab**
+  - Remove need to render under context of `SparkThemeProvider`.
+- **TabList**
+  - Remove need to render under context of `SparkThemeProvider`.
+- **TabPanel**
+  - Remove need to render under context of `SparkThemeProvider`.
 - **makeStyles**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
 - **styled**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
 - **withStyles**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
+
+### Breaking
+
+- **Tabs**
+  - Removed; use **TabList** instead.
 
 # [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 
