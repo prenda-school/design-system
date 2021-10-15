@@ -8,12 +8,12 @@ export const MuiFormControlLabelStyleOverrides = ({
 }: Theme): Partial<StyleRules<FormControlLabelClassKey>> => ({
   root: {
     marginLeft: -8,
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
     height: 40,
     marginTop: 1,
     marginBottom: 1,
     '&:hover, &:focus': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
     },
     '&$disabled': {
       color: palette.grey.dark,

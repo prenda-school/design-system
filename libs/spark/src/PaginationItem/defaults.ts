@@ -27,7 +27,7 @@ export const MuiPaginationItemStyleOverrides = ({
     backgroundColor: palette.common.white,
     border: `solid 2px ${palette.grey.medium}`,
     borderRadius: 0,
-    color: palette.text.onLight,
+    color: palette.text.dark,
     '&:hover': {
       backgroundColor: palette.grey.light,
       border: `solid 2px ${palette.grey.medium}`,
@@ -73,7 +73,7 @@ export const MuiPaginationItemStyleOverrides = ({
       fontWeight: 900,
       fontSize: '1.5rem',
       lineHeight: '1.75rem',
-      color: palette.text.onLightLowContrast,
+      color: palette.text.darkLowContrast,
       // extra to shift it down
       alignItems: 'flex-end',
       paddingBottom: '.375rem',
@@ -88,6 +88,6 @@ export const MuiPaginationItemStyleOverrides = ({
     },
   },
   icon: {
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
   },
 });

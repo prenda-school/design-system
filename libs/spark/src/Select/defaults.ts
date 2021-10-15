@@ -25,9 +25,7 @@ export const MuiSelectStylesOverrides = ({
 }: Theme): Partial<StyleRules<SelectClassKey, SelectProps>> => ({
   root: {
     color: ({ value, defaultValue }) =>
-      value || defaultValue
-        ? palette.text.onLight
-        : palette.text.onLightLowContrast,
+      value || defaultValue ? palette.text.dark : palette.text.darkLowContrast,
   },
   select: {
     borderRadius: 8,

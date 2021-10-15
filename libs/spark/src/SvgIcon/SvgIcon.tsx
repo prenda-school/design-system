@@ -13,8 +13,8 @@ export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
   contrast?: 'high' | 'low';
   color?:
     | 'inherit'
-    | 'onLight'
-    | 'onDark'
+    | 'dark'
+    | 'light'
     | 'disabled'
     | 'error'
     | 'success'
@@ -29,9 +29,9 @@ export default React.forwardRef<SVGSVGElement, SvgIconProps>(function SvgIcon(
 ) {
   let muiColor;
   let sparkColor = 'inherit';
-  if (color === 'onLight') {
+  if (color === 'dark') {
     muiColor = 'primary';
-  } else if (color === 'onDark') {
+  } else if (color === 'light') {
     muiColor = 'secondary';
   } else if (color === 'success') {
     sparkColor = 'success';

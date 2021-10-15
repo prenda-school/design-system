@@ -26,7 +26,7 @@ const CustomIconButton = withStyles((theme) => ({
     color: 'inherit',
     padding: 4,
     '&:focus, &:active': {
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
     },
   },
 }))(IconButton);
@@ -36,7 +36,7 @@ const CustomButton = withStyles((theme) => ({
     borderColor: 'transparent',
     padding: 4,
     '&:focus, &:active': {
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
     },
   },
 }))(Button);
@@ -79,7 +79,7 @@ export default withStyles(
     },
     filledWarning: {
       backgroundColor: theme.palette.yellow[2],
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
     },
     filledError: {
       backgroundColor: theme.palette.red[2],

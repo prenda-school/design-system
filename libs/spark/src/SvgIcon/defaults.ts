@@ -49,10 +49,10 @@ export const MuiSvgIconStyleOverrides = ({
     fontSize: '2rem', // 32px
   },
   colorPrimary: {
-    color: palette.text.onLight,
+    color: palette.text.dark,
   },
   colorSecondary: {
-    color: palette.text.onDark,
+    color: palette.text.light,
     '& > *[fill="#F0F1F2"]': {
       opacity: 0.72,
     },

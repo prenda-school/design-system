@@ -8,7 +8,7 @@ export const MuiFormLabelStyleOverrides = ({
 }: Theme): Partial<StyleRules<FormLabelClassKey>> => ({
   root: {
     ...typography['label-lg-strong'],
-    color: palette.text.onLight,
+    color: palette.text.dark,
     marginBottom: 3,
     // Design doesn't specify focus style, but it improves a11y
     '&$focused': {

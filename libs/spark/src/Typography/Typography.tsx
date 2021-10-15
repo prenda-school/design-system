@@ -6,28 +6,19 @@ import {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import makeStyles from '../makeStyles';
-import {
-  OverridableComponent,
-  OverrideProps,
-  capitalize,
-  useClassesCapture,
-} from '../utils';
 import type { SparkVariant } from '../theme/typography';
+import { OverrideProps, capitalize, useClassesCapture } from '../utils';
 
 export interface TypographyTypeMap<
-  P = Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
   D extends React.ElementType = 'span'
 > {
   props: P &
     Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
       variant?: SparkVariant | 'inherit';
-      color?:
-        | 'initial'
-        | 'inherit'
-        | 'onDark'
-        | 'onDarkLowContrast'
-        | 'onLight'
-        | 'onLightLowContrast';
+      color?: 'initial' | 'inherit' | 'dark' | 'light';
+      lowContrast?: boolean;
     };
   defaultComponent: D;
   classKey: TypographyClassKey;
@@ -35,7 +26,8 @@ export interface TypographyTypeMap<
 
 export type TypographyProps<
   D extends React.ElementType = TypographyTypeMap['defaultComponent'],
-  P = Record<string, unknown>
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
 > = OverrideProps<TypographyTypeMap<P, D>, D>;
 
 export type TypographyClassKey = MuiTypographyClassKey | CustomClassKey;
@@ -47,13 +39,12 @@ type CustomClassKey =
   | 'colorInherit'
   // custom
   | SparkVariant
-  | 'colorOnLight'
-  | 'colorOnLightLowContrast'
-  | 'colorOnDark'
-  | 'colorOnDarkLowContrast';
+  | 'colorLight'
+  | 'colorDark'
+  | 'lowContrast';
 
 const useCustomStyles = makeStyles<CustomClassKey>(
-  (theme) => ({
+  ({ palette, typography }) => ({
     root: {
       '& strong, b': {
         fontWeight: 700,
@@ -63,43 +54,45 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorInherit: {
       color: 'inherit',
     },
-    colorOnDark: {
-      color: theme.palette.text.onDark,
+    colorDark: {
+      color: palette.text.dark,
     },
-    colorOnDarkLowContrast: {
-      color: theme.palette.text.onDarkLowContrast,
+    colorLight: {
+      color: palette.text.light,
     },
-    colorOnLight: {
-      color: theme.palette.text.onLight,
+    lowContrast: {
+      '&$colorDark': {
+        color: palette.text.darkLowContrast,
+      },
+      '&$colorLight': {
+        color: palette.text.lightLowContrast,
+      },
     },
-    colorOnLightLowContrast: {
-      color: theme.palette.text.onLightLowContrast,
-    },
-    'display-lg': theme.typography['display-lg'],
-    'display-md': theme.typography['display-md'],
-    'display-sm': theme.typography['display-sm'],
-    'heading-xl': theme.typography['heading-xl'],
-    'heading-lg': theme.typography['heading-lg'],
-    'heading-md': theme.typography['heading-md'],
-    'heading-sm': theme.typography['heading-sm'],
-    'uppercase-lg': theme.typography['uppercase-lg'],
-    'uppercase-md': theme.typography['uppercase-md'],
-    'uppercase-sm': theme.typography['uppercase-sm'],
-    'label-xl': theme.typography['label-xl'],
-    'label-xl-strong': theme.typography['label-xl-strong'],
-    'label-lg': theme.typography['label-lg'],
-    'label-lg-strong': theme.typography['label-lg-strong'],
-    'label-md': theme.typography['label-md'],
-    'label-md-strong': theme.typography['label-md-strong'],
-    'label-sm': theme.typography['label-sm'],
-    'label-sm-strong': theme.typography['label-sm-strong'],
-    'paragraph-xl': theme.typography['paragraph-xl'],
-    'paragraph-lg': theme.typography['paragraph-lg'],
-    'paragraph-md': theme.typography['paragraph-md'],
-    'paragraph-sm': theme.typography['paragraph-sm'],
-    'code-lg': theme.typography['code-lg'],
-    'code-md': theme.typography['code-md'],
-    'code-sm': theme.typography['code-sm'],
+    'display-lg': typography['display-lg'],
+    'display-md': typography['display-md'],
+    'display-sm': typography['display-sm'],
+    'heading-xl': typography['heading-xl'],
+    'heading-lg': typography['heading-lg'],
+    'heading-md': typography['heading-md'],
+    'heading-sm': typography['heading-sm'],
+    'uppercase-lg': typography['uppercase-lg'],
+    'uppercase-md': typography['uppercase-md'],
+    'uppercase-sm': typography['uppercase-sm'],
+    'label-xl': typography['label-xl'],
+    'label-xl-strong': typography['label-xl-strong'],
+    'label-lg': typography['label-lg'],
+    'label-lg-strong': typography['label-lg-strong'],
+    'label-md': typography['label-md'],
+    'label-md-strong': typography['label-md-strong'],
+    'label-sm': typography['label-sm'],
+    'label-sm-strong': typography['label-sm-strong'],
+    'paragraph-xl': typography['paragraph-xl'],
+    'paragraph-lg': typography['paragraph-lg'],
+    'paragraph-md': typography['paragraph-md'],
+    'paragraph-sm': typography['paragraph-sm'],
+    'code-lg': typography['code-lg'],
+    'code-md': typography['code-md'],
+    'code-sm': typography['code-sm'],
   }),
   { name: 'MuiSparkTypography' }
 );
@@ -132,42 +125,45 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
   'code-sm': 'pre',
 };
 
-const Typography: OverridableComponent<TypographyTypeMap> = React.forwardRef(
-  function Typography(
-    {
-      classes,
-      variant = 'paragraph-lg',
-      color = 'onLight',
-      component,
-      ...other
-    },
-    ref
-  ) {
-    const baseCustomClasses = useCustomStyles();
+const Typography = React.forwardRef(function Typography<
+  D extends React.ElementType = TypographyTypeMap['defaultComponent']
+>(
+  {
+    classes,
+    variant = 'paragraph-lg',
+    color = 'inherit',
+    lowContrast,
+    component,
+    ...other
+  }: TypographyProps<D>,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ref: React.ForwardedRef<any>
+) {
+  const baseCustomClasses = useCustomStyles();
 
-    const { otherClasses, customClasses } = useClassesCapture<
-      TypographyClassKey,
-      CustomClassKey
-    >({
-      baseCustomClasses,
-      classes,
-    });
+  const { otherClasses, customClasses } = useClassesCapture<
+    TypographyClassKey,
+    CustomClassKey
+  >({
+    baseCustomClasses,
+    classes,
+  });
 
-    return (
-      <MuiTypography
-        classes={{
-          ...otherClasses,
-          root: clsx(customClasses.root, {
-            [customClasses[variant]]: variant !== 'inherit',
-            [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
-          }),
-        }}
-        component={component || defaultVariantMapping[variant]}
-        ref={ref}
-        {...other}
-      />
-    );
-  }
-);
+  return (
+    <MuiTypography
+      classes={{
+        ...otherClasses,
+        root: clsx(customClasses.root, {
+          [customClasses[variant]]: variant !== 'inherit',
+          [customClasses[`color${capitalize(color)}`]]: color !== 'initial',
+          [customClasses.lowContrast]: lowContrast,
+        }),
+      }}
+      component={component || defaultVariantMapping[variant]}
+      ref={ref}
+      {...other}
+    />
+  );
+});
 
 export default Typography;

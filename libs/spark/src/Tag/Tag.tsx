@@ -179,7 +179,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     },
     label: {
       ...theme.typography['label-lg-strong'],
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
       padding: 0,
       '$colorRed &': {
         color: theme.palette.red[5],
@@ -200,7 +200,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
         color: theme.palette.purple[5],
       },
       '$bold &': {
-        color: theme.palette.text.onLight,
+        color: theme.palette.text.dark,
       },
       '$bold$colorRed &': {
         color: theme.palette.common.white,
@@ -226,7 +226,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
       fontSize: theme.typography.pxToRem(16),
       width: '1em',
       height: '1em',
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
       // artificially increase specificity to win over `$bold &`
       '&&:hover, $root:focus > &': {
         color: theme.palette.common.white,
@@ -276,7 +276,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
         },
       },
       '$bold &': {
-        color: theme.palette.text.onLight,
+        color: theme.palette.text.dark,
       },
       '$bold$colorRed &': {
         color: theme.palette.common.white,

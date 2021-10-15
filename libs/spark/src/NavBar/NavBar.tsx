@@ -11,7 +11,7 @@ export default withStyles(({ palette }) => ({
     backgroundColor: palette.common.white,
     borderBottom: `2px solid ${palette.grey.medium}`,
     fontSize: '1.125rem',
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
   },
 }))(({ color = 'default', ...other }: NavBarProps) => (
   <AppBar

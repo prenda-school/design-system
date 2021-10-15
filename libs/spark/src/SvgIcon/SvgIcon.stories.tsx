@@ -34,7 +34,7 @@ const Container = styled('div')({
 const Template: Story = (args) => (
   <Container
     className={clsx({
-      [`bgColor${capitalize(args.color)}`]: args.color === 'onDark',
+      [`bgColor${capitalize(args.color)}`]: args.color === 'light',
     })}
   >
     <SvgIcon {...args}>
@@ -105,45 +105,45 @@ const ManyTemplate: Story = (args) => (
     <IconBox>
       <AlertCircleDuotone contrast="low" />
     </IconBox>
-    <span>onLight</span>
+    <span>dark</span>
     <IconBox>
-      <AlertCircle color="onLight" />
-    </IconBox>
-    <IconBox>
-      <AlertCircleFilled color="onLight" />
+      <AlertCircle color="dark" />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="onLight" />
-    </IconBox>
-    <span>onLight, low</span>
-    <IconBox>
-      <AlertCircle color="onLight" contrast="low" />
+      <AlertCircleFilled color="dark" />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="onLight" contrast="low" />
+      <AlertCircleDuotone color="dark" />
+    </IconBox>
+    <span>dark, low</span>
+    <IconBox>
+      <AlertCircle color="dark" contrast="low" />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="onLight" contrast="low" />
+      <AlertCircleFilled color="dark" contrast="low" />
     </IconBox>
-    <span>onDark</span>
-    <IconBox className="dark">
-      <AlertCircle color="onDark" />
+    <IconBox>
+      <AlertCircleDuotone color="dark" contrast="low" />
     </IconBox>
+    <span>light</span>
     <IconBox className="dark">
-      <AlertCircleFilled color="onDark" />
-    </IconBox>
-    <IconBox className="dark">
-      <AlertCircleDuotone color="onDark" />
-    </IconBox>
-    <span>onDark, low</span>
-    <IconBox className="dark">
-      <AlertCircle color="onDark" contrast="low" />
+      <AlertCircle color="light" />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleFilled color="onDark" contrast="low" />
+      <AlertCircleFilled color="light" />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleDuotone color="onDark" contrast="low" />
+      <AlertCircleDuotone color="light" />
+    </IconBox>
+    <span>light, low</span>
+    <IconBox className="dark">
+      <AlertCircle color="light" contrast="low" />
+    </IconBox>
+    <IconBox className="dark">
+      <AlertCircleFilled color="light" contrast="low" />
+    </IconBox>
+    <IconBox className="dark">
+      <AlertCircleDuotone color="light" contrast="low" />
     </IconBox>
     <span>disabled</span>
     <IconBox>

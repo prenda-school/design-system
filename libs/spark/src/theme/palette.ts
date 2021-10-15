@@ -31,10 +31,10 @@ declare module '@material-ui/core/index' {
 declare module '@material-ui/core/styles/createPalette' {
   // Only need to declare custom properties here; extending will throw
   interface TypeText {
-    onDark: string;
-    onDarkLowContrast: string;
-    onLight: string;
-    onLightLowContrast: string;
+    dark: string;
+    darkLowContrast: string;
+    light: string;
+    lightLowContrast: string;
   }
 
   interface TypeBackground {
@@ -131,10 +131,10 @@ const grey = {
 };
 
 const text = {
-  onDark: grey.light,
-  onDarkLowContrast: `${grey.light}b8`, // 72% opacity
-  onLight: blue[5],
-  onLightLowContrast: `${blue[5]}b8`, // 72% opacity
+  light: grey.light,
+  lightLowContrast: `${grey.light}b8`, // 72% opacity
+  dark: blue[5],
+  darkLowContrast: `${blue[5]}b8`, // 72% opacity
 };
 
 // Only customizations are specified, view all other default theme.palette properties
@@ -143,20 +143,20 @@ const palette = createPalette({
   // Mui default properties, only customizations specified
   error: {
     main: red[3],
-    contrastText: text.onDark,
+    contrastText: text.light,
   },
   warning: {
     main: yellow[2],
-    contrastText: text.onLight,
+    contrastText: text.dark,
   },
   // "Primary Action" in Figma
   info: {
     main: blue[3],
-    contrastText: text.onDark,
+    contrastText: text.light,
   },
   success: {
     main: green[3],
-    contrastText: text.onDark,
+    contrastText: text.light,
   },
   grey,
   text,

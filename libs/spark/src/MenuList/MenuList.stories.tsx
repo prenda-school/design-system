@@ -31,7 +31,7 @@ const CustomPaper = withStyles((theme) => ({
     maxHeight: 40 * 8 + 16,
     overflowX: 'hidden',
     overflowY: 'auto',
-    scrollbarColor: `${theme.palette.text.onLightLowContrast} transparent`,
+    scrollbarColor: `${theme.palette.text.darkLowContrast} transparent`,
   },
 }))(Paper);
 
