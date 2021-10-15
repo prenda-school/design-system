@@ -8,29 +8,26 @@ import {
 import makeStyles from '../makeStyles';
 import { OverridableComponent, capitalize, useClassesCapture } from '../utils';
 
-export const MuiIconButtonDefaultProps = {
-  disableFocusRipple: true,
-  disableRipple: true,
-};
-
 export interface IconButtonTypeMap<
-  P = Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
   D extends React.ElementType = 'button'
 > {
-  props: P &
-    Omit<MuiIconButtonProps, 'classes' | 'size'> & {
-      /**
-       * The size of the icon button.
-       */
-      size?: 'large' | 'medium';
-      /**
-       * The variant of the icon button.
-       */
-      variant?: 'contained' | 'outlined' | 'text';
-    };
+  props: P & IconButtonProps;
   defaultComponent: D;
   classKey: IconButtonClassKey;
 }
+
+export type IconButtonProps = Omit<MuiIconButtonProps, 'classes' | 'size'> & {
+  /**
+   * The size of the icon button.
+   */
+  size?: 'large' | 'medium';
+  /**
+   * The variant of the icon button.
+   */
+  variant?: 'contained' | 'outlined' | 'text';
+};
 
 export type IconButtonClassKey = MuiIconButtonClassKey | CustomClassKey;
 
