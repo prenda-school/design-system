@@ -18,6 +18,11 @@
 - **Avatar**
   - Removed CSS API rule names: `labelSizeLarge`, `labelSizeMedium`.
     - Migration: use `$sizeLarge &`, `$sizeMedium &` respectively under the `label` rule.
+- **SvgIcon**
+  - Removed `color` prop values: `onDark`, `onLight`.
+    - Migration:
+      - `color="onDark"` to `color="light"`
+      - `color="onLight"` to `color="dark"`
 - **Tag**
   - Removed CSS API rule names:
     - `boldColorRed`, `boldColorOrange`, `boldColorYellow`, `boldColorGreen`, `boldColorBlue`, `boldColorPurple`.
