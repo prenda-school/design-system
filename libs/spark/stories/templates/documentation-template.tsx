@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { Box, Typography, withStyles } from '../../src';
+import { Box, Typography, styled, withStyles } from '../../src';
+
+export const Root = styled('div')(({ theme }) => ({
+  color: theme.palette.text.dark,
+}));
 
 export const H1 = (props) => (
   <Typography variant="heading-md" component="h1" gutterBottom {...props} />
@@ -63,7 +67,7 @@ const DocTemplate = ({
   };
   note?: string;
 }) => (
-  <>
+  <Root>
     {note ? (
       <p>
         <em>Note: </em>
@@ -164,7 +168,7 @@ const DocTemplate = ({
         </Li>
       ) : null}
     </ul>
-  </>
+  </Root>
 );
 
 export default DocTemplate;
