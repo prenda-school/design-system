@@ -46,6 +46,7 @@
       - `color="onDarkLowContrast"` to `color="light" lowContrast`
       - `color="onLight"` to `color="dark"`
       - `color="onLightLowContrast"` to `color="dark" lowContrast`
+  - Changed default value of `color` prop to `"inherit"`.
 - **theme**
   - New `theme.palette.text` properties reference the color itself rather than its background: `dark`, `darkLowContrast`, `light`, `lightLowContrast`
     - Migration:
