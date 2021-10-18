@@ -8,7 +8,7 @@ export const MuiInputBaseStyleOverrides = ({
 }: Theme): Partial<StyleRules<InputBaseClassKey>> => ({
   root: {
     ...typography['label-lg'],
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
     lineHeight: 24 / 16,
     boxSizing: 'border-box' as const,
     backgroundColor: palette.common.white,
@@ -42,9 +42,9 @@ export const MuiInputBaseStyleOverrides = ({
     // override weird default `em` height
     height: 'unset',
     borderRadius: 8,
-    color: palette.text.onLight,
+    color: palette.text.dark,
     '&::placeholder': {
-      color: palette.text.onLightLowContrast,
+      color: palette.text.darkLowContrast,
       opacity: 1,
     },
     '&$disabled': {

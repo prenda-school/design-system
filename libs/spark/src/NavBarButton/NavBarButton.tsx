@@ -11,7 +11,7 @@ export default withStyles((theme) => ({
     border: '2px solid transparent',
     padding: 6,
     textTransform: 'none',
-    color: theme.palette.text.onLightLowContrast,
+    color: theme.palette.text.darkLowContrast,
     '&:hover': {
       backgroundColor: theme.palette.grey.light,
       border: `2px solid ${theme.palette.grey.light}`,
@@ -25,7 +25,7 @@ export default withStyles((theme) => ({
     '&:active, &[aria-current=page]': {
       border: `2px solid ${theme.palette.grey.light}`,
       backgroundColor: theme.palette.grey.light,
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
       '& *[fill="#F0F1F2"]': {
         fill: theme.palette.blue[3],
         fillOpacity: '0.24',

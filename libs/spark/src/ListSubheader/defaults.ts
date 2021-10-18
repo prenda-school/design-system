@@ -10,6 +10,6 @@ export const MuiListSubheaderStyleOverrides = ({
     ...typography['uppercase-sm'],
     // NOTE: divisor should be font size of above, in pixels
     lineHeight: 28 / 12,
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
   },
 });

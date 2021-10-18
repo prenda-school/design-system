@@ -19,7 +19,7 @@ const RadioIconRoot = styled('span')(({ theme: { palette, transitions } }) => ({
       backgroundColor: palette.common.white,
     },
     '&:hover, input:hover ~ &, label:hover &': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
       '&.SparkRadioIcon-checked .SparkRadioIcon-dot': {
         color: palette.blue[3],
       },

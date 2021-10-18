@@ -52,9 +52,9 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     },
     colorDefault: {
       backgroundColor: palette.common.white,
-      color: palette.text.onLight,
+      color: palette.text.dark,
       '& [class*=MuiSvgIcon-root]': {
-        color: palette.text.onLightLowContrast,
+        color: palette.text.darkLowContrast,
       },
     },
     sizeLarge: {

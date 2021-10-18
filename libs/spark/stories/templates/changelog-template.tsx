@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Li, SmCode } from './documentation-template';
+import { Li, Root, SmCode } from './documentation-template';
 
 const ChangelogTemplate = ({
   history,
@@ -10,20 +10,22 @@ const ChangelogTemplate = ({
     changes: Array<string>;
   }>;
 }) => (
-  <ul>
-    {history.map((entry) => (
-      <Li key={entry.version}>
-        <SmCode>
-          {entry.version} ({entry.versionDate})
-        </SmCode>
-        <ul>
-          {entry.changes.map((change, i) => (
-            <Li key={i}>{change}</Li>
-          ))}
-        </ul>
-      </Li>
-    ))}
-  </ul>
+  <Root>
+    <ul>
+      {history.map((entry) => (
+        <Li key={entry.version}>
+          <SmCode>
+            {entry.version} ({entry.versionDate})
+          </SmCode>
+          <ul>
+            {entry.changes.map((change, i) => (
+              <Li key={i}>{change}</Li>
+            ))}
+          </ul>
+        </Li>
+      ))}
+    </ul>
+  </Root>
 );
 
 export default ChangelogTemplate;

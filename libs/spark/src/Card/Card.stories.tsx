@@ -32,12 +32,12 @@ export const BasicCard: Story = () => (
     <CardContent>
       <Typography
         variant="heading-md"
-        color="onLight"
+        color="dark"
         style={{ marginBottom: '1rem' }}
       >
         Heading
       </Typography>
-      <Typography variant="paragraph-xl" color="onLight">
+      <Typography variant="paragraph-xl" color="dark">
         This is a sample catalog of all the courses we offer. Browse by topic or
         difficulty. Sign up today and get access to our entire library. This is
         a sample catalog of all the courses we offer.
@@ -85,14 +85,14 @@ export const CardWithImage: Story = () => (
         alignItems="center"
         mb="16px"
       >
-        <Typography variant="heading-md" color="onLight">
+        <Typography variant="heading-md" color="dark">
           Title
         </Typography>
-        <Typography variant="uppercase-lg" color="onLightLowContrast">
+        <Typography variant="uppercase-lg" color="dark" lowContrast>
           Optional Text
         </Typography>
       </Box>
-      <Typography variant="paragraph-xl" color="onLightLowContrast">
+      <Typography variant="paragraph-xl" color="dark" lowContrast>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis turpis
         interdum hendrerit massa imperdiet.
       </Typography>

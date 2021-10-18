@@ -14,7 +14,7 @@ const CustomIconButton = withStyles((theme) => ({
     color: 'inherit',
     padding: 4,
     '&:focus, &:active': {
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
     },
   },
 }))(IconButton);
@@ -38,7 +38,7 @@ export default withStyles(
     root: {
       borderRadius: 8,
       padding: 24,
-      color: theme.palette.text.onLight,
+      color: theme.palette.text.dark,
     },
     action: {
       alignItems: 'flex-start',
@@ -59,7 +59,7 @@ export default withStyles(
     standardWarning: {
       backgroundColor: theme.palette.yellow[1],
       '& $icon': {
-        color: theme.palette.text.onLight,
+        color: theme.palette.text.dark,
       },
     },
     standardError: {

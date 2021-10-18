@@ -6,7 +6,7 @@ export const MuiListItemIconStyleOverrides = ({
   palette,
 }: Theme): Partial<StyleRules<ListItemIconClassKey>> => ({
   root: {
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
     minWidth: 'unset',
     marginRight: 8,
     '& [class*=MuiCheckbox-root]': {

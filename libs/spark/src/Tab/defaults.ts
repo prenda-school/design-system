@@ -28,18 +28,18 @@ export const MuiTabStyleOverrides = ({
     },
   },
   textColorPrimary: {
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
     '&:hover': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
     },
     '&:focus': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
     },
     '&:active': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
     },
     '&$selected': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
     },
     '&$disabled': {
       color: palette.grey.medium,

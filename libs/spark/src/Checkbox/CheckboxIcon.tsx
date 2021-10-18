@@ -19,7 +19,7 @@ const CheckboxIconRoot = styled('span')(
         height: 22,
       },
       '&:hover, input:hover ~ &, label:hover &': {
-        color: palette.text.onLight,
+        color: palette.text.dark,
       },
       '&:focus, input:focus ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,

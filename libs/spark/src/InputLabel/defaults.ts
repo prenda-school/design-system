@@ -12,7 +12,7 @@ export const MuiInputLabelStyleOverrides = ({
 }: Theme): Partial<StyleRules<InputLabelClassKey>> => ({
   root: {
     ...typography['label-lg-strong'],
-    color: palette.text.onLight,
+    color: palette.text.dark,
     marginBottom: 4,
     '&$disabled': {
       color: palette.grey.dark,

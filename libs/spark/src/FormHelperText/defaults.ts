@@ -7,7 +7,7 @@ export const MuiFormHelperTextStyleOverrides = ({
   typography,
 }: Theme): Partial<StyleRules<FormHelperTextClassKey>> => ({
   root: {
-    color: palette.text.onLightLowContrast,
+    color: palette.text.darkLowContrast,
     ...typography['paragraph-lg'],
     marginTop: 4,
     '&$disabled': {
@@ -17,7 +17,7 @@ export const MuiFormHelperTextStyleOverrides = ({
       marginTop: 3,
     },
     '[class*=MuiTextField-root] > &$error': {
-      color: palette.text.onLightLowContrast,
+      color: palette.text.darkLowContrast,
     },
   },
 });

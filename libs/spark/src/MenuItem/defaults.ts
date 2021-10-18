@@ -9,7 +9,7 @@ export const MuiMenuItemStyleOverrides = ({
   root: {
     ...typography['label-lg'],
     boxSizing: 'border-box' as const,
-    color: palette.text.onLight,
+    color: palette.text.dark,
     minWidth: 228,
     minHeight: '2.125rem', // 34px
     border: '2px solid transparent',

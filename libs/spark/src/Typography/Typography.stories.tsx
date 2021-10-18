@@ -5,7 +5,9 @@ import styled from '../styled';
 import withStyles from '../withStyles';
 import { ChangelogTemplate } from '../../stories/templates';
 
-export const TypedTypography = Typography;
+export const TypedTypography = (props: TypographyProps) => (
+  <Typography {...props} />
+);
 
 export default {
   title: 'PDS/@ps/Typography',
@@ -253,6 +255,10 @@ type TypogPageProps = {
   variantBase: Bases;
 };
 
+const Container = styled('div')(({ theme }) => ({
+  color: theme.palette.text.dark,
+}));
+
 const SizeSection = styled('div')({
   margin: '2.5rem 0',
   display: 'grid',
@@ -284,7 +290,7 @@ const BlueTypog = withStyles((theme) => ({
 
 const TypogPage = ({ variantBase }: TypogPageProps) => {
   return (
-    <div>
+    <Container>
       <Typography variant="heading-lg">{variantBase}</Typography>
       <hr />
       {baseMap[variantBase].map(
@@ -306,7 +312,7 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
           </SizeSection>
         )
       )}
-    </div>
+    </Container>
   );
 };
 

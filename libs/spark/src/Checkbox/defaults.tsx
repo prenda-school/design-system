@@ -19,7 +19,7 @@ export const MuiCheckboxStyleOverrides = ({
     backgroundColor: 'unset',
     color: palette.grey.dark,
     '&:hover': {
-      color: palette.text.onLight,
+      color: palette.text.dark,
       backgroundColor: 'unset',
     },
     '&$checked': {

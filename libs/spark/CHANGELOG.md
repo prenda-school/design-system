@@ -4,6 +4,8 @@
 
 ### Features
 
+- **Typography**
+  - New prop: `lowContrast`. When given, applies the "low contrast" version of the current `color` -- currently defined for use with `color="light"` and `color="dark"`.
 - **makeStyles**
   - Supplies custom theme by default; no longer needs context of `SparkThemeProvider`.
 - **styled**
@@ -16,6 +18,11 @@
 - **Avatar**
   - Removed CSS API rule names: `labelSizeLarge`, `labelSizeMedium`.
     - Migration: use `$sizeLarge &`, `$sizeMedium &` respectively under the `label` rule.
+- **SvgIcon**
+  - Removed `color` prop values: `onDark`, `onLight`.
+    - Migration:
+      - `color="onDark"` to `color="light"`
+      - `color="onLight"` to `color="dark"`
 - **Tag**
   - Removed CSS API rule names:
     - `boldColorRed`, `boldColorOrange`, `boldColorYellow`, `boldColorGreen`, `boldColorBlue`, `boldColorPurple`.
@@ -32,6 +39,21 @@
       - Migration: use `$bold &` under the `deleteIcon` rule.
     - `deleteIconBoldColorRed`, `deleteIconBoldColorOrange`, `deleteIconBoldColorYellow`, `deleteIconBoldColorGreen`, `deleteIconBoldColorBlue`, `deleteIconBoldColorPurple`
       - Migration: use `$bold$colorRed &`, ..., respectively, under the `deleteIcon` rule.
+- **Typography**
+  - Removed `color` prop values: `onDark`, `onDarkLowContrast`, `onLight`, `onLightLowContrast`.
+    - Migration:
+      - `color="onDark"` to `color="light"`
+      - `color="onDarkLowContrast"` to `color="light" lowContrast`
+      - `color="onLight"` to `color="dark"`
+      - `color="onLightLowContrast"` to `color="dark" lowContrast`
+  - Changed default value of `color` prop to `"inherit"`.
+- **theme**
+  - New `theme.palette.text` properties reference the color itself rather than its background: `dark`, `darkLowContrast`, `light`, `lightLowContrast`
+    - Migration:
+      - `palette.text.onLight` to `palette.text.dark`
+      - `palette.text.onLightLowContrast` to `palette.text.darkLowContrast`
+      - `palette.text.onDark` to `palette.text.light`
+      - `palette.text.onDarkLowContrast` to `palette.text.lightLowContrast`
 
 # [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 
