@@ -2,8 +2,31 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- **SvgIcon**
+  - Widened `ref` type to `any`.
+
 ### Features
 
+- **Step**
+  - Re-exported.
+  - Customized styling.
+- **StepButton**
+  - Initial implementation.
+- **StepConnector**
+  - Initial implementation.
+- **StepContent**
+  - Re-exported.
+  - Customized styling.
+- **StepIcon**
+  - Initial implementation.
+- **StepLabel**
+  - Re-exported.
+  - Customized styling.
+- **Stepper**
+  - Re-exported.
+  - Customized styling.
 - **Typography**
   - New prop: `lowContrast`. When given, applies the "low contrast" version of the current `color` -- currently defined for use with `color="light"` and `color="dark"`.
 - **makeStyles**
