@@ -10,4 +10,6 @@ export * from './StandardProps';
 
 export { default as useClassesCapture } from './useClassesCapture';
 
+export { default as useMergeClasses } from './useMergeClasses';
+
 export { default as useUniqueId } from './useUniqueId';
