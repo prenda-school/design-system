@@ -12,11 +12,9 @@ export default function createSvgIcon(
   width?: string,
   height?: string
 ): typeof SvgIcon {
-  const Component = (
-    props: SvgIconProps,
-    ref: React.ForwardedRef<SVGSVGElement>
-  ) => (
+  const Component = (props: SvgIconProps, ref: React.Ref<unknown>) => (
     <SvgIcon
+      data-testid={`${displayName}Icon`}
       ref={ref}
       viewBox={viewBox}
       width={width}
