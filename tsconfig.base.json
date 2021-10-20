@@ -18,7 +18,8 @@
     "paths": {
       "@prenda/spark": ["libs/spark/src/index.ts"],
       "@prenda/spark-icons": ["libs/spark-icons/src/index.ts"],
-      "@prenda/spark-icons/*": ["libs/spark-icons/src/*"]
+      "@prenda/spark-icons/*": ["libs/spark-icons/src/*"],
+      "@prenda/codemod": ["libs/codemod/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

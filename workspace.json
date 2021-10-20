@@ -184,6 +184,27 @@
           }
         }
       }
+    },
+    "codemod": {
+      "root": "libs/codemod",
+      "sourceRoot": "libs/codemod/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/codemod/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/codemod"],
+          "options": {
+            "jestConfig": "libs/codemod/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

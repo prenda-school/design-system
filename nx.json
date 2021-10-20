@@ -37,6 +37,9 @@
     },
     "spark-icons": {
       "tags": []
+    },
+    "codemod": {
+      "tags": []
     }
   }
 }
