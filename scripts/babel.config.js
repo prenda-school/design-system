@@ -17,7 +17,10 @@ if (process.env.BABEL_ENV === 'es') {
   ];
 }
 
-const productionPlugins = ['@babel/plugin-transform-react-constant-elements'];
+const productionPlugins = [
+  '@babel/plugin-transform-react-constant-elements',
+  ['babel-plugin-react-remove-properties', { properties: ['data-testid'] }],
+];
 
 module.exports = {
   presets: defaultPresets.concat([

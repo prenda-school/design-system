@@ -23,7 +23,11 @@ export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
     | 'white';
 }
 
-export default React.forwardRef<SVGSVGElement, SvgIconProps>(function SvgIcon(
+export default React.forwardRef<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+  SvgIconProps
+>(function SvgIcon(
   { contrast = 'high', color = 'inherit', className, ...other },
   ref
 ) {
