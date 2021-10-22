@@ -29,7 +29,7 @@
   - Customized styling.
 - **SvgIcon**
   - New prop: `lowContrast`. When given, decreases opacity of the component.
-  - New default `fontSize` prop value, `"inherit"`. When using `SvgIcon` in supported components, you don't need to
+  - New default `fontSize` prop value, `"inherit"`; eliminates the need to use `fontSize="inherit"` when inside supported components.
   - Improved fill color for duotone icons when `color=("light" | "white")`.
 - **Typography**
   - New prop: `lowContrast`. When given, applies the "low contrast" version of the current `color` -- currently defined for use with `color="light"` and `color="dark"`.
