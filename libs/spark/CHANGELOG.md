@@ -27,6 +27,10 @@
 - **Stepper**
   - Re-exported.
   - Customized styling.
+- **SvgIcon**
+  - New prop: `lowContrast`. When given, decreases opacity of the component.
+  - New default `fontSize` prop value, `"inherit"`. When using `SvgIcon` in supported components, you don't need to
+  - Improved fill color for duotone icons when `color=("light" | "white")`.
 - **Typography**
   - New prop: `lowContrast`. When given, applies the "low contrast" version of the current `color` -- currently defined for use with `color="light"` and `color="dark"`.
 - **makeStyles**
@@ -42,10 +46,17 @@
   - Removed CSS API rule names: `labelSizeLarge`, `labelSizeMedium`.
     - Migration: use `$sizeLarge &`, `$sizeMedium &` respectively under the `label` rule.
 - **SvgIcon**
+  - When using `SvgIcon` either outside of supported components or on its own, instances that have no `fontSize` given will now inherit (likely `16px`) instead of being `24px` by default.
+    - Migration:
+      - No `fontSize` given to `fontSize="medium"`.
+  - Removed `contrast` prop.
+    - Migration:
+      - Remove `contrast="high"`, it is default.
+      - `contrast="low"` to `lowContrast`.
   - Removed `color` prop values: `onDark`, `onLight`.
     - Migration:
-      - `color="onDark"` to `color="light"`
-      - `color="onLight"` to `color="dark"`
+      - `color="onDark"` to `color="light"`.
+      - `color="onLight"` to `color="dark"`.
 - **Tag**
   - Removed CSS API rule names:
     - `boldColorRed`, `boldColorOrange`, `boldColorYellow`, `boldColorGreen`, `boldColorBlue`, `boldColorPurple`.
