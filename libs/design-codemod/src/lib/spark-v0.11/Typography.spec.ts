@@ -7,7 +7,7 @@ function read(fileName) {
   return readFile(path.join(__dirname, fileName));
 }
 
-describe('@mui/design-codemod', () => {
+describe('@prenda/design-codemod', () => {
   describe('v0.11.0', () => {
     describe('Typography', () => {
       it('transforms parameters as needed', () => {

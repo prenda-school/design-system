@@ -9,13 +9,15 @@ const StudentView = ({ history }) => {
     <>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div>
-          <div>
-            <Typography variant="smallcaps-lg">Student Summary</Typography>
-            <Typography variant="body2">
-              Below is a detailed view of the student record summary. This
-              summary view is read only.
-            </Typography>
-          </div>
+          <Typography variant="smallcaps-lg">smallcaps-lg</Typography>
+          <Typography variant="smallcaps-md">smallcaps-md</Typography>
+          <Typography variant="smallcaps-sm">smallcaps-sm</Typography>
+          <Typography color="textOnLight">textOnLight</Typography>
+          <Typography color="textOnLightLowContrast">textOnLightLowContrast</Typography>
+          <Typography color="textOnDark">textOnDark</Typography>
+          <Typography color="textOnDarkLowContrast">textOnDarkLowContrast</Typography>
+          <Typography variant="smallcaps-sm" color="textOnDark">two old properties on one element</Typography>
+          <Typography variant="body2">Another valid variant which should be unchanged</Typography>
         </div>
         <div>
           <StyledButton
