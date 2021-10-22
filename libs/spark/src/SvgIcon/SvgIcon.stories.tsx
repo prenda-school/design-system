@@ -279,7 +279,7 @@ const FontSizeContainer = styled('div')({
   gridTemplateRows: 'auto',
 });
 
-const FontSizeTemplate = (args) => {
+const FontSizeTemplate = (args) => (
   <FontSizeContainer>
     <span>inherit</span>
     <AlertCircle {...args} />
@@ -289,8 +289,8 @@ const FontSizeTemplate = (args) => {
     <AlertCircle {...args} fontSize="medium" />
     <span>large</span>
     <AlertCircle {...args} fontSize="large" />
-  </FontSizeContainer>;
-};
+  </FontSizeContainer>
+);
 
 export const FontSize: Story = FontSizeTemplate.bind({});
 FontSize.storyName = 'fontSize';
