@@ -1,4 +1,5 @@
 /dist
 /coverage
 /libs/spark-icons/defaults/templateSvgIcon.js
-/libs/spark-icons/src/* 
+/libs/spark-icons/src/*
+/libs/design-codemod/src/lib/**/*.test/*

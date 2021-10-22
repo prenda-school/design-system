@@ -1,3 +1,5 @@
+import { FileInfo, API } from 'jscodeshift';
+
 const variantMap = new Map([
   ['smallcaps-lg', 'uppercase-lg'],
   ['smallcaps-md', 'uppercase-md'],
@@ -10,9 +12,8 @@ const colorMap = new Map([
   ['textOnDarkLowContrast', 'onDarkLowContrast'],
 ]);
 
-export default function transformer(file, api) {
-  const j = api.jscodeshift;
-  return j(file.source)
+export default function transformer(file, { jscodeshift }) {
+  return jscodeshift(file.source)
     .findJSXElements('Typography')
     .forEach((path) => {
       path.node.openingElement.attributes.forEach((node) => {

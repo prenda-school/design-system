@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'codemod',
+  displayName: 'design-codemod',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -7,8 +7,8 @@ module.exports = {
     },
   },
   transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest',
+    '^.+\\.tsx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/codemod',
+  coverageDirectory: '../../coverage/libs/design-codemod',
 };
