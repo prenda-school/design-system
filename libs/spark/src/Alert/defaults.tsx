@@ -9,9 +9,9 @@ import {
 
 export const MuiAlertDefaultProps: Partial<AlertProps> = {
   iconMapping: {
-    error: <AlertOctagonFilled fontSize="inherit" />,
-    info: <InfoFilled fontSize="inherit" />,
-    success: <CheckCircleFilled fontSize="inherit" />,
-    warning: <AlertTriangleFilled fontSize="inherit" />,
+    error: <AlertOctagonFilled />,
+    info: <InfoFilled />,
+    success: <CheckCircleFilled />,
+    warning: <AlertTriangleFilled />,
   },
 };

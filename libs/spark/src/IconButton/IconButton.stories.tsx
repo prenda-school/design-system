@@ -26,7 +26,7 @@ export default {
 } as Meta;
 
 const Template: Story = (args) => (
-  <IconButton {...args}>{<ChevronDown fontSize="inherit" />}</IconButton>
+  <IconButton {...args}>{<ChevronDown />}</IconButton>
 );
 
 export const Configurable = Template.bind({});
@@ -51,36 +51,36 @@ const VariantAndSizeTemplate: Story = (args) => (
     <span>Contained</span>
     <span>
       <IconButton {...args} variant="contained" size="large">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="contained" size="medium">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
 
     <span>Outlined</span>
     <span>
       <IconButton {...args} variant="outlined" size="large">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="outlined" size="medium">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
 
     <span>Text</span>
     <span>
       <IconButton {...args} variant="text" size="large">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
     <span>
       <IconButton {...args} variant="text" size="medium">
-        <ChevronDown fontSize="inherit" />
+        <ChevronDown />
       </IconButton>
     </span>
   </GridContainer>

@@ -12,7 +12,11 @@ export default function createSvgIcon(
   width?: string,
   height?: string
 ): typeof SvgIcon {
-  const Component = (props: SvgIconProps, ref: React.Ref<unknown>) => (
+  const Component = (
+    props: SvgIconProps,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ref: any
+  ) => (
     <SvgIcon
       data-testid={`${displayName}Icon`}
       ref={ref}

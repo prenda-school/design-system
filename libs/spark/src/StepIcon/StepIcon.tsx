@@ -98,7 +98,11 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
   { name: 'MuiSparkStepIcon' }
 );
 
-const StepIcon = React.forwardRef<unknown, StepIconProps>(function StepIcon(
+const StepIcon = React.forwardRef<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+  StepIconProps
+>(function StepIcon(
   {
     completed = false,
     icon: iconProp,

@@ -27,9 +27,7 @@ export const MuiCheckboxStyleOverrides = ({
     },
     '&$disabled': {
       '& .SparkCheckboxIcon-root': {
-        '& [class*=MuiSvgIcon-root]': {
-          color: palette.grey.dark,
-        },
+        color: palette.grey.dark,
         '& .SparkCheckboxIcon-box': {
           backgroundColor: palette.grey.medium,
         },
