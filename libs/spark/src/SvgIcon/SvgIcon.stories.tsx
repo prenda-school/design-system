@@ -268,9 +268,10 @@ const ColorTemplate = () => (
     </IconBox>
   </ColorContainer>
 );
-
 export const ColorAndContrast: Story = ColorTemplate.bind({});
-ColorAndContrast.storyName = 'color, lowContrast';
+
+export const ColorAndContrast2: Story = ColorTemplate.bind({});
+ColorAndContrast2.storyName = 'color, lowContrast';
 
 const FontSizeContainer = styled('div')({
   display: 'grid',

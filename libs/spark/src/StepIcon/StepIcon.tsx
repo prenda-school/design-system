@@ -49,6 +49,7 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
       borderColor: palette.grey.medium,
       backgroundColor: palette.common.white,
       color: palette.text.darkLowContrast,
+      fontSize: typography.pxToRem(24),
       '.Mui-disabled &': {
         opacity: 0.5,
       },

@@ -27,24 +27,30 @@ export type SvgIconClassKey =
   | 'fontSizeLarge'
   | 'lowContrast';
 
-// :NOTE: Duotone fill selector is & > *[fill="#F0F1F2"]
+// :NOTE:
+//  - Duotone fill selector is & > * [fill = "#F0F1F2"]
+//  - the last two chars of an eight-char hex value are the alpha channel / transparency
+//    - b8 = 72%, 47 = 28%
 const useStyles = makeStyles<SvgIconClassKey>(
   ({ palette, typography }) => ({
     root: {
       color: 'inherit',
       fontSize: 'inherit',
-      '& > *[fill="#F0F1F2"]': {
-        opacity: 0.72,
-      },
     },
     colorDark: {
       color: palette.text.dark,
     },
     colorLight: {
       color: palette.text.light,
+      '& > *[fill="#F0F1F2"]': {
+        fill: `#f0f1f247`,
+      },
     },
     colorWhite: {
       color: palette.common.white,
+      '& > *[fill="#F0F1F2"]': {
+        fill: `#f0f1f247`,
+      },
     },
     colorDisabled: {
       color: palette.action.disabled,
@@ -52,25 +58,25 @@ const useStyles = makeStyles<SvgIconClassKey>(
     colorError: {
       color: palette.red[2],
       '& > *[fill="#F0F1F2"]': {
-        fill: palette.red[1],
+        fill: `${palette.red[1]}b8`,
       },
     },
     colorSuccess: {
       color: palette.green[2],
       '& > *[fill="#F0F1F2"]': {
-        fill: palette.green[1],
+        fill: `${palette.green[1]}b8`,
       },
     },
     colorWarning: {
       color: palette.yellow[2],
       '& > *[fill="#F0F1F2"]': {
-        fill: palette.yellow[1],
+        fill: `${palette.yellow[1]}b8`,
       },
     },
     colorInfo: {
       color: palette.blue[2],
       '& > *[fill="#F0F1F2"]': {
-        fill: palette.blue[1],
+        fill: `${palette.blue[1]}b8`,
       },
     },
     fontSizeSmall: {

@@ -74,7 +74,7 @@ const overrides = (theme: Theme): Overrides => ({
   MuiFormHelperText: MuiFormHelperTextStyleOverrides(theme),
   MuiFormLabel: MuiFormLabelStyleOverrides(theme),
   MuiInput: MuiInputStyleOverrides,
-  MuiInputAdornment: MuiInputAdornmentStylesOverrides,
+  MuiInputAdornment: MuiInputAdornmentStylesOverrides(theme),
   MuiInputBase: MuiInputBaseStyleOverrides(theme),
   MuiInputLabel: MuiInputLabelStyleOverrides(theme),
   MuiList: MuiListStyleOverrides,

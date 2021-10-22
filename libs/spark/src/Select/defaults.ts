@@ -22,6 +22,7 @@ export const MuiSelectDefaultProps: Partial<SelectProps> = {
 
 export const MuiSelectStylesOverrides = ({
   palette,
+  typography,
 }: Theme): Partial<StyleRules<SelectClassKey, SelectProps>> => ({
   root: {
     color: ({ value, defaultValue }) =>
@@ -35,6 +36,7 @@ export const MuiSelectStylesOverrides = ({
     },
   },
   icon: {
+    fontSize: typography.pxToRem(24),
     marginRight: 14,
     transition: 'transform 250ms ease',
   },
