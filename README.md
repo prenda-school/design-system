@@ -66,7 +66,8 @@ Read the [contributing guide](/CONTRIBUTING.md) to learn about our development p
 
 If you have recently updated, please read the changelog for each library for details of what has changed.
 
-- [Spark](/libs/spark/CHANGELOG.md)
+- [`@prenda/spark/CHANGELOG`](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark/CHANGELOG.md)
+- [`@prenda/spark-icons/CHANGELOG`](https://github.com/prenda-school/prenda-spark/blob/main/libs/spark-icons/CHANGELOG.md)
 
 ## License
 

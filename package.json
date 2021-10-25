@@ -1,6 +1,5 @@
 {
   "name": "prenda-spark",
-  "version": "0.14.0",
   "license": "MIT",
   "scripts": {
     "nx": "nx",

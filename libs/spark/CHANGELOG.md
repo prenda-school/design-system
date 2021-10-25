@@ -1,9 +1,12 @@
 # Changelog
 
-# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...vNext) (yyyy-mm-dd)
+# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...vNext) (yyyy-mm-dd)
+
+# [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
 
 ### Fixes
 
+- Fixes peer dependency on `@material-ui/lab` to a base version that actually exists.
 - **SvgIcon**
   - Widened `ref` type to `any`.
 
