@@ -3,66 +3,164 @@ import clsx from 'clsx';
 import {
   default as MuiSvgIcon,
   SvgIconProps as MuiSvgIconProps,
-  SvgIconClassKey,
 } from '@material-ui/core/SvgIcon';
-import { capitalize } from '../utils';
+import makeStyles from '../makeStyles';
+import {
+  capitalize,
+  OverridableComponent,
+  OverrideProps,
+  useMergeClasses,
+} from '../utils';
 
-export type { SvgIconClassKey };
+export type SvgIconClassKey =
+  | 'root'
+  | 'colorDark'
+  | 'colorLight'
+  | 'colorWhite'
+  | 'colorDisabled'
+  | 'colorError'
+  | 'colorSuccess'
+  | 'colorWarning'
+  | 'colorInfo'
+  | 'fontSizeSmall'
+  | 'fontSizeMedium'
+  | 'fontSizeLarge'
+  | 'lowContrast';
 
-export interface SvgIconProps extends Omit<MuiSvgIconProps, 'color'> {
-  contrast?: 'high' | 'low';
-  color?:
-    | 'inherit'
-    | 'dark'
-    | 'light'
-    | 'disabled'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info'
-    | 'white';
+// :NOTE:
+//  - Duotone fill selector is & > * [fill = "#F0F1F2"]
+//  - the last two chars of an eight-char hex value are the alpha channel / transparency
+//    - b8 = 72%, 47 = 28%
+const useStyles = makeStyles<SvgIconClassKey>(
+  ({ palette, typography }) => ({
+    root: {
+      color: 'inherit',
+      fontSize: 'inherit',
+    },
+    colorDark: {
+      color: palette.text.dark,
+    },
+    colorLight: {
+      color: palette.text.light,
+      '& > *[fill="#F0F1F2"]': {
+        fill: `#f0f1f247`,
+      },
+    },
+    colorWhite: {
+      color: palette.common.white,
+      '& > *[fill="#F0F1F2"]': {
+        fill: `#f0f1f247`,
+      },
+    },
+    colorDisabled: {
+      color: palette.action.disabled,
+    },
+    colorError: {
+      color: palette.red[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: `${palette.red[1]}b8`,
+      },
+    },
+    colorSuccess: {
+      color: palette.green[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: `${palette.green[1]}b8`,
+      },
+    },
+    colorWarning: {
+      color: palette.yellow[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: `${palette.yellow[1]}b8`,
+      },
+    },
+    colorInfo: {
+      color: palette.blue[2],
+      '& > *[fill="#F0F1F2"]': {
+        fill: `${palette.blue[1]}b8`,
+      },
+    },
+    fontSizeSmall: {
+      fontSize: typography.pxToRem(16),
+    },
+    fontSizeMedium: {
+      fontSize: typography.pxToRem(24),
+    },
+    fontSizeLarge: {
+      fontSize: typography.pxToRem(32),
+    },
+    lowContrast: {
+      opacity: 0.72,
+    },
+  }),
+  { name: 'MuiSparkSvgIcon' }
+);
+
+export interface SvgIconTypeMap<
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
+  D extends React.ElementType = 'svg'
+> {
+  props: P &
+    Omit<MuiSvgIconProps, 'color' | 'classes'> & {
+      /**
+       * The color of the component.
+       */
+      color?:
+        | 'inherit'
+        | 'dark'
+        | 'light'
+        | 'disabled'
+        | 'error'
+        | 'success'
+        | 'warning'
+        | 'info'
+        | 'white';
+      /**
+       * Whether the component should appear with low contrast.
+       */
+      lowContrast?: boolean;
+    };
+  defaultComponent: D;
+  classKey: SvgIconClassKey;
 }
 
-export default React.forwardRef<
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-  SvgIconProps
->(function SvgIcon(
-  { contrast = 'high', color = 'inherit', className, ...other },
-  ref
-) {
-  let muiColor;
-  let sparkColor = 'inherit';
-  if (color === 'dark') {
-    muiColor = 'primary';
-  } else if (color === 'light') {
-    muiColor = 'secondary';
-  } else if (color === 'success') {
-    sparkColor = 'success';
-    muiColor = 'inherit';
-  } else if (color === 'warning') {
-    sparkColor = 'warning';
-    muiColor = 'inherit';
-  } else if (color === 'info') {
-    sparkColor = 'info';
-    muiColor = 'inherit';
-  } else if (color === 'white') {
-    sparkColor = 'white';
-    muiColor = 'inherit';
-  } else {
-    muiColor = color;
-  }
+export type SvgIconProps<
+  D extends React.ElementType = SvgIconTypeMap['defaultComponent'],
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
+> = OverrideProps<SvgIconTypeMap<P, D>, D>;
 
-  return (
-    <MuiSvgIcon
-      color={muiColor}
-      className={clsx(className, {
-        [`SparkSvgIcon-contrast${capitalize(contrast)}`]: contrast !== 'high',
-        [`SparkSvgIcon-color${capitalize(sparkColor)}`]:
-          sparkColor !== 'inherit',
-      })}
-      ref={ref}
-      {...other}
-    />
-  );
-});
+const SvgIcon: OverridableComponent<SvgIconTypeMap> = React.forwardRef(
+  function SvgIcon(
+    {
+      lowContrast,
+      classes: classesProp,
+      color = 'inherit',
+      fontSize = 'inherit',
+      className,
+      ...other
+    },
+    ref
+  ) {
+    const baseClasses = useStyles();
+
+    const classes = useMergeClasses({
+      baseClasses,
+      classesProp,
+    });
+
+    return (
+      <MuiSvgIcon
+        className={clsx(className, classes.root, {
+          [classes[`color${capitalize(color)}`]]: color !== 'inherit',
+          [classes[`fontSize${capitalize(fontSize)}`]]: fontSize !== 'inherit',
+          [classes.lowContrast]: lowContrast,
+        })}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
+
+export default SvgIcon;

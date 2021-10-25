@@ -49,6 +49,7 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
       borderColor: palette.grey.medium,
       backgroundColor: palette.common.white,
       color: palette.text.darkLowContrast,
+      fontSize: typography.pxToRem(24),
       '.Mui-disabled &': {
         opacity: 0.5,
       },
@@ -98,7 +99,11 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
   { name: 'MuiSparkStepIcon' }
 );
 
-const StepIcon = React.forwardRef<unknown, StepIconProps>(function StepIcon(
+const StepIcon = React.forwardRef<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  any,
+  StepIconProps
+>(function StepIcon(
   {
     completed = false,
     icon: iconProp,

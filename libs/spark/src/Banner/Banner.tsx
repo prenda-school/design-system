@@ -50,7 +50,7 @@ const actionMapping = {
       variant="text"
       onClick={onClose}
     >
-      <Cross fontSize="inherit" />
+      <Cross />
     </CustomIconButton>
   ),
   Details: ({ detailsText = 'Details', onDetails }) => (

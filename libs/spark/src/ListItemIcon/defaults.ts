@@ -4,9 +4,11 @@ import type { StyleRules } from '../withStyles';
 
 export const MuiListItemIconStyleOverrides = ({
   palette,
+  typography,
 }: Theme): Partial<StyleRules<ListItemIconClassKey>> => ({
   root: {
     color: palette.text.darkLowContrast,
+    fontSize: typography.pxToRem(24),
     minWidth: 'unset',
     marginRight: 8,
     '& [class*=MuiCheckbox-root]': {

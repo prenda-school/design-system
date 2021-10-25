@@ -11,7 +11,7 @@ export default function createSvgIcon(
   width?: string,
   height?: string
 ): typeof SvgIcon {
-  const Component = (props: SvgIconProps, ref: React.Ref<unknown>) => (
+  const Component = (props: SvgIconProps, ref: any) => (
     <SvgIcon data-testid={`${displayName}Icon`} ref={ref} viewBox={viewBox} width={width} height={height} {...props}>
       {path}
     </SvgIcon>

@@ -34,7 +34,6 @@ import { MuiRadioStyleOverrides } from '../Radio/defaults';
 import type { SectionMessageClassKey } from '../SectionMessage';
 import type { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select/defaults';
-import { MuiSvgIconStyleOverrides } from '../SvgIcon/defaults';
 import { MuiSwitchStyleOverrides } from '../Switch/defaults';
 import { MuiTabStyleOverrides } from '../Tab/defaults';
 import { MuiTabsStyleOverrides } from '../Tabs/defaults';
@@ -75,7 +74,7 @@ const overrides = (theme: Theme): Overrides => ({
   MuiFormHelperText: MuiFormHelperTextStyleOverrides(theme),
   MuiFormLabel: MuiFormLabelStyleOverrides(theme),
   MuiInput: MuiInputStyleOverrides,
-  MuiInputAdornment: MuiInputAdornmentStylesOverrides,
+  MuiInputAdornment: MuiInputAdornmentStylesOverrides(theme),
   MuiInputBase: MuiInputBaseStyleOverrides(theme),
   MuiInputLabel: MuiInputLabelStyleOverrides(theme),
   MuiList: MuiListStyleOverrides,
@@ -91,7 +90,6 @@ const overrides = (theme: Theme): Overrides => ({
   MuiPaginationItem: MuiPaginationItemStyleOverrides(theme),
   MuiRadio: MuiRadioStyleOverrides(theme),
   MuiSelect: MuiSelectStylesOverrides(theme),
-  MuiSvgIcon: MuiSvgIconStyleOverrides(theme),
   MuiSwitch: MuiSwitchStyleOverrides(theme),
   MuiTab: MuiTabStyleOverrides(theme),
   MuiTabPanel: MuiTabPanelStyleOverrides,

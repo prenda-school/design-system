@@ -11,16 +11,16 @@ import styled from '../styled';
 import theme from '../theme';
 import { capitalize } from '../utils';
 
-export const TypedSvgIcon = SvgIcon;
+export const SbSvgIcon = SvgIcon;
 
 export default {
   title: 'PDS/@ps/SvgIcon',
-  component: TypedSvgIcon,
-  excludeStories: ['TypedSvgIcon'],
+  component: SbSvgIcon,
+  excludeStories: ['SbSvgIcon'],
   args: {
+    // default values aren't picked up by auto-docs
     color: 'inherit',
-    contrast: 'high',
-    fontSize: 'medium',
+    fontSize: 'inherit',
   },
 } as Meta;
 
@@ -31,7 +31,7 @@ const Container = styled('div')({
   },
 });
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <Container
     className={clsx({
       [`bgColor${capitalize(args.color)}`]: args.color === 'light',
@@ -60,7 +60,7 @@ const Template: Story = (args) => (
   </Container>
 );
 
-const ManyContainer = styled('div')({
+const ColorContainer = styled('div')({
   display: 'grid',
   gridTemplateColumns: '160px repeat(3, 48px)',
   gap: '8px',
@@ -72,15 +72,16 @@ const IconBox = styled('div')({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: theme.palette.common.white,
+  fontSize: '1.5rem',
   '&.dark': {
     backgroundColor: theme.palette.background.blue,
   },
 });
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
-const ManyTemplate: Story = (args) => (
-  <ManyContainer>
+const ColorTemplate = () => (
+  <ColorContainer>
     <span>Color, Contrast / Type</span>
     <span>Line</span>
     <span>Filled</span>
@@ -97,13 +98,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>inherit, low</span>
     <IconBox>
-      <AlertCircle contrast="low" />
+      <AlertCircle lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled contrast="low" />
+      <AlertCircleFilled lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone contrast="low" />
+      <AlertCircleDuotone lowContrast />
     </IconBox>
     <span>dark</span>
     <IconBox>
@@ -117,13 +118,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>dark, low</span>
     <IconBox>
-      <AlertCircle color="dark" contrast="low" />
+      <AlertCircle color="dark" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="dark" contrast="low" />
+      <AlertCircleFilled color="dark" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="dark" contrast="low" />
+      <AlertCircleDuotone color="dark" lowContrast />
     </IconBox>
     <span>light</span>
     <IconBox className="dark">
@@ -137,13 +138,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>light, low</span>
     <IconBox className="dark">
-      <AlertCircle color="light" contrast="low" />
+      <AlertCircle color="light" lowContrast />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleFilled color="light" contrast="low" />
+      <AlertCircleFilled color="light" lowContrast />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleDuotone color="light" contrast="low" />
+      <AlertCircleDuotone color="light" lowContrast />
     </IconBox>
     <span>disabled</span>
     <IconBox>
@@ -157,13 +158,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>disabled, low</span>
     <IconBox>
-      <AlertCircle color="disabled" contrast="low" />
+      <AlertCircle color="disabled" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="disabled" contrast="low" />
+      <AlertCircleFilled color="disabled" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="disabled" contrast="low" />
+      <AlertCircleDuotone color="disabled" lowContrast />
     </IconBox>
     <span>error</span>
     <IconBox>
@@ -177,13 +178,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>error, low</span>
     <IconBox>
-      <AlertCircle color="error" contrast="low" />
+      <AlertCircle color="error" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="error" contrast="low" />
+      <AlertCircleFilled color="error" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="error" contrast="low" />
+      <AlertCircleDuotone color="error" lowContrast />
     </IconBox>
     <span>success</span>
     <IconBox>
@@ -197,13 +198,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>success, low</span>
     <IconBox>
-      <AlertCircle color="success" contrast="low" />
+      <AlertCircle color="success" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="success" contrast="low" />
+      <AlertCircleFilled color="success" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="success" contrast="low" />
+      <AlertCircleDuotone color="success" lowContrast />
     </IconBox>
     <span>warning</span>
     <IconBox>
@@ -217,13 +218,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>warning, low</span>
     <IconBox>
-      <AlertCircle color="warning" contrast="low" />
+      <AlertCircle color="warning" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="warning" contrast="low" />
+      <AlertCircleFilled color="warning" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="warning" contrast="low" />
+      <AlertCircleDuotone color="warning" lowContrast />
     </IconBox>
     <span>info</span>
     <IconBox>
@@ -237,13 +238,13 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>info, low</span>
     <IconBox>
-      <AlertCircle color="info" contrast="low" />
+      <AlertCircle color="info" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleFilled color="info" contrast="low" />
+      <AlertCircleFilled color="info" lowContrast />
     </IconBox>
     <IconBox>
-      <AlertCircleDuotone color="info" contrast="low" />
+      <AlertCircleDuotone color="info" lowContrast />
     </IconBox>
     <span>white</span>
     <IconBox className="dark">
@@ -257,15 +258,39 @@ const ManyTemplate: Story = (args) => (
     </IconBox>
     <span>white, low</span>
     <IconBox className="dark">
-      <AlertCircle color="white" contrast="low" />
+      <AlertCircle color="white" lowContrast />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleFilled color="white" contrast="low" />
+      <AlertCircleFilled color="white" lowContrast />
     </IconBox>
     <IconBox className="dark">
-      <AlertCircleDuotone color="white" contrast="low" />
+      <AlertCircleDuotone color="white" lowContrast />
     </IconBox>
-  </ManyContainer>
+  </ColorContainer>
 );
 
-export const ColorAndContrast = ManyTemplate.bind({});
+export const ColorAndContrast: Story = ColorTemplate.bind({});
+ColorAndContrast.storyName = 'color, lowContrast';
+
+const FontSizeContainer = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: '160px 48px',
+  gap: '8px',
+  gridTemplateRows: 'auto',
+});
+
+const FontSizeTemplate = (args) => (
+  <FontSizeContainer>
+    <span>inherit</span>
+    <AlertCircle {...args} />
+    <span>small</span>
+    <AlertCircle {...args} fontSize="small" />
+    <span>medium</span>
+    <AlertCircle {...args} fontSize="medium" />
+    <span>large</span>
+    <AlertCircle {...args} fontSize="large" />
+  </FontSizeContainer>
+);
+
+export const FontSize: Story = FontSizeTemplate.bind({});
+FontSize.storyName = 'fontSize';
