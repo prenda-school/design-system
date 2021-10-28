@@ -2,6 +2,10 @@
 
 # [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...vNext) (yyyy-mm-dd)
 
+### Features
+
+- **Spark:** Added icon
+
 # [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
 
 # [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
