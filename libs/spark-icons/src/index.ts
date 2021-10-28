@@ -1467,6 +1467,7 @@ export { default as SortNumberReverse } from './SortNumberReverse';
 export { default as SortText } from './SortText';
 export { default as SortTextReverse } from './SortTextReverse';
 export { default as Soundwave } from './Soundwave';
+export { default as Spark } from './Spark';
 export { default as SparkMonogram } from './SparkMonogram';
 export { default as Speaker } from './Speaker';
 export { default as SpeakerDuotone } from './SpeakerDuotone';

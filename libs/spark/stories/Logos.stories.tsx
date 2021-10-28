@@ -4,6 +4,7 @@ import {
   PrendaWordmark,
   PrendaMonogram,
   SparkMonogram,
+  Spark,
 } from '@prenda/spark-icons';
 import { styled } from '../src';
 
@@ -44,6 +45,10 @@ const BlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
   fontSize: '80px',
   fill: theme.palette.brand.blue,
 }));
+const BlueSpark = styled(Spark)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.brand.blue,
+}));
 const LightBluePrendaWordmark = styled(PrendaWordmark)(({ theme }) => ({
   fontSize: '88px',
   fill: theme.palette.blue[1],
@@ -53,6 +58,10 @@ const LightBluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
   fill: theme.palette.blue[1],
 }));
 const LightBlueSparkMonogram = styled(SparkMonogram)(({ theme }) => ({
+  fontSize: '80px',
+  fill: theme.palette.blue[1],
+}));
+const LightBlueSpark = styled(Spark)(({ theme }) => ({
   fontSize: '80px',
   fill: theme.palette.blue[1],
 }));
@@ -66,6 +75,7 @@ export const Logos = () => (
       </CellContainer>
       <CellContainer>
         <BlueSparkMonogram />
+        <BlueSpark />
       </CellContainer>
     </ColumnContainer>
     <ColumnContainer>
@@ -75,6 +85,7 @@ export const Logos = () => (
       </CellContainer>
       <CellContainer>
         <LightBlueSparkMonogram />
+        <LightBlueSpark />
       </CellContainer>
     </ColumnContainer>
   </GridContainer>
