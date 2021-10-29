@@ -24,6 +24,9 @@ jobs:
       - name: NPM clean install
         run: npm ci
 
+      - name: Lint
+        run: npm run affected:lint
+
       - name: Spark Jest tests
         run: npx nx run spark:test
 
