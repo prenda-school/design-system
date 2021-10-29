@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Since `format:write` doesn't stage its changes AND doesn't fail the pre-commit if it writes (returns zero exit code), we have to customize this process in order to avoid amending commits or not noticing formatting changes entirely until the next commit.
+# Check the formatting; if exit code 1, then write format and fail; otherwise do nothing. But, Husky runs this script with `sh -e` which fails at the first line which has a non-zero exit code, unless the command is in a condition (if, &&, ||). So, we trash the output in order for the condition to rely entirely on the exit code, and follow our logic stated above.
+npm run --silent format:check >/dev/null || (npm run format:write; echo '\nfailed formatting; commit automatic `format:write` changes (if any) and try again\n'; exit 1)

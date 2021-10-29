@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run format
+# See comment in ./pre-commit
+npm run --silent format:check >/dev/null || (npm run format:write; echo '\nfailed formatting; commit automatic `format:write` changes (if any) and try again\n'; exit 1)
