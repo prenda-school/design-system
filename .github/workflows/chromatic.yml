@@ -1,6 +1,6 @@
 name: 'Chromatic'
 
-on:  
+on:
   push:
     branches: [main]
   pull_request:
@@ -10,9 +10,9 @@ jobs:
   chromatic-deployment:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v1
-        
+    steps:
+      - uses: actions/checkout@v2
+
       - name: Install Dependencies
         run: npm i
 
