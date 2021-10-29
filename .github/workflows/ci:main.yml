@@ -27,8 +27,14 @@ jobs:
       - name: Lint
         run: npm run affected:lint
 
-      - name: Spark Jest tests
+      - name: Check format
+        run: npm run format:check
+
+      - name: Unit test project spark
         run: npx nx run spark:test
 
-      - name: Spark Cypress end-to-end tests
+      - name: Unit test project spark-icons
+        run: npx nx run spark-icons:test
+
+      - name: End-to-end test project spark-e2e
         run: npx nx run spark-e2e:e2e
