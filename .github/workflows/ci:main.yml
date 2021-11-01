@@ -13,7 +13,7 @@ jobs:
       - name: Increase system files monitor limit
         run: sudo sysctl fs.inotify.max_user_watches=524288
 
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -26,8 +26,8 @@ jobs:
       - name: NPM clean install
         run: npm ci
 
-      - name: Lint
-        run: npm run affected:lint
+      - name: Lint workspace and projects
+        run: npm run lint
 
       - name: Check format
         run: npm run format:check
