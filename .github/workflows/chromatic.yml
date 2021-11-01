@@ -1,6 +1,6 @@
 name: 'Chromatic'
 
-on:  
+on:
   push:
     branches: [main]
   pull_request:
@@ -10,13 +10,17 @@ jobs:
   chromatic-deployment:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v1
-        
-      - name: Install Dependencies
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
         run: npm i
 
-      - name: Build Storybook
+      # Build independent of publish because of custom command and output location
+      - name: Build storybook
         run: npx nx run spark:build-storybook
 
       - name: Publish to Chromatic
