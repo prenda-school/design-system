@@ -1,51 +1,55 @@
 # Changelog
 
-# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.16.0...vNext) (yyyy-mm-dd)
+
+## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
 
 ### Features
 
 - **Spark:** Added icon
 
-# [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
+## [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
 
-# [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
+No changes.
 
-No changes
+## [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 
-# [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
+No changes,
 
-No changes
+## [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
 
-# [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
+No changes.
 
-No changes
+## [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
 
-# [v0.12.0](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...v0.12.0) (2021-09-28)
+No changes.
 
-No changes
+## [v0.12.0](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...v0.12.0) (2021-09-28)
 
-# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
+No changes.
 
-No changes
+## [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
 
-# [0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
+No changes.
+
+## [0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
 ### Fixes
 
-- camelCase missed `stroke-*` attributes
+- camelCase missed `stroke-*` attributes.
   - affected icons: `BeakerDuotone`, `HighFiveDuotone`, `MountainDuotone`, `Users3Duotone`
 
-# [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
+## [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 
-No changes
+No changes.
 
-# [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
+## [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
 
 ### Features
 
-- **SvgIcon:** make default color 'inherit'; use in @prenda/spark-icons; expand colors; improve props ([#174](https://github.com/prenda-school/prenda-spark/issues/174)) ([777213a](https://github.com/prenda-school/prenda-spark/commit/777213a143c87f6fc4762a70d065ac16cf501a10))
-- simplify dependency narrative ([#169](https://github.com/prenda-school/prenda-spark/issues/169)) ([9936891](https://github.com/prenda-school/prenda-spark/commit/99368918c86ef8f9fa67139e4a3c2701cda02ec5))
-- add all icons ([#135](https://github.com/prenda-school/prenda-spark/issues/135)) ([8a430d3](https://github.com/prenda-school/prenda-spark/commit/8a430d36c99bbdef568820be04914ff571622fa5))
+- **SvgIcon:** make default color 'inherit'; use in @prenda/spark-icons; expand colors; improve props ([#174](https://github.com/prenda-school/prenda-spark/issues/174)) ([777213a](https://github.com/prenda-school/prenda-spark/commit/777213a143c87f6fc4762a70d065ac16cf501a10)).
+- simplify dependency narrative ([#169](https://github.com/prenda-school/prenda-spark/issues/169)) ([9936891](https://github.com/prenda-school/prenda-spark/commit/99368918c86ef8f9fa67139e4a3c2701cda02ec5)).
+- add all icons ([#135](https://github.com/prenda-school/prenda-spark/issues/135)) ([8a430d3](https://github.com/prenda-school/prenda-spark/commit/8a430d36c99bbdef568820be04914ff571622fa5)).
   - **Usage Instructions**:
     - Go to the "Prenda" Organization in Figma
     - Go to the "Prenda Design" Team (Join if you haven't)

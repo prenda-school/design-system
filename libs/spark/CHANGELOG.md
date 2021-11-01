@@ -1,8 +1,12 @@
 # Changelog
 
-# [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.16.0...vNext) (yyyy-mm-dd)
 
-# [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
+## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
+
+No changes.
+
+## [v0.15.0](https://github.com/prenda-school/prenda-spark/compare/v0.14.0...v0.15.0) (2021-10-25)
 
 ### Fixes
 
@@ -92,7 +96,7 @@
       - `palette.text.onDark` to `palette.text.light`
       - `palette.text.onDarkLowContrast` to `palette.text.lightLowContrast`
 
-# [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
+## [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 
 ### Fixes
 
@@ -123,7 +127,7 @@
 - **theme**
   - Re-exported typing (**Theme**).
 
-# [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
+## [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
 
 ### Fixes
 
@@ -131,14 +135,14 @@
 - **SectionMessage**
   - Ensure `React` is in scope for component file.
 
-# [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
+## [v0.13.0](https://github.com/prenda-school/prenda-spark/compare/v0.12.0...v0.13.0) (2021-09-30)
 
 ### Features
 
 - Support deeper file imports
   - example: `import Avatar from '@prenda/spark/Avatar';`
 
-# [v0.12.0](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...v0.12.0) (2021-09-28)
+## [v0.12.0](https://github.com/prenda-school/prenda-spark/compare/v0.11.1...v0.12.0) (2021-09-28)
 
 ### Features
 
@@ -204,7 +208,7 @@
   - Removed.
     - Migration: use **MenuItem** instead.
 
-# [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
+## [v0.11.1](https://github.com/prenda-school/prenda-spark/compare/v0.11.0...v0.11.1) (2021-09-08)
 
 ### Fixes
 
@@ -217,7 +221,7 @@
 - **Typography**
   - Custom classes not being global.
 
-# [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
+## [v0.11.0](https://github.com/prenda-school/prenda-spark/compare/v0.10.0...v0.11.0) (2021-08-21)
 
 ### Fixes
 
@@ -365,7 +369,7 @@
   - _Migration:_ use `font-weight: 700`.
   - Affected components: `FormControlLabel`, `MenuItem`, `Typography`.
 
-# [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
+## [0.10.0](https://github.com/prenda-school/prenda-spark/compare/v0.9.0...v0.10.0) (2021-08-06)
 
 ### Bug Fixes
 
@@ -375,7 +379,7 @@
 
 Spark no longer exports all of `@material-ui/core`, only components it themes, in addition to re-exporting the following theme related utilities from Mui core: `{ styled, useTheme, withStyles, makeStyles }`
 
-# [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
+## [0.9.0](https://github.com/prenda-school/prenda-spark/compare/v0.8.0...v0.9.0) (2021-07-29)
 
 ### Bug Fixes
 
@@ -453,7 +457,7 @@ Many components faced breaking prop API changes (and theme-wide default props) a
   - make default color 'inherit'; use in @prenda/spark-icons; expand colors; improve props ([#174](https://github.com/prenda-school/prenda-spark/issues/174)) ([777213a](https://github.com/prenda-school/prenda-spark/commit/777213a143c87f6fc4762a70d065ac16cf501a10))
 - **TextField:** add theme-level style overrides ([#153](https://github.com/prenda-school/prenda-spark/issues/153)) ([d2220dd](https://github.com/prenda-school/prenda-spark/commit/d2220ddef00bfd19c4e6e1f0e766d660592e37c1))
 
-# [0.8.0](https://github.com/prenda-school/prenda-spark/compare/v0.7.3...v0.8.0) (2021-06-22)
+## [0.8.0](https://github.com/prenda-school/prenda-spark/compare/v0.7.3...v0.8.0) (2021-06-22)
 
 ### Features
 
