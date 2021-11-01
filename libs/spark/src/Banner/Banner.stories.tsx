@@ -10,7 +10,7 @@ import {
 export const TypedBanner = (props: BannerProps) => <Banner {...props} />;
 
 export default {
-  title: 'PDS/@ps/Banner',
+  title: '@ps/Banner',
   component: TypedBanner,
   excludeStories: ['TypedBanner'],
   // Doesn't pick up extended AlertProps

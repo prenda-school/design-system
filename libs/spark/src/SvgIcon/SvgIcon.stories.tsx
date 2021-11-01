@@ -14,7 +14,7 @@ import { capitalize } from '../utils';
 export const SbSvgIcon = SvgIcon;
 
 export default {
-  title: 'PDS/@ps/SvgIcon',
+  title: '@ps/SvgIcon',
   component: SbSvgIcon,
   excludeStories: ['SbSvgIcon'],
   args: {

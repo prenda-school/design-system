@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { StepConnector, StepConnectorProps } from '..';
 
 export default {
-  title: 'PDS/@ps/StepConnector',
+  title: '@ps/StepConnector',
   component: StepConnector,
 } as Meta;
 

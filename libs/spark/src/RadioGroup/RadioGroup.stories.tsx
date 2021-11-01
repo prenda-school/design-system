@@ -13,7 +13,7 @@ export const TypedRadioGroup = (props: RadioGroupProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/RadioGroup',
+  title: '@ps/RadioGroup',
   component: TypedRadioGroup,
   excludeStories: ['TypedRadioGroup'],
   parameters: { actions: { handles: ['change'] } },

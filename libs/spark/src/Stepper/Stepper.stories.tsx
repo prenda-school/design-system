@@ -49,7 +49,7 @@ export const SbStepper = ({
 }: SbStepperProps) => <SbStepper {...props} />;
 
 export default {
-  title: 'PDS/@ps/Stepper',
+  title: '@ps/Stepper',
   component: SbStepper,
   excludeStories: ['SbStepper'],
   argTypes: {

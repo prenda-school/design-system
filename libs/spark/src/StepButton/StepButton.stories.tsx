@@ -15,7 +15,7 @@ export const SbStepButton = ({ sb_showLabel, ...props }: SbStepButtonProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/StepButton',
+  title: '@ps/StepButton',
   component: SbStepButton,
   excludeStories: ['SbStepButton'],
   argTypes: {

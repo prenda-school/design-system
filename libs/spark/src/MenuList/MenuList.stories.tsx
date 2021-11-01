@@ -19,7 +19,7 @@ import {
 export const TypedMenuList = (props: MenuListProps) => <MenuList {...props} />;
 
 export default {
-  title: 'PDS/@ps/MenuList',
+  title: '@ps/MenuList',
   component: TypedMenuList,
   excludeStories: ['TypedMenuList'],
 } as Meta;

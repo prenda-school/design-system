@@ -12,7 +12,7 @@ export const TypedTextField = (props: TextFieldProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/TextField',
+  title: '@ps/TextField',
   component: TypedTextField,
   excludeStories: ['TypedTextField'],
   // Doesn't pick up most props

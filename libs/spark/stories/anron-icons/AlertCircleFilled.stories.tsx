@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import { AlertCircleFilled } from '@prenda/spark-icons';
 
 export default {
-  title: 'PDS/@psi/AlertCircleFilled',
+  title: '@psi/AlertCircleFilled',
   component: AlertCircleFilled,
 } as Meta;
 

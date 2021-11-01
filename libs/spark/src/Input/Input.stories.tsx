@@ -9,7 +9,7 @@ import { ChangelogTemplate } from '../../stories/templates';
 export const TypedInput = (props: InputProps) => <Input {...props} />;
 
 export default {
-  title: 'PDS/@ps/Input',
+  title: '@ps/Input',
   component: TypedInput,
   excludeStories: ['TypedInput'],
   // Misses all props

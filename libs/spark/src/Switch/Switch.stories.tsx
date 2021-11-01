@@ -17,7 +17,7 @@ import {
 export const TypedSwitch = Switch;
 
 export default {
-  title: 'PDS/@ps/Switch',
+  title: '@ps/Switch',
   component: TypedSwitch,
   excludeStories: ['TypedSwitch'],
   parameters: { actions: { handles: ['change'] } },

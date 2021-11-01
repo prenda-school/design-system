@@ -11,7 +11,7 @@ export const TypedPaginationItem: OverridableComponent<PaginationItemTypeMap> = 
 ) => <PaginationItem {...props} />;
 
 export default {
-  title: 'PDS/@ps/Pagination Item',
+  title: '@ps/Pagination Item',
   component: TypedPaginationItem,
   excludeStories: ['TypedPaginationItem'],
   args: {

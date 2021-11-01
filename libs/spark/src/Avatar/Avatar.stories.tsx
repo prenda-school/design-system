@@ -11,7 +11,7 @@ import {
 export const TypedAvatar = Avatar;
 
 export default {
-  title: 'PDS/@ps/Avatar',
+  title: '@ps/Avatar',
   component: TypedAvatar,
   excludeStories: ['TypedAvatar'],
   args: {

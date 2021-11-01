@@ -9,7 +9,7 @@ import {
 import { styled } from '../src';
 
 export default {
-  title: 'PDS/@psi/Logos',
+  title: '@psi/Logos',
 } as Meta;
 
 const GridContainer = styled('div')(({ theme }) => ({

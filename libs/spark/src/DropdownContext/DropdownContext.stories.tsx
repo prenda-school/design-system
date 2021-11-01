@@ -22,7 +22,7 @@ export const TypedDropdownContext = (props: DropdownContextProps) => (
 const components = { Button, IconButton };
 
 export default {
-  title: 'PDS/@ps/DropdownContext',
+  title: '@ps/DropdownContext',
   component: TypedDropdownContext,
   excludeStories: ['TypedDropdownContext'],
   argTypes: {
