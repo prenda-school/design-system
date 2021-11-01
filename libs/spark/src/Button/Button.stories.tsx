@@ -10,7 +10,7 @@ export const TypedButton: ExtendButtonBase<ButtonTypeMap> = (props) => (
 );
 
 export default {
-  title: 'PDS/@ps/Button',
+  title: 'Packages/@ps/Button',
   component: TypedButton,
   excludeStories: ['TypedButton'],
   // Doesn't pick up props

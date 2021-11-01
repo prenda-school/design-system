@@ -15,7 +15,7 @@ import withStyles from '../withStyles';
 export const TypedCard = (props: CardProps) => <Card {...props} />;
 
 export default {
-  title: 'PDS/@ps/Card',
+  title: 'Packages/@ps/Card',
   component: TypedCard,
   excludeStories: ['TypedCard'],
 } as Meta;

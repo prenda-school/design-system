@@ -7,7 +7,7 @@ import { DocumentationTemplate } from '../../stories/templates';
 export const TypedCheckbox = (props: CheckboxProps) => <Checkbox {...props} />;
 
 export default {
-  title: 'PDS/@ps/Checkbox',
+  title: 'Packages/@ps/Checkbox',
   component: TypedCheckbox,
   excludeStories: ['TypedCheckbox'],
   parameters: { actions: { handles: ['change'] } },

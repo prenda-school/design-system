@@ -9,7 +9,7 @@ export const TypedNavBarButton = (props: NavBarButtonProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/NavBarButton',
+  title: 'Packages/@ps/NavBarButton',
   component: TypedNavBarButton,
   excludeStories: ['TypedNavBarButton'],
   argTypes: {

@@ -12,7 +12,7 @@ import {
 } from '../../stories/templates';
 
 export default {
-  title: 'PDS/@ps/Autocomplete',
+  title: 'Packages/@ps/Autocomplete',
   component: Autocomplete,
   argTypes: {},
   args: {},

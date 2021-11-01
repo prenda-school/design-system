@@ -13,7 +13,7 @@ export const TypedFormControl = (props: FormControlProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/FormControl',
+  title: 'Packages/@ps/FormControl',
   component: TypedFormControl,
   excludeStories: ['TypedFormControl'],
   parameters: { actions: { handles: ['change'] } },

@@ -25,7 +25,7 @@ export const SbStep = ({
 }: SbStepProps) => <Step {...props} />;
 
 export default {
-  title: 'PDS/@ps/Step',
+  title: 'Packages/@ps/Step',
   component: SbStep,
   excludeStories: ['SbStep'],
   argTypes: {

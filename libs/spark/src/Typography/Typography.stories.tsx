@@ -10,7 +10,7 @@ export const TypedTypography = (props: TypographyProps) => (
 );
 
 export default {
-  title: 'PDS/@ps/Typography',
+  title: 'Packages/@ps/Typography',
   component: TypedTypography,
   excludeStories: ['TypedTypography'],
 } as Meta;

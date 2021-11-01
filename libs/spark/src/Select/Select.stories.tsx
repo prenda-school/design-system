@@ -10,7 +10,7 @@ import { ChangelogTemplate } from '../../stories/templates';
 export const TypedSelect = (props: SelectProps) => <Select {...props} />;
 
 export default {
-  title: 'PDS/@ps/Select',
+  title: 'Packages/@ps/Select',
   component: TypedSelect,
   excludeStories: ['TypedSelect'],
   parameters: { actions: { handles: ['change'] } },

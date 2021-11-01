@@ -6,7 +6,7 @@ import { default as Radio, RadioProps } from './Radio';
 export const TypedRadio = (props: RadioProps) => <Radio {...props} />;
 
 export default {
-  title: 'PDS/@ps/Radio',
+  title: 'Packages/@ps/Radio',
   component: TypedRadio,
   excludeStories: ['TypedRadio'],
   parameters: { actions: { handles: ['change'] } },
