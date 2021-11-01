@@ -11,7 +11,7 @@ import {
 export const TypedIconButton = IconButton;
 
 export default {
-  title: 'Packages/@ps/IconButton',
+  title: '@ps/IconButton',
   component: TypedIconButton,
   excludeStories: ['TypedIconButton'],
   argTypes: {

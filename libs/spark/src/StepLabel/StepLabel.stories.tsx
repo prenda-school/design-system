@@ -4,7 +4,7 @@ import { GearFilled } from '@prenda/spark-icons';
 import { StepLabel, StepLabelProps } from '..';
 
 export default {
-  title: 'Packages/@ps/StepLabel',
+  title: '@ps/StepLabel',
   component: StepLabel,
   argTypes: {
     active: { control: 'boolean' },

@@ -18,7 +18,7 @@ import withStyles from '../withStyles';
 export const TypedNavBar = (props: NavBarProps) => <NavBar {...props} />;
 
 export default {
-  title: 'Packages/@ps/NavBar',
+  title: '@ps/NavBar',
   component: TypedNavBar,
   excludeStories: ['TypedNavBar'],
 } as Meta;

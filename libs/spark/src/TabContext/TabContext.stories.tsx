@@ -17,7 +17,7 @@ export const TypedTabContext = (props: TabContextProps) => (
 );
 
 export default {
-  title: 'Packages/@ps/TabContext',
+  title: '@ps/TabContext',
   component: TypedTabContext,
   excludeStories: ['TypedTabContext'],
   // Doesn't pick up any props

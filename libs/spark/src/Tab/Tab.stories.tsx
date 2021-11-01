@@ -11,7 +11,7 @@ import {
 export const TypedTab: ExtendButtonBase<TabTypeMap> = Tab;
 
 export default {
-  title: 'Packages/@ps/Tab',
+  title: '@ps/Tab',
   component: TypedTab,
   excludeStories: ['TypedTab'],
   // Doesn't pick up any props

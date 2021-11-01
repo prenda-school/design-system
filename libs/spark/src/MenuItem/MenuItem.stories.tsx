@@ -19,7 +19,7 @@ export const TypedMenuItem: OverridableComponent<MenuItemTypeMap> = (props) => (
 );
 
 export default {
-  title: 'Packages/@ps/MenuItem',
+  title: '@ps/MenuItem',
   component: TypedMenuItem,
   excludeStories: ['TypedMenuItem'],
   args: {

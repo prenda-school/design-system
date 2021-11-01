@@ -7,7 +7,7 @@ export const TypedPagination = (props: PaginationProps) => (
 );
 
 export default {
-  title: 'Packages/@ps/Pagination',
+  title: '@ps/Pagination',
   component: TypedPagination,
   excludeStories: ['TypedPagination'],
   // Doesn't pick up props

@@ -16,7 +16,7 @@ export const TypedSectionMessage = (props: SectionMessageProps) => (
 );
 
 export default {
-  title: 'Packages/@ps/SectionMessage',
+  title: '@ps/SectionMessage',
   component: TypedSectionMessage,
   excludeStories: ['TypedSectionMessage'],
   // Doesn't pick up props

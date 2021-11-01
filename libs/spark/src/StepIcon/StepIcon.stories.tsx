@@ -4,7 +4,7 @@ import { GearFilled } from '@prenda/spark-icons';
 import { StepIcon, StepIconProps } from '..';
 
 export default {
-  title: 'Packages/@ps/StepIcon',
+  title: '@ps/StepIcon',
   component: StepIcon,
   argTypes: {
     icon: {

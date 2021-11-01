@@ -14,7 +14,7 @@ const handleDelete = () => {
 };
 
 export default {
-  title: 'Packages/@ps/Tag',
+  title: '@ps/Tag',
   component: TypedTag,
   excludeStories: ['TypedTag'],
   parameters: {

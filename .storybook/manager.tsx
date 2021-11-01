@@ -16,6 +16,7 @@ const config: Config = {
       const name = nameToLabel[item.name] ?? item.name;
       return <abbr title={name}>{name}</abbr>;
     },
+    showRoots: false,
   },
   theme: create({
     base: 'light',
