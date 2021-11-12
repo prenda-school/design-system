@@ -28,6 +28,32 @@ export default {
   },
 } as Meta;
 
+const useIconStyles = makeStyles((theme) => ({
+  paper: {
+    backgroundColor: theme.palette.grey.light,
+  },
+  svg: {
+    width: 100,
+    height: 100,
+  },
+  polygon: {
+    fill: theme.palette.grey.dark,
+    stroke: theme.palette.divider,
+    strokeWidth: 1,
+  },
+}));
+
+const Icon = () => {
+  const classes = useIconStyles();
+  return (
+    <Paper className={classes.paper} elevation={0}>
+      <svg className={classes.svg}>
+        <polygon className={classes.polygon} points="0,100 50,00, 100,100" />
+      </svg>
+    </Paper>
+  );
+};
+
 const Root = styled('div')({
   height: 120,
   width: 100,
@@ -63,31 +89,25 @@ VerticalCollapsedSizeIn.args = {
 };
 VerticalCollapsedSizeIn.storyName = 'vertical collapsedSize in';
 
-const useIconStyles = makeStyles((theme) => ({
-  paper: {
-    backgroundColor: theme.palette.grey.light,
-  },
-  svg: {
-    width: 100,
-    height: 100,
-  },
-  polygon: {
-    fill: theme.palette.grey.dark,
-    stroke: theme.palette.divider,
-    strokeWidth: 1,
-  },
-}));
+export const Horizontal = Template.bind({});
+Horizontal.args = { orientation: 'horizontal' };
+Horizontal.storyName = 'horizontal';
 
-const Icon = () => {
-  const classes = useIconStyles();
-  return (
-    <Paper className={classes.paper} elevation={0}>
-      <svg className={classes.svg}>
-        <polygon className={classes.polygon} points="0,100 50,00, 100,100" />
-      </svg>
-    </Paper>
-  );
+export const HorizontalCollapseSize = Template.bind({});
+HorizontalCollapseSize.args = { orientation: 'horizontal', collapsedSize: 40 };
+HorizontalCollapseSize.storyName = 'horizontal collapsedSize';
+
+export const HorizontalIn = Template.bind({});
+HorizontalIn.args = { orientation: 'horizontal', in: true };
+HorizontalIn.storyName = 'horizontal in';
+
+export const HorizontalCollapsedSizeIn = Template.bind({});
+HorizontalCollapsedSizeIn.args = {
+  orientation: 'horizontal',
+  collapsedSize: 40,
+  in: true,
 };
+HorizontalCollapsedSizeIn.storyName = 'horizontal collapsedSize in';
 
 const useDemoStyles = makeStyles({
   root: {
