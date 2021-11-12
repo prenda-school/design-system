@@ -11,21 +11,38 @@ import {
   styled,
 } from '..';
 
-export const TypedCollapse = (props: CollapseProps) => <Collapse {...props} />;
+// :TEMP: duplicate props doc & defaults for what auto-doc plugin doesn't pickup
+interface SbCollapseProps extends CollapseProps {
+  /**
+   * The height of the container when collapsed.
+   */
+  collapsedSize?: string | number;
+  /**
+   * If `true`, the component will transition in.
+   */
+  in?: boolean | undefined;
+  /**
+   * The collapse transition orientation.
+   */
+  orientation?: 'horizontal' | 'vertical' | undefined;
+}
+
+export const SbCollapse = ({
+  collapsedSize = '0px',
+  orientation = 'vertical',
+  ...other
+}: SbCollapseProps) => (
+  <Collapse
+    collapsedSize={collapsedSize}
+    orientation={orientation}
+    {...other}
+  />
+);
 
 export default {
   title: '@ps/Collapse',
-  component: TypedCollapse,
-  excludeStories: ['TypedCollapse'],
-  argTypes: {
-    orientation: { control: 'select', options: ['vertical', 'horizontal'] },
-    collapsedSize: { control: 'number' },
-    in: { control: 'boolean' },
-  },
-  args: {
-    orientation: 'vertical',
-    collapsedSize: 0,
-  },
+  component: SbCollapse,
+  excludeStories: ['SbCollapse'],
 } as Meta;
 
 const useIconStyles = makeStyles((theme) => ({
