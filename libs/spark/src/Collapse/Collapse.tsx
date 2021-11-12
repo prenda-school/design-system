@@ -10,6 +10,8 @@ import makeStyles from '../makeStyles';
 import useTheme from '../useTheme';
 import { useMergeClasses } from '../utils';
 
+export type { CollapseProps };
+
 export type CollapseClassKey =
   | 'root'
   | 'horizontal'
