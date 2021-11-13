@@ -82,6 +82,9 @@ export * from './InputBase';
 export { default as InputLabel } from './InputLabel';
 export * from './InputLabel';
 
+export { default as Link } from './Link';
+export * from './Link';
+
 export { default as List } from './List';
 export * from './List';
 
