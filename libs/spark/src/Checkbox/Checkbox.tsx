@@ -11,14 +11,8 @@ import { StandardProps, useMergeClasses } from '../utils';
 
 // File is adapted from MUI's interface.
 // Permalink: https://github.com/mui-org/material-ui/blob/b3e794791441fa8e6da50ca8545c40d566081f81/packages/material-ui/src/Checkbox/Checkbox.js
-// Removed props
-//  `checkedIcon`
-//  `color`
-//  `disableRipple`
-//  `icon`
-//  `indeterminateIcon`
-//  `size`
-// Remove logic around `color`, `size`.
+// Removed props `checkedIcon`, `color`, `disableRipple`, `icon`, `indeterminateIcon`, `size`.
+// Removed logic around `color`, `size`.
 
 export interface CheckboxProps
   extends StandardProps<
