@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core/Breadcrumbs';
 import makeStyles from '../makeStyles';
 import { OverridableComponent, useMergeClasses } from '../utils';
-import { ArrowRight } from '../internal';
+import { ChevronRight } from '../internal';
 
 export type { BreadcrumbsClassKey, BreadcrumbsProps, BreadcrumbsTypeMap };
 
@@ -17,11 +17,10 @@ const useStyles = makeStyles<BreadcrumbsClassKey>(
     ol: {},
     li: {
       '& [class*=MuiSparkLink-root]': {
+        fontWeight: 700,
         textDecoration: 'none',
         '&[aria-current="page"]': {
           color: palette.text.dark,
-          fontWeight: 600,
-          textDecoration: 'underline',
           '&:hover, &:focus-visible, &.Mui-focusVisible': {
             color: palette.blue[3],
           },
@@ -29,10 +28,10 @@ const useStyles = makeStyles<BreadcrumbsClassKey>(
       },
     },
     separator: {
-      color: palette.blue[3],
-      marginBottom: 2,
-      marginLeft: 12,
-      marginRight: 12,
+      color: palette.text.darkLowContrast,
+      fontSize: 24,
+      marginLeft: 16,
+      marginRight: 16,
     },
   }),
   { name: 'MuiSparkBreadcrumbs' }
@@ -40,7 +39,7 @@ const useStyles = makeStyles<BreadcrumbsClassKey>(
 
 const Breadcrumbs: OverridableComponent<BreadcrumbsTypeMap> = React.forwardRef(
   function Breadcrumbs(
-    { classes: classesProp, separator = <ArrowRight />, ...other },
+    { classes: classesProp, separator = <ChevronRight />, ...other },
     ref
   ) {
     const baseClasses = useStyles();
