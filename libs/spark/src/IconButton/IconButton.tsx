@@ -150,7 +150,6 @@ const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
 
     return (
       <MuiIconButton
-        ref={ref}
         classes={{
           ...otherClasses,
           root: clsx(
@@ -161,6 +160,9 @@ const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
           label: customClasses.label,
           disabled: customClasses.disabled,
         }}
+        disableFocusRipple
+        disableRipple
+        ref={ref}
         {...other}
       >
         {children}

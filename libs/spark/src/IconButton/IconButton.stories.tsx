@@ -1,23 +1,26 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import Box from '../Box';
-import IconButton from './IconButton';
+import { Box, IconButton } from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
-export const TypedIconButton = IconButton;
+export const SbIconButton = IconButton;
 
 export default {
   title: '@ps/IconButton',
-  component: TypedIconButton,
-  excludeStories: ['TypedIconButton'],
+  component: SbIconButton,
+  excludeStories: ['SbIconButton'],
   argTypes: {
     children: {
       control: 'select',
-      options: ['ChevronDown'],
+      options: ['undefined', 'ChevronDown'],
+      mapping: {
+        undefined: undefined,
+        ChevronDown: <ChevronDown />,
+      },
     },
   },
   args: {
@@ -25,11 +28,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => (
-  <IconButton {...args}>{<ChevronDown />}</IconButton>
-);
+const Template = (args) => <IconButton {...args} />;
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const GridContainer = (props) => (
   <Box
@@ -42,7 +43,7 @@ const GridContainer = (props) => (
   />
 );
 
-const VariantAndSizeTemplate: Story = (args) => (
+const VariantAndSizeTemplate = (args) => (
   <GridContainer>
     <span>Variant / Size</span>
     <span>Large</span>
@@ -86,18 +87,18 @@ const VariantAndSizeTemplate: Story = (args) => (
   </GridContainer>
 );
 
-export const VariantAndSize = VariantAndSizeTemplate.bind({});
+export const VariantAndSize: Story = VariantAndSizeTemplate.bind({});
 
-export const VariantAndSizeDisabled = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeDisabled.args = { disabled: true };
 
-export const VariantAndSizeHover = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
-export const VariantAndSizeFocus = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
 
-export const VariantAndSizeActive = VariantAndSizeTemplate.bind({});
+export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 const IconButtonDocTemplate = (args) => <DocumentationTemplate {...args} />;
