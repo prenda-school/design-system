@@ -4,6 +4,8 @@
 
 ### Features
 
+- **Checkbox**
+  - Can render without `ThemeProvider`.
 - **IconButton**
   - Can render without `ThemeProvider`.
 
