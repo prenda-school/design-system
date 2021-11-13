@@ -9,14 +9,17 @@ import CheckboxIcon from './CheckboxIcon';
 import makeStyles from '../makeStyles';
 import { StandardProps, useMergeClasses } from '../utils';
 
-// Adapted from MUI's interface. Removed
+// File is adapted from MUI's interface.
+// Permalink: https://github.com/mui-org/material-ui/blob/b3e794791441fa8e6da50ca8545c40d566081f81/packages/material-ui/src/Checkbox/Checkbox.js
+// Removed props
 //  `checkedIcon`
 //  `color`
 //  `disableRipple`
 //  `icon`
 //  `indeterminateIcon`
 //  `size`
-// Permalink:
+// Remove logic around `color`, `size`.
+
 export interface CheckboxProps
   extends StandardProps<
     SwitchBaseProps,
@@ -110,8 +113,6 @@ const useStyles = makeStyles<CheckboxClassKey>(
   { name: 'MuiSparkCheckbox' }
 );
 
-// Adapted from MUI's implementation. Removed `color`, `size` logic.
-// Permalink:
 const Checkbox = React.forwardRef(function Checkbox(
   { classes: classesProp, indeterminate, inputProps, ...other }: CheckboxProps,
 
