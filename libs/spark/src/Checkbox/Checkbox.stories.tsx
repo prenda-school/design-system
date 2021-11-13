@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { default as Checkbox, CheckboxProps } from './Checkbox';
-import FormControlLabel from '../FormControlLabel';
+import { Checkbox, CheckboxProps, FormControlLabel } from '..';
 import { DocumentationTemplate } from '../../stories/templates';
 
-export const TypedCheckbox = (props: CheckboxProps) => <Checkbox {...props} />;
+export const SbCheckbox = (props: CheckboxProps) => <Checkbox {...props} />;
 
 export default {
   title: '@ps/Checkbox',
-  component: TypedCheckbox,
-  excludeStories: ['TypedCheckbox'],
+  component: SbCheckbox,
+  excludeStories: ['SbCheckbox'],
   parameters: { actions: { handles: ['change'] } },
   // Doesn't pick up extended SwitchBaseProps
   argTypes: {
@@ -20,7 +19,7 @@ export default {
   args: {},
 } as Meta;
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <Checkbox
     // a11y required props when there's no label
     name="Demo"
@@ -30,9 +29,9 @@ const Template: Story = (args) => (
   />
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
-const StatesTemplate: Story = () => (
+const StatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <Checkbox
       name="nameA"
@@ -74,7 +73,7 @@ const StatesTemplate: Story = () => (
   </div>
 );
 
-const PseudoStatesTemplate: Story = () => (
+const PseudoStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <Checkbox
       name="nameA"
@@ -96,15 +95,15 @@ const PseudoStatesTemplate: Story = () => (
   </div>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesHover = PseudoStatesTemplate.bind({});
+export const StatesHover: Story = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
-export const StatesFocus = PseudoStatesTemplate.bind({});
+export const StatesFocus: Story = PseudoStatesTemplate.bind({});
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-const LabeledStatesTemplate: Story = () => (
+const LabeledStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <FormControlLabel label="Label" control={<Checkbox />} />
     <FormControlLabel label="Label" control={<Checkbox />} disabled />
@@ -119,7 +118,7 @@ const LabeledStatesTemplate: Story = () => (
   </div>
 );
 
-const PseudoLabeledStatesTemplate: Story = () => (
+const PseudoLabeledStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <FormControlLabel label="Label" control={<Checkbox />} />
     <FormControlLabel label="Label" control={<Checkbox checked />} />
@@ -127,15 +126,15 @@ const PseudoLabeledStatesTemplate: Story = () => (
   </div>
 );
 
-export const LabeledStates = LabeledStatesTemplate.bind({});
+export const LabeledStates: Story = LabeledStatesTemplate.bind({});
 
-export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesHover: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
-export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesFocus: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const Documentation = DocumentationTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Checkbox',
