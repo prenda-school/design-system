@@ -5,7 +5,6 @@ import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete/defaults';
 import type { AvatarClassKey } from '../Avatar';
 import type { BannerClassKey } from '../Banner';
-import { MuiButtonStyleOverrides } from '../Button/defaults';
 import { MuiCardStyleOverrides } from '../Card/defaults';
 import { MuiCardActionsStyleOverrides } from '../CardActions/defaults';
 import { MuiCardContentStyleOverrides } from '../CardContent/defaults';
@@ -55,7 +54,6 @@ declare module '@material-ui/core/styles/overrides' {
 
 const overrides = (theme: Theme): Overrides => ({
   MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),
-  MuiButton: MuiButtonStyleOverrides(theme),
   MuiCssBaseline: {
     '@global': {
       body: {

@@ -1,42 +1,31 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import { default as Button, ButtonTypeMap } from './Button';
-import Box from '../Box';
-import { ExtendButtonBase } from '../ButtonBase';
+import { Box, Button, ButtonProps } from '..';
 
-export const TypedButton: ExtendButtonBase<ButtonTypeMap> = (props) => (
-  <Button {...props} />
-);
+export const SbButton = (props: ButtonProps) => <Button {...props} />;
 
 export default {
   title: '@ps/Button',
-  component: TypedButton,
-  excludeStories: ['TypedButton'],
-  // Doesn't pick up props
+  component: SbButton,
+  excludeStories: ['SbButton'],
   argTypes: {
-    onClick: { actions: 'clicked' },
-    variant: {
-      control: 'select',
-      options: ['contained', 'outlined', 'text'],
-    },
-    size: {
-      control: 'select',
-      options: ['large', 'medium', 'small'],
-    },
     startIcon: {
       control: 'select',
-      options: [undefined, 'ChevronDown'],
+      options: ['undefined', 'ChevronDown'],
+      mapping: {
+        undefined: undefined,
+        ChevronDown: <ChevronDown />,
+      },
     },
     endIcon: {
       control: 'select',
-      options: [undefined, 'ChevronDown'],
+      options: ['undefined', 'ChevronDown'],
+      mapping: {
+        undefined: undefined,
+        ChevronDown: <ChevronDown />,
+      },
     },
-    disabled: { control: 'boolean' },
-  },
-  args: {
-    variant: 'contained',
-    size: 'large',
   },
 } as Meta;
 

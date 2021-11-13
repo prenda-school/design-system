@@ -1,7 +1,6 @@
 import { ComponentsProps } from '@material-ui/core/styles/props';
 import { MuiAutocompleteDefaultProps } from '../Autocomplete/defaults';
 import { MuiAlertDefaultProps } from '../Alert/defaults';
-import { MuiButtonDefaultProps } from '../Button/defaults';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase/defaults';
 import { MuiCardDefaultProps } from '../Card/defaults';
 import { MuiCheckboxDefaultProps } from '../Checkbox/defaults';
@@ -18,7 +17,6 @@ import { MuiTabsDefaultProps } from '../Tabs/defaults';
 export default {
   MuiAlert: MuiAlertDefaultProps,
   MuiAutocomplete: MuiAutocompleteDefaultProps,
-  MuiButton: MuiButtonDefaultProps,
   MuiButtonBase: MuiButtonBaseDefaultProps,
   MuiCard: MuiCardDefaultProps,
   MuiCheckbox: MuiCheckboxDefaultProps,
