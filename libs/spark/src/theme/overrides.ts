@@ -30,7 +30,6 @@ import { MuiMenuStyleOverrides } from '../Menu/defaults';
 import { MuiMenuItemStyleOverrides } from '../MenuItem/defaults';
 import { MuiPaginationStyleOverrides } from '../Pagination/defaults';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem/defaults';
-import { MuiRadioStyleOverrides } from '../Radio/defaults';
 import type { SectionMessageClassKey } from '../SectionMessage';
 import type { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select/defaults';
@@ -88,7 +87,6 @@ const overrides = (theme: Theme): Overrides => ({
   MuiMenuItem: MuiMenuItemStyleOverrides(theme),
   MuiPagination: MuiPaginationStyleOverrides,
   MuiPaginationItem: MuiPaginationItemStyleOverrides(theme),
-  MuiRadio: MuiRadioStyleOverrides(theme),
   MuiSelect: MuiSelectStylesOverrides(theme),
   MuiSwitch: MuiSwitchStyleOverrides(theme),
   MuiTab: MuiTabStyleOverrides(theme),

@@ -10,7 +10,6 @@ import { MuiInputLabelDefaultProps } from '../InputLabel/defaults';
 import { MuiMenuDefaultProps } from '../Menu/defaults';
 import { MuiPaginationDefaultProps } from '../Pagination/defaults';
 import { MuiPaginationItemDefaultProps } from '../PaginationItem/defaults';
-import { MuiRadioDefaultProps } from '../Radio/defaults';
 import { MuiSelectDefaultProps } from '../Select/defaults';
 import { MuiTabsDefaultProps } from '../Tabs/defaults';
 
@@ -26,7 +25,6 @@ export default {
   MuiMenu: MuiMenuDefaultProps,
   MuiPagination: MuiPaginationDefaultProps,
   MuiPaginationItem: MuiPaginationItemDefaultProps,
-  MuiRadio: MuiRadioDefaultProps,
   MuiSelect: MuiSelectDefaultProps,
   MuiTabs: MuiTabsDefaultProps,
 } as ComponentsProps;

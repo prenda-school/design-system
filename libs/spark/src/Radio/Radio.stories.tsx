@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import FormControlLabel from '../FormControlLabel';
-import { default as Radio, RadioProps } from './Radio';
+import { FormControlLabel, Radio, RadioProps } from '..';
 
-export const TypedRadio = (props: RadioProps) => <Radio {...props} />;
+export const SbRadio = (props: RadioProps) => <Radio {...props} />;
 
 export default {
   title: '@ps/Radio',
-  component: TypedRadio,
-  excludeStories: ['TypedRadio'],
+  component: SbRadio,
+  excludeStories: ['SbRadio'],
   parameters: { actions: { handles: ['change'] } },
   // Doesn't pick up extended SwitchBaseProps
   argTypes: {
@@ -17,7 +16,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <Radio
     // a11y required props when there's no label
     name="Demo"
@@ -27,9 +26,9 @@ const Template: Story = (args) => (
   />
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
-const StatesTemplate: Story = () => (
+const StatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <Radio
       name="nameA"
@@ -58,7 +57,7 @@ const StatesTemplate: Story = () => (
   </div>
 );
 
-const PseudoStatesTemplate: Story = () => (
+const PseudoStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <Radio
       name="nameA"
@@ -74,15 +73,15 @@ const PseudoStatesTemplate: Story = () => (
   </div>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesHover = PseudoStatesTemplate.bind({});
+export const StatesHover: Story = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
-export const StatesFocus = PseudoStatesTemplate.bind({});
+export const StatesFocus: Story = PseudoStatesTemplate.bind({});
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-const LabeledStatesTemplate: Story = () => (
+const LabeledStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <FormControlLabel label="Label" control={<Radio />} />
     <FormControlLabel label="Label" control={<Radio />} disabled />
@@ -91,17 +90,17 @@ const LabeledStatesTemplate: Story = () => (
   </div>
 );
 
-const PseudoLabeledStatesTemplate: Story = () => (
+const PseudoLabeledStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
     <FormControlLabel label="Label" control={<Radio />} />
     <FormControlLabel label="Label" control={<Radio />} checked />
   </div>
 );
 
-export const LabeledStates = LabeledStatesTemplate.bind({});
+export const LabeledStates: Story = LabeledStatesTemplate.bind({});
 
-export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesHover: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
-export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesFocus: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
