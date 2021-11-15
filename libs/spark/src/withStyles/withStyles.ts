@@ -14,9 +14,9 @@ export * from '@material-ui/core/styles/withStyles';
 export default function withStyles<
   ClassKey extends string,
   // eslint-disable-next-line @typescript-eslint/ban-types
-  Options extends WithStylesOptions<Theme> = {},
+  Props extends object = {},
   // eslint-disable-next-line @typescript-eslint/ban-types
-  Props extends object = {}
+  Options extends WithStylesOptions<Theme> = {}
 >(
   styles: Styles<Theme, Props, ClassKey>,
   options?: Options
