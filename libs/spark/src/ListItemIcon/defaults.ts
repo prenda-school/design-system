@@ -11,7 +11,7 @@ export const MuiListItemIconStyleOverrides = ({
     fontSize: typography.pxToRem(24),
     minWidth: 'unset',
     marginRight: 8,
-    '& [class*=MuiCheckbox-root]': {
+    '& [class*=MuiSparkCheckbox-root]': {
       padding: 1,
     },
     '.Mui-selected > &': {

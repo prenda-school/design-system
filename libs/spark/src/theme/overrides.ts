@@ -9,7 +9,6 @@ import { MuiButtonStyleOverrides } from '../Button/defaults';
 import { MuiCardStyleOverrides } from '../Card/defaults';
 import { MuiCardActionsStyleOverrides } from '../CardActions/defaults';
 import { MuiCardContentStyleOverrides } from '../CardContent/defaults';
-import { MuiCheckboxStyleOverrides } from '../Checkbox/defaults';
 import { MuiDividerStyleOverrides } from '../Divider/defaults';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel/defaults';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText/defaults';
@@ -67,7 +66,6 @@ const overrides = (theme: Theme): Overrides => ({
   MuiCard: MuiCardStyleOverrides,
   MuiCardContent: MuiCardContentStyleOverrides,
   MuiCardActions: MuiCardActionsStyleOverrides,
-  MuiCheckbox: MuiCheckboxStyleOverrides(theme),
   MuiDivider: MuiDividerStyleOverrides(theme),
   MuiFormControlLabel: MuiFormControlLabelStyleOverrides(theme),
   MuiFormHelperText: MuiFormHelperTextStyleOverrides(theme),

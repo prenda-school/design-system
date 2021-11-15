@@ -4,7 +4,6 @@ import { MuiAlertDefaultProps } from '../Alert/defaults';
 import { MuiButtonDefaultProps } from '../Button/defaults';
 import { MuiButtonBaseDefaultProps } from '../ButtonBase/defaults';
 import { MuiCardDefaultProps } from '../Card/defaults';
-import { MuiCheckboxDefaultProps } from '../Checkbox/defaults';
 import { MuiInputDefaultProps } from '../Input/defaults';
 import { MuiInputLabelDefaultProps } from '../InputLabel/defaults';
 import { MuiMenuDefaultProps } from '../Menu/defaults';
@@ -19,7 +18,6 @@ export default {
   MuiButton: MuiButtonDefaultProps,
   MuiButtonBase: MuiButtonBaseDefaultProps,
   MuiCard: MuiCardDefaultProps,
-  MuiCheckbox: MuiCheckboxDefaultProps,
   MuiInput: MuiInputDefaultProps,
   MuiInputLabel: MuiInputLabelDefaultProps,
   MuiMenu: MuiMenuDefaultProps,

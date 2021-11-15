@@ -4,10 +4,12 @@
 
 ### Features
 
+- **Checkbox**
+  - Customize without `ThemeProvider`.
 - **IconButton**
-  - Can render without `ThemeProvider`.
+  - Customize without `ThemeProvider`.
 - **Radio**
-  - Can render without `ThemeProvider`.
+  - Customize without `ThemeProvider`.
 
 ## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
 
