@@ -254,16 +254,54 @@ const AdornmentsTemplate = ({
 }) => (
   <OuterGroup>
     <InnerGroup>
-      <TextField {...args} />
-      <TextField value="Value" {...args} />
+      <TextField
+        InputProps={{
+          startAdornment,
+          endAdornment,
+        }}
+        {...args}
+      />
+      <TextField
+        value="Value"
+        InputProps={{
+          startAdornment,
+          endAdornment,
+        }}
+        {...args}
+      />
     </InnerGroup>
     <InnerGroup>
-      <TextField multiline rows={3} {...args} />
-      <TextField multiline rows={3} value="Value" {...args} />
+      <TextField
+        multiline
+        rows={3}
+        InputProps={{
+          startAdornment,
+          endAdornment,
+        }}
+        {...args}
+      />
+      <TextField
+        multiline
+        rows={3}
+        value="Value"
+        InputProps={{
+          startAdornment,
+          endAdornment,
+        }}
+        {...args}
+      />
     </InnerGroup>
-    {args.InputProps?.endAdornment ? null : (
+    {endAdornment ? null : (
       <InnerGroup>
-        <TextField select value="" {...args}>
+        <TextField
+          select
+          value=""
+          InputProps={{
+            startAdornment,
+            endAdornment,
+          }}
+          {...args}
+        >
           <MenuItem value="" disabled>
             Placeholder
           </MenuItem>
@@ -271,7 +309,15 @@ const AdornmentsTemplate = ({
           <MenuItem value="valueB">Option B</MenuItem>
           <MenuItem value="valueC">Option C</MenuItem>
         </TextField>
-        <TextField select value="value" {...args}>
+        <TextField
+          select
+          value="value"
+          InputProps={{
+            startAdornment,
+            endAdornment,
+          }}
+          {...args}
+        >
           <MenuItem value="" disabled>
             Placeholder
           </MenuItem>
@@ -285,18 +331,10 @@ const AdornmentsTemplate = ({
 );
 
 export const StartAdornment: Story = AdornmentsTemplate.bind({});
-StartAdornment.args = {
-  InputProps: {
-    startAdornment: 'GearDuotone',
-  },
-};
+StartAdornment.args = { 'sb_InputProps.startAdornment': 'GearDuotone' };
 
 export const EndAdornment: Story = AdornmentsTemplate.bind({});
-EndAdornment.args = {
-  InputProps: {
-    endAdornment: 'QuestionDuotone',
-  },
-};
+EndAdornment.args = { 'sb_InputProps.endAdornment': 'QuestionDuotone' };
 
 export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {

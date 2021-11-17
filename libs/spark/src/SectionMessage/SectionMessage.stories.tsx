@@ -23,6 +23,9 @@ export default {
   title: '@ps/SectionMessage',
   component: SbSectionMessage,
   excludeStories: ['SbSectionMessage'],
+  args: {
+    severity: 'info',
+  },
 } as Meta;
 
 const Template = (args) => (
