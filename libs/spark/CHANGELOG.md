@@ -6,6 +6,8 @@
 
 - **Breadcrumbs**
   - Re-exported with custom styles and props.
+- **Collapse**
+  - Backport support for `orientation="horizontal"` from MUI v5.
 - **Link**
   - Re-exported with custom styles and props.
 
