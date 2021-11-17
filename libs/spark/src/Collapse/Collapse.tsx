@@ -3,14 +3,20 @@ import * as React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import type { CollapseProps } from '@material-ui/core/Collapse';
+import type { CollapseProps as MuiCollapseProps } from '@material-ui/core/Collapse';
 import { getTransitionProps } from '@material-ui/core/transitions/utils';
 import { useForkRef } from '@material-ui/core/utils';
 import makeStyles from '../makeStyles';
 import useTheme from '../useTheme';
 import { useMergeClasses } from '../utils';
 
-export type { CollapseProps };
+export interface CollapseProps extends MuiCollapseProps {
+  /**
+   * The transition orientation.
+   * @default 'vertical'
+   */
+  orientation?: 'horizontal' | 'vertical';
+}
 
 export type CollapseClassKey =
   | 'root'

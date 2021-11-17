@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Breadcrumbs, BreadcrumbsProps, Link } from '..';
 
 export const SbBreadcrumbs = (props: BreadcrumbsProps) => (
