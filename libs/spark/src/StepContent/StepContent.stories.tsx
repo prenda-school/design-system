@@ -1,8 +1,17 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { StepContent, StepContentProps, Typography } from '..';
 
-export const SbStepContent = (props: StepContentProps) => (
+// underlying StepContentProps are undocumented
+interface SbStepContentProps extends StepContentProps {
+  active?: boolean;
+  expanded?: boolean;
+  /**
+   * @default 'vertical'
+   */
+  orientation?: 'horizontal' | 'vertical';
+}
+export const SbStepContent = (props: SbStepContentProps) => (
   <StepContent {...props} />
 );
 
@@ -10,13 +19,7 @@ export default {
   title: '@ps/StepContent',
   component: SbStepContent,
   excludeStories: ['SbStepContent'],
-  argTypes: {
-    active: { control: 'boolean' },
-    expanded: { control: 'boolean' },
-    orientation: { control: 'radio', options: ['horizontal', 'vertical'] },
-  },
   args: {
-    orientation: 'vertical',
     expanded: true,
   },
 } as Meta;

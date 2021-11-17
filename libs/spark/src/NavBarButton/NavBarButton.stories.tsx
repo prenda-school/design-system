@@ -1,53 +1,60 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { CheckCircleDuotone } from '@prenda/spark-icons';
-import Box from '../Box';
-import { default as NavBarButton, NavBarButtonProps } from './NavBarButton';
+import { Box, NavBarButton, NavBarButtonProps } from '..';
 
-export const TypedNavBarButton = (props: NavBarButtonProps) => (
+interface SbNavBarButtonProps
+  extends Omit<
+    NavBarButtonProps,
+    | 'centerRipple'
+    | 'disableRipple'
+    | 'disableElevation'
+    | 'disableFocusRipple'
+    | 'disableTouchRipple'
+    | 'focusRipple'
+    | 'tabIndex'
+    | 'TouchRippleProps'
+  > {
+  /**
+   * **[Storybook-note:** available if `component='a'` or equivalent.**]**
+   */
+  href?: string;
+}
+export const SbNavBarButton = (props: SbNavBarButtonProps) => (
   <NavBarButton {...props} />
 );
 
 export default {
   title: '@ps/NavBarButton',
-  component: TypedNavBarButton,
-  excludeStories: ['TypedNavBarButton'],
+  component: SbNavBarButton,
+  excludeStories: ['SbNavBarButton'],
+  parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
-    onClick: { actions: 'clicked' },
     disabled: { control: 'boolean' },
     startIcon: {
-      control: {
-        type: 'select',
-        options: [undefined, `check-circle-duotone`],
+      control: 'select',
+      options: ['undefined', 'CheckCircleDuotone'],
+      mapping: {
+        undefined: undefined,
+        CheckCircleDuotone: <CheckCircleDuotone />,
       },
     },
     endIcon: {
-      control: {
-        type: 'select',
-        options: [undefined, `check-circle-duotone`],
+      control: 'select',
+      options: ['undefined', 'CheckCircleDuotone'],
+      mapping: {
+        undefined: undefined,
+        CheckCircleDuotone: <CheckCircleDuotone />,
       },
     },
-    href: { control: 'text' },
   },
-  args: {},
+  args: {
+    children: 'Label',
+  },
 } as Meta;
 
-interface TemplateButtonProps
-  extends Omit<NavBarButtonProps, 'startIcon' | 'endIcon'> {
-  startIcon?: typeof CheckCircleDuotone;
-  endIcon?: typeof CheckCircleDuotone;
-}
-
-const Template: Story<TemplateButtonProps> = (args) => (
-  <NavBarButton
-    {...args}
-    startIcon={args.startIcon ? <CheckCircleDuotone /> : undefined}
-    endIcon={args.endIcon ? <CheckCircleDuotone /> : undefined}
-  >
-    Label
-  </NavBarButton>
-);
-export const Configurable = Template.bind({});
+const Template = (args: NavBarButtonProps) => <NavBarButton {...args} />;
+export const Configurable: Story = Template.bind({});
 
 const GridContainer = (props) => (
   <Box
@@ -60,7 +67,7 @@ const GridContainer = (props) => (
   />
 );
 
-const AllTemplate: Story = (args) => (
+const AllTemplate = (args) => (
   <GridContainer>
     <span>
       <NavBarButton {...args}>Label</NavBarButton>
@@ -93,16 +100,16 @@ const AllTemplate: Story = (args) => (
   </GridContainer>
 );
 
-export const All = AllTemplate.bind({});
+export const All: Story = AllTemplate.bind({});
 
-export const AllDisabled = AllTemplate.bind({});
+export const AllDisabled: Story = AllTemplate.bind({});
 AllDisabled.args = { disabled: true };
 
-export const AllHover = AllTemplate.bind({});
+export const AllHover: Story = AllTemplate.bind({});
 AllHover.parameters = { pseudo: { hover: true } };
 
-export const AllFocus = AllTemplate.bind({});
+export const AllFocus: Story = AllTemplate.bind({});
 AllFocus.parameters = { pseudo: { focus: true } };
 
-export const AllActive = AllTemplate.bind({});
+export const AllActive: Story = AllTemplate.bind({});
 AllActive.parameters = { pseudo: { active: true } };

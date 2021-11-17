@@ -1,27 +1,40 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import Avatar from '../Avatar';
-import Divider from '../Divider';
-import Checkbox from '../Checkbox';
-import ListItemAvatar from '../ListItemAvatar';
-import ListItemText from '../ListItemText';
-import ListItemIcon from '../ListItemIcon';
-import ListSubheader from '../ListSubheader';
-import MenuItem from '../MenuItem';
-import { default as MenuList, MenuListProps } from './MenuList';
-import Paper from '../Paper';
-import withStyles from '../withStyles';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import {
+  Avatar,
+  Checkbox,
+  Divider,
+  ListItemAvatar,
+  ListItemIcon,
+  ListItemText,
+  ListSubheader,
+  MenuItem,
+  MenuList,
+  MenuListProps,
+  Paper,
+  withStyles,
+} from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
-export const TypedMenuList = (props: MenuListProps) => <MenuList {...props} />;
+// underlying MenuListProps don't have descriptions
+interface SbMenuListProps extends MenuListProps {
+  autoFocus?: MenuListProps['autoFocus'];
+  autoFocusItem?: MenuListProps['autoFocusItem'];
+  children?: MenuListProps['children'];
+  disabledItemsFocusable?: MenuListProps['disabledItemsFocusable'];
+  disableListWrap?: MenuListProps['disableListWrap'];
+  variant?: MenuListProps['variant'];
+}
+
+export const SbMenuList = (props: SbMenuListProps) => <MenuList {...props} />;
 
 export default {
   title: '@ps/MenuList',
-  component: TypedMenuList,
-  excludeStories: ['TypedMenuList'],
+  component: SbMenuList,
+  excludeStories: ['SbMenuList'],
 } as Meta;
 
 const CustomPaper = withStyles((theme) => ({
@@ -35,7 +48,7 @@ const CustomPaper = withStyles((theme) => ({
   },
 }))(Paper);
 
-export const Basic = (args) => (
+export const Basic: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList {...args}>
       {['Profile', 'Resources', 'Menu item', 'Sign out'].map((primary) => (
@@ -47,7 +60,7 @@ export const Basic = (args) => (
   </CustomPaper>
 );
 
-export const Sectioned = (args) => (
+export const Sectioned: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList {...args}>
       {['Profile', 'Resources'].map((primary) => (
@@ -65,7 +78,7 @@ export const Sectioned = (args) => (
   </CustomPaper>
 );
 
-export const Checkboxes = (args) => (
+export const Checkboxes: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList {...args}>
       {[1, 2, 3, 4, 5, 6, 7].map((i) => (
@@ -84,7 +97,7 @@ export const Checkboxes = (args) => (
   </CustomPaper>
 );
 
-export const Avatars = (args) => (
+export const Avatars: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList {...args}>
       {[
@@ -128,7 +141,7 @@ export const Avatars = (args) => (
   </CustomPaper>
 );
 
-export const Scrolling = (args) => (
+export const Scrolling: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList {...args}>
       {Array.from(Array(16).keys()).map((i) => (
@@ -140,7 +153,7 @@ export const Scrolling = (args) => (
   </CustomPaper>
 );
 
-export const SectionTitle = (args) => (
+export const SectionTitle: Story = (args) => (
   <CustomPaper elevation={4}>
     <MenuList
       subheader={
@@ -159,9 +172,7 @@ export const SectionTitle = (args) => (
   </CustomPaper>
 );
 
-const MenuListDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = MenuListDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'MenuList',
@@ -179,9 +190,7 @@ Documentation.args = {
   },
 };
 
-const MenuListChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = MenuListChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

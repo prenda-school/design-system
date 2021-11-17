@@ -1,34 +1,34 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  default as PaginationItem,
-  PaginationItemTypeMap,
-} from './PaginationItem';
-import type { OverridableComponent } from '../utils';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { PaginationItem, PaginationItemProps } from '..';
 
-export const TypedPaginationItem: OverridableComponent<PaginationItemTypeMap> = (
-  props
-) => <PaginationItem {...props} />;
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface SbPaginationItemProps
+  extends Omit<PaginationItemProps, 'color' | 'shape' | 'size' | 'variant'> {}
+
+export const SbPaginationItem = (props: SbPaginationItemProps) => (
+  <PaginationItem {...props} />
+);
 
 export default {
   title: '@ps/Pagination Item',
-  component: TypedPaginationItem,
-  excludeStories: ['TypedPaginationItem'],
+  component: SbPaginationItem,
+  excludeStories: ['SbPaginationItem'],
   args: {
     type: 'page',
     page: 1,
   },
 } as Meta;
 
-const Template: Story = (args) => (
+const Template = (args: PaginationItemProps) => (
   <div style={{ margin: '1rem', height: '3rem', aspectRatio: '1' }}>
     <PaginationItem {...args} />
   </div>
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story<PaginationItemProps> = Template.bind({});
 
-const DefaultTemplate: Story = () => (
+const DefaultTemplate = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} />
     <PaginationItem type="first" />
@@ -40,9 +40,9 @@ const DefaultTemplate: Story = () => (
   </div>
 );
 
-export const Default = DefaultTemplate.bind({});
+export const Default: Story = DefaultTemplate.bind({});
 
-const PseudoTemplate: Story = () => (
+const PseudoTemplate = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} />
     <PaginationItem type="first" />
@@ -52,22 +52,22 @@ const PseudoTemplate: Story = () => (
   </div>
 );
 
-export const DefaultHover = PseudoTemplate.bind({});
+export const DefaultHover: Story = PseudoTemplate.bind({});
 DefaultHover.parameters = { pseudo: { hover: true } };
 
-export const DefaultFocus = PseudoTemplate.bind({});
+export const DefaultFocus: Story = PseudoTemplate.bind({});
 DefaultFocus.parameters = { pseudo: { focus: true } };
 
-const SelectedTemplate: Story = () => (
+const SelectedTemplate = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
     <PaginationItem type="page" page={1} selected />
   </div>
 );
 
-export const Selected = SelectedTemplate.bind({});
+export const Selected: Story = SelectedTemplate.bind({});
 
-export const SelectedHover = SelectedTemplate.bind({});
+export const SelectedHover: Story = SelectedTemplate.bind({});
 SelectedHover.parameters = { pseudo: { hover: true } };
 
-export const SelectedFocus = SelectedTemplate.bind({});
+export const SelectedFocus: Story = SelectedTemplate.bind({});
 SelectedFocus.parameters = { pseudo: { focus: true } };

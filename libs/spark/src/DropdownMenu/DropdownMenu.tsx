@@ -7,7 +7,14 @@ import Menu from '../Menu';
 type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 
 export interface DropdownMenuProps extends Omit<MenuProps, 'open'> {
+  /**
+   * If `true`, the menu is visible.
+   */
   open?: boolean | undefined;
+  /**
+   * The placement of the menu `Popover` in relation to its anchor.
+   * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
+   */
   placement?: Placement;
 }
 

@@ -1,30 +1,62 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone } from '@prenda/spark-icons';
-import Avatar from '../Avatar';
-import Box from '../Box';
-import Checkbox from '../Checkbox';
-import ListItemAvatar from '../ListItemAvatar';
-import ListItemText from '../ListItemText';
-import ListItemIcon from '../ListItemIcon';
-import { default as MenuItem, MenuItemTypeMap } from './MenuItem';
+import {
+  Avatar,
+  Box,
+  Checkbox,
+  ListItemAvatar,
+  ListItemIcon,
+  ListItemIconProps,
+  ListItemText,
+  ListItemTextProps,
+  MenuItem,
+  MenuItemProps,
+} from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
-import type { OverridableComponent } from '../utils';
 
-export const TypedMenuItem: OverridableComponent<MenuItemTypeMap> = (props) => (
-  <MenuItem {...props} />
-);
+// underlying MenuItemProps don't have descriptions
+interface SbMenuItemProps extends MenuItemProps {
+  /**
+   * **[Storybook-only]:** passed to `ListItemText` child.**]**
+   *
+   * The main content element.
+   */
+  sb_ListItemText_primary?: ListItemTextProps['primary'];
+  /**
+   * **[Storybook-only]:** passed to `ListItemIcon` child.**]**
+   *
+   * The content of the component, normally `SvgIcon` or a `@prenda/spark-icons` SVG icon element.
+   */
+  sb_ListItemIcon_children?: ListItemIconProps['children'];
+}
+
+export const SbMenuItem = ({
+  sb_ListItemText_primary,
+  sb_ListItemIcon_children,
+  button,
+  ...other
+}: SbMenuItemProps) => <MenuItem {...other} />;
 
 export default {
   title: '@ps/MenuItem',
-  component: TypedMenuItem,
-  excludeStories: ['TypedMenuItem'],
+  component: SbMenuItem,
+  excludeStories: ['SbMenuItem'],
+  argTypes: {
+    sb_ListItemIcon_children: {
+      type: 'select',
+      options: ['undefined', 'GearDuotone'],
+      mapping: {
+        undefined: undefined,
+        GearDuotone: <GearDuotone />,
+      },
+    },
+  },
   args: {
-    text: 'Menu item',
-    startIcon: false,
+    sb_ListItemText_primary: 'Menu item',
     button: true,
   },
 } as Meta;
@@ -41,22 +73,29 @@ const Container = (props) => (
   />
 );
 
-const Template: Story = ({ text, startIcon, args }) => (
+const Template = ({
+  sb_ListItemText_primary,
+  sb_ListItemIcon_children,
+  args,
+}) => (
   <Container>
     <MenuItem {...args}>
-      {startIcon ? (
-        <ListItemIcon>
-          <GearDuotone />
-        </ListItemIcon>
+      {sb_ListItemIcon_children ? (
+        <ListItemIcon>{sb_ListItemIcon_children}</ListItemIcon>
       ) : null}
-      <ListItemText primary={text} />
+      <ListItemText primary={sb_ListItemText_primary} />
     </MenuItem>
   </Container>
 );
 
 export const Configurable: Story = Template.bind({});
 
-const CompositionsTemplate: Story = ({ startIcon, ...args }) => (
+const CompositionsTemplate = ({
+  startIcon,
+  sb_ListItemText_primary,
+  sb_ListItemIcon_children,
+  ...args
+}) => (
   <Container>
     <MenuItem {...args}>
       <ListItemText primary="Menu item" />
@@ -88,37 +127,37 @@ const CompositionsTemplate: Story = ({ startIcon, ...args }) => (
   </Container>
 );
 
-export const Compositions = CompositionsTemplate.bind({});
+export const Compositions: Story = CompositionsTemplate.bind({});
 
-export const CompositionsHover = CompositionsTemplate.bind({});
+export const CompositionsHover: Story = CompositionsTemplate.bind({});
 CompositionsHover.parameters = { pseudo: { hover: true } };
 
-export const CompositionsFocus = CompositionsTemplate.bind({});
+export const CompositionsFocus: Story = CompositionsTemplate.bind({});
 CompositionsFocus.parameters = { pseudo: { focus: true } };
 
-export const CompositionsActive = CompositionsTemplate.bind({});
+export const CompositionsActive: Story = CompositionsTemplate.bind({});
 CompositionsActive.parameters = { pseudo: { active: true } };
 
-export const CompositionsDisabled = CompositionsTemplate.bind({});
+export const CompositionsDisabled: Story = CompositionsTemplate.bind({});
 CompositionsDisabled.args = { disabled: true };
 
-export const CompositionsSelected = CompositionsTemplate.bind({});
+export const CompositionsSelected: Story = CompositionsTemplate.bind({});
 CompositionsSelected.args = { selected: true };
 
-export const CompositionsSelectedHover = CompositionsTemplate.bind({});
+export const CompositionsSelectedHover: Story = CompositionsTemplate.bind({});
 CompositionsSelectedHover.args = { selected: true };
 CompositionsSelectedHover.parameters = { pseudo: { hover: true } };
 
-export const CompositionsSelectedFocus = CompositionsTemplate.bind({});
+export const CompositionsSelectedFocus: Story = CompositionsTemplate.bind({});
 CompositionsSelectedFocus.args = { selected: true };
 CompositionsSelectedFocus.parameters = { pseudo: { focus: true } };
 
-export const CompositionsSelectedDisabled = CompositionsTemplate.bind({});
+export const CompositionsSelectedDisabled: Story = CompositionsTemplate.bind(
+  {}
+);
 CompositionsSelectedDisabled.args = { selected: true, disabled: true };
 
-const MenuItemDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = MenuItemDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'MenuItem',
@@ -136,9 +175,7 @@ Documentation.args = {
   },
 };
 
-const MenuItemChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = MenuItemChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

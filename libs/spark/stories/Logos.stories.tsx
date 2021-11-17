@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   PrendaWordmark,
   PrendaMonogram,
@@ -66,7 +66,7 @@ const LightBlueSpark = styled(Spark)(({ theme }) => ({
   fill: theme.palette.blue[1],
 }));
 
-export const Logos = () => (
+export const Logos: Story = () => (
   <GridContainer>
     <ColumnContainer>
       <CellContainer>

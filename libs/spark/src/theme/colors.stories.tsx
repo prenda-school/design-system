@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import styled from '../styled';
-import useTheme from '../useTheme';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { styled, useTheme } from '..';
 
 interface ColorBoxProps {
   color: string;
@@ -40,7 +39,7 @@ export default {
   component: ColorBox,
 } as Meta;
 
-export const PrendaColors = () => {
+export const PrendaColors: Story = () => {
   const theme = useTheme();
 
   return (

@@ -1,30 +1,34 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
-import { default as Pagination, PaginationProps } from './Pagination';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { Pagination, PaginationProps } from '..';
 
-export const TypedPagination = (props: PaginationProps) => (
+interface SbPaginationProps extends PaginationProps {
+  boundaryCount?: PaginationProps['boundaryCount'];
+  count?: PaginationProps['count'];
+  defaultPage?: PaginationProps['defaultPage'];
+  disabled?: PaginationProps['disabled'];
+  hideNextButton?: PaginationProps['hideNextButton'];
+  hidePrevButton?: PaginationProps['hidePrevButton'];
+  onChange?: PaginationProps['onChange'];
+  page?: PaginationProps['page'];
+  showFirstButton?: PaginationProps['showFirstButton'];
+  showLastButton?: PaginationProps['showLastButton'];
+  siblingCount?: PaginationProps['siblingCount'];
+}
+export const SbPagination = (props: SbPaginationProps) => (
   <Pagination {...props} />
 );
 
 export default {
   title: '@ps/Pagination',
-  component: TypedPagination,
-  excludeStories: ['TypedPagination'],
-  // Doesn't pick up props
-  argTypes: {
-    count: { control: 'number' },
-    defaultPage: { control: 'number' },
-    siblingCount: { control: 'number' },
-    boundaryCount: { control: 'number' },
-    showFirstButton: { control: 'boolean' },
-    showLastButton: { control: 'boolean' },
-    hideNextButton: { control: 'boolean' },
-    hidePrevButton: { control: 'boolean' },
-  },
+  component: SbPagination,
+  excludeStories: ['SbPagination'],
   args: {
     count: 10,
     defaultPage: 2,
   },
 } as Meta;
 
-export const ConfigurablePagination = (args) => <Pagination {...args} />;
+export const ConfigurablePagination: Story = (args: SbPaginationProps) => (
+  <Pagination {...args} />
+);

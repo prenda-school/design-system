@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepButton, StepButtonProps } from '..';
 
 interface SbStepButtonProps extends StepButtonProps {
   /**
-   * **[Storybook-only]** Show sample text in step label.
+   * **[Storybook-only:** hard-coded options.**]**
    */
-  sb_showLabel?: boolean;
+  children?: React.ReactNode;
 }
 
-export const SbStepButton = ({ sb_showLabel, ...props }: SbStepButtonProps) => (
+export const SbStepButton = (props: SbStepButtonProps) => (
   <StepButton {...props} />
 );
 
@@ -19,6 +19,14 @@ export default {
   component: SbStepButton,
   excludeStories: ['SbStepButton'],
   argTypes: {
+    children: {
+      type: 'select',
+      options: [null, 'Label'],
+      mapping: {
+        null: null,
+        Label: 'Label',
+      },
+    },
     icon: {
       control: 'select',
       options: [1, 2, 3, 'A', 'GearFilled'],
@@ -36,9 +44,7 @@ export default {
   },
 } as Meta;
 
-const Template = ({ sb_showLabel, ...args }: SbStepButtonProps) => (
-  <StepButton {...args}>{sb_showLabel ? 'Label' : null}</StepButton>
-);
+const Template = (args: SbStepButtonProps) => <StepButton {...args} />;
 
 export const Configurable: Story = Template.bind({});
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   BookIllustration,
   CollaborateIllustration,
@@ -17,7 +17,7 @@ const Container = styled('div')({
   justifyContent: 'space-between',
 });
 
-export const Art = () => (
+export const Art: Story = () => (
   <Container>
     <BookIllustration style={{ fontSize: '120px' }} />
     <CollaborateIllustration style={{ fontSize: '120px' }} />

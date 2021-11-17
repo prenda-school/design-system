@@ -1,44 +1,38 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
-  default as SectionMessage,
+  SectionMessage,
   SectionMessageProps,
-} from './SectionMessage';
-import SectionMessageTitle from '../SectionMessageTitle';
-import styled from '../styled';
+  SectionMessageTitle,
+  styled,
+} from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
-export const TypedSectionMessage = (props: SectionMessageProps) => (
+interface SbSectionMessageProps extends SectionMessageProps {
+  severity?: SectionMessageProps['severity'];
+}
+
+export const SbSectionMessage = (props: SbSectionMessageProps) => (
   <SectionMessage {...props} />
 );
 
 export default {
   title: '@ps/SectionMessage',
-  component: TypedSectionMessage,
-  excludeStories: ['TypedSectionMessage'],
-  // Doesn't pick up props
-  argTypes: {
-    severity: {
-      control: 'select',
-      options: ['error', 'info', 'warning', 'success'],
-    },
-  },
-  args: {
-    severity: 'info',
-  },
+  component: SbSectionMessage,
+  excludeStories: ['SbSectionMessage'],
 } as Meta;
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <SectionMessage {...args}>
     <SectionMessageTitle>Section Message</SectionMessageTitle>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </SectionMessage>
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const Container = styled('div')({
   display: 'flex',
@@ -46,7 +40,7 @@ const Container = styled('div')({
   gap: 16,
 });
 
-const SeverityTemplate: Story = (args) => (
+const SeverityTemplate = (args) => (
   <Container>
     <SectionMessage {...args} severity="info">
       <SectionMessageTitle>Section Message</SectionMessageTitle>
@@ -67,16 +61,16 @@ const SeverityTemplate: Story = (args) => (
   </Container>
 );
 
-export const Severity = SeverityTemplate.bind({});
+export const Severity: Story = SeverityTemplate.bind({});
 
-export const SeverityClose = SeverityTemplate.bind({});
+export const SeverityClose: Story = SeverityTemplate.bind({});
 SeverityClose.args = {
   onClose: () => {
     return;
   },
 };
 
-export const SeverityCloseFocus = SeverityTemplate.bind({});
+export const SeverityCloseFocus: Story = SeverityTemplate.bind({});
 SeverityCloseFocus.args = {
   onClose: () => {
     return;
@@ -84,9 +78,7 @@ SeverityCloseFocus.args = {
 };
 SeverityCloseFocus.parameters = { pseudo: { focus: true } };
 
-const SectionMessageDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = SectionMessageDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Alert',
@@ -110,11 +102,7 @@ Documentation.args = {
   },
 };
 
-const SectionMessageChangelogTemplate = (args) => (
-  <ChangelogTemplate {...args} />
-);
-
-export const Changelog: Story = SectionMessageChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

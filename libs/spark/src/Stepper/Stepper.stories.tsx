@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
-  Orientation,
   Step,
   StepButton,
   StepContent,
@@ -11,34 +10,22 @@ import {
 } from '..';
 
 interface SbStepperProps extends StepperProps {
+  activeStep?: StepperProps['activeStep'];
+  alternativeLabel?: StepperProps['alternativeLabel'];
+  nonLinear?: StepperProps['nonLinear'];
+  orientation?: StepperProps['orientation'];
   /**
-   * **[Storybook-only]** Show sample text in step labels.
+   * **[Storybook-only:** Show sample text in step labels.**]**
    */
   sb_showLabel?: boolean;
   /**
-   * **[Storybook-only]** Show sample text in step content when `orientation="vertical"` and `active={true}`.
+   * **[Storybook-only:** Show sample text in step content when `orientation="vertical"` and `active={true}`.**]**
    */
   sb_showContent?: boolean;
   /**
-   * **[Storybook-only]** Use a `StepButton` instead of `StepLabel`.
+   * **[Storybook-only:** Use a `StepButton` instead of `StepLabel`.**]**
    */
   sb_useButton?: boolean;
-  /**
-   * Set the active step (zero based index). Set to `-1` to disable all the steps.
-   */
-  activeStep?: number;
-  /**
-   * If set to `true` and `orientation="horizontal"`, then the step label will be positioned under the icon.
-   */
-  alternativeLabel?: boolean;
-  /**
-   * If set the `Stepper` will not assist in controlling steps for linear flow.
-   */
-  nonLinear?: boolean;
-  /**
-   * The stepper orientation (layout flow direction).
-   */
-  orientation?: Orientation;
 }
 
 export const SbStepper = ({

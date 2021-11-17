@@ -1,22 +1,17 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import Box from '../Box';
-import Tag from './Tag';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { Box, Tag } from '..';
 import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
 
-export const TypedTag = Tag;
-
-const handleDelete = () => {
-  return;
-};
+export const SbTag = Tag;
 
 export default {
   title: '@ps/Tag',
-  component: TypedTag,
-  excludeStories: ['TypedTag'],
+  component: SbTag,
+  excludeStories: ['SbTag'],
   parameters: {
     actions: {
       // override default actions regex
@@ -26,23 +21,25 @@ export default {
     },
   },
   argTypes: {
-    onDelete: { control: 'select', options: [undefined, handleDelete] },
+    onDelete: {
+      control: 'select',
+      options: ['undefined', 'handleDelete'],
+      mapping: {
+        undefined: undefined,
+        handleDelete: () => {
+          return;
+        },
+      },
+    },
   },
   args: {
-    onDelete: undefined,
+    label: 'Label',
   },
 } as Meta;
 
 const Template = (args) => (
   <Box p={1}>
-    <Tag
-      label="Label"
-      // onDelete={(() => {
-      //   console.log(onDelete);
-      //   return onDelete ? handleDelete : undefined;
-      // })()}
-      {...args}
-    />
+    <Tag {...args} />
   </Box>
 );
 
@@ -120,24 +117,22 @@ const ColorAndVariantTemplate = (args) => (
 export const ColorAndVariant: Story = ColorAndVariantTemplate.bind({});
 
 export const ColorVariantDelete: Story = ColorAndVariantTemplate.bind({});
-ColorVariantDelete.args = { onDelete: handleDelete };
+ColorVariantDelete.args = { onDelete: 'handleDelete' };
 
 export const ColorVariantDeleteHover: Story = ColorAndVariantTemplate.bind({});
-ColorVariantDeleteHover.args = { onDelete: handleDelete };
+ColorVariantDeleteHover.args = { onDelete: 'handleDelete' };
 ColorVariantDeleteHover.parameters = { pseudo: { hover: true } };
 
 export const ColorVariantDeleteFocus: Story = ColorAndVariantTemplate.bind({});
-ColorVariantDeleteFocus.args = { onDelete: handleDelete };
+ColorVariantDeleteFocus.args = { onDelete: 'handleDelete' };
 ColorVariantDeleteFocus.parameters = { pseudo: { focus: true } };
 
 export const ColorVariantDeleteDisabled: Story = ColorAndVariantTemplate.bind(
   {}
 );
-ColorVariantDeleteDisabled.args = { onDelete: handleDelete, disabled: true };
+ColorVariantDeleteDisabled.args = { onDelete: 'handleDelete', disabled: true };
 
-const AvatarDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = AvatarDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Chip',
@@ -191,9 +186,7 @@ Documentation.args = {
   },
 };
 
-const AvatarChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = AvatarChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

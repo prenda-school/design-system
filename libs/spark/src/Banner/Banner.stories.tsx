@@ -1,27 +1,23 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import { default as Banner, BannerProps } from './Banner';
-import styled from '../styled';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { Banner, BannerProps, styled } from '..';
 import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
 
-export const TypedBanner = (props: BannerProps) => <Banner {...props} />;
+interface SbBannerProps extends BannerProps {
+  closeText?: BannerProps['closeText'];
+  onClose?: BannerProps['onClose'];
+  severity?: BannerProps['severity'];
+}
+
+export const SbBanner = (props: SbBannerProps) => <Banner {...props} />;
 
 export default {
   title: '@ps/Banner',
-  component: TypedBanner,
-  excludeStories: ['TypedBanner'],
-  // Doesn't pick up extended AlertProps
-  argTypes: {
-    severity: {
-      control: 'select',
-      options: ['error', 'info', 'warning', 'success'],
-    },
-    onClose: { action: 'closed' },
-    closeText: { control: 'text' },
-  },
+  component: SbBanner,
+  excludeStories: ['SbBanner'],
   args: {
     severity: 'info',
     onDetails: null,
@@ -29,19 +25,18 @@ export default {
   },
 } as Meta;
 
-// severity: message
-const messages = {
+const messages: Record<BannerProps['severity'], string> = {
   info: 'Information banner',
   success: 'Successful',
   warning: 'Attention needed',
   error: 'There are two errors with your submission',
 };
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <Banner {...args}>{messages[args.severity || 'success']}</Banner>
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const Container = styled('div')({
   display: 'flex',
@@ -49,7 +44,7 @@ const Container = styled('div')({
   gap: 16,
 });
 
-const SeverityTemplate: Story = (args) => (
+const SeverityTemplate = (args) => (
   <Container>
     <Banner {...args} severity="info">
       {messages.info}
@@ -66,16 +61,16 @@ const SeverityTemplate: Story = (args) => (
   </Container>
 );
 
-export const Severity = SeverityTemplate.bind({});
+export const Severity: Story = SeverityTemplate.bind({});
 
-export const SeverityClose = SeverityTemplate.bind({});
+export const SeverityClose: Story = SeverityTemplate.bind({});
 SeverityClose.args = {
   onClose: () => {
     return;
   },
 };
 
-export const SeverityCloseFocus = SeverityTemplate.bind({});
+export const SeverityCloseFocus: Story = SeverityTemplate.bind({});
 SeverityCloseFocus.args = {
   onClose: () => {
     return;
@@ -83,14 +78,14 @@ SeverityCloseFocus.args = {
 };
 SeverityCloseFocus.parameters = { pseudo: { focus: true } };
 
-export const SeverityDetails = SeverityTemplate.bind({});
+export const SeverityDetails: Story = SeverityTemplate.bind({});
 SeverityDetails.args = {
   onDetails: () => {
     return;
   },
 };
 
-export const SeverityDetailsFocus = SeverityTemplate.bind({});
+export const SeverityDetailsFocus: Story = SeverityTemplate.bind({});
 SeverityDetailsFocus.args = {
   onDetails: () => {
     return;
@@ -98,9 +93,7 @@ SeverityDetailsFocus.args = {
 };
 SeverityDetailsFocus.parameters = { pseudo: { focus: true } };
 
-const BannerDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = BannerDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Alert',
@@ -136,9 +129,7 @@ Documentation.args = {
   },
 };
 
-const BannerChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = BannerChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

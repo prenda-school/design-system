@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepIcon, StepIconProps } from '..';
 
@@ -57,28 +57,28 @@ TextActiveError.args = { active: true, error: true, icon: '1' };
 TextActiveError.storyName = 'Text active error';
 
 export const Icon: Story = Template.bind({});
-Icon.args = { icon: <GearFilled /> };
+Icon.args = { icon: 'GearFilled' };
 
 export const IconActive: Story = Template.bind({});
-IconActive.args = { active: true, icon: <GearFilled /> };
+IconActive.args = { active: true, icon: 'GearFilled' };
 IconActive.storyName = 'Icon active';
 
 export const IconCompleted: Story = Template.bind({});
-IconCompleted.args = { completed: true, icon: <GearFilled /> };
+IconCompleted.args = { completed: true, icon: 'GearFilled' };
 IconCompleted.storyName = 'Icon completed';
 
 export const IconError: Story = Template.bind({});
-IconError.args = { error: true, icon: <GearFilled /> };
+IconError.args = { error: true, icon: 'GearFilled' };
 IconError.storyName = 'Icon error';
 
 export const IconActiveCompleted: Story = Template.bind({});
 IconActiveCompleted.args = {
   active: true,
   completed: true,
-  icon: <GearFilled />,
+  icon: 'GearFilled',
 };
 IconActiveCompleted.storyName = 'Icon active completed';
 
 export const IconActiveError: Story = Template.bind({});
-IconActiveError.args = { active: true, error: true, icon: <GearFilled /> };
+IconActiveError.args = { active: true, error: true, icon: 'GearFilled' };
 IconActiveError.storyName = 'Icon active error';

@@ -1,14 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   AlertCircle,
   AlertCircleFilled,
   AlertCircleDuotone,
 } from '@prenda/spark-icons';
-import SvgIcon from './SvgIcon';
-import styled from '../styled';
-import theme from '../theme';
+import { SvgIcon, styled, theme } from '..';
 import { capitalize } from '../utils';
 
 export const SbSvgIcon = SvgIcon;

@@ -1,69 +1,105 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
-import InputAdornment from '../InputAdornment';
-import MenuItem from '../MenuItem';
-import { default as TextField, TextFieldProps } from './TextField';
-import styled from '../styled';
+import {
+  InputAdornment,
+  MenuItem,
+  TextField,
+  StandardTextFieldProps,
+  styled,
+} from '..';
 import { ChangelogTemplate } from '../../stories/templates';
 
-export const TypedTextField = (props: TextFieldProps) => (
-  <TextField {...props} />
+interface SbTextFieldProps extends StandardTextFieldProps {
+  /**
+   * **Note**: the custom `success` styling is delivered through a class name instead of a prop.
+   */
+  className?: StandardTextFieldProps['className'];
+  defaultValue?: StandardTextFieldProps['defaultValue'];
+  disabled?: StandardTextFieldProps['disabled'];
+  error?: StandardTextFieldProps['error'];
+  fullWidth?: StandardTextFieldProps['fullWidth'];
+  helperText?: StandardTextFieldProps['helperText'];
+  label?: StandardTextFieldProps['label'];
+  multiline?: StandardTextFieldProps['multiline'];
+  placeholder?: StandardTextFieldProps['placeholder'];
+  maxRows?: StandardTextFieldProps['maxRows'];
+  minRows?: StandardTextFieldProps['minRows'];
+  select?: StandardTextFieldProps['select'];
+  value?: StandardTextFieldProps['value'];
+  InputProps?: StandardTextFieldProps['InputProps'];
+  /**
+   * **[Storybook-only:** broken out from `props.InputProps`.**]**
+   */
+  'sb_InputProps.endAdornment'?: StandardTextFieldProps['InputProps']['endAdornment'];
+  /**
+   * **[Storybook-only:** broken out from `props.InputProps`.**]**
+   */
+  'sb_InputProps.startAdornment'?: StandardTextFieldProps['InputProps']['startAdornment'];
+}
+
+export const SbTextField = ({
+  'sb_InputProps.endAdornment': endAdornment,
+  'sb_InputProps.startAdornment': startAdornment,
+  ...props
+}: SbTextFieldProps) => (
+  <TextField InputProps={{ endAdornment, startAdornment }} {...props} />
 );
 
 export default {
   title: '@ps/TextField',
-  component: TypedTextField,
-  excludeStories: ['TypedTextField'],
+  component: SbTextField,
+  excludeStories: ['SbTextField'],
   // Doesn't pick up most props
   argTypes: {
-    label: { control: 'text' },
-    placeholder: { control: 'text' },
-    helperText: { control: 'text' },
-    defaultValue: { control: 'text' },
-    value: { control: 'text' },
-    error: { control: 'boolean' },
-    success: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    select: { control: 'boolean' },
-    multiline: { control: 'boolean' },
-    rows: { control: 'number' },
-    rowsMax: { control: 'number' },
-    fullWidth: { control: 'boolean' },
-    startAdornment: { control: 'select', options: [undefined, 'GearDuotone'] },
-    endAdornment: {
+    className: { control: 'select', options: [undefined, 'Spark-success'] },
+    'sb_InputProps.endAdornment': {
       control: 'select',
-      options: [undefined, 'QuestionDuotone'],
+      options: ['undefined', 'QuestionDuotone'],
+      mapping: {
+        undefined: undefined,
+        QuestionDuotone: (
+          <InputAdornment position="end">
+            <QuestionDuotone />
+          </InputAdornment>
+        ),
+      },
+    },
+    'sb_InputProps.startAdornment': {
+      control: 'select',
+      options: ['undefined', 'GearDuotone'],
+      mapping: {
+        undefined: undefined,
+        GearDuotone: (
+          <InputAdornment position="start">
+            <GearDuotone />
+          </InputAdornment>
+        ),
+      },
     },
   },
   args: {
     label: 'Label',
     placeholder: 'Placeholder',
     helperText: 'Helper text',
-    startAdornment: undefined,
-    endAdornment: undefined,
   },
 } as Meta;
 
-const Template: Story = ({ startAdornment, endAdornment, ...args }) => (
+const Template = ({
+  'sb_InputProps.endAdornment': endAdornment,
+  'sb_InputProps.startAdornment': startAdornment,
+  ...args
+}) => (
   <TextField
     InputProps={{
-      startAdornment: startAdornment ? (
-        <InputAdornment position="start">
-          <GearDuotone />
-        </InputAdornment>
-      ) : undefined,
-      endAdornment: endAdornment ? (
-        <InputAdornment position="end">
-          <QuestionDuotone />
-        </InputAdornment>
-      ) : undefined,
+      startAdornment,
+      endAdornment,
     }}
     {...args}
   />
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const OuterGroup = styled('span')({
   display: 'flex',
@@ -80,7 +116,12 @@ const InnerGroup = styled('span')({
   gap: '1rem',
 });
 
-const StatesTemplate: Story = ({ pseudo, ...args }) => (
+const StatesTemplate = ({
+  pseudo,
+  'sb_InputProps.endAdornment': endAdornment,
+  'sb_InputProps.startAdornment': startAdornment,
+  ...args
+}) => (
   <OuterGroup>
     <InnerGroup>
       <TextField {...args} />
@@ -199,13 +240,18 @@ const StatesTemplate: Story = ({ pseudo, ...args }) => (
   </OuterGroup>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesFocus = StatesTemplate.bind({});
+export const StatesFocus: Story = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
+const AdornmentsTemplate = ({
+  pseudo,
+  'sb_InputProps.endAdornment': endAdornment,
+  'sb_InputProps.startAdornment': startAdornment,
+  ...args
+}) => (
   <OuterGroup>
     <InnerGroup>
       <TextField {...args} />
@@ -238,31 +284,21 @@ const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
   </OuterGroup>
 );
 
-export const StartAdornment = AdornmentsTemplate.bind({});
+export const StartAdornment: Story = AdornmentsTemplate.bind({});
 StartAdornment.args = {
   InputProps: {
-    startAdornment: (
-      <InputAdornment position="start">
-        <GearDuotone />
-      </InputAdornment>
-    ),
+    startAdornment: 'GearDuotone',
   },
 };
 
-export const EndAdornment = AdornmentsTemplate.bind({});
+export const EndAdornment: Story = AdornmentsTemplate.bind({});
 EndAdornment.args = {
   InputProps: {
-    endAdornment: (
-      <InputAdornment position="end">
-        <QuestionDuotone />
-      </InputAdornment>
-    ),
+    endAdornment: 'QuestionDuotone',
   },
 };
 
-const TextFieldChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = TextFieldChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

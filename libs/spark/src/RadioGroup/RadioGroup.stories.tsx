@@ -1,57 +1,82 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import FormControl from '../FormControl';
-import FormControlLabel from '../FormControlLabel';
-import FormHelperText from '../FormHelperText';
-import FormLabel from '../FormLabel';
-import Radio from '../Radio';
-import { default as RadioGroup, RadioGroupProps } from './RadioGroup';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import {
+  FormControl,
+  FormControlProps,
+  FormControlLabel,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  RadioGroupProps,
+} from '..';
 import { DocumentationTemplate } from '../../stories/templates';
 
-export const TypedRadioGroup = (props: RadioGroupProps) => (
-  <RadioGroup {...props} />
-);
+interface SbRadioGroupProps extends RadioGroupProps {
+  ['aria-label']?: RadioGroupProps['aria-label'];
+  defaultValue?: RadioGroupProps['defaultValue'];
+  name?: RadioGroupProps['name'];
+  onChange?: RadioGroupProps['onChange'];
+  row?: RadioGroupProps['row'];
+  value?: RadioGroupProps['value'];
+  /**
+   * **[Storybook-only:** passed to parent `FormControl`.**]**
+   */
+  sb_FormControl_disabled?: FormControlProps['disabled'];
+  /**
+   * **[Storybook-only:** passed to parent `FormControl`.**]**
+   */
+  sb_FormControl_error?: FormControlProps['error'];
+  /**
+   * **[Storybook-only:** passed to parent `FormControl`.**]**
+   */
+  sb_FormControl_required?: FormControlProps['required'];
+}
+
+export const SbRadioGroup = ({
+  sb_FormControl_disabled,
+  sb_FormControl_error,
+  sb_FormControl_required,
+  ...other
+}: SbRadioGroupProps) => <RadioGroup {...other} />;
 
 export default {
   title: '@ps/RadioGroup',
-  component: TypedRadioGroup,
-  excludeStories: ['TypedRadioGroup'],
-  parameters: { actions: { handles: ['change'] } },
-  // Doesn't pickup props
+  component: SbRadioGroup,
+  excludeStories: ['SbRadioGroup'],
+  parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
     value: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['valueA', 'valueB', 'valueC', 'valueD'],
     },
     defaultValue: {
-      control: { type: 'select' },
+      control: 'select',
       options: ['valueA', 'valueB', 'valueC', 'valueD'],
     },
-    row: { control: 'boolean' },
-    error: { control: 'boolean' },
-    required: { control: 'boolean' },
-    disabled: { control: 'boolean' },
   },
   args: {
     defaultValue: 'valueB',
     'aria-label': 'example group',
     name: 'exampleGroup',
-    row: false,
-    error: false,
-    required: false,
-    disabled: false,
   },
 } as Meta;
 
-const Template: Story = ({ required, error, disabled, value, ...args }) => (
+const Template = ({
+  sb_FormControl_required,
+  sb_FormControl_error,
+  sb_FormControl_disabled,
+  value,
+  ...args
+}) => (
   <FormControl
     component="fieldset"
-    error={error}
-    required={required}
-    disabled={disabled}
+    error={sb_FormControl_error}
+    required={sb_FormControl_required}
+    disabled={sb_FormControl_disabled}
   >
     <FormLabel component="legend">Group label</FormLabel>
-    <RadioGroup value={error ? null : value} {...args}>
+    <RadioGroup value={sb_FormControl_error ? null : value} {...args}>
       <FormControlLabel value="valueA" control={<Radio />} label="Option A" />
       <FormControlLabel value="valueB" control={<Radio />} label="Option B" />
       <FormControlLabel value="valueC" control={<Radio />} label="Option C" />
@@ -63,14 +88,14 @@ const Template: Story = ({ required, error, disabled, value, ...args }) => (
       />
     </RadioGroup>
     <FormHelperText>
-      {error ? 'Please select an option' : 'Helper text'}
+      {sb_FormControl_error ? 'Please select an option' : 'Helper text'}
     </FormHelperText>
   </FormControl>
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
-const StatesTemplate: Story = ({ row, pseudo }) => (
+const StatesTemplate = ({ row, pseudo }) => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
     <FormControl component="fieldset">
       <FormLabel component="legend">Group label</FormLabel>
@@ -133,28 +158,28 @@ const StatesTemplate: Story = ({ row, pseudo }) => (
   </div>
 );
 
-export const ColumnStates = StatesTemplate.bind({});
+export const ColumnStates: Story = StatesTemplate.bind({});
 
-export const ColumnStatesHover = StatesTemplate.bind({});
+export const ColumnStatesHover: Story = StatesTemplate.bind({});
 ColumnStatesHover.args = { pseudo: true };
 ColumnStatesHover.parameters = { pseudo: { hover: true } };
 
-export const ColumnStatesFocus = StatesTemplate.bind({});
+export const ColumnStatesFocus: Story = StatesTemplate.bind({});
 ColumnStatesFocus.args = { pseudo: true };
 ColumnStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const RowStates = StatesTemplate.bind({});
+export const RowStates: Story = StatesTemplate.bind({});
 RowStates.args = { row: true };
 
-export const RowStatesHover = StatesTemplate.bind({});
+export const RowStatesHover: Story = StatesTemplate.bind({});
 RowStatesHover.args = { pseudo: true, row: true };
 RowStatesHover.parameters = { pseudo: { hover: true } };
 
-export const RowStatesFocus = StatesTemplate.bind({});
+export const RowStatesFocus: Story = StatesTemplate.bind({});
 RowStatesFocus.args = { pseudo: true, row: true };
 RowStatesFocus.parameters = { pseudo: { focus: true } };
 
-export const Documentation = DocumentationTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'RadioGroup',

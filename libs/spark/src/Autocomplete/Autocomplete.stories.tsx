@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import Autocomplete from './Autocomplete';
-import Checkbox from '../Checkbox';
-import ListItemText from '../ListItemText';
-import ListItemIcon from '../ListItemIcon';
-import TextField from '../TextField';
-import Tag from '../Tag';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import {
+  Autocomplete,
+  Checkbox,
+  ListItemText,
+  ListItemIcon,
+  TextField,
+  Tag,
+} from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
@@ -28,7 +30,7 @@ const reasons = [
   { value: '7', label: 'Label' },
 ];
 
-export const MultipleValuesCheckboxes = (args) => (
+export const MultipleValuesCheckboxes: Story = (args) => (
   <Autocomplete
     multiple
     options={reasons}
@@ -67,9 +69,7 @@ export const MultipleValuesCheckboxes = (args) => (
   />
 );
 
-const AutocompleteDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = AutocompleteDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Autocomplete',
@@ -87,9 +87,7 @@ Documentation.args = {
   },
 };
 
-const AutocompleteChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = AutocompleteChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {
