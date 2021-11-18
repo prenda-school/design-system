@@ -26,12 +26,12 @@ export const MuiCheckboxStyleOverrides = ({
       color: palette.blue[3],
     },
     '&$disabled': {
-      '& .SparkCheckboxIcon-root': {
+      '& .CheckboxIcon-root': {
         color: palette.grey.dark,
-        '& .SparkCheckboxIcon-box': {
+        '& .CheckboxIcon-box': {
           backgroundColor: palette.grey.medium,
         },
-        '& .SparkCheckboxIcon-check, & .SparkCheckboxIcon-dash': {
+        '& .CheckboxIcon-check, & .CheckboxIcon-dash': {
           color: palette.grey[400],
         },
       },
