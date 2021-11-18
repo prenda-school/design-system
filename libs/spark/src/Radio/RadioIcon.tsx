@@ -33,13 +33,6 @@ const RadioIconRoot = styled('span')(({ theme: { palette, transitions } }) => ({
         color: palette.blue[3],
       },
     },
-    '&.RadioIcon-checked .RadioIcon-dot': {
-      transform: 'scale(1)',
-      transition: transitions.create('transform', {
-        easing: transitions.easing.easeOut,
-        duration: transitions.duration.shortest,
-      }),
-    },
     '& .RadioIcon-circle': {
       borderRadius: '50%',
       // (from Mui) Scale applied to prevent dot misalignment in Safari
@@ -52,6 +45,13 @@ const RadioIconRoot = styled('span')(({ theme: { palette, transitions } }) => ({
       transform: 'scale(0)',
       transition: transitions.create('transform', {
         easing: transitions.easing.easeIn,
+        duration: transitions.duration.shortest,
+      }),
+    },
+    '&.RadioIcon-checked .RadioIcon-dot': {
+      transform: 'scale(1)',
+      transition: transitions.create('transform', {
+        easing: transitions.easing.easeOut,
         duration: transitions.duration.shortest,
       }),
     },

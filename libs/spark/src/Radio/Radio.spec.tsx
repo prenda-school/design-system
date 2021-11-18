@@ -24,9 +24,7 @@ describe('<Radio />', () => {
       );
 
       expect(getByTestId('RadioCircleIcon')).toBeTruthy();
-      expect(getByTestId('RadioDotIcon')).not.toHaveStyle(
-        'transform: scale(1)'
-      );
+      expect(getByTestId('RadioDotIcon')).toHaveStyle('transform: scale(1)');
     });
   });
 });
