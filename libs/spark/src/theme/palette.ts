@@ -152,21 +152,17 @@ const tones = {
 };
 
 const neutral = {
-  dark: {
-    600: '#091E42',
-    500: '#253858',
-    400: '#42526E',
-    300: '#505F79',
-    200: '#5E6C84',
-    100: '#5E6C84',
-  },
-  light: {
-    400: '#C1C7D0',
-    300: '#DFE1E6',
-    200: '#EBECF0',
-    100: '#FAFBFC',
-    0: '#FFFFFF',
-  },
+  600: '#091E42',
+  500: '#253858',
+  400: '#42526E',
+  300: '#505F79',
+  200: '#5E6C84',
+  100: '#5E6C84',
+  90: '#C1C7D0',
+  80: '#DFE1E6',
+  70: '#EBECF0',
+  60: '#FAFBFC',
+  0: '#FFFFFF',
 };
 
 const brand = {
@@ -177,10 +173,10 @@ const brand = {
 };
 
 const text = {
-  light: neutral.light[0],
-  lightLowContrast: `${neutral.light[0]}b8`, // 72% opacity
-  dark: neutral.dark[600],
-  darkLowContrast: `${neutral.dark[600]}b8`, // 72% opacity
+  light: neutral[0],
+  lightLowContrast: `${neutral[0]}b8`, // 72% opacity
+  dark: neutral[600],
+  darkLowContrast: `${neutral[600]}b8`, // 72% opacity
 };
 
 // Only customizations are specified, view all other default theme.palette properties
