@@ -1,3 +1,5 @@
+import createPalette from '@material-ui/core/styles/createPalette';
+
 // Custom types
 interface PaletteTertiaryColor {
   600: string;
