@@ -1,18 +1,16 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import { default as Typography, TypographyProps } from './Typography';
-import styled from '../styled';
-import withStyles from '../withStyles';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { Typography, TypographyProps, styled, withStyles } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
 
-export const TypedTypography = (props: TypographyProps) => (
+export const SbTypography = (props: TypographyProps) => (
   <Typography {...props} />
 );
 
 export default {
   title: '@ps/Typography',
-  component: TypedTypography,
-  excludeStories: ['TypedTypography'],
+  component: SbTypography,
+  excludeStories: ['SbTypography'],
 } as Meta;
 
 type TextKey =
@@ -46,10 +44,10 @@ function getText(variant: string): string {
   return text[variant.split('-')[0] as TextKey] || text.paragraph;
 }
 
-const Template: Story<TypographyProps> = (args) => (
+const Template = (args: TypographyProps) => (
   <Typography {...args}>{getText(String(args.variant))}</Typography>
 );
-export const ConfigurableTypography = Template.bind({});
+export const ConfigurableTypography: Story = Template.bind({});
 
 enum Bases {
   Display = 'Display',
@@ -316,7 +314,7 @@ const TypogPage = ({ variantBase }: TypogPageProps) => {
   );
 };
 
-export const Overview = () => (
+export const Overview: Story = () => (
   <div>
     <TypogPage variantBase={Bases.Display} />
     <TypogPage variantBase={Bases.Heading} />
@@ -327,9 +325,7 @@ export const Overview = () => (
   </div>
 );
 
-const TypographyChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = TypographyChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

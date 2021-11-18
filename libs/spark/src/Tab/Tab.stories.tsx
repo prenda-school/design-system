@@ -1,27 +1,30 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import { ExtendButtonBase } from '../ButtonBase';
-import { default as Tab, TabTypeMap } from './Tab';
-import styled from '../styled';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import { Tab, TabProps, styled } from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
-export const TypedTab: ExtendButtonBase<TabTypeMap> = Tab;
+// underlying TabProps lack descriptions
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface SbTabProps
+  extends Omit<
+    TabProps,
+    | 'disableRipple'
+    | 'disableFocusRipple'
+    | 'centerRipple'
+    | 'disableTouchRipple'
+    | 'focusRipple'
+    | 'TouchRippleProps'
+  > {}
+
+export const SbTab = (props: SbTabProps) => <Tab {...props} />;
 
 export default {
   title: '@ps/Tab',
-  component: TypedTab,
-  excludeStories: ['TypedTab'],
-  // Doesn't pick up any props
-  argTypes: {
-    disabled: { control: 'boolean' },
-    label: { control: 'text' },
-    onClick: { actions: 'clicked' },
-    selected: { control: 'boolean' },
-    value: { control: 'text' },
-  },
+  component: SbTab,
+  excludeStories: ['SbTab'],
   args: {
     label: 'Label',
     value: 'value',
@@ -33,9 +36,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story = (args) => <Tab {...args} />;
+const Template = (args) => <Tab {...args} />;
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const Container = styled('div')({
   display: 'flex',
@@ -51,23 +54,21 @@ const StatesTemplate = (args) => (
   </Container>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesDisabled = StatesTemplate.bind({});
+export const StatesDisabled: Story = StatesTemplate.bind({});
 StatesDisabled.args = { disabled: true };
 
-export const StatesHover = StatesTemplate.bind({});
+export const StatesHover: Story = StatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
-export const StatesFocus = StatesTemplate.bind({});
+export const StatesFocus: Story = StatesTemplate.bind({});
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-export const StatesActive = StatesTemplate.bind({});
+export const StatesActive: Story = StatesTemplate.bind({});
 StatesActive.parameters = { pseudo: { active: true } };
 
-const TabDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = TabDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Tab',
@@ -85,9 +86,7 @@ Documentation.args = {
   },
 };
 
-const TabChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = TabChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

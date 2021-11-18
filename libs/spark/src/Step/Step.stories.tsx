@@ -1,18 +1,21 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Step, StepButton, StepContent, StepLabel, StepProps } from '..';
 
 interface SbStepProps extends StepProps {
+  active?: StepProps['active'];
+  completed?: StepProps['completed'];
+  disabled?: StepProps['disabled'];
   /**
-   * **[Storybook-only]** Show sample text in step content when `orientation="vertical"` and `active={true}`.
+   * **[Storybook-only:** Show sample text in step content when `orientation="vertical"` and `active={true}`.**]**
    */
   sb_showContent?: boolean;
   /**
-   * **[Storybook-only]** Show sample text in step label.
+   * **[Storybook-only:** Show sample text in step label.**]**
    */
   sb_showLabel?: boolean;
   /**
-   * **[Storybook-only]** Use a `StepButton` instead of `StepLabel`.
+   * **[Storybook-only:** Use a `StepButton` instead of `StepLabel`.**]**
    */
   sb_useButton?: boolean;
 }
@@ -28,11 +31,6 @@ export default {
   title: '@ps/Step',
   component: SbStep,
   excludeStories: ['SbStep'],
-  argTypes: {
-    active: { control: 'boolean' },
-    completed: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-  },
   args: {
     index: 0,
   },

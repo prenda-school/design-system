@@ -1,59 +1,71 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
-import { default as Input, InputProps } from './Input';
-import InputAdornment from '../InputAdornment';
-import styled from '../styled';
+import { Input, InputAdornment, InputProps, styled } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
 
-export const TypedInput = (props: InputProps) => <Input {...props} />;
+interface SbInputProps extends InputProps {
+  defaultValue?: InputProps['defaultValue'];
+  disabled?: InputProps['disabled'];
+  endAdornment?: InputProps['endAdornment'];
+  error?: InputProps['error'];
+  fullWidth?: InputProps['fullWidth'];
+  id?: InputProps['id'];
+  multiline?: InputProps['multiline'];
+  name?: InputProps['name'];
+  placeholder?: InputProps['placeholder'];
+  readOnly?: InputProps['readOnly'];
+  required?: InputProps['required'];
+  rows?: InputProps['rows'];
+  maxRows?: InputProps['maxRows'];
+  minRows?: InputProps['minRows'];
+  startAdornment?: InputProps['startAdornment'];
+  type?: InputProps['type'];
+  value?: InputProps['value'];
+}
+
+export const SbInput = (props: SbInputProps) => <Input {...props} />;
 
 export default {
   title: '@ps/Input',
-  component: TypedInput,
-  excludeStories: ['TypedInput'],
-  // Misses all props
+  component: SbInput,
+  excludeStories: ['SbInput'],
   argTypes: {
-    placeholder: { control: 'text' },
-    error: { control: 'boolean' },
-    success: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    multiline: { control: 'boolean' },
-    rows: { control: 'number' },
-    startAdornment: { control: 'select', options: [undefined, 'GearDuotone'] },
+    startAdornment: {
+      control: 'select',
+      options: ['undefined', 'GearDuotone'],
+      mapping: {
+        undefined: undefined,
+        GearDuotone: (
+          <InputAdornment position="start">
+            <GearDuotone />
+          </InputAdornment>
+        ),
+      },
+    },
     endAdornment: {
       control: 'select',
-      options: [undefined, 'QuestionDuotone'],
+      options: ['undefined', 'QuestionDuotone'],
+      mapping: {
+        undefined: undefined,
+        QuestionDuotone: (
+          <InputAdornment position="end">
+            <QuestionDuotone />
+          </InputAdornment>
+        ),
+      },
     },
   },
   args: {
     placeholder: 'Placeholder',
-    startAdornment: undefined,
-    endAdornment: undefined,
   },
 } as Meta;
 
-const Template: Story = ({ startAdornment, endAdornment, ...args }) => (
-  <Input
-    startAdornment={
-      startAdornment ? (
-        <InputAdornment position="start">
-          <GearDuotone />
-        </InputAdornment>
-      ) : undefined
-    }
-    endAdornment={
-      endAdornment ? (
-        <InputAdornment position="end">
-          <QuestionDuotone />
-        </InputAdornment>
-      ) : undefined
-    }
-    {...args}
-  />
+const Template = ({ startAdornment, endAdornment, ...args }) => (
+  <Input {...args} />
 );
 
-export const ConfigurableInput = Template.bind({});
+export const ConfigurableInput: Story = Template.bind({});
 
 const OuterGroup = styled('span')({
   display: 'flex',
@@ -70,7 +82,7 @@ const InnerGroup = styled('span')({
   gap: '1rem',
 });
 
-const StatesTemplate: Story = ({ pseudo, ...args }) => (
+const StatesTemplate = ({ pseudo, ...args }) => (
   <OuterGroup>
     <InnerGroup>
       <Input {...args} />
@@ -117,13 +129,13 @@ const StatesTemplate: Story = ({ pseudo, ...args }) => (
   </OuterGroup>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesFocus = StatesTemplate.bind({});
+export const StatesFocus: Story = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
+const AdornmentsTemplate = ({ pseudo, ...args }) => (
   <OuterGroup>
     <InnerGroup>
       <Input {...args} />
@@ -136,27 +148,17 @@ const AdornmentsTemplate: Story = ({ pseudo, ...args }) => (
   </OuterGroup>
 );
 
-export const StartAdornment = AdornmentsTemplate.bind({});
+export const StartAdornment: Story = AdornmentsTemplate.bind({});
 StartAdornment.args = {
-  startAdornment: (
-    <InputAdornment position="start">
-      <GearDuotone />
-    </InputAdornment>
-  ),
+  startAdornment: 'GearDuotone',
 };
 
-export const EndAdornment = AdornmentsTemplate.bind({});
+export const EndAdornment: Story = AdornmentsTemplate.bind({});
 EndAdornment.args = {
-  endAdornment: (
-    <InputAdornment position="end">
-      <QuestionDuotone />
-    </InputAdornment>
-  ),
+  endAdornment: 'QuestionDuotone',
 };
 
-const InputChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = InputChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

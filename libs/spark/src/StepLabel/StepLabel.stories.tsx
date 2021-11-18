@@ -1,17 +1,37 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepLabel, StepLabelProps } from '..';
 
+// some underlying StepLabelProps are undocumented
+interface SbStepLabelProps extends StepLabelProps {
+  /**
+   * Mark the step as active.
+   */
+  active?: boolean;
+  /**
+   * If `true`, positions the label under the icon.
+   */
+  alternativeLabel?: boolean;
+  /**
+   * Mark the step as completed.
+   */
+  completed?: boolean;
+  children?: StepLabelProps['children'];
+  disabled?: StepLabelProps['disabled'];
+  error?: StepLabelProps['error'];
+  icon?: StepLabelProps['icon'];
+}
+
+export const SbStepLabel = (props: SbStepLabelProps) => (
+  <StepLabel {...props} />
+);
+
 export default {
   title: '@ps/StepLabel',
-  component: StepLabel,
+  component: SbStepLabel,
+  excludeStories: ['SbStepLabel'],
   argTypes: {
-    active: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    completed: { control: 'boolean' },
-    error: { control: 'boolean' },
-    alternativeLabel: { control: 'boolean' },
     icon: {
       control: 'select',
       options: ['1', '2', '3', 'GearFilled'],

@@ -1,61 +1,88 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone, ChevronDown } from '@prenda/spark-icons';
-import Box from '../Box';
-import Button from '../Button';
-import Divider from '../Divider';
-import DropdownAnchor from '../DropdownAnchor';
 import {
-  default as DropdownContext,
+  Box,
+  Button,
+  Divider,
+  DropdownAnchor,
+  DropdownAnchorProps,
+  DropdownContext,
   DropdownContextProps,
-} from './DropdownContext';
-import DropdownMenu from '../DropdownMenu';
-import IconButton from '../IconButton';
-import ListItemIcon from '../ListItemIcon';
-import ListItemText from '../ListItemText';
-import MenuItem from '../MenuItem';
+  DropdownMenu,
+  DropdownMenuProps,
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+} from '..';
 
-export const TypedDropdownContext = (props: DropdownContextProps) => (
-  <DropdownContext {...props} />
-);
+interface SbDropdownContextProps extends DropdownContextProps {
+  /**
+   * **[Storybook-only:** passed to `DropdownAnchor`.**]**
+   *
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  sb_DropdownAnchor_component?: DropdownAnchorProps['component'];
+  /**
+   * **[Storybook-only:** passed to `DropdownAnchor`.**]**
+   *
+   * If `true`, the anchor component is disabled.
+   */
+  sb_DropdownAnchor_disabled?: boolean;
+  /**
+   * **[Storybook-only:** passed to `DropdownMenu`.**]**
+   *
+   * If `true`, the menu is visible.
+   */
+  sb_DropdownMenu_open?: DropdownMenuProps['open'];
+  /**
+   * **[Storybook-only:** passed to `DropdownMenu`.**]**
+   *
+   * The placement of the menu `Popover` in relation to its anchor.
+   * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
+   */
+  sb_DropdownMenu_placement?: DropdownMenuProps['placement'];
+}
 
-const components = { Button, IconButton };
+export const SbDropdownContext = ({
+  sb_DropdownAnchor_component,
+  sb_DropdownAnchor_disabled,
+  sb_DropdownMenu_open,
+  sb_DropdownMenu_placement,
+  ...props
+}: SbDropdownContextProps) => <DropdownContext {...props} />;
 
 export default {
   title: '@ps/DropdownContext',
-  component: TypedDropdownContext,
-  excludeStories: ['TypedDropdownContext'],
+  component: SbDropdownContext,
+  excludeStories: ['SbDropdownContext'],
   argTypes: {
-    open: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    placement: {
+    sb_DropdownAnchor_component: {
       control: 'select',
-      options: ['bottom-left', 'bottom-right', 'top-left', 'top-right'],
-    },
-    component: {
-      options: Object.keys(components),
-      mapping: components,
-      control: {
-        type: 'select',
-      },
+      options: ['Button', 'IconButton'],
+      mapping: { Button: Button, IconButton: IconButton },
     },
   },
   args: {
-    placement: 'bottom-left',
-    component: 'Button',
+    sb_DropdownAnchor_component: 'Button',
+    sb_DropdownMenu_placement: 'bottom-left',
   },
 } as Meta;
 
-const ConfigurableTemplate: Story = ({
-  disabled,
-  open,
-  placement,
-  component,
+const ConfigurableTemplate = ({
+  sb_DropdownAnchor_component,
+  sb_DropdownAnchor_disabled,
+  sb_DropdownMenu_open,
+  sb_DropdownMenu_placement,
 }) => {
   const optionalMenuProps: { open?: boolean } = {};
-  if (open !== undefined) optionalMenuProps.open = open;
+  if (sb_DropdownMenu_open !== undefined) {
+    optionalMenuProps.open = sb_DropdownMenu_open;
+  }
 
-  const positioningStyles = getPositioningStyles(placement);
+  const positioningStyles = getPositioningStyles(sb_DropdownMenu_placement);
 
   return (
     // menu height + (largest) anchor el height + space between; menu width
@@ -63,17 +90,25 @@ const ConfigurableTemplate: Story = ({
       <Box {...positioningStyles}>
         <DropdownContext>
           <DropdownAnchor
-            component={component}
+            component={sb_DropdownAnchor_component}
             endIcon={
-              component.displayName === 'IconButton' ? undefined : (
+              sb_DropdownAnchor_component.displayName ===
+              'IconButton' ? undefined : (
                 <ChevronDown />
               )
             }
-            disabled={disabled}
+            disabled={sb_DropdownAnchor_disabled}
           >
-            {component.displayName === 'IconButton' ? <ChevronDown /> : 'Label'}
+            {sb_DropdownAnchor_component.displayName === 'IconButton' ? (
+              <ChevronDown />
+            ) : (
+              'Label'
+            )}
           </DropdownAnchor>
-          <DropdownMenu placement={placement} {...optionalMenuProps}>
+          <DropdownMenu
+            placement={sb_DropdownMenu_placement}
+            {...optionalMenuProps}
+          >
             <MenuItem>
               <ListItemIcon>
                 <UserDuotone />
@@ -97,7 +132,7 @@ const ConfigurableTemplate: Story = ({
   );
 };
 
-export const Configurable = ConfigurableTemplate.bind({});
+export const Configurable: Story = ConfigurableTemplate.bind({});
 
 function getPositioningStyles(placement) {
   let top, left, right, bottom;

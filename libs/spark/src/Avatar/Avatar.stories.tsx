@@ -1,19 +1,18 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { UserDuotone } from '@prenda/spark-icons';
-import Avatar from './Avatar';
-import Box from '../Box';
+import { Avatar, Box } from '..';
 import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
 
-export const TypedAvatar = Avatar;
+export const SbAvatar = Avatar;
 
 export default {
   title: '@ps/Avatar',
-  component: TypedAvatar,
-  excludeStories: ['TypedAvatar'],
+  component: SbAvatar,
+  excludeStories: ['SbAvatar'],
   args: {
     src: '/img/guide-1.png',
   },
@@ -102,9 +101,7 @@ const ContentAndSizeTemplate = ({ src, alt, ...other }) => (
 
 export const ContentAndSize: Story = ContentAndSizeTemplate.bind({});
 
-const AvatarDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = AvatarDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Avatar',
@@ -136,9 +133,7 @@ Documentation.args = {
   },
 };
 
-const AvatarChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = AvatarChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

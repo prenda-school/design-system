@@ -1,26 +1,32 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   BeakerDuotone,
   HomeDuotone,
   InboxFilledDuotone,
   MountainDuotone,
-  UsersDuotone,
   PrendaMonogram,
+  UsersDuotone,
 } from '@prenda/spark-icons';
-import Avatar from '../Avatar';
-import { default as NavBar, NavBarProps } from './NavBar';
-import NavBarButton from '../NavBarButton';
-import Toolbar from '../Toolbar';
-import styled from '../styled';
-import withStyles from '../withStyles';
+import {
+  Avatar,
+  NavBar,
+  NavBarButton,
+  NavBarProps,
+  Toolbar,
+  styled,
+  withStyles,
+} from '..';
 
-export const TypedNavBar = (props: NavBarProps) => <NavBar {...props} />;
+export const SbNavBar = (props: NavBarProps) => <NavBar {...props} />;
 
 export default {
   title: '@ps/NavBar',
-  component: TypedNavBar,
-  excludeStories: ['TypedNavBar'],
+  component: SbNavBar,
+  excludeStories: ['SbNavBar'],
+  args: {
+    color: 'default',
+  },
 } as Meta;
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({
@@ -44,7 +50,7 @@ const InboxNavBarButton = withStyles({
   },
 })(NavBarButton);
 
-const Template: Story<NavBarProps> = (args) => (
+const Template = (args: NavBarProps) => (
   <NavBar {...args}>
     <CustomToolbar>
       <BluePrendaMonogram />
@@ -75,4 +81,4 @@ const Template: Story<NavBarProps> = (args) => (
   </NavBar>
 );
 
-export const Basic = Template.bind({});
+export const Basic: Story = Template.bind({});

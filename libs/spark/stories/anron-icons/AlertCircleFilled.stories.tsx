@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { AlertCircleFilled } from '@prenda/spark-icons';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: AlertCircleFilled,
 } as Meta;
 
-const Template: Story = (args) => <AlertCircleFilled {...args} />;
+const Template = (args) => <AlertCircleFilled {...args} />;
 
-export const AlertCircleFilledStory = Template.bind({});
+export const AlertCircleFilledStory: Story = Template.bind({});
 AlertCircleFilledStory.storyName = 'AlertCircleFilled';

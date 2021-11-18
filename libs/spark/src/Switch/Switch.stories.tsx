@@ -1,38 +1,42 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
-import Card from '../Card';
-import FormControlLabel from '../FormControlLabel';
-import List from '../List';
-import ListItem from '../ListItem';
-import ListItemIcon from '../ListItemIcon';
-import ListItemText from '../ListItemText';
-import Switch from './Switch';
-import styled from '../styled';
-import withStyles from '../withStyles';
+import type { Meta, Story } from '@storybook/react/types-6-0';
+import {
+  Card,
+  FormControlLabel,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Switch,
+  SwitchProps,
+  styled,
+  withStyles,
+} from '..';
 import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
 
-export const TypedSwitch = Switch;
+// Trying to omit /*ripple*/ props breaks all other props ???
+interface SbSwitchProps extends SwitchProps {
+  checked?: SwitchProps['checked'];
+  disabled?: SwitchProps['disabled'];
+}
+
+export const SbSwitch = (props: SbSwitchProps) => <Switch {...props} />;
 
 export default {
   title: '@ps/Switch',
-  component: TypedSwitch,
-  excludeStories: ['TypedSwitch'],
-  parameters: { actions: { handles: ['change'] } },
-  // Doesn't pick up all props
-  argTypes: {
-    checked: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-  },
+  component: SbSwitch,
+  excludeStories: ['SbSwitch'],
+  parameters: { actions: { argTypesRegex: '^on.*' } },
   args: {
     checked: false,
     disabled: false,
   },
 } as Meta;
 
-const Template: Story = (args) => (
+const Template = (args) => (
   <Switch
     // a11y required props when there's no label
     name="Demo"
@@ -42,7 +46,7 @@ const Template: Story = (args) => (
   />
 );
 
-export const Configurable = Template.bind({});
+export const Configurable: Story = Template.bind({});
 
 const Container = styled('div')({
   display: 'flex',
@@ -51,7 +55,7 @@ const Container = styled('div')({
   width: 'min-content',
 });
 
-const StatesTemplate: Story = () => (
+const StatesTemplate = () => (
   <>
     <Container>
       <Switch
@@ -112,7 +116,7 @@ const StatesTemplate: Story = () => (
   </>
 );
 
-const PseudoStatesTemplate: Story = () => (
+const PseudoStatesTemplate = () => (
   <>
     <Container>
       <Switch
@@ -145,15 +149,15 @@ const PseudoStatesTemplate: Story = () => (
   </>
 );
 
-export const States = StatesTemplate.bind({});
+export const States: Story = StatesTemplate.bind({});
 
-export const StatesHover = PseudoStatesTemplate.bind({});
+export const StatesHover: Story = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
-export const StatesFocus = PseudoStatesTemplate.bind({});
+export const StatesFocus: Story = PseudoStatesTemplate.bind({});
 StatesFocus.parameters = { pseudo: { focus: true } };
 
-const LabeledStatesTemplate: Story = () => (
+const LabeledStatesTemplate = () => (
   <>
     <Container>
       <FormControlLabel label="Label" control={<Switch />} />
@@ -229,22 +233,17 @@ const LabeledStatesTemplate: Story = () => (
   </>
 );
 
-const PseudoLabeledStatesTemplate: Story = (args) => (
+const PseudoLabeledStatesTemplate = () => (
   <>
     <Container>
-      <FormControlLabel label="Label" control={<Switch />} {...args} />
-      <FormControlLabel label="Label" control={<Switch checked />} {...args} />
+      <FormControlLabel label="Label" control={<Switch />} />
+      <FormControlLabel label="Label" control={<Switch checked />} />
     </Container>
     <Container>
-      <FormControlLabel
-        label="Label"
-        control={<Switch size="large" />}
-        {...args}
-      />
+      <FormControlLabel label="Label" control={<Switch size="large" />} />
       <FormControlLabel
         label="Label"
         control={<Switch size="large" checked />}
-        {...args}
       />
     </Container>
     <Container>
@@ -252,13 +251,11 @@ const PseudoLabeledStatesTemplate: Story = (args) => (
         label="Label"
         labelPlacement="start"
         control={<Switch />}
-        {...args}
       />
       <FormControlLabel
         label="Label"
         labelPlacement="start"
         control={<Switch checked />}
-        {...args}
       />
     </Container>
     <Container>
@@ -266,24 +263,22 @@ const PseudoLabeledStatesTemplate: Story = (args) => (
         label="Label"
         labelPlacement="start"
         control={<Switch size="large" />}
-        {...args}
       />
       <FormControlLabel
         label="Label"
         labelPlacement="start"
         control={<Switch size="large" checked />}
-        {...args}
       />
     </Container>
   </>
 );
 
-export const LabeledStates = LabeledStatesTemplate.bind({});
+export const LabeledStates: Story = LabeledStatesTemplate.bind({});
 
-export const LabeledStatesHover = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesHover: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
-export const LabeledStatesFocus = PseudoLabeledStatesTemplate.bind({});
+export const LabeledStatesFocus: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesFocus.parameters = { pseudo: { focus: true } };
 
 const CustomCard = withStyles({
@@ -314,7 +309,7 @@ const RightAlignedListItemText = withStyles({
   },
 })(ListItemText);
 
-const LabeledInListTemplate: Story = (args) => (
+export const LabeledInList: Story = () => (
   // `width: min-content` will shrink the cards, so set 2 card widths + gap.
   <Container style={{ width: 256 * 2 + 16 }}>
     <CustomCard>
@@ -325,7 +320,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="end"
               inputProps={{ 'aria-labelledby': 'switch-list-label-1' }}
-              {...args}
             />
           </ListItemEndIcon>
         </PaddedListItem>
@@ -335,7 +329,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="end"
               inputProps={{ 'aria-labelledby': 'switch-list-label-2' }}
-              {...args}
             />
           </ListItemEndIcon>
         </PaddedListItem>
@@ -345,7 +338,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="end"
               inputProps={{ 'aria-labelledby': 'switch-list-label-3' }}
-              {...args}
             />
           </ListItemEndIcon>
         </PaddedListItem>
@@ -358,7 +350,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="start"
               inputProps={{ 'aria-labelledby': 'switch-list-label-4' }}
-              {...args}
             />
           </ListItemIcon>
           <RightAlignedListItemText
@@ -371,7 +362,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="start"
               inputProps={{ 'aria-labelledby': 'switch-list-label-5' }}
-              {...args}
             />
           </ListItemIcon>
           <RightAlignedListItemText
@@ -384,7 +374,6 @@ const LabeledInListTemplate: Story = (args) => (
             <Switch
               edge="start"
               inputProps={{ 'aria-labelledby': 'switch-list-label-6' }}
-              {...args}
             />
           </ListItemIcon>
           <RightAlignedListItemText
@@ -397,11 +386,7 @@ const LabeledInListTemplate: Story = (args) => (
   </Container>
 );
 
-export const LabeledInList = LabeledInListTemplate.bind({});
-
-const SwitchDocTemplate = (args) => <DocumentationTemplate {...args} />;
-
-export const Documentation: Story = SwitchDocTemplate.bind({});
+export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {
   underlyingComponent: {
     name: 'Switch',
@@ -436,9 +421,7 @@ Documentation.args = {
   },
 };
 
-const SwitchChangelogTemplate = (args) => <ChangelogTemplate {...args} />;
-
-export const Changelog: Story = SwitchChangelogTemplate.bind({});
+export const Changelog: Story = ChangelogTemplate.bind({});
 Changelog.args = {
   history: [
     {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { AlertCircleDuotone } from '@prenda/spark-icons';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   component: AlertCircleDuotone,
 } as Meta;
 
-const Template: Story = (args) => <AlertCircleDuotone {...args} />;
+const Template = (args) => <AlertCircleDuotone {...args} />;
 
-export const AlertCircleDuotoneStory = Template.bind({});
+export const AlertCircleDuotoneStory: Story = Template.bind({});
 AlertCircleDuotoneStory.storyName = 'AlertCircleDuotone';

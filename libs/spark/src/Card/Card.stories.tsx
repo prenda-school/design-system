@@ -1,23 +1,23 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { HeartDuotone } from '@prenda/spark-icons';
-import Box from '../Box';
-import Button from '../Button';
-import { default as Card, CardProps } from './Card';
-import CardActions from '../CardActions';
-import CardContent from '../CardContent';
-import CardMedia from '../CardMedia';
-import IconButton from '../IconButton';
-import Typography from '../Typography';
-import styled from '../styled';
-import withStyles from '../withStyles';
-
-export const TypedCard = (props: CardProps) => <Card {...props} />;
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  IconButton,
+  Typography,
+  styled,
+  withStyles,
+} from '..';
 
 export default {
   title: '@ps/Card',
-  component: TypedCard,
-  excludeStories: ['TypedCard'],
+  component: Card,
+  excludeStories: ['Card'],
 } as Meta;
 
 const CustomCard = withStyles({
