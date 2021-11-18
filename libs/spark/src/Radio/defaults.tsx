@@ -32,14 +32,14 @@ export const MuiRadioStyleOverrides = ({
       color: palette.blue[3],
     },
     '&$disabled': {
-      '& .SparkRadioIcon-root': {
+      '& .RadioIcon-root': {
         '& [class*=MuiSvgIcon-root]': {
           color: palette.grey.dark,
         },
-        '& .SparkRadioIcon-circle': {
+        '& .RadioIcon-circle': {
           backgroundColor: palette.grey.medium,
         },
-        '& .SparkRadioIcon-dot': {
+        '& .RadioIcon-dot': {
           color: palette.grey[400],
         },
       },
