@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Link, LinkProps } from '..';
 
+// underlying props don't have descriptions
 export const SbLink = (props: LinkProps) => <Link {...props} />;
 
 export default {

@@ -7,6 +7,9 @@ export * from './Avatar';
 export { default as Banner } from './Banner';
 export * from './Banner';
 
+export { default as Breadcrumbs } from './Breadcrumbs';
+export * from './Breadcrumbs';
+
 export { default as Box } from './Box';
 export * from './Box';
 

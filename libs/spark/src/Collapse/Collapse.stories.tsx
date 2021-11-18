@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Box,
   Collapse,
@@ -11,38 +11,22 @@ import {
   styled,
 } from '..';
 
-// :TEMP: duplicate props doc & defaults for what auto-doc plugin doesn't pickup
 interface SbCollapseProps extends CollapseProps {
-  /**
-   * The height of the container when collapsed.
-   */
-  collapsedSize?: string | number;
-  /**
-   * If `true`, the component will transition in.
-   */
-  in?: boolean | undefined;
-  /**
-   * The collapse transition orientation.
-   */
-  orientation?: 'horizontal' | 'vertical' | undefined;
+  collapsedSize?: CollapseProps['collapsedSize'];
+  in?: CollapseProps['in'];
+  orientation?: CollapseProps['orientation'];
 }
 
-export const SbCollapse = ({
-  collapsedSize = '0px',
-  orientation = 'vertical',
-  ...other
-}: SbCollapseProps) => (
-  <Collapse
-    collapsedSize={collapsedSize}
-    orientation={orientation}
-    {...other}
-  />
-);
+export const SbCollapse = (props: SbCollapseProps) => <Collapse {...props} />;
 
 export default {
   title: '@ps/Collapse',
   component: SbCollapse,
   excludeStories: ['SbCollapse'],
+  args: {
+    collapsedSize: '0px',
+    orientation: 'vertical',
+  },
 } as Meta;
 
 const useIconStyles = makeStyles((theme) => ({
