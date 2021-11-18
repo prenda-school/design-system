@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v0.16.0...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- **Button**
+  - Styling: incorrect default height when `variant=("outlined" | "text")`
+
 ### Features
 
 - **Breadcrumbs**

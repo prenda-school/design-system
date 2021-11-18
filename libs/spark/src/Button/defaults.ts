@@ -51,10 +51,12 @@ export const MuiButtonStyleOverrides = ({
   },
   outlined: {
     boxShadow: 'none',
-    // re-declare to override default outlined style
+    // re-declare to override default
     border: `2px solid ${palette.grey.medium}`,
     backgroundColor: palette.common.white,
     color: palette.blue[3],
+    // re-declare to override default
+    padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
     '&$disabled': {
       border: `2px solid ${palette.grey.medium}`,
       backgroundColor: palette.common.white,
@@ -77,6 +79,8 @@ export const MuiButtonStyleOverrides = ({
     border: '2px solid transparent',
     backgroundColor: 'transparent',
     color: palette.blue[3],
+    // re-declare to override default
+    padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
     '&$disabled': {
       border: '2px solid transparent',
       backgroundColor: 'transparent',
