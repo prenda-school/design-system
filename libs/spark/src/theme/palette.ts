@@ -1,19 +1,18 @@
-import createPalette from '@material-ui/core/styles/createPalette';
-
 // Custom types
 interface PaletteTertiaryColor {
-  1: string;
-  2: string;
-  3: string;
-  4: string;
-  5: string;
+  600: string;
+  500: string;
+  400: string;
+  300: string;
+  200: string;
+  100: string;
 }
 
 interface TypeBrand {
   blue: string;
   lightBlue: string;
   orange: string;
-  peach: string;
+  lightOrange: string;
 }
 
 // Augment global interfaces so that modules outside of this one can
@@ -49,17 +48,16 @@ declare module '@material-ui/core/styles/createPalette' {
     background: TypeBackground;
     brand: TypeBrand;
     red: PaletteTertiaryColor;
-    orange: PaletteTertiaryColor;
+    teal: PaletteTertiaryColor;
     yellow: PaletteTertiaryColor;
     green: PaletteTertiaryColor;
     blue: PaletteTertiaryColor;
-    purple: PaletteTertiaryColor;
+    magenta: PaletteTertiaryColor;
   }
 
   interface PaletteOptions {
     brand: TypeBrand;
     red: PaletteTertiaryColor;
-    orange: PaletteTertiaryColor;
     yellow: PaletteTertiaryColor;
     green: PaletteTertiaryColor;
     blue: PaletteTertiaryColor;
@@ -67,74 +65,120 @@ declare module '@material-ui/core/styles/createPalette' {
   }
 }
 
-// Palette properties with repeatedly used values are extracted
 const red = {
-  1: '#f7d2da',
-  2: '#de5160',
-  3: '#b83345',
-  4: '#851b2c',
-  5: '#520a18',
-};
-
-const orange = {
-  1: '#ffb78f',
-  2: '#ff7f4d',
-  3: '#e0662d',
-  4: '#a34814',
-  5: '#5c2704',
+  700: '#A72100',
+  600: '#DE350B',
+  500: '#F34700',
+  400: '#FF7452',
+  300: '#FF8F73',
+  200: '#FFBDAD',
+  100: '#FFEBE6',
 };
 
 const yellow = {
-  1: '#fae6b2',
-  2: '#f7d054',
-  3: '#dbb13d',
-  4: '#8f691d',
-  5: '#4c3109',
+  700: '#FF8B00',
+  600: '#FF991F',
+  500: '#FFAB00',
+  400: '#FFC400',
+  300: '#FFE380',
+  200: '#FFF0B3',
+  100: '#FFFAE6',
 };
 
 const green = {
-  1: '#b8f0d4',
-  2: '#4aa784',
-  3: '#2e7f64',
-  4: '#0c664e',
-  5: '#084237',
+  700: '#006644',
+  600: '#00875A',
+  500: '#36B37E',
+  400: '#57D9A3',
+  300: '#79F2C0',
+  200: '#ABF5D1',
+  100: '#E3FCEF',
 };
 
 const blue = {
-  1: '#d7f3ff',
-  2: '#498dcc',
-  3: '#2967a6',
-  4: '#0a4872',
-  5: '#072e44', // Also "Neutral Navy" in Figma
+  700: '#0747A6',
+  600: '#0052CC',
+  500: '#0065FF',
+  400: '#2684FF',
+  300: '#4C9AFF',
+  200: '#B3D4FF',
+  100: '#DEEBFF',
 };
 
-const purple = {
-  1: '#d9d8fb',
-  2: '#8070f6',
-  3: '#6951e0',
-  4: '#452ea3',
-  5: '#271466',
+const teal = {
+  700: '#008DA6',
+  600: '#00A3BF',
+  500: '#00B8D9',
+  400: '#00C7E6',
+  300: '#79E2F2',
+  200: '#B3F5FF',
+  100: '#E6FCFF',
+};
+
+const magenta = {
+  700: '#B2103A',
+  600: '#D0355B',
+  500: '#DE5173',
+  400: '#EA7793',
+  300: '#F399AF',
+  200: '#F7D2DA',
+  100: '#FFF1F4',
+};
+
+const tones = {
+  warm: {
+    1: '#58280C',
+    2: '#7E3F2A',
+    3: '#B06A49',
+    4: '#EFC088',
+    5: '#EECAB0',
+  },
+  neutral: {
+    1: '#301E12',
+    2: '#623A19',
+    3: '#AD7951',
+    4: '#DBBC96',
+    5: '#FDE6CA',
+  },
+  cool: {
+    1: '#402225',
+    2: '#6D5049',
+    3: '#8A605C',
+    4: '#C19A8C',
+    5: '#ECD4CA',
+  },
+};
+
+const neutral = {
+  dark: {
+    600: '#091E42',
+    500: '#253858',
+    400: '#42526E',
+    300: '#505F79',
+    200: '#5E6C84',
+    100: '#5E6C84',
+  },
+  light: {
+    400: '#C1C7D0',
+    300: '#DFE1E6',
+    200: '#EBECF0',
+    100: '#FAFBFC',
+    0: '#FFFFFF',
+  },
 };
 
 const brand = {
-  blue: blue[4],
-  lightBlue: blue[1],
-  orange: '#f34700',
-  peach: orange[1],
-};
-
-const grey = {
-  lighter: '#f5f5f5' as const, // "Neutral Lighter Grey" in Figma
-  light: '#f0f1f2' as const, // "Neutral Light Grey" in Figma
-  medium: '#e1e3e5' as const, // "Neutral Medium Grey" in Figma
-  dark: '#d2d4d6' as const, // "Neutral Dark Grey" in Figma
+  blue: '#0A4872',
+  lightBlue: '#D7F3FF',
+  orange: red[500],
+  lightOrange: '#FFB78F',
 };
 
 const text = {
-  light: grey.light,
-  lightLowContrast: `${grey.light}b8`, // 72% opacity
-  dark: blue[5],
-  darkLowContrast: `${blue[5]}b8`, // 72% opacity
+  light: neutral.light[0],
+  lightLowContrast: `${neutral.light[0]}b8`, // 72% opacity
+  dark: neutral.dark[600],
+  darkLowContrast: `${neutral.dark[600]}b8`, // 72% opacity
 };
 
 // Only customizations are specified, view all other default theme.palette properties
@@ -158,22 +202,22 @@ const palette = createPalette({
     main: green[3],
     contrastText: text.light,
   },
-  grey,
+  neutral,
+  tones,
   text,
   background: {
     navy: blue[5],
     blue: brand.blue,
-    lightGrey: grey.light,
     lightBlue: brand.lightBlue,
   },
   // custom properties
   brand,
   red,
-  orange,
+  teal,
   yellow,
   green,
   blue,
-  purple,
+  magenta,
 });
 
 export default palette;
