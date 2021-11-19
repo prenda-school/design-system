@@ -28,7 +28,9 @@ declare module '@material-ui/core/styles/createTheme' {
 
 declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
+  interface DefaultTheme extends Theme {
+    __next__palette: __next__Palette;
+  }
 }
 
 declare module '@material-ui/core/styles/createPalette' {
