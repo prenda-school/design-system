@@ -78,12 +78,12 @@ _This section details previous of breaking changes or experimental features and 
       - `palette.info.main` -> removed (\_note: if you require this alias, use `palette.blue[600]`)
       - `palette.success.main` -> removed (\_note: if you require this alias, use `palette.green[600]`)
     - "neutrals":
-      - `palette.common.white` -> `palette.neutrals[0]`
-      - `palette.grey.lighter` -> `palette.neutrals[60]`
-      - `palette.grey.light` -> `palette.neutrals[70]`
-      - `palette.grey.medium` -> `palette.neutrals[80]`
-      - `palette.grey.dark` -> `palette.neutrals[90]`
-      - `palette.blue[5]` -> `palette.neutrals[600]`
+      - `palette.common.white` -> `palette.neutral[0]`
+      - `palette.grey.lighter` -> `palette.neutral[60]`
+      - `palette.grey.light` -> `palette.neutral[70]`
+      - `palette.grey.medium` -> `palette.neutral[80]`
+      - `palette.grey.dark` -> `palette.neutral[90]`
+      - `palette.blue[5]` -> `palette.neutral[600]`
     - "background":
       - `palette.common.white` -> `palette.background.default`
       - `palette.background.lightGrey` -> `palette.background.alternative`

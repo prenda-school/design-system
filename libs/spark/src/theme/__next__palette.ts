@@ -12,7 +12,7 @@ const globalTokens: Pick<
   | 'purple'
   | 'teal'
   | 'magenta'
-  | 'neutrals'
+  | 'neutral'
   | 'tones'
 > = {
   brand: {
@@ -84,7 +84,7 @@ const globalTokens: Pick<
     600: '#d0355b',
     700: '#b2103a',
   },
-  neutrals: {
+  neutral: {
     0: '#ffffff',
     60: '#fafbfc',
     70: '#ebecf0',
@@ -126,24 +126,24 @@ const globalTokens: Pick<
 // see https://spectrum.adobe.com/page/design-tokens/#Alias-tokens
 const aliasTokens: Pick<__next__Palette, 'background' | 'text' | 'action'> = {
   background: {
-    default: globalTokens.neutrals[0],
-    alternative: globalTokens.neutrals[60],
+    default: globalTokens.neutral[0],
+    alternative: globalTokens.neutral[60],
     brand: globalTokens.brand.blue,
-    inverse: globalTokens.neutrals[600],
+    inverse: globalTokens.neutral[600],
   },
   text: {
-    heading: globalTokens.neutrals[600],
-    body: globalTokens.neutrals[500],
-    subdued: globalTokens.neutrals[400],
-    disabled: globalTokens.neutrals[100],
-    icon: globalTokens.neutrals[500],
-    secondaryIcon: globalTokens.neutrals[300],
-    inverseHeading: globalTokens.neutrals[0],
-    inverseBody: globalTokens.neutrals[60],
-    inverseSubdued: globalTokens.neutrals[70],
-    inverseDisabled: globalTokens.neutrals[90],
-    inverseIcon: globalTokens.neutrals[60],
-    inverseSecondaryIcon: globalTokens.neutrals[80],
+    heading: globalTokens.neutral[600],
+    body: globalTokens.neutral[500],
+    subdued: globalTokens.neutral[400],
+    disabled: globalTokens.neutral[100],
+    icon: globalTokens.neutral[500],
+    secondaryIcon: globalTokens.neutral[300],
+    inverseHeading: globalTokens.neutral[0],
+    inverseBody: globalTokens.neutral[60],
+    inverseSubdued: globalTokens.neutral[70],
+    inverseDisabled: globalTokens.neutral[90],
+    inverseIcon: globalTokens.neutral[60],
+    inverseSecondaryIcon: globalTokens.neutral[80],
   },
   action: {
     focusBoxShadow: `0 0 2px 4px ${globalTokens.teal[300]}`,
@@ -179,7 +179,7 @@ export interface PaletteBrand {
   lightOrange: string;
 }
 
-export interface PaletteNeutrals {
+export interface PaletteNeutral {
   0: string;
   60: string;
   70: string;
@@ -243,7 +243,7 @@ export interface __next__Palette {
   teal: Color;
   purple: Color;
   magenta: Color;
-  neutrals: PaletteNeutrals;
+  neutral: PaletteNeutral;
   tones: PaletteTones;
   background: PaletteBackground;
   text: PaletteText;
