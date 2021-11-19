@@ -311,7 +311,7 @@ export const Extended: Story = () => (
         { name: 'N80', field: 'neutral.80' },
         { name: 'N70', field: 'neutral.70' },
         { name: 'N60', field: 'neutral.60' },
-        { name: 'N00', field: 'neutral.00' },
+        { name: 'N0', field: 'neutral.0' },
       ]}
     />
     <Spacer />

@@ -20,7 +20,7 @@
 
 _This section details previous of breaking changes or experimental features and are subject to breaking changes at any time._
 
-- \***\*next**palette\*\*
+- **\_\_next\_\_palette**
   - Implemented according to PDS v2.
   - Changes from current `palette` (PDS v1):
     - "tertiary":
@@ -44,7 +44,7 @@ _This section details previous of breaking changes or experimental features and 
   - Preview: `theme.__next__palette.*`
   - Planned migration:
     - "brand":
-      - `palette.brand.peach` -> `palette.__next__.brand.lightOrange`
+      - `palette.brand.peach` -> `palette.brand.lightOrange`
     - "full palette" / "tertiary" colors / "colors":
       - `palette.red[1]` -> `palette.red[100]`
       - `palette.red[2]` -> `palette.red[300]`
@@ -73,10 +73,10 @@ _This section details previous of breaking changes or experimental features and 
       - `palette.green[4]` -> `palette.green[600]`
       - `palette.green[5]` -> `palette.green[700]`
     - "product colors" or "condition state" colors:
-      - `palette.error.main` -> removed (\_note: if you require this alias, use `palette.red[700]`)
-      - `palette.warning.main` -> removed (\_note: if you require this alias, use `palette.yellow[500]`)
-      - `palette.info.main` -> removed (\_note: if you require this alias, use `palette.blue[600]`)
-      - `palette.success.main` -> removed (\_note: if you require this alias, use `palette.green[600]`)
+      - `palette.error.main` -> removed (_note: if you require this alias, use `palette.red[700]`_)
+      - `palette.warning.main` -> removed (_note: if you require this alias, use `palette.yellow[500]`_)
+      - `palette.info.main` -> removed (_note: if you require this alias, use `palette.blue[600]`_)
+      - `palette.success.main` -> removed (_note: if you require this alias, use `palette.green[600]`_)
     - "neutrals":
       - `palette.common.white` -> `palette.neutral[0]`
       - `palette.grey.lighter` -> `palette.neutral[60]`
