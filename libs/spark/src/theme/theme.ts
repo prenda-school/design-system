@@ -1,22 +1,22 @@
-import {
-  default as createTheme,
-  Theme,
-} from '@material-ui/core/styles/createTheme';
+import { createTheme, Theme as MuiTheme } from '@material-ui/core/styles';
 import initialTheme from './initialTheme';
 import overrides from './overrides';
 import props from './props';
+import __next__palette, { __next__Palette } from './__next__palette';
 
-export type { Theme } from '@material-ui/core/styles/createTheme';
+export interface Theme extends MuiTheme {
+  __next__palette: __next__Palette;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface DefaultTheme extends Theme {}
 
-declare module '@material-ui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-export default createTheme({
+const theme = createTheme({
   ...initialTheme,
   props,
   overrides: overrides(initialTheme),
 });
+
+theme.__next__palette = __next__palette;
+
+export default theme;

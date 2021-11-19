@@ -16,6 +16,86 @@
 - **Link**
   - Re-exported with custom styles and props.
 
+### **next**
+
+_This section details previous of breaking changes or experimental features and are subject to breaking changes at any time._
+
+- \***\*next**palette\*\*
+  - Implemented according to PDS v2.
+  - Changes from current `palette` (PDS v1):
+    - "tertiary":
+      - renamed to just "colors".
+      - removed "orange".
+      - added "teal", "magenta".
+      - expanded from 5 to 7 options.
+    - "brand":
+      - renamed "peach" to "lightOrange".
+    - "neutrals":
+      - replaced descriptive field names with numeric keys.
+    - "background":
+      - removed "lightBlue" option.
+      - replaced color references with aliases.
+    - "text":
+      - replaced color type ("light", "dark") references with semantic aliases ("heading", "body", "subdued", ..., "inverseHeading", ...).
+      - expanded from 4 to 12 options.
+    - "tones":
+      - New! for skin tones.
+      - added "warm", "neutral", "cool" -- each with 5 options.
+  - Preview: `theme.__next__palette.*`
+  - Planned migration:
+    - "brand":
+      - `palette.brand.peach` -> `palette.__next__.brand.lightOrange`
+    - "full palette" / "tertiary" colors / "colors":
+      - `palette.red[1]` -> `palette.red[100]`
+      - `palette.red[2]` -> `palette.red[300]`
+      - `palette.red[3]` -> `palette.red[500]`
+      - `palette.red[4]` -> `palette.red[600]`
+      - `palette.red[5]` -> `palette.red[700]`
+      - `palette.orange[1...5]` -> **removed**
+      - `palette.yellow[1]` -> `palette.yellow[100]`
+      - `palette.yellow[2]` -> `palette.yellow[300]`
+      - `palette.yellow[3]` -> `palette.yellow[500]`
+      - `palette.yellow[4]` -> `palette.yellow[600]`
+      - `palette.yellow[5]` -> `palette.yellow[700]`
+      - `palette.blue[1]` -> `palette.blue[100]`
+      - `palette.blue[2]` -> `palette.blue[300]`
+      - `palette.blue[3]` -> `palette.blue[500]`
+      - `palette.blue[4]` -> `palette.blue[600]`
+      - `palette.blue[5]` -> `palette.blue[700]`
+      - `palette.purple[1]` -> `palette.purple[100]`
+      - `palette.purple[2]` -> `palette.purple[300]`
+      - `palette.purple[3]` -> `palette.purple[500]`
+      - `palette.purple[4]` -> `palette.purple[600]`
+      - `palette.purple[5]` -> `palette.purple[700]`
+      - `palette.green[1]` -> `palette.green[100]`
+      - `palette.green[2]` -> `palette.green[400]` (_note: 400, not 300_)
+      - `palette.green[3]` -> `palette.green[500]`
+      - `palette.green[4]` -> `palette.green[600]`
+      - `palette.green[5]` -> `palette.green[700]`
+    - "product colors" or "condition state" colors:
+      - `palette.error.main` -> removed (\_note: if you require this alias, use `palette.red[700]`)
+      - `palette.warning.main` -> removed (\_note: if you require this alias, use `palette.yellow[500]`)
+      - `palette.info.main` -> removed (\_note: if you require this alias, use `palette.blue[600]`)
+      - `palette.success.main` -> removed (\_note: if you require this alias, use `palette.green[600]`)
+    - "neutrals":
+      - `palette.common.white` -> `palette.neutrals[0]`
+      - `palette.grey.lighter` -> `palette.neutrals[60]`
+      - `palette.grey.light` -> `palette.neutrals[70]`
+      - `palette.grey.medium` -> `palette.neutrals[80]`
+      - `palette.grey.dark` -> `palette.neutrals[90]`
+      - `palette.blue[5]` -> `palette.neutrals[600]`
+    - "background":
+      - `palette.common.white` -> `palette.background.default`
+      - `palette.background.lightGrey` -> `palette.background.alternative`
+      - `palette.background.lightBlue` -> **removed**
+      - `palette.background.blue` -> `palette.background.brand`
+      - `palette.background.navy` -> `palette.background.inverse`
+    - "text":
+      - `palette.text.dark` -> `palette.text.(heading|body|icon)` (_use judgement_)
+      - `palette.text.darkLowContrast` -> `palette.text.(subdued|secondaryIcon)` (_use judgement_)
+      - `palette.text.light` -> `palette.text.(inverseHeading|inverseBody|inverseIcon)` (_use judgement_)
+      - `palette.text.lightLowContrast` -> `palette.text.(inverseSubdued|inverseSecondaryIcon)` (_use judgement_)
+
 ## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
 
 No changes.

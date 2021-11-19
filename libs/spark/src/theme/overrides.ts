@@ -3,8 +3,6 @@ import type { Theme } from '@material-ui/core';
 import type { Overrides } from '@material-ui/core/styles/overrides';
 import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete/defaults';
-import type { AvatarClassKey } from '../Avatar';
-import type { BannerClassKey } from '../Banner';
 import { MuiButtonStyleOverrides } from '../Button/defaults';
 import { MuiCardStyleOverrides } from '../Card/defaults';
 import { MuiCardActionsStyleOverrides } from '../CardActions/defaults';
@@ -14,7 +12,6 @@ import { MuiDividerStyleOverrides } from '../Divider/defaults';
 import { MuiFormControlLabelStyleOverrides } from '../FormControlLabel/defaults';
 import { MuiFormHelperTextStyleOverrides } from '../FormHelperText/defaults';
 import { MuiFormLabelStyleOverrides } from '../FormLabel/defaults';
-import type { IconButtonClassKey } from '../IconButton';
 import { MuiInputStyleOverrides } from '../Input/defaults';
 import { MuiInputAdornmentStylesOverrides } from '../InputAdornment/defaults';
 import { MuiInputBaseStyleOverrides } from '../InputBase/defaults';
@@ -31,27 +28,11 @@ import { MuiMenuItemStyleOverrides } from '../MenuItem/defaults';
 import { MuiPaginationStyleOverrides } from '../Pagination/defaults';
 import { MuiPaginationItemStyleOverrides } from '../PaginationItem/defaults';
 import { MuiRadioStyleOverrides } from '../Radio/defaults';
-import type { SectionMessageClassKey } from '../SectionMessage';
-import type { SectionMessageTitleClassKey } from '../SectionMessageTitle';
 import { MuiSelectStylesOverrides } from '../Select/defaults';
 import { MuiSwitchStyleOverrides } from '../Switch/defaults';
 import { MuiTabStyleOverrides } from '../Tab/defaults';
 import { MuiTabsStyleOverrides } from '../Tabs/defaults';
 import { MuiTabPanelStyleOverrides } from '../TabPanel/defaults';
-import type { TagClassKey } from '../Tag';
-import type { TypographyClassKey } from '../Typography';
-
-declare module '@material-ui/core/styles/overrides' {
-  interface ComponentNameToClassKey {
-    MuiSparkAvatar: AvatarClassKey;
-    MuiSparkBanner: BannerClassKey;
-    MuiSparkIconButton: IconButtonClassKey;
-    MuiSparkSectionMessage: SectionMessageClassKey;
-    MuiSparkSectionTitleMessage: SectionMessageTitleClassKey;
-    MuiSparkTag: TagClassKey;
-    MuiSparkTypography: TypographyClassKey;
-  }
-}
 
 const overrides = (theme: Theme): Overrides => ({
   MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),

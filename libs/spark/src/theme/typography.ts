@@ -38,32 +38,6 @@ interface SparkTypographyOptions
     TypographyUtils,
     Partial<Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions> {}
 
-// Augment global interface at top level
-declare module '@material-ui/core/index' {
-  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-  interface TypographyOptions
-    extends TypographyUtils,
-      Partial<
-        Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
-      > {}
-
-  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-  interface Typography extends Record<SparkVariant, TypographyStyle> {}
-}
-
-// Augment global interface at source -- affects Theme interface
-declare module '@material-ui/core/styles/createTypography' {
-  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-  interface TypographyOptions
-    extends TypographyUtils,
-      Partial<
-        Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
-      > {}
-
-  /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
-  interface Typography extends Record<SparkVariant, TypographyStyle> {}
-}
-
 const defaultFontFamily = '"Nunito", Avenir, sans-serif';
 const codeFontFamily =
   '"Source Code Pro", Consolas, "Andale Mono WT", "Lucida Console", Courier, monospace';
