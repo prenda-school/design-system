@@ -160,15 +160,15 @@ Documentation.args = {
       },
       {
         name: 'icon',
-        value: '<SparkCheckboxIcon />',
+        value: '<CheckboxIcon />',
       },
       {
         name: 'checkedIcon',
-        value: '<SparkCheckboxIcon checked />',
+        value: '<CheckboxIcon checked />',
       },
       {
         name: 'indeterminateIcon',
-        value: '<SparkCheckboxIcon indeterminate />',
+        value: '<CheckboxIcon indeterminate />',
       },
     ],
   },

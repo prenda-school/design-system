@@ -7,7 +7,7 @@
     "allowSyntheticDefaultImports": true
   },
   "files": [],
-  "include": [],
+  "include": ["./jest-setup.ts"],
   "references": [
     {
       "path": "./tsconfig.lib.json"
