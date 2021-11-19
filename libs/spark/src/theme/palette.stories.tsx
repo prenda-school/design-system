@@ -35,7 +35,7 @@ function ColorBox(props: ColorBoxProps) {
 }
 
 export default {
-  title: '@ps/Colors',
+  title: '@ps/theme/palette',
   component: ColorBox,
 } as Meta;
 
