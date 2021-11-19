@@ -213,6 +213,49 @@ export const Primary: Story = () => (
         },
       ]}
     />
+    <SmallSpacer />
+    <H3>Background</H3>
+    <Body>
+      <em>experimental</em>
+    </Body>
+    <PaletteSwatch
+      colors={[
+        { name: 'Default', field: 'background.default' },
+        { name: 'Alternative', field: 'background.alternative' },
+        { name: 'Brand', field: 'background.brand' },
+        { name: 'Inverse', field: 'background.inverse' },
+      ]}
+    />
+    <SmallSpacer />
+    <H3>Text</H3>
+    <Body>
+      <em>experimental</em>
+    </Body>
+    <PaletteSwatch
+      colors={[
+        { name: 'Heading', field: 'text.heading' },
+        { name: 'Body', field: 'text.body' },
+        { name: 'Icon', field: 'text.icon' },
+        { name: 'Subdued', field: 'text.subdued' },
+        { name: 'Secondary Icon', field: 'text.secondaryIcon' },
+        { name: 'Disabled', field: 'text.disabled' },
+      ]}
+    />
+    <SmallSpacer />
+    <H3>Inverse Text</H3>
+    <Body>
+      <em>experimental</em>
+    </Body>
+    <PaletteSwatch
+      colors={[
+        { name: 'Inverse Heading', field: 'text.inverseHeading' },
+        { name: 'Inverse Body', field: 'text.inverseBody' },
+        { name: 'Inverse Icon', field: 'text.inverseIcon' },
+        { name: 'Inverse Subdued', field: 'text.inverseSubdued' },
+        { name: 'Inverse Secondary Icon', field: 'text.inverseSecondaryIcon' },
+        { name: 'Inverse Disabled', field: 'text.inverseDisabled' },
+      ]}
+    />
   </Root>
 );
 
