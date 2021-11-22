@@ -1,72 +1,3 @@
-import createPalette from '@material-ui/core/styles/createPalette';
-
-// Custom types
-interface PaletteTertiaryColor {
-  1: string;
-  2: string;
-  3: string;
-  4: string;
-  5: string;
-}
-
-interface TypeBrand {
-  blue: string;
-  lightBlue: string;
-  orange: string;
-  peach: string;
-}
-
-// Augment global interfaces so that modules outside of this one can
-//  recognize the customizations
-declare module '@material-ui/core/index' {
-  // Only need to declare custom properties here; extending will throw
-  interface Color {
-    lighter: string;
-    light: string;
-    medium: string;
-    dark: string;
-  }
-}
-
-declare module '@material-ui/core/styles/createPalette' {
-  // Only need to declare custom properties here; extending will throw
-  interface TypeText {
-    dark: string;
-    darkLowContrast: string;
-    light: string;
-    lightLowContrast: string;
-  }
-
-  interface TypeBackground {
-    navy: string;
-    blue: string;
-    lightGrey: string;
-    lightBlue: string;
-  }
-
-  interface Palette {
-    text: TypeText;
-    background: TypeBackground;
-    brand: TypeBrand;
-    red: PaletteTertiaryColor;
-    orange: PaletteTertiaryColor;
-    yellow: PaletteTertiaryColor;
-    green: PaletteTertiaryColor;
-    blue: PaletteTertiaryColor;
-    purple: PaletteTertiaryColor;
-  }
-
-  interface PaletteOptions {
-    brand: TypeBrand;
-    red: PaletteTertiaryColor;
-    orange: PaletteTertiaryColor;
-    yellow: PaletteTertiaryColor;
-    green: PaletteTertiaryColor;
-    blue: PaletteTertiaryColor;
-    purple: PaletteTertiaryColor;
-  }
-}
-
 // Palette properties with repeatedly used values are extracted
 const red = {
   1: '#f7d2da',
@@ -139,7 +70,7 @@ const text = {
 
 // Only customizations are specified, view all other default theme.palette properties
 //  at https://v4.mui.com/customization/default-theme/?expand-path=$.palette
-const palette = createPalette({
+const palette = {
   // Mui default properties, only customizations specified
   error: {
     main: red[3],
@@ -174,6 +105,25 @@ const palette = createPalette({
   green,
   blue,
   purple,
-});
+};
 
 export default palette;
+
+// ***************
+// ***  TYPES  ***
+// ***************
+
+export interface PaletteTertiaryColor {
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+}
+
+export interface TypeBrand {
+  blue: string;
+  lightBlue: string;
+  orange: string;
+  peach: string;
+}
