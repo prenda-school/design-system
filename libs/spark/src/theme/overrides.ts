@@ -1,6 +1,7 @@
 import type {} from '@material-ui/lab/themeAugmentation';
 import type { Theme } from '@material-ui/core';
 import type { Overrides } from '@material-ui/core/styles/overrides';
+import __next__fontFaces from './__next__fontFaces';
 import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete/defaults';
 import { MuiButtonStyleOverrides } from '../Button/defaults';
@@ -43,7 +44,7 @@ const overrides = (theme: Theme): Overrides => ({
         fontFamily: theme.typography.fontFamily,
         fontSize: theme.typography.fontSize,
       },
-      '@font-face': fontFaces,
+      '@font-face': fontFaces.concat(__next__fontFaces),
     },
   },
   MuiCard: MuiCardStyleOverrides,

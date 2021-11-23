@@ -99,7 +99,7 @@ const sourceCodeProRegular: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-const fontFaces = [
+const fontFaces: Array<CSS.AtRule.FontFace> = [
   nunitoRegular,
   nunitoItalic,
   nunitoBold,
