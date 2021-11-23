@@ -45,7 +45,7 @@ const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
 
 /**
- * Generate Spark Design typography variants.
+ * Generate Prenda Design System (PDS) (formerly Spark Design System) typography variants.
  * (Inspired by an internal Mui utility.)
  * @param {number} fontWeight numeric value (400, 600, 700, etc.).
  * @param {number} fontSize numeric value in pixel units
@@ -55,7 +55,7 @@ const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
  * @param {string} [fontFamily]
  * @returns {object}
  */
-function buildVariant(
+export function buildVariant(
   fontWeight: number,
   fontSize: number,
   lineHeight: number,
