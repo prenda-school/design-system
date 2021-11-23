@@ -17,8 +17,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 100,
           src: [
-            'url(/fonts/internal/inter-thin.woff2) format("woff2")',
-            'url(/fonts/internal/inter-thin.woff) format("woff")',
+            'url(/internal/fonts/inter-thin.woff2) format("woff2")',
+            'url(/internal/fonts/inter-thin.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -27,8 +27,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 200,
           src: [
-            'url(/fonts/internal/inter-extralight.woff2) format("woff2")',
-            'url(/fonts/internal/inter-extralight.woff) format("woff")',
+            'url(/internal/fonts/inter-extralight.woff2) format("woff2")',
+            'url(/internal/fonts/inter-extralight.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -37,8 +37,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 300,
           src: [
-            'url(/fonts/internal/inter-light.woff2) format("woff2")',
-            'url(/fonts/internal/inter-light.woff) format("woff")',
+            'url(/internal/fonts/inter-light.woff2) format("woff2")',
+            'url(/internal/fonts/inter-light.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -47,8 +47,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 500,
           src: [
-            'url(/fonts/internal/inter-medium.woff2) format("woff2")',
-            'url(/fonts/internal/inter-medium.woff) format("woff")',
+            'url(/internal/fonts/inter-medium.woff2) format("woff2")',
+            'url(/internal/fonts/inter-medium.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -57,8 +57,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 600,
           src: [
-            'url(/fonts/internal/inter-semibold.woff2) format("woff2")',
-            'url(/fonts/internal/inter-semibold.woff) format("woff")',
+            'url(/internal/fonts/inter-semibold.woff2) format("woff2")',
+            'url(/internal/fonts/inter-semibold.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -67,8 +67,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 700,
           src: [
-            'url(/fonts/internal/inter-bold.woff2) format("woff2")',
-            'url(/fonts/internal/inter-bold.woff) format("woff")',
+            'url(/internal/fonts/inter-bold.woff2) format("woff2")',
+            'url(/internal/fonts/inter-bold.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -77,8 +77,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 800,
           src: [
-            'url(/fonts/internal/inter-extrabold.woff2) format("woff2")',
-            'url(/fonts/internal/inter-extrabold.woff) format("woff")',
+            'url(/internal/fonts/inter-extrabold.woff2) format("woff2")',
+            'url(/internal/fonts/inter-extrabold.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -87,8 +87,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 900,
           src: [
-            'url(/fonts/internal/inter-black.woff2) format("woff2")',
-            'url(/fonts/internal/inter-black.woff) format("woff")',
+            'url(/internal/fonts/inter-black.woff2) format("woff2")',
+            'url(/internal/fonts/inter-black.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -97,8 +97,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 100,
           src: [
-            'url(/fonts/internal/poppins-thin.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-thin.woff) format("woff")',
+            'url(/internal/fonts/poppins-thin.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-thin.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -107,8 +107,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 200,
           src: [
-            'url(/fonts/internal/poppins-extralight.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-extralight.woff) format("woff")',
+            'url(/internal/fonts/poppins-extralight.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-extralight.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -117,8 +117,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 300,
           src: [
-            'url(/fonts/internal/poppins-light.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-light.woff) format("woff")',
+            'url(/internal/fonts/poppins-light.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-light.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -127,8 +127,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 400,
           src: [
-            'url(/fonts/internal/poppins-regular.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-regular.woff) format("woff")',
+            'url(/internal/fonts/poppins-regular.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-regular.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -137,8 +137,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 500,
           src: [
-            'url(/fonts/internal/poppins-medium.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-medium.woff) format("woff")',
+            'url(/internal/fonts/poppins-medium.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-medium.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -147,8 +147,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 900,
           src: [
-            'url(/fonts/internal/poppins-black.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-black.woff) format("woff")',
+            'url(/internal/fonts/poppins-black.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-black.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -157,8 +157,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 400,
           src: [
-            'url(/fonts/internal/sourcecodepro-regular.woff2) format("woff2")',
-            'url(/fonts/internal/sourcecodepro-regular.woff) format("woff")',
+            'url(/internal/fonts/sourcecodepro-regular.woff2) format("woff2")',
+            'url(/internal/fonts/sourcecodepro-regular.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -167,8 +167,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 700,
           src: [
-            'url(/fonts/internal/sourcecodepro-bold.woff2) format("woff2")',
-            'url(/fonts/internal/sourcecodepro-bold.woff) format("woff")',
+            'url(/internal/fonts/sourcecodepro-bold.woff2) format("woff2")',
+            'url(/internal/fonts/sourcecodepro-bold.woff) format("woff")',
           ].join(', '),
         },
       ],

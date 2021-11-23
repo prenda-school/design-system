@@ -17,8 +17,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 900,
           src: [
-            'url(/fonts/internal/poppins-black.woff2) format("woff2")',
-            'url(/fonts/internal/poppins-black.woff) format("woff")',
+            'url(/internal/fonts/poppins-black.woff2) format("woff2")',
+            'url(/internal/fonts/poppins-black.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -27,8 +27,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 400,
           src: [
-            'url(/fonts/internal/sourcecodepro-regular.woff2) format("woff2")',
-            'url(/fonts/internal/sourcecodepro-regular.woff) format("woff")',
+            'url(/internal/fonts/sourcecodepro-regular.woff2) format("woff2")',
+            'url(/internal/fonts/sourcecodepro-regular.woff) format("woff")',
           ].join(', '),
         },
         {
@@ -37,8 +37,8 @@ const FontsBaseline = withStyles({
           fontDisplay: 'swap',
           fontWeight: 700,
           src: [
-            'url(/fonts/internal/sourcecodepro-bold.woff2) format("woff2")',
-            'url(/fonts/internal/sourcecodepro-bold.woff) format("woff")',
+            'url(/internal/fonts/sourcecodepro-bold.woff2) format("woff2")',
+            'url(/internal/fonts/sourcecodepro-bold.woff) format("woff")',
           ].join(', '),
         },
       ],
