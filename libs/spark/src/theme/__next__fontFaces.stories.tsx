@@ -339,7 +339,7 @@ export const Poppins: Story = () => (
       <Heading>Brand font</Heading>
       <Description>
         Marketing, Learning and development, and Product all will use Poppins
-        throughout their expieriences to create a unified brand.
+        throughout their experiences to create a unified brand.
       </Description>
       <Hr />
       <Showcase>
@@ -430,8 +430,8 @@ export const Inter: Story = () => (
             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
             <span>// Use for //</span>
             <span>
-              Paragraphy or body copy, small descriptions, components inside a
-              product expierience such as buttons, messages, input fields,
+              Paragraph or body copy, small descriptions, components inside a
+              product experience such as buttons, messages, input fields,
               checkboxes, etc.
             </span>
           </VariantUseFor>
