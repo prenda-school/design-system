@@ -16,30 +16,22 @@ const FontsBaseline = withStyles({
           fontStyle: 'normal',
           fontDisplay: 'swap',
           fontWeight: 900,
-          src: [
-            'url(/internal/fonts/poppins-black.woff2) format("woff2")',
-            'url(/internal/fonts/poppins-black.woff) format("woff")',
-          ].join(', '),
+          src: 'url(/internal/fonts/poppins-black.woff2) format("woff2")',
         },
         {
           fontFamily: '"Source Code Pro"',
           fontStyle: 'normal',
           fontDisplay: 'swap',
           fontWeight: 400,
-          src: [
+          src:
             'url(/internal/fonts/sourcecodepro-regular.woff2) format("woff2")',
-            'url(/internal/fonts/sourcecodepro-regular.woff) format("woff")',
-          ].join(', '),
         },
         {
           fontFamily: '"Source Code Pro"',
           fontStyle: 'normal',
           fontDisplay: 'swap',
           fontWeight: 700,
-          src: [
-            'url(/internal/fonts/sourcecodepro-bold.woff2) format("woff2")',
-            'url(/internal/fonts/sourcecodepro-bold.woff) format("woff")',
-          ].join(', '),
+          src: 'url(/internal/fonts/sourcecodepro-bold.woff2) format("woff2")',
         },
       ],
     },
