@@ -117,7 +117,7 @@ _This section details previous of breaking changes or experimental features and 
       - term is not reflected in new variant names.
       - condensed from 4 to 2 variants: "body" and "description".
     - "code"
-      - removed.
+      - condensed from 3 to 1 variants: "code".
   - Planned migration:
     - "display"
       - `typography["display-lg"]` -> `typography.display`
@@ -147,9 +147,9 @@ _This section details previous of breaking changes or experimental features and 
       - `typography["paragraph-md"]` -> `typography.description`
       - `typography["paragraph-sm"]` -> `typography.description`
     - "code"
-      - `typography["code-lg"]` -> **removed**
-      - `typography["code-md"]` -> **removed**
-      - `typography["code-sm"]` -> **removed**
+      - `typography["code-lg"]` -> `typography.code`
+      - `typography["code-md"]` -> `typography.code`
+      - `typography["code-sm"]` -> `typography.code`
 
 ## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
 
