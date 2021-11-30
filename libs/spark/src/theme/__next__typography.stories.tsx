@@ -120,7 +120,6 @@ export const Styles: Story = () => (
         <VariantUseFor>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span>// Use for //</span>
-          {/* :TODO: difference between "top level headers" and "h1"? */}
           <span>
             Empty states and feature introductions. Top level headers.
           </span>
@@ -144,8 +143,7 @@ export const Styles: Story = () => (
         <VariantUseFor>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span>// Use for //</span>
-          {/* :TODO: difference between "top level headers" and "h1"? */}
-          <span>Main titles, use only once per page. Typical H1</span>
+          <span>Main titles, use only once per page. Typical H1.</span>
         </VariantUseFor>
       </FlexBox>
 
