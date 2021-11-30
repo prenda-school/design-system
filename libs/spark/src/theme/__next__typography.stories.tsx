@@ -19,19 +19,11 @@ const FontsBaseline = withStyles({
           src: 'url(/internal/fonts/poppins-black.woff2) format("woff2")',
         },
         {
-          fontFamily: '"Source Code Pro"',
-          fontStyle: 'normal',
-          fontDisplay: 'swap',
-          fontWeight: 400,
-          src:
-            'url(/internal/fonts/sourcecodepro-regular.woff2) format("woff2")',
-        },
-        {
-          fontFamily: '"Source Code Pro"',
+          fontFamily: '"Roboto Mono"',
           fontStyle: 'normal',
           fontDisplay: 'swap',
           fontWeight: 700,
-          src: 'url(/internal/fonts/sourcecodepro-bold.woff2) format("woff2")',
+          src: 'url(/internal/fonts/robotomono-bold.woff2) format("woff2")',
         },
       ],
     },
@@ -48,9 +40,7 @@ const VariantInfo = styled('div')(({ theme }) => ({
     lineHeight: 32 / 20,
   },
   '& > :nth-child(2)': {
-    // :TODO: verify code styles carry over in __next__typography
-    // :TODO: figma says `code-md`, but values are `code-sm`
-    ...theme.typography['code-sm'],
+    ...theme.__next__typography.code,
   },
 }));
 
@@ -74,11 +64,7 @@ export const VariantUseFor = styled('span')(({ theme }) => ({
   gap: 8,
   padding: 8,
   color: theme.__next__palette.neutral[500],
-  fontFamily: '"Source Code Pro"',
-  fontSize: theme.__next__typography.pxToRem(12),
-  fontWeight: 400,
-  lineHeight: 16 / 12,
-  letterSpacing: '0.01em',
+  ...theme.__next__typography.code,
   '& > :nth-child(1)': {
     fontWeight: 700,
   },
