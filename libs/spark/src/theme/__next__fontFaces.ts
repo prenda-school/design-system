@@ -94,8 +94,8 @@ const robotoMonoRegular: CSS.AtRule.FontFace = {
   fontDisplay: 'swap',
   fontWeight: 400,
   src: [
-    'url(/fonts/roboto-mono/regular.woff2) format("woff2")',
-    'url(/fonts/roboto-mono/regular.woff) format("woff")',
+    'url(/fonts/robotomono/regular.woff2) format("woff2")',
+    'url(/fonts/robotomono/regular.woff) format("woff")',
   ].join(', '),
 };
 
@@ -105,8 +105,8 @@ const robotoMonoItalic: CSS.AtRule.FontFace = {
   fontDisplay: 'swap',
   fontWeight: 400,
   src: [
-    'url(/fonts/roboto-mono/italic.woff2) format("woff2")',
-    'url(/fonts/roboto-mono/italic.woff) format("woff")',
+    'url(/fonts/robotomono/italic.woff2) format("woff2")',
+    'url(/fonts/robotomono/italic.woff) format("woff")',
   ].join(', '),
 };
 
