@@ -15,7 +15,8 @@ export type __next__TypographyVariant =
   | 'T18'
   | 'T14'
   | 'body'
-  | 'description';
+  | 'description'
+  | 'code';
 
 export interface __next__TypographyOptions
   extends TypographyUtils,
@@ -24,8 +25,9 @@ export interface __next__TypographyOptions
         FontStyleOptions
     > {}
 
-const headingFontFamily = '"Poppins", sans-serif';
+const codeFontFamily = '"Roboto Mono", monospace';
 const defaultFontFamily = '"Inter", sans-serif';
+const headingFontFamily = '"Poppins", sans-serif';
 const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
 
@@ -45,6 +47,7 @@ const customVariants: Record<__next__TypographyVariant, TypographyStyle> = {
     undefined,
     defaultFontFamily
   ),
+  code: buildVariant(400, 14, 24, undefined, undefined, codeFontFamily),
 };
 
 const __next__typography: __next__TypographyOptions = {

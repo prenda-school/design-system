@@ -88,6 +88,28 @@ const interItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
+const robotoMonoRegular: CSS.AtRule.FontFace = {
+  fontFamily: '"Roboto Mono"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src: [
+    'url(/fonts/roboto-mono/regular.woff2) format("woff2")',
+    'url(/fonts/roboto-mono/regular.woff) format("woff")',
+  ].join(', '),
+};
+
+const robotoMonoItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"Roboto Mono"',
+  fontStyle: 'italic',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src: [
+    'url(/fonts/roboto-mono/italic.woff2) format("woff2")',
+    'url(/fonts/roboto-mono/italic.woff) format("woff")',
+  ].join(', '),
+};
+
 const __next__fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsExtrabold,
   poppinsExtraboldItalic,
@@ -97,6 +119,8 @@ const __next__fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsSemiboldItalic,
   interRegular,
   interItalic,
+  robotoMonoRegular,
+  robotoMonoItalic,
 ];
 
 export default __next__fontFaces;
