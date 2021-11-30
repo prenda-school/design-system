@@ -166,7 +166,7 @@ const Code = styled('pre')(({ theme }) => ({
   color: theme.__next__palette.neutral[500],
   paddingRight: 4,
   paddingLeft: 4,
-  ...theme.typography['code-lg'],
+  ...theme.__next__typography.code,
 }));
 
 export const Guide: Story = () => (
