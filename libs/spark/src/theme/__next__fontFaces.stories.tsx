@@ -295,16 +295,16 @@ const Hr = styled('hr')(({ theme }) => ({
   opacity: 0.32,
 }));
 
-const LargeDisplay = styled(({ fontFamily, ...other }) => (
+const LargeDisplay = styled(({ fontFamily, fontWeight, ...other }) => (
   // eslint-disable-next-line jsx-a11y/heading-has-content
   <h2 {...other} />
 ))(
   // @ts-expect-error ts(2339)
-  ({ fontFamily = '"Poppins"', theme }) => ({
+  ({ fontFamily = '"Poppins"', fontWeight = 700, theme }) => ({
     color: theme.__next__palette.neutral[600],
     fontFamily,
     fontSize: theme.__next__typography.pxToRem(64),
-    fontWeight: 700,
+    fontWeight,
     lineHeight: 72 / 64,
     margin: 0, // reset
   })
@@ -387,6 +387,7 @@ export const Poppins: Story = () => (
     </Root>
   </FontsBaseline>
 );
+Poppins.storyName = '"Poppins"';
 
 export const Inter: Story = () => (
   // @ts-expect-error ts(2769)
@@ -446,6 +447,7 @@ export const Inter: Story = () => (
     </Root>
   </FontsBaseline>
 );
+Inter.storyName = '"Inter"';
 
 export const RobotoMono: Story = () => (
   // @ts-expect-error ts(2769)
@@ -459,7 +461,9 @@ export const RobotoMono: Story = () => (
       <Hr />
       <Showcase>
         <div>
-          <LargeDisplay fontFamily='"Roboto Mono"'>Roboto Mono</LargeDisplay>
+          <LargeDisplay fontFamily='"Roboto Mono"' fontWeight={400}>
+            Roboto Mono
+          </LargeDisplay>
           <Body>
             Roboto Mono is a monospaced addition to the Roboto type family. Like
             the other members of the Roboto family, the fonts are optimized for
@@ -494,3 +498,4 @@ export const RobotoMono: Story = () => (
     </Root>
   </FontsBaseline>
 );
+RobotoMono.storyName = '"Roboto Mono"';
