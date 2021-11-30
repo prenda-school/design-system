@@ -22,6 +22,13 @@ const FontsBaseline = withStyles({
           fontFamily: '"Roboto Mono"',
           fontStyle: 'normal',
           fontDisplay: 'swap',
+          fontWeight: 400,
+          src: 'url(/internal/fonts/robotomono-regular.woff2) format("woff2")',
+        },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
           fontWeight: 700,
           src: 'url(/internal/fonts/robotomono-bold.woff2) format("woff2")',
         },

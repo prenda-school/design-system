@@ -127,6 +127,13 @@ const FontsBaseline = withStyles({
           fontFamily: '"Roboto Mono"',
           fontStyle: 'normal',
           fontDisplay: 'swap',
+          fontWeight: 400,
+          src: 'url(/internal/fonts/robotomono-regular.woff2) format("woff2")',
+        },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
           fontWeight: 500,
           src: 'url(/internal/fonts/robotomono-medium.woff2) format("woff2")',
         },
@@ -159,7 +166,7 @@ const Description = styled('p')(({ theme }) => ({
   fontSize: theme.__next__typography.pxToRem(18),
   lineHeight: 28 / 18,
 }));
-const Code = styled('pre')(({ theme }) => ({
+const Code = styled('span')(({ theme }) => ({
   margin: 0, // reset
   display: 'inline',
   backgroundColor: '#f4f5f7',
@@ -170,102 +177,110 @@ const Code = styled('pre')(({ theme }) => ({
 }));
 
 export const Guide: Story = () => (
-  <Root>
-    <Heading>Fonts guide</Heading>
-    <Description>
-      The Prenda Design System (PDS) describes three fonts for web applications:
-      "Poppins", "Inter", and "Roboto Mono". The web components rely on various
-      font weights and styles being available on the client. To achieve this,
-      the complete set of <Code>@font-face</Code> rules required are injected
-      into the document's styles using the <Code>CssBaseline</Code> as a child
-      of the <Code>ThemeProvider</Code> component with PDS's <Code>theme</Code>.
-      This steps are encapsulated for you if you simply wrap your app in{' '}
-      <Code>SparkThemeProvider</Code>.
-    </Description>
-    <Description>
-      These fonts are available through{' '}
-      <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
-        Google Fonts
-      </a>
-      , but self-hosting is preferable for performance, reliability, and
-      tracking concerns. All of the fonts are "open source", and usually reside
-      within a GitHub repository. Google fonts can be found under Google's{' '}
-      <a
-        href="https://github.com/google/fonts"
-        rel="noreferrer"
-        target="_blank"
-      >
-        "fonts" repository
-      </a>
-      . Typically the repository forks the work of the original font
-      repositories. We trace back to the original:{' '}
-      <a href="https://github.com/rsms/inter" rel="noreferrer" target="_blank">
-        Inter
-      </a>{' '}
-      (not a Google font),{' '}
-      <a
-        href="https://github.com/itfoundry/Poppins"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Poppins
-      </a>
-      ,{' '}
-      <a
-        href="https://github.com/googlefonts/RobotoMono"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Roboto Mono
-      </a>{' '}
-      (PDS v1:{' '}
-      <a
-        href="https://github.com/adobe-fonts/source-code-pro"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Source Code Pro
-      </a>
-      ,{' '}
-      <a
-        href="https://github.com/vernnobile/NunitoFont"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Nunito
-      </a>
-      ). From these repositories, we are looking for "original" font files, i.e.
-      with extensions <Code>.ttf</Code> or <Code>.otf</Code> (preferred). Then,
-      we upload those files to{' '}
-      <a
-        href="https://www.fontsquirrel.com/tools/webfont-generator"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Font Squirrel's "Webfont Generator"
-      </a>{' '}
-      and convert using the recommended, "optimal" settings. The aim is to
-      convert "original" font files to ones optimized for serving on the web,
-      i.e. with extension <Code>.woff</Code> and <Code>.woff2</Code>. Sometimes,
-      these files can be found in source repositories themselves, or distributed
-      by some vendor, but they can be up to 100kb or 200kb in size. The
-      generator consistently produces files that are less than 40kb in size,
-      ideal for self-hosting and optimal client-download performance.
-    </Description>
-    <Description>
-      As a consumer of PDS, you should serve the contents of the{' '}
-      <Code>libs/spark/public/</Code> directory in your app, minus the{' '}
-      <Code>internal/</Code> directory, and any files / directories that are
-      undesirable (e.g. "nunito" files if you are consuming PDS v2
-      implementations).
-    </Description>
-    <Description>
-      You can also found complete source "zips" and "converted" files under the
-      top level <Code>assets/</Code> directory of the repository. These are
-      useful if your designs fall outside of the PDS specifications, and you
-      need to load additional font face declarations and associated files.
-    </Description>
-  </Root>
+  // @ts-expect-error ts(2769)
+  <FontsBaseline>
+    <Root>
+      <Heading>Fonts guide</Heading>
+      <Description>
+        The Prenda Design System (PDS) describes three fonts for web
+        applications: "Poppins", "Inter", and "Roboto Mono". The web components
+        rely on various font weights and styles being available on the client.
+        To achieve this, the complete set of <Code>@font-face</Code> rules
+        required are injected into the document's styles using the{' '}
+        <Code>CssBaseline</Code> as a child of the <Code>ThemeProvider</Code>{' '}
+        component with PDS's <Code>theme</Code>. This steps are encapsulated for
+        you if you simply wrap your app in <Code>SparkThemeProvider</Code>.
+      </Description>
+      <Description>
+        These fonts are available through{' '}
+        <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
+          Google Fonts
+        </a>
+        , but self-hosting is preferable for performance, reliability, and
+        tracking concerns. All of the fonts are "open source", and usually
+        reside within a GitHub repository. Google fonts can be found under
+        Google's{' '}
+        <a
+          href="https://github.com/google/fonts"
+          rel="noreferrer"
+          target="_blank"
+        >
+          "fonts" repository
+        </a>
+        . Typically the repository forks the work of the original font
+        repositories. We trace back to the original:{' '}
+        <a
+          href="https://github.com/rsms/inter"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Inter
+        </a>{' '}
+        (not a Google font),{' '}
+        <a
+          href="https://github.com/itfoundry/Poppins"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Poppins
+        </a>
+        ,{' '}
+        <a
+          href="https://github.com/googlefonts/RobotoMono"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Roboto Mono
+        </a>{' '}
+        (PDS v1:{' '}
+        <a
+          href="https://github.com/adobe-fonts/source-code-pro"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Source Code Pro
+        </a>
+        ,{' '}
+        <a
+          href="https://github.com/vernnobile/NunitoFont"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Nunito
+        </a>
+        ). From these repositories, we are looking for "original" font files,
+        i.e. with extensions <Code>.ttf</Code> or <Code>.otf</Code> (preferred).
+        Then, we upload those files to{' '}
+        <a
+          href="https://www.fontsquirrel.com/tools/webfont-generator"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Font Squirrel's "Webfont Generator"
+        </a>{' '}
+        and convert using the recommended, "optimal" settings. The aim is to
+        convert "original" font files to ones optimized for serving on the web,
+        i.e. with extension <Code>.woff</Code> and <Code>.woff2</Code>.
+        Sometimes, these files can be found in source repositories themselves,
+        or distributed by some vendor, but they can be up to 100kb or 200kb in
+        size. The generator consistently produces files that are less than 40kb
+        in size, ideal for self-hosting and optimal client-download performance.
+      </Description>
+      <Description>
+        As a consumer of PDS, you should serve the contents of the{' '}
+        <Code>libs/spark/public/</Code> directory in your app, minus the{' '}
+        <Code>internal/</Code> directory, and any files / directories that are
+        undesirable (e.g. "nunito" files if you are consuming PDS v2
+        implementations).
+      </Description>
+      <Description>
+        You can also found complete source "zips" and "converted" files under
+        the top level <Code>assets/</Code> directory of the repository. These
+        are useful if your designs fall outside of the PDS specifications, and
+        you need to load additional font face declarations and associated files.
+      </Description>
+    </Root>
+  </FontsBaseline>
 );
 
 const Showcase = styled('div')({
