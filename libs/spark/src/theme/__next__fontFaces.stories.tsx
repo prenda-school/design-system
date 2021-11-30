@@ -187,15 +187,14 @@ const Code = styled('pre')(({ theme }) => ({
 export const Guide: Story = () => (
   <Root>
     <Heading>Fonts guide</Heading>
-    {/* :TODO: probably need to add "Source Code Pro", but it's not in the new spec yet */}
     <Description>
-      The Prenda Design System (PDS) describes two fonts for web applications:
-      "Poppins" and "Inter". The web components rely on various font weights and
-      styles being available on the client. To achieve this, the complete set of{' '}
-      <Code>@font-face</Code> rules required are injected into the document's
-      styles using the <Code>CssBaseline</Code> as a child of the{' '}
-      <Code>ThemeProvider</Code> component with PDS's <Code>theme</Code>. This
-      steps are encapsulated for you if you simply wrap your app in{' '}
+      The Prenda Design System (PDS) describes three fonts for web applications:
+      "Poppins", "Inter", and "Roboto Mono". The web components rely on various
+      font weights and styles being available on the client. To achieve this,
+      the complete set of <Code>@font-face</Code> rules required are injected
+      into the document's styles using the <Code>CssBaseline</Code> as a child
+      of the <Code>ThemeProvider</Code> component with PDS's <Code>theme</Code>.
+      This steps are encapsulated for you if you simply wrap your app in{' '}
       <Code>SparkThemeProvider</Code>.
     </Description>
     <Description>
@@ -215,6 +214,10 @@ export const Guide: Story = () => (
       </a>
       . Typically the repository forks the work of the original font
       repositories. We trace back to the original:{' '}
+      <a href="https://github.com/rsms/inter" rel="noreferrer" target="_blank">
+        Inter
+      </a>{' '}
+      (not a Google font),{' '}
       <a
         href="https://github.com/itfoundry/Poppins"
         rel="noreferrer"
@@ -223,29 +226,32 @@ export const Guide: Story = () => (
         Poppins
       </a>
       ,{' '}
-      <a href="https://github.com/rsms/inter" rel="noreferrer" target="_blank">
-        Inter
+      <a
+        href="https://github.com/googlefonts/RobotoMono"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Roboto Mono
       </a>{' '}
-      (not a Google font),{' '}
+      (PDS v1:{' '}
       <a
         href="https://github.com/adobe-fonts/source-code-pro"
         rel="noreferrer"
         target="_blank"
       >
         Source Code Pro
-      </a>{' '}
-      {/* :TODO: probably v2 as well, need to confirm */}
-      (PDS v1),{' '}
+      </a>
+      ,{' '}
       <a
         href="https://github.com/vernnobile/NunitoFont"
         rel="noreferrer"
         target="_blank"
       >
         Nunito
-      </a>{' '}
-      (PDS v1). From these repositories, we are looking for "original" font
-      files, i.e. with extensions <Code>.ttf</Code> or <Code>.otf</Code>{' '}
-      (preferred). Then, we upload those files to{' '}
+      </a>
+      ). From these repositories, we are looking for "original" font files, i.e.
+      with extensions <Code>.ttf</Code> or <Code>.otf</Code> (preferred). Then,
+      we upload those files to{' '}
       <a
         href="https://www.fontsquirrel.com/tools/webfont-generator"
         rel="noreferrer"
