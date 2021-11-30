@@ -279,6 +279,16 @@ export const Guide: Story = () => (
         are useful if your designs fall outside of the PDS specifications, and
         you need to load additional font face declarations and associated files.
       </Description>
+      <Description>
+        <em>Note: </em>most font files updated to Font Squirrel's "Webfont
+        Generator" were converted using the "Optimal" settings. However, the
+        files for "Roboto Mono" were converted using "Expert" settings, with
+        "Truetype Hinting" set to "Keep Existing" and "Vertical Metrics" set to
+        "No Adjustment" (the remaining settings were kept as default). This
+        change was meant to fix appearance issue with certain letters like "e",
+        "r", "n", etc. that would appear to have a lower baseline if the files
+        were generated with "Optimal" settings.
+      </Description>
     </Root>
   </FontsBaseline>
 );
