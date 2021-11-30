@@ -15,6 +15,7 @@ import type { PaletteTertiaryColor, TypeBrand } from './palette';
 import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
 import type { __next__Palette } from './__next__palette';
+import type { __next__TypographyOptions } from './__next__typography';
 
 // Augment global interfaces so consumers TS can recognize the customizations
 
@@ -23,6 +24,7 @@ import type { __next__Palette } from './__next__palette';
 declare module '@material-ui/core/styles/createTheme' {
   interface Theme {
     __next__palette: __next__Palette;
+    __next__typography: __next__TypographyOptions;
   }
 }
 
@@ -30,6 +32,7 @@ declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {
     __next__palette: __next__Palette;
+    __next__typography: __next__TypographyOptions;
   }
 }
 
@@ -144,6 +147,7 @@ declare module '@material-ui/core/styles/overrides' {
 
 // Augment global interface at top level
 declare module '@material-ui/core/index' {
+  // :__next__: replace `SparkVariant` with `__next__TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface TypographyOptions
     extends TypographyUtils,
@@ -151,12 +155,14 @@ declare module '@material-ui/core/index' {
         Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
       > {}
 
+  // :__next__: replace `SparkVariant` with `__next__TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface Typography extends Record<SparkVariant, TypographyStyle> {}
 }
 
 // Augment global interface at source -- affects Theme interface
 declare module '@material-ui/core/styles/createTypography' {
+  // :__next__: replace `SparkVariant` with `__next__TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface TypographyOptions
     extends TypographyUtils,
@@ -164,6 +170,7 @@ declare module '@material-ui/core/styles/createTypography' {
         Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
       > {}
 
+  // :__next__: replace `SparkVariant` with `__next__TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface Typography extends Record<SparkVariant, TypographyStyle> {}
 }

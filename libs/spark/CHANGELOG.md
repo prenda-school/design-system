@@ -20,9 +20,13 @@
 
 _This section details previous of breaking changes or experimental features and are subject to breaking changes at any time._
 
+- **\_\_next\_\_fontFaces**
+  - Implemented according to PDS v2.
+  - As a consumer, you should serve the contents of `libs/spark/public/fonts/` directory on your server at the same path, `fonts/`. Do not change any file or directory names and structure, as they are exactly what is expected by the injected font face declarations.
 - **\_\_next\_\_palette**
   - Implemented according to PDS v2.
-  - Changes from current `palette` (PDS v1):
+  - Preview: `theme.__next__palette.*`
+  - Descriptive changes from current `palette` (PDS v1):
     - "tertiary":
       - renamed to just "colors".
       - removed "orange".
@@ -41,7 +45,6 @@ _This section details previous of breaking changes or experimental features and 
     - "tones":
       - New! for skin tones.
       - added "warm", "neutral", "cool" -- each with 5 options.
-  - Preview: `theme.__next__palette.*`
   - Planned migration:
     - "brand":
       - `palette.brand.peach` -> `palette.brand.lightOrange`
@@ -95,6 +98,58 @@ _This section details previous of breaking changes or experimental features and 
       - `palette.text.darkLowContrast` -> `palette.text.(subdued|secondaryIcon)` (_use judgement_)
       - `palette.text.light` -> `palette.text.(inverseHeading|inverseBody|inverseIcon)` (_use judgement_)
       - `palette.text.lightLowContrast` -> `palette.text.(inverseSubdued|inverseSecondaryIcon)` (_use judgement_)
+- **\_\_next\_\_typography**
+  - Implemented according to PDS v2.
+  - Preview: `theme.__next__typography.*`
+  - Descriptive changes from current `typography` (PDS v1):
+    - Overall, "sizes" like "large", "medium", "small", etc. have been removed.
+    - "display"
+      - condensed from 3 to 1 variants: "display".
+    - "heading"
+      - term is not reflected in new variant names.
+      - roughly corresponds to variants with the new "T" prefix (followed by the font size, e.g. "T22").
+    - "upppercase"
+      - term is not reflected in new variant names.
+      - condensed from 3 to 1 variants: "T14".
+    - "labels"
+      - removed.
+    - "paragraph"
+      - term is not reflected in new variant names.
+      - condensed from 4 to 2 variants: "body" and "description".
+    - "code"
+      - condensed from 3 to 1 variants: "code".
+  - Planned migration:
+    - "display"
+      - `typography["display-lg"]` -> `typography.display`
+      - `typography["display-md"]` -> `typography.display`
+      - `typography["display-sm"]` -> `typography.display`
+    - "headings"
+      - `typography["heading-xl"]` -> `typography.T32`
+      - `typography["display-lg"]` -> `typography.T28`
+      - `typography["display-md"]` -> `typography.T22`
+      - `typography["display-sm"]` -> `typography.T18`
+    - "uppercase"
+      - `typography["uppercase-lg"]` -> `typography.T14`
+      - `typography["uppercase-md"]` -> `typography.T14`
+      - `typography["uppercase-sm"]` -> `typography.T14`
+    - "labels"
+      - `typography["label-xl"]` -> **removed**
+      - `typography["label-xl-strong"]` -> **removed**
+      - `typography["label-lg"]` -> **removed**
+      - `typography["label-lg-strong"]` -> **removed**
+      - `typography["label-md"]` -> **removed**
+      - `typography["label-md-strong"]` -> **removed**
+      - `typography["label-sm"]` -> **removed**
+      - `typography["label-sm-strong"]` -> **removed**
+    - "paragraph"
+      - `typography["paragraph-xl"]` -> `typography.body`
+      - `typography["paragraph-lg"]` -> `typography.body`
+      - `typography["paragraph-md"]` -> `typography.description`
+      - `typography["paragraph-sm"]` -> `typography.description`
+    - "code"
+      - `typography["code-lg"]` -> `typography.code`
+      - `typography["code-md"]` -> `typography.code`
+      - `typography["code-sm"]` -> `typography.code`
 
 ## [v0.16.0](https://github.com/prenda-school/prenda-spark/compare/v0.15.0...v0.16.0) (2021-10-29)
 
