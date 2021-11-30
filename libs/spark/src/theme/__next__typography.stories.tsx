@@ -259,6 +259,37 @@ export const Styles: Story = () => (
           </span>
         </VariantUseFor>
       </FlexBox>
+
+      <VariantInfo>
+        <span>Code</span>
+        <span>
+          14px/24px
+          <br />
+          Regular
+          <br />
+          Roboto Mono
+        </span>
+      </VariantInfo>
+      <FlexBox>
+        <VariantSwagger variant="code">
+          {`<script>`}
+          <br />
+          &nbsp;&nbsp;{`let mystring = 'abc123';`}
+          <br />
+          {`</script>`}
+          <br />
+          <br />
+          {`<h1>This is {mystring}</h1>`}
+        </VariantSwagger>
+        <VariantUseFor>
+          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          <span>// Use for //</span>
+          <span>
+            Smaller text for hints, disclaimers, other areas where small text is
+            needed.
+          </span>
+        </VariantUseFor>
+      </FlexBox>
     </Root>
   </FontsBaseline>
 );
