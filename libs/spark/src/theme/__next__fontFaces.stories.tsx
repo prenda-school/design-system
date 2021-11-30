@@ -171,6 +171,34 @@ const FontsBaseline = withStyles({
             'url(/internal/fonts/sourcecodepro-bold.woff) format("woff")',
           ].join(', '),
         },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
+          fontWeight: 100,
+          src: 'url(/internal/fonts/robotomono-thin.woff2) format("woff2")',
+        },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
+          fontWeight: 300,
+          src: 'url(/internal/fonts/robotomono-light.woff2) format("woff2")',
+        },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
+          fontWeight: 500,
+          src: 'url(/internal/fonts/robotomono-medium.woff2) format("woff2")',
+        },
+        {
+          fontFamily: '"Roboto Mono"',
+          fontStyle: 'normal',
+          fontDisplay: 'swap',
+          fontWeight: 700,
+          src: 'url(/internal/fonts/robotomono-bold.woff2) format("woff2")',
+        },
       ],
     },
   },
@@ -298,7 +326,7 @@ export const Guide: Story = () => (
 
 const Showcase = styled('div')({
   display: 'grid',
-  gridTemplateColumns: 'auto 434px',
+  gridTemplateColumns: 'auto 446px',
   gridGap: 64,
 });
 const Hr = styled('hr')(({ theme }) => ({
@@ -307,14 +335,21 @@ const Hr = styled('hr')(({ theme }) => ({
   marginBottom: 48,
   opacity: 0.32,
 }));
-const LargeDisplay = styled('h2')(({ theme }) => ({
-  color: theme.__next__palette.neutral[600],
-  fontFamily: '"Poppins"',
-  fontSize: theme.__next__typography.pxToRem(64),
-  fontWeight: 700,
-  lineHeight: 72 / 64,
-  margin: 0, // reset
-}));
+
+const LargeDisplay = styled(({ fontFamily, ...other }) => (
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  <h2 {...other} />
+))(
+  // @ts-expect-error ts(2339)
+  ({ fontFamily = '"Poppins"', theme }) => ({
+    color: theme.__next__palette.neutral[600],
+    fontFamily,
+    fontSize: theme.__next__typography.pxToRem(64),
+    fontWeight: 700,
+    lineHeight: 72 / 64,
+    margin: 0, // reset
+  })
+);
 const Body = styled('p')(({ theme }) => ({
   marginTop: 16,
   marginBottom: 32,
@@ -408,7 +443,7 @@ export const Inter: Story = () => (
       <Hr />
       <Showcase>
         <div>
-          <LargeDisplay>Inter</LargeDisplay>
+          <LargeDisplay fontFamily='"Inter"'>Inter</LargeDisplay>
           <Body>
             Inter features a tall x-height to aid in readability of mixed-case
             and lower-case text. Several OpenType features are provided as well,
@@ -443,6 +478,54 @@ export const Inter: Story = () => (
         </div>
         <WeightWaterfall fontFamily='"Inter"'>
           {[100, 200, 300, 400, 500, 600, 700, 800, 900].map((fontWeight) => (
+            <span key={fontWeight} style={{ fontWeight }}>
+              AaBbCcDd 123 &!?
+            </span>
+          ))}
+        </WeightWaterfall>
+      </Showcase>
+    </Root>
+  </FontsBaseline>
+);
+
+export const RobotoMono: Story = () => (
+  // @ts-expect-error ts(2769)
+  <FontsBaseline>
+    <Root>
+      <Heading>Monospaced font</Heading>
+      <Description>
+        Roboto Mono is provided as a pairing to Inter, Poppins, and KG neatly
+        printed to be used in a monospace environment like a code editor.
+      </Description>
+      <Hr />
+      <Showcase>
+        <div>
+          <LargeDisplay fontFamily='"Roboto Mono"'>Roboto Mono</LargeDisplay>
+          <Body>
+            Roboto Mono is a monospaced addition to the Roboto type family. Like
+            the other members of the Roboto family, the fonts are optimized for
+            readability on screens across a wide variety of devices and reading
+            environments. While the monospaced version is related to its
+            variable width cousin, it doesn’t hesitate to change forms to better
+            fit the constraints of a monospaced environment. For example, narrow
+            glyphs like ‘I’, ‘l’ and ‘i’ have added serifs for more even texture
+            while wider glyphs are adjusted for weight. Curved caps like ‘C’ and
+            ‘O’ take on the straighter sides from Roboto Condensed.
+            <br />
+            <br />
+            Special consideration is given to glyphs important for reading and
+            writing software source code. Letters with similar shapes are easy
+            to tell apart. Digit ‘1’, lowercase ‘l’ and capital ‘I’ are easily
+            differentiated as are zero and the letter ‘O’. Punctuation important
+            for code has also been considered. For example, the curly braces ‘
+            {'{ }'}’ have exaggerated points to clearly differentiate them from
+            parenthesis ‘( )’ and braces ‘[ ]’. Periods and commas are also
+            exaggerated to identify them more quickly. The scale and weight of
+            symbols commonly used as operators have also been optimized.
+          </Body>
+        </div>
+        <WeightWaterfall fontFamily='"Roboto Mono"'>
+          {[100, 300, 400, 500, 700].map((fontWeight) => (
             <span key={fontWeight} style={{ fontWeight }}>
               AaBbCcDd 123 &!?
             </span>
