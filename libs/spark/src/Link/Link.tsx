@@ -40,6 +40,9 @@ const useStyles = makeStyles<LinkClassKey>(
       '&:hover': {
         color: palette.blue[2],
       },
+      '&:focus': {
+        outline: 'none',
+      },
       '&$focusVisible, &:focus-visible': {
         color: palette.blue[2],
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
