@@ -226,6 +226,8 @@ export const Styles: Story = () => (
           Regular
           <br />
           Inter
+          <br />
+          (cv05,ss03)
         </span>
       </VariantInfo>
       <FlexBox>
@@ -249,12 +251,12 @@ export const Styles: Story = () => (
           Semi-bold
           <br />
           Inter
+          <br />
+          (cv05,ss03)
         </span>
       </VariantInfo>
       <FlexBox>
-        <VariantSwagger variant="label">
-          Label - Select grades
-        </VariantSwagger>
+        <VariantSwagger variant="label">Label - Select grades</VariantSwagger>
         <VariantUseFor>
           {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
           <span>// Use for //</span>
@@ -270,6 +272,8 @@ export const Styles: Story = () => (
           Regular
           <br />
           Inter
+          <br />
+          (cv05,ss03)
         </span>
       </VariantInfo>
       <FlexBox>
