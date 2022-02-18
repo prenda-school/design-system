@@ -15,6 +15,7 @@ export type __next__TypographyVariant =
   | 'T18'
   | 'T14'
   | 'body'
+  | 'label'
   | 'description'
   | 'code';
 
@@ -39,6 +40,7 @@ const customVariants: Record<__next__TypographyVariant, TypographyStyle> = {
   T18: buildVariant(600, 18, 28, -0.01, undefined, headingFontFamily),
   T14: buildVariant(800, 14, 20, 0.04, 'uppercase', headingFontFamily),
   body: buildVariant(400, 16, 24, undefined, undefined, defaultFontFamily),
+  label: buildVariant(600, 16, 20, undefined, undefined, defaultFontFamily),
   description: buildVariant(
     400,
     14,
