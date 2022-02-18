@@ -55,7 +55,7 @@ const customVariants: Record<__next__TypographyVariant, TypographyStyle> = {
     undefined,
     undefined,
     defaultFontFamily,
-    "'cv05' on 'ss03 on"
+    "'cv05' 1, 'ss03' 1"
   ),
   description: buildVariant(
     400,
