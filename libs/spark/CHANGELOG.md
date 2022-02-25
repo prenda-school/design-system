@@ -2,6 +2,22 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.1...vNext) (yyyy-mm-dd)
 
+### **next**
+
+- **\_\_next\_\_typography**
+  - Added `font-feature-settings` for "body" and "description" variants.
+  - Added "label" variant (with `font-feature-settings`).
+  - Planned migration:
+    - "labels"
+      - `typography["label-xl"]` -> `typography.label`
+      - `typography["label-xl-strong"]` -> `typography.label`
+      - `typography["label-lg"]` -> `typography.label`
+      - `typography["label-lg-strong"]` -> `typography.label`
+      - `typography["label-md"]` -> `typography.label`
+      - `typography["label-md-strong"]` -> `typography.label`
+      - `typography["label-sm"]` -> `typography.label`
+      - `typography["label-sm-strong"]` -> `typography.label`
+
 ## [v1.0.0-alpha.1](https://github.com/prenda-school/prenda-spark/compare/v0.16.0...v1.0.0-alpha.1) (2021-11-30)
 
 Transitioned to new version format for pre-1.0 releases: `v1.0.0-alpha.XXX` where `XXX` is the iteration.
