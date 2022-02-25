@@ -5,11 +5,8 @@
 ### **next**
 
 - **\_\_next\_\_typography**
-  - Implemented according to PDS v2.
-  - Preview: `theme.__next__typography.*`
-  - Descriptive changes from current `typography` (PDS v1):
-    - "label"
-      - Added.
+  - Added `font-feature-settings` for "body" and "description" variants.
+  - Added "label" variant (with `font-feature-settings`).
   - Planned migration:
     - "labels"
       - `typography["label-xl"]` -> `typography.label`
