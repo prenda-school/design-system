@@ -1,9 +1,12 @@
 import __next__palette from '../theme/__next__palette';
-import type { ButtonClassKey, ButtonProps } from './Button';
+import type {
+  __next__ButtonClassKey,
+  __next__ButtonProps,
+} from './__next__Button';
 import type { Theme } from '../theme';
 import type { StyleRules } from '../withStyles';
 
-export const MuiButtonDefaultProps: Partial<ButtonProps> = {
+export const MuiButtonDefaultProps: Partial<__next__ButtonProps> = {
   // No disableElevation: true because it makes styling box-shadow's
   //  VERY difficult. Instead, just override wherever it pops up.
   disableFocusRipple: true,
@@ -15,7 +18,7 @@ export const MuiButtonDefaultProps: Partial<ButtonProps> = {
 export const MuiButtonStyleOverrides = ({
   palette,
   typography,
-}: Theme): Partial<StyleRules<ButtonClassKey | 'destructive'>> => ({
+}: Theme): Partial<StyleRules<__next__ButtonClassKey | 'destructive'>> => ({
   root: {
     ...typography['label-lg-strong'],
     // account for 2px border width

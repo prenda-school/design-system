@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { ChevronDown } from '@prenda/spark-icons';
-import { Box, Button, ButtonProps } from '..';
-
+import { Box, ButtonProps } from '..';
+import Button from './__next__Button';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface SbButtonProps
   extends Omit<
