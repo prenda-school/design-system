@@ -49,6 +49,31 @@ export const MuiButtonStyleOverrides = ({
       borderColor: palette.blue[5],
     },
   },
+  destructive: {
+    boxShadow: 'none',
+    // re-declare to override default
+    border: `2px solid ${palette.red[700]}`,
+    backgroundColor: palette.red[700],
+    color: palette.common.white,
+    // re-declare to override default
+    padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
+    '&$disabled': {
+      border: `2px solid ${palette.grey.medium}`,
+      backgroundColor: palette.common.white,
+      color: palette.common.white,
+    },
+    '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: palette.red[600],
+    },
+    '&.Mui-focusVisible, &:focus': {
+      backgroundColor: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), ${palette.red[700]}`,
+    },
+    '&:active': {
+      boxShadow: 'none',
+      borderColor: palette.blue[5],
+    },
+  },
   outlined: {
     boxShadow: 'none',
     // re-declare to override default

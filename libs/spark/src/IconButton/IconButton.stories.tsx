@@ -140,7 +140,7 @@ Documentation.args = {
       },
       {
         name: 'variant',
-        type: "'contained' | 'outlined' | 'text'",
+        type: "'contained' | 'outlined' | 'text' | 'destructive'",
         defaultValue: "'contained'",
       },
     ],
@@ -149,7 +149,14 @@ Documentation.args = {
     extends: {
       href: 'https://v4.mui.com/api/icon-button/#css',
     },
-    adds: ['contained', 'outlined', 'text', 'sizeLarge', 'sizeMedium'],
+    adds: [
+      'contained',
+      'outlined',
+      'text',
+      'destructive',
+      'sizeLarge',
+      'sizeMedium',
+    ],
     omits: ['sizeSmall'],
   },
 };
