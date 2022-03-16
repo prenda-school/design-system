@@ -26,7 +26,7 @@ export type IconButtonProps = Omit<MuiIconButtonProps, 'classes' | 'size'> & {
   /**
    * The variant of the icon button.
    */
-  variant?: 'contained' | 'outlined' | 'text' | 'destructive';
+  variant?: 'contained' | 'outlined' | 'text';
 };
 
 export type IconButtonClassKey = MuiIconButtonClassKey | CustomClassKey;
@@ -41,7 +41,6 @@ type CustomClassKey =
   | 'disabled'
   // custom
   | 'contained'
-  | 'destructive'
   | 'outlined'
   | 'text'
   | 'sizeLarge'
@@ -85,23 +84,6 @@ const useCustomStyles = makeStyles<CustomClassKey>(
         backgroundColor: palette.blue[4],
       },
       '&:active': {
-        borderColor: palette.blue[5],
-      },
-    },
-    destructive: {
-      border: `2px solid ${palette.red[700]}`,
-      backgroundColor: palette.red[700],
-      color: palette.common.white,
-      '&$disabled': {
-        backgroundColor: palette.grey.light,
-        color: palette.common.white,
-      },
-      '&:hover': {
-        border: `2px solid ${palette.red[600]}`,
-        backgroundColor: palette.red[600],
-      },
-      '&:active': {
-        //TODO pallette.teal[300]
         borderColor: palette.blue[5],
       },
     },

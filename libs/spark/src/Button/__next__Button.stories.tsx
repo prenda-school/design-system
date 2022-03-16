@@ -119,6 +119,23 @@ const VariantAndSizeTemplate = (args) => (
         Label
       </Button>
     </span>
+
+    <span>Destructive</span>
+    <span>
+      <Button {...args} variant="destructive" size="large">
+        Label
+      </Button>
+    </span>
+    <span>
+      <Button {...args} variant="destructive" size="medium">
+        Label
+      </Button>
+    </span>
+    <span>
+      <Button {...args} variant="destructive" size="small">
+        Label
+      </Button>
+    </span>
   </GridContainer>
 );
 

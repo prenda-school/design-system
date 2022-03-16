@@ -1,3 +1,4 @@
+import __next__palette from '../theme/__next__palette';
 import type { ButtonClassKey, ButtonProps } from './Button';
 import type { Theme } from '../theme';
 import type { StyleRules } from '../withStyles';
@@ -14,12 +15,12 @@ export const MuiButtonDefaultProps: Partial<ButtonProps> = {
 export const MuiButtonStyleOverrides = ({
   palette,
   typography,
-}: Theme): Partial<StyleRules<ButtonClassKey>> => ({
+}: Theme): Partial<StyleRules<ButtonClassKey | 'destructive'>> => ({
   root: {
     ...typography['label-lg-strong'],
     // account for 2px border width
     padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
-    borderRadius: 24,
+    borderRadius: 4,
     borderWidth: '2px',
     borderStyle: 'solid' as const,
     '&$disabled': {
@@ -28,25 +29,47 @@ export const MuiButtonStyleOverrides = ({
   },
   contained: {
     boxShadow: 'none',
-    border: `2px solid ${palette.blue[3]}`,
-    backgroundColor: palette.blue[3],
+    backgroundColor: palette.brand.blue,
     color: palette.common.white,
     '&$disabled': {
-      border: `2px solid ${palette.blue[3]}`,
-      backgroundColor: palette.blue[3],
+      backgroundColor: palette.brand.blue,
       color: palette.common.white,
     },
     '&:hover': {
       boxShadow: 'none',
-      borderColor: palette.blue[4],
-      backgroundColor: palette.blue[4],
+      backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), ${palette.brand.blue}`,
     },
     '&.Mui-focusVisible, &:focus': {
-      boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+      boxShadow: `0px 0px 2px 4px ${__next__palette.teal[300]}`,
     },
     '&:active': {
       boxShadow: 'none',
-      borderColor: palette.blue[5],
+      backgroundColor: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), ${palette.brand.blue}`,
+    },
+  },
+  destructive: {
+    boxShadow: 'none',
+    // re-declare to override default
+    border: `2px solid ${palette.red[700]}`,
+    backgroundColor: palette.red[700],
+    color: palette.common.white,
+    // re-declare to override default
+    padding: `${typography.pxToRem(6 - 2)} ${typography.pxToRem(16 - 2)}`,
+    '&$disabled': {
+      border: `2px solid ${palette.grey.medium}`,
+      backgroundColor: palette.common.white,
+      color: palette.common.white,
+    },
+    '&:hover': {
+      boxShadow: 'none',
+      backgroundColor: palette.red[600],
+    },
+    '&.Mui-focusVisible, &:focus': {
+      backgroundColor: `linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), ${palette.red[700]}`,
+    },
+    '&:active': {
+      boxShadow: 'none',
+      borderColor: __next__palette.teal[300],
     },
   },
   outlined: {
@@ -71,7 +94,7 @@ export const MuiButtonStyleOverrides = ({
     },
     '&:active': {
       boxShadow: 'none',
-      borderColor: palette.blue[5],
+      borderColor: __next__palette.teal[300],
     },
   },
   text: {
@@ -98,7 +121,7 @@ export const MuiButtonStyleOverrides = ({
     },
     '&:active': {
       boxShadow: 'none',
-      color: palette.blue[4],
+      borderColor: __next__palette.teal[300],
     },
   },
   sizeLarge: {
