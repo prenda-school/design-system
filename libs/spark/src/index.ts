@@ -213,6 +213,9 @@ export * from './NavBar';
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
 
+export { default as Unstable_Typography } from './Unstable_Typography';
+export * from './Unstable_Typography';
+
 export { default as makeStyles } from './makeStyles';
 
 export { default as styled } from './styled';
