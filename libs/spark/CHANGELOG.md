@@ -14,15 +14,21 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
     - `theme.__next__palette` -> `theme.unstable_palette`
     - `theme.__next__typography` -> `theme.unstable_typography`
 - **unstable_fontFaces**
-  - Renamed.
+  - Renamed, see below.
+- **unstable_palette**
+  - Renamed, see below.
+- **unstable_typography**
+  - Renamed, see below.
+- **\_\_next\_\_fontFaces**
+  - Removed.
   - Migration:
     - `__next__fontFaces` -> `unstable_fontFaces`
-- **unstable_palette**
-  - Renamed.
+- **\_\_next\_\_palette**
+  - Removed.
   - Migration:
     - `__next__palette` -> `unstable_palette`
-- **unstable_typography**
-  - Renamed.
+- **\_\_next\_\_typography**
+  - Removed.
   - Migration:
     - `__next__typography` -> `unstable_typography`
 
