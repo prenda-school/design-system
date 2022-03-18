@@ -39,6 +39,7 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
     - `__next__typography` -> `unstable_typography`
 - **Unstable_Typography**
   - Initial implementation of `Typography` replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
   - Planned migration from current `Typography`:
     - "color" prop values:
       - `"dark"` -> _omit_ or `"default"`
