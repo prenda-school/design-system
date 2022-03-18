@@ -2,9 +2,35 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+The term "unstable / unstable preview" replaces "next" and the prefix "`unstable_`" replaces "`__next__`".
+
+- **theme**
+  - Renamed unstable properties.
+  - Migration:
+    - `theme.__next__palette` -> `theme.unstable_palette`
+    - `theme.__next__typography` -> `theme.unstable_typography`
+- **unstable_fontFaces**
+  - Renamed.
+  - Migration:
+    - `__next__fontFaces` -> `unstable_fontFaces`
+- **unstable_palette**
+  - Renamed.
+  - Migration:
+    - `__next__palette` -> `unstable_palette`
+- **unstable_typography**
+  - Renamed.
+  - Migration:
+    - `__next__typography` -> `unstable_typography`
+
 ## [v1.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-02-25)
 
 ### **next**
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
 - **\_\_next\_\_typography**
   - Added `font-feature-settings` for "body" and "description" variants.
@@ -40,8 +66,13 @@ Transitioned to new version format for pre-1.0 releases: `v1.0.0-alpha.XXX` wher
 
 ### **next**
 
-_This section details previous of breaking changes or experimental features and are subject to breaking changes at any time._
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **theme**
+  - Attached preview properties: `theme.
+  - Migration:
+    - `theme.__next__palette`
+    - `theme.__next__typography`
 - **\_\_next\_\_fontFaces**
   - Implemented according to PDS v2.
   - As a consumer, you should serve the contents of `libs/spark/public/fonts/` directory on your server at the same path, `fonts/`. Do not change any file or directory names and structure, as they are exactly what is expected by the injected font face declarations.

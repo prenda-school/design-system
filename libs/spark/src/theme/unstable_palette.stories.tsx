@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { styled, useTheme, Theme } from '..';
 
 export default {
-  title: '@ps/theme/__next__palette',
+  title: '@ps/theme/unstable_palette',
 } as Meta;
 
 /**
@@ -15,7 +15,7 @@ export default {
 function getValue(theme: Theme, field: string): string {
   const fields = field.split('.');
 
-  let walk = theme.__next__palette;
+  let walk = theme.unstable_palette;
   let value;
   for (let i = 0; i < fields.length; i++) {
     if (i === fields.length - 1) {
@@ -75,7 +75,7 @@ const PaletteColor = styled(function PaletteColor(props: {
       fontSize: theme.typography.pxToRem(16),
       lineHeight: 20 / 16,
       fontWeight: 600,
-      color: theme.__next__palette.text.body,
+      color: theme.unstable_palette.text.body,
       marginBottom: 8,
     },
     '& .value': {
@@ -83,14 +83,14 @@ const PaletteColor = styled(function PaletteColor(props: {
       fontSize: theme.typography.pxToRem(14),
       lineHeight: 20 / 14,
       fontWeight: 400,
-      color: theme.__next__palette.text.subdued,
+      color: theme.unstable_palette.text.subdued,
     },
     '& .field': {
       // fontFamily: 'Inter',
       fontSize: theme.typography.pxToRem(14),
       lineHeight: 20 / 14,
       fontWeight: 400,
-      color: theme.__next__palette.text.subdued,
+      color: theme.unstable_palette.text.subdued,
     },
   })
 );
@@ -119,13 +119,13 @@ const PaletteSwatch = styled(function PaletteSwatch(props: {
 const Root = styled('div')({
   paddingLeft: 8,
 });
-// :__next__: replace with __next__Typography
+// :unstable_: replace with unstable_Typography
 const H1 = styled('h1')(({ theme }) => ({
   // fontFamily: 'Inter',
   fontSize: theme.typography.pxToRem(28),
   lineHeight: 40 / 28,
   fontWeight: 600,
-  color: theme.__next__palette.text.heading,
+  color: theme.unstable_palette.text.heading,
   marginBottom: 8,
 }));
 const H2 = styled('h2')(({ theme }) => ({
@@ -133,7 +133,7 @@ const H2 = styled('h2')(({ theme }) => ({
   fontSize: theme.typography.pxToRem(24),
   lineHeight: 32 / 24,
   fontWeight: 600,
-  color: theme.__next__palette.text.heading,
+  color: theme.unstable_palette.text.heading,
   marginBottom: 8,
   marginTop: 8,
 }));
@@ -142,7 +142,7 @@ const H3 = styled('h3')(({ theme }) => ({
   fontSize: theme.typography.pxToRem(20),
   lineHeight: 32 / 24,
   fontWeight: 600,
-  color: theme.__next__palette.text.heading,
+  color: theme.unstable_palette.text.heading,
   marginBottom: 8,
   marginTop: 8,
 }));
@@ -151,7 +151,7 @@ const Body = styled('p')(({ theme }) => ({
   fontSize: theme.typography.pxToRem(16),
   lineHeight: 24 / 16,
   fontWeight: 400,
-  color: theme.__next__palette.text.body,
+  color: theme.unstable_palette.text.body,
   marginBottom: 16,
 }));
 const Spacer = styled('div')({
