@@ -6,7 +6,7 @@ import type {
 } from '@material-ui/core/styles/createTypography';
 import { buildVariant } from './typography';
 
-export type __next__TypographyVariant =
+export type Unstable_TypographyVariant =
   | 'display'
   | 'T32'
   | 'T28'
@@ -19,10 +19,10 @@ export type __next__TypographyVariant =
   | 'description'
   | 'code';
 
-export interface __next__TypographyOptions
+export interface Unstable_TypographyOptions
   extends TypographyUtils,
     Partial<
-      Record<__next__TypographyVariant, TypographyStyleOptions> &
+      Record<Unstable_TypographyVariant, TypographyStyleOptions> &
         FontStyleOptions
     > {}
 
@@ -32,7 +32,7 @@ const headingFontFamily = '"Poppins", sans-serif';
 const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
 
-const customVariants: Record<__next__TypographyVariant, TypographyStyle> = {
+const customVariants: Record<Unstable_TypographyVariant, TypographyStyle> = {
   display: buildVariant(800, 48, 52, -0.01, undefined, headingFontFamily),
   T32: buildVariant(700, 32, 40, -0.01, undefined, headingFontFamily),
   T28: buildVariant(700, 28, 36, -0.01, undefined, headingFontFamily),
@@ -69,14 +69,14 @@ const customVariants: Record<__next__TypographyVariant, TypographyStyle> = {
   code: buildVariant(400, 14, 24, undefined, undefined, codeFontFamily),
 };
 
-const __next__typography: __next__TypographyOptions = {
+const unstable_typography: Unstable_TypographyOptions = {
   // override default Roboto
   fontFamily: defaultFontFamily,
   // override default 14px
   fontSize: defaultFontSize,
   // override default division by 14
   pxToRem,
-  // :__next__: uncomment once merged
+  // :unstable_: uncomment once merged
   // specify all mui defaults (some Mui components rely on these by default)
   // h1: customVariants['T28'],
   // h2: customVariants['T22'],
@@ -95,4 +95,4 @@ const __next__typography: __next__TypographyOptions = {
   ...customVariants,
 };
 
-export default __next__typography;
+export default unstable_typography;

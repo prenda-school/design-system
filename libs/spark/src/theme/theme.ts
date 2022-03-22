@@ -3,14 +3,14 @@ import initialTheme from './initialTheme';
 import overrides from './overrides';
 import props from './props';
 import type {} from './themeAugmentation';
-import __next__palette, { __next__Palette } from './__next__palette';
-import __next__typography, {
-  __next__TypographyOptions,
-} from './__next__typography';
+import unstable_palette, { Unstable_Palette } from './unstable_palette';
+import unstable_typography, {
+  Unstable_TypographyOptions,
+} from './unstable_typography';
 
 export interface Theme extends MuiTheme {
-  __next__palette: __next__Palette;
-  __next__typography: __next__TypographyOptions;
+  unstable_palette: Unstable_Palette;
+  unstable_typography: Unstable_TypographyOptions;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -22,7 +22,7 @@ const theme = createTheme({
   overrides: overrides(initialTheme),
 });
 
-theme.__next__palette = __next__palette;
-theme.__next__typography = __next__typography;
+theme.unstable_palette = unstable_palette;
+theme.unstable_typography = unstable_typography;
 
 export default theme;

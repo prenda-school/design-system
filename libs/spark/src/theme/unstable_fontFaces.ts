@@ -126,7 +126,7 @@ const robotoMonoItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-const __next__fontFaces: Array<CSS.AtRule.FontFace> = [
+const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsExtrabold,
   poppinsExtraboldItalic,
   poppinsBold,
@@ -141,4 +141,4 @@ const __next__fontFaces: Array<CSS.AtRule.FontFace> = [
   robotoMonoItalic,
 ];
 
-export default __next__fontFaces;
+export default unstable_fontFaces;

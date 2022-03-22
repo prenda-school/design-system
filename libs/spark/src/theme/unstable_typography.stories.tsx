@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { ScopedCssBaseline, styled, withStyles } from '..';
 
 export default {
-  title: '@ps/theme/__next__typography',
+  title: '@ps/theme/unstable_typography',
   excludeStories: ['VariantUseFor'],
 } as Meta;
 
@@ -43,11 +43,11 @@ const VariantInfo = styled('div')(({ theme }) => ({
   '& > :nth-child(1)': {
     fontFamily: '"Poppins"',
     fontWeight: 900,
-    fontSize: theme.__next__typography.pxToRem(20),
+    fontSize: theme.unstable_typography.pxToRem(20),
     lineHeight: 32 / 20,
   },
   '& > :nth-child(2)': {
-    ...theme.__next__typography.code,
+    ...theme.unstable_typography.code,
   },
 }));
 
@@ -60,8 +60,8 @@ const FlexBox = styled('div')({
 const VariantSwagger = styled(({ variant, ...other }) => <div {...other} />)(
   // @ts-expect-error ts(2339)
   ({ theme, variant }) => ({
-    ...theme.__next__typography[variant],
-    color: theme.__next__palette.neutral[500],
+    ...theme.unstable_typography[variant],
+    color: theme.unstable_palette.neutral[500],
   })
 );
 export const VariantUseFor = styled('span')(({ theme }) => ({
@@ -70,15 +70,15 @@ export const VariantUseFor = styled('span')(({ theme }) => ({
   flexDirection: 'column',
   gap: 8,
   padding: 8,
-  color: theme.__next__palette.neutral[500],
-  ...theme.__next__typography.code,
+  color: theme.unstable_palette.neutral[500],
+  ...theme.unstable_typography.code,
   '& > :nth-child(1)': {
     fontWeight: 700,
   },
 }));
 
 const Root = styled('div')(({ theme }) => ({
-  color: theme.__next__palette.neutral[500],
+  color: theme.unstable_palette.neutral[500],
   display: 'grid',
   gridGap: 32,
   gridTemplateColumns: '186px auto',
