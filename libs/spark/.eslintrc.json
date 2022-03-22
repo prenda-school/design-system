@@ -10,7 +10,9 @@
           "libs/spark/.storybook/tsconfig.json"
         ]
       },
-      "rules": {}
+      "rules": {
+        "react/jsx-pascal-case": "off"
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],

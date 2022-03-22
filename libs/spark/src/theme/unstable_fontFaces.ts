@@ -88,11 +88,27 @@ const interItalic: CSS.AtRule.FontFace = {
   ].join(', '),
 };
 
-const interBold: CSS.AtRule.FontFace = {
+const interSemibold: CSS.AtRule.FontFace = {
   fontFamily: '"Inter"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
+  src: 'url(/fonts/inter/semibold.woff2) format("woff2")',
+};
+
+const interSemiboldItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'italic',
+  fontDisplay: 'swap',
+  fontWeight: 600,
+  src: 'url(/fonts/inter/semibolditalic.woff2) format("woff2")',
+};
+
+const interBold: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 700,
   src: 'url(/fonts/inter/bold.woff2) format("woff2")',
 };
 
@@ -100,7 +116,7 @@ const interBoldItalic: CSS.AtRule.FontFace = {
   fontFamily: '"Inter"',
   fontStyle: 'italic',
   fontDisplay: 'swap',
-  fontWeight: 600,
+  fontWeight: 700,
   src: 'url(/fonts/inter/bolditalic.woff2) format("woff2")',
 };
 
@@ -135,6 +151,8 @@ const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsSemiboldItalic,
   interRegular,
   interItalic,
+  interSemibold,
+  interSemiboldItalic,
   interBold,
   interBoldItalic,
   robotoMonoRegular,

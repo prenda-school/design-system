@@ -15,6 +15,12 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
     - `theme.__next__typography` -> `theme.unstable_typography`
 - **unstable_fontFaces**
   - Renamed, see below.
+  - Added:
+    - Inter Semibold font files (see `/libs/spark/public/fonts`) and font face declarations.
+      - `unstable_fontFaces.interSemibold`
+      - `unstable_fontFaces.interSemiboldItalic`
+  - Fixed:
+    - Inter "semibold" font weight (600) misnamed "bold" and pulling bold font file.
 - **unstable_palette**
   - Renamed, see below.
 - **unstable_typography**
@@ -31,6 +37,43 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
   - Removed.
   - Migration:
     - `__next__typography` -> `unstable_typography`
+- **Unstable_Typography**
+  - Initial implementation of `Typography` replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - Planned migration from current `Typography`:
+    - "color" prop values:
+      - `"dark"` -> _omit_ or `"default"`
+      - `"light"` -> `"inverse"`
+    - "classes" prop:
+      - Removed all class keys _except `"root"`_.
+    - "lowContrast" prop:
+      - Removed.
+    - "variant" prop:
+      - `"display-lg"` -> `"display"`
+      - `"display-md"` -> `"display"`
+      - `"display-sm"` -> `"display"`
+      - `"heading-xl"` -> `"T32"`
+      - `"heading-lg"` -> `"T28"`
+      - `"heading-md"` -> `"T22"`
+      - `"heading-sm"` -> `"T18"`
+      - `"uppercase-lg"` -> `"T14"`
+      - `"uppercase-md"` -> `"T14"`
+      - `"uppercase-sm"` -> `"T14"`
+      - `"paragraph-xl"` -> `"body"`
+      - `"paragraph-lg"` -> `"body"`
+      - `"paragraph-md"` -> `"description"`
+      - `"paragraph-sm"` -> `"description"`
+      - `"label-xl"` -> `"label"`
+      - `"label-xl-strong"` -> `"label"`
+      - `"label-lg"` -> `"label"`
+      - `"label-lg-strong"` -> `"label"`
+      - `"label-md"` -> `"label"`
+      - `"label-md-strong"` -> `"label"`
+      - `"label-sm"` -> `"label"`
+      - `"label-sm-strong"` -> `"label"`
+      - `"code-lg"` -> `"code"`
+      - `"code-md"` -> `"code"`
+      - `"code-sm"` -> `"code"`
 
 ## [v1.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-02-25)
 
@@ -184,9 +227,9 @@ _This section details previews of breaking changes or experimental features that
       - `typography["display-sm"]` -> `typography.display`
     - "headings"
       - `typography["heading-xl"]` -> `typography.T32`
-      - `typography["display-lg"]` -> `typography.T28`
-      - `typography["display-md"]` -> `typography.T22`
-      - `typography["display-sm"]` -> `typography.T18`
+      - `typography["heading-lg"]` -> `typography.T28`
+      - `typography["heading-md"]` -> `typography.T22`
+      - `typography["heading-sm"]` -> `typography.T18`
     - "uppercase"
       - `typography["uppercase-lg"]` -> `typography.T14`
       - `typography["uppercase-md"]` -> `typography.T14`
