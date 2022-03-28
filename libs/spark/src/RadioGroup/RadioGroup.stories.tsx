@@ -166,7 +166,7 @@ ColumnStatesHover.parameters = { pseudo: { hover: true } };
 
 export const ColumnStatesFocus: Story = StatesTemplate.bind({});
 ColumnStatesFocus.args = { pseudo: true };
-ColumnStatesFocus.parameters = { pseudo: { focus: true } };
+ColumnStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const RowStates: Story = StatesTemplate.bind({});
 RowStates.args = { row: true };
@@ -177,7 +177,7 @@ RowStatesHover.parameters = { pseudo: { hover: true } };
 
 export const RowStatesFocus: Story = StatesTemplate.bind({});
 RowStatesFocus.args = { pseudo: true, row: true };
-RowStatesFocus.parameters = { pseudo: { focus: true } };
+RowStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {

@@ -62,7 +62,7 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
         borderColor: palette.blue[5],
         color: palette.text.dark,
       },
-      '[class*="MuiSparkStepButton"]:focus &': {
+      '[class*="MuiSparkStepButton"]:focus-visible &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
         color: palette.text.dark,
       },
@@ -80,7 +80,7 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
           color: palette.common.white,
           backgroundColor: palette.blue[4],
         },
-        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &, [class*="MuiSparkStepButton"]:focus &': {
+        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &, [class*="MuiSparkStepButton"]:focus-visible &': {
           color: palette.common.white,
         },
       },

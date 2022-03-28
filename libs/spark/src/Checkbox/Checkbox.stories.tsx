@@ -110,7 +110,7 @@ export const StatesHover: Story = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
 export const StatesFocus: Story = PseudoStatesTemplate.bind({});
-StatesFocus.parameters = { pseudo: { focus: true } };
+StatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 const LabeledStatesTemplate = () => (
   <div style={{ display: 'flex', gap: '1rem', margin: '1rem' }}>
@@ -141,7 +141,7 @@ export const LabeledStatesHover: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus: Story = PseudoLabeledStatesTemplate.bind({});
-LabeledStatesFocus.parameters = { pseudo: { focus: true } };
+LabeledStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {

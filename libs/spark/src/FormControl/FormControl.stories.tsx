@@ -134,7 +134,7 @@ export const CheckboxGroupColumnStatesFocus: Story = CheckboxGroupStatesTemplate
 CheckboxGroupColumnStatesFocus.storyName =
   'Checkbox Group, states, column, focus';
 CheckboxGroupColumnStatesFocus.args = { pseudo: true };
-CheckboxGroupColumnStatesFocus.parameters = { pseudo: { focus: true } };
+CheckboxGroupColumnStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const CheckboxGroupRowStates: Story = CheckboxGroupStatesTemplate.bind(
   {}
@@ -154,7 +154,7 @@ export const CheckboxGroupRowStatesFocus: Story = CheckboxGroupStatesTemplate.bi
 );
 CheckboxGroupRowStatesFocus.storyName = 'Checkbox Group, states, row, focus';
 CheckboxGroupRowStatesFocus.args = { pseudo: true, row: true };
-CheckboxGroupRowStatesFocus.parameters = { pseudo: { focus: true } };
+CheckboxGroupRowStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 const CheckboxGroupIndeterminateTemplate = ({
   required,

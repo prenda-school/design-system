@@ -125,7 +125,7 @@ ColorVariantDeleteHover.parameters = { pseudo: { hover: true } };
 
 export const ColorVariantDeleteFocus: Story = ColorAndVariantTemplate.bind({});
 ColorVariantDeleteFocus.args = { onDelete: 'handleDelete' };
-ColorVariantDeleteFocus.parameters = { pseudo: { focus: true } };
+ColorVariantDeleteFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const ColorVariantDeleteDisabled: Story = ColorAndVariantTemplate.bind(
   {}

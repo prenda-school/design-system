@@ -55,7 +55,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
       '&$disabled': {
         opacity: '50%',
       },
-      '&:focus': {
+      '&:focus-visible': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       },
     },
@@ -115,7 +115,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
         color: palette.blue[4],
         backgroundColor: 'transparent',
       },
-      '&:focus': {
+      '&:focus-visible': {
         borderColor: palette.blue[3],
         backgroundColor: palette.blue[1],
       },

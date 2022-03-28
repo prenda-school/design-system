@@ -43,7 +43,7 @@ export const MuiPaginationItemStyleOverrides = ({
       color: palette.common.white,
       backgroundColor: palette.blue[3],
       border: `solid 2px ${palette.blue[5]}`,
-      '&:hover, &:focus, &$focusVisible': {
+      '&:hover, &:focus-visible, &$focusVisible': {
         backgroundColor: palette.blue[3],
         border: `solid 2px ${palette.blue[5]}`,
       },

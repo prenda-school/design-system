@@ -79,7 +79,7 @@ SeverityCloseFocus.args = {
     return;
   },
 };
-SeverityCloseFocus.parameters = { pseudo: { focus: true } };
+SeverityCloseFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {

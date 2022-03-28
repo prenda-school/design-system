@@ -21,7 +21,7 @@ const CheckboxIconRoot = styled('span')(
       '&:hover, input:hover ~ &, label:hover &': {
         color: palette.text.dark,
       },
-      '&:focus, input:focus ~ &': {
+      '&:focus-visible, input:focus-visible ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
         '&:not(.CheckboxIcon-checked):not(.CheckboxIcon-indeterminate) .CheckboxIcon-box': {
           color: palette.blue[3],

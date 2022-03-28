@@ -74,7 +74,7 @@ export const MuiSwitchStyleOverrides = ({
         backgroundColor: palette.blue[2],
       },
     },
-    '&:focus, &.Mui-focusVisible': {
+    '&:focus-visible, &.Mui-focusVisible': {
       '& + $track': {
         boxShadow: `0px 0px 0px 4px ${palette.blue[1]}`,
       },

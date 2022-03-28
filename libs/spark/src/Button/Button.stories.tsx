@@ -131,7 +131,7 @@ export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
+VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
@@ -157,7 +157,7 @@ export const StartIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
 StartIconVariantAndSizeFocus.args = { startIcon: 'ChevronDown' };
-StartIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
+StartIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
   {}
@@ -186,7 +186,7 @@ export const EndIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
 EndIconVariantAndSizeFocus.args = { endIcon: 'ChevronDown' };
-EndIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
+EndIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
   {}

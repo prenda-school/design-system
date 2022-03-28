@@ -63,7 +63,7 @@ export const StatesHover: Story = StatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
 export const StatesFocus: Story = StatesTemplate.bind({});
-StatesFocus.parameters = { pseudo: { focus: true } };
+StatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const StatesActive: Story = StatesTemplate.bind({});
 StatesActive.parameters = { pseudo: { active: true } };
