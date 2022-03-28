@@ -49,6 +49,9 @@ _This section details previews of breaking changes or experimental features that
   - Planned migration from current `Link`:
     - "classes" prop:
       - Removed all class keys _except `"root"`_. (Styling is determined dynamically by props, with single specificity -- consumers should replicate.)
+    - "color" prop:
+      - Removed all underlying values except `"inherit"`.
+      - Added default value `"default"`.
 
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 

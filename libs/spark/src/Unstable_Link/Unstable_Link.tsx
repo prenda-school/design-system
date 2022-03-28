@@ -13,11 +13,15 @@ export interface Unstable_LinkTypeMap<
   D extends React.ElementType = 'a'
 > {
   props: P &
-    Omit<MuiLinkProps, 'classes' | 'underline'> & {
+    Omit<MuiLinkProps, 'color' | 'classes' | 'underline'> & {
       /**
        * Whether the link is displayed alone (not inline with other text). Removes "underline" text-decoration of the link.
        */
       standalone?: boolean;
+      /**
+       * The color of the link.
+       */
+      color?: 'default' | 'inherit';
     };
   defaultComponent: D;
   classKey: Unstable_LinkClassKey;
@@ -37,10 +41,20 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
     root: (props: Unstable_LinkProps) => ({
       ...theme.unstable_typography.body,
       textDecoration: 'underline',
-      color: theme.unstable_palette.blue['600'],
-      '&:hover': {
-        color: theme.unstable_palette.blue['500'],
-      },
+      ...(props.standalone && { textDecoration: 'none' }),
+      ...((!props.color || props.color === 'default') && {
+        color: theme.unstable_palette.blue['600'],
+        '&:hover': {
+          color: theme.unstable_palette.blue['500'],
+        },
+        '&:visited': {
+          color: theme.unstable_palette.purple[600],
+          '&:hover': {
+            color: theme.unstable_palette.purple[400],
+          },
+        },
+      }),
+      ...(props.color === 'inherit' && { color: 'inherit' }),
       // reset browser default
       '&:focus': {
         outline: 'none',
@@ -48,13 +62,6 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
       },
-      '&:visited': {
-        color: theme.unstable_palette.purple[600],
-        '&:hover': {
-          color: theme.unstable_palette.purple[400],
-        },
-      },
-      ...(props.standalone && { textDecoration: 'none' }),
     }),
   }),
   { name: 'MuiSparkUnstable_Link' }
@@ -62,13 +69,7 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
 
 const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = React.forwardRef(
   function Link(props, ref) {
-    const {
-      classes: classesProp,
-      // reset MuiLink default prop to match our Typography default
-      color = 'inherit',
-      standalone,
-      ...other
-    } = props;
+    const { classes: classesProp, color, standalone, ...other } = props;
 
     const classes = useStyles(props);
 
@@ -77,7 +78,6 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = React.forwardR
         classes={{
           root: clsx(classes.root, classesProp?.root),
         }}
-        color={color}
         underline="none"
         ref={ref}
         {...other}

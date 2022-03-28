@@ -74,3 +74,13 @@ StandaloneVisitedFocusVisible.parameters = {
   pseudo: { visited: true, focusVisible: true },
 };
 StandaloneVisitedFocusVisible.storyName = 'standalone :visited :focus-visible';
+
+const ColorInheritTemplate = (args) => (
+  <span style={{ color: '#a72100' }}>
+    <Unstable_Link {...args}>Text</Unstable_Link>
+  </span>
+);
+
+export const ColorInherit: Story = ColorInheritTemplate.bind({});
+ColorInherit.args = { color: 'inherit' };
+ColorInherit.storyName = 'color=inherit';
