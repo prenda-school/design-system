@@ -39,6 +39,17 @@
 - **Tag**
   - Styles: apply focus styles on `:focus-visible` not `:focus`.
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_Link**
+  - Initial implementation of `Link` replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - Planned migration from current `Link`:
+    - "classes" prop:
+      - Removed all class keys _except `"root"`_. (Styling is determined dynamically by props, with single specificity -- consumers should replicate.)
+
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 
 ### Unstable Preview
@@ -84,7 +95,7 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
       - `"dark"` -> _omit_ or `"default"`
       - `"light"` -> `"inverse"`
     - "classes" prop:
-      - Removed all class keys _except `"root"`_.
+      - Removed all class keys _except `"root"`_. (Styling is determined dynamically by props, with single specificity -- consumers should replicate.)
     - "lowContrast" prop:
       - Removed.
     - "variant" prop:
