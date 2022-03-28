@@ -38,11 +38,11 @@ export type Unstable_LinkClassKey = 'root';
 const useStyles = makeStyles<Unstable_LinkClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
-    root: (props: Unstable_LinkProps) => ({
+    root: ({ standalone, color = 'default' }: Unstable_LinkProps) => ({
       ...theme.unstable_typography.body,
       textDecoration: 'underline',
-      ...(props.standalone && { textDecoration: 'none' }),
-      ...((!props.color || props.color === 'default') && {
+      ...(standalone && { textDecoration: 'none' }),
+      ...((!color || color === 'default') && {
         color: theme.unstable_palette.blue['600'],
         '&:hover': {
           color: theme.unstable_palette.blue['500'],
@@ -54,7 +54,7 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
           },
         },
       }),
-      ...(props.color === 'inherit' && { color: 'inherit' }),
+      ...(color === 'inherit' && { color: 'inherit' }),
       // reset browser default
       '&:focus': {
         outline: 'none',
