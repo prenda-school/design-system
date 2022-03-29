@@ -2,6 +2,40 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.3...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_SvgIcon**
+  - Initial implementation of `SvgIcon` replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`
+      - Removed all class keys _except `"root"`_.
+    - `color`
+      - Removed values: `"dark"`, `"light"`, `"white"`, `"disabled"`, `"error"`, `"success"`, `"warning"`, `"info"`.
+      - Added values: `"normal"`, `"secondary"`, `"inverse"`, `"inverseSecondary"`
+    - `fontSize`
+      - Removed value: `"default"`.
+      - Added value: `"xlarge"`.
+    - `lowContrast`
+      - Removed.
+  - Planned migration (from current **SvgIcon**):
+    - `color="dark"` -> `color="normal"`
+    - `color="light"` -> `color="inverse"`
+    - `color="white"` -> _removed_
+    - `color="disabled"` -> _removed_
+    - `color="error"` -> _removed_
+    - `color="success"` -> _removed_
+    - `color="warning"` -> _removed_
+    - `color="info"` -> _removed_
+    - `fontSize="default"` -> `fontSize="medium"`
+    - `lowContrast color="dark"` -> `color="secondary"`
+    - `lowContrast color="light"` -> `color="inverseSecondary"`
+    - `lowContrast"` -> _removed_
+
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 
 ### Unstable Preview
