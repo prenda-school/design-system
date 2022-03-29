@@ -149,7 +149,6 @@ const Unstable_Typography = React.forwardRef(function Unstable_Typography<
   return (
     <MuiTypography
       classes={{
-        ...classes,
         root: clsx(classes.root, classesProp?.root),
       }}
       component={component || defaultVariantMapping[variant]}
