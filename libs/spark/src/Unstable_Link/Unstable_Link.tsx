@@ -38,11 +38,11 @@ export type Unstable_LinkClassKey = 'root';
 const useStyles = makeStyles<Unstable_LinkClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
-    root: ({ standalone, color = 'default' }: Unstable_LinkProps) => ({
+    root: (props: Unstable_LinkProps) => ({
       ...theme.unstable_typography.body,
       textDecoration: 'underline',
-      ...(standalone && { textDecoration: 'none' }),
-      ...((!color || color === 'default') && {
+      ...(props.standalone && { textDecoration: 'none' }),
+      ...((!props.color || props.color === 'default') && {
         color: theme.unstable_palette.blue['600'],
         '&:hover': {
           color: theme.unstable_palette.blue['500'],
@@ -54,7 +54,7 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
           },
         },
       }),
-      ...(color === 'inherit' && { color: 'inherit' }),
+      ...(props.color === 'inherit' && { color: 'inherit' }),
       // reset browser default
       '&:focus': {
         outline: 'none',
@@ -68,10 +68,15 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
 );
 
 const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = React.forwardRef(
-  function Link(props, ref) {
-    const { classes: classesProp, color, standalone, ...other } = props;
+  function Unstable_Link(props, ref) {
+    const {
+      classes: classesProp,
+      color = 'default',
+      standalone,
+      ...other
+    } = props;
 
-    const classes = useStyles(props);
+    const classes = useStyles({ color, standalone });
 
     return (
       <MuiLink
