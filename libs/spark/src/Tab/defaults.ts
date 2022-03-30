@@ -19,7 +19,7 @@ export const MuiTabStyleOverrides = ({
     borderRadius: 8,
     borderWidth: 2,
     padding: `${16 - 2}px 0`,
-    '&:focus': {
+    '&:focus-visible': {
       borderColor: palette.blue[1],
     },
     // reset Mui default
@@ -32,7 +32,7 @@ export const MuiTabStyleOverrides = ({
     '&:hover': {
       color: palette.text.dark,
     },
-    '&:focus': {
+    '&:focus-visible': {
       color: palette.text.dark,
     },
     '&:active': {

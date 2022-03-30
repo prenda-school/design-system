@@ -12,7 +12,7 @@ export const MuiFormControlLabelStyleOverrides = ({
     height: 40,
     marginTop: 1,
     marginBottom: 1,
-    '&:hover, &:focus': {
+    '&:hover, &:focus-visible': {
       color: palette.text.dark,
     },
     '&$disabled': {

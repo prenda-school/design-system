@@ -6,7 +6,6 @@ import {
   styled,
   withStyles,
 } from '..';
-import { Unstable_TypographyVariant } from '../theme/unstable_typography';
 import { capitalize } from '../utils';
 
 export const SbUnstable_Typography = (props: Unstable_TypographyProps) => (

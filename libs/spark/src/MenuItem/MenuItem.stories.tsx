@@ -133,7 +133,7 @@ export const CompositionsHover: Story = CompositionsTemplate.bind({});
 CompositionsHover.parameters = { pseudo: { hover: true } };
 
 export const CompositionsFocus: Story = CompositionsTemplate.bind({});
-CompositionsFocus.parameters = { pseudo: { focus: true } };
+CompositionsFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const CompositionsActive: Story = CompositionsTemplate.bind({});
 CompositionsActive.parameters = { pseudo: { active: true } };
@@ -150,7 +150,7 @@ CompositionsSelectedHover.parameters = { pseudo: { hover: true } };
 
 export const CompositionsSelectedFocus: Story = CompositionsTemplate.bind({});
 CompositionsSelectedFocus.args = { selected: true };
-CompositionsSelectedFocus.parameters = { pseudo: { focus: true } };
+CompositionsSelectedFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const CompositionsSelectedDisabled: Story = CompositionsTemplate.bind(
   {}

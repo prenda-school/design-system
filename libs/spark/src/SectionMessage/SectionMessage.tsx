@@ -13,7 +13,7 @@ const CustomIconButton = withStyles((theme) => ({
   root: {
     color: 'inherit',
     padding: 4,
-    '&:focus, &:active': {
+    '&:focus-visible, &:active': {
       color: theme.palette.text.dark,
     },
   },

@@ -133,7 +133,7 @@ export const States: Story = StatesTemplate.bind({});
 
 export const StatesFocus: Story = StatesTemplate.bind({});
 StatesFocus.args = { pseudo: true };
-StatesFocus.parameters = { pseudo: { focus: true } };
+StatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 const AdornmentsTemplate = ({ pseudo, ...args }) => (
   <OuterGroup>

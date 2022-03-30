@@ -69,7 +69,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
       padding: 8,
       borderRadius: 24,
       height: 36,
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.common.white,
         borderColor: theme.palette.grey.dark,
       },
@@ -78,14 +78,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorRed: {
       backgroundColor: theme.palette.red[1],
       borderColor: theme.palette.red[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.red[1],
         borderColor: theme.palette.red[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.red[4],
         borderColor: theme.palette.red[4],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.red[4],
           borderColor: theme.palette.red[5],
         },
@@ -94,14 +94,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorOrange: {
       backgroundColor: theme.palette.orange[1],
       borderColor: theme.palette.orange[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.orange[1],
         borderColor: theme.palette.orange[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.orange[4],
         borderColor: theme.palette.orange[4],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.orange[4],
           borderColor: theme.palette.orange[5],
         },
@@ -110,14 +110,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorYellow: {
       backgroundColor: theme.palette.yellow[1],
       borderColor: theme.palette.yellow[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.yellow[1],
         borderColor: theme.palette.yellow[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.yellow[4],
         borderColor: theme.palette.yellow[4],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.yellow[4],
           borderColor: theme.palette.yellow[5],
         },
@@ -126,14 +126,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorGreen: {
       backgroundColor: theme.palette.green[1],
       borderColor: theme.palette.green[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.green[1],
         borderColor: theme.palette.green[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.green[4],
         borderColor: theme.palette.green[4],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.green[4],
           borderColor: theme.palette.green[5],
         },
@@ -142,14 +142,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorBlue: {
       backgroundColor: theme.palette.blue[1],
       borderColor: theme.palette.blue[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.blue[1],
         borderColor: theme.palette.blue[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.blue[3],
         borderColor: theme.palette.blue[3],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.blue[3],
           borderColor: theme.palette.blue[5],
         },
@@ -158,14 +158,14 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     colorPurple: {
       backgroundColor: theme.palette.purple[1],
       borderColor: theme.palette.purple[1],
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.purple[1],
         borderColor: theme.palette.purple[5],
       },
       '&$bold': {
         backgroundColor: theme.palette.purple[3],
         borderColor: theme.palette.purple[3],
-        '&:focus': {
+        '&:focus-visible': {
           backgroundColor: theme.palette.purple[3],
           borderColor: theme.palette.purple[5],
         },
@@ -173,7 +173,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
     },
     bold: {
       backgroundColor: theme.palette.grey.medium,
-      '&:focus': {
+      '&:focus-visible': {
         backgroundColor: theme.palette.grey.medium,
       },
     },
@@ -228,49 +228,49 @@ const useCustomStyles = makeStyles<CustomClassKey>(
       height: '1em',
       color: theme.palette.text.dark,
       // artificially increase specificity to win over `$bold &`
-      '&&:hover, $root:focus > &': {
+      '&&:hover, $root:focus-visible > &': {
         color: theme.palette.common.white,
         backgroundColor: theme.palette.blue[5],
         borderRadius: 2,
       },
       '$colorRed &': {
         color: theme.palette.red[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.red[5],
         },
       },
       '$colorOrange &': {
         color: theme.palette.orange[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.orange[5],
         },
       },
       '$colorYellow &': {
         color: theme.palette.yellow[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.yellow[5],
         },
       },
       '$colorGreen &': {
         color: theme.palette.green[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.green[5],
         },
       },
       '$colorBlue &': {
         color: theme.palette.blue[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.blue[5],
         },
       },
       '$colorPurple &': {
         color: theme.palette.purple[5],
-        '&:hover, $root:focus&': {
+        '&:hover, $root:focus-visible&': {
           color: theme.palette.common.white,
           backgroundColor: theme.palette.purple[5],
         },

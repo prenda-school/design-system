@@ -41,7 +41,7 @@ export const MuiButtonStyleOverrides = ({
       borderColor: palette.blue[4],
       backgroundColor: palette.blue[4],
     },
-    '&.Mui-focusVisible, &:focus': {
+    '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
     },
     '&:active': {
@@ -66,7 +66,7 @@ export const MuiButtonStyleOverrides = ({
       boxShadow: 'none',
       backgroundColor: palette.grey.light,
     },
-    '&.Mui-focusVisible, &:focus': {
+    '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
     },
     '&:active': {
@@ -91,7 +91,7 @@ export const MuiButtonStyleOverrides = ({
       color: palette.blue[4],
       backgroundColor: 'transparent',
     },
-    '&.Mui-focusVisible, &:focus': {
+    '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       borderColor: palette.blue[3],
       backgroundColor: palette.blue[1],

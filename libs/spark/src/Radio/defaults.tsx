@@ -24,7 +24,7 @@ export const MuiRadioStyleOverrides = ({
       color: palette.text.dark,
       backgroundColor: 'unset',
     },
-    '&:focus, &.Mui-focusVisible': {
+    '&:focus-visible, &.Mui-focusVisible': {
       color: palette.blue[3],
       backgroundColors: palette.blue[1],
     },

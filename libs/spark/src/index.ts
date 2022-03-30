@@ -213,6 +213,9 @@ export * from './NavBar';
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
 
+export { default as Unstable_Link } from './Unstable_Link';
+export * from './Unstable_Link';
+
 export { default as Unstable_SvgIcon } from './Unstable_SvgIcon';
 export * from './Unstable_SvgIcon';
 
