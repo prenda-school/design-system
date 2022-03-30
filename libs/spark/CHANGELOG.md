@@ -43,6 +43,24 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Link**
+  - Initial implementation of `Link` replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`
+      - Removed all class keys _except `"root"`_.
+    - `color`
+      - Removed values: `"initial"`, `"primary"`, `"secondary"`, `"textPrimary"`, `"textSecondary"`, `"error"`.
+      - Added value: `"default"` (default).
+  - Planned migration from current `Link`:
+    - `color="initial"` -> _removed_
+    - `color="primary"` -> _removed_
+    - `color="secondary"` -> _removed_
+    - `color="textPrimary"` -> _removed_
+    - `color="textSecondary"` -> _removed_
+    - `color="error"` -> _removed_
 - **Unstable_SvgIcon**
   - Initial implementation of `SvgIcon` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -118,7 +136,7 @@ The term "unstable / unstable preview" replaces "next" and the prefix "`unstable
       - `"dark"` -> _omit_ or `"default"`
       - `"light"` -> `"inverse"`
     - "classes" prop:
-      - Removed all class keys _except `"root"`_.
+      - Removed all class keys _except `"root"`_. (Styling is determined dynamically by props, with single specificity -- consumers should replicate.)
     - "lowContrast" prop:
       - Removed.
     - "variant" prop:
