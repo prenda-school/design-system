@@ -5,10 +5,7 @@ const poppinsExtrabold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: [
-    'url(/fonts/poppins/extrabold.woff2) format("woff2")',
-    'url(/fonts/poppins/extrabold.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/extrabold.woff2) format("woff2")',
 };
 
 const poppinsExtraboldItalic: CSS.AtRule.FontFace = {
@@ -16,10 +13,7 @@ const poppinsExtraboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: [
-    'url(/fonts/poppins/extrabolditalic.woff2) format("woff2")',
-    'url(/fonts/poppins/extrabolditalic.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/extrabolditalic.woff2) format("woff2")',
 };
 
 const poppinsBold: CSS.AtRule.FontFace = {
@@ -27,10 +21,7 @@ const poppinsBold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: [
-    'url(/fonts/poppins/bold.woff2) format("woff2")',
-    'url(/fonts/poppins/bold.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/bold.woff2) format("woff2")',
 };
 
 const poppinsBoldItalic: CSS.AtRule.FontFace = {
@@ -38,10 +29,7 @@ const poppinsBoldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: [
-    'url(/fonts/poppins/bolditalic.woff2) format("woff2")',
-    'url(/fonts/poppins/bolditalic.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/bolditalic.woff2) format("woff2")',
 };
 
 const poppinsSemibold: CSS.AtRule.FontFace = {
@@ -49,10 +37,7 @@ const poppinsSemibold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: [
-    'url(/fonts/poppins/semibold.woff2) format("woff2")',
-    'url(/fonts/poppins/semibold.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/semibold.woff2) format("woff2")',
 };
 
 const poppinsSemiboldItalic: CSS.AtRule.FontFace = {
@@ -60,10 +45,7 @@ const poppinsSemiboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: [
-    'url(/fonts/poppins/semibolditalic.woff2) format("woff2")',
-    'url(/fonts/poppins/semibolditalic.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/poppins/semibolditalic.woff2) format("woff2")',
 };
 
 const interRegular: CSS.AtRule.FontFace = {
@@ -71,10 +53,7 @@ const interRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/inter/regular.woff2) format("woff2")',
-    'url(/fonts/inter/regular.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/inter/regular.woff2) format("woff2")',
 };
 
 const interItalic: CSS.AtRule.FontFace = {
@@ -82,10 +61,23 @@ const interItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/inter/italic.woff2) format("woff2")',
-    'url(/fonts/inter/italic.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/inter/italic.woff2) format("woff2")',
+};
+
+const interMedium: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: 'url(/fonts/inter/medium.woff2) format("woff2")',
+};
+
+const interMediumItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'italic',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: 'url(/fonts/inter/mediumitalic.woff2) format("woff2")',
 };
 
 const interSemibold: CSS.AtRule.FontFace = {
@@ -125,10 +117,7 @@ const robotoMonoRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/robotomono/regular.woff2) format("woff2")',
-    'url(/fonts/robotomono/regular.woff) format("woff")',
-  ].join(', '),
+  src: ['url(/fonts/robotomono/regular.woff2) format("woff2")'].join(', '),
 };
 
 const robotoMonoItalic: CSS.AtRule.FontFace = {
@@ -136,10 +125,7 @@ const robotoMonoItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/robotomono/italic.woff2) format("woff2")',
-    'url(/fonts/robotomono/italic.woff) format("woff")',
-  ].join(', '),
+  src: ['url(/fonts/robotomono/italic.woff2) format("woff2")'].join(', '),
 };
 
 const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
@@ -151,6 +137,8 @@ const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsSemiboldItalic,
   interRegular,
   interItalic,
+  interMedium,
+  interMediumItalic,
   interSemibold,
   interSemiboldItalic,
   interBold,
