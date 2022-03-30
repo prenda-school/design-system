@@ -76,7 +76,7 @@ SeverityCloseFocus.args = {
     return;
   },
 };
-SeverityCloseFocus.parameters = { pseudo: { focus: true } };
+SeverityCloseFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const SeverityDetails: Story = SeverityTemplate.bind({});
 SeverityDetails.args = {
@@ -91,7 +91,7 @@ SeverityDetailsFocus.args = {
     return;
   },
 };
-SeverityDetailsFocus.parameters = { pseudo: { focus: true } };
+SeverityDetailsFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const Documentation: Story = DocumentationTemplate.bind({});
 Documentation.args = {

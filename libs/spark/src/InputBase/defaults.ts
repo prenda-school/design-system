@@ -18,7 +18,7 @@ export const MuiInputBaseStyleOverrides = ({
     borderRadius: 8,
     width: '20rem', // 320px
     margin: 4, // potential box-shadow width
-    '&$focused, &:focus': {
+    '&$focused, &:focus-visible': {
       borderColor: palette.blue[3],
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       backgroundColor: palette.common.white,

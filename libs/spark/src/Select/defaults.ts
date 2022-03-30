@@ -30,7 +30,7 @@ export const MuiSelectStylesOverrides = ({
   },
   select: {
     borderRadius: 8,
-    '&:focus': {
+    '&:focus-visible': {
       borderRadius: 8,
       backgroundColor: palette.common.white,
     },

@@ -53,8 +53,8 @@ Hover.parameters = { pseudo: { hover: true } };
 Hover.storyName = ':hover';
 
 export const Focus: Story = Template.bind({});
-Focus.parameters = { pseudo: { focus: true } };
-Focus.storyName = ':focus';
+Focus.parameters = { pseudo: { focusVisible: true } };
+Focus.storyName = ':focus-visible';
 
 export const Active: Story = Template.bind({});
 Active.parameters = { pseudo: { active: true } };
@@ -67,8 +67,8 @@ ActiveHover.storyName = 'active:hover';
 
 export const ActiveFocus: Story = Template.bind({});
 ActiveFocus.args = { active: true };
-ActiveFocus.parameters = { pseudo: { focus: true } };
-ActiveFocus.storyName = 'active:focus';
+ActiveFocus.parameters = { pseudo: { focusVisible: true } };
+ActiveFocus.storyName = 'active:focus-visible';
 
 export const ActiveActive: Story = Template.bind({});
 ActiveActive.args = { active: true };

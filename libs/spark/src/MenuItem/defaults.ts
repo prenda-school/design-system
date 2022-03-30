@@ -29,7 +29,7 @@ export const MuiMenuItemStyleOverrides = ({
       backgroundColor: palette.grey.light,
       borderColor: palette.grey.light,
     },
-    '&:focus': {
+    '&:focus-visible': {
       backgroundColor: palette.grey.light,
       borderColor: palette.blue[4],
     },
@@ -48,7 +48,7 @@ export const MuiMenuItemStyleOverrides = ({
       borderColor: palette.blue[4],
       color: palette.common.white,
     },
-    '&$selected:focus': {
+    '&$selected:focus-visible': {
       backgroundColor: palette.blue[3],
       borderColor: palette.blue[5],
       color: palette.common.white,

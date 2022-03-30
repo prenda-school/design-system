@@ -16,7 +16,7 @@ export default withStyles((theme) => ({
       backgroundColor: theme.palette.grey.light,
       border: `2px solid ${theme.palette.grey.light}`,
     },
-    '&:focus': {
+    '&:focus-visible': {
       boxShadow: 'none',
       border: `2px solid ${theme.palette.blue[4]}`,
       outline: 'none',

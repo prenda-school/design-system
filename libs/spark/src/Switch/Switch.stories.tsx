@@ -155,7 +155,7 @@ export const StatesHover: Story = PseudoStatesTemplate.bind({});
 StatesHover.parameters = { pseudo: { hover: true } };
 
 export const StatesFocus: Story = PseudoStatesTemplate.bind({});
-StatesFocus.parameters = { pseudo: { focus: true } };
+StatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 const LabeledStatesTemplate = () => (
   <>
@@ -279,7 +279,7 @@ export const LabeledStatesHover: Story = PseudoLabeledStatesTemplate.bind({});
 LabeledStatesHover.parameters = { pseudo: { hover: true } };
 
 export const LabeledStatesFocus: Story = PseudoLabeledStatesTemplate.bind({});
-LabeledStatesFocus.parameters = { pseudo: { focus: true } };
+LabeledStatesFocus.parameters = { pseudo: { focusVisible: true } };
 
 const CustomCard = withStyles({
   root: {

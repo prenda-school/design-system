@@ -2,6 +2,43 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.3...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- **Banner**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Button**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Checkbox**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **FormControlLabel**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **IconButton**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **InputBase**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **MenuItem**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **NavBarButton**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Pagination**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **PaginationItem**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Radio**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **SectionMessage**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Select**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **StepIcon**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Switch**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Tab**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+- **Tag**
+  - Styles: apply focus styles on `:focus-visible` not `:focus`.
+
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 
 ### Unstable Preview

@@ -24,7 +24,7 @@ const RadioIconRoot = styled('span')(({ theme: { palette, transitions } }) => ({
         color: palette.blue[3],
       },
     },
-    '&:focus, input:focus ~ &': {
+    '&:focus-visible, input:focus-visible ~ &': {
       boxShadow: `0 0 0 4px ${palette.blue[1]}`,
       '&:not(.RadioIcon-checked) .RadioIcon-dot': {
         color: palette.blue[1],

@@ -111,7 +111,7 @@ export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
+VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
