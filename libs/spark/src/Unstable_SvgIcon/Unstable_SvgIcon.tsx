@@ -80,16 +80,14 @@ const useStyles = makeStyles<Unstable_SvgIconClassKey>(
 );
 
 const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = React.forwardRef(
-  function Unstable_SvgIcon(
-    {
+  function Unstable_SvgIcon(props, ref) {
+    const {
       classes: classesProp,
       color = 'inherit',
       fontSize = 'inherit',
-      className,
       ...other
-    },
-    ref
-  ) {
+    } = props;
+
     const classes = useStyles({ color, fontSize });
 
     return (
