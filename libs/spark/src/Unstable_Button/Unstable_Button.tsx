@@ -63,34 +63,24 @@ const buttonFontVariantLarge = buildVariant(
 const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
-      // account for 2px border width
-      borderRadius: 24,
-      borderWidth: '2px',
-      borderStyle: 'solid' as const,
-      '&$disabled': {
-        opacity: '50%',
-      },
+      borderRadius: 4,
       ...(props.variant === 'primary' && {
         boxShadow: 'none',
-        border: `2px solid ${theme.palette.blue[3]}`,
-        backgroundColor: theme.palette.blue[3],
+        border: `2px solid ${theme.unstable_palette.brand.blue}`,
+        backgroundColor: theme.unstable_palette.brand.blue,
         color: theme.palette.common.white,
-        '&$disabled': {
-          border: `2px solid ${theme.palette.blue[3]}`,
-          backgroundColor: theme.palette.blue[3],
-          color: theme.palette.common.white,
-        },
         '&:hover': {
-          boxShadow: 'none',
-          borderColor: theme.palette.blue[4],
-          backgroundColor: theme.palette.blue[4],
-        },
-        '&.Mui-focusVisible, &:focus': {
-          boxShadow: `0 0 0 4px ${theme.palette.blue[1]}`,
+          backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), ${theme.unstable_palette.brand.blue};`,
         },
         '&:active': {
-          boxShadow: 'none',
-          borderColor: theme.palette.blue[5],
+          backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), ${theme.unstable_palette.brand.blue};`,
+        },
+        '&.Mui-focusVisible, &:focus-visible': {
+          boxShadow: `0 0 0 4px ${theme.unstable_palette.brand.blue}`,
+        },
+        '&$disabled': {
+          backgroundColor: theme.unstable_palette.neutral[80],
+          color: theme.unstable_palette.neutral[100],
         },
       }),
       ...(props.variant === 'stroked' && {
