@@ -75,10 +75,13 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&:active': {
           backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), ${theme.unstable_palette.brand.blue};`,
         },
+        '&[aria-expanded="true"]': {
+          backgroundColor: theme.unstable_palette.neutral[600],
+        },
         '&.Mui-focusVisible, &:focus-visible': {
           boxShadow: `0 0 0 4px ${theme.unstable_palette.brand.blue}`,
         },
-        '&$disabled': {
+        '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
         },
