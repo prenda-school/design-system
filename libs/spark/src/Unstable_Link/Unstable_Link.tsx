@@ -5,7 +5,7 @@ import {
   LinkProps as MuiLinkProps,
 } from '@material-ui/core/Link';
 import makeStyles from '../makeStyles';
-import { OverridableComponent, OverrideProps, useMergeClasses } from '../utils';
+import { OverridableComponent, OverrideProps } from '../utils';
 
 export interface Unstable_LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
