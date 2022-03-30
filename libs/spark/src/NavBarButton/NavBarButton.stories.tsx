@@ -109,7 +109,7 @@ export const AllHover: Story = AllTemplate.bind({});
 AllHover.parameters = { pseudo: { hover: true } };
 
 export const AllFocus: Story = AllTemplate.bind({});
-AllFocus.parameters = { pseudo: { focus: true } };
+AllFocus.parameters = { pseudo: { focusVisible: true } };
 
 export const AllActive: Story = AllTemplate.bind({});
 AllActive.parameters = { pseudo: { active: true } };

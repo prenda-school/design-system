@@ -56,7 +56,7 @@ export const DefaultHover: Story = PseudoTemplate.bind({});
 DefaultHover.parameters = { pseudo: { hover: true } };
 
 export const DefaultFocus: Story = PseudoTemplate.bind({});
-DefaultFocus.parameters = { pseudo: { focus: true } };
+DefaultFocus.parameters = { pseudo: { focusVisible: true } };
 
 const SelectedTemplate = () => (
   <div style={{ margin: '1rem', display: 'flex', gap: '1rem' }}>
@@ -70,4 +70,4 @@ export const SelectedHover: Story = SelectedTemplate.bind({});
 SelectedHover.parameters = { pseudo: { hover: true } };
 
 export const SelectedFocus: Story = SelectedTemplate.bind({});
-SelectedFocus.parameters = { pseudo: { focus: true } };
+SelectedFocus.parameters = { pseudo: { focusVisible: true } };

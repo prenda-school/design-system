@@ -40,6 +40,7 @@ const useStyles = makeStyles<LinkClassKey>(
       '&:hover': {
         color: palette.blue[2],
       },
+      // reset browser default
       '&:focus': {
         outline: 'none',
       },
