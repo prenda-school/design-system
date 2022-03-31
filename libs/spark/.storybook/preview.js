@@ -1,11 +1,24 @@
-import * as React from 'react';
+import React, { Fragment } from 'react';
 import { addDecorator } from '@storybook/react';
-import { SparkThemeProvider } from '../src';
+import {
+  SparkThemeProvider,
+  CssBaseline,
+  FontFacesBaseline,
+  Unstable_CssBaseline,
+  Unstable_FontFacesBaseline,
+} from '../src';
 
 addDecorator((Story) => (
-  <SparkThemeProvider>
-    <Story />
-  </SparkThemeProvider>
+  <Fragment>
+    <CssBaseline />
+    <FontFacesBaseline />
+    <Unstable_CssBaseline />
+    <Unstable_FontFacesBaseline />
+
+    <SparkThemeProvider>
+      <Story />
+    </SparkThemeProvider>
+  </Fragment>
 ));
 
 export const parameters = {

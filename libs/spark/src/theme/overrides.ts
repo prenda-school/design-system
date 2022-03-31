@@ -1,8 +1,6 @@
 import type {} from '@material-ui/lab/themeAugmentation';
 import type { Theme } from '@material-ui/core';
 import type { Overrides } from '@material-ui/core/styles/overrides';
-import unstable_fontFaces from './unstable_fontFaces';
-import fontFaces from './fontFaces';
 import { MuiAutocompleteStyleOverrides } from '../Autocomplete/defaults';
 import { MuiButtonStyleOverrides } from '../Button/defaults';
 import { MuiCardStyleOverrides } from '../Card/defaults';
@@ -38,15 +36,6 @@ import { MuiTabPanelStyleOverrides } from '../TabPanel/defaults';
 const overrides = (theme: Theme): Overrides => ({
   MuiAutocomplete: MuiAutocompleteStyleOverrides(theme),
   MuiButton: MuiButtonStyleOverrides(theme),
-  MuiCssBaseline: {
-    '@global': {
-      body: {
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize,
-      },
-      '@font-face': fontFaces.concat(unstable_fontFaces),
-    },
-  },
   MuiCard: MuiCardStyleOverrides,
   MuiCardContent: MuiCardContentStyleOverrides,
   MuiCardActions: MuiCardActionsStyleOverrides,
