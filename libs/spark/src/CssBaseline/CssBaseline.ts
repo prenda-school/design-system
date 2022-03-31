@@ -38,7 +38,7 @@ const CssBaseline = withStyles(
           backgroundColor: theme.palette.background.default,
         },
         /* :TEMPORARY: remove this after #380 is merged -- will change all stories with text outside of components */
-        lineHeight: 1.43,
+        lineHeight: theme.typography.body2.lineHeight,
       },
     },
   }),
