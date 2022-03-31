@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { addDecorator } from '@storybook/react';
 import {
-  SparkThemeProvider,
   CssBaseline,
   FontFacesBaseline,
-  Unstable_CssBaseline,
+  SparkThemeProvider,
   Unstable_FontFacesBaseline,
 } from '../src';
 
@@ -12,7 +11,6 @@ addDecorator((Story) => (
   <Fragment>
     <CssBaseline />
     <FontFacesBaseline />
-    <Unstable_CssBaseline />
     <Unstable_FontFacesBaseline />
 
     <SparkThemeProvider>
