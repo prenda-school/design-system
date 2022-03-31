@@ -39,7 +39,7 @@ const CssBaseline = withStyles(
         },
         /* :TEMPORARY: remove this after #380 is merged -- will change all stories with text outside of components */
         lineHeight: 1.43,
-        letterSpacing: 0.15,
+        letterSpacing: '0.01071em',
       },
     },
   }),
