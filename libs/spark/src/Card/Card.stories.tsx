@@ -13,11 +13,13 @@ import {
   styled,
   withStyles,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 export default {
   title: '@ps/Card',
   component: Card,
   excludeStories: ['Card'],
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const CustomCard = withStyles({

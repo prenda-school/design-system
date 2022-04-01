@@ -1,10 +1,12 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { StepConnector, StepConnectorProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 export default {
   title: '@ps/StepConnector',
   component: StepConnector,
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: StepConnectorProps) => <StepConnector {...args} />;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Step, StepButton, StepContent, StepLabel, StepProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbStepProps extends StepProps {
   active?: StepProps['active'];
@@ -34,6 +35,7 @@ export default {
   args: {
     index: 0,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const horizontalStyles = {

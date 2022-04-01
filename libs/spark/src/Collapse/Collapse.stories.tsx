@@ -10,6 +10,7 @@ import {
   makeStyles,
   styled,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbCollapseProps extends CollapseProps {
   collapsedSize?: CollapseProps['collapsedSize'];
@@ -27,6 +28,7 @@ export default {
     collapsedSize: '0px',
     orientation: 'vertical',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const useIconStyles = makeStyles((theme) => ({

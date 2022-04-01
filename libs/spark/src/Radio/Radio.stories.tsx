@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { FormControlLabel, Radio, RadioProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 // Doesn't pick up extended SwitchBaseProps
 interface SbRadioProps
@@ -29,6 +30,7 @@ export default {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => (

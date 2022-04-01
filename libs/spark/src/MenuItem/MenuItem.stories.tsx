@@ -17,6 +17,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // underlying MenuItemProps don't have descriptions
 interface SbMenuItemProps extends MenuItemProps {
@@ -59,6 +60,7 @@ export default {
     sb_ListItemText_primary: 'Menu item',
     button: true,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Container = (props) => (

@@ -18,6 +18,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // underlying MenuListProps don't have descriptions
 interface SbMenuListProps extends MenuListProps {
@@ -35,6 +36,7 @@ export default {
   title: '@ps/MenuList',
   component: SbMenuList,
   excludeStories: ['SbMenuList'],
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const CustomPaper = withStyles((theme) => ({

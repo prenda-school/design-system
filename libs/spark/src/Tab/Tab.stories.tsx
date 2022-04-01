@@ -5,6 +5,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // underlying TabProps lack descriptions
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -34,6 +35,7 @@ export default {
     // should explicitly set it
     textColor: 'primary',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => <Tab {...args} />;

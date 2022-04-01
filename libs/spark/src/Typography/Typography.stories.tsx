@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Typography, TypographyProps, styled, withStyles } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbTypography = (props: TypographyProps) => (
   <Typography {...props} />
@@ -11,6 +12,7 @@ export default {
   title: '@ps/Typography',
   component: SbTypography,
   excludeStories: ['SbTypography'],
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 type TextKey =

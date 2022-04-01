@@ -6,6 +6,7 @@ import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbAvatar = Avatar;
 
@@ -16,6 +17,7 @@ export default {
   args: {
     src: '/img/guide-1.png',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = ({ src, alt, ...other }) => (
