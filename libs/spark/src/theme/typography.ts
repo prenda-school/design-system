@@ -72,7 +72,7 @@ export function buildVariant(
     // convert to unit-less
     lineHeight: `${lineHeight / fontSize}`,
     fontWeight,
-    ...(letterSpacing ? { letterSpacing: `${letterSpacing}em` } : {}),
+    letterSpacing: letterSpacing ? `${letterSpacing}em` : 0,
     ...(textTransform ? { textTransform } : {}),
   };
 }
