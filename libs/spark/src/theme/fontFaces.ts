@@ -5,10 +5,7 @@ const nunitoRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/nunito-regular-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-regular-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-regular-webfont.woff2) format("woff2")',
 };
 
 const nunitoItalic: CSS.AtRule.FontFace = {
@@ -16,10 +13,7 @@ const nunitoItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: [
-    'url(/fonts/nunito-italic-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-italic-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-italic-webfont.woff2) format("woff2")',
 };
 
 const nunitoSemibold: CSS.AtRule.FontFace = {
@@ -27,10 +21,7 @@ const nunitoSemibold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: [
-    'url(/fonts/nunito-semibold-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-semibold-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-semibold-webfont.woff2) format("woff2")',
 };
 
 const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
@@ -38,10 +29,7 @@ const nunitoSemiboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: [
-    'url(/fonts/nunito-semibolditalic-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-semibolditalic-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-semibolditalic-webfont.woff2) format("woff2")',
 };
 
 const nunitoBoldItalic: CSS.AtRule.FontFace = {
@@ -49,10 +37,7 @@ const nunitoBoldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: [
-    'url(/fonts/nunito-bolditalic-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-bolditalic-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-bolditalic-webfont.woff2) format("woff2")',
 };
 
 const nunitoBold: CSS.AtRule.FontFace = {
@@ -60,10 +45,7 @@ const nunitoBold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: [
-    'url(/fonts/nunito-bold-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-bold-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-bold-webfont.woff2) format("woff2")',
 };
 
 const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
@@ -71,10 +53,7 @@ const nunitoExtraboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: [
-    'url(/fonts/nunito-extrabolditalic-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-extrabolditalic-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-extrabolditalic-webfont.woff2) format("woff2")',
 };
 
 const nunitoExtrabold: CSS.AtRule.FontFace = {
@@ -82,10 +61,7 @@ const nunitoExtrabold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: [
-    'url(/fonts/nunito-extrabold-webfont.woff2) format("woff2")',
-    'url(/fonts/nunito-extrabold-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/nunito-extrabold-webfont.woff2) format("woff2")',
 };
 
 const sourceCodeProRegular: CSS.AtRule.FontFace = {
@@ -93,10 +69,7 @@ const sourceCodeProRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 500,
-  src: [
-    'url(/fonts/sourcecodepro-medium-webfont.woff2) format("woff2")',
-    'url(/fonts/sourcecodepro-medium-webfont.woff) format("woff")',
-  ].join(', '),
+  src: 'url(/fonts/sourcecodepro-medium-webfont.woff2) format("woff2")',
 };
 
 const fontFaces: Array<CSS.AtRule.FontFace> = [

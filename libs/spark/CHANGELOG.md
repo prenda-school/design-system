@@ -44,7 +44,10 @@
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
 - **unstable_createSvgIcon**
-  - No longer internal, exported in package root for consumer user.
+  - Exported from package root for public / consumer use -- no longer internal.
+- **unstable_fontFaces**
+  - Removed reference to `.woff` files.
+  - New asset paths are expected to be served by the corresponding application server. Consumers should copy-paste the contents of `libs/spark/public/pds-assets-v1` into their application so they are served at the root path of their URL.
 - **Unstable_Link**
   - Initial implementation of `Link` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
