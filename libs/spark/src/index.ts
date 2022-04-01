@@ -235,6 +235,8 @@ export * from './styled';
 export { default as theme } from './theme';
 export * from './theme';
 
+export { default as unstable_createSvgIcon } from './unstable_createSvgIcon';
+
 export { default as useMediaQuery } from './useMediaQuery';
 
 export { default as useTheme } from './useTheme';
