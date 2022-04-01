@@ -9,6 +9,7 @@ export default {
 
 const FontsBaseline = withStyles({
   root: {
+    letterSpacing: 0,
     '@global': {
       '@font-face': [
         {
