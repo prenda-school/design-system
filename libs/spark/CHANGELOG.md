@@ -43,6 +43,8 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **unstable_createSvgIcon**
+  - No longer internal, exported in package root for consumer user.
 - **Unstable_Link**
   - Initial implementation of `Link` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
