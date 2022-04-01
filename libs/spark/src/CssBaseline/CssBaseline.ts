@@ -24,8 +24,10 @@ const CssBaseline = withStyles(
       },
       body: {
         backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.dark,
         fontFamily: theme.typography.fontFamily,
         fontSize: theme.typography.fontSize,
+        lineHeight: theme.typography['paragraph-md'].lineHeight,
         margin: 0, // Remove the margin in all browsers.
         '@media print': {
           // Save printer ink.
@@ -36,9 +38,6 @@ const CssBaseline = withStyles(
         '&::backdrop': {
           backgroundColor: theme.palette.background.default,
         },
-        /* :TEMPORARY: customize `lineHeight` and `color` after #380 is merged -- will change all stories with text outside of components */
-        lineHeight: theme.typography.body2.lineHeight,
-        color: theme.palette.text.primary,
       },
     },
   }),
