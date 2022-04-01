@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, useTheme, Theme } from '..';
+import { styled, theme, Theme } from '..';
 
 export default {
   title: '@ps/theme/unstable_palette',
@@ -49,8 +49,6 @@ const PaletteColor = styled(function PaletteColor(props: {
   field: string;
 }) {
   const { name, field, ...other } = props;
-
-  const theme = useTheme();
 
   return (
     <div {...other}>
