@@ -2,6 +2,15 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.3...vNext) (yyyy-mm-dd)
 
+### Features
+
+- **CssBaseline**
+  - No longer advised to wrap this in `ThemeProvider`. The global styles will be injected regardless.
+- **FontFacesBaseline**
+  - Initial implementation.
+  - Injects global font-face declarations used by theme's typography, without the need to be wrapped in a **ThemeProvider** (or **SparkThemeProvider**).
+  - Extraction of the global font-face declarations previously injected by **CssBaseline** (only when wrapped in **SparkThemeProvider**).
+
 ### Fixes
 
 - **Banner**
@@ -39,6 +48,15 @@
 - **Tag**
   - Styles: apply focus styles on `:focus-visible` not `:focus`.
 
+### Breaking
+
+- **CssBaseline**
+  - No longer injects global font-face declarations.
+  - Migration: render **FontFacesBaseline** (`<FontFacesBaseline />`) at the root of your app (or anywhere) (only needed once per app).
+- **SparkThemeProvider**
+  - No longer renders **CssBaseline**.
+  - Migration: render **CssBaseline** (`<CssBaseline />`) at the root of your app (or anywhere) (only needed once per app).
+
 ### Unstable Preview
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
@@ -48,6 +66,12 @@ _This section details previews of breaking changes or experimental features that
 - **unstable_fontFaces**
   - Removed reference to `.woff` files.
   - New asset paths are expected to be served by the corresponding application server. Consumers should copy-paste the contents of `libs/spark/public/pds-assets-v1` into their application so they are served at the root path of their URL.
+- **Unstable_CssBaseline**
+  - Initial implementation of **CssBaseline** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+- **Unstable_FontFacesBaseline**
+  - Initial implementation of **FontFacesBaseline** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
 - **Unstable_Link**
   - Initial implementation of `Link` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.

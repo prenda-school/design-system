@@ -38,7 +38,6 @@ export { default as Collapse } from './Collapse';
 export * from './Collapse';
 
 export { default as CssBaseline } from './CssBaseline';
-export * from './CssBaseline';
 
 export { default as Divider } from './Divider';
 export * from './Divider';
@@ -51,6 +50,8 @@ export * from './DropdownContext';
 
 export { default as DropdownMenu } from './DropdownMenu';
 export * from './DropdownMenu';
+
+export { default as FontFacesBaseline } from './FontFacesBaseline';
 
 export { default as FormControl } from './FormControl';
 export * from './FormControl';
@@ -212,6 +213,10 @@ export * from './NavBar';
 
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
+
+export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
+
+export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
 
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
