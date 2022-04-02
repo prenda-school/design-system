@@ -8,6 +8,7 @@ import {
 } from '@prenda/spark-icons';
 import { SvgIcon, styled, theme } from '..';
 import { capitalize } from '../utils';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbSvgIcon = SvgIcon;
 
@@ -20,6 +21,7 @@ export default {
     color: 'inherit',
     fontSize: 'inherit',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Container = styled('div')({

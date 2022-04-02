@@ -5,6 +5,7 @@ import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbBannerProps extends BannerProps {
   closeText?: BannerProps['closeText'];
@@ -23,6 +24,7 @@ export default {
     onDetails: null,
     onClose: null,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const messages: Record<BannerProps['severity'], string> = {

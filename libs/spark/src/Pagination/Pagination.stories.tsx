@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Pagination, PaginationProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbPaginationProps extends PaginationProps {
   boundaryCount?: PaginationProps['boundaryCount'];
@@ -27,6 +28,7 @@ export default {
     count: 10,
     defaultPage: 2,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 export const ConfigurablePagination: Story = (args: SbPaginationProps) => (

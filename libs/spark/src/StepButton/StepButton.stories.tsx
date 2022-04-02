@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepButton, StepButtonProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbStepButtonProps extends StepButtonProps {
   /**
@@ -42,6 +43,7 @@ export default {
   args: {
     icon: 1,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: SbStepButtonProps) => <StepButton {...args} />;

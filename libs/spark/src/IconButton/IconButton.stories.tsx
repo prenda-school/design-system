@@ -6,6 +6,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface SbIconButtonProps
@@ -41,6 +42,7 @@ export default {
   args: {
     children: 'ChevronDown',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => <IconButton {...args} />;

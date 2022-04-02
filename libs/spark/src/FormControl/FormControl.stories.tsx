@@ -10,6 +10,7 @@ import {
   FormHelperText,
   FormLabel,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbFormControl = (props: FormControlProps) => (
   <FormControl {...props} />
@@ -20,6 +21,7 @@ export default {
   component: SbFormControl,
   excludeStories: ['SbFormControl'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const CheckboxGroupTemplate = ({

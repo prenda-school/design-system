@@ -15,6 +15,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbTabContextProps extends TabContextProps {
   value: TabContextProps['value'];
@@ -49,6 +50,7 @@ export default {
     'sb_TabList_aria-label': 'tabs story',
     value: 'value-1',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const CodeSnippet = withStyles({

@@ -9,6 +9,7 @@ import {
   styled,
 } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbTextFieldProps extends StandardTextFieldProps {
   /**
@@ -83,6 +84,7 @@ export default {
     placeholder: 'Placeholder',
     helperText: 'Helper text',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = ({

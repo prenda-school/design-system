@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { CheckCircleDuotone } from '@prenda/spark-icons';
 import { Box, NavBarButton, NavBarButtonProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbNavBarButtonProps
   extends Omit<
@@ -51,6 +52,7 @@ export default {
   args: {
     children: 'Label',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: NavBarButtonProps) => <NavBarButton {...args} />;

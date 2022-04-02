@@ -3,7 +3,6 @@ import { addDecorator } from '@storybook/react';
 import {
   CssBaseline,
   FontFacesBaseline,
-  SparkThemeProvider,
   Unstable_FontFacesBaseline,
 } from '../src';
 
@@ -13,9 +12,7 @@ addDecorator((Story) => (
     <FontFacesBaseline />
     <Unstable_FontFacesBaseline />
 
-    <SparkThemeProvider>
-      <Story />
-    </SparkThemeProvider>
+    <Story />
   </Fragment>
 ));
 

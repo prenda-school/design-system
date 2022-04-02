@@ -17,6 +17,7 @@ import {
   styled,
   withStyles,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbNavBar = (props: NavBarProps) => <NavBar {...props} />;
 
@@ -27,6 +28,7 @@ export default {
   args: {
     color: 'default',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const BluePrendaMonogram = styled(PrendaMonogram)(({ theme }) => ({

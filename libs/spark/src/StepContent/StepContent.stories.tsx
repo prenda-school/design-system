@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { StepContent, StepContentProps, Typography } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 // underlying StepContentProps are undocumented
 interface SbStepContentProps extends StepContentProps {
@@ -22,6 +23,7 @@ export default {
   args: {
     expanded: true,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: StepContentProps) => (

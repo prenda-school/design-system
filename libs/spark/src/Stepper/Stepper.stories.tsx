@@ -8,6 +8,7 @@ import {
   Stepper,
   StepperProps,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbStepperProps extends StepperProps {
   activeStep?: StepperProps['activeStep'];
@@ -51,6 +52,7 @@ export default {
     alternativeLabel: false,
     nonLinear: false,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const content =

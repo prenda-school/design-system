@@ -16,6 +16,7 @@ import {
   ListItemText,
   MenuItem,
 } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbDropdownContextProps extends DropdownContextProps {
   /**
@@ -69,6 +70,7 @@ export default {
     sb_DropdownAnchor_component: 'Button',
     sb_DropdownMenu_placement: 'bottom-left',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const ConfigurableTemplate = ({

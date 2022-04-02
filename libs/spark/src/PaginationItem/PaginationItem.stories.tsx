@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { PaginationItem, PaginationItemProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface SbPaginationItemProps
@@ -18,6 +19,7 @@ export default {
     type: 'page',
     page: 1,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: PaginationItemProps) => (
