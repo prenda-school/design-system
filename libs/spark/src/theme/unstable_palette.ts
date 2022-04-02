@@ -31,7 +31,7 @@ const globalTokens: Pick<
     700: '#a72100',
   },
   yellow: {
-    100: '#ffae6',
+    100: '#fffae6',
     200: '#fff0b3',
     300: '#ffe380',
     400: '#ffc400',
