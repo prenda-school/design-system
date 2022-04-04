@@ -192,6 +192,12 @@ _This section details previews of breaking changes or experimental features that
     - `lowContrast color="dark"` -> `color="secondary"`
     - `lowContrast color="light"` -> `color="inverseSecondary"`
     - `lowContrast"` -> _removed_
+- **Unstable_TextField**
+  - Initial implementation of **TextField** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - Props API Changes:
+    - `variant`: Removed.
+    - See **Unstable_Input** and **Unstable_Select** for additional, underlying changes.
 
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 
