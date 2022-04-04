@@ -1,28 +1,14 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  Unstable_SectionMessage,
-  // Unstable_SectionMessageProps,
-  // Unstable_SectionMessageTitle,
-} from '..';
-
-// interface SbUnstable_SectionMessageProps extends Unstable_SectionMessageProps {
-//   severity?: Unstable_SectionMessageProps['severity'];
-// }
-
-// export const SbUnstable_SectionMessage = (
-//   props: SbUnstable_SectionMessageProps
-// ) => <Unstable_SectionMessage {...props} />;
+import { Unstable_SectionMessage } from '..';
 
 export default {
   title: '@ps/Unstable_SectionMessage',
   component: Unstable_SectionMessage,
-  // excludeStories: ['SbUnstable_SectionMessage'],
 } as Meta;
 
 const Template = (args) => (
   <Unstable_SectionMessage {...args}>
-    {/* <Unstable_SectionMessageTitle>Section Message</Unstable_SectionMessageTitle> */}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   </Unstable_SectionMessage>
 );

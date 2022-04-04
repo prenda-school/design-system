@@ -129,7 +129,6 @@ const Unstable_SectionMessage = React.forwardRef(
       children,
       classes: classesProp,
       className,
-      // closeText = 'Close',
       icon,
       onClose,
       title,
