@@ -10,7 +10,7 @@ import Unstable_FormHelperText, {
 } from '../Unstable_FormHelperText';
 import Unstable_Select, { Unstable_SelectProps } from '../Unstable_Select';
 import makeStyles from '../makeStyles';
-import { StandardProps } from '../utils';
+import { StandardProps, useId } from '../utils';
 
 export interface Unstable_TextFieldProps
   extends StandardProps<
@@ -172,7 +172,7 @@ const Unstable_TextField = React.forwardRef(function TextField(
     FormHelperTextProps,
     fullWidth = false,
     helperText,
-    id,
+    id: idProp,
     InputLabelProps,
     inputProps,
     InputProps,
@@ -198,6 +198,8 @@ const Unstable_TextField = React.forwardRef(function TextField(
   } = props;
 
   const classes = useStyles();
+
+  const id = useId(idProp);
 
   if (process.env.NODE_ENV !== 'production') {
     if (select && !children) {
