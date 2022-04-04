@@ -218,6 +218,9 @@ export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
 
+export { default as Unstable_InputAdornment } from './Unstable_InputAdornment';
+export * from './Unstable_InputAdornment';
+
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
 
