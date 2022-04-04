@@ -233,6 +233,9 @@ export * from './Unstable_InputLabel';
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
 
+export { default as Unstable_Select } from './Unstable_Select';
+export * from './Unstable_Select';
+
 export { default as Unstable_SvgIcon } from './Unstable_SvgIcon';
 export * from './Unstable_SvgIcon';
 

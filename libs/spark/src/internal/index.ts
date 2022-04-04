@@ -9,3 +9,5 @@ export { default as ChevronRight } from './ChevronRight';
 export { default as Cross } from './Cross';
 export { default as CrossSmall } from './CrossSmall';
 export { default as InfoFilled } from './InfoFilled';
+
+export { default as Unstable_ChevronDown } from './Unstable_ChevronDown';
