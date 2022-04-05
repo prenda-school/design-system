@@ -21,6 +21,7 @@ Default.storyName = '(default)';
 export const SeverityInfo: Story = Template.bind({});
 SeverityInfo.args = { severity: 'info' };
 SeverityInfo.storyName = 'severity=info';
+
 const onClose = () => {
   return;
 };
