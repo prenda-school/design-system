@@ -105,12 +105,12 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
         color: theme.unstable_palette.yellow[600],
       }),
     }),
-    message: () => ({
+    message: {
       ...theme.unstable_typography.body,
       color: theme.unstable_palette.text.body,
       flexGrow: 2,
-    }),
-    action: () => ({ alignSelf: 'flex-start', justifySelf: 'flex-end' }),
+    },
+    action: { alignSelf: 'flex-start', justifySelf: 'flex-end' },
   }),
   { name: 'MuiSparkUnstable_SectionMessage' }
 );
