@@ -151,6 +151,18 @@ _This section details previews of breaking changes or experimental features that
     - `color="textPrimary"` -> _removed_
     - `color="textSecondary"` -> _removed_
     - `color="error"` -> _removed_
+- **Unstable_Select**
+  - Initial implementation of **Select** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"icon"`, `"iconOpen"`, `"nativeInput"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"icon"`, `"iconOpen"`, `"nativeInput"`_.
+    - `label`: Removed.
+    - `labelId`: Removed.
+    - `labelWidth`: Removed.
+    - `variant`: Removed.
+    - See **Unstable_Input** for additional, underlying changes.
 - **Unstable_SvgIcon**
   - Initial implementation of `SvgIcon` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
