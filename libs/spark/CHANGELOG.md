@@ -78,8 +78,20 @@ _This section details previews of breaking changes or experimental features that
   - CSS API Changes:
     - Removed all class keys _except `"root"`_.
   - Props API Changes:
-    - `classes`
-      - Removed all class keys _except `"root"`_.
+    - `classes`: Removed all class keys _except `"root"`_.
+- **Unstable_InputLabel**
+  - Initial implementation of **InputLabel** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `color`: Removed.
+    - `disableAnimation`: Removed.
+    - `filled`: Removed.
+    - `margin`: Removed.
+    - `shrink`: Removed.
+    - `variant`: Removed.
 - **Unstable_Link**
   - Initial implementation of `Link` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
