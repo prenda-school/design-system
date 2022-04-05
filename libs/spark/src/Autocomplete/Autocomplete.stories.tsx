@@ -12,12 +12,14 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 export default {
   title: '@ps/Autocomplete',
   component: Autocomplete,
   argTypes: {},
   args: {},
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const reasons = [

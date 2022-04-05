@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Checkbox, CheckboxProps, FormControlLabel } from '..';
 import { DocumentationTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // Doesn't pick up extended SwitchBaseProps
 interface SbCheckboxProps
@@ -26,6 +27,7 @@ export default {
   component: SbCheckbox,
   excludeStories: ['SbCheckbox'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => (

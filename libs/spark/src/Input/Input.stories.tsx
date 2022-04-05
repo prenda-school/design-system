@@ -3,6 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone, QuestionDuotone } from '@prenda/spark-icons';
 import { Input, InputAdornment, InputProps, styled } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbInputProps extends InputProps {
   defaultValue?: InputProps['defaultValue'];
@@ -59,6 +60,7 @@ export default {
   args: {
     placeholder: 'Placeholder',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = ({ startAdornment, endAdornment, ...args }) => (

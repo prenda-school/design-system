@@ -5,6 +5,7 @@ import {
   DocumentationTemplate,
   ChangelogTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 export const SbTag = Tag;
 
@@ -35,6 +36,7 @@ export default {
   args: {
     label: 'Label',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => (

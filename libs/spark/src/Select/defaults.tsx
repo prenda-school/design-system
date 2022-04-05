@@ -5,7 +5,7 @@ import type { StyleRules } from '../withStyles';
 
 export const MuiSelectDefaultProps: Partial<SelectProps> = {
   displayEmpty: true,
-  IconComponent: ChevronDown,
+  IconComponent: (props) => <ChevronDown fontSize="medium" {...props} />,
   MenuProps: {
     getContentAnchorEl: null,
     anchorOrigin: {

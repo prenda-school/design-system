@@ -1,11 +1,19 @@
 import * as CSS from 'csstype';
 
+/**
+ * A small, internal utility to generate a standard `src` property value for `@font-face` declarations.
+ *
+ * MAINTAINER NOTE: Whenever an expected asset file changes (in this case a font file), the version number must be incremented. Otherwise, browsers may use the previously cached file for a long time.
+ */
+const buildSrc = (filename: string) =>
+  `url(/pds-assets-v1/fonts/${filename}.woff2) format("woff2")`;
+
 const poppinsExtrabold: CSS.AtRule.FontFace = {
   fontFamily: '"Poppins"',
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: 'url(/fonts/poppins/extrabold.woff2) format("woff2")',
+  src: buildSrc('poppins-extrabold'),
 };
 
 const poppinsExtraboldItalic: CSS.AtRule.FontFace = {
@@ -13,7 +21,7 @@ const poppinsExtraboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 800,
-  src: 'url(/fonts/poppins/extrabolditalic.woff2) format("woff2")',
+  src: buildSrc('poppins-extrabolditalic'),
 };
 
 const poppinsBold: CSS.AtRule.FontFace = {
@@ -21,7 +29,7 @@ const poppinsBold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: 'url(/fonts/poppins/bold.woff2) format("woff2")',
+  src: buildSrc('poppins-bold'),
 };
 
 const poppinsBoldItalic: CSS.AtRule.FontFace = {
@@ -29,7 +37,7 @@ const poppinsBoldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: 'url(/fonts/poppins/bolditalic.woff2) format("woff2")',
+  src: buildSrc('poppins-bolditalic'),
 };
 
 const poppinsSemibold: CSS.AtRule.FontFace = {
@@ -37,7 +45,7 @@ const poppinsSemibold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: 'url(/fonts/poppins/semibold.woff2) format("woff2")',
+  src: buildSrc('poppins-semibold'),
 };
 
 const poppinsSemiboldItalic: CSS.AtRule.FontFace = {
@@ -45,7 +53,7 @@ const poppinsSemiboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: 'url(/fonts/poppins/semibolditalic.woff2) format("woff2")',
+  src: buildSrc('poppins-semibolditalic'),
 };
 
 const interRegular: CSS.AtRule.FontFace = {
@@ -53,7 +61,7 @@ const interRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: 'url(/fonts/inter/regular.woff2) format("woff2")',
+  src: buildSrc('inter-regular'),
 };
 
 const interItalic: CSS.AtRule.FontFace = {
@@ -61,7 +69,7 @@ const interItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: 'url(/fonts/inter/italic.woff2) format("woff2")',
+  src: buildSrc('inter-italic'),
 };
 
 const interMedium: CSS.AtRule.FontFace = {
@@ -69,7 +77,7 @@ const interMedium: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 500,
-  src: 'url(/fonts/inter/medium.woff2) format("woff2")',
+  src: buildSrc('inter-medium'),
 };
 
 const interMediumItalic: CSS.AtRule.FontFace = {
@@ -77,7 +85,7 @@ const interMediumItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 500,
-  src: 'url(/fonts/inter/mediumitalic.woff2) format("woff2")',
+  src: buildSrc('inter-mediumitalic'),
 };
 
 const interSemibold: CSS.AtRule.FontFace = {
@@ -85,7 +93,7 @@ const interSemibold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: 'url(/fonts/inter/semibold.woff2) format("woff2")',
+  src: buildSrc('inter-semibold'),
 };
 
 const interSemiboldItalic: CSS.AtRule.FontFace = {
@@ -93,7 +101,7 @@ const interSemiboldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 600,
-  src: 'url(/fonts/inter/semibolditalic.woff2) format("woff2")',
+  src: buildSrc('inter-semibolditalic'),
 };
 
 const interBold: CSS.AtRule.FontFace = {
@@ -101,7 +109,7 @@ const interBold: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: 'url(/fonts/inter/bold.woff2) format("woff2")',
+  src: buildSrc('inter-bold'),
 };
 
 const interBoldItalic: CSS.AtRule.FontFace = {
@@ -109,7 +117,7 @@ const interBoldItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 700,
-  src: 'url(/fonts/inter/bolditalic.woff2) format("woff2")',
+  src: buildSrc('inter-bolditalic'),
 };
 
 const robotoMonoRegular: CSS.AtRule.FontFace = {
@@ -117,7 +125,7 @@ const robotoMonoRegular: CSS.AtRule.FontFace = {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: ['url(/fonts/robotomono/regular.woff2) format("woff2")'].join(', '),
+  src: buildSrc('robotomono-regular'),
 };
 
 const robotoMonoItalic: CSS.AtRule.FontFace = {
@@ -125,7 +133,7 @@ const robotoMonoItalic: CSS.AtRule.FontFace = {
   fontStyle: 'italic',
   fontDisplay: 'swap',
   fontWeight: 400,
-  src: ['url(/fonts/robotomono/italic.woff2) format("woff2")'].join(', '),
+  src: buildSrc('robotomono-italic'),
 };
 
 const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Link, LinkProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 // underlying props don't have descriptions
 export const SbLink = (props: LinkProps) => <Link {...props} />;
@@ -12,6 +13,7 @@ export default {
   args: {
     href: '#',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => <Link {...args}>Text</Link>;

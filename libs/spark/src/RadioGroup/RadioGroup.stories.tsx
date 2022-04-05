@@ -11,6 +11,7 @@ import {
   RadioGroupProps,
 } from '..';
 import { DocumentationTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbRadioGroupProps extends RadioGroupProps {
   ['aria-label']?: RadioGroupProps['aria-label'];
@@ -60,6 +61,7 @@ export default {
     'aria-label': 'example group',
     name: 'exampleGroup',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = ({

@@ -3,6 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone } from '@prenda/spark-icons';
 import { InputAdornment, MenuItem, Select, SelectProps, styled } from '..';
 import { ChangelogTemplate } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbSelectProps extends SelectProps {
   /**
@@ -44,6 +45,7 @@ export default {
   args: {
     value: '',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = ({ value: propValue, ...args }) => {

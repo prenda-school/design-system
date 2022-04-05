@@ -10,6 +10,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 interface SbSectionMessageProps extends SectionMessageProps {
   severity?: SectionMessageProps['severity'];
@@ -26,6 +27,7 @@ export default {
   args: {
     severity: 'info',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => (

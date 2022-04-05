@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { styled, useTheme } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 interface ColorBoxProps {
   color: string;
@@ -37,6 +38,7 @@ function ColorBox(props: ColorBoxProps) {
 export default {
   title: '@ps/theme/palette',
   component: ColorBox,
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 export const PrendaColors: Story = () => {

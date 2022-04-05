@@ -16,6 +16,7 @@ import {
   ChangelogTemplate,
   DocumentationTemplate,
 } from '../../stories/templates';
+import { sparkThemeProvider } from '../../stories';
 
 // Trying to omit /*ripple*/ props breaks all other props ???
 interface SbSwitchProps extends SwitchProps {
@@ -34,6 +35,7 @@ export default {
     checked: false,
     disabled: false,
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args) => (

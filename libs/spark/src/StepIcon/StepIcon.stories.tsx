@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepIcon, StepIconProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 export default {
   title: '@ps/StepIcon',
@@ -23,6 +24,7 @@ export default {
     icon: '1',
     titleAccess: 'Step one',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: StepIconProps) => (

@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepLabel, StepLabelProps } from '..';
+import { sparkThemeProvider } from '../../stories';
 
 // some underlying StepLabelProps are undocumented
 interface SbStepLabelProps extends StepLabelProps {
@@ -47,6 +48,7 @@ export default {
     icon: '1',
     children: 'Label',
   },
+  decorators: [sparkThemeProvider],
 } as Meta;
 
 const Template = (args: StepLabelProps) => <StepLabel {...args} />;
