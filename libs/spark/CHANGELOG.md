@@ -151,6 +151,11 @@ _This section details previews of breaking changes or experimental features that
     - `color="textPrimary"` -> _removed_
     - `color="textSecondary"` -> _removed_
     - `color="error"` -> _removed_
+- **Unstable_SectionMessage**
+  - Initial implementation of **SectionMessage** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - Props API Changes:
+    - Removed SectionMessageTitle component. See **Unstable_SectionMessageTitle** within the **Unstable_SectionMessage** component for additional, underlying changes.
 - **Unstable_Select**
   - Initial implementation of **Select** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
