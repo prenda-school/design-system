@@ -7,7 +7,7 @@ import {
 import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
-import { lighten, darken } from '@material-ui/core';
+import { lighten, darken } from '@material-ui/core/styles';
 
 export interface Unstable_ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
