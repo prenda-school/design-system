@@ -154,8 +154,13 @@ _This section details previews of breaking changes or experimental features that
 - **Unstable_SectionMessage**
   - Initial implementation of **SectionMessage** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
   - Props API Changes:
-    - Removed SectionMessageTitle component. See **Unstable_SectionMessageTitle** within the **Unstable_SectionMessage** component for additional, underlying changes.
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `title`:
+      - Added.
+      - Replaces use of the **SectionMessageTitle** component which will be removed in the next major version.
 - **Unstable_Select**
   - Initial implementation of **Select** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
