@@ -60,7 +60,8 @@ export type Unstable_SectionMessageClassKey =
   | 'root'
   | 'icon'
   | 'message'
-  | 'action';
+  | 'action'
+  | 'title'
 
 const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
   (theme) => ({
