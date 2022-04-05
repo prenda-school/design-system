@@ -236,9 +236,6 @@ export * from './Unstable_Link';
 export { default as Unstable_SectionMessage } from './Unstable_SectionMessage';
 export * from './Unstable_SectionMessage';
 
-export { default as Unstable_SectionMessageTitle } from './Unstable_SectionMessageTitle';
-export * from './Unstable_SectionMessageTitle';
-
 export { default as Unstable_Select } from './Unstable_Select';
 export * from './Unstable_Select';
 
