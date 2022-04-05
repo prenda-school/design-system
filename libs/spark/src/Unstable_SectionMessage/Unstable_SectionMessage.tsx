@@ -112,6 +112,11 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       flexGrow: 2,
     },
     action: { alignSelf: 'flex-start', justifySelf: 'flex-end' },
+    title: {
+      ...theme.unstable_typography.label,
+      color: theme.unstable_palette.text.heading,
+      marginBottom: 4,
+    }
   }),
   { name: 'MuiSparkUnstable_SectionMessage' }
 );
