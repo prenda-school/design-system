@@ -12,7 +12,7 @@ export interface Unstable_SectionMessageTitleProps
   /**
    * The content of the component.
    */
-  title?: string;
+  children?: string;
 }
 
 export type Unstable_SectionMessageTitleClassKey = 'root';
