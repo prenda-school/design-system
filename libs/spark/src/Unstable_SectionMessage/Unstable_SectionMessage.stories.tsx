@@ -21,7 +21,9 @@ Default.storyName = '(default)';
 export const SeverityInfo: Story = Template.bind({});
 SeverityInfo.args = { severity: 'info' };
 SeverityInfo.storyName = 'severity=info';
-const onClose = () => { return; };
+const onClose = () => {
+  return;
+};
 
 export const SeverityInfoOnClose: Story = Template.bind({});
 SeverityInfoOnClose.args = { severity: 'info', onClose };
@@ -31,9 +33,7 @@ export const SeverityInfoOnCloseTitle: Story = Template.bind({});
 SeverityInfoOnCloseTitle.args = {
   title: 'Info',
   severity: 'info',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeverityInfoOnCloseTitle.storyName = 'severity=info onClose title';
 
@@ -44,9 +44,7 @@ SeverityWarning.storyName = 'severity=warning';
 export const SeverityWarningOnClose: Story = Template.bind({});
 SeverityWarningOnClose.args = {
   severity: 'warning',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeverityWarningOnClose.storyName = 'severity=warning onClose';
 
@@ -54,9 +52,7 @@ export const SeverityWarningOnCloseTitle: Story = Template.bind({});
 SeverityWarningOnCloseTitle.args = {
   title: 'Warning',
   severity: 'warning',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeverityWarningOnCloseTitle.storyName = 'severity=warning onClose title';
 
@@ -67,9 +63,7 @@ SeveritySuccess.storyName = 'severity=success';
 export const SeveritySuccessOnClose: Story = Template.bind({});
 SeveritySuccessOnClose.args = {
   severity: 'success',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeveritySuccessOnClose.storyName = 'severity=success onClose';
 
@@ -77,9 +71,7 @@ export const SeveritySuccessOnCloseTitle: Story = Template.bind({});
 SeveritySuccessOnCloseTitle.args = {
   title: 'Success',
   severity: 'success',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeveritySuccessOnCloseTitle.storyName = 'severity=success onClose title';
 
@@ -90,9 +82,7 @@ SeverityError.storyName = 'severity=error';
 export const SeverityErrorOnClose: Story = Template.bind({});
 SeverityErrorOnClose.args = {
   severity: 'error',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeverityErrorOnClose.storyName = 'severity=error onClose';
 
@@ -100,8 +90,6 @@ export const SeverityErrorOnCloseTitle: Story = Template.bind({});
 SeverityErrorOnCloseTitle.args = {
   title: 'Error',
   severity: 'error',
-  onClose: () => {
-    return;
-  },
+  onClose,
 };
 SeverityErrorOnCloseTitle.storyName = 'severity=error onClose title';
