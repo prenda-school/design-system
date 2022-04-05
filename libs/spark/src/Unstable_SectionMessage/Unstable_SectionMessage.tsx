@@ -162,7 +162,7 @@ const Unstable_SectionMessage = React.forwardRef(
 
         <div className={clsx(classesProp?.message, classes.message)}>
           {title ? (
-            <Unstable_SectionMessageTitle>{title}</Unstable_SectionMessageTitle>
+            <div className={clsx(classes.title, className)}>{title}</div>
           ) : null}
           {children}
         </div>
