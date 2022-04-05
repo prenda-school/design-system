@@ -11,39 +11,6 @@ import {
 import makeStyles from '../makeStyles';
 import { StandardProps } from '../utils';
 
-interface Unstable_SectionMessageTitleProps
-  extends StandardProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    Unstable_SectionMessageTitleClassKey
-  > {
-  /**
-   * The content of the component.
-   */
-  children?: string;
-}
-
-type Unstable_SectionMessageTitleClassKey = 'root';
-
-const useStylesTitle = makeStyles<Unstable_SectionMessageTitleClassKey>(
-  (theme) => ({
-    root: {
-      ...theme.unstable_typography.label,
-      color: theme.unstable_palette.text.heading,
-      marginBottom: 4,
-    },
-  }),
-  { name: 'MuiSparkUnstable_SectionMessageTitle' }
-);
-
-const Unstable_SectionMessageTitle = function Unstable_SectionMessageTitle(
-  props: Unstable_SectionMessageTitleProps
-) {
-  const { children, className } = props;
-
-  const classes = useStylesTitle();
-
-  return <div className={clsx(classes.root, className)}>{children}</div>;
-};
 
 export type Color = 'success' | 'info' | 'warning' | 'error';
 
