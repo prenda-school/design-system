@@ -35,9 +35,7 @@ const Unstable_SectionMessageTitle = React.forwardRef(
 
     return (
       <span className="pos-3">
-        <Unstable_Typography
-          variant="label"
-          component="div"
+        <div
           ref={ref}
           className={clsx(classes.root, className)}
           {...other}
