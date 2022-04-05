@@ -18,9 +18,9 @@ export interface Unstable_SectionMessageTitleProps
 export type Unstable_SectionMessageTitleClassKey = 'root';
 
 const useStyles = makeStyles(
-  () => ({
-    root: () => ({ marginBottom: 4 }),
-  }),
+  {
+    root: { marginBottom: 4 },
+  },
   { name: 'MuiSparkUnstable_SectionMessageTitle' }
 );
 
