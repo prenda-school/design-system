@@ -84,9 +84,9 @@ export interface Unstable_SectionMessageProps
    */
   onClose?: (event: React.SyntheticEvent) => void;
   /**
-   * Optional title to display in the section message.
+   * Display a formatted title above the section message.
    */
-  title?: string;
+  title?: React.ReactNode;
 }
 
 export type Unstable_SectionMessageClassKey =
