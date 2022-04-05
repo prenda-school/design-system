@@ -11,12 +11,11 @@ import {
 import makeStyles from '../makeStyles';
 import { StandardProps } from '../utils';
 
-
 export type Color = 'success' | 'info' | 'warning' | 'error';
 
 export interface Unstable_SectionMessageProps
   extends StandardProps<
-    PaperProps,
+    Omit<PaperProps, 'title'>,
     Unstable_SectionMessageClassKey,
     'variant'
   > {
@@ -61,7 +60,7 @@ export type Unstable_SectionMessageClassKey =
   | 'icon'
   | 'message'
   | 'action'
-  | 'title'
+  | 'title';
 
 const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
   (theme) => ({
@@ -116,7 +115,7 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       ...theme.unstable_typography.label,
       color: theme.unstable_palette.text.heading,
       marginBottom: 4,
-    }
+    },
   }),
   { name: 'MuiSparkUnstable_SectionMessage' }
 );
