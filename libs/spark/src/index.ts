@@ -221,6 +221,9 @@ export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBasel
 export { default as Unstable_FormHelperText } from './Unstable_FormHelperText';
 export * from './Unstable_FormHelperText';
 
+export { default as Unstable_Input } from './Unstable_Input';
+export * from './Unstable_Input';
+
 export { default as Unstable_InputAdornment } from './Unstable_InputAdornment';
 export * from './Unstable_InputAdornment';
 

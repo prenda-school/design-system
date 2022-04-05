@@ -82,6 +82,37 @@ _This section details previews of breaking changes or experimental features that
     - `filled`: Removed.
     - `margin`: Removed.
     - `variant`: Removed.
+- **Unstable_Input**
+  - Initial implementation of **Input** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"input"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"input"`_.
+    - `color`: Removed.
+    - `endAdornment`: Removed.
+    - `margin`: Removed.
+    - `leadingEl`:
+      - Added.
+      - Replaces `startAdornment` and removes the need for consumers to wrap the content in **InputAdornment** by making that the default behavior.
+    - `rows`: Removed.
+    - `rowsMax`: Removed.
+    - `rowsMin`: Removed.
+    - `startAdornment`: Removed.
+    - `success`:
+      - Added.
+      - If present (truthy), the input will indicate a success. (Similar to behavior of `error`, but opposite semantic.)
+    - `trailingEl`:
+      - Added.
+      - Replaces `endAdornment` and removes the need for consumers to wrap the content in **InputAdornment** by making that the default behavior.
+  - Planned Migration from current `Input`:
+    - `color={*}` -> _removed_
+    - `endAdornment={<InputAdornment position="end"><Icon /></InputAdornment>}` -> `trailingEl={<Icon />}`
+    - `margin={*}` -> _removed_
+    - `rows={*}` -> `minRows={*}`
+    - `rowsMax={*}` -> `maxRows={*}`
+    - `rowsMin={*}` -> `minRows={*}`
+    - `startAdornment={<InputAdornment position="end"><Icon /></InputAdornment>}` -> `leadingEl={<Icon />}`
 - **Unstable_InputAdornment**
   - Initial implementation of **InputAdornment** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
