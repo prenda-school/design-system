@@ -7,6 +7,7 @@ import {
 import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
+import { lighten, darken } from '@material-ui/core';
 
 export interface Unstable_ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -70,10 +71,10 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         backgroundColor: theme.unstable_palette.brand.blue,
         color: theme.palette.common.white,
         '&:hover': {
-          backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), ${theme.unstable_palette.brand.blue};`,
+          backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
         },
         '&:active': {
-          backgroundColor: `linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), ${theme.unstable_palette.brand.blue};`,
+          backgroundColor: darken(theme.unstable_palette.brand.blue, 0.2),
         },
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
@@ -84,6 +85,9 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
+        },
+        '&:focus': {
+          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.variant === 'stroked' && {
