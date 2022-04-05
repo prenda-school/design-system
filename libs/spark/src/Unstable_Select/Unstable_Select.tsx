@@ -39,6 +39,7 @@ export interface Unstable_SelectProps
       | 'id'
       | 'input'
       | 'inputProps'
+      | 'labelId'
       | 'MenuProps'
       | 'multiple'
       | 'native'
@@ -106,6 +107,7 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
     id,
     input,
     inputProps,
+    labelId,
     MenuProps = {
       getContentAnchorEl: null,
       anchorOrigin: {
@@ -146,6 +148,7 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
         : {
             autoWidth,
             displayEmpty,
+            labelId,
             MenuProps,
             onClose,
             onOpen,

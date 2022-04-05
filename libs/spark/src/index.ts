@@ -239,6 +239,9 @@ export * from './Unstable_Select';
 export { default as Unstable_SvgIcon } from './Unstable_SvgIcon';
 export * from './Unstable_SvgIcon';
 
+export { default as Unstable_TextField } from './Unstable_TextField';
+export * from './Unstable_TextField';
+
 export { default as Unstable_Typography } from './Unstable_Typography';
 export * from './Unstable_Typography';
 
