@@ -72,6 +72,67 @@ _This section details previews of breaking changes or experimental features that
 - **Unstable_FontFacesBaseline**
   - Initial implementation of **FontFacesBaseline** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+- **Unstable_FormHelperText**
+  - Initial implementation of **FormHelperText** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `filled`: Removed.
+    - `margin`: Removed.
+    - `variant`: Removed.
+- **Unstable_Input**
+  - Initial implementation of **Input** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"input"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"input"`_.
+    - `color`: Removed.
+    - `endAdornment`: Removed.
+    - `margin`: Removed.
+    - `leadingEl`:
+      - Added.
+      - Replaces `startAdornment` and removes the need for consumers to wrap the content in **InputAdornment** by making that the default behavior.
+    - `rows`: Removed.
+    - `rowsMax`: Removed.
+    - `rowsMin`: Removed.
+    - `startAdornment`: Removed.
+    - `success`:
+      - Added.
+      - If present (truthy), the input will indicate a success. (Similar to behavior of `error`, but opposite semantic.)
+    - `trailingEl`:
+      - Added.
+      - Replaces `endAdornment` and removes the need for consumers to wrap the content in **InputAdornment** by making that the default behavior.
+  - Planned Migration from current `Input`:
+    - `color={*}` -> _removed_
+    - `endAdornment={<InputAdornment position="end"><Icon /></InputAdornment>}` -> `trailingEl={<Icon />}`
+    - `margin={*}` -> _removed_
+    - `rows={*}` -> `minRows={*}`
+    - `rowsMax={*}` -> `maxRows={*}`
+    - `rowsMin={*}` -> `minRows={*}`
+    - `startAdornment={<InputAdornment position="end"><Icon /></InputAdornment>}` -> `leadingEl={<Icon />}`
+- **Unstable_InputAdornment**
+  - Initial implementation of **InputAdornment** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+- **Unstable_InputLabel**
+  - Initial implementation of **InputLabel** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `color`: Removed.
+    - `disableAnimation`: Removed.
+    - `filled`: Removed.
+    - `margin`: Removed.
+    - `shrink`: Removed.
+    - `variant`: Removed.
 - **Unstable_Link**
   - Initial implementation of `Link` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -90,6 +151,28 @@ _This section details previews of breaking changes or experimental features that
     - `color="textPrimary"` -> _removed_
     - `color="textSecondary"` -> _removed_
     - `color="error"` -> _removed_
+- **Unstable_SectionMessage**
+  - Initial implementation of **SectionMessage** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `title`:
+      - Added.
+      - Replaces use of the **SectionMessageTitle** component which will be removed in the next major version.
+- **Unstable_Select**
+  - Initial implementation of **Select** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"icon"`, `"iconOpen"`, `"nativeInput"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"icon"`, `"iconOpen"`, `"nativeInput"`_.
+    - `label`: Removed.
+    - `labelId`: Removed.
+    - `labelWidth`: Removed.
+    - `variant`: Removed.
+    - See **Unstable_Input** for additional, underlying changes.
 - **Unstable_SvgIcon**
   - Initial implementation of `SvgIcon` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -119,6 +202,12 @@ _This section details previews of breaking changes or experimental features that
     - `lowContrast color="dark"` -> `color="secondary"`
     - `lowContrast color="light"` -> `color="inverseSecondary"`
     - `lowContrast"` -> _removed_
+- **Unstable_TextField**
+  - Initial implementation of **TextField** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - Props API Changes:
+    - `variant`: Removed.
+    - See **Unstable_Input** and **Unstable_Select** for additional, underlying changes.
 
 ## [v1.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (yyyy-mm-dd)
 
