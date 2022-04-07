@@ -66,8 +66,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     root: (props: Unstable_ButtonProps) => ({
       borderRadius: 4,
       ...(props.variant === 'primary' && {
-        boxShadow: 'none',
-        border: `2px solid ${theme.unstable_palette.brand.blue}`,
         backgroundColor: theme.unstable_palette.brand.blue,
         color: theme.palette.common.white,
         '&:hover': {
@@ -79,97 +77,91 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0 0 0 4px ${theme.unstable_palette.brand.blue}`,
-        },
+        // TODO Loading
         '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
         },
-        '&:focus': {
+        '&.Mui-focusVisible, &:focus-visible': {
           boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.variant === 'stroked' && {
-        boxShadow: 'none',
-        // re-declare to override default
-        border: `2px solid ${theme.palette.grey.medium}`,
+        border: `1px solid ${theme.unstable_palette.neutral[90]}`,
         backgroundColor: theme.palette.common.white,
-        color: theme.palette.blue[3],
-        // re-declare to override default
-        padding: `${theme.typography.pxToRem(6 - 2)} ${theme.typography.pxToRem(
-          16 - 2
-        )}`,
-        '&$disabled': {
-          border: `2px solid ${theme.palette.grey.medium}`,
-          backgroundColor: theme.palette.common.white,
-          color: theme.palette.blue[3],
-        },
+        color: theme.unstable_palette.brand.blue,
         '&:hover': {
-          boxShadow: 'none',
-          backgroundColor: theme.palette.grey.light,
-        },
-        '&.Mui-focusVisible, &:focus': {
-          boxShadow: `0 0 0 4px ${theme.palette.blue[1]}`,
+          backgroundColor: theme.unstable_palette.neutral[70],
         },
         '&:active': {
-          boxShadow: 'none',
-          borderColor: theme.palette.blue[5],
+          backgroundColor: theme.unstable_palette.blue[100],
+        },
+        '&[aria-expanded="true"]': {
+          backgroundColor: theme.unstable_palette.neutral[600],
+          color: theme.palette.common.white,
+        },
+        // TODO Loading
+        '&:disabled': {
+          backgroundColor: theme.unstable_palette.neutral[80],
+          color: theme.unstable_palette.neutral[100],
+        },
+        '&.Mui-focusVisible, &:focus': {
+          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.variant === 'ghost' && {
-        boxShadow: 'none',
-        border: '2px solid transparent',
         backgroundColor: 'transparent',
         color: theme.palette.blue[3],
-        // re-declare to override default
-        padding: `${theme.typography.pxToRem(6 - 2)} ${theme.typography.pxToRem(
-          16 - 2
-        )}`,
-        '&$disabled': {
-          border: '2px solid transparent',
-          backgroundColor: 'transparent',
-          color: theme.palette.blue[3],
-        },
         '&:hover': {
-          boxShadow: 'none',
-          color: theme.palette.blue[4],
-          backgroundColor: 'transparent',
-        },
-        '&.Mui-focusVisible, &:focus': {
-          boxShadow: `0 0 0 4px ${theme.palette.blue[1]}`,
-          borderColor: theme.palette.blue[3],
-          backgroundColor: theme.palette.blue[1],
+          backgroundColor: theme.unstable_palette.neutral[70],
         },
         '&:active': {
-          boxShadow: 'none',
-          color: theme.palette.blue[4],
+          backgroundColor: theme.unstable_palette.blue[100],
+        },
+        '&[aria-expanded="true"]': {
+          backgroundColor: theme.unstable_palette.neutral[600],
+          color: theme.palette.common.white,
+        },
+        // TODO Loading
+        '&:disabled': {
+          backgroundColor: theme.unstable_palette.neutral[80],
+          color: theme.unstable_palette.neutral[100],
+        },
+        '&.Mui-focusVisible, &:focus-visible': {
+          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+          backgroundColor: theme.palette.common.white,
         },
       }),
-      ...(props.variant === 'destructive' &&
-        {
-          // TODO
-        }),
+      ...(props.variant === 'destructive' && {
+        border: '2px solid transparent',
+        backgroundColor: theme.unstable_palette.red[700],
+        color: theme.palette.common.white,
+        '&:hover': {
+          backgroundColor: theme.unstable_palette.red[600],
+        },
+        '&:active': {
+          backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
+        },
+        // TODO Loading
+        '&:disabled': {
+          backgroundColor: theme.unstable_palette.neutral[80],
+          color: theme.unstable_palette.neutral[100],
+        },
+        '&.Mui-focusVisible, &:focus-visible': {
+          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+        },
+      }),
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
-        // account for 2px border width
-        padding: `${theme.typography.pxToRem(2 - 2)} ${theme.typography.pxToRem(
-          16 - 2
-        )}`,
+        padding: '8px 16px',
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
-        // account for 2px border width
-        padding: `${theme.typography.pxToRem(6 - 2)} ${theme.typography.pxToRem(
-          16 - 2
-        )}`,
+        padding: '12px 24px',
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
-        // account for 2px border width
-        padding: `${theme.typography.pxToRem(
-          14 - 2
-        )} ${theme.typography.pxToRem(16 - 2)}`,
+        padding: '20px 32px',
       }),
     }),
     startIcon: (props: Unstable_ButtonProps) => ({
@@ -226,7 +218,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
     const {
       classes: classesProp,
       variant = 'primary',
-      size = 'large',
+      size = 'medium',
       ...other
     } = props;
 
