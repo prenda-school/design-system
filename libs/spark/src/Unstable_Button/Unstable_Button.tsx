@@ -15,7 +15,18 @@ export interface Unstable_ButtonTypeMap<
   D extends React.ElementType = 'button'
 > {
   props: P &
-    Omit<MuiButtonProps, 'classes' | 'variant'> & {
+    Omit<
+      MuiButtonProps,
+      | 'classes'
+      | 'variant'
+      | 'disableElevation'
+      | 'disableFocusRipple'
+      | 'centerRipple'
+      | 'disableRipple'
+      | 'disableTouchRipple'
+      | 'focusRipple'
+      | 'TouchRippleProps'
+    > & {
       /**
        * The variant to use.
        */
@@ -31,7 +42,11 @@ export type Unstable_ButtonProps<
   P = {}
 > = OverrideProps<Unstable_ButtonTypeMap<P, D>, D>;
 
-export type Unstable_ButtonClassKey = 'root' | 'startIcon' | 'endIcon';
+export type Unstable_ButtonClassKey =
+  | 'root'
+  | 'startIcon'
+  | 'endIcon'
+  | 'label';
 
 // Extracted as we dont have a unstable_variant
 const buttonFontVariantSmall = buildVariant(
@@ -65,9 +80,11 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
       borderRadius: 4,
+      '&.Mui-focusVisible, &:focus-visible': {
+        boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      },
       ...(props.variant === 'primary' && {
         backgroundColor: theme.unstable_palette.brand.blue,
-        color: theme.palette.common.white,
         '&:hover': {
           backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
         },
@@ -77,19 +94,13 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        // TODO Loading
-        '&:disabled': {
+        '&$disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
-          color: theme.unstable_palette.neutral[100],
-        },
-        '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.variant === 'stroked' && {
         border: `1px solid ${theme.unstable_palette.neutral[90]}`,
         backgroundColor: theme.palette.common.white,
-        color: theme.unstable_palette.brand.blue,
         '&:hover': {
           backgroundColor: theme.unstable_palette.neutral[70],
         },
@@ -98,20 +109,14 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
-          color: theme.palette.common.white,
         },
-        // TODO Loading
-        '&:disabled': {
+        '&$disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
-        },
-        '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.variant === 'ghost' && {
         backgroundColor: 'transparent',
-        color: theme.palette.blue[3],
         '&:hover': {
           backgroundColor: theme.unstable_palette.neutral[70],
         },
@@ -120,22 +125,17 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
-          color: theme.palette.common.white,
         },
-        // TODO Loading
-        '&:disabled': {
+        '&$disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
-          color: theme.unstable_palette.neutral[100],
         },
         '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
           backgroundColor: theme.palette.common.white,
         },
       }),
       ...(props.variant === 'destructive' && {
         border: '2px solid transparent',
         backgroundColor: theme.unstable_palette.red[700],
-        color: theme.palette.common.white,
         '&:hover': {
           backgroundColor: theme.unstable_palette.red[600],
         },
@@ -145,13 +145,9 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        // TODO Loading
-        '&:disabled': {
+        '&$disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
-        },
-        '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
       ...(props.size === 'small' && {
@@ -165,6 +161,39 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
         padding: '20px 32px',
+      }),
+    }),
+
+    label: (props: Unstable_ButtonProps) => ({
+      color: 'inherit',
+      fontSize: 'inherit',
+      lineHeight: 'inherit',
+      ...(props.variant === 'primary' && {
+        color: theme.palette.common.white,
+        '&$disabled': {
+          color: theme.unstable_palette.neutral[100],
+        },
+      }),
+      ...(props.variant === 'stroked' && {
+        color: theme.unstable_palette.brand.blue,
+        '&[aria-expanded="true"]': {
+          color: theme.palette.common.white,
+        },
+      }),
+      ...(props.variant === 'ghost' && {
+        color: theme.unstable_palette.brand.blue,
+        '&[aria-expanded="true"]': {
+          color: theme.palette.common.white,
+        },
+        '&$disabled': {
+          color: theme.unstable_palette.neutral[100],
+        },
+      }),
+      ...(props.variant === 'destructive' && {
+        color: theme.palette.common.white,
+        '&$disabled': {
+          color: theme.unstable_palette.neutral[100],
+        },
       }),
     }),
     startIcon: (props: Unstable_ButtonProps) => ({
@@ -211,7 +240,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         lineHeight: theme.typography.pxToRem(24),
       }),
     }),
-    label: { color: 'inherit', fontSize: 'inherit', lineHeight: 'inherit' },
   }),
   { name: 'MuiSparkUnstable_Button' }
 );
@@ -229,7 +257,12 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
 
     return (
       <MuiButton
-        classes={{ root: clsx(classes.root, classesProp?.root) }}
+        classes={{
+          root: clsx(classes.root, classesProp?.root),
+          startIcon: clsx(classes.startIcon, classesProp?.startIcon),
+          endIcon: clsx(classes.endIcon, classesProp?.endIcon),
+          label: clsx(classes.label, classesProp?.label),
+        }}
         disableFocusRipple
         disableRipple
         disableTouchRipple

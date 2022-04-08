@@ -1,22 +1,12 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { ChevronDown, AlertCircle } from '@prenda/spark-icons';
 import { sparkThemeProvider } from '../../stories';
 import { Box, Unstable_Button, Unstable_ButtonProps } from '..';
+import { Unstable_ChevronDown, Unstable_AlertOctagon } from '../internal';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Sb_Unstable_ButtonProps
-  extends Omit<
-    Unstable_ButtonProps,
-    | 'disableElevation'
-    | 'disableFocusRipple'
-    | 'centerRipple'
-    | 'disableRipple'
-    | 'disableTouchRipple'
-    | 'focusRipple'
-    | 'tabIndex'
-    | 'TouchRippleProps'
-  > {}
+  extends Omit<Unstable_ButtonProps, 'tabIndex'> {}
 
 export const Sb_Unstable_Button = (props: Sb_Unstable_ButtonProps) => (
   <Unstable_Button {...props} />
@@ -30,20 +20,20 @@ export default {
   argTypes: {
     startIcon: {
       control: 'select',
-      options: ['undefined', 'ChevronDown', 'AlertCircle'],
+      options: ['undefined', 'Unstable_ChevronDown', 'Unstable_AlertOctagon'],
       mapping: {
         undefined: undefined,
-        ChevronDown: <ChevronDown />,
-        AlertCircle: <AlertCircle />,
+        Unstable_ChevronDown: <Unstable_ChevronDown />,
+        Unstable_AlertOctagon: <Unstable_AlertOctagon />,
       },
     },
     endIcon: {
       control: 'select',
-      options: ['undefined', 'ChevronDown', 'AlertCircle'],
+      options: ['undefined', 'Unstable_ChevronDown', 'Unstable_AlertOctagon'],
       mapping: {
         undefined: undefined,
-        ChevronDown: <ChevronDown />,
-        AlertCircle: <AlertCircle />,
+        Unstable_ChevronDown: <Unstable_ChevronDown />,
+        Unstable_AlertOctagon: <Unstable_AlertOctagon />,
       },
     },
   },
@@ -170,25 +160,25 @@ VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 // Leading/start Icon variations
 export const StartIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSize.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSize.args = { startIcon: 'Unstable_AlertOctagon' };
 
 export const StartIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
   {}
 );
-StartIconVariantAndSizeHover.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeHover.args = { startIcon: 'Unstable_AlertOctagon' };
 StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
   {}
 );
-StartIconVariantAndSizeActive.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeActive.args = { startIcon: 'Unstable_AlertOctagon' };
 StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 export const StartIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
   {}
 );
 StartIconVariantAndSizeExpanded.args = {
-  startIcon: 'AlertCircle',
+  startIcon: 'Unstable_AlertOctagon',
   'aria-expanded': true,
 };
 
@@ -197,37 +187,37 @@ export const StartIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bin
 );
 StartIconVariantAndSizeDisabled.args = {
   disabled: true,
-  startIcon: 'AlertCircle',
+  startIcon: 'Unstable_AlertOctagon',
 };
 
 export const StartIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
-StartIconVariantAndSizeFocus.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeFocus.args = { startIcon: 'Unstable_AlertOctagon' };
 StartIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
 // Trailing/end Icon variations
 export const EndIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSize.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSize.args = { endIcon: 'Unstable_ChevronDown' };
 
 export const EndIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
   {}
 );
 EndIconVariantAndSizeExpanded.args = {
-  endIcon: 'ChevronDown',
+  endIcon: 'Unstable_ChevronDown',
   'aria-expanded': true,
 };
 
 export const EndIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
   {}
 );
-EndIconVariantAndSizeHover.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSizeHover.args = { endIcon: 'Unstable_ChevronDown' };
 EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
   {}
 );
-EndIconVariantAndSizeActive.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSizeActive.args = { endIcon: 'Unstable_ChevronDown' };
 EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 export const EndIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
@@ -235,11 +225,11 @@ export const EndIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
 );
 EndIconVariantAndSizeDisabled.args = {
   disabled: true,
-  endIcon: 'ChevronDown',
+  endIcon: 'Unstable_ChevronDown',
 };
 
 export const EndIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
-EndIconVariantAndSizeFocus.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSizeFocus.args = { endIcon: 'Unstable_ChevronDown' };
 EndIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
