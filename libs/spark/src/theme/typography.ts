@@ -51,7 +51,7 @@ const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
  * @param {number} fontSize numeric value in pixel units
  * @param {number} lineHeight numeric value in pixel units
  * @param {number} [letterSpacing] numeric value in em units.
- * @param {('uppercase')} [textTransform]
+ * @param {('uppercase' | 'none')} [textTransform]
  * @param {string} [fontFamily]
  * @param {string} [fontFeatureSettings]
  * @returns {object}
@@ -61,7 +61,7 @@ export function buildVariant(
   fontSize: number,
   lineHeight: number,
   letterSpacing: number = undefined,
-  textTransform: 'uppercase' = undefined,
+  textTransform: 'uppercase' | 'none' = undefined,
   fontFamily: string = defaultFontFamily,
   fontFeatureSettings: string = undefined
 ) {
