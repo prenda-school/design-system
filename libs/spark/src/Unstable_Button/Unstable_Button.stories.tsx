@@ -1,12 +1,13 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { ChevronDown } from '@prenda/spark-icons';
-import { Box, Button, ButtonProps } from '..';
+import { ChevronDown, AlertCircle } from '@prenda/spark-icons';
+import { sparkThemeProvider } from '../../stories';
+import { Box, Unstable_Button, Unstable_ButtonProps } from '..';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface SbButtonProps
+interface Sb_Unstable_ButtonProps
   extends Omit<
-    ButtonProps,
+    Unstable_ButtonProps,
     | 'disableElevation'
     | 'disableFocusRipple'
     | 'centerRipple'
@@ -17,28 +18,32 @@ interface SbButtonProps
     | 'TouchRippleProps'
   > {}
 
-export const SbButton = (props: SbButtonProps) => <Button {...props} />;
+export const Sb_Unstable_Button = (props: Sb_Unstable_ButtonProps) => (
+  <Unstable_Button {...props} />
+);
 
 export default {
-  title: '@ps/Button',
-  component: SbButton,
-  excludeStories: ['SbButton'],
+  title: '@ps/Unstable_Button',
+  component: Sb_Unstable_Button,
+  excludeStories: ['Sb_Unstable_Button'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
     startIcon: {
       control: 'select',
-      options: ['undefined', 'ChevronDown'],
+      options: ['undefined', 'ChevronDown', 'AlertCircle'],
       mapping: {
         undefined: undefined,
         ChevronDown: <ChevronDown />,
+        AlertCircle: <AlertCircle />,
       },
     },
     endIcon: {
       control: 'select',
-      options: ['undefined', 'ChevronDown'],
+      options: ['undefined', 'ChevronDown', 'AlertCircle'],
       mapping: {
         undefined: undefined,
         ChevronDown: <ChevronDown />,
+        AlertCircle: <AlertCircle />,
       },
     },
   },
@@ -47,9 +52,16 @@ export default {
   },
 } as Meta;
 
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Unstable_Button {...args} />;
 
-export const Configurable: Story = Template.bind({});
+export const Default: Story = Template.bind({});
+Default.storyName = '(default)';
+
+export const SparkThemeProvider: Story = Template.bind({});
+SparkThemeProvider.decorators = [sparkThemeProvider];
+SparkThemeProvider.storyName = '(SparkThemeProvider)';
+
+// export const Configurable: Story = Template.bind({});
 
 const GridContainer = (props) => (
   <Box
@@ -69,104 +81,154 @@ const VariantAndSizeTemplate = (args) => (
     <span>Medium</span>
     <span>Small</span>
 
-    <span>Contained</span>
+    <span>Primary</span>
     <span>
-      <Button {...args} variant="contained" size="large">
+      <Unstable_Button {...args} variant="primary" size="large">
         Label
-      </Button>
+      </Unstable_Button>
     </span>
     <span>
-      <Button {...args} variant="contained" size="medium">
+      <Unstable_Button {...args} variant="primary" size="medium">
         Label
-      </Button>
+      </Unstable_Button>
     </span>
     <span>
-      <Button {...args} variant="contained" size="small">
+      <Unstable_Button {...args} variant="primary" size="small">
         Label
-      </Button>
-    </span>
-
-    <span>Outlined</span>
-    <span>
-      <Button {...args} variant="outlined" size="large">
-        Label
-      </Button>
-    </span>
-    <span>
-      <Button {...args} variant="outlined" size="medium">
-        Label
-      </Button>
-    </span>
-    <span>
-      <Button {...args} variant="outlined" size="small">
-        Label
-      </Button>
+      </Unstable_Button>
     </span>
 
-    <span>Text</span>
+    <span>Stroked</span>
     <span>
-      <Button {...args} variant="text" size="large">
+      <Unstable_Button {...args} variant="stroked" size="large">
         Label
-      </Button>
+      </Unstable_Button>
     </span>
     <span>
-      <Button {...args} variant="text" size="medium">
+      <Unstable_Button {...args} variant="stroked" size="medium">
         Label
-      </Button>
+      </Unstable_Button>
     </span>
     <span>
-      <Button {...args} variant="text" size="small">
+      <Unstable_Button {...args} variant="stroked" size="small">
         Label
-      </Button>
+      </Unstable_Button>
+    </span>
+
+    <span>Ghost</span>
+    <span>
+      <Unstable_Button {...args} variant="ghost" size="large">
+        Label
+      </Unstable_Button>
+    </span>
+    <span>
+      <Unstable_Button {...args} variant="ghost" size="medium">
+        Label
+      </Unstable_Button>
+    </span>
+    <span>
+      <Unstable_Button {...args} variant="ghost" size="small">
+        Label
+      </Unstable_Button>
+    </span>
+    <span>Destructive</span>
+    <span>
+      <Unstable_Button {...args} variant="destructive" size="large">
+        Label
+      </Unstable_Button>
+    </span>
+    <span>
+      <Unstable_Button {...args} variant="destructive" size="medium">
+        Label
+      </Unstable_Button>
+    </span>
+    <span>
+      <Unstable_Button {...args} variant="destructive" size="small">
+        Label
+      </Unstable_Button>
     </span>
   </GridContainer>
 );
 
+// No Icon
 export const VariantAndSize: Story = VariantAndSizeTemplate.bind({});
-
-export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeDisabled.args = { disabled: true };
 
 export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
-export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeFocus.parameters = { pseudo: { focus: true } };
-
 export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
 
+export const VariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind({});
+VariantAndSizeExpanded.args = { 'aria-expanded': true };
+
+export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
+VariantAndSizeDisabled.args = { disabled: true };
+
+export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
+VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
+
+// Leading/start Icon variations
 export const StartIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSize.args = { startIcon: 'ChevronDown' };
+StartIconVariantAndSize.args = { startIcon: 'AlertCircle' };
+
+export const StartIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeHover.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
+
+export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeActive.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
+
+export const StartIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+StartIconVariantAndSizeExpanded.args = {
+  startIcon: 'AlertCircle',
+  'aria-expanded': true,
+};
 
 export const StartIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
   {}
 );
 StartIconVariantAndSizeDisabled.args = {
   disabled: true,
-  startIcon: 'ChevronDown',
+  startIcon: 'AlertCircle',
 };
-
-export const StartIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeHover.args = { startIcon: 'ChevronDown' };
-StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
 export const StartIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
-StartIconVariantAndSizeFocus.args = { startIcon: 'ChevronDown' };
-StartIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
+StartIconVariantAndSizeFocus.args = { startIcon: 'AlertCircle' };
+StartIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
 
-export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeActive.args = { startIcon: 'ChevronDown' };
-StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
-
+// Trailing/end Icon variations
 export const EndIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
 EndIconVariantAndSize.args = { endIcon: 'ChevronDown' };
+
+export const EndIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeExpanded.args = {
+  endIcon: 'ChevronDown',
+  'aria-expanded': true,
+};
+
+export const EndIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeHover.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
+
+export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+EndIconVariantAndSizeActive.args = { endIcon: 'ChevronDown' };
+EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
 
 export const EndIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
   {}
@@ -176,20 +238,8 @@ EndIconVariantAndSizeDisabled.args = {
   endIcon: 'ChevronDown',
 };
 
-export const EndIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeHover.args = { endIcon: 'ChevronDown' };
-EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
-
 export const EndIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
   {}
 );
 EndIconVariantAndSizeFocus.args = { endIcon: 'ChevronDown' };
-EndIconVariantAndSizeFocus.parameters = { pseudo: { focus: true } };
-
-export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeActive.args = { endIcon: 'ChevronDown' };
-EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
+EndIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };

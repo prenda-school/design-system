@@ -39,7 +39,7 @@ const buttonFontVariantSmall = buildVariant(
   14,
   16,
   undefined,
-  undefined,
+  'none',
   '"Inter", sans-serif',
   "'cv05' 1, 'ss03' 1"
 );
@@ -48,7 +48,7 @@ const buttonFontVariantMedium = buildVariant(
   16,
   24,
   undefined,
-  undefined,
+  'none',
   '"Inter", sans-serif',
   "'cv05' 1, 'ss03' 1"
 );
@@ -57,7 +57,7 @@ const buttonFontVariantLarge = buildVariant(
   18,
   24,
   undefined,
-  undefined,
+  'none',
   '"Inter", sans-serif',
   "'cv05' 1, 'ss03' 1"
 );
@@ -105,7 +105,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
         },
-        '&.Mui-focusVisible, &:focus': {
+        '&.Mui-focusVisible, &:focus-visible': {
           boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
         },
       }),
@@ -142,6 +142,9 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&:active': {
           backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
         },
+        '&[aria-expanded="true"]': {
+          backgroundColor: theme.unstable_palette.neutral[600],
+        },
         // TODO Loading
         '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
@@ -168,7 +171,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       display: 'inherit',
       // -2px accounts for label vs icon size difference
       // have to specify individually to override defaults
-      marginTop: '-2px',
+      margin: '-2px',
       marginBottom: '-2px',
       marginRight: '8px',
       marginLeft: 0,
@@ -178,8 +181,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         lineHeight: theme.typography.pxToRem(16),
       }),
       ...(props.size === 'medium' && {
-        fontSize: theme.typography.pxToRem(20),
-        lineHeight: theme.typography.pxToRem(20),
+        fontSize: theme.typography.pxToRem(24),
+        lineHeight: theme.typography.pxToRem(24),
       }),
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
@@ -200,8 +203,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         lineHeight: theme.typography.pxToRem(16),
       }),
       ...(props.size === 'medium' && {
-        fontSize: theme.typography.pxToRem(20),
-        lineHeight: theme.typography.pxToRem(20),
+        fontSize: theme.typography.pxToRem(24),
+        lineHeight: theme.typography.pxToRem(24),
       }),
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
