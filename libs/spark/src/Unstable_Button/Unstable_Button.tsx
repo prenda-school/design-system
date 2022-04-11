@@ -172,33 +172,33 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       lineHeight: 'inherit',
       ...(props.variant === 'primary' && {
         color: theme.palette.common.white,
-        ':disabled > & ': {
+        ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
-        },
+        }),
       }),
       ...(props.variant === 'stroked' && {
         color: theme.unstable_palette.brand.blue,
         '[aria-expanded="true"] > & ': {
           color: theme.palette.common.white,
         },
-        ':disabled > & ': {
+        ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
-        },
+        }),
       }),
       ...(props.variant === 'ghost' && {
         color: theme.unstable_palette.brand.blue,
         '[aria-expanded="true"] > & ': {
           color: theme.palette.common.white,
         },
-        ':disabled > & ': {
+        ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
-        },
+        }),
       }),
       ...(props.variant === 'destructive' && {
         color: theme.palette.common.white,
-        ':disabled > & ': {
+        ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
-        },
+        }),
       }),
     }),
     startIcon: (props: Unstable_ButtonProps) => ({
