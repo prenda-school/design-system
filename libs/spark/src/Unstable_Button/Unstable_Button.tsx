@@ -102,7 +102,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
       }),
       ...(props.variant === 'stroked' && {
-        border: `1px solid ${theme.unstable_palette.neutral[90]}`,
+        borderColor: `${theme.unstable_palette.neutral[90]}`,
         backgroundColor: theme.palette.common.white,
         '&:hover': {
           backgroundColor: theme.unstable_palette.neutral[70],
