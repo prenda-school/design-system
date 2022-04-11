@@ -82,6 +82,38 @@ _This section details previews of breaking changes or experimental features that
     - `filled`: Removed.
     - `margin`: Removed.
     - `variant`: Removed.
+- **Unstable_Button**
+  - Initial implementation of **Button** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"label"`, `"startIcon"`, and `"endIcon"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"label"`, `"startIcon"`, and `"endIcon"`_.
+    - `color`: Removed.
+    - `disableElevation`: Removed.
+    - `disableFocusRipple`: Removed.
+    - `disableRipple`: Removed.
+    - `disableTouchRipple`: Removed.
+    - `centerRipple`: Removed.
+    - `focusRipple`: Removed.
+    - `TouchRippleProps`: Removed.
+    - `variant`:
+      - Previous options: `text`, `outlined` and `contained`.
+      - New options: `primary`, `stroked`, `ghost`, and `destructive`.
+        - Only `destructive` is new, the others were renamed.
+  - Planned Migration from current `Button`:
+    - `color={*}` -> _removed_
+    - `disableElevation={*}` -> _removed_
+    - `disableFocusRipple={*}` -> _removed_
+    - `disableRipple={*}` -> _removed_
+    - `disableTouchRipple={*}` -> _removed_
+    - `centerRipple={*}` -> _removed_
+    - `focusRipple={*}` -> _removed_
+    - `TouchRippleProps={*}` -> _removed_
+    - "variant" prop:
+      - `"contained"` -> `"primary"`
+      - `"text"` -> `"ghost"`
+      - `"outlined"` -> `"stroked"`
 - **Unstable_Input**
   - Initial implementation of **Input** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
