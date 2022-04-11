@@ -51,8 +51,6 @@ export const SparkThemeProvider: Story = Template.bind({});
 SparkThemeProvider.decorators = [sparkThemeProvider];
 SparkThemeProvider.storyName = '(SparkThemeProvider)';
 
-// export const Configurable: Story = Template.bind({});
-
 const GridContainer = (props) => (
   <Box
     m={1}
@@ -142,6 +140,13 @@ const VariantAndSizeTemplate = (args) => (
 
 // No Icon
 export const VariantAndSize: Story = VariantAndSizeTemplate.bind({});
+
+export const VariantAndSizeSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+VariantAndSizeSparkThemeProvider.decorators = [sparkThemeProvider];
+VariantAndSizeSparkThemeProvider.storyName =
+  '(VariantAndSize - SparkThemeProvider)';
 
 export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
