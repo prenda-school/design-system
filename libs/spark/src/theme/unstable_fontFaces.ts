@@ -72,6 +72,22 @@ const interItalic: CSS.AtRule.FontFace = {
   src: buildSrc('inter-italic'),
 };
 
+const interMedium: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: buildSrc('inter-medium'),
+};
+
+const interMediumItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"Inter"',
+  fontStyle: 'italic',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: buildSrc('inter-mediumitalic'),
+};
+
 const interSemibold: CSS.AtRule.FontFace = {
   fontFamily: '"Inter"',
   fontStyle: 'normal',
@@ -129,6 +145,8 @@ const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsSemiboldItalic,
   interRegular,
   interItalic,
+  interMedium,
+  interMediumItalic,
   interSemibold,
   interSemiboldItalic,
   interBold,

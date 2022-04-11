@@ -214,6 +214,9 @@ export * from './NavBar';
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
 
+export { default as Unstable_Button } from './Unstable_Button';
+export * from './Unstable_Button';
+
 export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
