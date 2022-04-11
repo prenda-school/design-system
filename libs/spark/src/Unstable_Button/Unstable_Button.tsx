@@ -143,9 +143,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
-          '& span': {
-            color: theme.palette.common.white,
-          },
         },
         '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
