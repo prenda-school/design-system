@@ -152,6 +152,11 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
           color: theme.unstable_palette.neutral[100],
         },
       }),
+    }),
+
+    label: (props: Unstable_ButtonProps) => ({
+      marginTop: 2,
+      marginBottom: -2, // shift text baseline down
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
         padding: '8px 16px',
@@ -164,12 +169,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         ...buttonFontVariantLarge,
         padding: '20px 32px',
       }),
-    }),
 
-    label: (props: Unstable_ButtonProps) => ({
-      color: 'inherit',
-      fontSize: 'inherit',
-      lineHeight: 'inherit',
       ...(props.variant === 'primary' && {
         color: theme.palette.common.white,
         ...(props.disabled && {
@@ -202,48 +202,36 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       }),
     }),
     startIcon: (props: Unstable_ButtonProps) => ({
-      display: 'inherit',
-      // -2px accounts for label vs icon size difference
-      // have to specify individually to override defaults
-      margin: '-2px',
-      marginBottom: '-2px',
-      marginRight: '8px',
-      marginLeft: 0,
+      marginTop: -2, // shift icon baseline up
+      marginRight: 8,
       color: 'inherit',
+      lineHeight: 1,
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
-        lineHeight: theme.typography.pxToRem(16),
       }),
       ...(props.size === 'medium' && {
         fontSize: theme.typography.pxToRem(24),
-        lineHeight: theme.typography.pxToRem(24),
       }),
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
-        lineHeight: theme.typography.pxToRem(24),
       }),
+      '& > :first-child': { fontSize: 'inherit' },
     }),
     endIcon: (props: Unstable_ButtonProps) => ({
-      display: 'inherit',
-      // -2px accounts for label vs icon size difference
-      // have to specify individually to override defaults
-      marginTop: '-2px',
-      marginBottom: '-2px',
-      marginLeft: '8px',
-      marginRight: 0,
+      marginTop: -2, // shift icon baseline up
+      marginLeft: 8,
       color: 'inherit',
+      lineHeight: 1,
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
-        lineHeight: theme.typography.pxToRem(16),
       }),
       ...(props.size === 'medium' && {
         fontSize: theme.typography.pxToRem(24),
-        lineHeight: theme.typography.pxToRem(24),
       }),
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
-        lineHeight: theme.typography.pxToRem(24),
       }),
+      '& > :first-child': { fontSize: 'inherit' },
     }),
   }),
   { name: 'MuiSparkUnstable_Button' }
