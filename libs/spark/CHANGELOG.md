@@ -98,8 +98,8 @@ _This section details previews of breaking changes or experimental features that
     - `focusRipple`: Removed.
     - `TouchRippleProps`: Removed.
     - `variant`:
-      - Previous options: `text`, `outlined` and `contained`.
-      - New options: `primary`, `stroked`, `ghost`, and `destructive`.
+      - Removed values: `contained`, `outlined`, `text`.
+      - Added values: `primary`, `stroked`, `ghost`, `destructive`.
         - Only `destructive` is new, the others were renamed.
   - Planned Migration from current `Button`:
     - `color={*}` -> _removed_
