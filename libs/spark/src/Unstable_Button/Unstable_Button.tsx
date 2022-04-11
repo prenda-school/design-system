@@ -94,7 +94,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        '&$disabled': {
+        '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
         },
       }),
@@ -110,7 +110,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        '&$disabled': {
+        '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
         },
@@ -126,11 +126,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
         },
-        '&$disabled': {
+        '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
-        },
-        '&.Mui-focusVisible, &:focus-visible': {
-          backgroundColor: theme.palette.common.white,
         },
       }),
       ...(props.variant === 'destructive' && {
@@ -144,8 +141,11 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
         '&[aria-expanded="true"]': {
           backgroundColor: theme.unstable_palette.neutral[600],
+          '& span': {
+            color: theme.palette.common.white,
+          },
         },
-        '&$disabled': {
+        '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
           color: theme.unstable_palette.neutral[100],
         },
@@ -170,28 +170,31 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       lineHeight: 'inherit',
       ...(props.variant === 'primary' && {
         color: theme.palette.common.white,
-        '&$disabled': {
+        ':disabled > & ': {
           color: theme.unstable_palette.neutral[100],
         },
       }),
       ...(props.variant === 'stroked' && {
         color: theme.unstable_palette.brand.blue,
-        '&[aria-expanded="true"]': {
+        '[aria-expanded="true"] > & ': {
           color: theme.palette.common.white,
+        },
+        ':disabled > & ': {
+          color: theme.unstable_palette.neutral[100],
         },
       }),
       ...(props.variant === 'ghost' && {
         color: theme.unstable_palette.brand.blue,
-        '&[aria-expanded="true"]': {
+        '[aria-expanded="true"] > & ': {
           color: theme.palette.common.white,
         },
-        '&$disabled': {
+        ':disabled > & ': {
           color: theme.unstable_palette.neutral[100],
         },
       }),
       ...(props.variant === 'destructive' && {
         color: theme.palette.common.white,
-        '&$disabled': {
+        ':disabled > & ': {
           color: theme.unstable_palette.neutral[100],
         },
       }),
