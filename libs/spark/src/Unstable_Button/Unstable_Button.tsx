@@ -248,12 +248,13 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
   function Unstable_Button(props, ref) {
     const {
       classes: classesProp,
+      disabled,
       variant = 'primary',
       size = 'medium',
       ...other
     } = props;
 
-    const classes = useStyles({ variant, size });
+    const classes = useStyles({ disabled, variant, size });
 
     return (
       <MuiButton
@@ -263,6 +264,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
           endIcon: clsx(classes.endIcon, classesProp?.endIcon),
           label: clsx(classes.label, classesProp?.label),
         }}
+        disabled={disabled}
         disableFocusRipple
         disableRipple
         disableTouchRipple
