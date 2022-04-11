@@ -110,10 +110,9 @@ _This section details previews of breaking changes or experimental features that
     - `centerRipple` -> _removed_
     - `focusRipple` -> _removed_
     - `TouchRippleProps={*}` -> _removed_
-    - "variant" prop:
-      - `"contained"` -> `"primary"`
-      - `"text"` -> `"ghost"`
-      - `"outlined"` -> `"stroked"`
+    - `variant="contained"` -> `variant="primary"`
+    - `variant="outlined"` -> `variant="stroked"`
+    - `variant="text"` -> `variant="ghost"`
 - **Unstable_Input**
   - Initial implementation of **Input** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
