@@ -103,12 +103,12 @@ _This section details previews of breaking changes or experimental features that
         - Only `destructive` is new, the others were renamed.
   - Planned Migration from current `Button`:
     - `color={*}` -> _removed_
-    - `disableElevation={*}` -> _removed_
-    - `disableFocusRipple={*}` -> _removed_
-    - `disableRipple={*}` -> _removed_
-    - `disableTouchRipple={*}` -> _removed_
-    - `centerRipple={*}` -> _removed_
-    - `focusRipple={*}` -> _removed_
+    - `disableElevation` -> _removed_
+    - `disableFocusRipple` -> _removed_
+    - `disableRipple` -> _removed_
+    - `disableTouchRipple` -> _removed_
+    - `centerRipple` -> _removed_
+    - `focusRipple` -> _removed_
     - `TouchRippleProps={*}` -> _removed_
     - "variant" prop:
       - `"contained"` -> `"primary"`
