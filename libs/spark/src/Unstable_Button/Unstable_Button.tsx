@@ -80,9 +80,9 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
       borderColor: 'transparent',
+      borderRadius: 4,
       borderStyle: 'solid',
       borderWidth: 1,
-      borderRadius: 4,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
@@ -103,10 +103,10 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       }),
       ...(props.variant === 'stroked' && {
         borderColor: `${theme.unstable_palette.neutral[90]}`,
-        backgroundColor: theme.palette.common.white,
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
+        backgroundColor: 'transparent', // theme.palette.common.white,
+        // '&:hover': {
+        //   backgroundColor: theme.unstable_palette.neutral[70],
+        // },
         '&:active': {
           backgroundColor: theme.unstable_palette.blue[100],
         },
@@ -165,16 +165,23 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     }),
 
     label: (props: Unstable_ButtonProps) => ({
-      marginTop: 2,
-      marginBottom: -2, // shift text baseline down
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
+        // part of re-aligning text baseline -- shift label down
+        marginTop: 1,
+        marginBottom: -1,
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
+        // part of re-aligning text baseline -- shift label down
+        marginTop: 2,
+        marginBottom: -2,
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
+        // part of re-aligning text baseline -- shift label down
+        marginTop: 2,
+        marginBottom: -2,
       }),
 
       ...(props.variant === 'primary' && {
@@ -209,10 +216,11 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       }),
     }),
     startIcon: (props: Unstable_ButtonProps) => ({
-      marginTop: -2, // shift icon baseline up
-      marginRight: 8,
       color: 'inherit',
       lineHeight: 1,
+      marginRight: 8,
+      // part of re-aligning text baseline -- shift icon baseline up
+      marginTop: -2,
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -225,10 +233,11 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       '& > :first-child': { fontSize: 'inherit' },
     }),
     endIcon: (props: Unstable_ButtonProps) => ({
-      marginTop: -2, // shift icon baseline up
-      marginLeft: 8,
       color: 'inherit',
       lineHeight: 1,
+      marginLeft: 8,
+      // part of re-aligning text baseline -- shift icon baseline up
+      marginTop: -2,
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
