@@ -152,6 +152,16 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
           color: theme.unstable_palette.neutral[100],
         },
       }),
+
+      ...(props.size === 'small' && {
+        padding: '8px 16px',
+      }),
+      ...(props.size === 'medium' && {
+        padding: '12px 24px',
+      }),
+      ...(props.size === 'large' && {
+        padding: '20px 32px',
+      }),
     }),
 
     label: (props: Unstable_ButtonProps) => ({
@@ -159,15 +169,12 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       marginBottom: -2, // shift text baseline down
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
-        padding: '8px 16px',
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
-        padding: '12px 24px',
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
-        padding: '20px 32px',
       }),
 
       ...(props.variant === 'primary' && {
