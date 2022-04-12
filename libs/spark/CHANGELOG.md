@@ -66,22 +66,6 @@ _This section details previews of breaking changes or experimental features that
 - **unstable_fontFaces**
   - Removed reference to `.woff` files.
   - New asset paths are expected to be served by the corresponding application server. Consumers should copy-paste the contents of `libs/spark/public/pds-assets-v1` into their application so they are served at the root path of their URL.
-- **Unstable_CssBaseline**
-  - Initial implementation of **CssBaseline** replacement according to PDS v2.
-  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
-- **Unstable_FontFacesBaseline**
-  - Initial implementation of **FontFacesBaseline** replacement according to PDS v2.
-  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
-- **Unstable_FormHelperText**
-  - Initial implementation of **FormHelperText** replacement according to PDS v2.
-  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
-  - CSS API Changes:
-    - Removed all class keys _except `"root"`_.
-  - Props API Changes:
-    - `classes`: Removed all class keys _except `"root"`_.
-    - `filled`: Removed.
-    - `margin`: Removed.
-    - `variant`: Removed.
 - **Unstable_Button**
   - Initial implementation of **Button** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -113,6 +97,22 @@ _This section details previews of breaking changes or experimental features that
     - `variant="contained"` -> `variant="primary"`
     - `variant="outlined"` -> `variant="stroked"`
     - `variant="text"` -> `variant="ghost"`
+- **Unstable_CssBaseline**
+  - Initial implementation of **CssBaseline** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+- **Unstable_FontFacesBaseline**
+  - Initial implementation of **FontFacesBaseline** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+- **Unstable_FormHelperText**
+  - Initial implementation of **FormHelperText** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`_.
+    - `filled`: Removed.
+    - `margin`: Removed.
+    - `variant`: Removed.
 - **Unstable_Input**
   - Initial implementation of **Input** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
