@@ -66,6 +66,37 @@ _This section details previews of breaking changes or experimental features that
 - **unstable_fontFaces**
   - Removed reference to `.woff` files.
   - New asset paths are expected to be served by the corresponding application server. Consumers should copy-paste the contents of `libs/spark/public/pds-assets-v1` into their application so they are served at the root path of their URL.
+- **Unstable_Button**
+  - Initial implementation of **Button** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"label"`, `"startIcon"`, and `"endIcon"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"label"`, `"startIcon"`, and `"endIcon"`_.
+    - `color`: Removed.
+    - `disableElevation`: Removed.
+    - `disableFocusRipple`: Removed.
+    - `disableRipple`: Removed.
+    - `disableTouchRipple`: Removed.
+    - `centerRipple`: Removed.
+    - `focusRipple`: Removed.
+    - `TouchRippleProps`: Removed.
+    - `variant`:
+      - Removed values: `contained`, `outlined`, `text`.
+      - Added values: `primary`, `stroked`, `ghost`, `destructive`.
+        - Only `destructive` is new, the others were renamed.
+  - Planned Migration from current `Button`:
+    - `color={*}` -> _removed_
+    - `disableElevation` -> _removed_
+    - `disableFocusRipple` -> _removed_
+    - `disableRipple` -> _removed_
+    - `disableTouchRipple` -> _removed_
+    - `centerRipple` -> _removed_
+    - `focusRipple` -> _removed_
+    - `TouchRippleProps={*}` -> _removed_
+    - `variant="contained"` -> `variant="primary"`
+    - `variant="outlined"` -> `variant="stroked"`
+    - `variant="text"` -> `variant="ghost"`
 - **Unstable_CssBaseline**
   - Initial implementation of **CssBaseline** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
