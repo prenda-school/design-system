@@ -1,3 +1,4 @@
+import React from 'react';
 import type { SelectProps, SelectClassKey } from './Select';
 import { ChevronDown } from '../internal';
 import type { Theme } from '../theme';
