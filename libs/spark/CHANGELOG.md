@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.4...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- **Select**
+  - React compiler warning that "react" was not in scope for necessary transformation in theme defaults file.
+
 ## [v1.0.0-alpha.4](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-04-15)
 
 ### Features
