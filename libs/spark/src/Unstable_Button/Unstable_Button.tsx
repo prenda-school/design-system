@@ -109,6 +109,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
       }),
       ...(props.variant === 'stroked' && {
+        // double specificity to override v1 theme style
         '&&': {
           borderColor: `${theme.unstable_palette.neutral[90]}`,
         },
