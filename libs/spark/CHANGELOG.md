@@ -8,6 +8,7 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_Select**
   - When `multiple={true}`, the values are rendered as tags (using `Unstable_Tag`).
+  - Fix value text overlapping with start adornment.
   - Props API Changes:
     - `getTapProps`: added for customizing the props for each rendered tag when `multiple={true}`.
 - **Unstable_Tag**
