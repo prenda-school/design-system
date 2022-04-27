@@ -89,7 +89,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
-      // Double specificity to override V1 theme style
+      // override V1 theme style
       '&&:disabled': {
         opacity: 'unset',
       },
