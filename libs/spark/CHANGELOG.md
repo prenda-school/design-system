@@ -6,6 +6,10 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Select**
+  - When `multiple={true}`, the values are rendered as tags (using `Unstable_Tag`).
+  - Props API Changes:
+    - `getTapProps`: added for customizing the props for each rendered tag when `multiple={true}`.
 - **Unstable_Tag**
   - Initial implementation of `Tag` replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
