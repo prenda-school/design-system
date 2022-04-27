@@ -79,12 +79,19 @@ const buttonFontVariantLarge = buildVariant(
 const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
-      borderColor: 'transparent',
+      // Double specificity to override V1 theme style
+      '&&': {
+        borderColor: 'transparent',
+      },
       borderRadius: 4,
       borderStyle: 'solid',
       borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      },
+      // Double specificity to override V1 theme style
+      '&&:disabled': {
+        opacity: 'unset',
       },
       ...(props.variant === 'primary' && {
         backgroundColor: theme.unstable_palette.brand.blue,
@@ -102,11 +109,13 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
       }),
       ...(props.variant === 'stroked' && {
-        borderColor: `${theme.unstable_palette.neutral[90]}`,
-        backgroundColor: 'transparent', // theme.palette.common.white,
-        // '&:hover': {
-        //   backgroundColor: theme.unstable_palette.neutral[70],
-        // },
+        '&&': {
+          borderColor: `${theme.unstable_palette.neutral[90]}`,
+        },
+        backgroundColor: 'transparent',
+        '&:hover': {
+          backgroundColor: theme.unstable_palette.neutral[70],
+        },
         '&:active': {
           backgroundColor: theme.unstable_palette.blue[100],
         },
@@ -195,6 +204,9 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
         }),
+        '&:hover > & ': {
+          color: theme.palette.common.white,
+        },
       }),
       ...(props.variant === 'ghost' && {
         color: theme.unstable_palette.brand.blue,
