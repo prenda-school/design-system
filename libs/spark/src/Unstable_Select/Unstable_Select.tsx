@@ -12,7 +12,7 @@ import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import { Unstable_ChevronDown } from '../internal';
 import { Theme } from '../theme';
-import Unstable_Tag from '../Unstable_Tag';
+import Unstable_Tag, { Unstable_TagProps } from '../Unstable_Tag';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
   export const styles: (
@@ -52,10 +52,16 @@ export interface Unstable_SelectProps
       | 'SelectDisplayProps'
       | 'value'
     > {
-  // /**
-  //  * Whether the selected values should be rendered as Tag components.
-  //  */
-  // renderTags?: boolean;
+  /**
+   * A tag props getter. Use to customize the props of `Unstable_Tag`'s rendered when `multiple={true}`.
+   */
+  getTagProps?: ({
+    value,
+    index,
+  }: {
+    value: MuiSelectProps['value'];
+    index: number;
+  }) => Unstable_TagProps;
 }
 
 export type Unstable_SelectClassKey =
@@ -129,6 +135,7 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
     classes: classesProp,
     disabled,
     displayEmpty = true,
+    getTagProps,
     IconComponent = Unstable_ChevronDown,
     id,
     input,
@@ -169,9 +176,14 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
       if (selected.length) {
         return (
           <div>
-            {selected.map((value) => (
-              // can't make deletable because Select's `onChange` isn't extensible enough
-              <Unstable_Tag key={value} label={value} disabled={disabled} />
+            {selected.map((value, index) => (
+              // can't make deletable because Select's `onChange` isn't extensible enough; but consumer can implement custom logic through `getTagProps`
+              <Unstable_Tag
+                key={value}
+                label={value}
+                disabled={disabled}
+                {...(getTagProps && getTagProps({ value, index }))}
+              />
             ))}
           </div>
         );

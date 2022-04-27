@@ -38,6 +38,14 @@ export default {
   excludeStories: ['Sb_Unstable_Select'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
+    getTagProps: {
+      control: 'select',
+      options: ['undefined', 'getValueLabels'],
+      mapping: {
+        undefined: undefined,
+        getValueLabels: () => ({ label: 'Label' }),
+      },
+    },
     leadingEl: {
       control: 'select',
       options: ['undefined', 'Home'],
@@ -122,3 +130,11 @@ MultipleValuesDisabled.args = {
   disabled: true,
 };
 MultipleValuesDisabled.storyName = 'multiple value=[...] disabled';
+
+export const MultipleValuesGetTagProps: Story = Template.bind({});
+MultipleValuesGetTagProps.args = {
+  value: ['Value', 'Value 2', 'Value 3'],
+  multiple: true,
+  getTagProps: 'getValueLabels',
+};
+MultipleValuesGetTagProps.storyName = 'multiple value=[...] getTagProps';
