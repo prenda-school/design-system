@@ -2,9 +2,10 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...vNext) (yyyy-mm-dd)
 
-- **Unstable_Button**
-  - Update styling on Unstable button to match Figma mockups. Required overriding the SparkThemeProvider styles.
+### Fixes
 
+- **Unstable_Button**
+  - Override conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) for pseudo states like hover, disabled, etc.
 ## [v1.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-04-25)
 
 ### Fixes
