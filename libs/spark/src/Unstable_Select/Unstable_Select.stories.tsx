@@ -56,8 +56,12 @@ export default {
 
 const Template = (args) => (
   <Unstable_Select {...args}>
-    <MenuItem value="" />
     <MenuItem value="Value">Value</MenuItem>
+    <MenuItem value="Value 2">Value 2</MenuItem>
+    <MenuItem value="Value 3">Value 3</MenuItem>
+    <MenuItem value="Value 4">Value 4</MenuItem>
+    <MenuItem value="Value 5">Value 5</MenuItem>
+    <MenuItem value="Value 6">Value 6</MenuItem>
   </Unstable_Select>
 );
 
@@ -96,3 +100,25 @@ LeadingEl.storyName = 'leadingEl';
 export const Success: Story = Template.bind({});
 Success.args = { success: true };
 Success.storyName = 'success';
+
+export const Multiple: Story = Template.bind({});
+Multiple.args = {
+  value: [],
+  multiple: true,
+};
+Multiple.storyName = 'multiple value=[]';
+
+export const MultipleValues: Story = Template.bind({});
+MultipleValues.args = {
+  value: ['Value', 'Value 2'],
+  multiple: true,
+};
+MultipleValues.storyName = 'multiple value=[...]';
+
+export const MultipleValuesDisabled: Story = Template.bind({});
+MultipleValuesDisabled.args = {
+  value: ['Value', 'Value 2'],
+  multiple: true,
+  disabled: true,
+};
+MultipleValuesDisabled.storyName = 'multiple value=[...] disabled';

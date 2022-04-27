@@ -63,14 +63,26 @@ const Template = (args) => {
   return (
     <Unstable_TextField {...args}>
       {args.select
-        ? [
-            <MenuItem key={1} value="">
-              {args.placeholder ? 'Placeholder' : null}
-            </MenuItem>,
-            <MenuItem key={2} value="Value">
-              Value
-            </MenuItem>,
-          ]
+        ? args.placeholder
+          ? [
+              <MenuItem key={1} value="">
+                Placeholder
+              </MenuItem>,
+              <MenuItem key={2} value="Value">
+                Value
+              </MenuItem>,
+              <MenuItem key={3} value="Value 2">
+                Value 2
+              </MenuItem>,
+            ]
+          : [
+              <MenuItem key={1} value="Value">
+                Value
+              </MenuItem>,
+              <MenuItem key={2} value="Value 2">
+                Value 2
+              </MenuItem>,
+            ]
         : undefined}
     </Unstable_TextField>
   );
@@ -316,3 +328,29 @@ LabelHelperTextSelectValueSuccess.args = {
 };
 LabelHelperTextSelectValueSuccess.storyName =
   'label helperText select value success';
+
+export const LabelHelperTextSelectMultiple: Story = Template.bind({});
+LabelHelperTextSelectMultiple.args = {
+  label: 'Label',
+  helperText: 'Helper text',
+  value: [],
+  select: true,
+  SelectProps: {
+    multiple: true,
+  },
+};
+LabelHelperTextSelectMultiple.storyName =
+  'label helperText select multiple value=[]';
+
+export const LabelHelperTextSelectMultipleValues: Story = Template.bind({});
+LabelHelperTextSelectMultipleValues.args = {
+  label: 'Label',
+  helperText: 'Helper text',
+  value: ['Value', 'Value 2'],
+  select: true,
+  SelectProps: {
+    multiple: true,
+  },
+};
+LabelHelperTextSelectMultipleValues.storyName =
+  'label helperText select multiple value=[...]';
