@@ -105,6 +105,10 @@ export const LeadingEl: Story = Template.bind({});
 LeadingEl.args = { leadingEl: 'Home' };
 LeadingEl.storyName = 'leadingEl';
 
+export const LeadingElValue: Story = Template.bind({});
+LeadingElValue.args = { leadingEl: 'Home', value: 'Value' };
+LeadingElValue.storyName = 'leadingEl value';
+
 export const Success: Story = Template.bind({});
 Success.args = { success: true };
 Success.storyName = 'success';

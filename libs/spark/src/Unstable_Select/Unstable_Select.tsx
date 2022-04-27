@@ -86,8 +86,9 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
         '&&': {
           paddingRight: 24 + 14 + 4, // override MUI (icon width + right margin + left margin) (requires increased specificity)
         },
-        // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
         '.MuiSparkUnstable_InputAdornment-root ~ &': {
+          paddingLeft: 14 + 24 + 8,
+          // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
           marginLeft: -40,
         },
         ...(props.multiple && {
