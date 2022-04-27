@@ -170,8 +170,10 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
 
   const InputComponent = input || <Unstable_Input />;
 
-  let renderValue = renderValueProp;
-  if (multiple) {
+  let renderValue;
+  if (renderValueProp) {
+    renderValue = renderValueProp;
+  } else if (multiple) {
     renderValue = (selected: string[]) => {
       if (selected.length) {
         return (
