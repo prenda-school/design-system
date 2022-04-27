@@ -30,10 +30,9 @@ export default {
   argTypes: {
     icon: {
       control: 'select',
-      options: ['undefined', '$', 'Filter'],
+      options: ['undefined', 'Filter'],
       mapping: {
         undefined: undefined,
-        $: '$',
         Filter: <Filter />,
       },
     },
