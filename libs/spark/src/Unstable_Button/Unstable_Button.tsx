@@ -204,9 +204,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         ...(props.disabled && {
           color: theme.unstable_palette.neutral[100],
         }),
-        '&:hover > & ': {
-          color: theme.palette.common.white,
-        },
       }),
       ...(props.variant === 'ghost' && {
         color: theme.unstable_palette.brand.blue,
