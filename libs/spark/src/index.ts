@@ -122,6 +122,12 @@ export * from './MenuItem';
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
 
+export { default as NavBar } from './NavBar';
+export * from './NavBar';
+
+export { default as NavBarButton } from './NavBarButton';
+export * from './NavBarButton';
+
 export { default as Pagination } from './Pagination';
 export * from './Pagination';
 
@@ -210,12 +216,6 @@ export * from './Toolbar';
 
 export { default as Typography } from './Typography';
 export * from './Typography';
-
-export { default as NavBar } from './NavBar';
-export * from './NavBar';
-
-export { default as NavBarButton } from './NavBarButton';
-export * from './NavBarButton';
 
 export { default as Unstable_Button } from './Unstable_Button';
 export * from './Unstable_Button';
