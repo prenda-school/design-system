@@ -48,7 +48,7 @@ export type Unstable_ButtonClassKey =
   | 'endIcon'
   | 'label';
 
-// Extracted as we dont have a unstable_variant
+// extracted since there's not an equivalent typography variant
 const buttonFontVariantSmall = buildVariant(
   500,
   14,
