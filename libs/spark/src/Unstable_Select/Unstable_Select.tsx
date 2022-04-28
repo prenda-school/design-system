@@ -12,6 +12,7 @@ import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import { Unstable_ChevronDown } from '../internal';
 import { Theme } from '../theme';
+import Unstable_Tag, { Unstable_TagProps } from '../Unstable_Tag';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
   export const styles: (
@@ -50,7 +51,18 @@ export interface Unstable_SelectProps
       | 'renderValue'
       | 'SelectDisplayProps'
       | 'value'
-    > {}
+    > {
+  /**
+   * A tag props getter. Use to customize the props of `Unstable_Tag`'s rendered when `multiple={true}`.
+   */
+  getTagProps?: ({
+    value,
+    index,
+  }: {
+    value: MuiSelectProps['value'];
+    index: number;
+  }) => Unstable_TagProps;
+}
 
 export type Unstable_SelectClassKey =
   | 'root'
@@ -61,16 +73,38 @@ export type Unstable_SelectClassKey =
 const useStyles = makeStyles<Unstable_SelectClassKey>(
   (theme) => {
     const styles = nativeSelectStyles(theme);
+    // disabled is no longer a rule
+    delete styles.icon['&$disabled'];
+    delete styles.select['&$disabled'];
+    // most browsers don't recognize this option and JSS warns about caught error (an IE11 fix anyway, which we don't support)
+    delete styles.select['&::-ms-expand'];
     return {
-      root: {
+      root: (props: Unstable_SelectProps) => ({
         ...styles.root,
         ...styles.select,
         ...styles.selectMenu,
-        // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
+        '&&': {
+          paddingRight: 24 + 14 + 4, // override MUI (icon width + right margin + left margin) (requires increased specificity)
+        },
         '.MuiSparkUnstable_InputAdornment-root ~ &': {
+          paddingLeft: 14 + 24 + 8,
+          // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
           marginLeft: -40,
         },
-      },
+        ...(props.multiple && {
+          paddingBottom: 8,
+          paddingTop: 8,
+          '& > div': {
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 8,
+          },
+          '& > .PrivateSelect-multipleNoValue': {
+            paddingBottom: 4,
+            paddingTop: 4,
+          },
+        }),
+      }),
       nativeInput: {
         ...styles.nativeInput,
       },
@@ -87,8 +121,6 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
       iconOpen: {
         ...styles.iconOpen,
       },
-      // necessary key for a rule in nativeSelectStyles
-      disabled: {},
     };
   },
   { name: 'MuiSparkUnstable_Select' }
@@ -102,7 +134,9 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
     autoWidth = false,
     children,
     classes: classesProp,
+    disabled,
     displayEmpty = true,
+    getTagProps,
     IconComponent = Unstable_ChevronDown,
     id,
     input,
@@ -125,18 +159,51 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
     onClose,
     onOpen,
     open,
-    renderValue,
+    renderValue: renderValueProp,
+    value,
     SelectDisplayProps,
     ...other
   } = props;
 
-  const classes = useStyles();
+  const classes = useStyles({ multiple });
 
   const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
 
   const InputComponent = input || <Unstable_Input />;
 
+  let renderValue;
+  if (renderValueProp) {
+    renderValue = renderValueProp;
+  } else if (multiple) {
+    renderValue = (selected: string[]) => {
+      if (selected.length) {
+        return (
+          <div>
+            {selected.map((value, index) => (
+              // can't make deletable because Select's `onChange` isn't extensible enough; but consumer can implement custom logic through `getTagProps`
+              <Unstable_Tag
+                key={value}
+                label={value}
+                disabled={disabled}
+                {...(getTagProps && getTagProps({ value, index }))}
+              />
+            ))}
+          </div>
+        );
+      } else {
+        return (
+          <div
+            className="PrivateSelect-multipleNoValue"
+            // [from MUI] Set `dangerouslySetInnerHTML` so the vertical align positioning algorithm kicks in; otherwise, the component shifts up in positioning because this span is rendered too high.
+            dangerouslySetInnerHTML={{ __html: '&#8203;' }}
+          />
+        );
+      }
+    };
+  }
+
   return React.cloneElement(InputComponent, {
+    disabled,
     inputComponent,
     inputProps: {
       children,
@@ -173,6 +240,7 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
       },
       ...(input ? input.props.inputProps : {}),
     },
+    value,
     ref,
     ...other,
   });

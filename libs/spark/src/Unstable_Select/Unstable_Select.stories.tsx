@@ -38,6 +38,14 @@ export default {
   excludeStories: ['Sb_Unstable_Select'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   argTypes: {
+    getTagProps: {
+      control: 'select',
+      options: ['undefined', 'getValueLabels'],
+      mapping: {
+        undefined: undefined,
+        getValueLabels: () => ({ label: 'Label' }),
+      },
+    },
     leadingEl: {
       control: 'select',
       options: ['undefined', 'Home'],
@@ -56,8 +64,12 @@ export default {
 
 const Template = (args) => (
   <Unstable_Select {...args}>
-    <MenuItem value="" />
     <MenuItem value="Value">Value</MenuItem>
+    <MenuItem value="Value 2">Value 2</MenuItem>
+    <MenuItem value="Value 3">Value 3</MenuItem>
+    <MenuItem value="Value 4">Value 4</MenuItem>
+    <MenuItem value="Value 5">Value 5</MenuItem>
+    <MenuItem value="Value 6">Value 6</MenuItem>
   </Unstable_Select>
 );
 
@@ -93,6 +105,40 @@ export const LeadingEl: Story = Template.bind({});
 LeadingEl.args = { leadingEl: 'Home' };
 LeadingEl.storyName = 'leadingEl';
 
+export const LeadingElValue: Story = Template.bind({});
+LeadingElValue.args = { leadingEl: 'Home', value: 'Value' };
+LeadingElValue.storyName = 'leadingEl value';
+
 export const Success: Story = Template.bind({});
 Success.args = { success: true };
 Success.storyName = 'success';
+
+export const Multiple: Story = Template.bind({});
+Multiple.args = {
+  value: [],
+  multiple: true,
+};
+Multiple.storyName = 'multiple value=[]';
+
+export const MultipleValues: Story = Template.bind({});
+MultipleValues.args = {
+  value: ['Value', 'Value 2'],
+  multiple: true,
+};
+MultipleValues.storyName = 'multiple value=[...]';
+
+export const MultipleValuesDisabled: Story = Template.bind({});
+MultipleValuesDisabled.args = {
+  value: ['Value', 'Value 2'],
+  multiple: true,
+  disabled: true,
+};
+MultipleValuesDisabled.storyName = 'multiple value=[...] disabled';
+
+export const MultipleValuesGetTagProps: Story = Template.bind({});
+MultipleValuesGetTagProps.args = {
+  value: ['Value', 'Value 2', 'Value 3'],
+  multiple: true,
+  getTagProps: 'getValueLabels',
+};
+MultipleValuesGetTagProps.storyName = 'multiple value=[...] getTagProps';
