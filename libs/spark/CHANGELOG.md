@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...vNext) (yyyy-mm-dd)
 
+### Fixes
+
+- **Unstable_Button**
+  - Override conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) for pseudo states like hover, disabled, etc.
+
 ### Unstable Preview
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._

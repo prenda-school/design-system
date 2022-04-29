@@ -151,8 +151,22 @@ VariantAndSizeSparkThemeProvider.storyName =
 export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeHover.parameters = { pseudo: { hover: true } };
 
+export const VariantAndSizeHoverSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+VariantAndSizeHoverSparkThemeProvider.parameters = { pseudo: { hover: true } };
+VariantAndSizeHoverSparkThemeProvider.decorators = [sparkThemeProvider];
+
 export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeActive.parameters = { pseudo: { active: true } };
+
+export const VariantAndSizeActiveSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+VariantAndSizeActiveSparkThemeProvider.parameters = {
+  pseudo: { active: true },
+};
+VariantAndSizeActiveSparkThemeProvider.decorators = [sparkThemeProvider];
 
 export const VariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeExpanded.args = { 'aria-expanded': true };
@@ -160,8 +174,22 @@ VariantAndSizeExpanded.args = { 'aria-expanded': true };
 export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeDisabled.args = { disabled: true };
 
+export const VariantAndSizeDisabledSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+VariantAndSizeDisabledSparkThemeProvider.args = { disabled: true };
+VariantAndSizeDisabledSparkThemeProvider.decorators = [sparkThemeProvider];
+
 export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
 VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
+
+export const VariantAndSizeFocusSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+  {}
+);
+VariantAndSizeFocusSparkThemeProvider.parameters = {
+  pseudo: { focusVisible: true },
+};
+VariantAndSizeFocusSparkThemeProvider.decorators = [sparkThemeProvider];
 
 // Leading/start Icon variations
 export const StartIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
