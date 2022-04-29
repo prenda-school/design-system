@@ -1,16 +1,15 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...vNext) (yyyy-mm-dd)
 
-### Fixes
-
-- **Unstable_Button**
-  - Override conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) for pseudo states like hover, disabled, etc.
+## [v1.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-04-29)
 
 ### Unstable Preview
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Button**
+  - Fix conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) for pseudo states like hover, disabled, etc.
 - **Unstable_Select**
   - When `multiple={true}`, the values are rendered as tags (using `Unstable_Tag`).
   - Fix value text overlapping with start adornment.
