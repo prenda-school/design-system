@@ -61,34 +61,6 @@
       },
       "tags": []
     },
-    "example-nextjs-e2e": {
-      "root": "apps/example-nextjs-e2e",
-      "sourceRoot": "apps/example-nextjs-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/example-nextjs-e2e/cypress.json",
-            "devServerTarget": "example-nextjs:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "example-nextjs:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/example-nextjs-e2e/**/*.{js,ts}"]
-          }
-        }
-      },
-      "tags": [],
-      "implicitDependencies": ["example-nextjs"]
-    },
     "spark": {
       "root": "libs/spark",
       "sourceRoot": "libs/spark/src",

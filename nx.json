@@ -25,6 +25,9 @@
     }
   },
   "projects": {
+    "example-nextjs": {
+      "tags": []
+    },
     "spark": {
       "tags": []
     },
