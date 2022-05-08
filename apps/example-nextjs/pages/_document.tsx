@@ -1,8 +1,9 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
+import { withEmotionCache } from 'tss-react/nextJs';
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -35,3 +36,7 @@ MyDocument.getInitialProps = async (ctx) => {
     ],
   };
 };
+
+export default withEmotionCache({
+  Document: MyDocument,
+});
