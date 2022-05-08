@@ -4,9 +4,11 @@ import {
   DynamicEmotionStyledMuiButton,
   DynamicMuiMakeStylesMuiButton,
   DynamicMuiStyledMuiButton,
+  DynamicTssReactMakeStylesMuiButton,
   StaticEmotionStyledMuiButton,
   StaticMuiMakeStylesMuiButton,
   StaticMuiStyledMuiButton,
+  StaticTssReactMakeStylesMuiButton,
 } from '../components';
 
 const Container = styled.div({
@@ -80,6 +82,20 @@ export function Index() {
         </StaticEmotionStyledMuiButton>
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
+        tss-react - static - makeStyles
+      </Typography>
+      <ButtonsContainer>
+        <StaticTssReactMakeStylesMuiButton variant="contained">
+          one
+        </StaticTssReactMakeStylesMuiButton>
+        <StaticTssReactMakeStylesMuiButton variant="outlined">
+          two
+        </StaticTssReactMakeStylesMuiButton>
+        <StaticTssReactMakeStylesMuiButton variant="text">
+          three
+        </StaticTssReactMakeStylesMuiButton>
+      </ButtonsContainer>
+      <Typography color="inherit" gutterBottom>
         @material-ui/core - dynamic - styled
       </Typography>
       <ButtonsContainer>
@@ -120,6 +136,20 @@ export function Index() {
         <DynamicEmotionStyledMuiButton variant="text">
           three
         </DynamicEmotionStyledMuiButton>
+      </ButtonsContainer>
+      <Typography color="inherit" gutterBottom>
+        tss-react - dynamic - makeStyles
+      </Typography>
+      <ButtonsContainer>
+        <DynamicTssReactMakeStylesMuiButton variant="contained">
+          one
+        </DynamicTssReactMakeStylesMuiButton>
+        <DynamicTssReactMakeStylesMuiButton variant="outlined">
+          two
+        </DynamicTssReactMakeStylesMuiButton>
+        <DynamicTssReactMakeStylesMuiButton variant="text">
+          three
+        </DynamicTssReactMakeStylesMuiButton>
       </ButtonsContainer>
     </Container>
   );
