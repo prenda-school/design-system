@@ -1,16 +1,94 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    }
-  },
   "projects": {
+    "example-nextjs": {
+      "root": "apps/example-nextjs",
+      "sourceRoot": "apps/example-nextjs",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "root": "apps/example-nextjs",
+            "outputPath": "dist/apps/example-nextjs"
+          },
+          "configurations": {
+            "development": {},
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "example-nextjs:build",
+            "dev": true
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "example-nextjs:build:development",
+              "dev": true
+            },
+            "production": {
+              "buildTarget": "example-nextjs:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "example-nextjs:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/example-nextjs"],
+          "options": {
+            "jestConfig": "apps/example-nextjs/jest.config.ts",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/example-nextjs/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      },
+      "tags": []
+    },
+    "example-nextjs-e2e": {
+      "root": "apps/example-nextjs-e2e",
+      "sourceRoot": "apps/example-nextjs-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/example-nextjs-e2e/cypress.json",
+            "devServerTarget": "example-nextjs:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "example-nextjs:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/example-nextjs-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["example-nextjs"]
+    },
     "spark": {
       "root": "libs/spark",
       "sourceRoot": "libs/spark/src",
@@ -128,17 +206,6 @@
         }
       }
     },
-    "workspace": {
-      "targets": {
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": true
-          }
-        }
-      },
-      "root": "."
-    },
     "spark-icons": {
       "root": "libs/spark-icons",
       "sourceRoot": "libs/spark-icons/src",
@@ -184,6 +251,17 @@
           }
         }
       }
+    },
+    "workspace": {
+      "targets": {
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": true
+          }
+        }
+      },
+      "root": "."
     }
   }
 }
