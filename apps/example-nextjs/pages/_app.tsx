@@ -1,3 +1,4 @@
+import { StylesProvider } from '@material-ui/core';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -22,7 +23,9 @@ function CustomApp(props: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Component {...pageProps} />
+      <StylesProvider injectFirst>
+        <Component {...pageProps} />
+      </StylesProvider>
     </>
   );
 }
