@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 import { Button, Typography } from '@material-ui/core';
+import { useState } from 'react';
 import {
+  DynamicEmotionCssMuiButton,
   DynamicEmotionStyledMuiButton,
   DynamicMuiMakeStylesMuiButton,
   DynamicMuiStyledMuiButton,
   DynamicTssReactMakeStylesMuiButton,
+  StaticEmotionCssMuiButton,
   StaticEmotionStyledMuiButton,
   StaticMuiMakeStylesMuiButton,
   StaticMuiStyledMuiButton,
@@ -23,6 +26,13 @@ const ButtonsContainer = styled.div({
 });
 
 export function Index() {
+  const [count, setCount] = useState(0);
+
+  const props = {
+    children: count.toString(),
+    onClick: () => setCount((prev) => prev + 1),
+  };
+
   return (
     <Container>
       <Typography component="h1" color="inherit" gutterBottom variant="h4">
@@ -35,121 +45,89 @@ export function Index() {
         @material-ui/core - (control) - (control)
       </Typography>
       <ButtonsContainer>
-        <Button variant="contained">one</Button>
-        <Button variant="outlined">two</Button>
-        <Button variant="text">three</Button>
+        <Button variant="contained" {...props} />
+        <Button variant="outlined" {...props} />
+        <Button variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - static - styled
       </Typography>
       <ButtonsContainer>
-        <StaticMuiStyledMuiButton variant="contained">
-          one
-        </StaticMuiStyledMuiButton>
-        <StaticMuiStyledMuiButton variant="outlined">
-          two
-        </StaticMuiStyledMuiButton>
-        <StaticMuiStyledMuiButton variant="text">
-          three
-        </StaticMuiStyledMuiButton>
+        <StaticMuiStyledMuiButton variant="contained" {...props} />
+        <StaticMuiStyledMuiButton variant="outlined" {...props} />
+        <StaticMuiStyledMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - static - makeStyles
       </Typography>
       <ButtonsContainer>
-        <StaticMuiMakeStylesMuiButton variant="contained">
-          one
-        </StaticMuiMakeStylesMuiButton>
-        <StaticMuiMakeStylesMuiButton variant="outlined">
-          two
-        </StaticMuiMakeStylesMuiButton>
-        <StaticMuiMakeStylesMuiButton variant="text">
-          three
-        </StaticMuiMakeStylesMuiButton>
+        <StaticMuiMakeStylesMuiButton variant="contained" {...props} />
+        <StaticMuiMakeStylesMuiButton variant="outlined" {...props} />
+        <StaticMuiMakeStylesMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/styled - static - styled
       </Typography>
       <ButtonsContainer>
-        <StaticEmotionStyledMuiButton variant="contained">
-          one
-        </StaticEmotionStyledMuiButton>
-        <StaticEmotionStyledMuiButton variant="outlined">
-          two
-        </StaticEmotionStyledMuiButton>
-        <StaticEmotionStyledMuiButton variant="text">
-          three
-        </StaticEmotionStyledMuiButton>
+        <StaticEmotionStyledMuiButton variant="contained" {...props} />
+        <StaticEmotionStyledMuiButton variant="outlined" {...props} />
+        <StaticEmotionStyledMuiButton variant="text" {...props} />
+      </ButtonsContainer>
+      <Typography color="inherit" gutterBottom>
+        @emotion/css - static - css
+      </Typography>
+      <ButtonsContainer>
+        <StaticEmotionCssMuiButton variant="contained" {...props} />
+        <StaticEmotionCssMuiButton variant="outlined" {...props} />
+        <StaticEmotionCssMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         tss-react - static - makeStyles
       </Typography>
       <ButtonsContainer>
-        <StaticTssReactMakeStylesMuiButton variant="contained">
-          one
-        </StaticTssReactMakeStylesMuiButton>
-        <StaticTssReactMakeStylesMuiButton variant="outlined">
-          two
-        </StaticTssReactMakeStylesMuiButton>
-        <StaticTssReactMakeStylesMuiButton variant="text">
-          three
-        </StaticTssReactMakeStylesMuiButton>
+        <StaticTssReactMakeStylesMuiButton variant="contained" {...props} />
+        <StaticTssReactMakeStylesMuiButton variant="outlined" {...props} />
+        <StaticTssReactMakeStylesMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - dynamic - styled
       </Typography>
       <ButtonsContainer>
-        <DynamicMuiStyledMuiButton variant="contained">
-          one
-        </DynamicMuiStyledMuiButton>
-        <DynamicMuiStyledMuiButton variant="outlined">
-          two
-        </DynamicMuiStyledMuiButton>
-        <DynamicMuiStyledMuiButton variant="text">
-          three
-        </DynamicMuiStyledMuiButton>
+        <DynamicMuiStyledMuiButton variant="contained" {...props} />
+        <DynamicMuiStyledMuiButton variant="outlined" {...props} />
+        <DynamicMuiStyledMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - dynamic - makeStyles
       </Typography>
       <ButtonsContainer>
-        <DynamicMuiMakeStylesMuiButton variant="contained">
-          one
-        </DynamicMuiMakeStylesMuiButton>
-        <DynamicMuiMakeStylesMuiButton variant="outlined">
-          two
-        </DynamicMuiMakeStylesMuiButton>
-        <DynamicMuiMakeStylesMuiButton variant="text">
-          three
-        </DynamicMuiMakeStylesMuiButton>
+        <DynamicMuiMakeStylesMuiButton variant="contained" {...props} />
+        <DynamicMuiMakeStylesMuiButton variant="outlined" {...props} />
+        <DynamicMuiMakeStylesMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/styled - dynamic - styled
       </Typography>
       <ButtonsContainer>
-        <DynamicEmotionStyledMuiButton variant="contained">
-          one
-        </DynamicEmotionStyledMuiButton>
-        <DynamicEmotionStyledMuiButton variant="outlined">
-          two
-        </DynamicEmotionStyledMuiButton>
-        <DynamicEmotionStyledMuiButton variant="text">
-          three
-        </DynamicEmotionStyledMuiButton>
+        <DynamicEmotionStyledMuiButton variant="contained" {...props} />
+        <DynamicEmotionStyledMuiButton variant="outlined" {...props} />
+        <DynamicEmotionStyledMuiButton variant="text" {...props} />
+      </ButtonsContainer>
+      <Typography color="inherit" gutterBottom>
+        @emotion/css - dynamic - css
+      </Typography>
+      <ButtonsContainer>
+        <DynamicEmotionCssMuiButton variant="contained" {...props} />
+        <DynamicEmotionCssMuiButton variant="outlined" {...props} />
+        <DynamicEmotionCssMuiButton variant="text" {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         tss-react - dynamic - makeStyles
       </Typography>
       <ButtonsContainer>
-        <DynamicTssReactMakeStylesMuiButton variant="contained">
-          one
-        </DynamicTssReactMakeStylesMuiButton>
-        <DynamicTssReactMakeStylesMuiButton variant="outlined">
-          two
-        </DynamicTssReactMakeStylesMuiButton>
-        <DynamicTssReactMakeStylesMuiButton variant="text">
-          three
-        </DynamicTssReactMakeStylesMuiButton>
+        <DynamicTssReactMakeStylesMuiButton variant="contained" {...props} />
+        <DynamicTssReactMakeStylesMuiButton variant="outlined" {...props} />
+        <DynamicTssReactMakeStylesMuiButton variant="text" {...props} />
       </ButtonsContainer>
     </Container>
   );
