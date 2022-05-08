@@ -39,6 +39,7 @@
     "@angular-devkit/build-angular": "^12.2.4",
     "@angular-devkit/schematics": "^12.2.4",
     "@babel/runtime": "^7.15.4",
+    "@emotion/css": "^11.9.0",
     "@emotion/react": "11.9.0",
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.8.1",
