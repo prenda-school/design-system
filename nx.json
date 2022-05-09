@@ -25,6 +25,9 @@
     }
   },
   "projects": {
+    "example-nextjs": {
+      "tags": []
+    },
     "spark": {
       "tags": []
     },
@@ -38,5 +41,22 @@
     "spark-icons": {
       "tags": []
     }
-  }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "example-nextjs"
 }
