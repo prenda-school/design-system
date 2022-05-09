@@ -19,4 +19,6 @@ addDecorator((Story) => (
 export const parameters = {
   // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
   actions: { argTypesRegex: '^on.*' },
+  // https://www.chromatic.com/docs/animations
+  pauseAnimationAtEnd: true,
 };
