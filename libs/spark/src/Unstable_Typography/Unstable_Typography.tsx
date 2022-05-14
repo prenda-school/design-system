@@ -5,7 +5,7 @@ import {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import makeStyles from '../makeStyles';
-import { OverrideProps } from '../utils';
+import { OverridableComponent, OverrideProps } from '../utils';
 import { Unstable_TypographyVariant } from '../theme/unstable_typography';
 
 export interface Unstable_TypographyTypeMap<
@@ -15,7 +15,17 @@ export interface Unstable_TypographyTypeMap<
 > {
   props: P &
     Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
-      variant?: Unstable_TypographyVariant;
+      variant?:
+        | 'display'
+        | 'T32'
+        | 'T28'
+        | 'T22'
+        | 'T18'
+        | 'T14'
+        | 'body'
+        | 'label'
+        | 'description'
+        | 'code';
       color?: 'initial' | 'inherit' | 'default' | 'inverse';
     };
   defaultComponent: D;
@@ -129,33 +139,30 @@ const defaultVariantMapping: Record<Unstable_TypographyVariant, string> = {
   code: 'pre',
 };
 
-const Unstable_Typography = React.forwardRef(function Unstable_Typography<
-  D extends React.ElementType = Unstable_TypographyTypeMap['defaultComponent']
->(
-  props: Unstable_TypographyProps<D>,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ref: React.ForwardedRef<any>
-) {
-  const {
-    classes: classesProp,
-    variant = 'body',
-    color = 'default',
-    component,
-    ...other
-  } = props;
+const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = React.forwardRef(
+  function Unstable_Typography(props, ref) {
+    const {
+      classes: classesProp,
+      variant = 'body',
+      color = 'default',
+      // @ts-expect-error not picked up as a prop from `OverridableComponent`
+      component,
+      ...other
+    } = props;
 
-  const classes = useStyles({ variant, color });
+    const classes = useStyles({ variant, color });
 
-  return (
-    <MuiTypography
-      classes={{
-        root: clsx(classes.root, classesProp?.root),
-      }}
-      component={component || defaultVariantMapping[variant]}
-      ref={ref}
-      {...other}
-    />
-  );
-});
+    return (
+      <MuiTypography
+        classes={{
+          root: clsx(classes.root, classesProp?.root),
+        }}
+        component={component || defaultVariantMapping[variant]}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
 
 export default Unstable_Typography;
