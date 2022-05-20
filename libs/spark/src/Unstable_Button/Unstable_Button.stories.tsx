@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { sparkThemeProvider } from '../../stories';
-import { Box, Unstable_Button, Unstable_ButtonProps } from '..';
+import { Unstable_Button, Unstable_ButtonProps } from '..';
 import { Unstable_ChevronDown, Unstable_AlertOctagon } from '../internal';
+import { sparkThemeProvider } from '../../stories';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Sb_Unstable_ButtonProps
@@ -51,218 +51,152 @@ export const SparkThemeProvider: Story = Template.bind({});
 SparkThemeProvider.decorators = [sparkThemeProvider];
 SparkThemeProvider.storyName = '(SparkThemeProvider)';
 
-const GridContainer = (props) => (
-  <Box
-    m={1}
-    display="grid"
-    gridTemplateColumns="1fr 1fr 1fr 1fr"
-    gridGap="16px"
-    alignItems="end"
-    {...props}
-  />
+const variants: Array<Unstable_ButtonProps['variant']> = [
+  'primary',
+  'stroked',
+  'ghost',
+  'destructive',
+];
+const sizes: Array<Unstable_ButtonProps['size']> = ['large', 'medium', 'small'];
+
+const SizeByVariantTemplate = (args) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      // space for focus indicator
+      gap: '8px',
+      margin: '4px',
+    }}
+  >
+    {sizes.map((size) => (
+      <div
+        key={size}
+        style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}
+      >
+        {variants.map((variant) => (
+          <Unstable_Button
+            key={variant}
+            {...args}
+            variant={variant}
+            size={size}
+          >
+            Label
+          </Unstable_Button>
+        ))}
+      </div>
+    ))}
+  </div>
 );
 
-const VariantAndSizeTemplate = (args) => (
-  <GridContainer>
-    <span>Variant / Size</span>
-    <span>Large</span>
-    <span>Medium</span>
-    <span>Small</span>
+export const SizeByVariant: Story = SizeByVariantTemplate.bind({});
+SizeByVariant.storyName = 'size ⨯ variant';
 
-    <span>Primary</span>
-    <span>
-      <Unstable_Button {...args} variant="primary" size="large">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="primary" size="medium">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="primary" size="small">
-        Label
-      </Unstable_Button>
-    </span>
+export const SizeByVariantSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantSTP.decorators = [sparkThemeProvider];
+SizeByVariantSTP.storyName = 'size ⨯ variant (STP)';
 
-    <span>Stroked</span>
-    <span>
-      <Unstable_Button {...args} variant="stroked" size="large">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="stroked" size="medium">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="stroked" size="small">
-        Label
-      </Unstable_Button>
-    </span>
+export const SizeByVariantHover: Story = SizeByVariantTemplate.bind({});
+SizeByVariantHover.parameters = { pseudo: { hover: true } };
+SizeByVariantHover.storyName = 'size ⨯ variant :hover';
 
-    <span>Ghost</span>
-    <span>
-      <Unstable_Button {...args} variant="ghost" size="large">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="ghost" size="medium">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="ghost" size="small">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>Destructive</span>
-    <span>
-      <Unstable_Button {...args} variant="destructive" size="large">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="destructive" size="medium">
-        Label
-      </Unstable_Button>
-    </span>
-    <span>
-      <Unstable_Button {...args} variant="destructive" size="small">
-        Label
-      </Unstable_Button>
-    </span>
-  </GridContainer>
-);
+export const SizeByVariantHoverSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantHoverSTP.decorators = [sparkThemeProvider];
+SizeByVariantHoverSTP.parameters = { pseudo: { hover: true } };
+SizeByVariantHoverSTP.storyName = 'size ⨯ variant :hover (STP)';
 
-// No Icon
-export const VariantAndSize: Story = VariantAndSizeTemplate.bind({});
+export const SizeByVariantActive: Story = SizeByVariantTemplate.bind({});
+SizeByVariantActive.parameters = { pseudo: { active: true } };
+SizeByVariantActive.storyName = 'size ⨯ variant :active';
 
-export const VariantAndSizeSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+export const SizeByVariantActiveSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantActiveSTP.decorators = [sparkThemeProvider];
+SizeByVariantActiveSTP.parameters = { pseudo: { active: true } };
+SizeByVariantActiveSTP.storyName = 'size ⨯ variant :active (STP)';
+
+export const SizeByVariantExpanded: Story = SizeByVariantTemplate.bind({});
+SizeByVariantExpanded.args = { 'aria-expanded': true };
+SizeByVariantExpanded.storyName = 'size ⨯ variant aria-expanded';
+
+export const SizeByVariantExpandedSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantExpandedSTP.args = { 'aria-expanded': true };
+SizeByVariantExpandedSTP.decorators = [sparkThemeProvider];
+SizeByVariantExpandedSTP.storyName = 'size ⨯ variant aria-expanded (STP)';
+
+export const SizeByVariantFocusVisible: Story = SizeByVariantTemplate.bind({});
+SizeByVariantFocusVisible.parameters = { pseudo: { focusVisible: true } };
+SizeByVariantFocusVisible.storyName = 'size ⨯ variant :focus-visible';
+
+export const SizeByVariantFocusVisibleSTP: Story = SizeByVariantTemplate.bind(
   {}
 );
-VariantAndSizeSparkThemeProvider.decorators = [sparkThemeProvider];
-VariantAndSizeSparkThemeProvider.storyName =
-  '(VariantAndSize - SparkThemeProvider)';
+SizeByVariantFocusVisibleSTP.decorators = [sparkThemeProvider];
+SizeByVariantFocusVisibleSTP.parameters = { pseudo: { focusVisible: true } };
+SizeByVariantFocusVisibleSTP.storyName = 'size ⨯ variant :focus-visible (STP)';
 
-export const VariantAndSizeHover: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeHover.parameters = { pseudo: { hover: true } };
+export const SizeByVariantDisabled: Story = SizeByVariantTemplate.bind({});
+SizeByVariantDisabled.args = { disabled: true };
+SizeByVariantDisabled.storyName = 'size ⨯ variant disabled';
 
-export const VariantAndSizeHoverSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
+export const SizeByVariantDisabledSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantDisabledSTP.args = { disabled: true };
+SizeByVariantDisabledSTP.decorators = [sparkThemeProvider];
+SizeByVariantDisabledSTP.storyName = 'size ⨯ variant disabled (STP)';
+
+export const SizeByVariantStartIcon: Story = SizeByVariantTemplate.bind({});
+SizeByVariantStartIcon.args = { startIcon: 'Unstable_AlertOctagon' };
+SizeByVariantStartIcon.storyName = 'size ⨯ variant startIcon';
+
+export const SizeByVariantStartIconSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantStartIconSTP.args = { startIcon: 'Unstable_AlertOctagon' };
+SizeByVariantStartIconSTP.decorators = [sparkThemeProvider];
+SizeByVariantStartIconSTP.storyName = 'size ⨯ variant startIcon (STP)';
+
+export const SizeByVariantStartIconDisabled: Story = SizeByVariantTemplate.bind(
   {}
 );
-VariantAndSizeHoverSparkThemeProvider.parameters = { pseudo: { hover: true } };
-VariantAndSizeHoverSparkThemeProvider.decorators = [sparkThemeProvider];
-
-export const VariantAndSizeActive: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeActive.parameters = { pseudo: { active: true } };
-
-export const VariantAndSizeActiveSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-VariantAndSizeActiveSparkThemeProvider.parameters = {
-  pseudo: { active: true },
-};
-VariantAndSizeActiveSparkThemeProvider.decorators = [sparkThemeProvider];
-
-export const VariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeExpanded.args = { 'aria-expanded': true };
-
-export const VariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeDisabled.args = { disabled: true };
-
-export const VariantAndSizeDisabledSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-VariantAndSizeDisabledSparkThemeProvider.args = { disabled: true };
-VariantAndSizeDisabledSparkThemeProvider.decorators = [sparkThemeProvider];
-
-export const VariantAndSizeFocus: Story = VariantAndSizeTemplate.bind({});
-VariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
-
-export const VariantAndSizeFocusSparkThemeProvider: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-VariantAndSizeFocusSparkThemeProvider.parameters = {
-  pseudo: { focusVisible: true },
-};
-VariantAndSizeFocusSparkThemeProvider.decorators = [sparkThemeProvider];
-
-// Leading/start Icon variations
-export const StartIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
-StartIconVariantAndSize.args = { startIcon: 'Unstable_AlertOctagon' };
-
-export const StartIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeHover.args = { startIcon: 'Unstable_AlertOctagon' };
-StartIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
-
-export const StartIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeActive.args = { startIcon: 'Unstable_AlertOctagon' };
-StartIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
-
-export const StartIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeExpanded.args = {
+SizeByVariantStartIconDisabled.args = {
   startIcon: 'Unstable_AlertOctagon',
-  'aria-expanded': true,
+  disabled: true,
 };
+SizeByVariantStartIconDisabled.storyName = 'size ⨯ variant startIcon disabled';
 
-export const StartIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
+export const SizeByVariantStartIconDisabledSTP: Story = SizeByVariantTemplate.bind(
   {}
 );
-StartIconVariantAndSizeDisabled.args = {
-  disabled: true,
+SizeByVariantStartIconDisabledSTP.args = {
   startIcon: 'Unstable_AlertOctagon',
-};
-
-export const StartIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-StartIconVariantAndSizeFocus.args = { startIcon: 'Unstable_AlertOctagon' };
-StartIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
-
-// Trailing/end Icon variations
-export const EndIconVariantAndSize: Story = VariantAndSizeTemplate.bind({});
-EndIconVariantAndSize.args = { endIcon: 'Unstable_ChevronDown' };
-
-export const EndIconVariantAndSizeExpanded: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeExpanded.args = {
-  endIcon: 'Unstable_ChevronDown',
-  'aria-expanded': true,
-};
-
-export const EndIconVariantAndSizeHover: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeHover.args = { endIcon: 'Unstable_ChevronDown' };
-EndIconVariantAndSizeHover.parameters = { pseudo: { hover: true } };
-
-export const EndIconVariantAndSizeActive: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeActive.args = { endIcon: 'Unstable_ChevronDown' };
-EndIconVariantAndSizeActive.parameters = { pseudo: { active: true } };
-
-export const EndIconVariantAndSizeDisabled: Story = VariantAndSizeTemplate.bind(
-  {}
-);
-EndIconVariantAndSizeDisabled.args = {
   disabled: true,
-  endIcon: 'Unstable_ChevronDown',
 };
+SizeByVariantStartIconDisabledSTP.decorators = [sparkThemeProvider];
+SizeByVariantStartIconDisabledSTP.storyName =
+  'size ⨯ variant startIcon disabled (STP)';
 
-export const EndIconVariantAndSizeFocus: Story = VariantAndSizeTemplate.bind(
+export const SizeByVariantEndIcon: Story = SizeByVariantTemplate.bind({});
+SizeByVariantEndIcon.args = { endIcon: 'Unstable_AlertOctagon' };
+SizeByVariantEndIcon.storyName = 'size ⨯ variant endIcon';
+
+export const SizeByVariantEndIconSTP: Story = SizeByVariantTemplate.bind({});
+SizeByVariantEndIconSTP.args = { endIcon: 'Unstable_AlertOctagon' };
+SizeByVariantEndIconSTP.decorators = [sparkThemeProvider];
+SizeByVariantEndIconSTP.storyName = 'size ⨯ variant endIcon (STP)';
+
+export const SizeByVariantEndIconDisabled: Story = SizeByVariantTemplate.bind(
   {}
 );
-EndIconVariantAndSizeFocus.args = { endIcon: 'Unstable_ChevronDown' };
-EndIconVariantAndSizeFocus.parameters = { pseudo: { focusVisible: true } };
+SizeByVariantEndIconDisabled.args = {
+  endIcon: 'Unstable_AlertOctagon',
+  disabled: true,
+};
+SizeByVariantEndIconDisabled.storyName = 'size ⨯ variant endIcon disabled';
+
+export const SizeByVariantEndIconDisabledSTP: Story = SizeByVariantTemplate.bind(
+  {}
+);
+SizeByVariantEndIconDisabledSTP.args = {
+  endIcon: 'Unstable_AlertOctagon',
+  disabled: true,
+};
+SizeByVariantEndIconDisabledSTP.decorators = [sparkThemeProvider];
+SizeByVariantEndIconDisabledSTP.storyName =
+  'size ⨯ variant endIcon disabled (STP)';
