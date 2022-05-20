@@ -79,19 +79,10 @@ const buttonFontVariantLarge = buildVariant(
 const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
-      // Double specificity to override V1 theme style
-      '&&': {
-        borderColor: 'transparent',
-      },
       borderRadius: 4,
       borderStyle: 'solid',
-      borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
-      },
-      // override V1 theme style
-      '&&:disabled': {
-        opacity: 'unset',
       },
       ...(props.variant === 'primary' && {
         backgroundColor: theme.unstable_palette.brand.blue,
@@ -109,10 +100,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
       }),
       ...(props.variant === 'stroked' && {
-        // double specificity to override v1 theme style
-        '&&': {
-          borderColor: `${theme.unstable_palette.neutral[90]}`,
-        },
         backgroundColor: 'transparent',
         '&:hover': {
           backgroundColor: theme.unstable_palette.neutral[70],
@@ -169,26 +156,35 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         padding: '20px 32px',
       }),
+
+      // double-specificity section for overriding v1 styles from STP
+      '&&': {
+        borderColor: 'transparent',
+        borderWidth: 1,
+        '&:disabled': {
+          opacity: 'unset',
+        },
+        ...(props.variant === 'stroked' && {
+          borderColor: `${theme.unstable_palette.neutral[90]}`,
+        }),
+      },
     }),
 
     label: (props: Unstable_ButtonProps) => ({
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
-        // part of re-aligning text baseline -- shift label down
-        marginTop: 1,
-        marginBottom: -1,
+        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
+        margin: '1px 0 -1x 0',
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
-        // part of re-aligning text baseline -- shift label down
-        marginTop: 2,
-        marginBottom: -2,
+        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
+        margin: '2px 0 -2x 0',
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
-        // part of re-aligning text baseline -- shift label down
-        marginTop: 2,
-        marginBottom: -2,
+        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
+        margin: '2px 0 -2x 0',
       }),
 
       ...(props.variant === 'primary' && {
@@ -225,9 +221,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     startIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       lineHeight: 1,
-      marginRight: 8,
-      // part of re-aligning text baseline -- shift icon baseline up
-      marginTop: -2,
+      // top margin is part of re-aligning text and icon baselines: shift icon baseline up
+      margin: '-2px 8px 0 0',
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -242,9 +237,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     endIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       lineHeight: 1,
-      marginLeft: 8,
-      // part of re-aligning text baseline -- shift icon baseline up
-      marginTop: -2,
+      // top margin is part of re-aligning text and icon baselines: shift icon baseline up
+      margin: '-2px 0 0 8px',
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
