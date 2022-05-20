@@ -177,17 +177,17 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
         // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '1px 0 -1x 0',
+        margin: '1px 0 -1px 0',
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
         // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '2px 0 -2x 0',
+        margin: '2px 0 -2px 0',
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
         // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '2px 0 -2x 0',
+        margin: '2px 0 -2px 0',
       }),
 
       ...(props.variant === 'primary' && {
