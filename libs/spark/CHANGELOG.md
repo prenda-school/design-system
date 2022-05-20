@@ -6,6 +6,8 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Button**
+  - Fix conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) when disabled or given start or end icons.
 - **Unstable_Typography**
   - Fix component typing so `variant` and `color` props appear as a discriminated union of string literals (i.e. `'body' | 'description' | ...`) instead of just `string`.
   - Fix variant T22 having wrong font weight.
