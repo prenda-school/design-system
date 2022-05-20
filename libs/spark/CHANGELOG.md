@@ -2,6 +2,13 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_Button**
+  - Fix conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) when disabled or given start or end icons.
+
 ## [v1.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-04-29)
 
 ### Unstable Preview
