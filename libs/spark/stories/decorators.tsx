@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DecoratorFn } from '@storybook/react';
-import { SparkThemeProvider } from '../src';
+import { SparkThemeProvider, styled } from '../src';
 
 /**
  * [Internal] A Storybook decorator that wraps a story in the `SparkThemeProvider`.
@@ -37,3 +37,16 @@ export const statefulValue: DecoratorFn = (Story, context) => {
 
   return <Story />;
 };
+
+const InverseBackgroundDiv = styled('div')(({ theme }) => ({
+  backgroundColor: theme.unstable_palette.background.inverse,
+}));
+
+/**
+ * [Internal] A Storybook decorator that applies the inverse background to a story.
+ */
+export const inverseBackground: DecoratorFn = (Story) => (
+  <InverseBackgroundDiv>
+    <Story />
+  </InverseBackgroundDiv>
+);

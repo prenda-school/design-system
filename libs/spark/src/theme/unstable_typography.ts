@@ -10,7 +10,6 @@ export type Unstable_TypographyVariant =
   | 'display'
   | 'T32'
   | 'T28'
-  | 'T28'
   | 'T22'
   | 'T18'
   | 'T14'
@@ -36,7 +35,7 @@ const customVariants: Record<Unstable_TypographyVariant, TypographyStyle> = {
   display: buildVariant(800, 48, 52, -0.01, undefined, headingFontFamily),
   T32: buildVariant(700, 32, 40, -0.01, undefined, headingFontFamily),
   T28: buildVariant(700, 28, 36, -0.01, undefined, headingFontFamily),
-  T22: buildVariant(700, 22, 28, -0.01, undefined, headingFontFamily),
+  T22: buildVariant(600, 22, 28, -0.01, undefined, headingFontFamily),
   T18: buildVariant(600, 18, 28, -0.01, undefined, headingFontFamily),
   T14: buildVariant(800, 14, 20, 0.04, 'uppercase', headingFontFamily),
   body: buildVariant(
