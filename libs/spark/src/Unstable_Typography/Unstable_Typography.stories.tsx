@@ -1,12 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  Unstable_Typography,
-  Unstable_TypographyProps,
-  styled,
-  withStyles,
-} from '..';
-import { capitalize } from '../utils';
+import { Unstable_Typography, Unstable_TypographyProps } from '..';
+import { inverseBackground, sparkThemeProvider } from '../../stories';
 
 export const SbUnstable_Typography = (props: Unstable_TypographyProps) => (
   <Unstable_Typography {...props} />
@@ -18,144 +13,61 @@ export default {
   excludeStories: ['SbUnstable_Typography'],
   args: {
     children: 'typography',
-    color: 'default',
-    variant: 'body',
   },
 } as Meta;
 
 const Template = (args: Unstable_TypographyProps) => (
   <Unstable_Typography {...args} />
 );
-export const Playground: Story = Template.bind({});
 
-const Container = styled('div')({
-  margin: '2.5rem 0',
-  display: 'grid',
-  gridTemplateColumns: '11rem 1.5rem auto',
-  gridTemplateRows: '1.5rem auto',
+export const Default: Story = Template.bind({});
+Default.storyName = '(default)';
 
-  '& .pos-1': {
-    gridColumn: 1,
-    gridRow: 1,
-  },
+export const SparkThemeProvider: Story = Template.bind({});
+SparkThemeProvider.decorators = [sparkThemeProvider];
+SparkThemeProvider.storyName = '(SparkThemeProvider)';
 
-  '& .pos-2': {
-    gridColumn: 1,
-    gridRow: 2,
-    paddingTop: '0.5rem',
-  },
+export const Display: Story = Template.bind({});
+Display.args = { variant: 'display' };
+Display.storyName = 'variant=display';
 
-  '& .pos-3': {
-    gridColumn: 3,
-    gridRow: '1 / span 2',
-  },
-});
+export const VariantT32: Story = Template.bind({});
+VariantT32.args = { variant: 'T32' };
+VariantT32.storyName = 'variant=T32';
 
-const CustomTypography = withStyles((theme) => ({
-  root: {
-    color: theme.unstable_palette.text.heading,
-    fontFamily: '"Poppins"',
-    fontSize: '1.25rem',
-    lineHeight: 32 / 16,
-    fontWeight: 900,
-  },
-}))(Unstable_Typography);
+export const VariantT28: Story = Template.bind({});
+VariantT28.args = { variant: 'T28' };
+VariantT28.storyName = 'variant=T28';
 
-const VariantSection = (props: {
-  variant: Unstable_TypographyProps['variant'];
-  details: Array<string>;
-  children: React.ReactNode;
-}) => {
-  const { variant, details, children } = props;
+export const VariantT22: Story = Template.bind({});
+VariantT22.args = { variant: 'T22' };
+VariantT22.storyName = 'variant=T22';
 
-  return (
-    <Container>
-      <CustomTypography>{capitalize(variant)}</CustomTypography>
+export const VariantT18: Story = Template.bind({});
+VariantT18.args = { variant: 'T18' };
+VariantT18.storyName = 'variant=T18';
 
-      <Unstable_Typography variant="code" className="pos-2">
-        {details[0]}
-        <br />
-        {details[1]}
-        <br />
-        {details[2]}
-        <br />
-        {details.length === 4 ? details[3] : ''}
-      </Unstable_Typography>
+export const VariantT14: Story = Template.bind({});
+VariantT14.args = { variant: 'T14' };
+VariantT14.storyName = 'variant=T14';
 
-      <span className="pos-3">
-        <Unstable_Typography variant={variant}>{children}</Unstable_Typography>
-      </span>
-    </Container>
-  );
-};
+export const VariantLabel: Story = Template.bind({});
+VariantLabel.args = { variant: 'label' };
+VariantLabel.storyName = 'variant=label';
 
-export const Overview: Story = () => (
-  <div>
-    <VariantSection
-      variant="display"
-      details={['48px/52px/-1%', 'Extrabold', 'Poppins']}
-    >
-      Empower learners everywhere
-    </VariantSection>
-    <VariantSection
-      variant="T32"
-      details={['32px/40px/-1%', 'Bold', 'Poppins']}
-    >
-      Empower learners everywhere
-    </VariantSection>
-    <VariantSection
-      variant="T28"
-      details={['28px/36px/-1%', 'Bold', 'Poppins']}
-    >
-      Empower learners everywhere
-    </VariantSection>
-    <VariantSection
-      variant="T22"
-      details={['22px/28px/-1%', 'Semibold', 'Poppins']}
-    >
-      Empower learners everywhere
-    </VariantSection>
-    <VariantSection
-      variant="T18"
-      details={['18px/28px/-1%', 'Semibold', 'Poppins']}
-    >
-      Empower learners everywhere
-    </VariantSection>
-    <VariantSection
-      variant="T14"
-      details={['14px/20px/4%/uppercase', 'Extrabold', 'Poppins']}
-    >
-      Passion to learn
-    </VariantSection>
-    <VariantSection
-      variant="body"
-      details={['16px/24px', 'Regular', 'Inter', '(cv05,ss03)']}
-    >
-      When we allow students to own their education, connect them with quality
-      learning tools, caring adults, and a community, their natural love of
-      learning takes over and they become <strong>unstoppable</strong>.
-    </VariantSection>
-    <VariantSection
-      variant="label"
-      details={['16px/20px', 'Semibold', 'Inter']}
-    >
-      Select a grade
-    </VariantSection>
-    <VariantSection
-      variant="description"
-      details={['14px/20px', 'Regular', 'Inter', '(cv05,ss03)']}
-    >
-      When we allow students to own their education, connect them with quality
-      learning tools, caring adults, and a community, their natural love of
-      learning takes over and they become <strong>unstoppable</strong>.
-    </VariantSection>
-    <VariantSection
-      variant="code"
-      details={['14px/24px', 'Regular', 'Roboto Mono']}
-    >{`<script>
-  let mystring = 'abc123';
-</script>
+export const VariantBody: Story = Template.bind({});
+VariantBody.args = { variant: 'body' };
+VariantBody.storyName = 'variant=body';
 
-<h1>This is {myString}</h1>`}</VariantSection>
-  </div>
-);
+export const VariantDescription: Story = Template.bind({});
+VariantDescription.args = { variant: 'description' };
+VariantDescription.storyName = 'variant=description';
+
+export const VariantCode: Story = Template.bind({});
+VariantCode.args = { variant: 'code' };
+VariantCode.storyName = 'variant=code';
+
+export const ColorInverse: Story = Template.bind({});
+ColorInverse.args = { color: 'inverse' };
+ColorInverse.decorators = [inverseBackground];
+ColorInverse.storyName = 'color=inverse';

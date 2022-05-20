@@ -8,6 +8,9 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_Button**
   - Fix conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) when disabled or given start or end icons.
+- **Unstable_Typography**
+  - Fix component typing so `variant` and `color` props appear as a discriminated union of string literals (i.e. `'body' | 'description' | ...`) instead of just `string`.
+  - Fix variant T22 having wrong font weight.
 
 ## [v1.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-04-29)
 
