@@ -79,8 +79,10 @@ const buttonFontVariantLarge = buildVariant(
 const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
+      borderColor: 'transparent',
       borderRadius: 4,
       borderStyle: 'solid',
+      borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
@@ -101,6 +103,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       }),
       ...(props.variant === 'stroked' && {
         backgroundColor: 'transparent',
+        borderColor: theme.unstable_palette.neutral[90],
         '&:hover': {
           backgroundColor: theme.unstable_palette.neutral[70],
         },
@@ -165,7 +168,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
           opacity: 'unset',
         },
         ...(props.variant === 'stroked' && {
-          borderColor: `${theme.unstable_palette.neutral[90]}`,
+          borderColor: theme.unstable_palette.neutral[90],
         }),
       },
     }),
