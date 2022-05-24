@@ -224,6 +224,9 @@ export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBasel
 export { default as Unstable_FormHelperText } from './Unstable_FormHelperText';
 export * from './Unstable_FormHelperText';
 
+export { default as Unstable_IconButton } from './Unstable_IconButton';
+export * from './Unstable_IconButton';
+
 export { default as Unstable_Input } from './Unstable_Input';
 export * from './Unstable_Input';
 

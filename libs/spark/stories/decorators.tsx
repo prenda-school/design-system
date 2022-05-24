@@ -50,3 +50,16 @@ export const inverseBackground: DecoratorFn = (Story) => (
     <Story />
   </InverseBackgroundDiv>
 );
+
+const ContainFocusIndicatorDiv = styled('div')({
+  padding: 4,
+});
+
+/**
+ * [Internal] A Storybook decorator that applies padding so that the standard focus indicator is captured in Chromatic snapshots.
+ */
+export const containFocusIndicator: DecoratorFn = (Story) => (
+  <ContainFocusIndicatorDiv>
+    <Story />
+  </ContainFocusIndicatorDiv>
+);
