@@ -16,4 +16,5 @@ export { default as Unstable_CheckCircle2 } from './Unstable_CheckCircle2';
 export { default as Unstable_ChevronDown } from './Unstable_ChevronDown';
 export { default as Unstable_Cross } from './Unstable_Cross';
 export { default as Unstable_CrossSmall } from './Unstable_CrossSmall';
+export { default as Unstable_Filter } from './Unstable_Filter';
 export { default as Unstable_Info } from './Unstable_Info';

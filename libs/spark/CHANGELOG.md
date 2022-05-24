@@ -8,6 +8,36 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_Button**
   - Fix conflicting styles from previous `theme` (e.g. when rendered under `SparkThemeProvider`) when disabled or given start or end icons.
+- **Unstable_IconButton**
+  - Initial implementation of **IconButton** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"label"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"label"`_.
+    - `color`: Removed.
+    - `disableElevation`: Removed.
+    - `disableFocusRipple`: Removed.
+    - `disableRipple`: Removed.
+    - `disableTouchRipple`: Removed.
+    - `centerRipple`: Removed.
+    - `focusRipple`: Removed.
+    - `TouchRippleProps`: Removed.
+    - `variant`:
+      - Removed values: `contained`, `outlined`, `text`.
+      - Added values: `primary`, `stroked`, `ghost`.
+  - Planned Migration from current `IconButton`:
+    - `color={*}` -> _removed_
+    - `disableElevation` -> _removed_
+    - `disableFocusRipple` -> _removed_
+    - `disableRipple` -> _removed_
+    - `disableTouchRipple` -> _removed_
+    - `centerRipple` -> _removed_
+    - `focusRipple` -> _removed_
+    - `TouchRippleProps={*}` -> _removed_
+    - `variant="contained"` -> `variant="primary"`
+    - `variant="outlined"` -> `variant="stroked"`
+    - `variant="text"` -> `variant="ghost"`
 - **Unstable_Typography**
   - Fix component typing so `variant` and `color` props appear as a discriminated union of string literals (i.e. `'body' | 'description' | ...`) instead of just `string`.
   - Fix variant T22 having wrong font weight.
