@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_Button, Unstable_ButtonProps } from '..';
 import { Unstable_ChevronDown, Unstable_AlertOctagon } from '../internal';
-import { sparkThemeProvider } from '../../stories';
+import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Sb_Unstable_ButtonProps
@@ -17,6 +17,7 @@ export default {
   component: Sb_Unstable_Button,
   excludeStories: ['Sb_Unstable_Button'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
+  decorators: [containFocusIndicator],
   argTypes: {
     startIcon: {
       control: 'select',
@@ -65,14 +66,13 @@ const SizeByVariantTemplate = (args) => (
       display: 'flex',
       flexDirection: 'column',
       // space for focus indicator
-      gap: '8px',
-      margin: '4px',
+      gap: 8,
     }}
   >
     {sizes.map((size) => (
       <div
         key={size}
-        style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}
+        style={{ display: 'flex', gap: 4, alignItems: 'flex-start' }}
       >
         {variants.map((variant) => (
           <Unstable_Button
@@ -80,9 +80,7 @@ const SizeByVariantTemplate = (args) => (
             {...args}
             variant={variant}
             size={size}
-          >
-            Label
-          </Unstable_Button>
+          />
         ))}
       </div>
     ))}
