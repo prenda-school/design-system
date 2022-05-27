@@ -2,7 +2,7 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...vNext) (yyyy-mm-dd)
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-05-27)
+## [v1.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-05-27)
 
 No Changes.
 
