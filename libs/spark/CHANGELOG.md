@@ -44,6 +44,7 @@ _This section details previews of breaking changes or experimental features that
   - Implemented `Unstable_IconButton` for the close icon button displayed when the `onClose` prop is set and the `action` prop is not set.
 - **Unstable_Typography**
   - Fix component typing so `variant` and `color` props appear as a discriminated union of string literals (i.e. `'body' | 'description' | ...`) instead of just `string`.
+  - Fix variant T22 having wrong font weight.
 
 ## [v1.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-04-29)
 
