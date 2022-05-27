@@ -92,10 +92,10 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
       ...(props.variant === 'ghost' && {
         backgroundColor: 'transparent',
         '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
+          backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
         },
         '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
+          backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
         },
         '&[aria-expanded="true"]': {
           backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),

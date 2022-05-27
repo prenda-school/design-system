@@ -10,6 +10,7 @@ import {
 } from '../internal';
 import makeStyles from '../makeStyles';
 import { StandardProps } from '../utils';
+import Unstable_IconButton from '../Unstable_IconButton';
 
 export type Color = 'success' | 'info' | 'warning' | 'error';
 
@@ -171,9 +172,14 @@ const Unstable_SectionMessage = React.forwardRef(
           </div>
         ) : null}
         {action == null && onClose ? (
-          <div className={clsx(classesProp?.action, classes.action)}>
-            <Unstable_Cross fontSize="medium" color="normal" />
-          </div>
+          <Unstable_IconButton
+            className={clsx(classesProp?.action, classes.action)}
+            onClick={onClose}
+            size="small"
+            variant="ghost"
+          >
+            <Unstable_Cross />
+          </Unstable_IconButton>
         ) : null}
       </Paper>
     );
