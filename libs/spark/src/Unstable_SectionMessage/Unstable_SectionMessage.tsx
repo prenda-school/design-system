@@ -1,71 +1,27 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import Paper, { PaperProps } from '@material-ui/core/Paper';
-import {
-  Unstable_AlertOctagon,
-  Unstable_AlertTriangle,
-  Unstable_CheckCircle2,
-  Unstable_Cross,
-  Unstable_Info,
-} from '../internal';
 import makeStyles from '../makeStyles';
+import Unstable_Alert, {
+  Unstable_AlertClassKey,
+  Unstable_AlertProps,
+} from '../internal/Unstable_Alert';
 import { StandardProps } from '../utils';
-import Unstable_IconButton from '../Unstable_IconButton';
 
-export type Color = 'success' | 'info' | 'warning' | 'error';
-
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_SectionMessageProps
-  extends StandardProps<
-    Omit<PaperProps, 'title'>,
-    Unstable_SectionMessageClassKey,
-    'variant'
-  > {
-  /**
-   * The action to display. It renders after the message, at the end of the section message.
-   */
-  action?: React.ReactNode;
-  /**
-   * Override the default label for the *close popup* icon button.
-   *
-   * For localization purposes, you can use the provided [translations](/guides/localization/).
-   */
-  closeText?: string;
-  /**
-   * The severity of the section message. This defines the color and icon used.
-   */
-  severity?: Color;
-  /**
-   * Override the icon displayed before the children.
-   * Unless provided, the icon is mapped to the value of the `severity` prop.
-   */
-  icon?: React.ReactNode | false;
-  /**
-   * The ARIA role attribute of the element.
-   */
-  role?: string;
-  /**
-   * Callback fired when the component requests to be closed.
-   * When provided and no `action` prop is set, a close icon button is displayed that triggers the callback when clicked.
-   *
-   * @param {object} event The event source of the callback.
-   */
-  onClose?: (event: React.SyntheticEvent) => void;
+  extends StandardProps<Unstable_AlertProps, Unstable_SectionMessageClassKey> {
   /**
    * Display a formatted title above the section message.
    */
   title?: React.ReactNode;
 }
 
-export type Unstable_SectionMessageClassKey =
-  | 'root'
-  | 'icon'
-  | 'message'
-  | 'action'
-  | 'title';
+export type Unstable_SectionMessageClassKey = Unstable_AlertClassKey | 'title';
 
 const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
   (theme) => ({
     root: (props: Unstable_SectionMessageProps) => ({
+      alignItems: 'flex-start',
       borderRadius: 4,
       display: 'flex',
       gap: 16,
@@ -90,9 +46,10 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       }),
     }),
     icon: (props: Unstable_SectionMessageProps) => ({
+      color: theme.unstable_palette.text.icon,
+      display: 'flex',
       fontSize: theme.unstable_typography.pxToRem(24),
       lineHeight: 1,
-      color: theme.unstable_palette.text.icon,
       ...(props.severity === 'error' && {
         color: theme.unstable_palette.red[700],
       }),
@@ -121,69 +78,39 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
   { name: 'MuiSparkUnstable_SectionMessage' }
 );
 
-const defaultIconMapping = {
-  success: <Unstable_CheckCircle2 />,
-  warning: <Unstable_AlertTriangle />,
-  error: <Unstable_AlertOctagon />,
-  info: <Unstable_Info />,
-};
+const Unstable_SectionMessage = React.forwardRef<
+  unknown,
+  Unstable_SectionMessageProps
+>(function Unstable_SectionMessage(props, ref) {
+  const {
+    children,
+    classes: classesProp,
+    severity = 'info',
+    title,
+    ...other
+  } = props;
 
-const Unstable_SectionMessage = React.forwardRef(
-  function Unstable_SectionMessage(props: Unstable_SectionMessageProps, ref) {
-    const {
-      action,
-      children,
-      classes: classesProp,
-      className,
-      icon,
-      onClose,
-      title,
-      role = 'alert',
-      severity = 'info',
-      ...other
-    } = props;
+  const classes = useStyles({ severity });
 
-    const classes = useStyles({ severity });
+  return (
+    <Unstable_Alert
+      classes={{
+        root: clsx(classes.root, classesProp?.root),
+        icon: clsx(classes.icon, classesProp?.icon),
+        message: clsx(classes.message, classesProp?.message),
+        action: clsx(classes.action, classesProp?.action),
+      }}
+      severity={severity}
+      ref={ref}
+      {...other}
+    >
+      {title ? (
+        <div className={clsx(classes.title, classesProp?.title)}>{title}</div>
+      ) : null}
 
-    return (
-      <Paper
-        role={role}
-        square
-        elevation={0}
-        className={clsx(classes.root, className)}
-        ref={ref}
-        {...other}
-      >
-        {icon !== false ? (
-          <div className={clsx(classesProp?.icon, classes.icon)}>
-            {icon || defaultIconMapping[severity]}
-          </div>
-        ) : null}
-
-        <div className={clsx(classesProp?.message, classes.message)}>
-          {title ? (
-            <div className={clsx(classes.title, className)}>{title}</div>
-          ) : null}
-          {children}
-        </div>
-        {action != null ? (
-          <div className={clsx(classesProp?.action, classes.action)}>
-            {action}
-          </div>
-        ) : null}
-        {action == null && onClose ? (
-          <Unstable_IconButton
-            className={clsx(classesProp?.action, classes.action)}
-            onClick={onClose}
-            size="small"
-            variant="ghost"
-          >
-            <Unstable_Cross />
-          </Unstable_IconButton>
-        ) : null}
-      </Paper>
-    );
-  }
-);
+      {children}
+    </Unstable_Alert>
+  );
+});
 
 export default Unstable_SectionMessage;
