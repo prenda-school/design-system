@@ -46,7 +46,8 @@ export type Unstable_ButtonClassKey =
   | 'root'
   | 'startIcon'
   | 'endIcon'
-  | 'label';
+  | 'label'
+  | 'private-textBaselineShift';
 
 // extracted since there's not an equivalent typography variant
 const buttonFontVariantSmall = buildVariant(
@@ -176,18 +177,12 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     label: (props: Unstable_ButtonProps) => ({
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
-        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '1px 0 -1px 0',
       }),
       ...(props.size === 'medium' && {
         ...buttonFontVariantMedium,
-        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '2px 0 -2px 0',
       }),
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
-        // top/bottom margin is part of re-aligning text and icon baselines: shift label baseline down
-        margin: '2px 0 -2px 0',
       }),
 
       ...(props.variant === 'primary' && {
@@ -224,8 +219,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     startIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       lineHeight: 1,
-      // top margin is part of re-aligning text and icon baselines: shift icon baseline up
-      margin: '-2px 8px 0 0',
+      margin: '0 8px 0 0',
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -240,8 +234,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     endIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       lineHeight: 1,
-      // top margin is part of re-aligning text and icon baselines: shift icon baseline up
-      margin: '-2px 0 0 8px',
+      margin: '0 0 0 8px',
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -253,6 +246,10 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       }),
       '& > :first-child': { fontSize: 'inherit' },
     }),
+    'private-textBaselineShift': {
+      marginTop: theme.unstable_typography.pxToRem(1),
+      marginBottom: theme.unstable_typography.pxToRem(-1),
+    },
   }),
   { name: 'MuiSparkUnstable_Button' }
 );
@@ -260,6 +257,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
 const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forwardRef(
   function Unstable_Button(props, ref) {
     const {
+      children,
       classes: classesProp,
       disabled,
       variant = 'primary',
@@ -284,7 +282,9 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
         focusRipple={false}
         ref={ref}
         {...other}
-      />
+      >
+        <span className={classes['private-textBaselineShift']}>{children}</span>
+      </MuiButton>
     );
   }
 );
