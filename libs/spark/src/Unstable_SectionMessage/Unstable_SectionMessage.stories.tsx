@@ -5,15 +5,12 @@ import { Unstable_SectionMessage } from '..';
 export default {
   title: '@ps/Unstable_SectionMessage',
   component: Unstable_SectionMessage,
+  args: {
+    children: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</>,
+  },
 } as Meta;
 
-const Template = (args) => (
-  <Unstable_SectionMessage {...args}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </Unstable_SectionMessage>
-);
-
-export const Configurable: Story = Template.bind({});
+const Template = (args) => <Unstable_SectionMessage {...args} />;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
