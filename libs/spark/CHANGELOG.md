@@ -6,6 +6,16 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Banner**
+  - Initial implementation of **Banner** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
+- **Unstable_SectionMessage**
+  - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
+  - Add `CloseProps` prop to apply props to the _close_ icon button.
 - **Unstable_IconButton**
   - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
     - values: `"standard" | "inverse"`
