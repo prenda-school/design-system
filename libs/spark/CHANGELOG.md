@@ -1,6 +1,8 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.8...vNext) (yyyy-mm-dd)
+
+## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 
 ### Unstable Preview
 
@@ -8,6 +10,8 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_Button**
   - Improve the visual alignment of text and icons.
+- **Unstable_SectionMessage**
+  - Improve the visual look.
 
 ## [v1.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-05-27)
 

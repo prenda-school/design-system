@@ -1,14 +1,18 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.8...vNext) (yyyy-mm-dd)
+
+## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
+
+No changes.
 
 ## [v1.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2022-05-27)
 
-No Changes.
+No changes.
 
 ## [v1.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2022-04-29)
 
-No Changes.
+No changes.
 
 ## [v1.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2022-04-25)
 
@@ -40,7 +44,7 @@ No changes.
 
 ## [v0.14.0](https://github.com/prenda-school/prenda-spark/compare/v0.13.1...v0.14.0) (2021-10-04)
 
-No changes,
+No changes.
 
 ## [v0.13.1](https://github.com/prenda-school/prenda-spark/compare/v0.13.0...v0.13.1) (2021-10-01)
 
