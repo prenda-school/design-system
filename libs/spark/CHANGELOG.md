@@ -2,6 +2,24 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.8...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_Avatar**
+  - Initial implementation of **Avatar** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"img"`, `"fallback"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"img"`, `"fallback"`_.
+    - `color`: Added.
+      - Values: `"neutral"` (default), `"orange"`, `"yellow"`, `"green"`, `"blue"`, `"purple"`, `"teal"`, `"magenta"`.
+    - `size`:
+      - Removed values: `xsmall`.
+  - Planned Migration from current `Avatar`:
+    - `size='xsmall'` -> `size='small'`
+
 ## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 
 ### Unstable Preview
