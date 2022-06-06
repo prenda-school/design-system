@@ -214,6 +214,9 @@ export * from './NavBar';
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
 
+export { default as Unstable_Avatar } from './Unstable_Avatar';
+export * from './Unstable_Avatar';
+
 export { default as Unstable_Button } from './Unstable_Button';
 export * from './Unstable_Button';
 
