@@ -6,7 +6,9 @@ import Unstable_AlertOctagon from './Unstable_AlertOctagon';
 import Unstable_CheckCircle2 from './Unstable_CheckCircle2';
 import Unstable_Cross from './Unstable_Cross';
 import Unstable_Info from './Unstable_Info';
-import Unstable_IconButton from '../Unstable_IconButton';
+import Unstable_IconButton, {
+  Unstable_IconButtonProps,
+} from '../Unstable_IconButton';
 import { StandardProps } from '../utils';
 
 export interface Unstable_AlertProps
@@ -42,6 +44,10 @@ export interface Unstable_AlertProps
    * @param {object} event The event source of the callback.
    */
   onClose?: (event: React.SyntheticEvent) => void;
+  /**
+   * Props applied to the *close alert* icon button.
+   */
+  CloseProps?: Unstable_IconButtonProps;
 }
 
 export type Unstable_AlertClassKey = 'root' | 'icon' | 'message' | 'action';
@@ -62,10 +68,12 @@ const Unstable_Alert = React.forwardRef(function Unstable_Alert(
     children,
     classes,
     className,
+    closeText = 'Close',
     icon,
     onClose,
     role = 'alert',
     severity = 'info',
+    CloseProps,
     ...other
   } = props;
 
@@ -92,10 +100,12 @@ const Unstable_Alert = React.forwardRef(function Unstable_Alert(
 
       {action == null && onClose ? (
         <Unstable_IconButton
+          aria-label={closeText}
           className={clsx(classes?.action)}
           onClick={onClose}
           size="small"
           variant="ghost"
+          {...CloseProps}
         >
           <Unstable_Cross />
         </Unstable_IconButton>
