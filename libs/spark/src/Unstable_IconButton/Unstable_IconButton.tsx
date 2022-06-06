@@ -27,13 +27,17 @@ export interface Unstable_IconButtonTypeMap<
       | 'TouchRippleProps'
     > & {
       /**
-       * The variant to use.
+       * The color of the component.
        */
-      variant?: 'primary' | 'stroked' | 'ghost';
+      color?: 'standard' | 'inverse';
       /**
        * The size of the component.
        */
       size?: 'small' | 'medium';
+      /**
+       * The variant to use.
+       */
+      variant?: 'primary' | 'stroked' | 'ghost';
     };
   defaultComponent: D;
   classKey: Unstable_IconButtonClassKey;
@@ -89,21 +93,38 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
           color: theme.unstable_palette.neutral[100],
         },
       }),
-      ...(props.variant === 'ghost' && {
-        backgroundColor: 'transparent',
-        '&:hover': {
-          backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-        },
-        '&:active': {
-          backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
-        },
-        '&[aria-expanded="true"]': {
-          backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
-        },
-        '&:disabled': {
-          backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
-        },
-      }),
+      ...(props.variant === 'ghost' &&
+        props.color === 'standard' && {
+          backgroundColor: 'transparent',
+          '&:hover': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+          },
+          '&:active': {
+            backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+          },
+          '&[aria-expanded="true"]': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
+          },
+          '&:disabled': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+          },
+        }),
+      ...(props.variant === 'ghost' &&
+        props.color === 'inverse' && {
+          backgroundColor: 'transparent',
+          '&:hover': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
+          },
+          '&:active': {
+            backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+          },
+          '&[aria-expanded="true"]': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
+          },
+          '&:disabled': {
+            backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+          },
+        }),
 
       ...(props.size === 'small' && {
         padding: 4,
@@ -121,9 +142,14 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
       ...(props.variant === 'stroked' && {
         color: theme.unstable_palette.brand.blue,
       }),
-      ...(props.variant === 'ghost' && {
-        color: theme.unstable_palette.brand.blue,
-      }),
+      ...(props.variant === 'ghost' &&
+        props.color === 'standard' && {
+          color: theme.unstable_palette.brand.blue,
+        }),
+      ...(props.variant === 'ghost' &&
+        props.color === 'inverse' && {
+          color: theme.unstable_palette.neutral[0],
+        }),
       '[aria-expanded="true"] > &': {
         color: theme.unstable_palette.neutral[0],
       },
@@ -138,6 +164,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
 const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = React.forwardRef(
   function Unstable_IconButton(props, ref) {
     const {
+      color = 'standard',
       classes: classesProp,
       disabled,
       size = 'medium',
@@ -147,7 +174,7 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = Re
       ...other
     } = props;
 
-    const classes = useStyles({ disabled, size, variant });
+    const classes = useStyles({ color, disabled, size, variant });
 
     return (
       <MuiIconButton

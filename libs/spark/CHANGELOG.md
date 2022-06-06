@@ -19,6 +19,11 @@ _This section details previews of breaking changes or experimental features that
       - Removed values: `xsmall`.
   - Planned Migration from current `Avatar`:
     - `size='xsmall'` -> `size='small'`
+- **Unstable_IconButton**
+  - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
+    - values: `"standard" | "inverse"`
+    - default value: `"standard"`
+    - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
 
 ## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 
