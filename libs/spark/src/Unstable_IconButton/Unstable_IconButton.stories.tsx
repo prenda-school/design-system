@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_IconButton, Unstable_IconButtonProps } from '..';
+import { theme, Unstable_IconButton, Unstable_IconButtonProps } from '..';
 import {
   Unstable_ChevronDown,
   Unstable_Filter,
@@ -74,6 +74,29 @@ const SizeByVariantTemplate = (args) => (
             {...args}
             variant={variant}
             size={size}
+          />
+        ))}
+      </div>
+    ))}
+    {sizes.map((size) => (
+      <div
+        key={size}
+        style={{
+          display: 'flex',
+          gap: 8,
+          alignItems: 'flex-start',
+          backgroundColor: theme.unstable_palette.background.inverse,
+          margin: -4,
+          padding: 4,
+        }}
+      >
+        {['ghost'].map((variant) => (
+          <Unstable_IconButton
+            key={variant}
+            {...args}
+            variant={variant}
+            size={size}
+            color="inverse"
           />
         ))}
       </div>
