@@ -6,6 +6,19 @@
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
+- **Unstable_Avatar**
+  - Initial implementation of **Avatar** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `"root"`, `"img"`, `"fallback"`_.
+  - Props API Changes:
+    - `classes`: Removed all class keys _except `"root"`, `"img"`, `"fallback"`_.
+    - `color`: Added.
+      - Values: `"neutral"` (default), `"orange"`, `"yellow"`, `"green"`, `"blue"`, `"purple"`, `"teal"`, `"magenta"`.
+    - `size`:
+      - Removed values: `xsmall`.
+  - Planned Migration from current `Avatar`:
+    - `size='xsmall'` -> `size='small'`
 - **Unstable_Banner**
   - Initial implementation of **Banner** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -13,14 +26,14 @@ _This section details previews of breaking changes or experimental features that
     - Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
   - Props API Changes:
     - `classes`: Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
-- **Unstable_SectionMessage**
-  - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
-  - Add `CloseProps` prop to apply props to the _close_ icon button.
 - **Unstable_IconButton**
   - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
     - values: `"standard" | "inverse"`
     - default value: `"standard"`
     - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
+- **Unstable_SectionMessage**
+  - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
+  - Add `CloseProps` prop to apply props to the _close_ icon button.
 
 ## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 

@@ -56,6 +56,22 @@ const poppinsSemiboldItalic: CSS.AtRule.FontFace = {
   src: buildSrc('poppins-semibolditalic'),
 };
 
+const poppinsMedium: CSS.AtRule.FontFace = {
+  fontFamily: '"Poppins"',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: buildSrc('poppins-medium'),
+};
+
+const poppinsMediumItalic: CSS.AtRule.FontFace = {
+  fontFamily: '"Poppins"',
+  fontStyle: 'italic',
+  fontDisplay: 'swap',
+  fontWeight: 500,
+  src: buildSrc('poppins-mediumitalic'),
+};
+
 const interRegular: CSS.AtRule.FontFace = {
   fontFamily: '"Inter"',
   fontStyle: 'normal',
@@ -143,6 +159,8 @@ const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsBoldItalic,
   poppinsSemibold,
   poppinsSemiboldItalic,
+  poppinsMedium,
+  poppinsMediumItalic,
   interRegular,
   interItalic,
   interMedium,
