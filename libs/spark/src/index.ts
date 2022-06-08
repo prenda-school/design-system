@@ -217,6 +217,9 @@ export * from './NavBarButton';
 export { default as Unstable_Avatar } from './Unstable_Avatar';
 export * from './Unstable_Avatar';
 
+export { default as Unstable_AvatarButton } from './Unstable_AvatarButton';
+export * from './Unstable_AvatarButton';
+
 export { default as Unstable_Banner } from './Unstable_Banner';
 export * from './Unstable_Banner';
 

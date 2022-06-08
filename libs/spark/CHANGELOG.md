@@ -19,6 +19,14 @@ _This section details previews of breaking changes or experimental features that
       - Removed values: `xsmall`.
   - Planned Migration from current `Avatar`:
     - `size='xsmall'` -> `size='small'`
+- **Unstable_AvatarButton**
+  - Initial implementation.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API: `'root' | 'avatar'`.
+  - Props API:
+    - Inherits props of ButtonBase and Unstable_Avatar.
+    - `classes`: _see CSS API_.
+    - `size`: restricted to only `'large'` (for accessibility).
 - **Unstable_Banner**
   - Initial implementation of **Banner** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.

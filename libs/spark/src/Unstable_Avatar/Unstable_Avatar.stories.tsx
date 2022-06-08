@@ -1,16 +1,7 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import {
-  Unstable_Avatar,
-  Unstable_AvatarProps,
-  unstable_createSvgIcon,
-} from '..';
-import { sparkThemeProvider } from '../../stories';
-
-const User = unstable_createSvgIcon(
-  <path d="M8.75 6a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0ZM12 1.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Zm-3.2 12a5.55 5.55 0 0 0-5.55 5.55 3.95 3.95 0 0 0 3.95 3.95h9.6a3.95 3.95 0 0 0 3.95-3.95 5.55 5.55 0 0 0-5.55-5.55H8.8ZM4.75 18.8a4.05 4.05 0 0 1 4.05-4.05h6.4a4.05 4.05 0 0 1 4.05 4.05 2.45 2.45 0 0 1-2.45 2.45H7.2a2.45 2.45 0 0 1-2.45-2.45Z" />,
-  'Sb_User'
-);
+import { Unstable_Avatar, Unstable_AvatarProps } from '..';
+import { sparkThemeProvider, User } from '../../stories';
 
 export default {
   title: '@ps/Unstable_Avatar',
