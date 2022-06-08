@@ -8,6 +8,7 @@ import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
 import { lighten, darken } from '@material-ui/core/styles';
+import { Unstable_AvatarProps } from '../Unstable_Avatar';
 
 export interface Unstable_ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -35,6 +36,10 @@ export interface Unstable_ButtonTypeMap<
        */
       variant?: 'primary' | 'stroked' | 'ghost' | 'destructive';
       /**
+       * Avatar placed before the children.
+       */
+      leadingAvatar?: React.ReactNode;
+      /**
        * Icon placed before the children.
        */
       leadingIcon?: React.ReactNode;
@@ -55,6 +60,7 @@ export type Unstable_ButtonProps<
 
 export type Unstable_ButtonClassKey =
   | 'root'
+  | 'leadingAvatar'
   | 'leadingIcon'
   | 'trailingIcon'
   | 'label'
@@ -228,6 +234,31 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         }),
       }),
     }),
+    leadingAvatar: (props: Unstable_ButtonProps) => ({
+      color: 'inherit',
+      display: 'flex',
+      marginRight: 8,
+      /** size */
+      ...(props.size === 'small' && {
+        marginBottom: -4,
+        marginLeft: -8,
+        marginTop: -4,
+      }),
+      ...(props.size === 'medium' && {
+        marginBottom: -8,
+        marginLeft: -8,
+        marginTop: -8,
+      }),
+      ...(props.size === 'large' && {
+        marginBottom: -8,
+        marginLeft: -8,
+        marginTop: -8,
+      }),
+      /** disabled */
+      ...(props.disabled && {
+        opacity: 0.62,
+      }),
+    }),
     leadingIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       display: 'flex',
@@ -274,6 +305,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
       children,
       classes: classesProp,
       disabled,
+      leadingAvatar,
       leadingIcon,
       size = 'medium',
       trailingIcon,
@@ -285,7 +317,18 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
     const classes = useStyles({ disabled, variant, size });
 
     let leadingEl: React.ReactNode;
-    if (leadingIcon) {
+    if (leadingAvatar) {
+      const avatarSize: Unstable_AvatarProps['size'] =
+        size === 'small' ? 'small' : 'medium';
+      leadingEl = (
+        <span
+          className={clsx(classes.leadingAvatar, classesProp?.leadingAvatar)}
+        >
+          {/* @ts-expect-error can't know if actually given an Unstable_Avatar instance, so prop may be invalid */}
+          {React.cloneElement(leadingAvatar, { size: avatarSize })}
+        </span>
+      );
+    } else if (leadingIcon) {
       leadingEl = (
         <span className={clsx(classes.leadingIcon, classesProp?.leadingIcon)}>
           {leadingIcon}

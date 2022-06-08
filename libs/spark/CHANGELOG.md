@@ -27,10 +27,12 @@ _This section details previews of breaking changes or experimental features that
   - Props API Changes:
     - `classes`: Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
 - **Unstable_Button**
+  - Added support for a leading Avatar (`leadingAvatar`).
   - Replaced `startIcon` and `endIcon` with `leadingIcon` and `trailingIcon`, respectively.
   - Props API changes:
-    - `classes`: removed `'startIcon' | 'endIcon'` class keys; added `'leadingIcon' | 'trailingIcon'` class keys
+    - `classes`: removed `'startIcon' | 'endIcon'` class keys; added `'leadingAvatar' | 'leadingIcon' | 'trailingIcon'` class keys
     - `endIcon`: removed
+    - `leadingAvatar`: added
     - `leadingIcon`: added
     - `startIcon`: removed
     - `trailingIcon`: added
