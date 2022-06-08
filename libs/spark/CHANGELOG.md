@@ -26,6 +26,17 @@ _This section details previews of breaking changes or experimental features that
     - Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
   - Props API Changes:
     - `classes`: Removed all class keys _except `'root' | 'icon' | 'message' | 'action'`_.
+- **Unstable_Button**
+  - Replaced `startIcon` and `endIcon` with `leadingIcon` and `trailingIcon`, respectively.
+  - Props API changes:
+    - `classes`: removed `'startIcon' | 'endIcon'` class keys; added `'leadingIcon' | 'trailingIcon'` class keys
+    - `endIcon`: removed
+    - `leadingIcon`: added
+    - `startIcon`: removed
+    - `trailingIcon`: added
+  - Migration:
+    - `startIcon={...}` -> `leadingIcon={...}`
+    - `endIcon={...}` -> `trailingIcon={...}`
 - **Unstable_IconButton**
   - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
     - values: `"standard" | "inverse"`

@@ -18,6 +18,9 @@ export interface Unstable_ButtonTypeMap<
     Omit<
       MuiButtonProps,
       | 'classes'
+      | 'color'
+      | 'startIcon'
+      | 'endIcon'
       | 'variant'
       | 'disableElevation'
       | 'disableFocusRipple'
@@ -31,6 +34,14 @@ export interface Unstable_ButtonTypeMap<
        * The variant to use.
        */
       variant?: 'primary' | 'stroked' | 'ghost' | 'destructive';
+      /**
+       * Icon placed before the children.
+       */
+      leadingIcon?: React.ReactNode;
+      /**
+       * Icon placed after the children.
+       */
+      trailingIcon?: React.ReactNode;
     };
   defaultComponent: D;
   classKey: Unstable_ButtonClassKey;
@@ -44,8 +55,8 @@ export type Unstable_ButtonProps<
 
 export type Unstable_ButtonClassKey =
   | 'root'
-  | 'startIcon'
-  | 'endIcon'
+  | 'leadingIcon'
+  | 'trailingIcon'
   | 'label'
   | 'private-textBaselineShift';
 
@@ -87,6 +98,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
+      /** variant */
       ...(props.variant === 'primary' && {
         backgroundColor: theme.unstable_palette.brand.blue,
         '&:hover': {
@@ -150,7 +162,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
           color: theme.unstable_palette.neutral[100],
         },
       }),
-
+      /** size */
       ...(props.size === 'small' && {
         padding: '8px 16px',
       }),
@@ -160,7 +172,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         padding: '20px 32px',
       }),
-
       // double-specificity section for overriding v1 styles from STP
       '&&': {
         borderColor: 'transparent',
@@ -175,6 +186,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
     }),
 
     label: (props: Unstable_ButtonProps) => ({
+      /** size */
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
       }),
@@ -184,7 +196,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
       }),
-
+      /** variant */
       ...(props.variant === 'primary' && {
         color: theme.palette.common.white,
         ...(props.disabled && {
@@ -216,10 +228,12 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         }),
       }),
     }),
-    startIcon: (props: Unstable_ButtonProps) => ({
+    leadingIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
+      display: 'flex',
       lineHeight: 1,
       margin: '0 8px 0 0',
+      /** size */
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -229,12 +243,13 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
       }),
-      '& > :first-child': { fontSize: 'inherit' },
     }),
-    endIcon: (props: Unstable_ButtonProps) => ({
+    trailingIcon: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
+      display: 'flex',
       lineHeight: 1,
       margin: '0 0 0 8px',
+      /** size */
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -244,7 +259,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         fontSize: theme.typography.pxToRem(24),
       }),
-      '& > :first-child': { fontSize: 'inherit' },
     }),
     'private-textBaselineShift': {
       marginTop: theme.unstable_typography.pxToRem(1),
@@ -260,19 +274,38 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
       children,
       classes: classesProp,
       disabled,
-      variant = 'primary',
+      leadingIcon,
       size = 'medium',
+      trailingIcon,
+      variant = 'primary',
+      color: _color,
       ...other
     } = props;
 
     const classes = useStyles({ disabled, variant, size });
 
+    let leadingEl: React.ReactNode;
+    if (leadingIcon) {
+      leadingEl = (
+        <span className={clsx(classes.leadingIcon, classesProp?.leadingIcon)}>
+          {leadingIcon}
+        </span>
+      );
+    }
+
+    let trailingEl: React.ReactNode;
+    if (trailingIcon) {
+      trailingEl = (
+        <span className={clsx(classes.trailingIcon, classesProp?.trailingIcon)}>
+          {trailingIcon}
+        </span>
+      );
+    }
+
     return (
       <MuiButton
         classes={{
           root: clsx(classes.root, classesProp?.root),
-          startIcon: clsx(classes.startIcon, classesProp?.startIcon),
-          endIcon: clsx(classes.endIcon, classesProp?.endIcon),
           label: clsx(classes.label, classesProp?.label),
         }}
         disabled={disabled}
@@ -283,7 +316,9 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
         ref={ref}
         {...other}
       >
+        {leadingEl}
         <span className={classes['private-textBaselineShift']}>{children}</span>
+        {trailingEl}
       </MuiButton>
     );
   }

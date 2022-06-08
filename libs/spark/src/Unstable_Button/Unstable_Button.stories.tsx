@@ -1,45 +1,41 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_Button, Unstable_ButtonProps } from '..';
-import { Unstable_ChevronDown, Unstable_AlertOctagon } from '../internal';
-import { containFocusIndicator, sparkThemeProvider } from '../../stories';
+import {
+  ChevronDown,
+  containFocusIndicator,
+  Plus,
+  sparkThemeProvider,
+} from '../../stories';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Sb_Unstable_ButtonProps
-  extends Omit<Unstable_ButtonProps, 'tabIndex'> {}
-
-export const Sb_Unstable_Button = (props: Sb_Unstable_ButtonProps) => (
-  <Unstable_Button {...props} />
-);
+export const _retyped = Unstable_Button as typeof Unstable_Button;
 
 export default {
   title: '@ps/Unstable_Button',
-  component: Sb_Unstable_Button,
-  excludeStories: ['Sb_Unstable_Button'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   decorators: [containFocusIndicator],
   argTypes: {
-    startIcon: {
+    leadingIcon: {
       control: 'select',
-      options: ['undefined', 'Unstable_ChevronDown', 'Unstable_AlertOctagon'],
+      options: ['undefined', 'Plus'],
       mapping: {
         undefined: undefined,
-        Unstable_ChevronDown: <Unstable_ChevronDown />,
-        Unstable_AlertOctagon: <Unstable_AlertOctagon />,
+        Plus: <Plus />,
       },
     },
-    endIcon: {
+    trailingIcon: {
       control: 'select',
-      options: ['undefined', 'Unstable_ChevronDown', 'Unstable_AlertOctagon'],
+      options: ['undefined', 'ChevronDown'],
       mapping: {
         undefined: undefined,
-        Unstable_ChevronDown: <Unstable_ChevronDown />,
-        Unstable_AlertOctagon: <Unstable_AlertOctagon />,
+        ChevronDown: <ChevronDown />,
       },
     },
   },
   args: {
-    children: 'Label',
+    children: <>Label</>,
   },
 } as Meta;
 
@@ -141,60 +137,30 @@ SizeByVariantDisabledSTP.args = { disabled: true };
 SizeByVariantDisabledSTP.decorators = [sparkThemeProvider];
 SizeByVariantDisabledSTP.storyName = 'size ⨯ variant disabled (STP)';
 
-export const SizeByVariantStartIcon: Story = SizeByVariantTemplate.bind({});
-SizeByVariantStartIcon.args = { startIcon: 'Unstable_AlertOctagon' };
-SizeByVariantStartIcon.storyName = 'size ⨯ variant startIcon';
+export const SizeByVariantLeadingIcon: Story = SizeByVariantTemplate.bind({});
+SizeByVariantLeadingIcon.args = { leadingIcon: 'Plus' };
+SizeByVariantLeadingIcon.storyName = 'size ⨯ variant leadingIcon';
 
-export const SizeByVariantStartIconSTP: Story = SizeByVariantTemplate.bind({});
-SizeByVariantStartIconSTP.args = { startIcon: 'Unstable_AlertOctagon' };
-SizeByVariantStartIconSTP.decorators = [sparkThemeProvider];
-SizeByVariantStartIconSTP.storyName = 'size ⨯ variant startIcon (STP)';
-
-export const SizeByVariantStartIconDisabled: Story = SizeByVariantTemplate.bind(
+export const SizeByVariantLeadingIconDisabled: Story = SizeByVariantTemplate.bind(
   {}
 );
-SizeByVariantStartIconDisabled.args = {
-  startIcon: 'Unstable_AlertOctagon',
+SizeByVariantLeadingIconDisabled.args = {
+  leadingIcon: 'Plus',
   disabled: true,
 };
-SizeByVariantStartIconDisabled.storyName = 'size ⨯ variant startIcon disabled';
+SizeByVariantLeadingIconDisabled.storyName =
+  'size ⨯ variant leadingIcon disabled';
 
-export const SizeByVariantStartIconDisabledSTP: Story = SizeByVariantTemplate.bind(
+export const SizeByVariantTrailingIcon: Story = SizeByVariantTemplate.bind({});
+SizeByVariantTrailingIcon.args = { trailingIcon: 'ChevronDown' };
+SizeByVariantTrailingIcon.storyName = 'size ⨯ variant trailingIcon';
+
+export const SizeByVariantTrailingIconDisabled: Story = SizeByVariantTemplate.bind(
   {}
 );
-SizeByVariantStartIconDisabledSTP.args = {
-  startIcon: 'Unstable_AlertOctagon',
+SizeByVariantTrailingIconDisabled.args = {
+  trailingIcon: 'ChevronDown',
   disabled: true,
 };
-SizeByVariantStartIconDisabledSTP.decorators = [sparkThemeProvider];
-SizeByVariantStartIconDisabledSTP.storyName =
-  'size ⨯ variant startIcon disabled (STP)';
-
-export const SizeByVariantEndIcon: Story = SizeByVariantTemplate.bind({});
-SizeByVariantEndIcon.args = { endIcon: 'Unstable_AlertOctagon' };
-SizeByVariantEndIcon.storyName = 'size ⨯ variant endIcon';
-
-export const SizeByVariantEndIconSTP: Story = SizeByVariantTemplate.bind({});
-SizeByVariantEndIconSTP.args = { endIcon: 'Unstable_AlertOctagon' };
-SizeByVariantEndIconSTP.decorators = [sparkThemeProvider];
-SizeByVariantEndIconSTP.storyName = 'size ⨯ variant endIcon (STP)';
-
-export const SizeByVariantEndIconDisabled: Story = SizeByVariantTemplate.bind(
-  {}
-);
-SizeByVariantEndIconDisabled.args = {
-  endIcon: 'Unstable_AlertOctagon',
-  disabled: true,
-};
-SizeByVariantEndIconDisabled.storyName = 'size ⨯ variant endIcon disabled';
-
-export const SizeByVariantEndIconDisabledSTP: Story = SizeByVariantTemplate.bind(
-  {}
-);
-SizeByVariantEndIconDisabledSTP.args = {
-  endIcon: 'Unstable_AlertOctagon',
-  disabled: true,
-};
-SizeByVariantEndIconDisabledSTP.decorators = [sparkThemeProvider];
-SizeByVariantEndIconDisabledSTP.storyName =
-  'size ⨯ variant endIcon disabled (STP)';
+SizeByVariantTrailingIconDisabled.storyName =
+  'size ⨯ variant trailingIcon disabled';
