@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Button, Unstable_ButtonProps } from '..';
+import { Unstable_Avatar, Unstable_Button, Unstable_ButtonProps } from '..';
 import {
   ChevronDown,
   containFocusIndicator,
@@ -17,6 +17,17 @@ export default {
   parameters: { actions: { argTypesRegex: '^on.*' } },
   decorators: [containFocusIndicator],
   argTypes: {
+    leadingAvatar: {
+      control: 'select',
+      options: ['undefined', '(Guide)', '(Initials)'],
+      mapping: {
+        undefined: undefined,
+        '(Guide)': (
+          <Unstable_Avatar src="/img/guide-2.png" alt="Adult woman smiling" />
+        ),
+        '(Initials)': <Unstable_Avatar color="blue">M</Unstable_Avatar>,
+      },
+    },
     leadingIcon: {
       control: 'select',
       options: ['undefined', 'Plus'],
@@ -136,6 +147,20 @@ export const SizeByVariantDisabledSTP: Story = SizeByVariantTemplate.bind({});
 SizeByVariantDisabledSTP.args = { disabled: true };
 SizeByVariantDisabledSTP.decorators = [sparkThemeProvider];
 SizeByVariantDisabledSTP.storyName = 'size ⨯ variant disabled (STP)';
+
+export const SizeByVariantLeadingAvatar: Story = SizeByVariantTemplate.bind({});
+SizeByVariantLeadingAvatar.args = { leadingAvatar: '(Guide)' };
+SizeByVariantLeadingAvatar.storyName = 'size ⨯ variant leadingAvatar';
+
+export const SizeByVariantLeadingAvatarDisabled: Story = SizeByVariantTemplate.bind(
+  {}
+);
+SizeByVariantLeadingAvatarDisabled.args = {
+  leadingAvatar: '(Guide)',
+  disabled: true,
+};
+SizeByVariantLeadingAvatarDisabled.storyName =
+  'size ⨯ variant leadingAvatar disabled';
 
 export const SizeByVariantLeadingIcon: Story = SizeByVariantTemplate.bind({});
 SizeByVariantLeadingIcon.args = { leadingIcon: 'Plus' };
