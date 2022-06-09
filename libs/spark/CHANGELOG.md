@@ -47,6 +47,16 @@ _This section details previews of breaking changes or experimental features that
   - Migration:
     - `startIcon={...}` -> `leadingIcon={...}`
     - `endIcon={...}` -> `trailingIcon={...}`
+- **Unstable_Checkbox**
+  - Initial implementation of **Checkbox** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root'`_.
+  - Props API Changes:
+    - `classes`: removed all class keys _except `'root'`_
+    - `color`: removed
+    - `edge`: removed
+    - `size`: removed
 - **Unstable_IconButton**
   - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
     - values: `"standard" | "inverse"`

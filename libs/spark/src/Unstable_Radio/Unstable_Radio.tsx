@@ -49,22 +49,17 @@ const useStyles = makeStyles<Unstable_RadioClassKey>(
 
 const Unstable_Radio = React.forwardRef<HTMLButtonElement, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
-    const { checked, classes: classesProp, disabled, ...other } = props;
+    const { classes: classesProp, ...other } = props;
 
-    const classes = useStyles({
-      checked,
-      disabled,
-    });
+    const classes = useStyles();
 
     return (
       <MuiRadio
-        checked={checked}
         checkedIcon={<Unstable_RadioIcon checked />}
         color="default"
         classes={{
           root: clsx(classes.root, classesProp?.root),
         }}
-        disabled={disabled}
         disableFocusRipple
         disableRipple
         disableTouchRipple
