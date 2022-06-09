@@ -52,6 +52,16 @@ _This section details previews of breaking changes or experimental features that
     - values: `"standard" | "inverse"`
     - default value: `"standard"`
     - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
+- **Unstable_Radio**
+  - Initial implementation of **Radio** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root'`_.
+  - Props API Changes:
+    - `classes`: removed all class keys _except `'root'`_
+    - `color`: removed
+    - `edge`: removed
+    - `size`: removed
 - **Unstable_SectionMessage**
   - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
   - Add `CloseProps` prop to apply props to the _close_ icon button.

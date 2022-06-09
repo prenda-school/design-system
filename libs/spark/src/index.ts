@@ -248,6 +248,9 @@ export * from './Unstable_InputLabel';
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
 
+export { default as Unstable_Radio } from './Unstable_Radio';
+export * from './Unstable_Radio';
+
 export { default as Unstable_SectionMessage } from './Unstable_SectionMessage';
 export * from './Unstable_SectionMessage';
 
