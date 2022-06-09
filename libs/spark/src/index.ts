@@ -236,6 +236,9 @@ export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBasel
 export { default as Unstable_FormControlLabel } from './Unstable_FormControlLabel';
 export * from './Unstable_FormControlLabel';
 
+export { default as Unstable_FormGroup } from './Unstable_FormGroup';
+export * from './Unstable_FormGroup';
+
 export { default as Unstable_FormHelperText } from './Unstable_FormHelperText';
 export * from './Unstable_FormHelperText';
 
