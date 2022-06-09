@@ -48,16 +48,12 @@ const useStyles = makeStyles<
     },
     box: {
       borderRadius: 2,
-      // transform: 'scale(1)', // (from Mui) prevent misalignment in Safari
       'input:hover ~ $root > &, label:hover ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[70],
       },
       '$checked > &, $indeterminate > &': {
         backgroundColor: theme.unstable_palette.blue[600],
       },
-      // '.Mui-focusVisible $root > &, input:focus-visible ~ $root > &': {
-      //   backgroundColor: 'unset', // unset Mui default
-      // },
       'input:hover ~ $checked > &, input:hover ~ $indeterminate > &, label:hover ~ $checked > &,  label:hover ~ $indeterminate > &': {
         backgroundColor: theme.unstable_palette.blue[400],
       },
