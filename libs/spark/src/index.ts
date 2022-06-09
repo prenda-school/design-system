@@ -239,6 +239,9 @@ export * from './Unstable_FormControlLabel';
 export { default as Unstable_FormHelperText } from './Unstable_FormHelperText';
 export * from './Unstable_FormHelperText';
 
+export { default as Unstable_FormLabel } from './Unstable_FormLabel';
+export * from './Unstable_FormLabel';
+
 export { default as Unstable_IconButton } from './Unstable_IconButton';
 export * from './Unstable_IconButton';
 
