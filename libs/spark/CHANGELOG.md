@@ -69,6 +69,15 @@ _This section details previews of breaking changes or experimental features that
     - values: `"standard" | "inverse"`
     - default value: `"standard"`
     - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
+- **Unstable_FormLabel**
+  - Initial implementation of **FormLabel** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root' | 'asterisk'`_.
+  - Props API Changes:
+    - `classes`: removed all class keys _except `'root' | 'asterisk'`_
+    - `color`: removed
+    - `filled`: removed
 - **Unstable_Radio**
   - Initial implementation of **Radio** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
