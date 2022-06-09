@@ -16,7 +16,7 @@ export default {
   argTypes: {
     children: {
       control: 'select',
-      options: ['(FormControlLabel & Checkbox)', '(FormControlLabel & Radio)'],
+      options: ['(FormControlLabel & Checkbox)'],
       mapping: {
         '(FormControlLabel & Checkbox)': (
           <>
@@ -58,7 +58,8 @@ ChildrenCheckboxes.storyName = 'children=(FormControlLabel & Checkbox)';
 export const ChildrenCheckboxesSTP: Story = Template.bind({});
 ChildrenCheckboxesSTP.args = { children: '(FormControlLabel & Checkbox)' };
 ChildrenCheckboxesSTP.decorators = [sparkThemeProvider];
-ChildrenCheckboxesSTP.storyName = '(SparkThemeProvider)';
+ChildrenCheckboxesSTP.storyName =
+  'children=(FormControlLabel & Checkbox) (SparkThemeProvider)';
 
 export const ChildrenCheckboxesRow: Story = Template.bind({});
 ChildrenCheckboxesRow.args = {
