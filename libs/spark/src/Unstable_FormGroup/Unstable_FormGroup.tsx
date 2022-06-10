@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import MuiFormGroup, {
   FormGroupProps as MuiFormGroupProps,
 } from '@material-ui/core/FormGroup';
