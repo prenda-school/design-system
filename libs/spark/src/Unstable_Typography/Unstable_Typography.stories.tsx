@@ -1,35 +1,31 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Typography, Unstable_TypographyProps } from '..';
+import { Unstable_Typography } from '..';
 import { inverseBackground, sparkThemeProvider } from '../../stories';
 
-export const SbUnstable_Typography = (props: Unstable_TypographyProps) => (
-  <Unstable_Typography {...props} />
-);
+export const _retyped = Unstable_Typography as typeof Unstable_Typography;
 
 export default {
   title: '@ps/Unstable_Typography',
-  component: SbUnstable_Typography,
-  excludeStories: ['SbUnstable_Typography'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
   args: {
-    children: 'typography',
+    children: <>typography</>,
   },
 } as Meta;
 
-const Template = (args: Unstable_TypographyProps) => (
-  <Unstable_Typography {...args} />
-);
+const Template = (args) => <Unstable_Typography {...args} />;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const STP: Story = Template.bind({});
+STP.decorators = [sparkThemeProvider];
+STP.storyName = '(STP)';
 
-export const Display: Story = Template.bind({});
-Display.args = { variant: 'display' };
-Display.storyName = 'variant=display';
+export const VariantDisplay: Story = Template.bind({});
+VariantDisplay.args = { variant: 'display' };
+VariantDisplay.storyName = 'variant=display';
 
 export const VariantT32: Story = Template.bind({});
 VariantT32.args = { variant: 'T32' };

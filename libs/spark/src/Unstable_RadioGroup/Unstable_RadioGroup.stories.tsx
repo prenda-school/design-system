@@ -5,7 +5,7 @@ import {
   Unstable_FormControlLabel,
   Unstable_RadioGroup,
 } from '..';
-import { sparkThemeProvider } from '../../stories';
+import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_RadioGroup as typeof Unstable_RadioGroup;
 
@@ -13,12 +13,13 @@ export default {
   title: '@ps/Unstable_RadioGroup',
   component: _retyped,
   excludeStories: ['_retyped'],
+  decorators: [containFocusIndicator],
   argTypes: {
     children: {
       control: 'select',
-      options: ['(FormControlLabel & Radio)'],
+      options: ['(Labeled Radios)'],
       mapping: {
-        '(FormControlLabel & Radio)': (
+        '(Labeled Radios)': (
           <>
             <Unstable_FormControlLabel
               control={<Unstable_Radio />}
@@ -46,32 +47,30 @@ export default {
       },
     },
   },
-  args: {},
 } as Meta;
 
 const Template = (args) => <Unstable_RadioGroup {...args} />;
 
-export const ChildrenRadios: Story = Template.bind({});
-ChildrenRadios.args = { children: '(FormControlLabel & Radio)' };
-ChildrenRadios.storyName = 'children=(FormControlLabel & Radio)';
+export const ChildrenLabeledRadios: Story = Template.bind({});
+ChildrenLabeledRadios.args = { children: '(Labeled Radios)' };
+ChildrenLabeledRadios.storyName = 'children=(Labeled Radios)';
 
-export const ChildrenRadiosSTP: Story = Template.bind({});
-ChildrenRadiosSTP.args = { children: '(FormControlLabel & Radio)' };
-ChildrenRadiosSTP.decorators = [sparkThemeProvider];
-ChildrenRadiosSTP.storyName =
-  'children=(FormControlLabel & Radio) (SparkThemeProvider)';
+export const ChildrenLabeledRadiosSTP: Story = Template.bind({});
+ChildrenLabeledRadiosSTP.args = { children: '(Labeled Radios)' };
+ChildrenLabeledRadiosSTP.decorators = [sparkThemeProvider];
+ChildrenLabeledRadiosSTP.storyName = 'children=(Labeled Radios) (STP)';
 
-export const ChildrenRadiosRow: Story = Template.bind({});
-ChildrenRadiosRow.args = {
-  children: '(FormControlLabel & Radio)',
-  row: true,
-};
-ChildrenRadiosRow.storyName = 'children=(FormControlLabel & Radio) row';
-
-export const ChildrenRadiosDefaultValue: Story = Template.bind({});
-ChildrenRadiosDefaultValue.args = {
-  children: '(FormControlLabel & Radio)',
+export const ChildrenLabeledRadiosDefaultValue: Story = Template.bind({});
+ChildrenLabeledRadiosDefaultValue.args = {
+  children: '(Labeled Radios)',
   defaultValue: 'value-2',
 };
-ChildrenRadiosDefaultValue.storyName =
-  'children=(FormControlLabel & Radio) defaultValue';
+ChildrenLabeledRadiosDefaultValue.storyName =
+  'children=(Labeled Radios) defaultValue';
+
+export const ChildrenLabeledRadiosRow: Story = Template.bind({});
+ChildrenLabeledRadiosRow.args = {
+  children: '(Labeled Radios)',
+  row: true,
+};
+ChildrenLabeledRadiosRow.storyName = 'children=(Labeled Radios) row';

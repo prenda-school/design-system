@@ -24,78 +24,106 @@ export default {
       },
     },
   },
-  args: {
-    control: '(Checkbox)',
-    label: 'Label',
-  },
 } as Meta;
 
 const Template = (args) => <Unstable_FormControlLabel {...args} />;
 
 export const LabelControlCheckbox: Story = Template.bind({});
-LabelControlCheckbox.storyName = 'label control=Checkbox';
+LabelControlCheckbox.args = { label: 'Label', control: '(Checkbox)' };
+LabelControlCheckbox.storyName = 'label control=(Checkbox)';
 
 export const LabelControlCheckboxSTP: Story = Template.bind({});
+LabelControlCheckboxSTP.args = { label: 'Label', control: '(Checkbox)' };
 LabelControlCheckboxSTP.decorators = [sparkThemeProvider];
-LabelControlCheckboxSTP.storyName = 'label control=Checkbox (STP)';
+LabelControlCheckboxSTP.storyName = 'label control=(Checkbox) (STP)';
 
 export const LabelControlCheckboxHover: Story = Template.bind({});
+LabelControlCheckboxHover.args = { label: 'Label', control: '(Checkbox)' };
 LabelControlCheckboxHover.parameters = { pseudo: { hover: true } };
-LabelControlCheckboxHover.storyName = 'label control=Checkbox :hover';
+LabelControlCheckboxHover.storyName = 'label control=(Checkbox) :hover';
 
 export const LabelControlCheckboxFocusVisible: Story = Template.bind({});
+LabelControlCheckboxFocusVisible.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+};
 LabelControlCheckboxFocusVisible.parameters = {
   pseudo: { focusVisible: true },
 };
 LabelControlCheckboxFocusVisible.storyName =
-  'label control=Checkbox :focus-visible';
+  'label control=(Checkbox) :focus-visible';
 
 export const LabelControlCheckboxDisabled: Story = Template.bind({});
-LabelControlCheckboxDisabled.args = { disabled: true };
-LabelControlCheckboxDisabled.storyName = 'label control=Checkbox disabled';
+LabelControlCheckboxDisabled.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  disabled: true,
+};
+LabelControlCheckboxDisabled.storyName = 'label control=(Checkbox) disabled';
 
 export const LabelControlCheckboxDisabledHover: Story = Template.bind({});
-LabelControlCheckboxDisabledHover.args = { disabled: true };
+LabelControlCheckboxDisabledHover.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  disabled: true,
+};
 LabelControlCheckboxDisabledHover.parameters = { pseudo: { hover: true } };
 LabelControlCheckboxDisabledHover.storyName =
-  'label control=Checkbox disabled :hover';
+  'label control=(Checkbox) disabled :hover';
 
 export const LabelControlCheckboxPlacementStart: Story = Template.bind({});
-LabelControlCheckboxPlacementStart.args = { labelPlacement: 'start' };
+LabelControlCheckboxPlacementStart.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  labelPlacement: 'start',
+};
 LabelControlCheckboxPlacementStart.storyName =
-  'label control=Checkbox labelPlacement=start';
+  'label control=(Checkbox) labelPlacement=start';
 
 export const LabelControlCheckboxPlacementTop: Story = Template.bind({});
-LabelControlCheckboxPlacementTop.args = { labelPlacement: 'top' };
+LabelControlCheckboxPlacementTop.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  labelPlacement: 'top',
+};
 LabelControlCheckboxPlacementTop.storyName =
-  'label control=Checkbox labelPlacement=top';
+  'label control=(Checkbox) labelPlacement=top';
 
 export const LabelControlCheckboxPlacementBottom: Story = Template.bind({});
-LabelControlCheckboxPlacementBottom.args = { labelPlacement: 'bottom' };
+LabelControlCheckboxPlacementBottom.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  labelPlacement: 'bottom',
+};
 LabelControlCheckboxPlacementBottom.storyName =
-  'label control=Checkbox labelPlacement=bottom';
+  'label control=(Checkbox) labelPlacement=bottom';
 
 export const LabelControlRadio: Story = Template.bind({});
-LabelControlRadio.args = { control: '(Radio)' };
-LabelControlRadio.storyName = 'label control=Radio';
+LabelControlRadio.args = { label: 'Label', control: '(Radio)' };
+LabelControlRadio.storyName = 'label control=(Radio)';
 
 export const LabelControlRadioSTP: Story = Template.bind({});
-LabelControlRadioSTP.args = { control: '(Radio)' };
+LabelControlRadioSTP.args = { label: 'Label', control: '(Radio)' };
 LabelControlRadioSTP.decorators = [sparkThemeProvider];
-LabelControlRadioSTP.storyName = 'label control=Radio (STP)';
+LabelControlRadioSTP.storyName = 'label control=(Radio) (STP)';
 
 export const LabelControlRadioHover: Story = Template.bind({});
-LabelControlRadioHover.args = { control: '(Radio)' };
+LabelControlRadioHover.args = { label: 'Label', control: '(Radio)' };
 LabelControlRadioHover.parameters = { pseudo: { hover: true } };
-LabelControlRadioHover.storyName = 'label control=Radio :hover';
+LabelControlRadioHover.storyName = 'label control=(Radio) :hover';
 
 export const LabelControlRadioFocusVisible: Story = Template.bind({});
-LabelControlRadioFocusVisible.args = { control: '(Radio)' };
+LabelControlRadioFocusVisible.args = { label: 'Label', control: '(Radio)' };
 LabelControlRadioFocusVisible.parameters = {
   pseudo: { focusVisible: true },
 };
-LabelControlRadioFocusVisible.storyName = 'label control=Radio :focus-visible';
+LabelControlRadioFocusVisible.storyName =
+  'label control=(Radio) :focus-visible';
 
 export const LabelControlRadioDisabled: Story = Template.bind({});
-LabelControlRadioDisabled.args = { control: '(Radio)', disabled: true };
-LabelControlRadioDisabled.storyName = 'label control=Radio disabled';
+LabelControlRadioDisabled.args = {
+  label: 'Label',
+  control: '(Radio)',
+  disabled: true,
+};
+LabelControlRadioDisabled.storyName = 'label control=(Radio) disabled';

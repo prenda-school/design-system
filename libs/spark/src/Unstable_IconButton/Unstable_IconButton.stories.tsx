@@ -2,39 +2,34 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { theme, Unstable_IconButton, Unstable_IconButtonProps } from '..';
 import {
-  Unstable_ChevronDown,
-  Unstable_Filter,
-  Unstable_Info,
-} from '../internal';
-import { containFocusIndicator, sparkThemeProvider } from '../../stories';
+  ChevronDown,
+  containFocusIndicator,
+  Info,
+  Plus,
+  sparkThemeProvider,
+} from '../../stories';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Sb_Unstable_IconButtonProps
-  extends Omit<Unstable_IconButtonProps, 'tabIndex'> {}
-
-export const Sb_Unstable_IconButton = (props: Sb_Unstable_IconButtonProps) => (
-  <Unstable_IconButton {...props} />
-);
+export const _retyped = Unstable_IconButton as typeof Unstable_IconButton;
 
 export default {
   title: '@ps/Unstable_IconButton',
-  component: Sb_Unstable_IconButton,
-  excludeStories: ['Sb_Unstable_IconButton'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
   decorators: [containFocusIndicator],
   argTypes: {
     children: {
       control: 'select',
-      options: ['Unstable_ChevronDown', 'Unstable_Filter', 'Unstable_Info'],
+      options: ['<ChevronDown />', '<Info />', '<Plus />'],
       mapping: {
-        Unstable_ChevronDown: <Unstable_ChevronDown />,
-        Unstable_Filter: <Unstable_Filter />,
-        Unstable_Info: <Unstable_Info />,
+        '<ChevronDown />': <ChevronDown />,
+        '<Info />': <Info />,
+        '<Plus />': <Plus />,
       },
     },
   },
   args: {
-    children: 'Unstable_ChevronDown',
+    children: '<ChevronDown />',
   },
 } as Meta;
 
@@ -43,9 +38,9 @@ const Template = (args) => <Unstable_IconButton {...args} />;
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const STP: Story = Template.bind({});
+STP.decorators = [sparkThemeProvider];
+STP.storyName = '(STP)';
 
 const variants: Array<Unstable_IconButtonProps['variant']> = [
   'primary',

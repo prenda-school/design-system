@@ -19,11 +19,11 @@ export default {
   argTypes: {
     children: {
       control: 'select',
-      options: [undefined, 'Initials', 'Icon'],
+      options: [undefined, '(Initials)', '(Icon)'],
       mapping: {
         undefined: undefined,
-        Initials: <>A</>,
-        Icon: <User />,
+        '(Initials)': <>A</>,
+        '(Icon)': <User />,
       },
     },
     src: {
@@ -64,40 +64,44 @@ export default {
       },
     },
   },
-  args: {
-    children: 'Initials',
-    color: 'purple',
-  },
 } as Meta;
 
 const Template = (args) => <Unstable_AvatarButton {...args} />;
 
-export const Default: Story = Template.bind({});
-Default.storyName = '(default)';
+export const ChildrenInitials: Story = Template.bind({});
+ChildrenInitials.args = { children: '(Initials)' };
+ChildrenInitials.storyName = 'children=(Initials)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const ChildrenInitialsSTP: Story = Template.bind({});
+ChildrenInitialsSTP.args = { children: '(Initials)' };
+ChildrenInitialsSTP.decorators = [sparkThemeProvider];
+ChildrenInitialsSTP.storyName = 'children=(Initials) (STP)';
 
-export const Hover: Story = Template.bind({});
-Hover.parameters = { pseudo: { hover: true } };
-Hover.storyName = ':hover';
+export const ChildrenInitialsHover: Story = Template.bind({});
+ChildrenInitialsHover.args = { children: '(Initials)' };
+ChildrenInitialsHover.parameters = { pseudo: { hover: true } };
+ChildrenInitialsHover.storyName = 'children=(Initials) :hover';
 
-export const Active: Story = Template.bind({});
-Active.parameters = { pseudo: { active: true } };
-Active.storyName = ':active';
+export const ChildrenInitialsActive: Story = Template.bind({});
+ChildrenInitialsActive.args = { children: '(Initials)' };
+ChildrenInitialsActive.parameters = { pseudo: { active: true } };
+ChildrenInitialsActive.storyName = 'children=(Initials) :active';
 
-export const Expanded: Story = Template.bind({});
-Expanded.args = { 'aria-expanded': true };
-Expanded.storyName = 'aria-expanded';
+export const ChildrenInitialsExpanded: Story = Template.bind({});
+ChildrenInitialsExpanded.args = {
+  'aria-expanded': true,
+  children: '(Initials)',
+};
+ChildrenInitialsExpanded.storyName = 'children=(Initials) aria-expanded';
 
-export const FocusVisible: Story = Template.bind({});
-FocusVisible.parameters = { pseudo: { focusVisible: true } };
-FocusVisible.storyName = ':focus-visible';
+export const ChildrenInitialsFocusVisible: Story = Template.bind({});
+ChildrenInitialsFocusVisible.args = { children: '(Initials)' };
+ChildrenInitialsFocusVisible.parameters = { pseudo: { focusVisible: true } };
+ChildrenInitialsFocusVisible.storyName = 'children=(Initials) :focus-visible';
 
-export const Disabled: Story = Template.bind({});
-Disabled.args = { disabled: true };
-Disabled.storyName = 'disabled';
+export const ChildrenInitialsDisabled: Story = Template.bind({});
+ChildrenInitialsDisabled.args = { children: '(Initials)', disabled: true };
+ChildrenInitialsDisabled.storyName = 'children=(Initials) disabled';
 
 const OnInverseTemplate = (args) => (
   <div style={{ padding: 5 }}>
@@ -105,11 +109,18 @@ const OnInverseTemplate = (args) => (
   </div>
 );
 
-export const OnInverse: Story = OnInverseTemplate.bind({});
-OnInverse.decorators = [inverseBackground];
-OnInverse.storyName = '(on inverse)';
+export const OnInverseChildrenInitials: Story = OnInverseTemplate.bind({});
+OnInverseChildrenInitials.args = { children: '(Initials)' };
+OnInverseChildrenInitials.decorators = [inverseBackground];
+OnInverseChildrenInitials.storyName = '(on inverse) children=(Initials)';
 
-export const OnInverseDisabled: Story = OnInverseTemplate.bind({});
-OnInverseDisabled.args = { disabled: true };
-OnInverseDisabled.decorators = [inverseBackground];
-OnInverseDisabled.storyName = '(on inverse) disabled';
+export const OnInverseChildrenInitialsDisabled: Story = OnInverseTemplate.bind(
+  {}
+);
+OnInverseChildrenInitialsDisabled.args = {
+  children: '(Initials)',
+  disabled: true,
+};
+OnInverseChildrenInitialsDisabled.decorators = [inverseBackground];
+OnInverseChildrenInitialsDisabled.storyName =
+  '(on inverse) children=(Initials) disabled';

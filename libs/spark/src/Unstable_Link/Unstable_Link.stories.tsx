@@ -1,24 +1,25 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Link, Unstable_LinkProps } from '..';
+import { Unstable_Link } from '..';
+import { containFocusIndicator } from '../../stories';
 
-// underlying props don't have descriptions
-export const SbUnstable_Link = (props: Unstable_LinkProps) => (
-  <Unstable_Link {...props} />
-);
+export const _retyped = Unstable_Link as typeof Unstable_Link;
 
 export default {
   title: '@ps/Unstable_Link',
-  component: SbUnstable_Link,
-  excludeStories: ['SbUnstable_Link'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
+  decorators: [containFocusIndicator],
   args: {
+    children: <>Text</>,
     href: '#',
   },
 } as Meta;
 
-const Template = (args) => <Unstable_Link {...args}>Text</Unstable_Link>;
+const Template = (args) => <Unstable_Link {...args} />;
 
-export const Playground: Story = Template.bind({});
+export const Default: Story = Template.bind({});
+Default.storyName = '(default)';
 
 export const Hover: Story = Template.bind({});
 Hover.parameters = { pseudo: { visited: false, hover: true } };

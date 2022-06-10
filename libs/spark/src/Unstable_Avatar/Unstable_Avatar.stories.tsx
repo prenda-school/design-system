@@ -9,11 +9,11 @@ export default {
   argTypes: {
     children: {
       control: 'select',
-      options: [undefined, 'Initials', 'Icon'],
+      options: [undefined, '(Initials)', '(Icon)'],
       mapping: {
         undefined: undefined,
-        Initials: <>A</>,
-        Icon: <User />,
+        '(Initials)': <>A</>,
+        '(Icon)': <User />,
       },
     },
     src: {
@@ -54,19 +54,16 @@ export default {
       },
     },
   },
-  args: {
-    children: 'Initials',
-  },
 } as Meta;
 
 const Template = (args) => <Unstable_Avatar {...args} />;
 
-export const Default: Story = Template.bind({});
-Default.storyName = '(default)';
+export const ChildrenInitials: Story = Template.bind({});
+ChildrenInitials.storyName = 'children=(Initials)';
 
-export const STP: Story = Template.bind({});
-STP.decorators = [sparkThemeProvider];
-STP.storyName = '(SparkThemeProvider)';
+export const ChildrenInitialsSTP: Story = Template.bind({});
+ChildrenInitialsSTP.decorators = [sparkThemeProvider];
+ChildrenInitialsSTP.storyName = 'children=(Initials) (STP)';
 
 const colors: Array<Unstable_AvatarProps['color']> = [
   'neutral',
@@ -100,18 +97,18 @@ const ColorBySizeTemplate = ({ color, size, ...other }) => (
   </div>
 );
 
-export const InitialsColorBySize: Story = ColorBySizeTemplate.bind({});
-InitialsColorBySize.args = { children: 'Initials' };
-InitialsColorBySize.storyName = 'children=(initials) color ⨯ size';
+export const ChildrenInitialsColorBySize: Story = ColorBySizeTemplate.bind({});
+ChildrenInitialsColorBySize.args = { children: '(Initials)' };
+ChildrenInitialsColorBySize.storyName = 'children=(Initials) color ⨯ size';
 
-export const IconColorBySize: Story = ColorBySizeTemplate.bind({});
-IconColorBySize.args = { children: 'Icon' };
-IconColorBySize.storyName = 'children=(icon) color ⨯ size';
+export const ChildrenIconColorBySize: Story = ColorBySizeTemplate.bind({});
+ChildrenIconColorBySize.args = { children: '(Icon)' };
+ChildrenIconColorBySize.storyName = 'children=(Icon) color ⨯ size';
 
-export const PhotoBySize: Story = BySizeTemplate.bind({});
-PhotoBySize.args = {
+export const SrcAltBySize: Story = BySizeTemplate.bind({});
+SrcAltBySize.args = {
   children: 'undefined',
   src: '(Guide 3)',
   alt: '(for Guide)',
 };
-PhotoBySize.storyName = 'src alt size';
+SrcAltBySize.storyName = 'src alt size';
