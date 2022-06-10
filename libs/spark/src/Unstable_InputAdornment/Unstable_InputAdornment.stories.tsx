@@ -14,7 +14,7 @@ export default {
       control: 'select',
       options: ['kg', '<Search />'],
       mapping: {
-        kg: <>kg</>,
+        kg: 'kg',
         '<Search />': <Search />,
       },
     },

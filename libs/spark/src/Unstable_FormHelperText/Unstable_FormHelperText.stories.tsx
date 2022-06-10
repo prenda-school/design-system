@@ -15,7 +15,7 @@ export default {
       options: ['(text)', '(Leading Icon)'],
       mapping: {
         '(text)': <>Helper text</>,
-        '(Icon & text)': (
+        '(Leading Icon)': (
           <>
             <Info fontSize="small" />
             Helper text

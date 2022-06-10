@@ -59,9 +59,11 @@ export default {
 const Template = (args) => <Unstable_Avatar {...args} />;
 
 export const ChildrenInitials: Story = Template.bind({});
+ChildrenInitials.args = { children: '(Initials)' };
 ChildrenInitials.storyName = 'children=(Initials)';
 
 export const ChildrenInitialsSTP: Story = Template.bind({});
+ChildrenInitialsSTP.args = { children: '(Initials)' };
 ChildrenInitialsSTP.decorators = [sparkThemeProvider];
 ChildrenInitialsSTP.storyName = 'children=(Initials) (STP)';
 
