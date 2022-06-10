@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiChip,
@@ -12,7 +12,7 @@ import { alpha, darken } from '@material-ui/core/styles';
 
 export interface Unstable_TagTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P &
     Omit<
@@ -44,7 +44,7 @@ export interface Unstable_TagTypeMap<
 }
 
 export type Unstable_TagProps<
-  D extends React.ElementType = Unstable_TagTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_TagTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<Unstable_TagTypeMap<P, D>, D>;
 
@@ -243,7 +243,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
   { name: 'MuiSparkUnstable_Tag' }
 );
 
-const Unstable_Tag: OverridableComponent<Unstable_TagTypeMap> = React.forwardRef(
+const Unstable_Tag: OverridableComponent<Unstable_TagTypeMap> = forwardRef(
   function Unstable_Tag(props, ref) {
     const {
       classes: classesProp,

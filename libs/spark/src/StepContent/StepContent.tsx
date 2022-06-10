@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import {
   default as MuiStepContent,
   StepContentClasskey as StepContentClassKey,
@@ -24,14 +24,15 @@ const useStyles = makeStyles<StepContentClassKey>(({ palette }) => ({
   transition: {},
 }));
 
-const StepContent = React.forwardRef<unknown, StepContentProps>(
-  function StepContent({ classes: classesProp, ...other }, ref) {
-    const baseClasses = useStyles();
+const StepContent = forwardRef<unknown, StepContentProps>(function StepContent(
+  { classes: classesProp, ...other },
+  ref
+) {
+  const baseClasses = useStyles();
 
-    const classes = useMergeClasses({ baseClasses, classesProp });
+  const classes = useMergeClasses({ baseClasses, classesProp });
 
-    return <MuiStepContent classes={classes} ref={ref} {...other} />;
-  }
-);
+  return <MuiStepContent classes={classes} ref={ref} {...other} />;
+});
 
 export default StepContent;

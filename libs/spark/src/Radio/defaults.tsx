@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { RadioProps, RadioClassKey } from './Radio';
 import RadioIcon from './RadioIcon';
 import type { Theme } from '../theme';

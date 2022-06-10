@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiLink,
@@ -10,7 +10,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 export interface Unstable_LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'a'
+  D extends ElementType = 'a'
 > {
   props: P &
     Omit<MuiLinkProps, 'color' | 'classes' | 'underline'> & {
@@ -28,7 +28,7 @@ export interface Unstable_LinkTypeMap<
 }
 
 export type Unstable_LinkProps<
-  D extends React.ElementType = Unstable_LinkTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_LinkTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_LinkTypeMap<P, D>, D>;
@@ -67,7 +67,7 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
   { name: 'MuiSparkUnstable_Link' }
 );
 
-const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = React.forwardRef(
+const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   function Unstable_Link(props, ref) {
     const {
       classes: classesProp,

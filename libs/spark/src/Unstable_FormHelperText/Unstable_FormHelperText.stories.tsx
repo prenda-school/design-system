@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Unstable_FormHelperText,
@@ -62,10 +62,10 @@ Required.storyName = 'required';
 export const LeadingIcon: Story = Template.bind({});
 LeadingIcon.args = {
   children: (
-    <React.Fragment>
+    <>
       <Info fontSize="small" />
       Helper text
-    </React.Fragment>
+    </>
   ),
 };
 LeadingIcon.storyName = '(leading icon)';
@@ -73,10 +73,10 @@ LeadingIcon.storyName = '(leading icon)';
 export const LeadingIconError: Story = Template.bind({});
 LeadingIconError.args = {
   children: (
-    <React.Fragment>
+    <>
       <Info fontSize="small" />
       Helper text
-    </React.Fragment>
+    </>
   ),
   error: true,
 };

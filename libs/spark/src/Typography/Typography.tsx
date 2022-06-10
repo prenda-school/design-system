@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, ForwardedRef, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiTypography,
@@ -12,7 +12,7 @@ import { OverrideProps, capitalize, useClassesCapture } from '../utils';
 export interface TypographyTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'span'
+  D extends ElementType = 'span'
 > {
   props: P &
     Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
@@ -25,7 +25,7 @@ export interface TypographyTypeMap<
 }
 
 export type TypographyProps<
-  D extends React.ElementType = TypographyTypeMap['defaultComponent'],
+  D extends ElementType = TypographyTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<TypographyTypeMap<P, D>, D>;
@@ -125,8 +125,8 @@ const defaultVariantMapping: Record<SparkVariant, string> = {
   'code-sm': 'pre',
 };
 
-const Typography = React.forwardRef(function Typography<
-  D extends React.ElementType = TypographyTypeMap['defaultComponent']
+const Typography = forwardRef(function Typography<
+  D extends ElementType = TypographyTypeMap['defaultComponent']
 >(
   {
     classes,
@@ -137,7 +137,7 @@ const Typography = React.forwardRef(function Typography<
     ...other
   }: TypographyProps<D>,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ref: React.ForwardedRef<any>
+  ref: ForwardedRef<any>
 ) {
   const baseCustomClasses = useCustomStyles();
 

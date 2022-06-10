@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Breadcrumbs, BreadcrumbsProps, Link } from '..';
 import { sparkThemeProvider } from '../../stories';

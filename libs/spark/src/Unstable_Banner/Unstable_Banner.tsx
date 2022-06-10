@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import Unstable_Alert, {
@@ -59,7 +59,7 @@ const useStyles = makeStyles<Unstable_BannerClassKey>(
   { name: 'MuiSparkUnstable_Banner' }
 );
 
-const Unstable_Banner = React.forwardRef<unknown, Unstable_BannerProps>(
+const Unstable_Banner = forwardRef<unknown, Unstable_BannerProps>(
   function Unstable_Banner(props, ref) {
     const {
       classes: classesProp,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Box,
@@ -165,7 +165,7 @@ const CheckboxGroupIndeterminateTemplate = ({
   value,
   ...args
 }) => {
-  const [rows, setRows] = React.useState([false, true, false]);
+  const [rows, setRows] = useState([false, true, false]);
 
   const handleChange = (event) => {
     const { name, checked } = event.target;

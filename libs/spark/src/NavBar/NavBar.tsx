@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { default as AppBar, AppBarProps } from '@material-ui/core/AppBar';
 import withStyles from '../withStyles';
 

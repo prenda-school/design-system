@@ -1,6 +1,6 @@
 import Paper, { PaperProps } from '@material-ui/core/Paper';
 import clsx from 'clsx';
-import * as React from 'react';
+import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
 import Unstable_AlertTriangle from './Unstable_AlertTriangle';
 import Unstable_AlertOctagon from './Unstable_AlertOctagon';
 import Unstable_CheckCircle2 from './Unstable_CheckCircle2';
@@ -20,7 +20,7 @@ export interface Unstable_AlertProps
   /**
    * The action to display. It renders after the message, at the end of the component.
    */
-  action?: React.ReactNode;
+  action?: ReactNode;
   /**
    * Override the default label for the *close popup* icon button.
    */
@@ -32,7 +32,7 @@ export interface Unstable_AlertProps
   /**
    * Override the icon displayed before the children. (By default, the icon displayed is mapped to the value of the `severity` prop.)
    */
-  icon?: React.ReactNode | false;
+  icon?: ReactNode | false;
   /**
    * The ARIA role attribute of the element.
    */
@@ -43,7 +43,7 @@ export interface Unstable_AlertProps
    *
    * @param {object} event The event source of the callback.
    */
-  onClose?: (event: React.SyntheticEvent) => void;
+  onClose?: (event: SyntheticEvent) => void;
   /**
    * Props applied to the *close alert* icon button.
    */
@@ -59,7 +59,7 @@ const defaultIconMapping = {
   info: <Unstable_Info />,
 };
 
-const Unstable_Alert = React.forwardRef(function Unstable_Alert(
+const Unstable_Alert = forwardRef(function Unstable_Alert(
   props: Unstable_AlertProps,
   ref
 ) {

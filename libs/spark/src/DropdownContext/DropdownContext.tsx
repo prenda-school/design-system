@@ -1,4 +1,11 @@
-import * as React from 'react';
+import React, {
+  createContext,
+  MouseEvent,
+  ReactNode,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
 import { useUniqueId } from '../utils';
 
 // This file is an adaption of Mui's TabContext.
@@ -7,11 +14,11 @@ import { useUniqueId } from '../utils';
 export interface DropdownContextValue {
   id: string;
   anchorEl: null | HTMLElement;
-  openDropdown: (event: React.MouseEvent<HTMLElement>) => void;
+  openDropdown: (event: MouseEvent<HTMLElement>) => void;
   closeDropdown: () => void;
 }
 
-const Context = React.createContext<DropdownContextValue | null>(null);
+const Context = createContext<DropdownContextValue | null>(null);
 
 if (process.env.NODE_ENV !== 'production') {
   Context.displayName = 'DropdownContext';
@@ -21,7 +28,7 @@ export interface DropdownContextProps {
   /**
    * The content of the component.
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export default function DropdownContext(
@@ -29,9 +36,9 @@ export default function DropdownContext(
 ): JSX.Element {
   const id = useUniqueId();
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const openDropdown = (event: React.MouseEvent<HTMLElement>) => {
+  const openDropdown = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -39,14 +46,14 @@ export default function DropdownContext(
     setAnchorEl(null);
   };
 
-  const value = React.useMemo(
-    () => ({ id, anchorEl, openDropdown, closeDropdown }),
-    [id, anchorEl]
-  );
+  const value = useMemo(() => ({ id, anchorEl, openDropdown, closeDropdown }), [
+    id,
+    anchorEl,
+  ]);
 
   return <Context.Provider value={value} {...props} />;
 }
 
 export function useDropdownContext(): DropdownContextValue | null {
-  return React.useContext(Context);
+  return useContext(Context);
 }

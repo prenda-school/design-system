@@ -36,7 +36,7 @@ npm install @prenda/spark
 Here is an example to get you started.
 
 ```tsx
-import * as React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { SparkThemeProvider } from '@prenda/spark';
 import { Button } from '@material-ui/core';

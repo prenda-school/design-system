@@ -5,10 +5,10 @@ import withStyles from '../withStyles';
  *
  * @example
  *  const MyApp = () => (
- *    <React.Fragment>
+ *    <>
  *      <Unstable_CssBaseline />
  *      // rest of my app
- *    </React.Fragment>
+ *    </>
  *  )
  */
 const Unstable_CssBaseline = withStyles(

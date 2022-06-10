@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Box,
@@ -62,7 +62,7 @@ const Template = ({
   sb_TabList_onChange,
   ...args
 }) => {
-  const [value, setValue] = React.useState(args.value);
+  const [value, setValue] = useState(args.value);
 
   return (
     <>

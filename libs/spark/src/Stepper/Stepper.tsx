@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import {
   default as MuiStepper,
   Orientation,
@@ -23,7 +23,7 @@ const useStyles = makeStyles<StepperClassKey>({
 
 const defaultConnector = <StepConnector />;
 
-const Stepper = React.forwardRef<unknown, StepperProps>(function Stepper(
+const Stepper = forwardRef<unknown, StepperProps>(function Stepper(
   { classes: classesProp, connector = defaultConnector, ...other },
   ref
 ) {

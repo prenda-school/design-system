@@ -1,3 +1,4 @@
+import { ComponentProps, ComponentType, ElementType } from 'react';
 import {
   default as muiStyled,
   StyledProps,
@@ -12,7 +13,7 @@ import initialTheme from '../theme/initialTheme';
 
 export type { StyledProps };
 
-export type ComponentCreator<Component extends React.ElementType> = <
+export type ComponentCreator<Component extends ElementType> = <
   Theme = DefaultTheme,
   // eslint-disable-next-line @typescript-eslint/ban-types
   Props extends {} = {}
@@ -21,9 +22,9 @@ export type ComponentCreator<Component extends React.ElementType> = <
     | CreateCSSProperties<Props>
     | ((props: { theme: Theme } & Props) => CreateCSSProperties<Props>),
   options?: WithStylesOptions<Theme>
-) => React.ComponentType<
+) => ComponentType<
   Omit<
-    JSX.LibraryManagedAttributes<Component, React.ComponentProps<Component>>,
+    JSX.LibraryManagedAttributes<Component, ComponentProps<Component>>,
     'classes' | 'className'
   > &
     StyledComponentProps<'root'> & { className?: string } & (Props extends {
@@ -33,7 +34,7 @@ export type ComponentCreator<Component extends React.ElementType> = <
       : Props)
 >;
 
-const styled = <Component extends React.ElementType>(
+const styled = <Component extends ElementType>(
   Component: Component
 ): ComponentCreator<Component> => {
   const componentCreator = muiStyled(Component);

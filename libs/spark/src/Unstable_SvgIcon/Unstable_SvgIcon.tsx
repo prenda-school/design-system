@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiSvgIcon,
@@ -10,7 +10,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 export interface Unstable_SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'svg'
+  D extends ElementType = 'svg'
 > {
   props: P &
     Omit<MuiSvgIconProps, 'classes' | 'color' | 'fontSize'> & {
@@ -35,7 +35,7 @@ export interface Unstable_SvgIconTypeMap<
 }
 
 export type Unstable_SvgIconProps<
-  D extends React.ElementType = Unstable_SvgIconTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_SvgIconTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_SvgIconTypeMap<P, D>, D>;
@@ -79,7 +79,7 @@ const useStyles = makeStyles<Unstable_SvgIconClassKey>(
   { name: 'MuiSparkUnstable_SvgIcon' }
 );
 
-const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = React.forwardRef(
+const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardRef(
   function Unstable_SvgIcon(props, ref) {
     const {
       classes: classesProp,

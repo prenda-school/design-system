@@ -1,5 +1,5 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepConnector/StepConnector.js
-import * as React from 'react';
+import React, { forwardRef, HTMLAttributes, Ref } from 'react';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import { StandardProps, useMergeClasses } from '../utils';
@@ -73,11 +73,11 @@ const useCustomStyles = makeStyles<StepConnectorClassKey>(
 
 export interface StepConnectorProps
   extends StandardProps<
-    React.HTMLAttributes<HTMLDivElement>,
+    HTMLAttributes<HTMLDivElement>,
     StepConnectorClassKey,
     'children'
   > {
-  ref?: React.Ref<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
   /**
    * Whether connected step is active.
    */
@@ -100,7 +100,7 @@ export interface StepConnectorProps
   orientation?: Orientation;
 }
 
-const StepConnector = React.forwardRef<HTMLDivElement, StepConnectorProps>(
+const StepConnector = forwardRef<HTMLDivElement, StepConnectorProps>(
   function StepConnector(
     {
       active,

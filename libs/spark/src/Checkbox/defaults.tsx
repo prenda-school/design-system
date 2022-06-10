@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { CheckboxProps, CheckboxClassKey } from './Checkbox';
 import CheckboxIcon from './CheckboxIcon';
 import type { Theme } from '../theme';

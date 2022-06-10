@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import { useDropdownContext } from '../DropdownContext';
 import type { MenuProps } from '../Menu';
@@ -18,7 +18,7 @@ export interface DropdownMenuProps extends Omit<MenuProps, 'open'> {
   placement?: Placement;
 }
 
-const DropdownMenu = React.forwardRef<HTMLUListElement, DropdownMenuProps>(
+const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(
   (
     {
       placement = 'bottom-left',

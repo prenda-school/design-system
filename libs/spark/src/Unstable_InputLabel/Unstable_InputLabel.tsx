@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef, RefObject } from 'react';
 import MuiInputLabel, {
   InputLabelProps as MuiInputLabelProps,
 } from '@material-ui/core/InputLabel';
@@ -48,9 +48,9 @@ const useStyles = makeStyles<Unstable_InputLabelClassKey>(
   { name: 'MuiSparkUnstable_InputLabel' }
 );
 
-const Unstable_InputLabel = React.forwardRef(function Unstable_InputLabel(
+const Unstable_InputLabel = forwardRef(function Unstable_InputLabel(
   props: Unstable_InputLabelProps,
-  ref: React.RefObject<HTMLLabelElement>
+  ref: RefObject<HTMLLabelElement>
 ) {
   const { classes: classesProp, ...other } = props;
 

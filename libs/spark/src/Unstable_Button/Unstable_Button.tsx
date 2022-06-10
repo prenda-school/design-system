@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { cloneElement, ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiButton,
@@ -13,7 +13,7 @@ import { Unstable_AvatarProps } from '../Unstable_Avatar';
 export interface Unstable_ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > {
   props: P &
     Omit<
@@ -38,22 +38,22 @@ export interface Unstable_ButtonTypeMap<
       /**
        * Avatar placed before the children.
        */
-      leadingAvatar?: React.ReactNode;
+      leadingAvatar?: ReactNode;
       /**
        * Icon placed before the children.
        */
-      leadingIcon?: React.ReactNode;
+      leadingIcon?: ReactNode;
       /**
        * Icon placed after the children.
        */
-      trailingIcon?: React.ReactNode;
+      trailingIcon?: ReactNode;
     };
   defaultComponent: D;
   classKey: Unstable_ButtonClassKey;
 }
 
 export type Unstable_ButtonProps<
-  D extends React.ElementType = Unstable_ButtonTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_ButtonTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_ButtonTypeMap<P, D>, D>;
@@ -299,7 +299,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
   { name: 'MuiSparkUnstable_Button' }
 );
 
-const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forwardRef(
+const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef(
   function Unstable_Button(props, ref) {
     const {
       children,
@@ -316,7 +316,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
 
     const classes = useStyles({ disabled, variant, size });
 
-    let leadingEl: React.ReactNode;
+    let leadingEl: ReactNode;
     if (leadingAvatar) {
       const avatarSize: Unstable_AvatarProps['size'] =
         size === 'small' ? 'small' : 'medium';
@@ -325,7 +325,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
           className={clsx(classes.leadingAvatar, classesProp?.leadingAvatar)}
         >
           {/* @ts-expect-error can't know if actually given an Unstable_Avatar instance, so prop may be invalid */}
-          {React.cloneElement(leadingAvatar, { size: avatarSize })}
+          {cloneElement(leadingAvatar, { size: avatarSize })}
         </span>
       );
     } else if (leadingIcon) {
@@ -336,7 +336,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = React.forw
       );
     }
 
-    let trailingEl: React.ReactNode;
+    let trailingEl: ReactNode;
     if (trailingIcon) {
       trailingEl = (
         <span className={clsx(classes.trailingIcon, classesProp?.trailingIcon)}>

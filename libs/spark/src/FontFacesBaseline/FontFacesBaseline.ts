@@ -7,10 +7,10 @@ import withStyles from '../withStyles';
  *
  * @example
  *  const MyApp = () => (
- *    <React.Fragment>
+ *    <>
  *      <FontFacesBaseline />
  *      // rest of my app
- *    </React.Fragment>
+ *    </>
  *  )
  */
 const FontFacesBaseline = withStyles(

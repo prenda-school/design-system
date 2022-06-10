@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import unstable_createSvgIcon from '../unstable_createSvgIcon';
 
 export default unstable_createSvgIcon(

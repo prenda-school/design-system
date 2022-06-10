@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import {
   default as MuiSwitch,
   SwitchClassKey as MuiSwitchClassKey,
@@ -11,7 +11,7 @@ export type SwitchClassKey = MuiSwitchClassKey | 'edgeEnd' | 'edgeStart';
 
 export interface SwitchTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P &
     Omit<MuiSwitchProps, 'size' | 'color'> & {
@@ -25,17 +25,18 @@ export interface SwitchTypeMap<
 }
 
 export type SwitchProps<
-  D extends React.ElementType = SwitchTypeMap['defaultComponent'],
+  D extends ElementType = SwitchTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<SwitchTypeMap<P, D>, D>;
 
-const Switch: OverridableComponent<SwitchTypeMap> = React.forwardRef(
-  function Switch({ size: passedSize = 'small', ...other }, ref) {
-    // Spark spec's large & small, Mui spec's medium and small => map large to medium.
-    const size = passedSize === 'large' ? 'medium' : passedSize;
+const Switch: OverridableComponent<SwitchTypeMap> = forwardRef(function Switch(
+  { size: passedSize = 'small', ...other },
+  ref
+) {
+  // Spark spec's large & small, Mui spec's medium and small => map large to medium.
+  const size = passedSize === 'large' ? 'medium' : passedSize;
 
-    return <MuiSwitch size={size} color="default" ref={ref} {...other} />;
-  }
-);
+  return <MuiSwitch size={size} color="default" ref={ref} {...other} />;
+});
 
 export default Switch;

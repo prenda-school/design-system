@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Li, Root, SmCode } from './documentation-template';
 
 const ChangelogTemplate = ({

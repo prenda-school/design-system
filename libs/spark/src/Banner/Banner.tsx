@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { CSSProperties, SyntheticEvent } from 'react';
 import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
 import Button from '../Button';
 import IconButton from '../IconButton';
@@ -16,7 +16,7 @@ export interface BannerProps extends Omit<AlertProps, 'variant'> {
    *
    * @param {object} event The event source of the callback.
    */
-  onDetails?: (event: React.SyntheticEvent) => void;
+  onDetails?: (event: SyntheticEvent) => void;
 }
 
 export type BannerClassKey = AlertClassKey;
@@ -90,7 +90,7 @@ export default withStyles(
       marginRight: 8,
     },
     message: {
-      ...(theme.typography['label-lg-strong'] as React.CSSProperties),
+      ...(theme.typography['label-lg-strong'] as CSSProperties),
       padding: '9px 0',
     },
   }),

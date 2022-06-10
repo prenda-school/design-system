@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiAvatar,
@@ -10,7 +10,7 @@ import { buildVariant } from '../theme/typography';
 
 export interface Unstable_AvatarTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P &
     Omit<MuiAvatarProps, 'classes' | 'variant'> & {
@@ -36,7 +36,7 @@ export interface Unstable_AvatarTypeMap<
 }
 
 export type Unstable_AvatarProps<
-  D extends React.ElementType = Unstable_AvatarTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_AvatarTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<Unstable_AvatarTypeMap<P, D>, D>;
 
@@ -146,7 +146,7 @@ const useStyles = makeStyles<Unstable_AvatarClassKey>(
   { name: 'MuiSparkUnstable_Avatar' }
 );
 
-const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = React.forwardRef(
+const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = forwardRef(
   function Unstable_Avatar(props, ref) {
     const {
       classes: classesProp,

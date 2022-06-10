@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiSvgIcon,
@@ -98,7 +98,7 @@ const useStyles = makeStyles<SvgIconClassKey>(
 export interface SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'svg'
+  D extends ElementType = 'svg'
 > {
   props: P &
     Omit<MuiSvgIconProps, 'color' | 'classes'> & {
@@ -125,12 +125,12 @@ export interface SvgIconTypeMap<
 }
 
 export type SvgIconProps<
-  D extends React.ElementType = SvgIconTypeMap['defaultComponent'],
+  D extends ElementType = SvgIconTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<SvgIconTypeMap<P, D>, D>;
 
-const SvgIcon: OverridableComponent<SvgIconTypeMap> = React.forwardRef(
+const SvgIcon: OverridableComponent<SvgIconTypeMap> = forwardRef(
   function SvgIcon(
     {
       lowContrast,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiAvatar,
@@ -27,7 +27,7 @@ type CustomClassKey =
 
 export interface AvatarTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P &
     Omit<MuiAvatarProps, 'variant' | 'classes'> & {
@@ -41,7 +41,7 @@ export interface AvatarTypeMap<
 }
 
 export type AvatarProps<
-  D extends React.ElementType = AvatarTypeMap['defaultComponent'],
+  D extends ElementType = AvatarTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<AvatarTypeMap<P, D>, D>;
 
@@ -96,33 +96,34 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkAvatar' }
 );
 
-const Avatar: OverridableComponent<AvatarTypeMap> = React.forwardRef(
-  function Avatar({ classes, size = 'medium', ...other }, ref) {
-    const baseCustomClasses = useCustomStyles();
+const Avatar: OverridableComponent<AvatarTypeMap> = forwardRef(function Avatar(
+  { classes, size = 'medium', ...other },
+  ref
+) {
+  const baseCustomClasses = useCustomStyles();
 
-    const { otherClasses, customClasses } = useClassesCapture<
-      AvatarClassKey,
-      CustomClassKey
-    >({
-      classes,
-      baseCustomClasses,
-    });
+  const { otherClasses, customClasses } = useClassesCapture<
+    AvatarClassKey,
+    CustomClassKey
+  >({
+    classes,
+    baseCustomClasses,
+  });
 
-    return (
-      <MuiAvatar
-        classes={{
-          ...otherClasses,
-          root: clsx(
-            customClasses.root,
-            customClasses[`size${capitalize(size)}`]
-          ),
-          colorDefault: customClasses.colorDefault,
-        }}
-        {...other}
-        ref={ref}
-      />
-    );
-  }
-);
+  return (
+    <MuiAvatar
+      classes={{
+        ...otherClasses,
+        root: clsx(
+          customClasses.root,
+          customClasses[`size${capitalize(size)}`]
+        ),
+        colorDefault: customClasses.colorDefault,
+      }}
+      {...other}
+      ref={ref}
+    />
+  );
+});
 
 export default Avatar;

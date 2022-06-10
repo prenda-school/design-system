@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactElement, forwardRef } from 'react';
 import {
   default as MuiStep,
   StepClasskey as MuiStepClassKey,
@@ -44,7 +44,7 @@ export interface StepProps extends MuiStepProps {
    * An element before the step, if _not_ `index={0}`.
    */
   connector?: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  React.ReactElement<any, any>;
+  ReactElement<any, any>;
   /**
    * Whether the step is disabled.
    */
@@ -69,7 +69,7 @@ export interface StepProps extends MuiStepProps {
 
 const defaultConnector = <StepConnector />;
 
-const Step = React.forwardRef<unknown, StepProps>(function Step(
+const Step = forwardRef<unknown, StepProps>(function Step(
   { classes, connector = defaultConnector, ...other },
   ref
 ) {

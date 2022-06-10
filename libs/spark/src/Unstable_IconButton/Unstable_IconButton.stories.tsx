@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { theme, Unstable_IconButton, Unstable_IconButtonProps } from '..';
 import {

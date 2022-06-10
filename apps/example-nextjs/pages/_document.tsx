@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import { withEmotionCache } from 'tss-react/nextJs';
@@ -31,7 +31,7 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     styles: [
-      ...React.Children.toArray(initialProps.styles),
+      ...Children.toArray(initialProps.styles),
       sheets.getStyleElement(),
     ],
   };

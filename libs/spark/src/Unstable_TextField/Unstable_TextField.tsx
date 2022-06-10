@@ -1,4 +1,10 @@
-import * as React from 'react';
+import React, {
+  forwardRef,
+  InputHTMLAttributes,
+  ReactNode,
+  Ref,
+  RefObject,
+} from 'react';
 import clsx from 'clsx';
 import Unstable_Input, { Unstable_InputProps } from '../Unstable_Input';
 import Unstable_InputLabel, {
@@ -35,7 +41,7 @@ export interface Unstable_TextFieldProps
   /**
    * @ignore
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
   /**
    * The default value of the `input` element.
    */
@@ -59,7 +65,7 @@ export interface Unstable_TextFieldProps
   /**
    * The helper text content.
    */
-  helperText?: React.ReactNode;
+  helperText?: ReactNode;
   /**
    * The id of the `input` element.
    * Use this prop to make `label` and `helperText` accessible for screen readers.
@@ -81,15 +87,15 @@ export interface Unstable_TextFieldProps
    * Pass a ref to the `input` element.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  inputRef?: React.Ref<any>;
+  inputRef?: Ref<any>;
   /**
    * The label content.
    */
-  label?: React.ReactNode;
+  label?: ReactNode;
   /**
    * The content of the `startAdornment` (InputAdornment), usually an Icon, IconButton, or string.
    */
-  leadingEl?: React.ReactNode;
+  leadingEl?: ReactNode;
   /**
    * If `true`, a textarea element will be rendered instead of an input.
    */
@@ -139,11 +145,11 @@ export interface Unstable_TextFieldProps
   /**
    * The content of the `endAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
-  trailingEl?: React.ReactNode;
+  trailingEl?: ReactNode;
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    */
-  type?: React.InputHTMLAttributes<unknown>['type'];
+  type?: InputHTMLAttributes<unknown>['type'];
   /**
    * The value of the `input` element, required for a controlled component.
    */
@@ -156,7 +162,7 @@ const useStyles = makeStyles<Unstable_TextFieldClassKey>((theme) => ({
   root: {},
 }));
 
-const Unstable_TextField = React.forwardRef(function TextField(
+const Unstable_TextField = forwardRef(function TextField(
   props: Unstable_TextFieldProps,
   ref
 ) {
@@ -256,7 +262,7 @@ const Unstable_TextField = React.forwardRef(function TextField(
       disabled={disabled}
       error={error}
       fullWidth={fullWidth}
-      ref={(ref as unknown) as React.RefObject<HTMLDivElement>}
+      ref={(ref as unknown) as RefObject<HTMLDivElement>}
       required={required}
       {...other}
     >

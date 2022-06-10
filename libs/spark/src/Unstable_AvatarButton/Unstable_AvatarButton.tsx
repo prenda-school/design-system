@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as ButtonBase,
@@ -11,7 +11,7 @@ import Unstable_Avatar, { Unstable_AvatarProps } from '../Unstable_Avatar';
 type _Unstable_AvatarButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > = ExtendButtonBaseTypeMap<{
   props: P &
     Pick<
@@ -25,7 +25,7 @@ type _Unstable_AvatarButtonTypeMap<
 export type Unstable_AvatarButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > = {
   props: Omit<
     _Unstable_AvatarButtonTypeMap<P, D>['props'],
@@ -41,7 +41,7 @@ export type Unstable_AvatarButtonTypeMap<
 };
 
 export type Unstable_AvatarButtonProps<
-  D extends React.ElementType = Unstable_AvatarButtonTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_AvatarButtonTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_AvatarButtonTypeMap<P, D>, D>;
@@ -84,7 +84,7 @@ const useStyles = makeStyles<Unstable_AvatarButtonClassKey>(
   { name: 'MuiSparkUnstable_AvatarButton' }
 );
 
-const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> = React.forwardRef(
+const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> = forwardRef(
   function Unstable_AvatarButton(props, ref) {
     const {
       alt,

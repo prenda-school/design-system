@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import MuiFormGroup, {
   FormGroupProps as MuiFormGroupProps,
 } from '@material-ui/core/FormGroup';
@@ -23,21 +23,20 @@ const useStyles = makeStyles<Unstable_FormGroupClassKey>(
   { name: 'MuiSparkUnstable_FormGroup' }
 );
 
-const Unstable_FormGroup = React.forwardRef<
-  HTMLDivElement,
-  Unstable_FormGroupProps
->(function Unstable_FormGroup(props, ref) {
-  const { classes: classesProp, ...other } = props;
+const Unstable_FormGroup = forwardRef<HTMLDivElement, Unstable_FormGroupProps>(
+  function Unstable_FormGroup(props, ref) {
+    const { classes: classesProp, ...other } = props;
 
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <MuiFormGroup
-      classes={{ root: clsx(classes.root, classesProp?.root) }}
-      ref={ref}
-      {...other}
-    />
-  );
-});
+    return (
+      <MuiFormGroup
+        classes={{ root: clsx(classes.root, classesProp?.root) }}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
 
 export default Unstable_FormGroup;

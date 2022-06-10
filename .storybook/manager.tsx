@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { addons, Config } from '@storybook/addons';
 import { create } from '@storybook/theming';
 

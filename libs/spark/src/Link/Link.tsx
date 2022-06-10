@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiLink,
@@ -10,7 +10,7 @@ import { OverridableComponent, OverrideProps, useMergeClasses } from '../utils';
 export interface LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'a'
+  D extends ElementType = 'a'
 > {
   props: P &
     Omit<MuiLinkProps, 'classes' | 'underline'> & {
@@ -24,7 +24,7 @@ export interface LinkTypeMap<
 }
 
 export type LinkProps<
-  D extends React.ElementType = LinkTypeMap['defaultComponent'],
+  D extends ElementType = LinkTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<LinkTypeMap<P, D>, D>;
@@ -65,7 +65,7 @@ const useStyles = makeStyles<LinkClassKey>(
   { name: 'MuiSparkLink' }
 );
 
-const Link: OverridableComponent<LinkTypeMap> = React.forwardRef(function Link(
+const Link: OverridableComponent<LinkTypeMap> = forwardRef(function Link(
   {
     classes: classesProp,
     // reset MuiLink default prop to match our Typography default

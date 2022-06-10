@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiIconButton,
@@ -11,7 +11,7 @@ import { lighten, darken, alpha } from '@material-ui/core/styles';
 export interface Unstable_IconButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > {
   props: P &
     Omit<
@@ -44,7 +44,7 @@ export interface Unstable_IconButtonTypeMap<
 }
 
 export type Unstable_IconButtonProps<
-  D extends React.ElementType = Unstable_IconButtonTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_IconButtonTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_IconButtonTypeMap<P, D>, D>;
@@ -161,7 +161,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
   { name: 'MuiSparkUnstable_IconButton' }
 );
 
-const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = React.forwardRef(
+const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = forwardRef(
   function Unstable_IconButton(props, ref) {
     const {
       color = 'standard',

@@ -1,5 +1,11 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepButton/StepButton.js
-import * as React from 'react';
+import React, {
+  cloneElement,
+  ElementType,
+  forwardRef,
+  isValidElement,
+  ReactNode,
+} from 'react';
 import clsx from 'clsx';
 import ButtonBase from '../ButtonBase';
 import StepLabel from '../StepLabel';
@@ -33,7 +39,7 @@ const useStyles = makeStyles<StepButtonClassKey>(
 export interface StepButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > {
   props: P & StepButtonProps;
   defaultComponent: D;
@@ -60,14 +66,14 @@ export type StepButtonProps = {
   /**
    * Passed to children (`StepLabel` by default).
    */
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   /**
    * Passed to children (`StepLabel` by default).
    */
   orientation?: Orientation;
 };
 
-const StepButton: OverridableComponent<StepButtonTypeMap> = React.forwardRef(
+const StepButton: OverridableComponent<StepButtonTypeMap> = forwardRef(
   function StepButton(
     {
       active,
@@ -104,10 +110,10 @@ const StepButton: OverridableComponent<StepButtonTypeMap> = React.forwardRef(
       orientation,
     };
     const child =
-      React.isValidElement(children) &&
+      isValidElement(children) &&
       // @ts-expect-error Property 'muiName' does not exist on type ...
       children.type.muiName === 'StepLabel' ? (
-        React.cloneElement(children, childProps)
+        cloneElement(children, childProps)
       ) : (
         <StepLabel {...childProps}>{children}</StepLabel>
       );

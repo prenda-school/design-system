@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiChip,
@@ -32,7 +32,7 @@ type CustomClassKey =
 
 export interface TagTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P &
     Omit<MuiChipProps, 'classes' | 'size' | 'color' | 'variant'> & {
@@ -57,7 +57,7 @@ export interface TagTypeMap<
 }
 
 export type TagProps<
-  D extends React.ElementType = TagTypeMap['defaultComponent'],
+  D extends ElementType = TagTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<TagTypeMap<P, D>, D>;
 
@@ -301,7 +301,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkTag' }
 );
 
-const Tag: OverridableComponent<TagTypeMap> = React.forwardRef(function Tag(
+const Tag: OverridableComponent<TagTypeMap> = forwardRef(function Tag(
   { classes, color = 'default', variant = 'subtle', ...other },
   ref
 ) {
