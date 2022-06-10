@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { default as Button, ButtonProps } from '@material-ui/core/Button';
 import withStyles from '../withStyles';
 

@@ -1,30 +1,30 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import { default as Button, ButtonTypeMap } from '../Button';
 import { useDropdownContext } from '../DropdownContext';
 import { OverridableComponent, OverrideProps } from '../utils';
 
 export type DropdownAnchorProps<
-  D extends React.ElementType = DropdownAnchorTypeMap['defaultComponent'],
+  D extends ElementType = DropdownAnchorTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<DropdownAnchorTypeMap<P, D>, D>;
 
 export interface DropdownAnchorTypeMap<
   P = Record<string, unknown>,
-  D extends React.ElementType = ButtonTypeMap['defaultComponent']
+  D extends ElementType = ButtonTypeMap['defaultComponent']
 > {
   props: P;
   defaultComponent: D;
   classKey: string;
 }
 
-const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = React.forwardRef(
+const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
   function DropdownAnchor(
     { component = Button, onClick, ...other }: DropdownAnchorProps,
     ref
   ) {
     const { id, openDropdown } = useDropdownContext();
 
-    const Component = component as React.ElementType;
+    const Component = component as ElementType;
 
     return (
       <Component

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiRadio,
@@ -47,7 +47,7 @@ const useStyles = makeStyles<Unstable_RadioClassKey>(
   { name: 'MuiSparkUnstable_Radio' }
 );
 
-const Unstable_Radio = React.forwardRef<HTMLButtonElement, Unstable_RadioProps>(
+const Unstable_Radio = forwardRef<HTMLButtonElement, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
     const { classes: classesProp, ...other } = props;
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiInputBase,
@@ -24,11 +24,11 @@ export interface Unstable_InputProps
   /**
    * The content of the `startAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
-  leadingEl?: React.ReactNode;
+  leadingEl?: ReactNode;
   /**
    * The content of the `endAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
-  trailingEl?: React.ReactNode;
+  trailingEl?: ReactNode;
   /**
    * If `true`, the input will indicate a success.
    */
@@ -149,7 +149,7 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
   { name: 'MuiSparkUnstable_Input' }
 );
 
-const Unstable_Input = React.forwardRef(function Unstable_Input(
+const Unstable_Input = forwardRef(function Unstable_Input(
   props: Unstable_InputProps,
   ref
 ) {

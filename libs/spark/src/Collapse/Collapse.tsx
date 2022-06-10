@@ -1,5 +1,5 @@
 // Adapted from MUI, from the last source before the emotion migration. Permalink https://github.com/mui-org/material-ui/blob/fe6a7db45959dcd5650f917db0d5a452548e191b/packages/material-ui/src/Collapse/Collapse.js
-import * as React from 'react';
+import React, { forwardRef, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
@@ -76,7 +76,7 @@ export const useStyles = makeStyles<CollapseClassKey>(
   { name: 'MuiSparkCollapse' }
 );
 
-const Collapse = React.forwardRef<
+const Collapse = forwardRef<
   CollapseProps,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any
@@ -107,9 +107,9 @@ const Collapse = React.forwardRef<
   const baseClasses = useStyles();
   const classes = useMergeClasses({ baseClasses, classesProp });
 
-  const timer = React.useRef<NodeJS.Timeout>();
-  const wrapperRef = React.useRef(null);
-  const autoTransitionDuration = React.useRef<number>();
+  const timer = useRef<NodeJS.Timeout>();
+  const wrapperRef = useRef(null);
+  const autoTransitionDuration = useRef<number>();
   const collapsedSize =
     typeof collapsedSizeProp === 'number'
       ? `${collapsedSizeProp}px`
@@ -117,13 +117,13 @@ const Collapse = React.forwardRef<
   const isHorizontal = orientation === 'horizontal';
   const size = isHorizontal ? 'width' : 'height';
 
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       clearTimeout(timer.current);
     };
   }, []);
 
-  const nodeRef = React.useRef(null);
+  const nodeRef = useRef(null);
   const handleRef = useForkRef(ref, nodeRef);
 
   const normalizedTransitionCallback = (callback) => (maybeIsAppearing) => {

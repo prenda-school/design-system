@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { cloneElement, CSSProperties, forwardRef } from 'react';
 import { SelectProps as MuiSelectProps } from '@material-ui/core/Select';
 import MuiSelectInput, {
   SelectInputProps as MuiSelectInputProps,
@@ -19,7 +19,7 @@ declare module '@material-ui/core/NativeSelect/NativeSelect' {
     theme: Theme
   ) => Record<
     'root' | 'select' | 'selectMenu' | 'icon' | 'iconOpen' | 'nativeInput',
-    React.CSSProperties
+    CSSProperties
   >;
 }
 
@@ -126,7 +126,7 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
   { name: 'MuiSparkUnstable_Select' }
 );
 
-const Unstable_Select = React.forwardRef(function Unstable_Select(
+const Unstable_Select = forwardRef(function Unstable_Select(
   props: Unstable_SelectProps,
   ref
 ) {
@@ -202,7 +202,7 @@ const Unstable_Select = React.forwardRef(function Unstable_Select(
     };
   }
 
-  return React.cloneElement(InputComponent, {
+  return cloneElement(InputComponent, {
     disabled,
     inputComponent,
     inputProps: {

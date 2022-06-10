@@ -90,7 +90,7 @@ import { Button, ButtonProps } from './Button';
 export interface DropdownButtonProps = ButtonProps;
 
 function SparkDropdownButton(props: DropdownButtonProps) {
-  const { id, handleClick } = React.useContext(Context);
+  const { id, handleClick } = useContext(Context);
   return (
     <Button
       aria-controls={id}

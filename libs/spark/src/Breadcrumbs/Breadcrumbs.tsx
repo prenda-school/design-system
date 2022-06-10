@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import {
   default as MuiBreadcrumbs,
   BreadcrumbsClassKey,
@@ -37,7 +37,7 @@ const useStyles = makeStyles<BreadcrumbsClassKey>(
   { name: 'MuiSparkBreadcrumbs' }
 );
 
-const Breadcrumbs: OverridableComponent<BreadcrumbsTypeMap> = React.forwardRef(
+const Breadcrumbs: OverridableComponent<BreadcrumbsTypeMap> = forwardRef(
   function Breadcrumbs(
     { classes: classesProp, separator = <ChevronRight />, ...other },
     ref

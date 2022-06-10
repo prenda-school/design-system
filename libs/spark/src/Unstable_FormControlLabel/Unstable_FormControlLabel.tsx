@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiFormControlLabel,
@@ -44,7 +44,7 @@ const useStyles = makeStyles<Unstable_FormControlLabelClassKey>(
   { name: 'MuiSparkUnstable_FormControlLabel' }
 );
 
-const Unstable_FormControlLabel = React.forwardRef<
+const Unstable_FormControlLabel = forwardRef<
   HTMLLabelElement,
   Unstable_FormControlLabelProps
 >(function Unstable_FormControlLabel(props, ref) {

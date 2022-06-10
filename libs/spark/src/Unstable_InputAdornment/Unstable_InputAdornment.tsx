@@ -1,12 +1,12 @@
 import clsx from 'clsx';
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 
 export interface Unstable_InputAdornmentTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'div'
+  D extends ElementType = 'div'
 > {
   props: P & {
     position: 'start' | 'end';
@@ -18,7 +18,7 @@ export interface Unstable_InputAdornmentTypeMap<
 export type Unstable_InputAdornmentClassKey = 'root';
 
 export type Unstable_InputAdornmentProps<
-  D extends React.ElementType = Unstable_InputAdornmentTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_InputAdornmentTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_InputAdornmentTypeMap<P, D>, D>;
@@ -52,7 +52,7 @@ const useStyles = makeStyles<Unstable_InputAdornmentClassKey>(
   { name: 'MuiSparkUnstable_InputAdornment' }
 );
 
-const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeMap> = React.forwardRef(
+const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeMap> = forwardRef(
   function Unstable_InputAdornment(props, ref) {
     const {
       children,

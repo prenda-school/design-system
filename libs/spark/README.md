@@ -57,7 +57,7 @@ npm install --save @prenda/spark
 ## Usage
 
 ```tsx
-import * as React from 'react';
+import React from 'react';
 
 import { Button } from '@prenda/spark';
 

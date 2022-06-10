@@ -1,5 +1,5 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepIcon/StepIcon.js
-import * as React from 'react';
+import React, { ReactNode, forwardRef } from 'react';
 import clsx from 'clsx';
 import { default as SvgIcon, SvgIconProps } from '../SvgIcon';
 import { AlertThick, CheckThick } from '../internal';
@@ -30,7 +30,7 @@ export interface StepIconProps
   /**
    * The label displayed in the step icon.
    */
-  icon: React.ReactNode;
+  icon: ReactNode;
 }
 
 const useCustomStyles = makeStyles<StepIconClassKey>(
@@ -99,7 +99,7 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
   { name: 'MuiSparkStepIcon' }
 );
 
-const StepIcon = React.forwardRef<
+const StepIcon = forwardRef<
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
   StepIconProps

@@ -1,11 +1,11 @@
 // Original credit to https://github.com/mui-org/material-ui/blob/1c5beec4be20eae30e75c69ab513bbfec3e9baaf/packages/material-ui/src/utils/createSvgIcon.js
 //  Changes made since
 
-import * as React from 'react';
+import React, { forwardRef, memo, ReactNode } from 'react';
 import Unstable_SvgIcon, { Unstable_SvgIconProps } from './Unstable_SvgIcon';
 
 const unstable_createSvgIcon = (
-  path: React.ReactNode,
+  path: ReactNode,
   displayName: string,
   viewBox?: string,
   width?: string,
@@ -29,14 +29,14 @@ const unstable_createSvgIcon = (
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    // Need to set `displayName` on the inner component for React.memo.
+    // Need to set `displayName` on the inner component for `memo`.
     // React prior to 16.14 ignores `displayName` on the wrapper.
     Component.displayName = `${displayName}Icon`;
   }
 
   Component.muiName = 'Unstable_SvgIcon';
 
-  return React.memo(React.forwardRef(Component)) as typeof Unstable_SvgIcon;
+  return memo(forwardRef(Component)) as typeof Unstable_SvgIcon;
 };
 
 export default unstable_createSvgIcon;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import MuiFormHelperText, {
   FormHelperTextProps as MuiFormHelperTextProps,
 } from '@material-ui/core/FormHelperText';
@@ -9,7 +9,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'p'
+  D extends ElementType = 'p'
 > {
   props: P & Omit<MuiFormHelperTextProps, 'filled' | 'margin' | 'variant'>;
   defaultComponent: D;
@@ -19,7 +19,7 @@ export interface Unstable_FormHelperTextTypeMap<
 export type Unstable_FormHelperTextClassKey = 'root';
 
 export type Unstable_FormHelperTextProps<
-  D extends React.ElementType = Unstable_FormHelperTextTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_FormHelperTextTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_FormHelperTextTypeMap<P, D>, D>;
@@ -56,7 +56,7 @@ const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
   { name: 'MuiSparkUnstable_FormHelperText' }
 );
 
-const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = React.forwardRef(
+const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = forwardRef(
   function Unstable_FormHelperText(props, ref) {
     const { classes: classesProp, disabled, error, ...other } = props;
 

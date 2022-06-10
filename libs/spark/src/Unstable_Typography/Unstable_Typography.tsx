@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiTypography,
@@ -11,7 +11,7 @@ import { Unstable_TypographyVariant } from '../theme/unstable_typography';
 export interface Unstable_TypographyTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'span'
+  D extends ElementType = 'span'
 > {
   props: P &
     Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
@@ -33,7 +33,7 @@ export interface Unstable_TypographyTypeMap<
 }
 
 export type Unstable_TypographyProps<
-  D extends React.ElementType = Unstable_TypographyTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_TypographyTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_TypographyTypeMap<P, D>, D>;
@@ -139,7 +139,7 @@ const defaultVariantMapping: Record<Unstable_TypographyVariant, string> = {
   code: 'pre',
 };
 
-const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = React.forwardRef(
+const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = forwardRef(
   function Unstable_Typography(props, ref) {
     const {
       classes: classesProp,

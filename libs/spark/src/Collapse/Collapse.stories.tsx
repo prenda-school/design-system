@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   Box,
@@ -132,7 +132,7 @@ const useDemoStyles = makeStyles({
 
 const DemoTemplate: Story = () => {
   const classes = useDemoStyles();
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);

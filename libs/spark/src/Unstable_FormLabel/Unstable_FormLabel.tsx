@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import MuiFormLabel, {
   FormLabelProps as MuiFormLabelProps,
 } from '@material-ui/core/FormLabel';
@@ -9,7 +9,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 export interface Unstable_FormLabelTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'label'
+  D extends ElementType = 'label'
 > {
   props: P & Omit<MuiFormLabelProps, 'classes' | 'color' | 'filled'>;
   defaultComponent: D;
@@ -17,7 +17,7 @@ export interface Unstable_FormLabelTypeMap<
 }
 
 export type Unstable_FormLabelProps<
-  D extends React.ElementType = Unstable_FormLabelTypeMap['defaultComponent'],
+  D extends ElementType = Unstable_FormLabelTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_FormLabelTypeMap<P, D>, D>;
@@ -51,7 +51,7 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
   { name: 'MuiSparkUnstable_FormLabel' }
 );
 
-const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = React.forwardRef(
+const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forwardRef(
   function Unstable_FormLabel(props, ref) {
     const { classes: classesProp, color: _color, ...other } = props;
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import {
   default as MuiStepLabel,
   StepLabelClasskey as StepLabelClassKey,
@@ -72,7 +72,7 @@ export interface StepLabelProps
 
 const defaultStepIcon = StepIcon;
 
-const StepLabel = React.forwardRef<unknown, StepLabelProps>(function StepLabel(
+const StepLabel = forwardRef<unknown, StepLabelProps>(function StepLabel(
   { StepIconComponent = defaultStepIcon, classes: classesProp, ...other },
   ref
 ) {

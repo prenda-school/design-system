@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { CSSProperties } from 'react';
 import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
 import IconButton from '../IconButton';
 import { Cross } from '../internal';
@@ -75,7 +75,7 @@ export default withStyles(
       padding: 0,
     },
     message: {
-      ...(theme.typography['paragraph-lg'] as React.CSSProperties),
+      ...(theme.typography['paragraph-lg'] as CSSProperties),
       padding: '2px 0',
     },
   }),

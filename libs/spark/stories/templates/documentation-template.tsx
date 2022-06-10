@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Box, Typography, styled, withStyles } from '../../src';
 
 export const Root = styled('div')(({ theme }) => ({

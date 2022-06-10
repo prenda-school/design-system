@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactNode } from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearFilled } from '@prenda/spark-icons';
 import { StepButton, StepButtonProps } from '..';
@@ -8,7 +8,7 @@ interface SbStepButtonProps extends StepButtonProps {
   /**
    * **[Storybook-only:** hard-coded options.**]**
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export const SbStepButton = (props: SbStepButtonProps) => (

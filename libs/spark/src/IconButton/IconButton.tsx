@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiIconButton,
@@ -11,7 +11,7 @@ import { OverridableComponent, capitalize, useClassesCapture } from '../utils';
 export interface IconButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends React.ElementType = 'button'
+  D extends ElementType = 'button'
 > {
   props: P & IconButtonProps;
   defaultComponent: D;
@@ -133,7 +133,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkIconButton' }
 );
 
-const IconButton: OverridableComponent<IconButtonTypeMap> = React.forwardRef(
+const IconButton: OverridableComponent<IconButtonTypeMap> = forwardRef(
   function IconButton(
     { classes, variant = 'contained', size = 'large', children, ...other },
     ref

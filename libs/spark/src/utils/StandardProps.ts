@@ -1,3 +1,4 @@
+import { CSSProperties, Ref } from 'react';
 import { StyledComponentProps } from '../withStyles';
 
 export { StyledComponentProps };
@@ -15,6 +16,6 @@ export type StandardProps<
 > = Omit<C, 'classes' | Removals> &
   StyledComponentProps<ClassKey> & {
     className?: string;
-    ref?: C extends { ref?: infer RefType } ? RefType : React.Ref<unknown>;
-    style?: React.CSSProperties;
+    ref?: C extends { ref?: infer RefType } ? RefType : Ref<unknown>;
+    style?: CSSProperties;
   };

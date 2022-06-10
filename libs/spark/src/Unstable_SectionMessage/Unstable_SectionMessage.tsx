@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import Unstable_Alert, {
@@ -13,7 +13,7 @@ export interface Unstable_SectionMessageProps
   /**
    * Display a formatted title above the section message.
    */
-  title?: React.ReactNode;
+  title?: ReactNode;
 }
 
 export type Unstable_SectionMessageClassKey = Unstable_AlertClassKey | 'title';
@@ -78,7 +78,7 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
   { name: 'MuiSparkUnstable_SectionMessage' }
 );
 
-const Unstable_SectionMessage = React.forwardRef<
+const Unstable_SectionMessage = forwardRef<
   unknown,
   Unstable_SectionMessageProps
 >(function Unstable_SectionMessage(props, ref) {

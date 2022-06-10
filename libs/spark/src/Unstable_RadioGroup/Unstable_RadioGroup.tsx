@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import MuiRadioGroup, {
   RadioGroupProps as MuiRadioGroupProps,
 } from '@material-ui/core/RadioGroup';
@@ -23,7 +23,7 @@ const useStyles = makeStyles<Unstable_RadioGroupClassKey>(
   { name: 'MuiSparkUnstable_RadioGroup' }
 );
 
-const Unstable_RadioGroup = React.forwardRef<
+const Unstable_RadioGroup = forwardRef<
   HTMLDivElement,
   Unstable_RadioGroupProps
 >(function Unstable_RadioGroup(props, ref) {

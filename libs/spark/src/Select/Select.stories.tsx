@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { GearDuotone } from '@prenda/spark-icons';
 import { InputAdornment, MenuItem, Select, SelectProps, styled } from '..';
@@ -49,7 +49,7 @@ export default {
 } as Meta;
 
 const Template = ({ value: propValue, ...args }) => {
-  const [value, setValue] = React.useState(propValue);
+  const [value, setValue] = useState(propValue);
 
   const handleChange = (event) => setValue(event.target.value);
 
