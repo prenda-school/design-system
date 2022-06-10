@@ -1,7 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_Radio } from '..';
-import { enableHooks, sparkThemeProvider, statefulValue } from '../../stories';
+import {
+  containFocusIndicator,
+  enableHooks,
+  sparkThemeProvider,
+  statefulValue,
+} from '../../stories';
 
 export const _retyped = Unstable_Radio as typeof Unstable_Radio;
 
@@ -9,11 +14,10 @@ export default {
   title: '@ps/Unstable_Radio',
   component: _retyped,
   excludeStories: ['_retyped'],
-  argTypes: {},
+  decorators: [statefulValue, enableHooks, containFocusIndicator],
   args: {
-    'aria-label': 'Label',
+    inputProps: { 'aria-label': 'Label' },
   },
-  decorators: [statefulValue, enableHooks],
 } as Meta;
 
 const Template = (args) => <Unstable_Radio {...args} />;
@@ -21,9 +25,9 @@ const Template = (args) => <Unstable_Radio {...args} />;
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const STP: Story = Template.bind({});
+STP.decorators = [sparkThemeProvider];
+STP.storyName = '(STP)';
 
 export const Hover: Story = Template.bind({});
 Hover.parameters = { pseudo: { hover: true } };

@@ -1,15 +1,13 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Tag, unstable_createSvgIcon } from '..';
-import { sparkThemeProvider } from '../../stories';
-import { Unstable_TagProps } from './Unstable_Tag';
+import { Unstable_Tag, Unstable_TagProps } from '..';
+import {
+  containFocusIndicator,
+  Filter,
+  sparkThemeProvider,
+} from '../../stories';
 
-export const SbUnstable_Tag = Unstable_Tag;
-
-const Filter = unstable_createSvgIcon(
-  <path d="M2.25 6A.75.75 0 0 1 3 5.25h18a.75.75 0 0 1 0 1.5H3A.75.75 0 0 1 2.25 6Zm3 6a.75.75 0 0 1 .75-.75h12a.75.75 0 0 1 0 1.5H6a.75.75 0 0 1-.75-.75ZM10 17.25a.75.75 0 0 0 0 1.5h4a.75.75 0 0 0 0-1.5h-4Z" />,
-  'Sb_Filter'
-);
+export const _retyped = Unstable_Tag as typeof Unstable_Tag;
 
 const emptyFn = () => {
   return;
@@ -17,8 +15,9 @@ const emptyFn = () => {
 
 export default {
   title: '@ps/Unstable_Tag',
-  component: SbUnstable_Tag,
-  excludeStories: ['SbUnstable_Tag'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
+  decorators: [containFocusIndicator],
   parameters: {
     actions: {
       // override default actions regex
@@ -30,26 +29,26 @@ export default {
   argTypes: {
     icon: {
       control: 'select',
-      options: ['undefined', 'Filter'],
+      options: ['undefined', '<Filter />'],
       mapping: {
         undefined: undefined,
-        Filter: <Filter />,
+        '<Filter />': <Filter />,
       },
     },
     onClick: {
       control: 'select',
-      options: ['undefined', 'handleClick'],
+      options: ['undefined', '(handleClick)'],
       mapping: {
         undefined: undefined,
-        handleClick: emptyFn,
+        '(handleClick)': emptyFn,
       },
     },
     onDelete: {
       control: 'select',
-      options: ['undefined', 'handleDelete'],
+      options: ['undefined', '(handleDelete)'],
       mapping: {
         undefined: undefined,
-        handleDelete: emptyFn,
+        '(handleDelete)': emptyFn,
       },
     },
   },
@@ -65,40 +64,40 @@ export const Label: Story = Template.bind({});
 Label.args = { label: 'Label' };
 Label.storyName = 'label';
 
-export const SparkThemeProviderLabel: Story = Template.bind({});
-SparkThemeProviderLabel.args = { label: 'Label' };
-SparkThemeProviderLabel.decorators = [sparkThemeProvider];
-SparkThemeProviderLabel.storyName = '(SparkThemeProvider) label';
+export const LabelSTP: Story = Template.bind({});
+LabelSTP.args = { label: 'Label' };
+LabelSTP.decorators = [sparkThemeProvider];
+LabelSTP.storyName = 'label (STP)';
 
 export const LabelDisabled: Story = Template.bind({});
 LabelDisabled.args = { label: 'Label', disabled: true };
 LabelDisabled.storyName = 'label disabled';
 
 export const LabelIcon: Story = Template.bind({});
-LabelIcon.args = { label: 'Label', icon: 'Filter' };
+LabelIcon.args = { label: 'Label', icon: '<Filter />' };
 LabelIcon.storyName = 'label icon';
 
 export const LabelOnDelete: Story = Template.bind({});
-LabelOnDelete.args = { label: 'Label', onDelete: 'handleDelete' };
+LabelOnDelete.args = { label: 'Label', onDelete: '(handleDelete)' };
 LabelOnDelete.storyName = 'label onDelete';
 
 export const LabelOnDeleteActive: Story = Template.bind({});
-LabelOnDeleteActive.args = { label: 'Label', onDelete: 'handleDelete' };
+LabelOnDeleteActive.args = { label: 'Label', onDelete: '(handleDelete)' };
 LabelOnDeleteActive.parameters = { pseudo: { active: true } };
 LabelOnDeleteActive.storyName = 'label onDelete :active';
 
 export const LabelOnDeleteFocus: Story = Template.bind({});
-LabelOnDeleteFocus.args = { label: 'Label', onDelete: 'handleDelete' };
+LabelOnDeleteFocus.args = { label: 'Label', onDelete: '(handleDelete)' };
 LabelOnDeleteFocus.parameters = { pseudo: { focus: true } };
 LabelOnDeleteFocus.storyName = 'label onDelete :focus';
 
 export const LabelOnDeleteFocusVisible: Story = Template.bind({});
-LabelOnDeleteFocusVisible.args = { label: 'Label', onDelete: 'handleDelete' };
+LabelOnDeleteFocusVisible.args = { label: 'Label', onDelete: '(handleDelete)' };
 LabelOnDeleteFocusVisible.parameters = { pseudo: { focusVisible: true } };
 LabelOnDeleteFocusVisible.storyName = 'label onDelete :focus-visible';
 
 export const LabelOnDeleteHover: Story = Template.bind({});
-LabelOnDeleteHover.args = { label: 'Label', onDelete: 'handleDelete' };
+LabelOnDeleteHover.args = { label: 'Label', onDelete: '(handleDelete)' };
 LabelOnDeleteHover.parameters = { pseudo: { hover: true } };
 LabelOnDeleteHover.storyName = 'label onDelete :hover';
 
@@ -168,13 +167,16 @@ Label_CxSxV.storyName = 'label color ⨯ size ⨯ variant';
 export const Label_CxSxV_onDelete: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onDelete.args = { label: 'Label', onDelete: 'handleDelete' };
+Label_CxSxV_onDelete.args = { label: 'Label', onDelete: '(handleDelete)' };
 Label_CxSxV_onDelete.storyName = 'label color ⨯ size ⨯ variant onDelete';
 
 export const Label_CxSxV_onDeleteActive: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onDeleteActive.args = { label: 'Label', onDelete: 'handleDelete' };
+Label_CxSxV_onDeleteActive.args = {
+  label: 'Label',
+  onDelete: '(handleDelete)',
+};
 Label_CxSxV_onDeleteActive.parameters = { pseudo: { active: true } };
 Label_CxSxV_onDeleteActive.storyName =
   'label color ⨯ size ⨯ variant onDelete :active';
@@ -182,7 +184,7 @@ Label_CxSxV_onDeleteActive.storyName =
 export const Label_CxSxV_onDeleteHover: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onDeleteHover.args = { label: 'Label', onDelete: 'handleDelete' };
+Label_CxSxV_onDeleteHover.args = { label: 'Label', onDelete: '(handleDelete)' };
 Label_CxSxV_onDeleteHover.parameters = { pseudo: { hover: true } };
 Label_CxSxV_onDeleteHover.storyName =
   'label color ⨯ size ⨯ variant onDelete :hover';
@@ -190,7 +192,7 @@ Label_CxSxV_onDeleteHover.storyName =
 export const Label_CxSxV_onDeleteFocus: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onDeleteFocus.args = { label: 'Label', onDelete: 'handleDelete' };
+Label_CxSxV_onDeleteFocus.args = { label: 'Label', onDelete: '(handleDelete)' };
 Label_CxSxV_onDeleteFocus.parameters = { pseudo: { focus: true } };
 Label_CxSxV_onDeleteFocus.storyName =
   'label color ⨯ size ⨯ variant onDelete :focus';
@@ -200,7 +202,7 @@ export const Label_CxSxV_onDeleteFocusVisible: Story = ColorBySizeByVariantTempl
 );
 Label_CxSxV_onDeleteFocusVisible.args = {
   label: 'Label',
-  onDelete: 'handleDelete',
+  onDelete: '(handleDelete)',
 };
 Label_CxSxV_onDeleteFocusVisible.parameters = {
   pseudo: { focusVisible: true },
@@ -209,13 +211,13 @@ Label_CxSxV_onDeleteFocusVisible.storyName =
   'label color ⨯ size ⨯ variant onDelete :focus-visible';
 
 export const Label_CxSxV_onClick: Story = ColorBySizeByVariantTemplate.bind({});
-Label_CxSxV_onClick.args = { label: 'Label', onClick: 'handleClick' };
+Label_CxSxV_onClick.args = { label: 'Label', onClick: '(handleClick)' };
 Label_CxSxV_onClick.storyName = 'label color ⨯ size ⨯ variant onClick';
 
 export const Label_CxSxV_onClickActive: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onClickActive.args = { label: 'Label', onClick: 'handleClick' };
+Label_CxSxV_onClickActive.args = { label: 'Label', onClick: '(handleClick)' };
 Label_CxSxV_onClickActive.parameters = { pseudo: { active: true } };
 Label_CxSxV_onClickActive.storyName =
   'label color ⨯ size ⨯ variant onClick :active';
@@ -223,7 +225,7 @@ Label_CxSxV_onClickActive.storyName =
 export const Label_CxSxV_onClickHover: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onClickHover.args = { label: 'Label', onClick: 'handleClick' };
+Label_CxSxV_onClickHover.args = { label: 'Label', onClick: '(handleClick)' };
 Label_CxSxV_onClickHover.parameters = { pseudo: { hover: true } };
 Label_CxSxV_onClickHover.storyName =
   'label color ⨯ size ⨯ variant onClick :hover';
@@ -231,7 +233,7 @@ Label_CxSxV_onClickHover.storyName =
 export const Label_CxSxV_onClickFocus: Story = ColorBySizeByVariantTemplate.bind(
   {}
 );
-Label_CxSxV_onClickFocus.args = { label: 'Label', onClick: 'handleClick' };
+Label_CxSxV_onClickFocus.args = { label: 'Label', onClick: '(handleClick)' };
 Label_CxSxV_onClickFocus.parameters = { pseudo: { focus: true } };
 Label_CxSxV_onClickFocus.storyName =
   'label color ⨯ size ⨯ variant onClick :focus';
@@ -241,7 +243,7 @@ export const Label_CxSxV_onClickFocusVisible: Story = ColorBySizeByVariantTempla
 );
 Label_CxSxV_onClickFocusVisible.args = {
   label: 'Label',
-  onClick: 'handleClick',
+  onClick: '(handleClick)',
 };
 Label_CxSxV_onClickFocusVisible.parameters = {
   pseudo: { focusVisible: true },

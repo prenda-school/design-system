@@ -53,8 +53,10 @@ export const inverseBackground: DecoratorFn = (Story) => (
 
 const ContainFocusIndicatorDiv = styled('div')({
   padding: 4,
-  // without setting it to minimum, the story snapshot will expand to 100%
-  width: 'min-content',
+  // without setting it to fit, the story snapshot will expand to 100%
+  width: 'fit-content',
+  // prevent larger-than-necessary height because of added browser-default space for ascender/descenders.
+  display: 'flex',
 });
 
 /**

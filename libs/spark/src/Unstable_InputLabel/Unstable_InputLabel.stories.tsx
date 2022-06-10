@@ -1,27 +1,29 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_InputLabel, Unstable_InputLabelProps } from '..';
+import {
+  Unstable_InputLabel,
+  Unstable_InputLabelProps as _Unstable_InputLabelProps,
+} from '..';
 import { sparkThemeProvider } from '../../stories';
 
-interface Sb_Unstable_InputLabelProps extends Unstable_InputLabelProps {
-  children?: Unstable_InputLabelProps['children'];
-  disabled?: Unstable_InputLabelProps['disabled'];
-  error?: Unstable_InputLabelProps['error'];
-  focused?: Unstable_InputLabelProps['focused'];
-  required?: Unstable_InputLabelProps['required'];
+interface Unstable_InputLabelProps extends _Unstable_InputLabelProps {
+  children?: _Unstable_InputLabelProps['children'];
+  disabled?: _Unstable_InputLabelProps['disabled'];
+  error?: _Unstable_InputLabelProps['error'];
+  focused?: _Unstable_InputLabelProps['focused'];
+  required?: _Unstable_InputLabelProps['required'];
 }
 
-// underlying props don't have descriptions
-export const Sb_Unstable_InputLabel = (props: Sb_Unstable_InputLabelProps) => (
+export const _retyped = (props: Unstable_InputLabelProps) => (
   <Unstable_InputLabel {...props} />
 );
 
 export default {
   title: '@ps/Unstable_InputLabel',
-  component: Sb_Unstable_InputLabel,
-  excludeStories: ['Sb_Unstable_InputLabel'],
+  component: _retyped,
+  excludeStories: ['_retyped'],
   args: {
-    children: 'Label',
+    children: <>Label</>,
   },
 } as Meta;
 
@@ -30,9 +32,9 @@ const Template = (args) => <Unstable_InputLabel {...args} />;
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const STP: Story = Template.bind({});
+STP.decorators = [sparkThemeProvider];
+STP.storyName = '(STP)';
 
 export const Disabled: Story = Template.bind({});
 Disabled.args = { disabled: true };

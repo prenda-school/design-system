@@ -5,7 +5,7 @@ import {
   Unstable_FormControlLabel,
   Unstable_FormGroup,
 } from '..';
-import { sparkThemeProvider } from '../../stories';
+import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_FormGroup as typeof Unstable_FormGroup;
 
@@ -13,12 +13,13 @@ export default {
   title: '@ps/Unstable_FormGroup',
   component: _retyped,
   excludeStories: ['_retyped'],
+  decorators: [containFocusIndicator],
   argTypes: {
     children: {
       control: 'select',
-      options: ['(FormControlLabel & Checkbox)'],
+      options: ['(Labeled Checkboxes)'],
       mapping: {
-        '(FormControlLabel & Checkbox)': (
+        '(Labeled Checkboxes)': (
           <>
             <Unstable_FormControlLabel
               control={<Unstable_Checkbox />}
@@ -46,24 +47,22 @@ export default {
       },
     },
   },
-  args: {},
 } as Meta;
 
 const Template = (args) => <Unstable_FormGroup {...args} />;
 
-export const ChildrenCheckboxes: Story = Template.bind({});
-ChildrenCheckboxes.args = { children: '(FormControlLabel & Checkbox)' };
-ChildrenCheckboxes.storyName = 'children=(FormControlLabel & Checkbox)';
+export const ChildrenLabeledCheckboxes: Story = Template.bind({});
+ChildrenLabeledCheckboxes.args = { children: '(Labeled Checkboxes)' };
+ChildrenLabeledCheckboxes.storyName = 'children=(Labeled Checkboxes)';
 
-export const ChildrenCheckboxesSTP: Story = Template.bind({});
-ChildrenCheckboxesSTP.args = { children: '(FormControlLabel & Checkbox)' };
-ChildrenCheckboxesSTP.decorators = [sparkThemeProvider];
-ChildrenCheckboxesSTP.storyName =
-  'children=(FormControlLabel & Checkbox) (SparkThemeProvider)';
+export const ChildrenLabeledCheckboxesSTP: Story = Template.bind({});
+ChildrenLabeledCheckboxesSTP.args = { children: '(Labeled Checkboxes)' };
+ChildrenLabeledCheckboxesSTP.decorators = [sparkThemeProvider];
+ChildrenLabeledCheckboxesSTP.storyName = 'children=(Labeled Checkboxes) (STP)';
 
-export const ChildrenCheckboxesRow: Story = Template.bind({});
-ChildrenCheckboxesRow.args = {
-  children: '(FormControlLabel & Checkbox)',
+export const ChildrenLabeledCheckboxesRow: Story = Template.bind({});
+ChildrenLabeledCheckboxesRow.args = {
+  children: '(Labeled Checkboxes)',
   row: true,
 };
-ChildrenCheckboxesRow.storyName = 'children=(FormControlLabel & Checkbox) row';
+ChildrenLabeledCheckboxesRow.storyName = 'children=(Labeled Checkboxes) row';

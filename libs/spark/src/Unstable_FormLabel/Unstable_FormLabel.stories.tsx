@@ -19,9 +19,9 @@ const Template = (args) => <Unstable_FormLabel {...args} />;
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
 
-export const SparkThemeProvider: Story = Template.bind({});
-SparkThemeProvider.decorators = [sparkThemeProvider];
-SparkThemeProvider.storyName = '(SparkThemeProvider)';
+export const STP: Story = Template.bind({});
+STP.decorators = [sparkThemeProvider];
+STP.storyName = '(STP)';
 
 export const Disabled: Story = Template.bind({});
 Disabled.args = { disabled: true };
