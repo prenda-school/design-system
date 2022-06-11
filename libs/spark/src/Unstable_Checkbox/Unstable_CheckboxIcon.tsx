@@ -20,48 +20,90 @@ const useStyles = makeStyles<
         height: 17,
         width: 17,
       },
+      /* error */
+      '.Mui-error &': {
+        boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
+        color: theme.unstable_palette.red[700],
+      },
+      /* focus-visible */
       '.Mui-focusVisible &, input:focus-visible ~ &': {
         boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
       },
-
+      /* disabled */
       'input:disabled ~ &&': {
+        boxShadow: 'none', // can be present from `error`
         color: theme.unstable_palette.neutral[90],
       },
     },
+    /* Styles applied to the root element when `checked={true}`. */
     checked: {
       color: theme.unstable_palette.blue[600],
-      '&:hover, input:hover ~ &, label:hover  &': {
+      /* hover */
+      'input:hover ~ &, label:hover  &': {
         color: theme.unstable_palette.blue[400],
       },
+      /* error */
+      '.Mui-error &': {
+        color: theme.unstable_palette.red[600],
+      },
+      /* error & hover */
+      '.Mui-error input:hover ~ &, .Mui-error label:hover ~ &': {
+        color: theme.unstable_palette.red[400],
+      },
+      /* disabled */
       'input:disabled ~ &&': {
         color: theme.unstable_palette.neutral[80],
       },
     },
+    /* Styles applied to the root element when `indeterminate={true}`. */
     indeterminate: {
       color: theme.unstable_palette.blue[600],
-      '&:hover, input:hover ~ &, label:hover  &': {
+      /* hover */
+      'input:hover ~ &, label:hover ~ &': {
         color: theme.unstable_palette.blue[400],
       },
+      /* error */
+      '.Mui-error &': {
+        color: theme.unstable_palette.red[600],
+      },
+      /* error & hover */
+      '.Mui-error input:hover ~ &, .Mui-error label:hover ~ &': {
+        color: theme.unstable_palette.red[400],
+      },
+      /* disabled */
       'input:disabled ~ &&': {
         color: theme.unstable_palette.neutral[80],
       },
     },
+    /* Styles applied to the box icon. */
     box: {
       borderRadius: 2,
+      /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[70],
       },
+      /* checked | indeterminate */
       '$checked > &, $indeterminate > &': {
         backgroundColor: theme.unstable_palette.blue[600],
       },
+      /* (checked | indeterminate) & hover */
       'input:hover ~ $checked > &, input:hover ~ $indeterminate > &, label:hover ~ $checked > &,  label:hover ~ $indeterminate > &': {
         backgroundColor: theme.unstable_palette.blue[400],
       },
+      /* error & (checked | indeterminate) */
+      '.Mui-error $checked > &, .Mui-error $indeterminate > &': {
+        backgroundColor: theme.unstable_palette.red[600],
+      },
+      /* error & (checked | indeterminate) & hover */
+      '.Mui-error input:hover ~ $checked > &, .Mui-error label:hover ~ $checked > &, .Mui-error input:hover ~ $indeterminate > &, .Mui-error label:hover ~ $indeterminate > &': {
+        backgroundColor: theme.unstable_palette.red[400],
+      },
       /** disabled */
-      'input:disabled ~ $root > &': {
+      'input:disabled ~ $root > &&': {
         backgroundColor: theme.unstable_palette.neutral[80],
       },
     },
+    /* Styles applied to the check icon. */
     check: {
       position: 'absolute' as const,
       color: theme.unstable_palette.neutral[0],
@@ -80,6 +122,7 @@ const useStyles = makeStyles<
         }),
       },
     },
+    /* Styles applied to the dash icon. */
     dash: {
       color: theme.unstable_palette.neutral[0],
       position: 'absolute' as const,
@@ -98,6 +141,7 @@ const useStyles = makeStyles<
         }),
       },
     },
+    error: {},
   }),
   { name: 'MuiSparkUnstable_CheckboxIcon' }
 );

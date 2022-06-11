@@ -18,40 +18,63 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
         height: 17,
         width: 17,
       },
+      /* error */
+      '.Mui-error &': {
+        boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
+        color: theme.unstable_palette.red[700],
+      },
+      /* focus-visible */
       '.Mui-focusVisible &, input:focus-visible ~ &': {
         boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
       },
-
-      'input:disabled ~ &&': {
+      /* disabled */
+      'input:disabled ~ &&&': {
+        boxShadow: 'none', // can be present from `error`
         color: theme.unstable_palette.neutral[90],
       },
     },
+    /* Styles applied to the root element when `checked={true}`. */
     checked: {
       color: theme.unstable_palette.blue[600],
-      '&:hover, input:hover ~ &, label:hover  &': {
+      /* hover */
+      'input:hover ~ &, label:hover ~ &': {
         color: theme.unstable_palette.blue[400],
       },
+      /* error */
+      '.Mui-error &': {
+        color: theme.unstable_palette.red[600],
+      },
+      /* error & hover */
+      '.Mui-error input:hover ~ &, .Mui-error label:hover ~ &': {
+        color: theme.unstable_palette.red[400],
+      },
     },
+    /* Styles applied to the circle icon element. */
     circle: {
       borderRadius: '50%',
       transform: 'scale(1)', // (from Mui) Scale applied to prevent dot misalignment in Safari
+      /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[70],
       },
+      /* checked & hover */
       'input:hover ~ $checked > &, label:hover ~ $checked > &': {
         backgroundColor: 'unset',
       },
+      /* focus-visible */
       '.Mui-focusVisible $root > &, input:focus-visible ~ $root > &': {
         backgroundColor: 'unset', // unset Mui default
       },
-      /** disabled */
+      /* disabled */
       'input:disabled ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[80],
       },
+      /* disabled & checked */
       'input:disabled ~ $root$checked > &': {
         backgroundColor: 'unset',
       },
     },
+    /* Styles applied to the dot icon element. */
     dot: {
       backgroundColor: 'transparent',
       position: 'absolute' as const,
@@ -61,7 +84,7 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
         easing: theme.transitions.easing.easeIn,
         duration: theme.transitions.duration.shortest,
       }),
-      /** checked */
+      /* checked */
       '$checked > &': {
         transform: 'scale(1)',
         transition: theme.transitions.create('transform', {
@@ -69,11 +92,20 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
           duration: theme.transitions.duration.shortest,
         }),
       },
-      /** disabled */
-      'input:disabled ~ $root > &': {
+      /* error */
+      '.Mui-error $root > &': {
+        color: theme.unstable_palette.red[600],
+      },
+      /* error & hover */
+      '.Mui-error input:hover ~ $root > &, .Mui-error label:hover ~ $root > &': {
+        color: theme.unstable_palette.red[400],
+      },
+      /* disabled */
+      'input:disabled ~ $root > &&': {
         color: theme.unstable_palette.neutral[90],
       },
     },
+    error: {},
   }),
   { name: 'MuiSparkUnstable_RadioIcon' }
 );

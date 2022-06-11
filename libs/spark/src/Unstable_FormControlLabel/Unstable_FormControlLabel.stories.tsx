@@ -71,6 +71,45 @@ LabelControlCheckboxDisabledHover.parameters = { pseudo: { hover: true } };
 LabelControlCheckboxDisabledHover.storyName =
   'label control=(Checkbox) disabled :hover';
 
+export const LabelControlCheckboxDisabledError: Story = Template.bind({});
+LabelControlCheckboxDisabledError.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  disabled: true,
+  error: true,
+};
+LabelControlCheckboxDisabledError.storyName =
+  'label control=(Checkbox) disabled error';
+
+export const LabelControlCheckboxDisabledErrorHover: Story = Template.bind({});
+LabelControlCheckboxDisabledErrorHover.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  disabled: true,
+  error: true,
+};
+LabelControlCheckboxDisabledErrorHover.parameters = { pseudo: { hover: true } };
+LabelControlCheckboxDisabledErrorHover.storyName =
+  'label control=(Checkbox) disabled error :hover';
+
+export const LabelControlCheckboxError: Story = Template.bind({});
+LabelControlCheckboxError.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  error: true,
+};
+LabelControlCheckboxError.storyName = 'label control=(Checkbox) error';
+
+export const LabelControlCheckboxErrorHover: Story = Template.bind({});
+LabelControlCheckboxErrorHover.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  error: true,
+};
+LabelControlCheckboxErrorHover.parameters = { pseudo: { hover: true } };
+LabelControlCheckboxErrorHover.storyName =
+  'label control=(Checkbox) error :hover';
+
 export const LabelControlCheckboxPlacementStart: Story = Template.bind({});
 LabelControlCheckboxPlacementStart.args = {
   label: 'Label',
@@ -127,3 +166,51 @@ LabelControlRadioDisabled.args = {
   disabled: true,
 };
 LabelControlRadioDisabled.storyName = 'label control=(Radio) disabled';
+
+export const LabelControlRadioDisabledHover: Story = Template.bind({});
+LabelControlRadioDisabledHover.args = {
+  label: 'Label',
+  control: '(Radio)',
+  disabled: true,
+};
+LabelControlRadioDisabledHover.parameters = { pseudo: { hover: true } };
+LabelControlRadioDisabledHover.storyName =
+  'label control=(Radio) disabled :hover';
+
+export const LabelControlRadioDisabledError: Story = Template.bind({});
+LabelControlRadioDisabledError.args = {
+  label: 'Label',
+  control: '(Radio)',
+  disabled: true,
+  error: true,
+};
+LabelControlRadioDisabledError.storyName =
+  'label control=(Radio) disabled error';
+
+export const LabelControlRadioDisabledErrorHover: Story = Template.bind({});
+LabelControlRadioDisabledErrorHover.args = {
+  label: 'Label',
+  control: '(Radio)',
+  disabled: true,
+  error: true,
+};
+LabelControlRadioDisabledErrorHover.parameters = { pseudo: { hover: true } };
+LabelControlRadioDisabledErrorHover.storyName =
+  'label control=(Radio) disabled error :hover';
+
+export const LabelControlRadioError: Story = Template.bind({});
+LabelControlRadioError.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  error: true,
+};
+LabelControlRadioError.storyName = 'label control=(Checkbox) error';
+
+export const LabelControlRadioErrorHover: Story = Template.bind({});
+LabelControlRadioErrorHover.args = {
+  label: 'Label',
+  control: '(Checkbox)',
+  error: true,
+};
+LabelControlRadioErrorHover.parameters = { pseudo: { hover: true } };
+LabelControlRadioErrorHover.storyName = 'label control=(Checkbox) error :hover';

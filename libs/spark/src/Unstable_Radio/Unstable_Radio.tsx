@@ -24,9 +24,14 @@ export interface Unstable_RadioProps
       | 'size'
       | 'TouchRippleProps'
     >,
-    StyledComponentProps<Unstable_RadioClassKey> {}
+    StyledComponentProps<Unstable_RadioClassKey> {
+  /**
+   * If `true`, the component should be displayed in an error state.
+   */
+  error?: boolean;
+}
 
-export type Unstable_RadioClassKey = 'root';
+export type Unstable_RadioClassKey = 'root' | 'error';
 
 const useStyles = makeStyles<Unstable_RadioClassKey>(
   {
@@ -43,13 +48,14 @@ const useStyles = makeStyles<Unstable_RadioClassKey>(
       // unset PDS v1
       margin: 0,
     },
+    error: {},
   },
   { name: 'MuiSparkUnstable_Radio' }
 );
 
 const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
-    const { classes: classesProp, ...other } = props;
+    const { classes: classesProp, className, error, ...other } = props;
 
     const classes = useStyles();
 
@@ -57,6 +63,7 @@ const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
       <MuiRadio
         checkedIcon={<Unstable_RadioIcon checked />}
         color="default"
+        className={clsx(className, { [classes.error]: error })}
         classes={{
           root: clsx(classes.root, classesProp?.root),
         }}

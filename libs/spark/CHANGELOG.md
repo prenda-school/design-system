@@ -56,6 +56,7 @@ _This section details previews of breaking changes or experimental features that
     - `classes`: removed all class keys _except `'root'`_
     - `color`: removed
     - `edge`: removed
+    - `error`: added; display the component in an error state
     - `size`: removed
 - **Unstable_FormControlLabel**
   - Initial implementation of **FormControlLabel** replacement according to PDS v2.
@@ -64,6 +65,7 @@ _This section details previews of breaking changes or experimental features that
     - Removed all class keys _except `'root' | 'label'`_.
   - Props API Changes:
     - `classes`: removed all class keys _except `'root' | 'label'`_
+    - `error`: added; display the label and control in an error state
 - **Unstable_IconButton**
   - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
     - values: `"standard" | "inverse"`
@@ -113,6 +115,7 @@ _This section details previews of breaking changes or experimental features that
     - `classes`: removed all class keys _except `'root'`_
     - `color`: removed
     - `edge`: removed
+    - `error`: added; display the component in an error state
     - `size`: removed
 - **Unstable_RadioGroup**
   - Initial implementation of **RadioGroup** replacement according to PDS v2.
