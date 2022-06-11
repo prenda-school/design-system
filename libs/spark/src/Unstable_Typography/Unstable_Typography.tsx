@@ -43,6 +43,7 @@ export type Unstable_TypographyClassKey = 'root';
 const useStyles = makeStyles<Unstable_TypographyClassKey>(
   (theme) => ({
     root: (props: Unstable_TypographyProps) => ({
+      /* variant & color */
       ...(props.variant === 'display' && {
         ...theme.unstable_typography.display,
         color: theme.unstable_palette.text.heading,

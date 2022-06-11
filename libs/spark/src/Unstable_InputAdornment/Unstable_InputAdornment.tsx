@@ -27,23 +27,23 @@ const useStyles = makeStyles<Unstable_InputAdornmentClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: (props: Unstable_InputAdornmentProps) => ({
-      /** Styles from Mui */
+      /* from Mui */
       display: 'flex',
       alignItems: 'flex-start',
       whiteSpace: 'nowrap',
-      /** PDS styles */
+      /* for PDS */
       fontSize: theme.unstable_typography.pxToRem(24),
       lineHeight: 1,
       alignSelf: 'flex-start', // un-center in multiline input
       marginTop: 12, // shift-down in multiline input (= half of typical icon height + input top margin)
-      /* Styles applied to the root element if `position="start"`. */
+      /* position */
       ...(props.position === 'start' && {
         marginRight: 2,
       }),
-      /* Styles applied to the root element if `position="end"`. */
       ...(props.position === 'end' && {
         marginLeft: 2,
       }),
+      /* children */
       ...(typeof props.children === 'string' && {
         ...theme.unstable_typography.body,
       }),

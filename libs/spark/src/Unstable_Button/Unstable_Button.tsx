@@ -104,20 +104,17 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
-      /** variant */
+      /* variant */
       ...(props.variant === 'primary' && {
-        backgroundColor: theme.unstable_palette.brand.blue,
+        backgroundColor: theme.unstable_palette.background.brand,
         '&:hover': {
-          backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
+          backgroundColor: lighten(
+            theme.unstable_palette.background.brand,
+            0.1
+          ),
         },
         '&:active': {
-          backgroundColor: darken(theme.unstable_palette.brand.blue, 0.2),
-        },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
+          backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
         },
       }),
       ...(props.variant === 'stroked' && {
@@ -129,13 +126,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&:active': {
           backgroundColor: theme.unstable_palette.blue[100],
         },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
-          color: theme.unstable_palette.neutral[100],
-        },
       }),
       ...(props.variant === 'ghost' && {
         backgroundColor: 'transparent',
@@ -144,12 +134,6 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         },
         '&:active': {
           backgroundColor: theme.unstable_palette.blue[100],
-        },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
         },
       }),
       ...(props.variant === 'destructive' && {
@@ -160,15 +144,8 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         '&:active': {
           backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
         },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
-          color: theme.unstable_palette.neutral[100],
-        },
       }),
-      /** size */
+      /* size */
       ...(props.size === 'small' && {
         padding: '8px 16px',
       }),
@@ -182,17 +159,25 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       '&&': {
         borderColor: 'transparent',
         borderWidth: 1,
-        '&:disabled': {
-          opacity: 'unset',
-        },
+        /* variant */
         ...(props.variant === 'stroked' && {
           borderColor: theme.unstable_palette.neutral[90],
+        }),
+        /* aria-expanded */
+        ...(props['aria-expanded'] && {
+          backgroundColor: theme.unstable_palette.background.inverse,
+        }),
+        /* disabled */
+        ...(props.disabled && {
+          backgroundColor: theme.unstable_palette.neutral[80],
+          color: theme.unstable_palette.text.disabled,
+          opacity: 'unset',
         }),
       },
     }),
 
     label: (props: Unstable_ButtonProps) => ({
-      /** size */
+      /* size */
       ...(props.size === 'small' && {
         ...buttonFontVariantSmall,
       }),
@@ -202,43 +187,33 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       ...(props.size === 'large' && {
         ...buttonFontVariantLarge,
       }),
-      /** variant */
+      /* variant */
       ...(props.variant === 'primary' && {
-        color: theme.palette.common.white,
-        ...(props.disabled && {
-          color: theme.unstable_palette.neutral[100],
-        }),
+        color: theme.unstable_palette.neutral[0],
       }),
       ...(props.variant === 'stroked' && {
         color: theme.unstable_palette.brand.blue,
-        '[aria-expanded="true"] > & ': {
-          color: theme.palette.common.white,
-        },
-        ...(props.disabled && {
-          color: theme.unstable_palette.neutral[100],
-        }),
       }),
       ...(props.variant === 'ghost' && {
         color: theme.unstable_palette.brand.blue,
-        '[aria-expanded="true"] > & ': {
-          color: theme.palette.common.white,
-        },
-        ...(props.disabled && {
-          color: theme.unstable_palette.neutral[100],
-        }),
       }),
       ...(props.variant === 'destructive' && {
-        color: theme.palette.common.white,
-        ...(props.disabled && {
-          color: theme.unstable_palette.neutral[100],
-        }),
+        color: theme.unstable_palette.neutral[0],
+      }),
+      /* aria-expanded */
+      ...(props['aria-expanded'] && {
+        color: theme.unstable_palette.neutral[0],
+      }),
+      /* disabled */
+      ...(props.disabled && {
+        color: theme.unstable_palette.text.disabled,
       }),
     }),
     leadingAvatar: (props: Unstable_ButtonProps) => ({
       color: 'inherit',
       display: 'flex',
       marginRight: 8,
-      /** size */
+      /* size */
       ...(props.size === 'small' && {
         marginBottom: -4,
         marginLeft: -8,
@@ -254,7 +229,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
         marginLeft: -8,
         marginTop: -8,
       }),
-      /** disabled */
+      /* disabled */
       ...(props.disabled && {
         opacity: 0.62,
       }),
@@ -264,7 +239,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       display: 'flex',
       lineHeight: 1,
       margin: '0 8px 0 0',
-      /** size */
+      /* size */
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -280,7 +255,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
       display: 'flex',
       lineHeight: 1,
       margin: '0 0 0 8px',
-      /** size */
+      /* size */
       ...(props.size === 'small' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -302,6 +277,7 @@ const useStyles = makeStyles<Unstable_ButtonClassKey>(
 const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef(
   function Unstable_Button(props, ref) {
     const {
+      'aria-expanded': ariaExpanded,
       children,
       classes: classesProp,
       disabled,
@@ -314,7 +290,12 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
       ...other
     } = props;
 
-    const classes = useStyles({ disabled, variant, size });
+    const classes = useStyles({
+      'aria-expanded': ariaExpanded,
+      disabled,
+      variant,
+      size,
+    });
 
     let leadingEl: ReactNode;
     if (leadingAvatar) {
@@ -347,6 +328,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
 
     return (
       <MuiButton
+        aria-expanded={ariaExpanded}
         classes={{
           root: clsx(classes.root, classesProp?.root),
           label: clsx(classes.label, classesProp?.label),

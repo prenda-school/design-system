@@ -29,24 +29,23 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
     /** Styles applied to the root element. */
     root: {
       ...theme.unstable_typography.label,
-      color: theme.unstable_palette.neutral[600],
+      color: theme.unstable_palette.text.heading,
       marginBottom: 8,
-      '&.Mui-disabled': {
-        color: theme.unstable_palette.text.disabled,
+      /* focused -- can get from internal context => can't condition on prop */
+      '&.Mui-focused': {
+        // override Mui default
+        color: theme.unstable_palette.text.heading,
       },
+      /* error -- can get from internal context => can't condition on prop */
       '&.Mui-error': {
         color: theme.unstable_palette.red[700],
       },
-      '&.Mui-focused': {
-        color: theme.unstable_palette.neutral[600],
-      },
-      // underlying class
-      '&.MuiFormLabel-formControl': {
-        transform: 'none',
-        position: 'relative',
+      /* disabled -- can get from internal context => can't condition on prop */
+      '&.Mui-disabled': {
+        color: theme.unstable_palette.text.disabled,
       },
     },
-    /** Styles applied to the root element. */
+    /** Styles applied to the asterisk element. */
     asterisk: {},
   }),
   { name: 'MuiSparkUnstable_FormLabel' }

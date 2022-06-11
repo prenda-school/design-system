@@ -91,6 +91,7 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
           // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
           marginLeft: -40,
         },
+        /* multiple */
         ...(props.multiple && {
           paddingBottom: 8,
           paddingTop: 8,
@@ -114,8 +115,9 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
         fontSize: theme.unstable_typography.pxToRem(24),
         marginRight: 14,
         transition: 'transform 250ms ease',
+        /* disabled -- can get from internal context => can't condition on prop */
         '.Mui-disabled > &': {
-          color: theme.unstable_palette.neutral[100],
+          color: theme.unstable_palette.text.disabled,
         },
       },
       iconOpen: {

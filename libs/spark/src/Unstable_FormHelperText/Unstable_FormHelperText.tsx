@@ -26,7 +26,7 @@ export type Unstable_FormHelperTextProps<
 
 const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
   (theme) => ({
-    root: (props: Unstable_FormHelperTextProps) => ({
+    root: {
       ...theme.unstable_typography.description,
       alignItems: 'center',
       color: theme.unstable_palette.text.subdued,
@@ -34,42 +34,32 @@ const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
       gap: 4,
       letterSpacing: 0,
       width: 'fit-content',
-      /* Styles applied to the `input` element if `disabled={true}`. */
-      ...(props.disabled && {
-        color: theme.unstable_palette.text.disabled,
-      }),
-      // duped because underlying component can set this independently based on form control context
-      '&.Mui-disabled': {
-        color: theme.unstable_palette.text.disabled,
-      },
-      /* Styles applied to the `input` element if `disabled={true}`. */
-      ...(props.error && {
-        color: theme.unstable_palette.red[700],
-      }),
-      // duped because underlying component can set this independently based on form control context
+      /* error -- can get from internal context => can't condition on prop */
       '&.Mui-error': {
         color: theme.unstable_palette.red[700],
+      },
+      /* disabled -- can get from internal context => can't condition on prop */
+      '&.Mui-disabled': {
+        color: theme.unstable_palette.text.disabled,
       },
       // double-specificity to override PDS v1
       '&&': {
         marginTop: 8,
       },
-    }),
+    },
   }),
   { name: 'MuiSparkUnstable_FormHelperText' }
 );
 
 const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = forwardRef(
   function Unstable_FormHelperText(props, ref) {
-    const { classes: classesProp, disabled, error, ...other } = props;
+    const { classes: classesProp, ...other } = props;
 
-    const classes = useStyles({ disabled, error });
+    const classes = useStyles();
 
     return (
       <MuiFormHelperText
         classes={{ root: clsx(classes.root, classesProp?.root) }}
-        disabled={disabled}
-        error={error}
         ref={ref}
         {...other}
       />

@@ -48,6 +48,7 @@ export type Unstable_SvgIconClassKey = 'root';
 const useStyles = makeStyles<Unstable_SvgIconClassKey>(
   (theme) => ({
     root: (props: Unstable_SvgIconProps) => ({
+      /* color */
       ...(props.color === 'inherit' && { color: 'inherit' }),
       ...(props.color === 'normal' && {
         color: theme.unstable_palette.text.icon,
@@ -61,6 +62,7 @@ const useStyles = makeStyles<Unstable_SvgIconClassKey>(
       ...(props.color === 'inverseSecondary' && {
         color: theme.unstable_palette.text.inverseSecondaryIcon,
       }),
+      /* fontSize */
       ...(props.fontSize === 'inherit' && { fontSize: 'inherit' }),
       ...(props.fontSize === 'small' && {
         fontSize: theme.unstable_typography.pxToRem(16),

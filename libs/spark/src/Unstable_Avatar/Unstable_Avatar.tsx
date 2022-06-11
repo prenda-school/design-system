@@ -73,7 +73,7 @@ const useStyles = makeStyles<Unstable_AvatarClassKey>(
     root: (props: Unstable_AvatarProps) => ({
       backgroundColor: theme.unstable_palette.neutral[70],
       color: theme.unstable_palette.text.heading,
-      /** size */
+      /* size */
       // must set height/width instead of padding because different children (text, icon) require different padding but there's no way to tell which is passed here
       // set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
       ...(props.size === 'large' && {
@@ -100,7 +100,7 @@ const useStyles = makeStyles<Unstable_AvatarClassKey>(
         width: theme.unstable_typography.pxToRem(16),
         ...avatarFontVariantSmall,
       }),
-      /** color */
+      /* color */
       ...(props.color === 'neutral' && {
         backgroundColor: theme.unstable_palette.neutral[70],
       }),
@@ -125,10 +125,10 @@ const useStyles = makeStyles<Unstable_AvatarClassKey>(
       ...(props.color === 'magenta' && {
         backgroundColor: theme.unstable_palette.magenta[300],
       }),
-      /** icon children */
+      /* icon children */
       '& [class*=MuiSvgIcon-root]': {
         color: theme.unstable_palette.text.icon,
-        /** size */
+        /* size */
         ...(props.size === 'large' && {
           fontSize: theme.unstable_typography.pxToRem(32),
         }),

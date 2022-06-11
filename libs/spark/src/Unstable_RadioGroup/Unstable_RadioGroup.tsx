@@ -14,7 +14,7 @@ export type Unstable_RadioGroupClassKey = 'root';
 
 const useStyles = makeStyles<Unstable_RadioGroupClassKey>(
   {
-    /** Styles applied to the root element. */
+    /* Styles applied to the root element. */
     root: {
       gap: 16,
       width: 'fit-content',
