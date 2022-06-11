@@ -233,6 +233,9 @@ export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
 
+export { default as Unstable_FormControl } from './Unstable_FormControl';
+export * from './Unstable_FormControl';
+
 export { default as Unstable_FormControlLabel } from './Unstable_FormControlLabel';
 export * from './Unstable_FormControlLabel';
 

@@ -74,6 +74,18 @@ _This section details previews of breaking changes or experimental features that
 - **Unstable_InputLabel**
   - **Removed**.
   - Migration: use Unstable_FormLabel instead as a one-to-one replacement.
+- **Unstable_FormControl**
+  - Initial implementation of **FormControl** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root'`_.
+  - Props API Changes:
+    - `classes`: removed all class keys _except `'root'`_
+    - `color`: removed
+    - `hiddenLabel`: removed
+    - `margin`: removed
+    - `size`: removed
+    - `variant`: removed
 - **Unstable_FormGroup**
   - Initial implementation of **FormGroup** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
