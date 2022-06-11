@@ -72,7 +72,8 @@ _This section details previews of breaking changes or experimental features that
 - **Unstable_Input**
   - Remove default margin that accounted for the box-shadow effects.
 - **Unstable_InputLabel**
-  - Remove default left-margin.
+  - **Removed**.
+  - Migration: use Unstable_FormLabel instead as a one-to-one replacement.
 - **Unstable_FormGroup**
   - Initial implementation of **FormGroup** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -115,6 +116,10 @@ _This section details previews of breaking changes or experimental features that
   - (see Unstable_Input)
 - **Unstable_TextField**
   - (see Unstable_Input, Unstable_InputLabel, Unstable_FormHelperText)
+  - Replace internal use of Unstable_InputLabel with Unstable_FormLabel.
+  - Props API Changes:
+    - `InputLabelProps`: removed
+    - `FormLabelProps`: added; applied to the `FormLabel` element
 
 ## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 
