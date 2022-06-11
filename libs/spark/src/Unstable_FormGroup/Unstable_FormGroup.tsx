@@ -23,7 +23,7 @@ const useStyles = makeStyles<Unstable_FormGroupClassKey>(
   { name: 'MuiSparkUnstable_FormGroup' }
 );
 
-const Unstable_FormGroup = forwardRef<HTMLDivElement, Unstable_FormGroupProps>(
+const Unstable_FormGroup = forwardRef<unknown, Unstable_FormGroupProps>(
   function Unstable_FormGroup(props, ref) {
     const { classes: classesProp, ...other } = props;
 

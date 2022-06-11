@@ -126,124 +126,131 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
   { name: 'MuiSparkUnstable_Select' }
 );
 
-const Unstable_Select = forwardRef(function Unstable_Select(
-  props: Unstable_SelectProps,
-  ref
-) {
-  const {
-    autoWidth = false,
-    children,
-    classes: classesProp,
-    disabled,
-    displayEmpty = true,
-    getTagProps,
-    IconComponent = Unstable_ChevronDown,
-    id,
-    input,
-    inputProps,
-    labelId,
-    MenuProps = {
-      getContentAnchorEl: null,
-      anchorOrigin: {
-        vertical: 'bottom',
-        horizontal: 'right',
-      },
-      transformOrigin: {
-        vertical: 'top',
-        horizontal: 'right',
-      },
-      classes: { paper: 'MuiSparkMenu-offsetTop' },
-    },
-    multiple = false,
-    native = false,
-    onClose,
-    onOpen,
-    open,
-    renderValue: renderValueProp,
-    value,
-    SelectDisplayProps,
-    ...other
-  } = props;
-
-  const classes = useStyles({ multiple });
-
-  const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
-
-  const InputComponent = input || <Unstable_Input />;
-
-  let renderValue;
-  if (renderValueProp) {
-    renderValue = renderValueProp;
-  } else if (multiple) {
-    renderValue = (selected: string[]) => {
-      if (selected.length) {
-        return (
-          <div>
-            {selected.map((value, index) => (
-              // can't make deletable because Select's `onChange` isn't extensible enough; but consumer can implement custom logic through `getTagProps`
-              <Unstable_Tag
-                key={value}
-                label={value}
-                disabled={disabled}
-                {...(getTagProps && getTagProps({ value, index }))}
-              />
-            ))}
-          </div>
-        );
-      } else {
-        return (
-          <div
-            className="PrivateSelect-multipleNoValue"
-            // [from MUI] Set `dangerouslySetInnerHTML` so the vertical align positioning algorithm kicks in; otherwise, the component shifts up in positioning because this span is rendered too high.
-            dangerouslySetInnerHTML={{ __html: '&#8203;' }}
-          />
-        );
-      }
-    };
-  }
-
-  return cloneElement(InputComponent, {
-    disabled,
-    inputComponent,
-    inputProps: {
+const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
+  function Unstable_Select(props, ref) {
+    const {
+      autoWidth = false,
       children,
-      IconComponent,
-      type: undefined, // We render a select. We can ignore the type provided by the `Input`.
-      multiple,
-      ...(native
-        ? { id }
-        : {
-            autoWidth,
-            displayEmpty,
-            labelId,
-            MenuProps,
-            onClose,
-            onOpen,
-            open,
-            renderValue,
-            SelectDisplayProps: { id, ...SelectDisplayProps },
-          }),
-      ...inputProps,
-      classes: {
-        root: clsx(classes.root, classesProp?.root, inputProps?.classes?.root),
-        nativeInput: clsx(
-          classes.nativeInput,
-          classesProp?.nativeInput,
-          inputProps?.classes?.nativeInput
-        ),
-        icon: clsx(classes.icon, classesProp?.icon, inputProps?.classes?.icon),
-        iconOpen: clsx(
-          classes.iconOpen,
-          classesProp?.iconOpen,
-          inputProps?.classes?.iconOpen
-        ),
+      classes: classesProp,
+      disabled,
+      displayEmpty = true,
+      getTagProps,
+      IconComponent = Unstable_ChevronDown,
+      id,
+      input,
+      inputProps,
+      labelId,
+      MenuProps = {
+        getContentAnchorEl: null,
+        anchorOrigin: {
+          vertical: 'bottom',
+          horizontal: 'right',
+        },
+        transformOrigin: {
+          vertical: 'top',
+          horizontal: 'right',
+        },
+        classes: { paper: 'MuiSparkMenu-offsetTop' },
       },
-      ...(input ? input.props.inputProps : {}),
-    },
-    value,
-    ref,
-    ...other,
-  });
-});
+      multiple = false,
+      native = false,
+      onClose,
+      onOpen,
+      open,
+      renderValue: renderValueProp,
+      value,
+      SelectDisplayProps,
+      ...other
+    } = props;
+
+    const classes = useStyles({ multiple });
+
+    const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
+
+    const InputComponent = input || <Unstable_Input />;
+
+    let renderValue;
+    if (renderValueProp) {
+      renderValue = renderValueProp;
+    } else if (multiple) {
+      renderValue = (selected: string[]) => {
+        if (selected.length) {
+          return (
+            <div>
+              {selected.map((value, index) => (
+                // can't make deletable because Select's `onChange` isn't extensible enough; but consumer can implement custom logic through `getTagProps`
+                <Unstable_Tag
+                  key={value}
+                  label={value}
+                  disabled={disabled}
+                  {...(getTagProps && getTagProps({ value, index }))}
+                />
+              ))}
+            </div>
+          );
+        } else {
+          return (
+            <div
+              className="PrivateSelect-multipleNoValue"
+              // [from MUI] Set `dangerouslySetInnerHTML` so the vertical align positioning algorithm kicks in; otherwise, the component shifts up in positioning because this span is rendered too high.
+              dangerouslySetInnerHTML={{ __html: '&#8203;' }}
+            />
+          );
+        }
+      };
+    }
+
+    return cloneElement(InputComponent, {
+      disabled,
+      inputComponent,
+      inputProps: {
+        children,
+        IconComponent,
+        type: undefined, // We render a select. We can ignore the type provided by the `Input`.
+        multiple,
+        ...(native
+          ? { id }
+          : {
+              autoWidth,
+              displayEmpty,
+              labelId,
+              MenuProps,
+              onClose,
+              onOpen,
+              open,
+              renderValue,
+              SelectDisplayProps: { id, ...SelectDisplayProps },
+            }),
+        ...inputProps,
+        classes: {
+          root: clsx(
+            classes.root,
+            classesProp?.root,
+            inputProps?.classes?.root
+          ),
+          nativeInput: clsx(
+            classes.nativeInput,
+            classesProp?.nativeInput,
+            inputProps?.classes?.nativeInput
+          ),
+          icon: clsx(
+            classes.icon,
+            classesProp?.icon,
+            inputProps?.classes?.icon
+          ),
+          iconOpen: clsx(
+            classes.iconOpen,
+            classesProp?.iconOpen,
+            inputProps?.classes?.iconOpen
+          ),
+        },
+        ...(input ? input.props.inputProps : {}),
+      },
+      value,
+      ref,
+      ...other,
+    });
+  }
+);
 
 export default Unstable_Select;

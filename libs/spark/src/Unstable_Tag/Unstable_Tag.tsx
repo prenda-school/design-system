@@ -11,7 +11,8 @@ import { buildVariant } from '../theme/typography';
 import { alpha, darken } from '@material-ui/core/styles';
 
 export interface Unstable_TagTypeMap<
-  P = Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
   D extends ElementType = 'div'
 > {
   props: P &
@@ -45,7 +46,8 @@ export interface Unstable_TagTypeMap<
 
 export type Unstable_TagProps<
   D extends ElementType = Unstable_TagTypeMap['defaultComponent'],
-  P = Record<string, unknown>
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
 > = OverrideProps<Unstable_TagTypeMap<P, D>, D>;
 
 export type Unstable_TagClassKey =

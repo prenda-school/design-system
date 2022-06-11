@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiCheckbox,
@@ -46,7 +46,7 @@ const useStyles = makeStyles<Unstable_CheckboxClassKey>(
   { name: 'MuiSparkUnstable_Checkbox' }
 );
 
-const Unstable_Checkbox = forwardRef<HTMLButtonElement, Unstable_CheckboxProps>(
+const Unstable_Checkbox = forwardRef<unknown, Unstable_CheckboxProps>(
   function Unstable_Checkbox(props, ref) {
     const { classes: classesProp, ...other } = props;
 
@@ -65,7 +65,7 @@ const Unstable_Checkbox = forwardRef<HTMLButtonElement, Unstable_CheckboxProps>(
         focusRipple={false}
         icon={<Unstable_CheckboxIcon />}
         indeterminateIcon={<Unstable_CheckboxIcon indeterminate />}
-        ref={ref}
+        ref={ref as Ref<HTMLButtonElement>}
         {...other}
       />
     );

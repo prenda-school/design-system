@@ -148,63 +148,62 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
   { name: 'MuiSparkUnstable_Input' }
 );
 
-const Unstable_Input = forwardRef(function Unstable_Input(
-  props: Unstable_InputProps,
-  ref
-) {
-  const {
-    classes: classesProp,
-    disabled,
-    error,
-    leadingEl,
-    multiline,
-    placeholder,
-    success,
-    trailingEl,
-    value,
-    ...other
-  } = props;
+const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
+  function Unstable_Input(props, ref) {
+    const {
+      classes: classesProp,
+      disabled,
+      error,
+      leadingEl,
+      multiline,
+      placeholder,
+      success,
+      trailingEl,
+      value,
+      ...other
+    } = props;
 
-  const classes = useStyles({
-    disabled,
-    error,
-    leadingEl,
-    multiline,
-    placeholder,
-    success,
-    trailingEl,
-    value,
-  });
+    const classes = useStyles({
+      disabled,
+      error,
+      leadingEl,
+      multiline,
+      placeholder,
+      success,
+      trailingEl,
+      value,
+    });
 
-  return (
-    <MuiInputBase
-      classes={{
-        root: clsx(classes.root, classesProp?.root),
-        input: clsx(classes.input, classesProp?.input),
-      }}
-      disabled={disabled}
-      endAdornment={
-        trailingEl ? (
-          <Unstable_InputAdornment position="end">
-            {trailingEl}
-          </Unstable_InputAdornment>
-        ) : undefined
-      }
-      error={error}
-      multiline={multiline}
-      placeholder={placeholder}
-      startAdornment={
-        leadingEl ? (
-          <Unstable_InputAdornment position="start">
-            {leadingEl}
-          </Unstable_InputAdornment>
-        ) : undefined
-      }
-      value={value}
-      ref={ref}
-      {...other}
-    />
-  );
-});
+    return (
+      <MuiInputBase
+        classes={{
+          root: clsx(classes.root, classesProp?.root),
+          input: clsx(classes.input, classesProp?.input),
+        }}
+        disabled={disabled}
+        endAdornment={
+          trailingEl ? (
+            <Unstable_InputAdornment position="end">
+              {trailingEl}
+            </Unstable_InputAdornment>
+          ) : undefined
+        }
+        error={error}
+        multiline={multiline}
+        placeholder={placeholder}
+        startAdornment={
+          leadingEl ? (
+            <Unstable_InputAdornment position="start">
+              {leadingEl}
+            </Unstable_InputAdornment>
+          ) : undefined
+        }
+        value={value}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
 
 export default Unstable_Input;

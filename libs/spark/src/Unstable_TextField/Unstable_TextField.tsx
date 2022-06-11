@@ -162,138 +162,137 @@ const useStyles = makeStyles<Unstable_TextFieldClassKey>((theme) => ({
   root: {},
 }));
 
-const Unstable_TextField = forwardRef(function TextField(
-  props: Unstable_TextFieldProps,
-  ref
-) {
-  const {
-    autoComplete,
-    autoFocus = false,
-    children,
-    classes: classesProp,
-    className,
-    defaultValue,
-    disabled = false,
-    error = false,
-    FormHelperTextProps,
-    fullWidth = false,
-    helperText,
-    id: idProp,
-    FormLabelProps,
-    inputProps,
-    InputProps,
-    inputRef,
-    leadingEl,
-    label,
-    multiline = false,
-    name,
-    onBlur,
-    onChange,
-    onFocus,
-    placeholder,
-    required = false,
-    maxRows,
-    minRows,
-    select = false,
-    SelectProps,
-    success,
-    trailingEl,
-    type,
-    value,
-    ...other
-  } = props;
+const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
+  function TextField(props, ref) {
+    const {
+      autoComplete,
+      autoFocus = false,
+      children,
+      classes: classesProp,
+      className,
+      defaultValue,
+      disabled = false,
+      error = false,
+      FormHelperTextProps,
+      fullWidth = false,
+      helperText,
+      id: idProp,
+      FormLabelProps,
+      inputProps,
+      InputProps,
+      inputRef,
+      leadingEl,
+      label,
+      multiline = false,
+      name,
+      onBlur,
+      onChange,
+      onFocus,
+      placeholder,
+      required = false,
+      maxRows,
+      minRows,
+      select = false,
+      SelectProps,
+      success,
+      trailingEl,
+      type,
+      value,
+      ...other
+    } = props;
 
-  const classes = useStyles();
+    const classes = useStyles();
 
-  const id = useId(idProp);
+    const id = useId(idProp);
 
-  if (process.env.NODE_ENV !== 'production') {
-    if (select && !children) {
-      console.error(
-        'Prenda Spark: Material-UI: `children` must be passed when using the `TextField` component with `select`.'
-      );
+    if (process.env.NODE_ENV !== 'production') {
+      if (select && !children) {
+        console.error(
+          'Prenda Spark: Material-UI: `children` must be passed when using the `TextField` component with `select`.'
+        );
+      }
     }
-  }
 
-  const InputMore: Partial<Unstable_InputProps> = {};
+    const InputMore: Partial<Unstable_InputProps> = {};
 
-  if (select) {
-    // unset defaults from textbox inputs
-    if (!SelectProps || !SelectProps.native) {
-      InputMore.id = undefined;
+    if (select) {
+      // unset defaults from textbox inputs
+      if (!SelectProps || !SelectProps.native) {
+        InputMore.id = undefined;
+      }
+      InputMore['aria-describedby'] = undefined;
     }
-    InputMore['aria-describedby'] = undefined;
+
+    const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
+    const formLabelId = label && id ? `${id}-label` : undefined;
+    const InputElement = (
+      <Unstable_Input
+        aria-describedby={helperTextId}
+        autoComplete={autoComplete}
+        autoFocus={autoFocus}
+        disabled={disabled}
+        defaultValue={defaultValue}
+        fullWidth={fullWidth}
+        leadingEl={leadingEl}
+        multiline={multiline}
+        name={name}
+        maxRows={maxRows}
+        minRows={minRows}
+        success={success}
+        trailingEl={trailingEl}
+        type={type}
+        value={value}
+        id={id}
+        inputRef={inputRef}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        placeholder={placeholder}
+        inputProps={inputProps}
+        {...InputMore}
+        {...InputProps}
+      />
+    );
+
+    return (
+      <FormControl
+        className={clsx(classes.root, classesProp?.root, className)}
+        disabled={disabled}
+        error={error}
+        fullWidth={fullWidth}
+        ref={(ref as unknown) as RefObject<HTMLDivElement>}
+        required={required}
+        {...other}
+      >
+        {label && (
+          <Unstable_FormLabel htmlFor={id} id={formLabelId} {...FormLabelProps}>
+            {label}
+          </Unstable_FormLabel>
+        )}
+
+        {select ? (
+          <Unstable_Select
+            aria-describedby={helperTextId}
+            id={id}
+            labelId={formLabelId}
+            value={value}
+            input={InputElement}
+            {...SelectProps}
+          >
+            {children}
+          </Unstable_Select>
+        ) : (
+          InputElement
+        )}
+
+        {helperText && (
+          <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
+            {helperText}
+          </Unstable_FormHelperText>
+        )}
+      </FormControl>
+    );
   }
-
-  const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
-  const formLabelId = label && id ? `${id}-label` : undefined;
-  const InputElement = (
-    <Unstable_Input
-      aria-describedby={helperTextId}
-      autoComplete={autoComplete}
-      autoFocus={autoFocus}
-      disabled={disabled}
-      defaultValue={defaultValue}
-      fullWidth={fullWidth}
-      leadingEl={leadingEl}
-      multiline={multiline}
-      name={name}
-      maxRows={maxRows}
-      minRows={minRows}
-      success={success}
-      trailingEl={trailingEl}
-      type={type}
-      value={value}
-      id={id}
-      inputRef={inputRef}
-      onBlur={onBlur}
-      onChange={onChange}
-      onFocus={onFocus}
-      placeholder={placeholder}
-      inputProps={inputProps}
-      {...InputMore}
-      {...InputProps}
-    />
-  );
-
-  return (
-    <FormControl
-      className={clsx(classes.root, classesProp?.root, className)}
-      disabled={disabled}
-      error={error}
-      fullWidth={fullWidth}
-      ref={(ref as unknown) as RefObject<HTMLDivElement>}
-      required={required}
-      {...other}
-    >
-      {label && (
-        <Unstable_FormLabel htmlFor={id} id={formLabelId} {...FormLabelProps}>
-          {label}
-        </Unstable_FormLabel>
-      )}
-
-      {select ? (
-        <Unstable_Select
-          aria-describedby={helperTextId}
-          id={id}
-          labelId={formLabelId}
-          value={value}
-          input={InputElement}
-          {...SelectProps}
-        >
-          {children}
-        </Unstable_Select>
-      ) : (
-        InputElement
-      )}
-
-      {helperText && (
-        <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
-          {helperText}
-        </Unstable_FormHelperText>
-      )}
-    </FormControl>
-  );
-});
+);
 
 export default Unstable_TextField;
