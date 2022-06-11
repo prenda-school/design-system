@@ -30,6 +30,7 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
     root: {
       ...theme.unstable_typography.label,
       color: theme.unstable_palette.neutral[600],
+      marginBottom: 8,
       '&.Mui-disabled': {
         color: theme.unstable_palette.text.disabled,
       },
