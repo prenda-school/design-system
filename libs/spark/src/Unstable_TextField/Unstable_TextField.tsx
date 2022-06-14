@@ -7,9 +7,9 @@ import React, {
 } from 'react';
 import clsx from 'clsx';
 import Unstable_Input, { Unstable_InputProps } from '../Unstable_Input';
-import Unstable_InputLabel, {
-  Unstable_InputLabelProps,
-} from '../Unstable_InputLabel';
+import Unstable_FormLabel, {
+  Unstable_FormLabelProps,
+} from '../Unstable_FormLabel';
 import FormControl, { FormControlProps } from '../FormControl';
 import Unstable_FormHelperText, {
   Unstable_FormHelperTextProps,
@@ -59,6 +59,10 @@ export interface Unstable_TextFieldProps
    */
   FormHelperTextProps?: Partial<Unstable_FormHelperTextProps>;
   /**
+   * Props applied to the `FormLabel` element.
+   */
+  FormLabelProps?: Partial<Unstable_FormLabelProps>;
+  /**
    * If `true`, the input will take up the full width of its container.
    */
   fullWidth?: boolean;
@@ -71,10 +75,6 @@ export interface Unstable_TextFieldProps
    * Use this prop to make `label` and `helperText` accessible for screen readers.
    */
   id?: string;
-  /**
-   * Props applied to the [`InputLabel`](/api/input-label/) element.
-   */
-  InputLabelProps?: Partial<Unstable_InputLabelProps>;
   /**
    * Props applied to the Input element.
    */
@@ -179,7 +179,7 @@ const Unstable_TextField = forwardRef(function TextField(
     fullWidth = false,
     helperText,
     id: idProp,
-    InputLabelProps,
+    FormLabelProps,
     inputProps,
     InputProps,
     inputRef,
@@ -226,7 +226,7 @@ const Unstable_TextField = forwardRef(function TextField(
   }
 
   const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
-  const inputLabelId = label && id ? `${id}-label` : undefined;
+  const formLabelId = label && id ? `${id}-label` : undefined;
   const InputElement = (
     <Unstable_Input
       aria-describedby={helperTextId}
@@ -267,20 +267,16 @@ const Unstable_TextField = forwardRef(function TextField(
       {...other}
     >
       {label && (
-        <Unstable_InputLabel
-          htmlFor={id}
-          id={inputLabelId}
-          {...InputLabelProps}
-        >
+        <Unstable_FormLabel htmlFor={id} id={formLabelId} {...FormLabelProps}>
           {label}
-        </Unstable_InputLabel>
+        </Unstable_FormLabel>
       )}
 
       {select ? (
         <Unstable_Select
           aria-describedby={helperTextId}
           id={id}
-          labelId={inputLabelId}
+          labelId={formLabelId}
           value={value}
           input={InputElement}
           {...SelectProps}

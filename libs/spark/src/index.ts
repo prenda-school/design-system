@@ -254,9 +254,6 @@ export * from './Unstable_Input';
 export { default as Unstable_InputAdornment } from './Unstable_InputAdornment';
 export * from './Unstable_InputAdornment';
 
-export { default as Unstable_InputLabel } from './Unstable_InputLabel';
-export * from './Unstable_InputLabel';
-
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
 
