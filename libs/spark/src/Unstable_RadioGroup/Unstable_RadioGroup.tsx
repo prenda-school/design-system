@@ -23,21 +23,20 @@ const useStyles = makeStyles<Unstable_RadioGroupClassKey>(
   { name: 'MuiSparkUnstable_RadioGroup' }
 );
 
-const Unstable_RadioGroup = forwardRef<
-  HTMLDivElement,
-  Unstable_RadioGroupProps
->(function Unstable_RadioGroup(props, ref) {
-  const { classes: classesProp, ...other } = props;
+const Unstable_RadioGroup = forwardRef<unknown, Unstable_RadioGroupProps>(
+  function Unstable_RadioGroup(props, ref) {
+    const { classes: classesProp, ...other } = props;
 
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <MuiRadioGroup
-      classes={{ root: clsx(classes.root, classesProp?.root) }}
-      ref={ref}
-      {...other}
-    />
-  );
-});
+    return (
+      <MuiRadioGroup
+        classes={{ root: clsx(classes.root, classesProp?.root) }}
+        ref={ref}
+        {...other}
+      />
+    );
+  }
+);
 
 export default Unstable_RadioGroup;

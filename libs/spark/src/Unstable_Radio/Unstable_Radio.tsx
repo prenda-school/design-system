@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, Ref } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiRadio,
@@ -47,7 +47,7 @@ const useStyles = makeStyles<Unstable_RadioClassKey>(
   { name: 'MuiSparkUnstable_Radio' }
 );
 
-const Unstable_Radio = forwardRef<HTMLButtonElement, Unstable_RadioProps>(
+const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
     const { classes: classesProp, ...other } = props;
 
@@ -65,7 +65,7 @@ const Unstable_Radio = forwardRef<HTMLButtonElement, Unstable_RadioProps>(
         disableTouchRipple
         focusRipple={false}
         icon={<Unstable_RadioIcon />}
-        ref={ref}
+        ref={ref as Ref<HTMLButtonElement>}
         {...other}
       />
     );

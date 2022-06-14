@@ -45,7 +45,7 @@ const useStyles = makeStyles<Unstable_FormControlLabelClassKey>(
 );
 
 const Unstable_FormControlLabel = forwardRef<
-  HTMLLabelElement,
+  unknown,
   Unstable_FormControlLabelProps
 >(function Unstable_FormControlLabel(props, ref) {
   const { classes: classesProp, disabled, ...other } = props;
