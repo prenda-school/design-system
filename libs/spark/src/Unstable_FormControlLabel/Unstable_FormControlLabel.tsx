@@ -28,14 +28,15 @@ const useStyles = makeStyles<Unstable_FormControlLabelClassKey>(
     /* Styles applied to the label element. */
     label: (props: Unstable_FormControlLabelProps) => ({
       ...theme.unstable_typography.body,
-      color: theme.unstable_palette.neutral[500],
+      color: theme.unstable_palette.text.body,
       'label:hover > &': {
         textDecoration: 'underline',
       },
       // triple-specificity to override Mui default and above hover selector,
       '&&&': {
+        /** disabled */
         ...(props.disabled && {
-          color: theme.unstable_palette.neutral[100],
+          color: theme.unstable_palette.text.disabled,
           textDecoration: 'none',
         }),
       },

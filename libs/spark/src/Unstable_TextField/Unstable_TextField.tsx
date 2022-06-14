@@ -158,9 +158,9 @@ export interface Unstable_TextFieldProps
 
 export type Unstable_TextFieldClassKey = 'root';
 
-const useStyles = makeStyles<Unstable_TextFieldClassKey>((theme) => ({
+const useStyles = makeStyles<Unstable_TextFieldClassKey>({
   root: {},
-}));
+});
 
 const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
   function TextField(props, ref) {

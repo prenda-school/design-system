@@ -54,7 +54,7 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[60],
       },
-      /* Styles applied to the root element if `value` is provided and truthy. */
+      /* value */
       ...(props.value && {
         backgroundColor: theme.unstable_palette.neutral[60],
         borderColor: theme.unstable_palette.neutral[100],
@@ -62,49 +62,40 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
           backgroundColor: theme.unstable_palette.neutral[70],
         },
       }),
+      // must come after `value`
       '&.Mui-focused, &:focus-visible': {
         backgroundColor: theme.unstable_palette.neutral[0],
         borderColor: theme.unstable_palette.blue[600],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.blue[100]}`,
       },
-      /* Styles applied to the root element if `success={true}`. */
+      /* multiline */
+      ...(props.multiline && {
+        padding: 0,
+      }),
+      /* leadingEl */
+      ...(props.leadingEl && {
+        paddingLeft: 14,
+      }),
+      /* trailingEl */
+      ...(props.trailingEl && {
+        paddingRight: 14,
+      }),
+      /* success */
       ...(props.success && {
         borderColor: theme.unstable_palette.green[600],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.green[100]}`,
       }),
-      /* Styles applied to the root element if `error={true}`. */
-      ...(props.error && {
-        borderColor: theme.unstable_palette.red[700],
-        boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
-      }),
-      // duped because underlying component can set this independently based on form control context
+      /* error -- -- can get from internal context => can't condition on prop */
       '&.Mui-error': {
         borderColor: theme.unstable_palette.red[700],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
       },
-      /* Styles applied to the root element if `disabled={true}`. */
-      ...(props.disabled && {
-        backgroundColor: theme.unstable_palette.neutral[80],
-      }),
-      // duped because underlying component can set this independently based on form control context
+      /* disabled -- can get from internal context => can't condition on prop */
       '&.Mui-disabled': {
         backgroundColor: theme.unstable_palette.neutral[80],
         opacity: 1,
-        // override mui disabled
-        color: theme.unstable_palette.text.disabled,
+        color: theme.unstable_palette.text.disabled, // override Mui default
       },
-      /* Styles applied to the root element if `multiline={true}`. */
-      ...(props.multiline && {
-        padding: 0,
-      }),
-      /* Styles applied to the root element if `leadingEl` is provided. */
-      ...(props.leadingEl && {
-        paddingLeft: 14,
-      }),
-      /* Styles applied to the root element if `trailingEl` is provided. */
-      ...(props.trailingEl && {
-        paddingRight: 14,
-      }),
     }),
     /* Styles applied to the `input` element. */
     input: (props: Unstable_InputProps) => ({
@@ -112,7 +103,7 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
       color: 'inherit',
       height: 'unset', // override weird default `em` height
       padding: '12px 16px',
-      /* Styles applied to the `input` element if `placeholder` is provided and truthy. */
+      /* placeholder */
       ...(props.placeholder && {
         color: theme.unstable_palette.neutral[400],
         opacity: 0.87,
@@ -122,27 +113,23 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
           opacity: 0.87,
         },
       }),
-      /* Styles applied to the root element if `disabled={true}`. */
-      ...(props.disabled && {
-        color: 'inherit',
+      /* multiline */
+      ...(props.multiline && {
+        padding: '12px 16px',
       }),
-      // duped because underlying component can set this independently based on form control context
+      /* leadingEl */
+      ...(props.leadingEl && {
+        paddingLeft: 8,
+      }),
+      /* trailingEl */
+      ...(props.trailingEl && {
+        paddingRight: 8,
+      }),
+      /* disabled -- can get from internal context => can't condition on prop */
       '&.Mui-disabled': {
         color: 'inherit',
         opacity: 1,
       },
-      /* Styles applied to the `input` element if `multiline={true}`. */
-      ...(props.multiline && {
-        padding: '12px 16px',
-      }),
-      /* Styles applied to the `input` element if `leadingEl` is provided. */
-      ...(props.leadingEl && {
-        paddingLeft: 8,
-      }),
-      /* Styles applied to the `input` element if `trailingEl` is provided. */
-      ...(props.trailingEl && {
-        paddingRight: 8,
-      }),
     }),
   }),
   { name: 'MuiSparkUnstable_Input' }

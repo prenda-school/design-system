@@ -61,6 +61,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
+      /* variant & color */
       ...(props.variant === 'primary' && {
         backgroundColor: theme.unstable_palette.brand.blue,
         '&:hover': {
@@ -90,7 +91,6 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
         },
         '&:disabled': {
           backgroundColor: theme.unstable_palette.neutral[80],
-          color: theme.unstable_palette.neutral[100],
         },
       }),
       ...(props.variant === 'ghost' &&
@@ -125,7 +125,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
             backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
           },
         }),
-
+      /* size */
       ...(props.size === 'small' && {
         padding: 4,
       }),
@@ -136,6 +136,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
 
     label: (props: Unstable_IconButtonProps) => ({
       fontSize: '1.5rem',
+      /* variant & color */
       ...(props.variant === 'primary' && {
         color: theme.unstable_palette.neutral[0],
       }),
@@ -150,11 +151,13 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
         props.color === 'inverse' && {
           color: theme.unstable_palette.neutral[0],
         }),
-      '[aria-expanded="true"] > &': {
+      /* aria-expanded */
+      ...(props['aria-expanded'] && {
         color: theme.unstable_palette.neutral[0],
-      },
+      }),
+      /* disabled */
       ...(props.disabled && {
-        color: theme.unstable_palette.neutral[100],
+        color: theme.unstable_palette.text.disabled,
       }),
     }),
   }),
@@ -164,6 +167,7 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
 const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = forwardRef(
   function Unstable_IconButton(props, ref) {
     const {
+      'aria-expanded': ariaExpanded,
       color = 'standard',
       classes: classesProp,
       disabled,
@@ -174,10 +178,17 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
       ...other
     } = props;
 
-    const classes = useStyles({ color, disabled, size, variant });
+    const classes = useStyles({
+      'aria-expanded': ariaExpanded,
+      color,
+      disabled,
+      size,
+      variant,
+    });
 
     return (
       <MuiIconButton
+        aria-expanded={ariaExpanded}
         classes={{
           root: clsx(classes.root, classesProp?.root),
           label: clsx(classes.label, classesProp?.label),

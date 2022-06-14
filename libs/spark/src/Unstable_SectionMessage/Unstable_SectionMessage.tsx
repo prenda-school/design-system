@@ -28,6 +28,7 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       padding: 24,
       borderWidth: 1,
       borderStyle: 'solid',
+      /* severity */
       ...(props.severity === 'error' && {
         backgroundColor: theme.unstable_palette.red[100],
         borderColor: theme.unstable_palette.red[700],
@@ -50,6 +51,7 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       display: 'flex',
       fontSize: theme.unstable_typography.pxToRem(24),
       lineHeight: 1,
+      /* severity */
       ...(props.severity === 'error' && {
         color: theme.unstable_palette.red[700],
       }),
@@ -68,7 +70,10 @@ const useStyles = makeStyles<Unstable_SectionMessageClassKey>(
       color: theme.unstable_palette.text.body,
       flexGrow: 2,
     },
-    action: { alignSelf: 'flex-start', justifySelf: 'flex-end' },
+    action: {
+      alignSelf: 'flex-start',
+      justifySelf: 'flex-end',
+    },
     title: {
       ...theme.unstable_typography.label,
       color: theme.unstable_palette.text.heading,

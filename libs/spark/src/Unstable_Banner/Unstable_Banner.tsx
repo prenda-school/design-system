@@ -18,6 +18,7 @@ const useStyles = makeStyles<Unstable_BannerClassKey>(
       display: 'flex',
       gap: 16,
       padding: 24,
+      /* severity */
       ...(props.severity === 'error' && {
         backgroundColor: theme.unstable_palette.red[700],
       }),
@@ -38,6 +39,7 @@ const useStyles = makeStyles<Unstable_BannerClassKey>(
       lineHeight: 1,
       paddingBottom: 4,
       paddingTop: 4,
+      /* severity */
       ...(props.severity === 'warning' && {
         color: theme.unstable_palette.neutral[600],
       }),
@@ -47,6 +49,7 @@ const useStyles = makeStyles<Unstable_BannerClassKey>(
       color: theme.unstable_palette.neutral[0],
       flexGrow: 2,
       paddingTop: 4,
+      /* severity */
       ...(props.severity === 'warning' && {
         color: theme.unstable_palette.neutral[600],
       }),

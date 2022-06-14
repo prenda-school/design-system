@@ -150,6 +150,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
         '&:focus': {
           backgroundColor, // override MUI
         },
+        /** onClick (clickable) */
         ...(props.onClick && {
           // artificially increase specificity to override MUI
           '&&': {
@@ -175,6 +176,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
             boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
           },
         }),
+        /** onDelete (deletable) */
         ...(props.onDelete && {
           // artificially increase specificity to override MUI
           '&&': {
@@ -190,11 +192,12 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
     label: (props: Unstable_TagProps) => ({
       color: 'inherit',
       padding: 0, // unset MUI
-      ...(props.size === 'medium' && tagFontVariantMedium),
-      ...(props.size === 'small' && tagFontVariantSmall),
       // artificially shift label down by 1px to appear more centered; especially apparent when beside an icon
       marginTop: 1,
       marginBottom: -1,
+      /* size */
+      ...(props.size === 'medium' && tagFontVariantMedium),
+      ...(props.size === 'small' && tagFontVariantSmall),
     }),
     deleteIcon: (props: Unstable_TagProps) => ({
       borderRadius: 2,
@@ -202,6 +205,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
       height: '1em',
       margin: '0 0 0 4px',
       width: '1em',
+      /* size */
       ...(props.size === 'medium' && {
         fontSize: theme.typography.pxToRem(16),
       }),
@@ -210,6 +214,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
       }),
       '&:hover': {
         color: 'inherit', // override MUI
+        /* variant */
         ...(props.variant === 'bold' && {
           backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.2),
         }),
@@ -218,6 +223,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
         }),
       },
       '&:active': {
+        /* variant */
         ...(props.variant === 'bold' && {
           backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.3),
         }),
@@ -231,6 +237,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
       height: '1em',
       margin: '0 4px 0 0',
       width: '1em',
+      /* size */
       ...(props.size === 'medium' && {
         fontSize: theme.typography.pxToRem(16),
       }),

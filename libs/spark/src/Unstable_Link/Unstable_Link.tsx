@@ -41,7 +41,14 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
     root: (props: Unstable_LinkProps) => ({
       ...theme.unstable_typography.body,
       textDecoration: 'underline',
-      ...(props.standalone && { textDecoration: 'none' }),
+      '&.Mui-focusVisible, &:focus-visible': {
+        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+      },
+      /* standalone */
+      ...(props.standalone && {
+        textDecoration: 'none',
+      }),
+      /* color */
       ...((!props.color || props.color === 'default') && {
         color: theme.unstable_palette.blue['600'],
         '&:hover': {
@@ -58,9 +65,6 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
       // reset browser default
       '&:focus': {
         outline: 'none',
-      },
-      '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
       },
     }),
   }),
