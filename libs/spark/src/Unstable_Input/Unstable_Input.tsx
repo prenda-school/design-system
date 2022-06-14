@@ -85,11 +85,11 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
         borderColor: theme.unstable_palette.green[600],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.green[100]}`,
       }),
-      /* error */
-      ...(props.error && {
+      /* error -- -- can get from internal context => can't condition on prop */
+      '&.Mui-error': {
         borderColor: theme.unstable_palette.red[700],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
-      }),
+      },
       /* disabled -- can get from internal context => can't condition on prop */
       '&.Mui-disabled': {
         backgroundColor: theme.unstable_palette.neutral[80],
