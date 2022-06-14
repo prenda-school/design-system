@@ -33,8 +33,7 @@ const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
       display: 'flex',
       gap: 4,
       letterSpacing: 0,
-      marginLeft: 4, // match margin of Input
-      marginTop: 4,
+      width: 'fit-content',
       /* Styles applied to the `input` element if `disabled={true}`. */
       ...(props.disabled && {
         color: theme.unstable_palette.text.disabled,
@@ -50,6 +49,10 @@ const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
       // duped because underlying component can set this independently based on form control context
       '&.Mui-error': {
         color: theme.unstable_palette.red[700],
+      },
+      // double-specificity to override PDS v1
+      '&&': {
+        marginTop: 8,
       },
     }),
   }),

@@ -27,8 +27,7 @@ const useStyles = makeStyles<Unstable_InputLabelClassKey>(
     root: {
       ...theme.unstable_typography.label,
       color: theme.unstable_palette.neutral[600],
-      marginBottom: 4,
-      marginLeft: 4, // match margin of Input
+      marginBottom: 8,
       '&.Mui-disabled': {
         color: theme.unstable_palette.neutral[100],
       },
