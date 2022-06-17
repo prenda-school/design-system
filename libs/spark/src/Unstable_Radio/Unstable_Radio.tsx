@@ -7,6 +7,7 @@ import {
 import makeStyles from '../makeStyles';
 import { StyledComponentProps } from '../utils';
 import Unstable_RadioIcon from './Unstable_RadioIcon';
+import { useRadioGroupMore } from '../Unstable_RadioGroup';
 
 export interface Unstable_RadioProps
   extends Omit<
@@ -55,24 +56,39 @@ const useStyles = makeStyles<Unstable_RadioClassKey>(
 
 const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
-    const { classes: classesProp, className, error, ...other } = props;
+    const {
+      classes: classesProp,
+      className,
+      error,
+      required: requiredProp,
+      ...other
+    } = props;
 
     const classes = useStyles();
+
+    const radioGroup = useRadioGroupMore();
+
+    let required = requiredProp;
+
+    if (radioGroup) {
+      if (typeof required === 'undefined') {
+        required = radioGroup.required;
+      }
+    }
 
     return (
       <MuiRadio
         checkedIcon={<Unstable_RadioIcon checked />}
-        color="default"
+        classes={{ root: clsx(classes.root, classesProp?.root) }}
         className={clsx(className, { [classes.error]: error })}
-        classes={{
-          root: clsx(classes.root, classesProp?.root),
-        }}
+        color="default"
         disableFocusRipple
         disableRipple
         disableTouchRipple
         focusRipple={false}
         icon={<Unstable_RadioIcon />}
         ref={ref as Ref<HTMLButtonElement>}
+        required={required}
         {...other}
       />
     );

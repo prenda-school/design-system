@@ -68,6 +68,13 @@ ChildrenLabeledRadiosDefaultValue.args = {
 ChildrenLabeledRadiosDefaultValue.storyName =
   'children=(Labeled Radios) defaultValue';
 
+export const ChildrenLabeledRadiosRequired: Story = Template.bind({});
+ChildrenLabeledRadiosRequired.args = {
+  children: '(Labeled Radios)',
+  required: true,
+};
+ChildrenLabeledRadiosRequired.storyName = 'children=(Labeled Radios) required';
+
 export const ChildrenLabeledRadiosRow: Story = Template.bind({});
 ChildrenLabeledRadiosRow.args = {
   children: '(Labeled Radios)',

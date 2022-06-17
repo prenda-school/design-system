@@ -58,24 +58,6 @@ _This section details previews of breaking changes or experimental features that
     - `edge`: removed
     - `error`: added; display the component in an error state
     - `size`: removed
-- **Unstable_FormControlLabel**
-  - Initial implementation of **FormControlLabel** replacement according to PDS v2.
-  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
-  - CSS API Changes:
-    - Removed all class keys _except `'root' | 'label'`_.
-  - Props API Changes:
-    - `classes`: removed all class keys _except `'root' | 'label'`_
-    - `error`: added; display the label and control in an error state
-- **Unstable_IconButton**
-  - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
-    - values: `"standard" | "inverse"`
-    - default value: `"standard"`
-    - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
-- **Unstable_Input**
-  - Remove default margin that accounted for the box-shadow effects.
-- **Unstable_InputLabel**
-  - **Removed**.
-  - Migration: use Unstable_FormLabel instead as a one-to-one replacement.
 - **Unstable_FormControl**
   - Initial implementation of **FormControl** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -88,6 +70,15 @@ _This section details previews of breaking changes or experimental features that
     - `margin`: removed
     - `size`: removed
     - `variant`: removed
+- **Unstable_FormControlLabel**
+  - Initial implementation of **FormControlLabel** replacement according to PDS v2.
+  - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
+  - CSS API Changes:
+    - Removed all class keys _except `'root' | 'label'`_.
+  - Props API Changes:
+    - `classes`: removed all class keys _except `'root' | 'label'`_
+    - `error`: added; display the label and control in an error state
+    - `required`: added; the control element will be required
 - **Unstable_FormGroup**
   - Initial implementation of **FormGroup** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -106,6 +97,16 @@ _This section details previews of breaking changes or experimental features that
     - `classes`: removed all class keys _except `'root' | 'asterisk'`_
     - `color`: removed
     - `filled`: removed
+- **Unstable_IconButton**
+  - Add `color` prop with preliminary support for the `"ghost"` variant on inverse backgrounds.
+    - values: `"standard" | "inverse"`
+    - default value: `"standard"`
+    - (does not affect display of `"primary" | "stroked"` variants yet -- planned for future)
+- **Unstable_Input**
+  - Remove default margin that accounted for the box-shadow effects.
+- **Unstable_InputLabel**
+  - **Removed**.
+  - Migration: use Unstable_FormLabel instead as a one-to-one replacement.
 - **Unstable_Radio**
   - Initial implementation of **Radio** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -124,6 +125,7 @@ _This section details previews of breaking changes or experimental features that
     - Removed all class keys _except `'root'`_.
   - Props API Changes:
     - `classes`: removed all class keys _except `'root'`_
+    - `required`: added; descendant controls (i.e. `input` elements) will be required
 - **Unstable_SectionMessage**
   - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
   - Add `CloseProps` prop to apply props to the _close_ icon button.
