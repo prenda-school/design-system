@@ -25,9 +25,14 @@ export interface Unstable_CheckboxProps
       | 'size'
       | 'TouchRippleProps'
     >,
-    StyledComponentProps<Unstable_CheckboxClassKey> {}
+    StyledComponentProps<Unstable_CheckboxClassKey> {
+  /**
+   * If `true`, the component should be displayed in an error state.
+   */
+  error?: boolean;
+}
 
-export type Unstable_CheckboxClassKey = 'root';
+export type Unstable_CheckboxClassKey = 'root' | 'error';
 
 const useStyles = makeStyles<Unstable_CheckboxClassKey>(
   {
@@ -42,13 +47,14 @@ const useStyles = makeStyles<Unstable_CheckboxClassKey>(
         color: 'unset',
       },
     },
+    error: {},
   },
   { name: 'MuiSparkUnstable_Checkbox' }
 );
 
 const Unstable_Checkbox = forwardRef<unknown, Unstable_CheckboxProps>(
   function Unstable_Checkbox(props, ref) {
-    const { classes: classesProp, ...other } = props;
+    const { classes: classesProp, className, error, ...other } = props;
 
     const classes = useStyles();
 
@@ -56,6 +62,7 @@ const Unstable_Checkbox = forwardRef<unknown, Unstable_CheckboxProps>(
       <MuiCheckbox
         checkedIcon={<Unstable_CheckboxIcon checked />}
         color="default"
+        className={clsx(className, { [classes.error]: error })}
         classes={{
           root: clsx(classes.root, classesProp?.root),
         }}

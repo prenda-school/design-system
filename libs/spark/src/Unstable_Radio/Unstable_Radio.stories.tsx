@@ -46,6 +46,29 @@ DisabledHover.args = { disabled: true };
 DisabledHover.parameters = { pseudo: { hover: true } };
 DisabledHover.storyName = 'disabled :hover';
 
+export const DisabledError: Story = Template.bind({});
+DisabledError.args = { disabled: true, error: true };
+DisabledError.storyName = 'disabled error';
+
+export const DisabledErrorHover: Story = Template.bind({});
+DisabledErrorHover.args = { disabled: true, error: true };
+DisabledErrorHover.parameters = { pseudo: { hover: true } };
+DisabledErrorHover.storyName = 'disabled error :hover';
+
+export const Error: Story = Template.bind({});
+Error.args = { error: true };
+Error.storyName = 'error';
+
+export const ErrorHover: Story = Template.bind({});
+ErrorHover.args = { error: true };
+ErrorHover.parameters = { pseudo: { hover: true } };
+ErrorHover.storyName = 'error :hover';
+
+export const ErrorFocusVisible: Story = Template.bind({});
+ErrorFocusVisible.args = { error: true };
+ErrorFocusVisible.parameters = { pseudo: { focusVisible: true } };
+ErrorFocusVisible.storyName = 'error :focus-visible';
+
 export const Checked: Story = Template.bind({});
 Checked.args = { checked: true };
 Checked.storyName = 'checked';
@@ -68,3 +91,26 @@ export const CheckedDisabledHover: Story = Template.bind({});
 CheckedDisabledHover.args = { checked: true, disabled: true };
 CheckedDisabledHover.parameters = { pseudo: { hover: true } };
 CheckedDisabledHover.storyName = 'checked disabled :hover';
+
+export const CheckedDisabledError: Story = Template.bind({});
+CheckedDisabledError.args = { checked: true, disabled: true, error: true };
+CheckedDisabledError.storyName = 'checked disabled error';
+
+export const CheckedDisabledErrorHover: Story = Template.bind({});
+CheckedDisabledErrorHover.args = { checked: true, disabled: true, error: true };
+CheckedDisabledErrorHover.parameters = { pseudo: { hover: true } };
+CheckedDisabledErrorHover.storyName = 'checked disabled error :hover';
+
+export const CheckedError: Story = Template.bind({});
+CheckedError.args = { checked: true, error: true };
+CheckedError.storyName = 'checked error';
+
+export const CheckedErrorHover: Story = Template.bind({});
+CheckedErrorHover.args = { checked: true, error: true };
+CheckedErrorHover.parameters = { pseudo: { hover: true } };
+CheckedErrorHover.storyName = 'checked error :hover';
+
+export const CheckedErrorFocusVisible: Story = Template.bind({});
+CheckedErrorFocusVisible.args = { checked: true, error: true };
+CheckedErrorFocusVisible.parameters = { pseudo: { focusVisible: true } };
+CheckedErrorFocusVisible.storyName = 'checked error :focus-visible';
