@@ -44,7 +44,7 @@ const useStyles = makeStyles<Unstable_FormHelperTextClassKey>(
       },
       // double-specificity to override PDS v1
       '&&': {
-        marginTop: 8,
+        marginTop: 0,
       },
     },
   }),
