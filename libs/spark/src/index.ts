@@ -263,6 +263,9 @@ export * from './Unstable_Link';
 export { default as Unstable_Radio } from './Unstable_Radio';
 export * from './Unstable_Radio';
 
+export { default as Unstable_RadioField } from './Unstable_RadioField';
+export * from './Unstable_RadioField';
+
 export { default as Unstable_RadioGroup } from './Unstable_RadioGroup';
 export * from './Unstable_RadioGroup';
 
