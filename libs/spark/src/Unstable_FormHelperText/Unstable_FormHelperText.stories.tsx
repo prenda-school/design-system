@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_FormHelperText } from '..';
-import { Info, sparkThemeProvider } from '../../stories';
+import { Info } from '../../stories';
 
 export const _retyped = Unstable_FormHelperText as typeof Unstable_FormHelperText;
 
@@ -10,22 +10,45 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   argTypes: {
+    leadingIcon: {
+      control: 'select',
+      options: ['undefined', '<Info />'],
+      mapping: {
+        undefined: undefined,
+        '<Info />': <Info />,
+      },
+    },
     children: {
       control: 'select',
-      options: ['(text)', '(Leading Icon)'],
+      options: ['(text)', '(ul)'],
       mapping: {
         '(text)': <>Helper text</>,
-        '(Leading Icon)': (
-          <>
-            <Info fontSize="small" />
-            Helper text
-          </>
+        '(ul)': (
+          <ul>
+            <li>list item one</li>
+            <li>list item two</li>
+            <li>list item three</li>
+          </ul>
+        ),
+        '(ol)': (
+          <ol>
+            <li>list item one</li>
+            <li>list item two</li>
+            <li>list item three</li>
+          </ol>
+        ),
+        '(span > ul)': (
+          <span>
+            More information
+            <ul>
+              <li>list item one</li>
+              <li>list item two</li>
+              <li>list item three</li>
+            </ul>
+          </span>
         ),
       },
     },
-  },
-  args: {
-    children: '(text)',
   },
 } as Meta;
 
@@ -33,10 +56,6 @@ const Template = (args) => <Unstable_FormHelperText {...args} />;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
-
-export const STP: Story = Template.bind({});
-STP.decorators = [sparkThemeProvider];
-STP.storyName = '(STP)';
 
 export const Disabled: Story = Template.bind({});
 Disabled.args = { disabled: true };
@@ -50,14 +69,52 @@ export const Focused: Story = Template.bind({});
 Focused.args = { focused: true };
 Focused.storyName = 'focused';
 
+export const LeadingIcon: Story = Template.bind({});
+LeadingIcon.args = { leadingIcon: '<Info />' };
+LeadingIcon.storyName = 'leadingIcon';
+
+export const LeadingIconError: Story = Template.bind({});
+LeadingIconError.args = { leadingIcon: '<Info />', error: true };
+LeadingIconError.storyName = 'leadingIcon error';
+
+export const ReserveLineHeight: Story = Template.bind({});
+ReserveLineHeight.args = { reserveLineHeight: true };
+ReserveLineHeight.storyName = 'reserveLineHeight';
+
 export const Required: Story = Template.bind({});
 Required.args = { required: true };
 Required.storyName = 'required';
 
-export const ChildrenLeadingIcon: Story = Template.bind({});
-ChildrenLeadingIcon.args = { children: '(Leading Icon)' };
-ChildrenLeadingIcon.storyName = 'children=(Leading Icon)';
+export const ChildrenListItemsComponentUl: Story = Template.bind({});
+ChildrenListItemsComponentUl.args = {
+  children: '(ul)',
+  component: 'span',
+};
+ChildrenListItemsComponentUl.storyName = 'children=(ul) component=span';
 
-export const ChildrenLeadingIconError: Story = Template.bind({});
-ChildrenLeadingIconError.args = { children: '(Leading Icon)', error: true };
-ChildrenLeadingIconError.storyName = 'children=(Leading Icon) error';
+export const ChildrenListItemsComponentUlLeadingIcon: Story = Template.bind({});
+ChildrenListItemsComponentUlLeadingIcon.args = {
+  children: '(ul)',
+  component: 'span',
+  leadingIcon: '<Info />',
+};
+ChildrenListItemsComponentUlLeadingIcon.storyName =
+  'children=(ul) component=span leadingIcon';
+
+export const ChildrenListItemsComponentOl: Story = Template.bind({});
+ChildrenListItemsComponentOl.args = {
+  children: '(ol)',
+  component: 'span',
+};
+ChildrenListItemsComponentOl.storyName = 'children=(ol) component=span';
+
+export const ChildrenListItemsComponentSpanUlLeadingIcon: Story = Template.bind(
+  {}
+);
+ChildrenListItemsComponentSpanUlLeadingIcon.args = {
+  children: '(span > ul)',
+  component: 'span',
+  leadingIcon: '<Info />',
+};
+ChildrenListItemsComponentSpanUlLeadingIcon.storyName =
+  'children=(span > ul) component=span leadingIcon';

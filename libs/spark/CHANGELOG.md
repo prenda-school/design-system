@@ -88,6 +88,11 @@ _This section details previews of breaking changes or experimental features that
     - `classes`: removed all class keys _except `'root'`_
 - **Unstable_FormHelperText**
   - Remove default margin.
+  - Support text lists in children.
+  - Props API Changes:
+    - `children`: changed; removed reserving line height when `children=' '` -- use `reserveLineHeight` instead
+    - `leadingIcon`: added; icon placed before the children
+    - `reserveLineHeight`: added; reserve one line height when neither `children` nor `leadingIcon` is truthy
 - **Unstable_FormLabel**
   - Initial implementation of **FormLabel** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.

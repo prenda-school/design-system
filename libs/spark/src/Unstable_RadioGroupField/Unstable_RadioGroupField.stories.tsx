@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_RadioField, Unstable_RadioGroupField } from '..';
-import { containFocusIndicator } from '../../stories';
+import { containFocusIndicator, Info } from '../../stories';
 
 export const _retyped = Unstable_RadioGroupField as typeof Unstable_RadioGroupField;
 
@@ -31,12 +31,36 @@ export default {
               value="value-1"
             />
             <Unstable_RadioField
-              helperText="Helper text two"
+              FormHelperTextProps={{
+                // @ts-expect-error component prop isn't recognized
+                component: 'span',
+              }}
+              helperText={
+                <ul>
+                  <li>Helping line item one</li>
+                  <li>Helping line item two</li>
+                  <li>Helping line item three</li>
+                </ul>
+              }
               label="Label two"
               value="value-2"
             />
             <Unstable_RadioField
-              helperText="Helper text three"
+              FormHelperTextProps={{
+                // @ts-expect-error component prop isn't recognized
+                component: 'span',
+                leadingIcon: <Info />,
+              }}
+              helperText={
+                <span>
+                  More help:
+                  <ol>
+                    <li>Helping line item</li>
+                    <li>Helping line item</li>
+                    <li>Helping line item</li>
+                  </ol>
+                </span>
+              }
               label="Label three"
               value="value-3"
             />
