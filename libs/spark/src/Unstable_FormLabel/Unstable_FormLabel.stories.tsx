@@ -31,6 +31,10 @@ export const Error: Story = Template.bind({});
 Error.args = { error: true };
 Error.storyName = 'error';
 
+export const ErrorDisabled: Story = Template.bind({});
+ErrorDisabled.args = { error: true, disabled: true };
+ErrorDisabled.storyName = 'error disabled';
+
 export const Focused: Story = Template.bind({});
 Focused.args = { focused: true };
 Focused.storyName = 'focused';
@@ -38,3 +42,15 @@ Focused.storyName = 'focused';
 export const Required: Story = Template.bind({});
 Required.args = { required: true };
 Required.storyName = 'required';
+
+export const RequiredDisabled: Story = Template.bind({});
+RequiredDisabled.args = { required: true, disabled: true };
+RequiredDisabled.storyName = 'required disabled';
+
+export const RequiredError: Story = Template.bind({});
+RequiredError.args = { required: true, error: true };
+RequiredError.storyName = 'required error';
+
+export const RequiredErrorDisabled: Story = Template.bind({});
+RequiredErrorDisabled.args = { required: true, error: true, disabled: true };
+RequiredErrorDisabled.storyName = 'required error disabled';

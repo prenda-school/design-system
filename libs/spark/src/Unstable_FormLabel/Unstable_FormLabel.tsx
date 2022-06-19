@@ -45,7 +45,14 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
       },
     },
     /** Styles applied to the asterisk element. */
-    asterisk: {},
+    asterisk: {
+      '&.Mui-error': {
+        color: theme.unstable_palette.red[600],
+      },
+      '.Mui-disabled > &': {
+        color: theme.unstable_palette.text.disabled,
+      },
+    },
   }),
   { name: 'MuiSparkUnstable_FormLabel' }
 );
