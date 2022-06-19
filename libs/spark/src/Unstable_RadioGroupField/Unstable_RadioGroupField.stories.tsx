@@ -136,7 +136,7 @@ LabelHelperTextRequired.args = {
   required: true,
 };
 LabelHelperTextRequired.storyName =
-  'children=(RadioFields) label helperText defaultValue required';
+  'children=(RadioFields) label helperText required';
 
 export const LabelHelperTextRequiredError: Story = Template.bind({});
 LabelHelperTextRequiredError.args = {
