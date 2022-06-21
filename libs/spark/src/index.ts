@@ -229,6 +229,9 @@ export * from './Unstable_Button';
 export { default as Unstable_Checkbox } from './Unstable_Checkbox';
 export * from './Unstable_Checkbox';
 
+export { default as Unstable_CheckboxField } from './Unstable_CheckboxField';
+export * from './Unstable_CheckboxField';
+
 export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';

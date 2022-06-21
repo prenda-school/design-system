@@ -58,6 +58,8 @@ _This section details previews of breaking changes or experimental features that
     - `edge`: removed
     - `error`: added; display the component in an error state
     - `size`: removed
+- **Unstable_CheckboxField**
+  - Initial implementation
 - **Unstable_FormControl**
   - Initial implementation of **FormControl** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
