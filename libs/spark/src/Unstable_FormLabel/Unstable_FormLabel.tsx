@@ -30,7 +30,6 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
     root: {
       ...theme.unstable_typography.label,
       color: theme.unstable_palette.text.heading,
-      marginBottom: 8,
       /* focused -- can get from internal context => can't condition on prop */
       '&.Mui-focused': {
         // override Mui default
@@ -38,7 +37,7 @@ const useStyles = makeStyles<Unstable_FormLabelClassKey>(
       },
       /* error -- can get from internal context => can't condition on prop */
       '&.Mui-error': {
-        color: theme.unstable_palette.red[700],
+        color: theme.unstable_palette.text.heading,
       },
       /* disabled -- can get from internal context => can't condition on prop */
       '&.Mui-disabled': {

@@ -96,7 +96,7 @@ _This section details previews of breaking changes or experimental features that
   - Props API Changes:
     - `classes`: removed all class keys _except `'root'`_
 - **Unstable_FormHelperText**
-  - Remove default left-margin.
+  - Remove default margin.
 - **Unstable_FormLabel**
   - Initial implementation of **FormLabel** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
@@ -131,10 +131,12 @@ _This section details previews of breaking changes or experimental features that
   - (see Unstable_Input)
 - **Unstable_TextField**
   - (see Unstable_Input, Unstable_InputLabel, Unstable_FormHelperText)
-  - Replace internal use of Unstable_InputLabel with Unstable_FormLabel.
   - Props API Changes:
     - `InputLabelProps`: removed
     - `FormLabelProps`: added; applied to the `FormLabel` element
+  - Internal:
+    - use Unstable_FormLabel instead of Unstable_InputLabel
+    - use Unstable_FormControl instead of FormControl
 
 ## [v1.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2022-06-03)
 

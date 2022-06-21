@@ -26,7 +26,9 @@ export default {
       mapping: {
         '(Checkbox Field)': (
           <>
-            <Unstable_FormLabel component="legend">Label</Unstable_FormLabel>
+            <span>
+              <Unstable_FormLabel component="legend">Label</Unstable_FormLabel>
+            </span>
             <Unstable_FormGroup>
               <Unstable_FormControlLabel
                 control={<Unstable_Checkbox />}
@@ -55,7 +57,9 @@ export default {
         ),
         '(Radio Field)': (
           <>
-            <Unstable_FormLabel component="legend">Label</Unstable_FormLabel>
+            <span>
+              <Unstable_FormLabel component="legend">Label</Unstable_FormLabel>
+            </span>
             <Unstable_RadioGroup>
               <Unstable_FormControlLabel
                 control={<Unstable_Radio />}

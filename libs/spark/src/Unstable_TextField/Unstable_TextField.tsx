@@ -5,26 +5,22 @@ import React, {
   Ref,
   RefObject,
 } from 'react';
-import clsx from 'clsx';
 import Unstable_Input, { Unstable_InputProps } from '../Unstable_Input';
 import Unstable_FormLabel, {
   Unstable_FormLabelProps,
 } from '../Unstable_FormLabel';
-import FormControl, { FormControlProps } from '../FormControl';
+import Unstable_FormControl, {
+  Unstable_FormControlProps,
+} from '../Unstable_FormControl';
 import Unstable_FormHelperText, {
   Unstable_FormHelperTextProps,
 } from '../Unstable_FormHelperText';
 import Unstable_Select, { Unstable_SelectProps } from '../Unstable_Select';
-import makeStyles from '../makeStyles';
-import { StandardProps, useId } from '../utils';
+import { useId } from '../utils';
 
 export interface Unstable_TextFieldProps
-  extends StandardProps<
-    Omit<
-      FormControlProps,
-      'color' | 'hiddenLabel' | 'margin' | 'size' | 'variant'
-    >,
-    Unstable_TextFieldClassKey,
+  extends Omit<
+    Unstable_FormControlProps,
     // event handlers are declared on derived interfaces
     'onChange' | 'onBlur' | 'onFocus' | 'defaultValue'
   > {
@@ -55,7 +51,7 @@ export interface Unstable_TextFieldProps
    */
   error?: boolean;
   /**
-   * Props applied to the [`FormHelperText`](/api/form-helper-text/) element.
+   * Props applied to the `FormHelperText` element.
    */
   FormHelperTextProps?: Partial<Unstable_FormHelperTextProps>;
   /**
@@ -130,12 +126,12 @@ export interface Unstable_TextFieldProps
    */
   minRows?: string | number;
   /**
-   * Render a [`Select`](/api/select/) element while passing the Input element to `Select` as `input` parameter.
+   * Render a `Select` element while passing the `Input` element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    */
   select?: boolean;
   /**
-   * Props applied to the [`Select`](/api/select/) element.
+   * Props applied to the `Select` element.
    */
   SelectProps?: Partial<Unstable_SelectProps>;
   /**
@@ -143,7 +139,7 @@ export interface Unstable_TextFieldProps
    */
   success?: boolean;
   /**
-   * The content of the `endAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
+   * The content of the `endAdornment` (an `InputAdornment`), usually an `Icon`, `IconButton`, or `string`.
    */
   trailingEl?: ReactNode;
   /**
@@ -156,20 +152,12 @@ export interface Unstable_TextFieldProps
   value?: unknown;
 }
 
-export type Unstable_TextFieldClassKey = 'root';
-
-const useStyles = makeStyles<Unstable_TextFieldClassKey>({
-  root: {},
-});
-
 const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
-  function TextField(props, ref) {
+  function Unstable_TextField(props, ref) {
     const {
       autoComplete,
       autoFocus = false,
       children,
-      classes: classesProp,
-      className,
       defaultValue,
       disabled = false,
       error = false,
@@ -201,8 +189,6 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       ...other
     } = props;
 
-    const classes = useStyles();
-
     const id = useId(idProp);
 
     if (process.env.NODE_ENV !== 'production') {
@@ -224,7 +210,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
     }
 
     const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
-    const formLabelId = label && id ? `${id}-label` : undefined;
+    const labelId = label && id ? `${id}-label` : undefined;
     const InputElement = (
       <Unstable_Input
         aria-describedby={helperTextId}
@@ -255,8 +241,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
     );
 
     return (
-      <FormControl
-        className={clsx(classes.root, classesProp?.root, className)}
+      <Unstable_FormControl
         disabled={disabled}
         error={error}
         fullWidth={fullWidth}
@@ -264,17 +249,17 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         required={required}
         {...other}
       >
-        {label && (
-          <Unstable_FormLabel htmlFor={id} id={formLabelId} {...FormLabelProps}>
+        {label ? (
+          <Unstable_FormLabel htmlFor={id} id={labelId} {...FormLabelProps}>
             {label}
           </Unstable_FormLabel>
-        )}
+        ) : null}
 
         {select ? (
           <Unstable_Select
             aria-describedby={helperTextId}
             id={id}
-            labelId={formLabelId}
+            labelId={labelId}
             value={value}
             input={InputElement}
             {...SelectProps}
@@ -285,12 +270,12 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
           InputElement
         )}
 
-        {helperText && (
+        {helperText ? (
           <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
             {helperText}
           </Unstable_FormHelperText>
-        )}
-      </FormControl>
+        ) : null}
+      </Unstable_FormControl>
     );
   }
 );
