@@ -7,7 +7,7 @@ import {
   Unstable_FormGroup,
   Unstable_FormHelperText,
   Unstable_FormLabel,
-  Unstable_Radio,
+  Unstable_RadioField,
   Unstable_RadioGroup,
 } from '..';
 import { containFocusIndicator, sparkThemeProvider } from '../../stories';
@@ -22,7 +22,7 @@ export default {
   argTypes: {
     children: {
       control: 'select',
-      options: ['(Checkbox Field)', '(Radio Field)'],
+      options: ['(Checkbox Field)', '(RadioFields)'],
       mapping: {
         '(Checkbox Field)': (
           <>
@@ -55,29 +55,16 @@ export default {
             <Unstable_FormHelperText>Helper text</Unstable_FormHelperText>
           </>
         ),
-        '(Radio Field)': (
+        '(RadioFields)': (
           <>
             <span>
               <Unstable_FormLabel component="legend">Label</Unstable_FormLabel>
             </span>
             <Unstable_RadioGroup>
-              <Unstable_FormControlLabel
-                control={<Unstable_Radio />}
-                label="Label one"
-                value="value-1"
-              />
-              <Unstable_FormControlLabel
-                control={<Unstable_Radio />}
-                label="Label two"
-                value="value-2"
-              />
-              <Unstable_FormControlLabel
-                control={<Unstable_Radio />}
-                label="Label three"
-                value="value-3"
-              />
-              <Unstable_FormControlLabel
-                control={<Unstable_Radio />}
+              <Unstable_RadioField label="Label one" value="value-1" />
+              <Unstable_RadioField label="Label two" value="value-2" />
+              <Unstable_RadioField label="Label three" value="value-3" />
+              <Unstable_RadioField
                 disabled
                 label="Label four"
                 value="value-4"
@@ -137,42 +124,6 @@ ChildrenCheckboxFieldRequired.args = {
 ChildrenCheckboxFieldRequired.storyName =
   'children=(Checkbox Field) component=fieldset required';
 
-export const ChildrenRadioField: Story = Template.bind({});
-ChildrenRadioField.args = { children: '(Radio Field)', component: 'fieldset' };
-ChildrenRadioField.storyName = 'children=(Radio Field) component=fieldset';
-
-export const ChildrenRadioFieldSTP: Story = Template.bind({});
-ChildrenRadioFieldSTP.args = {
-  children: '(Radio Field)',
-  component: 'fieldset',
-};
-ChildrenRadioFieldSTP.decorators = [sparkThemeProvider];
-ChildrenRadioFieldSTP.storyName =
-  'children=(Radio Field) component=fieldset (STP)';
-
-export const ChildrenRadioFieldDisabled: Story = Template.bind({});
-ChildrenRadioFieldDisabled.args = {
-  children: '(Radio Field)',
-  component: 'fieldset',
-  disabled: true,
-};
-ChildrenRadioFieldDisabled.storyName =
-  'children=(Radio Field) component=fieldset disabled';
-
-export const ChildrenRadioFieldError: Story = Template.bind({});
-ChildrenRadioFieldError.args = {
-  children: '(Radio Field)',
-  component: 'fieldset',
-  error: true,
-};
-ChildrenRadioFieldError.storyName =
-  'children=(Radio Field) component=fieldset error';
-
-export const ChildrenRadioFieldRequired: Story = Template.bind({});
-ChildrenRadioFieldRequired.args = {
-  children: '(Radio Field)',
-  component: 'fieldset',
-  required: true,
-};
-ChildrenRadioFieldRequired.storyName =
-  'children=(Radio Field) component=fieldset required';
+export const ChildrenRadioFields: Story = Template.bind({});
+ChildrenRadioFields.args = { children: '(RadioFields)', component: 'fieldset' };
+ChildrenRadioFields.storyName = 'children=(RadioFields) component=fieldset';
