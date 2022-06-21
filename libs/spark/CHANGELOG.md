@@ -60,6 +60,8 @@ _This section details previews of breaking changes or experimental features that
     - `size`: removed
 - **Unstable_CheckboxField**
   - Initial implementation
+- **Unstable_CheckboxGroupField**
+  - Initial implementation
 - **Unstable_FormControl**
   - Initial implementation of **FormControl** replacement according to PDS v2.
   - Supports rendering _without_ `theme` being in an ancestor `ThemeProvider`.
