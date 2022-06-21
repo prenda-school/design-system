@@ -5,10 +5,17 @@ import MuiRadioGroup, {
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import { StyledComponentProps } from '../utils';
+import { formControlState, useFormControl } from '../Unstable_FormControl';
+import RadioGroupMoreContext from './RadioGroupMoreContext';
 
 export interface Unstable_RadioGroupProps
   extends Omit<MuiRadioGroupProps, 'classes'>,
-    StyledComponentProps<Unstable_RadioGroupClassKey> {}
+    StyledComponentProps<Unstable_RadioGroupClassKey> {
+  /**
+   * If `true`, then descendant controls (i.e. `input` elements) will be required.
+   */
+  required?: boolean;
+}
 
 export type Unstable_RadioGroupClassKey = 'root';
 
@@ -25,16 +32,31 @@ const useStyles = makeStyles<Unstable_RadioGroupClassKey>(
 
 const Unstable_RadioGroup = forwardRef<unknown, Unstable_RadioGroupProps>(
   function Unstable_RadioGroup(props, ref) {
-    const { classes: classesProp, ...other } = props;
+    const {
+      classes: classesProp,
+      id: idProp,
+      // underscored props will be processed directly from `props` by `formControlState` below
+      required: _required,
+      ...other
+    } = props;
 
     const classes = useStyles();
 
+    const fc = useFormControl();
+    const fcs = formControlState({
+      props,
+      muiFormControl: fc,
+      states: ['error', 'required'],
+    });
+
     return (
-      <MuiRadioGroup
-        classes={{ root: clsx(classes.root, classesProp?.root) }}
-        ref={ref}
-        {...other}
-      />
+      <RadioGroupMoreContext.Provider value={{ required: fcs.required }}>
+        <MuiRadioGroup
+          classes={{ root: clsx(classes.root, classesProp?.root) }}
+          ref={ref}
+          {...other}
+        />
+      </RadioGroupMoreContext.Provider>
     );
   }
 );

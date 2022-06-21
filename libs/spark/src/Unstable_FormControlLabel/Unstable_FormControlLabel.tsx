@@ -15,6 +15,10 @@ export interface Unstable_FormControlLabelProps
    * If `true`, the label and control should be displayed in an error state.
    */
   error?: boolean;
+  /**
+   * If `true`, the control element will be required.
+   */
+  required?: boolean;
 }
 
 export type Unstable_FormControlLabelClassKey = 'root' | 'label' | 'error';
@@ -57,30 +61,38 @@ const Unstable_FormControlLabel = forwardRef<
   unknown,
   Unstable_FormControlLabelProps
 >(function Unstable_FormControlLabel(props, ref) {
-  const { classes: classesProp, className, control, error, ...other } = props;
+  const {
+    classes: classesProp,
+    className,
+    control,
+    // underscored props will be processed directly from `props` by `formControlState` below
+    error: _error,
+    required: _required,
+    ...other
+  } = props;
 
   const classes = useStyles();
 
-  const muiFormControl = useFormControl();
+  const fc = useFormControl();
   const fcs = formControlState({
     props,
-    muiFormControl,
-    states: ['error'],
+    muiFormControl: fc,
+    states: ['error', 'required'],
   });
 
   const controlProps = {};
-  ['error'].forEach((key) => {
+  ['error', 'required'].forEach((key) => {
     if (
       typeof control.props[key] === 'undefined' &&
-      typeof props[key] !== 'undefined'
+      typeof fcs[key] !== 'undefined'
     ) {
-      controlProps[key] = props[key];
+      controlProps[key] = fcs[key];
     }
   });
 
   return (
     <MuiFormControlLabel
-      className={clsx(className, { [classes.error]: error || fcs.error })}
+      className={clsx(className, { [classes.error]: fcs.error })}
       classes={{
         root: clsx(classes.root, classesProp?.root),
         label: clsx(classes.label, classesProp?.label),
