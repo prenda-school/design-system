@@ -269,6 +269,9 @@ export * from './Unstable_RadioField';
 export { default as Unstable_RadioGroup } from './Unstable_RadioGroup';
 export * from './Unstable_RadioGroup';
 
+export { default as Unstable_RadioGroupField } from './Unstable_RadioGroupField';
+export * from './Unstable_RadioGroupField';
+
 export { default as Unstable_SectionMessage } from './Unstable_SectionMessage';
 export * from './Unstable_SectionMessage';
 

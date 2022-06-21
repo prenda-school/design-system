@@ -128,6 +128,8 @@ _This section details previews of breaking changes or experimental features that
   - Props API Changes:
     - `classes`: removed all class keys _except `'root'`_
     - `required`: added; descendant controls (i.e. `input` elements) will be required
+- **Unstable_RadioGroupField**
+  - Initial implementation
 - **Unstable_SectionMessage**
   - Fix `closeText` not being applied to the _close_ icon button (resulted in not having an accessible name, i.e. `aria-label`).
   - Add `CloseProps` prop to apply props to the _close_ icon button.
