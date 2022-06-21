@@ -54,36 +54,37 @@ export default {
 
 const Template = (args) => <Unstable_FormHelperText {...args} />;
 
-export const Default: Story = Template.bind({});
-Default.storyName = '(default)';
+export const ChildrenText: Story = Template.bind({});
+ChildrenText.args = { children: '(text)' };
+ChildrenText.storyName = 'children=(text)';
 
-export const Disabled: Story = Template.bind({});
-Disabled.args = { disabled: true };
-Disabled.storyName = 'disabled';
+export const ChildrenTextDisabled: Story = Template.bind({});
+ChildrenTextDisabled.args = { children: '(text)', disabled: true };
+ChildrenTextDisabled.storyName = 'children=(text) disabled';
 
-export const Error: Story = Template.bind({});
-Error.args = { error: true };
-Error.storyName = 'error';
+export const ChildrenTextError: Story = Template.bind({});
+ChildrenTextError.args = { children: '(text)', error: true };
+ChildrenTextError.storyName = 'children=(text) error';
 
-export const Focused: Story = Template.bind({});
-Focused.args = { focused: true };
-Focused.storyName = 'focused';
+export const ChildrenTextFocused: Story = Template.bind({});
+ChildrenTextFocused.args = { children: '(text)', focused: true };
+ChildrenTextFocused.storyName = 'children=(text) focused';
 
-export const LeadingIcon: Story = Template.bind({});
-LeadingIcon.args = { leadingIcon: '<Info />' };
-LeadingIcon.storyName = 'leadingIcon';
+export const ChildrenTextLeadingIcon: Story = Template.bind({});
+ChildrenTextLeadingIcon.args = { children: '(text)', leadingIcon: '<Info />' };
+ChildrenTextLeadingIcon.storyName = 'children=(text) leadingIcon';
 
-export const LeadingIconError: Story = Template.bind({});
-LeadingIconError.args = { leadingIcon: '<Info />', error: true };
-LeadingIconError.storyName = 'leadingIcon error';
+export const ChildrenTextLeadingIconError: Story = Template.bind({});
+ChildrenTextLeadingIconError.args = {
+  children: '(text)',
+  leadingIcon: '<Info />',
+  error: true,
+};
+ChildrenTextLeadingIconError.storyName = 'children=(text) leadingIcon error';
 
-export const ReserveLineHeight: Story = Template.bind({});
-ReserveLineHeight.args = { reserveLineHeight: true };
-ReserveLineHeight.storyName = 'reserveLineHeight';
-
-export const Required: Story = Template.bind({});
-Required.args = { required: true };
-Required.storyName = 'required';
+export const ChildrenTextRequired: Story = Template.bind({});
+ChildrenTextRequired.args = { children: '(text)', required: true };
+ChildrenTextRequired.storyName = 'children=(text) required';
 
 export const ChildrenListItemsComponentUl: Story = Template.bind({});
 ChildrenListItemsComponentUl.args = {
@@ -118,3 +119,7 @@ ChildrenListItemsComponentSpanUlLeadingIcon.args = {
 };
 ChildrenListItemsComponentSpanUlLeadingIcon.storyName =
   'children=(span > ul) component=span leadingIcon';
+
+export const ReserveLineHeight: Story = Template.bind({});
+ReserveLineHeight.args = { reserveLineHeight: true };
+ReserveLineHeight.storyName = 'reserveLineHeight';
