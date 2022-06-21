@@ -30,33 +30,33 @@ export default {
 
 const Template = (args) => <Unstable_RadioGroup {...args} />;
 
-export const ChildrenLabeledRadios: Story = Template.bind({});
-ChildrenLabeledRadios.args = { children: '(RadioFields)' };
-ChildrenLabeledRadios.storyName = 'children=(RadioFields)';
+export const ChildrenRadioFields: Story = Template.bind({});
+ChildrenRadioFields.args = { children: '(RadioFields)' };
+ChildrenRadioFields.storyName = 'children=(RadioFields)';
 
-export const ChildrenLabeledRadiosSTP: Story = Template.bind({});
-ChildrenLabeledRadiosSTP.args = { children: '(RadioFields)' };
-ChildrenLabeledRadiosSTP.decorators = [sparkThemeProvider];
-ChildrenLabeledRadiosSTP.storyName = 'children=(RadioFields) (STP)';
+export const ChildrenRadioFieldsSTP: Story = Template.bind({});
+ChildrenRadioFieldsSTP.args = { children: '(RadioFields)' };
+ChildrenRadioFieldsSTP.decorators = [sparkThemeProvider];
+ChildrenRadioFieldsSTP.storyName = 'children=(RadioFields) (STP)';
 
-export const ChildrenLabeledRadiosDefaultValue: Story = Template.bind({});
-ChildrenLabeledRadiosDefaultValue.args = {
+export const ChildrenRadioFieldsDefaultValue: Story = Template.bind({});
+ChildrenRadioFieldsDefaultValue.args = {
   children: '(RadioFields)',
   defaultValue: 'value-2',
 };
-ChildrenLabeledRadiosDefaultValue.storyName =
+ChildrenRadioFieldsDefaultValue.storyName =
   'children=(RadioFields) defaultValue';
 
-export const ChildrenLabeledRadiosRequired: Story = Template.bind({});
-ChildrenLabeledRadiosRequired.args = {
+export const ChildrenRadioFieldsRequired: Story = Template.bind({});
+ChildrenRadioFieldsRequired.args = {
   children: '(RadioFields)',
   required: true,
 };
-ChildrenLabeledRadiosRequired.storyName = 'children=(RadioFields) required';
+ChildrenRadioFieldsRequired.storyName = 'children=(RadioFields) required';
 
-export const ChildrenLabeledRadiosRow: Story = Template.bind({});
-ChildrenLabeledRadiosRow.args = {
+export const ChildrenRadioFieldsRow: Story = Template.bind({});
+ChildrenRadioFieldsRow.args = {
   children: '(RadioFields)',
   row: true,
 };
-ChildrenLabeledRadiosRow.storyName = 'children=(RadioFields) row';
+ChildrenRadioFieldsRow.storyName = 'children=(RadioFields) row';
