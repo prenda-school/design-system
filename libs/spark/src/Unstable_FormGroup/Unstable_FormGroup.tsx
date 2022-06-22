@@ -16,7 +16,8 @@ const useStyles = makeStyles<Unstable_FormGroupClassKey>(
   {
     /** Styles applied to the root element. */
     root: {
-      gap: 16,
+      columnGap: 32,
+      rowGap: 16,
       width: 'fit-content',
     },
   },
