@@ -16,10 +16,14 @@ type _Unstable_AvatarButtonTypeMap<
   props: P &
     Pick<
       Unstable_AvatarProps,
-      'alt' | 'color' | 'imgProps' | 'size' | 'sizes' | 'src' | 'srcSet'
+      'alt' | 'color' | 'imgProps' | 'sizes' | 'src' | 'srcSet'
     >;
   defaultComponent: D;
   classKey: Unstable_AvatarButtonClassKey;
+  /**
+   * The size of the component.
+   */
+  size?: 'large' | 'medium';
 }>;
 
 export type Unstable_AvatarButtonTypeMap<
