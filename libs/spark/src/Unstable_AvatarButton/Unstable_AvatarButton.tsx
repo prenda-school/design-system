@@ -92,7 +92,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
       classes: classesProp,
       color,
       imgProps,
-      size,
+      size = 'large',
       sizes,
       src,
       srcSet,
