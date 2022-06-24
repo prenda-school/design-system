@@ -16,7 +16,7 @@ type _Unstable_AvatarButtonTypeMap<
   props: P &
     Pick<
       Unstable_AvatarProps,
-      'alt' | 'color' | 'imgProps' | 'sizes' | 'src' | 'srcSet'
+      'alt' | 'color' | 'imgProps' | 'size' | 'sizes' | 'src' | 'srcSet'
     >;
   defaultComponent: D;
   classKey: Unstable_AvatarButtonClassKey;
@@ -92,6 +92,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
       classes: classesProp,
       color,
       imgProps,
+      size,
       sizes,
       src,
       srcSet,
@@ -115,7 +116,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
           alt={alt}
           color={color}
           imgProps={imgProps}
-          size="large"
+          size={size}
           sizes={sizes}
           src={src}
           srcSet={srcSet}

@@ -63,6 +63,15 @@ export default {
         '(for Girl)': 'Child girl smiling',
       },
     },
+    size: {
+      control: 'select',
+      options: [undefined, 'large', 'medium'],
+      mapping: {
+        undefined: undefined,
+        large: 'Large avatar',
+        medium: 'medium avatar',
+      },
+    },
   },
 } as Meta;
 
@@ -76,6 +85,10 @@ export const ChildrenInitialsSTP: Story = Template.bind({});
 ChildrenInitialsSTP.args = { children: '(Initials)' };
 ChildrenInitialsSTP.decorators = [sparkThemeProvider];
 ChildrenInitialsSTP.storyName = 'children=(Initials) (STP)';
+
+export const ChildrenInitialsMedium: Story = Template.bind({});
+ChildrenInitialsMedium.args = { children: '(Initials)', size: 'medium' };
+ChildrenInitialsMedium.storyName = 'children=(Initials) (medium)';
 
 export const ChildrenInitialsHover: Story = Template.bind({});
 ChildrenInitialsHover.args = { children: '(Initials)' };
