@@ -18,10 +18,10 @@ type _Unstable_AvatarButtonTypeMap<
       Unstable_AvatarProps,
       'alt' | 'color' | 'imgProps' | 'sizes' | 'src' | 'srcSet'
     > & {
-    /**
-     * The size of the component.
-     */
-    size?: 'large' | 'medium';
+      /**
+       * The size of the component.
+       */
+      size?: 'large' | 'medium';
     };
   defaultComponent: D;
   classKey: Unstable_AvatarButtonClassKey;
