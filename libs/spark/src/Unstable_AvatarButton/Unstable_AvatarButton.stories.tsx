@@ -77,6 +77,10 @@ ChildrenInitialsSTP.args = { children: '(Initials)' };
 ChildrenInitialsSTP.decorators = [sparkThemeProvider];
 ChildrenInitialsSTP.storyName = 'children=(Initials) (STP)';
 
+export const ChildrenInitialsSizeMedium: Story = Template.bind({});
+ChildrenInitialsSizeMedium.args = { children: '(Initials)', size: 'medium' };
+ChildrenInitialsSizeMedium.storyName = 'children=(Initials) size=medium';
+
 export const ChildrenInitialsHover: Story = Template.bind({});
 ChildrenInitialsHover.args = { children: '(Initials)' };
 ChildrenInitialsHover.parameters = { pseudo: { hover: true } };
