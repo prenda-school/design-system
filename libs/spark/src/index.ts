@@ -278,6 +278,9 @@ export * from './Unstable_Link';
 export { default as Unstable_ListItem } from './Unstable_ListItem';
 export * from './Unstable_ListItem';
 
+export { default as Unstable_ListSubheader } from './Unstable_ListSubheader';
+export * from './Unstable_ListSubheader';
+
 export { default as Unstable_MenuItem } from './Unstable_MenuItem';
 export * from './Unstable_MenuItem';
 

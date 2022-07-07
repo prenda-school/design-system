@@ -20,6 +20,8 @@ _This section details previews of breaking changes or experimental features that
     - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.
 - **Unstable_ListItem**
   - Initial implementation.
+- **Unstable_ListSubheader**
+  - Initial implementation.
 - **Unstable_MenuItem**
   - Initial implementation.
 
