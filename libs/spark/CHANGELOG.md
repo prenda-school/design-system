@@ -11,6 +11,8 @@ _This section details previews of breaking changes or experimental features that
     - `size`: added; values `'large' | 'medium'` where `'large'` is default.
 - **Unstable_CheckboxListItem**
   - Initial implementation.
+- **Unstable_CheckboxMenuItem**
+  - Initial implementation.
 - **Unstable_Link**
   - Props API changes:
     - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.
