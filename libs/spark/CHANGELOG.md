@@ -24,6 +24,8 @@ _This section details previews of breaking changes or experimental features that
   - Initial implementation.
 - **Unstable_ListSubheader**
   - Initial implementation.
+- **Unstable_Menu**
+  - Initial implementation.
 - **Unstable_MenuItem**
   - Initial implementation.
 - **Unstable_MenuList**
