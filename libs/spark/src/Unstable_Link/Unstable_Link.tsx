@@ -21,7 +21,11 @@ export interface Unstable_LinkTypeMap<
       /**
        * The color of the link.
        */
-      color?: 'default' | 'inherit';
+      color?: 'standard' | 'inherit';
+      /**
+       * The variant of the link.
+       */
+      variant?: 'standard' | 'alias';
     };
   defaultComponent: D;
   classKey: Unstable_LinkClassKey;
@@ -39,7 +43,6 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: (props: Unstable_LinkProps) => ({
-      ...theme.unstable_typography.body,
       textDecoration: 'underline',
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
@@ -49,7 +52,7 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
         textDecoration: 'none',
       }),
       /* color */
-      ...((!props.color || props.color === 'default') && {
+      ...(props.color === 'standard' && {
         color: theme.unstable_palette.blue['600'],
         '&:hover': {
           color: theme.unstable_palette.blue['500'],
@@ -62,6 +65,10 @@ const useStyles = makeStyles<Unstable_LinkClassKey>(
         },
       }),
       ...(props.color === 'inherit' && { color: 'inherit' }),
+      /* variant */
+      ...(props.variant === 'standard' && {
+        ...theme.unstable_typography.body,
+      }),
       // reset browser default
       '&:focus': {
         outline: 'none',
@@ -75,12 +82,13 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   function Unstable_Link(props, ref) {
     const {
       classes: classesProp,
-      color = 'default',
+      color = 'standard',
+      variant = 'standard',
       standalone,
       ...other
     } = props;
 
-    const classes = useStyles({ color, standalone });
+    const classes = useStyles({ color, variant, standalone });
 
     return (
       <MuiLink
