@@ -15,6 +15,8 @@ _This section details previews of breaking changes or experimental features that
   - Initial implementation.
 - **Unstable_Divider**
   - Initial implementation.
+- **Unstable_List**
+  - Initial implementation.
 - **Unstable_Link**
   - Props API changes:
     - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.

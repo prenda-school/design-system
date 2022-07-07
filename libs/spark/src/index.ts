@@ -275,6 +275,9 @@ export * from './Unstable_InputAdornment';
 export { default as Unstable_Link } from './Unstable_Link';
 export * from './Unstable_Link';
 
+export { default as Unstable_List } from './Unstable_List';
+export * from './Unstable_List';
+
 export { default as Unstable_ListItem } from './Unstable_ListItem';
 export * from './Unstable_ListItem';
 
