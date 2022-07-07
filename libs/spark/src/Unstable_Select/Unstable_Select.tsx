@@ -13,6 +13,7 @@ import makeStyles from '../makeStyles';
 import { Unstable_ChevronDown } from '../internal';
 import { Theme } from '../theme';
 import Unstable_Tag, { Unstable_TagProps } from '../Unstable_Tag';
+import { useUnstable_PaperStyles } from '../Unstable_Paper';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
   export const styles: (
@@ -62,13 +63,18 @@ export interface Unstable_SelectProps
     value: MuiSelectProps['value'];
     index: number;
   }) => Unstable_TagProps;
+  /**
+   * Prevent the render container from overflowing with multiple values or tags.
+   */
+  preventMultipleOverflow?: boolean;
 }
 
 export type Unstable_SelectClassKey =
   | 'root'
   | 'nativeInput'
   | 'icon'
-  | 'iconOpen';
+  | 'iconOpen'
+  | 'menuPaper';
 
 const useStyles = makeStyles<Unstable_SelectClassKey>(
   (theme) => {
@@ -99,6 +105,11 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
             display: 'flex',
             flexWrap: 'wrap',
             gap: 8,
+            ...(props.preventMultipleOverflow && {
+              flexWrap: 'nowrap',
+              overflowX: 'scroll',
+              whiteSpace: 'nowrap',
+            }),
           },
           '& > .PrivateSelect-multipleNoValue': {
             paddingBottom: 4,
@@ -122,6 +133,9 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
       },
       iconOpen: {
         ...styles.iconOpen,
+      },
+      menuPaper: {
+        marginTop: 4,
       },
     };
   },
@@ -152,20 +166,21 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
           vertical: 'top',
           horizontal: 'right',
         },
-        classes: { paper: 'MuiSparkMenu-offsetTop' },
       },
       multiple = false,
       native = false,
       onClose,
       onOpen,
       open,
+      preventMultipleOverflow = false,
       renderValue: renderValueProp,
       value,
       SelectDisplayProps,
       ...other
     } = props;
 
-    const classes = useStyles({ multiple });
+    const classes = useStyles({ multiple, preventMultipleOverflow });
+    const paperClasses = useUnstable_PaperStyles();
 
     const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
 
@@ -216,7 +231,19 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               autoWidth,
               displayEmpty,
               labelId,
-              MenuProps,
+              MenuProps: {
+                ...MenuProps,
+                PaperProps: {
+                  className: clsx(
+                    classes.menuPaper,
+                    MenuProps.PaperProps?.className
+                  ),
+                  classes: {
+                    ...paperClasses,
+                    ...MenuProps.PaperProps?.classes,
+                  },
+                },
+              },
               onClose,
               onOpen,
               open,

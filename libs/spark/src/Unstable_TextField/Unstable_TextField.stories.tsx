@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { MenuItem, Unstable_TextField } from '..';
+import { Unstable_TextField } from '..';
+import { default as Unstable_SelectMeta } from '../Unstable_Select/Unstable_Select.stories';
 import {
   containFocusIndicator,
   enableHooks,
@@ -17,7 +18,21 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],
+  args: {
+    // start component as "controlled"
+    value: '',
+  },
   argTypes: {
+    children: {
+      control: Unstable_SelectMeta.argTypes.children.control,
+      options: ['undefined'].concat(
+        Unstable_SelectMeta.argTypes.children.options
+      ),
+      mapping: {
+        undefined: undefined,
+        ...Unstable_SelectMeta.argTypes.children.mapping,
+      },
+    },
     leadingEl: {
       control: 'select',
       options: ['undefined', '$', '<Gear />'],
@@ -43,40 +58,9 @@ export default {
     minRows: { control: 'number' },
     maxRows: { control: 'number' },
   },
-  args: {
-    // start component as "controlled"
-    value: '',
-  },
 } as Meta;
 
-const Template = (args) => {
-  return (
-    <Unstable_TextField {...args}>
-      {args.select
-        ? args.placeholder
-          ? [
-              <MenuItem key={1} value="">
-                Placeholder
-              </MenuItem>,
-              <MenuItem key={2} value="Value">
-                Value
-              </MenuItem>,
-              <MenuItem key={3} value="Value 2">
-                Value 2
-              </MenuItem>,
-            ]
-          : [
-              <MenuItem key={1} value="Value">
-                Value
-              </MenuItem>,
-              <MenuItem key={2} value="Value 2">
-                Value 2
-              </MenuItem>,
-            ]
-        : undefined}
-    </Unstable_TextField>
-  );
-};
+const Template = (args) => <Unstable_TextField {...args} />;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
@@ -274,6 +258,7 @@ LabelHelperTextSelect.args = {
   helperText: 'Helper text',
   value: '',
   select: true,
+  children: '(MenuItem x6)',
 };
 LabelHelperTextSelect.storyName = 'label helperText select';
 
@@ -282,7 +267,8 @@ LabelHelperTextSelectValue.args = {
   label: 'Label',
   helperText: 'Helper text',
   select: true,
-  value: 'Value',
+  children: '(MenuItem x6)',
+  value: 'value-1',
 };
 LabelHelperTextSelectValue.storyName = 'label helperText select value';
 
@@ -291,7 +277,8 @@ LabelHelperTextSelectValueDisabled.args = {
   label: 'Label',
   helperText: 'Helper text',
   select: true,
-  value: 'Value',
+  children: '(MenuItem x6)',
+  value: 'value-1',
   disabled: true,
 };
 LabelHelperTextSelectValueDisabled.storyName =
@@ -302,7 +289,8 @@ LabelHelperTextSelectValueError.args = {
   label: 'Label',
   helperText: 'Helper text',
   select: true,
-  value: 'Value',
+  children: '(MenuItem x6)',
+  value: 'value-1',
   error: true,
 };
 LabelHelperTextSelectValueError.storyName =
@@ -313,7 +301,8 @@ LabelHelperTextSelectValueSuccess.args = {
   label: 'Label',
   helperText: 'Helper text',
   select: true,
-  value: 'Value',
+  children: '(MenuItem x6)',
+  value: 'value-1',
   success: true,
 };
 LabelHelperTextSelectValueSuccess.storyName =
@@ -325,6 +314,7 @@ LabelHelperTextSelectMultiple.args = {
   helperText: 'Helper text',
   value: [],
   select: true,
+  children: '(MenuItem x6)',
   SelectProps: {
     multiple: true,
   },
@@ -336,8 +326,9 @@ export const LabelHelperTextSelectMultipleValues: Story = Template.bind({});
 LabelHelperTextSelectMultipleValues.args = {
   label: 'Label',
   helperText: 'Helper text',
-  value: ['Value', 'Value 2'],
+  value: ['value-1', 'value-2'],
   select: true,
+  children: '(MenuItem x6)',
   SelectProps: {
     multiple: true,
   },

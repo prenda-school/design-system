@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
-  MenuItem,
+  Unstable_CheckboxMenuItem,
+  Unstable_MenuItem,
   Unstable_Select,
   Unstable_SelectProps as _Unstable_SelectProps,
 } from '..';
@@ -27,6 +28,18 @@ export const _retyped = (props: Unstable_SelectProps) => (
   <Unstable_Select {...props} />
 );
 
+const values = [
+  'value-1',
+  'value-2',
+  'value-3',
+  'value-4',
+  'value-5',
+  'value-6',
+] as const;
+
+const getLabel = (value: string) =>
+  `Value label${value.split('-')[1] === '1' ? '' : ' ' + value.split('-')[1]}`;
+
 export default {
   title: '@ps/Unstable_Select',
   component: _retyped,
@@ -39,7 +52,7 @@ export default {
       options: ['undefined', '(getValueLabels)'],
       mapping: {
         undefined: undefined,
-        '(getValueLabels)': () => ({ label: 'Label' }),
+        '(getValueLabels)': ({ value }) => ({ label: getLabel(value) }),
       },
     },
     leadingEl: {
@@ -50,20 +63,42 @@ export default {
         '<Home3 />': <Home3 />,
       },
     },
+    children: {
+      control: 'select',
+      options: [
+        '(MenuItem x6)',
+        '(CheckboxMenuItem x6)',
+        '(Placeholder, MenuItem x6)',
+      ],
+      mapping: {
+        '(MenuItem x6)': values.map((value) => (
+          <Unstable_MenuItem key={value} value={value}>
+            {getLabel(value)}
+          </Unstable_MenuItem>
+        )),
+        '(CheckboxMenuItem x6)': values.map((value) => (
+          <Unstable_CheckboxMenuItem key={value} value={value}>
+            {getLabel(value)}
+          </Unstable_CheckboxMenuItem>
+        )),
+        '(Placeholder, MenuItem x6)': [
+          <Unstable_MenuItem key="placeholder" value="">
+            Placeholder
+          </Unstable_MenuItem>,
+        ].concat(
+          values.map((value) => (
+            <Unstable_MenuItem key={value} value={value}>
+              {getLabel(value)}
+            </Unstable_MenuItem>
+          ))
+        ),
+      },
+    },
   },
   args: {
     // start component as "controlled"
     value: '',
-    children: (
-      <>
-        <MenuItem value="Value">Value</MenuItem>
-        <MenuItem value="Value 2">Value 2</MenuItem>
-        <MenuItem value="Value 3">Value 3</MenuItem>
-        <MenuItem value="Value 4">Value 4</MenuItem>
-        <MenuItem value="Value 5">Value 5</MenuItem>
-        <MenuItem value="Value 6">Value 6</MenuItem>
-      </>
-    ),
+    children: '(MenuItem x6)',
   },
 } as Meta;
 
@@ -102,7 +137,7 @@ LeadingEl.args = { leadingEl: '<Home3 />' };
 LeadingEl.storyName = 'leadingEl';
 
 export const LeadingElValue: Story = Template.bind({});
-LeadingElValue.args = { leadingEl: '<Home3 />', value: 'Value' };
+LeadingElValue.args = { leadingEl: '<Home3 />', value: 'value-1' };
 LeadingElValue.storyName = 'leadingEl value';
 
 export const Success: Story = Template.bind({});
@@ -118,14 +153,14 @@ Multiple.storyName = 'multiple value=[]';
 
 export const MultipleValues: Story = Template.bind({});
 MultipleValues.args = {
-  value: ['Value', 'Value 2'],
+  value: ['value-1', 'value-2'],
   multiple: true,
 };
 MultipleValues.storyName = 'multiple value=[...]';
 
 export const MultipleValuesDisabled: Story = Template.bind({});
 MultipleValuesDisabled.args = {
-  value: ['Value', 'Value 2'],
+  value: ['value-1', 'value-2'],
   multiple: true,
   disabled: true,
 };
@@ -133,8 +168,10 @@ MultipleValuesDisabled.storyName = 'multiple value=[...] disabled';
 
 export const MultipleValuesGetTagProps: Story = Template.bind({});
 MultipleValuesGetTagProps.args = {
-  value: ['Value', 'Value 2', 'Value 3'],
+  value: ['value-1', 'value-2', 'value-3', 'value-4'],
   multiple: true,
   getTagProps: '(getValueLabels)',
+  preventMultipleOverflow: true,
 };
-MultipleValuesGetTagProps.storyName = 'multiple value=[...] getTagProps';
+MultipleValuesGetTagProps.storyName =
+  'multiple value=[...] getTagProps preventMultipleOverflow';
