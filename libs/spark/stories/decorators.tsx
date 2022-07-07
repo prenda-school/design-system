@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
 import { DecoratorFn } from '@storybook/react';
 import { SparkThemeProvider, styled } from '../src';
 
@@ -25,15 +25,44 @@ export const enableHooks: DecoratorFn = (Story) => <Story />;
  */
 export const statefulValue: DecoratorFn = (Story, context) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [checked, setChecked] = useState(context.args.checked);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState(context.args.value);
-  const handleChange = (event) => setValue(event.target.value);
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
+    setChecked(context.args.checked);
     setValue(context.args.value);
-  }, [context.args.value]);
+  }, [context.args.checked, context.args.value]);
 
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    // don't change uncontrolled to controlled
+    if (event.target.checked !== undefined) {
+      setChecked(event.target.checked);
+    }
+    setValue(event.target.value);
+  };
+
+  const handleClick = (
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    event: MouseEvent<{}>,
+    value?: string,
+    checked?: boolean
+  ) => {
+    // don't change uncontrolled to controlled
+    if (checked !== undefined) {
+      // toggle
+      setChecked(!checked);
+    }
+    if (value !== undefined) {
+      setValue(value);
+    }
+  };
+
+  context.args.checked = checked;
   context.args.value = value;
   context.args.onChange = handleChange;
+  context.args.onClick = handleClick;
 
   return <Story />;
 };
@@ -52,11 +81,14 @@ export const inverseBackground: DecoratorFn = (Story) => (
 );
 
 const ContainFocusIndicatorDiv = styled('div')({
+  // width of focus indicator
   padding: 4,
   // without setting it to fit, the story snapshot will expand to 100%
   width: 'fit-content',
   // prevent larger-than-necessary height because of added browser-default space for ascender/descenders.
   display: 'flex',
+  // prevent overflowing past viewport
+  maxWidth: '100%',
 });
 
 /**
