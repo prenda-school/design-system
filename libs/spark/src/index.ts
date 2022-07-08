@@ -287,6 +287,9 @@ export * from './Unstable_ListSubheader';
 export { default as Unstable_MenuItem } from './Unstable_MenuItem';
 export * from './Unstable_MenuItem';
 
+export { default as Unstable_MenuList } from './Unstable_MenuList';
+export * from './Unstable_MenuList';
+
 export { default as Unstable_Radio } from './Unstable_Radio';
 export * from './Unstable_Radio';
 
