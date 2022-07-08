@@ -232,6 +232,9 @@ export * from './Unstable_Checkbox';
 export { default as Unstable_CheckboxField } from './Unstable_CheckboxField';
 export * from './Unstable_CheckboxField';
 
+export { default as Unstable_CheckboxListItem } from './Unstable_CheckboxListItem';
+export * from './Unstable_CheckboxListItem';
+
 export { default as Unstable_CheckboxGroupField } from './Unstable_CheckboxGroupField';
 export * from './Unstable_CheckboxGroupField';
 
