@@ -18,6 +18,8 @@ _This section details previews of breaking changes or experimental features that
 - **Unstable_Link**
   - Props API changes:
     - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.
+- **Unstable_List**
+  - Initial implementation.
 - **Unstable_ListItem**
   - Initial implementation.
 - **Unstable_ListSubheader**
