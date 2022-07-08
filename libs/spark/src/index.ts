@@ -243,6 +243,9 @@ export * from './Unstable_CheckboxGroupField';
 
 export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 
+export { default as Unstable_Divider } from './Unstable_Divider';
+export * from './Unstable_Divider';
+
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
 
 export { default as Unstable_FormControl } from './Unstable_FormControl';
