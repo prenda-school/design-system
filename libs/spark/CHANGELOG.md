@@ -28,6 +28,8 @@ _This section details previews of breaking changes or experimental features that
   - Initial implementation.
 - **Unstable_MenuList**
   - Initial implementation.
+- **Unstable_Paper**
+  - Initial implementation.
 
 ## [v1.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-06-22)
 
