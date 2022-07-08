@@ -7,8 +7,11 @@
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
 - **Unstable_AvatarButton**
-  - Props API Changes:
+  - Props API changes:
     - `size`: added; values `'large' | 'medium'` where `'large'` is default.
+- **Unstable_Link**
+  - Props API changes:
+    - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.
 
 ## [v1.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-06-22)
 

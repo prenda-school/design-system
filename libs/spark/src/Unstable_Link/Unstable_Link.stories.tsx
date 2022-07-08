@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Link } from '..';
+import { theme, Unstable_Link } from '..';
 import { containFocusIndicator } from '../../stories';
 
 export const _retyped = Unstable_Link as typeof Unstable_Link;
@@ -85,3 +85,13 @@ const ColorInheritTemplate = (args) => (
 export const ColorInherit: Story = ColorInheritTemplate.bind({});
 ColorInherit.args = { color: 'inherit' };
 ColorInherit.storyName = 'color=inherit';
+
+const VariantAliasTemplate = (args) => (
+  <span style={{ ...theme.unstable_typography.label }}>
+    <Unstable_Link {...args}>Text</Unstable_Link>
+  </span>
+);
+
+export const VariantAlias: Story = VariantAliasTemplate.bind({});
+VariantAlias.args = { variant: 'alias' };
+VariantAlias.storyName = 'variant=alias';
