@@ -16,6 +16,8 @@ _This section details previews of breaking changes or experimental features that
     - `variant`: added; values `'standard' | 'alias'` where `'standard'` is default.
 - **Unstable_ListItem**
   - Initial implementation.
+- **Unstable_MenuItem**
+  - Initial implementation.
 
 ## [v1.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2022-06-22)
 
