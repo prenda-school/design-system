@@ -284,6 +284,9 @@ export * from './Unstable_ListItem';
 export { default as Unstable_ListSubheader } from './Unstable_ListSubheader';
 export * from './Unstable_ListSubheader';
 
+export { default as Unstable_Menu } from './Unstable_Menu';
+export * from './Unstable_Menu';
+
 export { default as Unstable_MenuItem } from './Unstable_MenuItem';
 export * from './Unstable_MenuItem';
 
