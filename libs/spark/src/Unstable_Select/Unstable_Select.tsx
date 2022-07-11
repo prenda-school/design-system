@@ -54,7 +54,7 @@ export interface Unstable_SelectProps
       | 'value'
     > {
   /**
-   * A tag props getter. Use to customize the props of `Unstable_Tag`'s rendered when `multiple={true}`.
+   * A tag props getter. Use to customize the props of `Unstable_Tag`'s rendered when `renderValueAsTag={true}`.
    */
   getTagProps?: ({
     value,
@@ -67,6 +67,10 @@ export interface Unstable_SelectProps
    * Prevent the render container from overflowing with multiple values or tags.
    */
   preventMultipleOverflow?: boolean;
+  /**
+   * Render the value as Tag components.
+   */
+  renderValueAsTag?: boolean;
 }
 
 export type Unstable_SelectClassKey =
@@ -97,8 +101,8 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
           // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
           marginLeft: -40,
         },
-        /* multiple */
-        ...(props.multiple && {
+        /* renderValueAsTag */
+        ...(props.renderValueAsTag && {
           paddingBottom: 8,
           paddingTop: 8,
           '& > div': {
@@ -111,7 +115,7 @@ const useStyles = makeStyles<Unstable_SelectClassKey>(
               whiteSpace: 'nowrap',
             }),
           },
-          '& > .PrivateSelect-multipleNoValue': {
+          '& > .PrivateSelect-renderValueAsTagNoValue': {
             paddingBottom: 4,
             paddingTop: 4,
           },
@@ -174,12 +178,16 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       open,
       preventMultipleOverflow = false,
       renderValue: renderValueProp,
+      renderValueAsTag = false,
       value,
       SelectDisplayProps,
       ...other
     } = props;
 
-    const classes = useStyles({ multiple, preventMultipleOverflow });
+    const classes = useStyles({
+      preventMultipleOverflow,
+      renderValueAsTag,
+    });
     const paperClasses = useUnstable_PaperStyles();
 
     const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
@@ -189,7 +197,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
     let renderValue;
     if (renderValueProp) {
       renderValue = renderValueProp;
-    } else if (multiple) {
+    } else if (renderValueAsTag) {
       renderValue = (selected: string[]) => {
         if (selected.length) {
           return (
@@ -208,7 +216,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         } else {
           return (
             <div
-              className="PrivateSelect-multipleNoValue"
+              className="PrivateSelect-renderValueAsTagNoValue"
               // [from MUI] Set `dangerouslySetInnerHTML` so the vertical align positioning algorithm kicks in; otherwise, the component shifts up in positioning because this span is rendered too high.
               dangerouslySetInnerHTML={{ __html: '&#8203;' }}
             />

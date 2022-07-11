@@ -34,7 +34,15 @@ _This section details previews of breaking changes or experimental features that
   - Initial implementation.
 - **Unstable_Select**
   - Props API changes:
-    - `preventMultipleOverflow`: added; values `'large' | 'medium'` where `'large'` is default.
+    - `preventMultipleOverflow`
+      - Added
+      - Values: `'large' | 'medium'` where `'large'` is default
+      - Purpose: Prevent the component from overflowing vertically (particularly when render the value as a tag) (note, a horizontal scrollbar will appear and cause some vertical growth).
+    - `renderValueAsTag`:
+      - Added
+      - Values: `true | false` where `false` is default
+      - Purpose: Render the value(s) as an `Unstable_Tag` component(s).
+      - Breaking Change: set `renderValueAsTag={true}` where previously only `multiple={true}` and the desire is to render the values as Tag components.
   - Styles: match new menu (paper) specifications.
 - **Unstable_TextField**
   - See **Unstable_Select**

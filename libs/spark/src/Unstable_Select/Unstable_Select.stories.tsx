@@ -158,6 +158,13 @@ MultipleValues.args = {
 };
 MultipleValues.storyName = 'multiple value=[...]';
 
+export const Multiple4Values: Story = Template.bind({});
+Multiple4Values.args = {
+  value: ['value-1', 'value-2', 'value-3', 'value-4'],
+  multiple: true,
+};
+Multiple4Values.storyName = 'multiple value=[...x4]';
+
 export const MultipleValuesDisabled: Story = Template.bind({});
 MultipleValuesDisabled.args = {
   value: ['value-1', 'value-2'],
@@ -166,12 +173,32 @@ MultipleValuesDisabled.args = {
 };
 MultipleValuesDisabled.storyName = 'multiple value=[...] disabled';
 
+export const MultipleValuesRenderValueAsTag: Story = Template.bind({});
+MultipleValuesRenderValueAsTag.args = {
+  value: ['value-1', 'value-2'],
+  multiple: true,
+  renderValueAsTag: true,
+};
+MultipleValuesRenderValueAsTag.storyName =
+  'multiple value=[...] renderValueAsTag';
+
+export const MultipleValuesRenderValueAsTagDisabled: Story = Template.bind({});
+MultipleValuesRenderValueAsTagDisabled.args = {
+  value: ['value-1', 'value-2'],
+  multiple: true,
+  disabled: true,
+  renderValueAsTag: true,
+};
+MultipleValuesRenderValueAsTagDisabled.storyName =
+  'multiple value=[...] disabled renderValueAsTag';
+
 export const MultipleValuesGetTagProps: Story = Template.bind({});
 MultipleValuesGetTagProps.args = {
   value: ['value-1', 'value-2', 'value-3', 'value-4'],
   multiple: true,
   getTagProps: '(getValueLabels)',
+  renderValueAsTag: true,
   preventMultipleOverflow: true,
 };
 MultipleValuesGetTagProps.storyName =
-  'multiple value=[...] getTagProps preventMultipleOverflow';
+  'multiple value=[...] getTagProps renderValueAsTag preventMultipleOverflow';
