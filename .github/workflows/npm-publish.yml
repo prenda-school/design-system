@@ -33,36 +33,34 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./dist/libs/spark/package.json
 
-      - name: Output version string
-        id: vars
-        # `github.ref` in a `released`-triggered action is of form
-        #  `refs/tags/v*.*.*`. So substring from index 10 gives `v*.*.*`.
-        run: echo "::set-output name=version::${${{ github.ref }}:10}"
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - name: Notify Slack about success
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-webhooks
+          SLACK_CHANNEL: feed-design-system
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ steps.vars.outputs.version }}'
+          SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-webhooks
+          SLACK_CHANNEL: feed-design-system
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ steps.vars.outputs.version }}'
+          SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
           SLACK_MESSAGE: Failure
 
       - name: Build @prenda/spark-icons
@@ -81,24 +79,24 @@ jobs:
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-webhooks
+          SLACK_CHANNEL: feed-design-system
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons ${{ steps.vars.outputs.version }}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ steps.get_version.outputs.VERSION }}'
           SLACK_MESSAGE: Success
 
       - name: Notify Slack about failure
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_CHANNEL: spark-webhooks
+          SLACK_CHANNEL: feed-design-system
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/spark-logo-multicolor-darker.svg
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark-icons ${{ steps.vars.outputs.version }}'
+          SLACK_TITLE: '@prenda/spark-icons ${{ steps.get_version.outputs.VERSION }}'
           SLACK_MESSAGE: Failure
