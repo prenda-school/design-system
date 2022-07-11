@@ -24,6 +24,10 @@ jobs:
       - name: Test
         run: npx nx run spark:test && npx nx run spark-e2e:e2e
 
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - name: Build @prenda/spark
         run: npm run build:components
 
@@ -33,11 +37,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./dist/libs/spark/package.json
 
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Notify Slack about success
+      - name: Notify @prenda/spark publish success
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -48,9 +48,9 @@ jobs:
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
           SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Success
+          SLACK_MESSAGE: Published
 
-      - name: Notify Slack about failure
+      - name: Notify @prenda/spark publish failure
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -61,7 +61,7 @@ jobs:
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
           SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Failure
+          SLACK_MESSAGE: Failed to publish
 
       - name: Build @prenda/spark-icons
         run: npm run build:icons
@@ -75,7 +75,7 @@ jobs:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./dist/libs/spark-icons/package.json
 
-      - name: Notify Slack about success
+      - name: Notify @prenda/spark-icons publish success
         if: success()
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -86,9 +86,9 @@ jobs:
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
           SLACK_TITLE: '@prenda/spark-icons ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Success
+          SLACK_MESSAGE: Published
 
-      - name: Notify Slack about failure
+      - name: Notify @prenda/spark-icons publish failure
         if: failure()
         uses: rtCamp/action-slack-notify@v2
         env:
@@ -99,4 +99,4 @@ jobs:
           SLACK_USERNAME: 'Action: NPM Publish'
           MSG_MINIMAL: true
           SLACK_TITLE: '@prenda/spark-icons ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Failure
+          SLACK_MESSAGE: Failed to publish
