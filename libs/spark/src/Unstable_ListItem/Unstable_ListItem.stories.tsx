@@ -206,6 +206,10 @@ LeadingElIconButtonSelectedDisabled.args = {
 LeadingElIconButtonSelectedDisabled.storyName =
   'leadingEl=(Icon) button selected disabled';
 
+export const Nested: Story = Template.bind({});
+Nested.args = { nested: true };
+Nested.storyName = 'nested';
+
 export const Primary: Story = Template.bind({});
 Primary.args = { children: undefined, primary: 'Primary text' };
 Primary.storyName = 'primary';
@@ -213,6 +217,10 @@ Primary.storyName = 'primary';
 export const PrimaryAction: Story = Template.bind({});
 PrimaryAction.args = { primaryAction: '(Checkbox)' };
 PrimaryAction.storyName = 'primaryAction=(Checkbox)';
+
+export const PrimaryActionNested: Story = Template.bind({});
+PrimaryActionNested.args = { primaryAction: '(Checkbox)', nested: true };
+PrimaryActionNested.storyName = 'primaryAction=(Checkbox) nested';
 
 export const PrimaryActionSecondaryActionButton: Story = Template.bind({});
 PrimaryActionSecondaryActionButton.args = {

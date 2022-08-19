@@ -47,6 +47,10 @@ export interface Unstable_ListItemTypeMap<
        */
       leadingEl?: ReactNode;
       /**
+       * Indent all elements to create an appearance of a nested list item.
+       */
+      nested?: boolean;
+      /**
        * The primary content element.
        */
       primary?: ReactNode;
@@ -118,6 +122,7 @@ export type Unstable_ListItemClassKey =
   | 'contentGroupWrapReverse'
   | 'flexWrapWrap'
   | 'flexWrapWrapReverse'
+  | 'nested'
   | 'primary'
   | 'primaryAction'
   | 'primaryAndSecondary'
@@ -277,6 +282,10 @@ const useStyles = makeStyles<Unstable_ListItemClassKey>(
     disabled: {},
     /* Pseudo-class applied to the root element when `selected={true}`. */
     selected: {},
+    /* Styles applied to the root element when `nested={true}`. */
+    nested: {
+      paddingInlineStart: 24,
+    },
   }),
   { name: 'MuiSparkUnstable_ListItem' }
 );
@@ -297,6 +306,7 @@ const Unstable_ListItem: OverridableComponent<
     focusableButton = true,
     leadingEl,
     inset = false,
+    nested = false,
     primary,
     primaryAction,
     primaryTypographyProps,
@@ -389,6 +399,7 @@ const Unstable_ListItem: OverridableComponent<
           [clsx(classes.flexWrapWrapReverse, classesProp?.flexWrapWrapReverse)]:
             flexWrap === 'wrap-reverse',
           [clsx(classes.button, classesProp?.button)]: button,
+          [clsx(classes.nested, classesProp?.nested)]: nested,
         }),
         selected: clsx(classes.selected, classesProp?.selected),
         disabled: clsx(classes.disabled, classesProp?.disabled),

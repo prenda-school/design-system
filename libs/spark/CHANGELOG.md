@@ -10,15 +10,21 @@ _This section details previews of breaking changes or experimental features that
   - Fixed wrong ordering of class names.
 - **Unstable_CheckboxListItem**
   - Fixed swallowing `className` prop.
+  - See **Unstable_ListItem** props API changes.
 - **Unstable_CheckboxMenuItem**
   - Fixed swallowing `className` prop.
   - Removed focus effect on inner checkbox element.
+  - See **Unstable_ListItem** props API changes.
 - **Unstable_FormControlLabel**
   - Fixed wrong ordering of class names.
+- **Unstable_ListItem**
+  - Props API Changes:
+    - `nested`: added; values: `undefined | true | false` where `true` is default.
 - **Unstable_Menu**
   - Fixed swallowing `classes` and `className` props.
 - **Unstable_MenuItem**
   - Fixed swallowing `className` prop.
+  - See **Unstable_ListItem** props API changes.
 - **Unstable_MenuList**
   - Fixed swallowing `classes` and `className` props.
 - **Unstable_Paper**
