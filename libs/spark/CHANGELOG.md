@@ -8,6 +8,8 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_CheckboxField**
   - Fixed wrong ordering of class names.
+- **Unstable_CheckboxGroupField**
+  - See **Unstable_FormLabel** props API changes.
 - **Unstable_CheckboxListItem**
   - Fixed swallowing `className` prop.
   - See **Unstable_ListItem** props API changes.
@@ -33,8 +35,12 @@ _This section details previews of breaking changes or experimental features that
   - Fixed swallowing `className` prop.
 - **Unstable_RadioField**
   - Fixed wrong ordering of class names.
+- **Unstable_RadioGroupField**
+  - See **Unstable_FormLabel** props API changes.
 - **Unstable_Tag**
   - Fixed wrong font weight style of small size.
+- **Unstable_TextField**
+  - See **Unstable_FormLabel** for changes.
 
 ## [v1.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-11)
 
