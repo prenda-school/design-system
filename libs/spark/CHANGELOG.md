@@ -12,6 +12,7 @@ _This section details previews of breaking changes or experimental features that
   - Fixed swallowing `className` prop.
 - **Unstable_CheckboxMenuItem**
   - Fixed swallowing `className` prop.
+  - Removed focus effect on inner checkbox element.
 - **Unstable_FormControlLabel**
   - Fixed wrong ordering of class names.
 - **Unstable_Menu**
