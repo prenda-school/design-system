@@ -90,9 +90,14 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   return (
     <Unstable_CheckboxListItem
       classes={ListItemClasses}
-      className={clsx(classes.root, classesProp?.root, {
-        [clsx(classes.selected, classesProp?.selected)]: selected,
-      })}
+      className={clsx(
+        classes.root,
+        classesProp?.root,
+        {
+          [clsx(classes.selected, classesProp?.selected)]: selected,
+        },
+        className
+      )}
       component={component}
       ref={ref as Ref<HTMLLIElement>}
       role={role}
