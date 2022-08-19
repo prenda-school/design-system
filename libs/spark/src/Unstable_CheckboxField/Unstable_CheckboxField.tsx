@@ -70,7 +70,7 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
     const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
 
     return (
-      <div className={clsx(className, classes.root)}>
+      <div className={clsx(classes.root, className)}>
         <Unstable_FormControlLabel
           control={
             <Unstable_Checkbox

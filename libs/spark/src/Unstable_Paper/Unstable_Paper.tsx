@@ -44,7 +44,6 @@ const Unstable_Paper = forwardRef<unknown, Unstable_PaperProps>(
   function Unstable_Paper(props, ref) {
     const {
       classes: classesProp,
-      className,
       elevation = 1,
       variant = 'elevation',
       ...other

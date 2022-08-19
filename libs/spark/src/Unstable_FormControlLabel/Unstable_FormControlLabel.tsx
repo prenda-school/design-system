@@ -92,7 +92,7 @@ const Unstable_FormControlLabel = forwardRef<
 
   return (
     <MuiFormControlLabel
-      className={clsx(className, { [classes.error]: fcs.error })}
+      className={clsx({ [classes.error]: fcs.error }, className)}
       classes={{
         root: clsx(classes.root, classesProp?.root),
         label: clsx(classes.label, classesProp?.label),
