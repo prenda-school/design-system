@@ -26,6 +26,10 @@ export default {
 
 const Template = (args) => <Unstable_CheckboxMenuItem {...args} />;
 
+export const FocusVisible: Story = Template.bind({});
+FocusVisible.parameters = { pseudo: { focusVisible: true } };
+FocusVisible.storyName = ':focus-visible';
+
 export const Value: Story = Template.bind({});
 Value.args = { value: 'value', checked: false };
 Value.storyName = 'value';

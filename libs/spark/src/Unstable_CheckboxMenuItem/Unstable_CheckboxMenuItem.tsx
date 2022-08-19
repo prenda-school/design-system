@@ -37,6 +37,10 @@ const useStyles = makeStyles(
       width: 'auto',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
+      '&& .MuiSparkUnstable_CheckboxIcon-root': {
+        // remove focus shadow because menu item should be only element with the styling
+        boxShadow: 'none',
+      },
       // reset selected styles since only checkbox should appear selected
       '&$selected': {
         backgroundColor: 'transparent',
@@ -90,9 +94,14 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   return (
     <Unstable_CheckboxListItem
       classes={ListItemClasses}
-      className={clsx(classes.root, classesProp?.root, {
-        [clsx(classes.selected, classesProp?.selected)]: selected,
-      })}
+      className={clsx(
+        classes.root,
+        classesProp?.root,
+        {
+          [clsx(classes.selected, classesProp?.selected)]: selected,
+        },
+        className
+      )}
       component={component}
       ref={ref as Ref<HTMLLIElement>}
       role={role}
