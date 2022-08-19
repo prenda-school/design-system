@@ -7,6 +7,7 @@ import Unstable_CheckboxListItem, {
 } from '../Unstable_CheckboxListItem';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
+import { alpha } from '@material-ui/core/styles';
 
 export type Unstable_CheckboxMenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -31,14 +32,25 @@ export type Unstable_CheckboxMenuItemProps<
 export type Unstable_CheckboxMenuItemClassKey = 'root' | 'selected';
 
 const useStyles = makeStyles(
-  {
+  (theme) => ({
     root: {
       width: 'auto',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
+      // reset selected styles since only checkbox should appear selected
+      '&$selected': {
+        backgroundColor: 'transparent',
+        color: theme.unstable_palette.text.body,
+      },
+      '&$selected:hover': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+      },
+      '&$selected:active': {
+        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      },
     },
     selected: {},
-  },
+  }),
   { name: 'MuiSparkUnstable_CheckboxMenuItem' }
 );
 
@@ -78,14 +90,9 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   return (
     <Unstable_CheckboxListItem
       classes={ListItemClasses}
-      className={clsx(
-        classes.root,
-        classesProp?.root,
-        {
-          [clsx(classes.selected, classesProp?.selected)]: selected,
-        },
-        className
-      )}
+      className={clsx(classes.root, classesProp?.root, {
+        [clsx(classes.selected, classesProp?.selected)]: selected,
+      })}
       component={component}
       ref={ref as Ref<HTMLLIElement>}
       role={role}
