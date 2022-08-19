@@ -31,6 +31,8 @@ _This section details previews of breaking changes or experimental features that
   - Fixed swallowing `className` prop.
 - **Unstable_RadioField**
   - Fixed wrong ordering of class names.
+- **Unstable_Tag**
+  - Fixed wrong font weight style of small size.
 
 ## [v1.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-11)
 
