@@ -68,7 +68,7 @@ const tagFontVariantMedium = buildVariant(
   "'cv05' 1, 'ss03' 1"
 );
 const tagFontVariantSmall = buildVariant(
-  600,
+  500,
   12,
   20,
   undefined,
