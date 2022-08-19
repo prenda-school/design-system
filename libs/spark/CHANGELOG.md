@@ -17,6 +17,8 @@ _This section details previews of breaking changes or experimental features that
   - See **Unstable_ListItem** props API changes.
 - **Unstable_FormControlLabel**
   - Fixed wrong ordering of class names.
+- **Unstable_FormLabel**
+  - Fixed wrong margin when rendered under `SparkThemeProvider`.
 - **Unstable_ListItem**
   - Props API Changes:
     - `nested`: added; values: `undefined | true | false` where `true` is default.
