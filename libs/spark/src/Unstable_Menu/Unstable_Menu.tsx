@@ -1,7 +1,10 @@
 import React, { forwardRef } from 'react';
-import MuiMenu, { MenuProps as MuiMenuProps } from '@material-ui/core/Menu';
+import MuiMenu, {
+  MenuProps as MuiMenuProps,
+  MenuClassKey as MuiMenuClassKey,
+} from '@material-ui/core/Menu';
 import Unstable_ListSubheader from '../Unstable_ListSubheader';
-import { Unstable_ListClassKey, Unstable_ListProps } from '../Unstable_List';
+import { Unstable_ListProps } from '../Unstable_List';
 import { StandardProps, useId } from '../utils';
 import { useUnstable_PaperStyles } from '../Unstable_Paper';
 
@@ -15,17 +18,11 @@ export interface Unstable_MenuProps
     Pick<Unstable_ListProps, 'ListSubheaderProps' | 'subheader'>;
 }
 
-export type Unstable_MenuClassKey = Unstable_ListClassKey;
+export type Unstable_MenuClassKey = MuiMenuClassKey;
 
 const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
   function Unstable_Menu(props, ref) {
-    const {
-      classes: classesProp,
-      className,
-      MenuListProps,
-      PaperProps,
-      ...other
-    } = props;
+    const { MenuListProps, PaperProps, ...other } = props;
 
     const paperClasses = useUnstable_PaperStyles();
 

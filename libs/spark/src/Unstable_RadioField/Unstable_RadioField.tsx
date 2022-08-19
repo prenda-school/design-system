@@ -65,7 +65,7 @@ const Unstable_RadioField = forwardRef<unknown, Unstable_RadioFieldProps>(
     const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
 
     return (
-      <div className={clsx(className, classes.root)}>
+      <div className={clsx(classes.root, className)}>
         <Unstable_FormControlLabel
           control={
             <Unstable_Radio inputProps={{ 'aria-describedby': helperTextId }} />

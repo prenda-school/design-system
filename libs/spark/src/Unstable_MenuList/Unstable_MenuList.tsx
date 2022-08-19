@@ -19,13 +19,7 @@ export type Unstable_MenuListClassKey = Unstable_ListClassKey;
 
 const Unstable_MenuList = forwardRef<unknown, Unstable_MenuListProps>(
   function Unstable_MenuList(props, ref) {
-    const {
-      classes: classesProp,
-      className,
-      ListSubheaderProps,
-      subheader,
-      ...other
-    } = props;
+    const { ListSubheaderProps, subheader, ...other } = props;
 
     const subheaderId = useId(ListSubheaderProps?.id);
 

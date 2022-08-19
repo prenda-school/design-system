@@ -162,7 +162,7 @@ const Unstable_CheckboxListItem: OverridableComponent<
           ListItemClasses?.primary
         ),
       }}
-      className={clsx(classes.root, classesProp?.root)}
+      className={clsx(classes.root, classesProp?.root, className)}
       disabled={disabled}
       onClick={handleClick}
       primary={primary}

@@ -2,7 +2,28 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.11...vNext) (yyyy-mm-dd)
 
-No changes.
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_CheckboxField**
+  - Fixed wrong ordering of class names.
+- **Unstable_CheckboxListItem**
+  - Fixed swallowing `className` prop.
+- **Unstable_CheckboxMenuItem**
+  - Fixed swallowing `className` prop.
+- **Unstable_FormControlLabel**
+  - Fixed wrong ordering of class names.
+- **Unstable_Menu**
+  - Fixed swallowing `classes` and `className` props.
+- **Unstable_MenuItem**
+  - Fixed swallowing `className` prop.
+- **Unstable_MenuList**
+  - Fixed swallowing `classes` and `className` props.
+- **Unstable_Paper**
+  - Fixed swallowing `className` prop.
+- **Unstable_RadioField**
+  - Fixed wrong ordering of class names.
 
 ## [v1.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-11)
 
