@@ -21,6 +21,8 @@ _This section details previews of breaking changes or experimental features that
   - Fixed wrong ordering of class names.
 - **Unstable_FormLabel**
   - Fixed wrong margin when rendered under `SparkThemeProvider`.
+- **Unstable_Input**
+  - Fixed wrong margin when rendered under `SparkThemeProvider`.
 - **Unstable_ListItem**
   - Props API Changes:
     - `nested`: added; values: `undefined | true | false` where `true` is default.
@@ -37,10 +39,12 @@ _This section details previews of breaking changes or experimental features that
   - Fixed wrong ordering of class names.
 - **Unstable_RadioGroupField**
   - See **Unstable_FormLabel** props API changes.
+- **Unstable_Select**
+  - See **Unstable_Input** for changes.
 - **Unstable_Tag**
   - Fixed wrong font weight style of small size.
 - **Unstable_TextField**
-  - See **Unstable_FormLabel** for changes.
+  - See **Unstable_FormLabel** and **Unstable_Input** for changes.
 
 ## [v1.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-11)
 

@@ -50,6 +50,7 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
       borderRadius: 4,
       color: theme.unstable_palette.text.body,
       letterSpacing: 0,
+      margin: 0,
       width: theme.unstable_typography.pxToRem(320),
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[60],
