@@ -99,3 +99,16 @@ export const containFocusIndicator: DecoratorFn = (Story) => (
     <Story />
   </ContainFocusIndicatorDiv>
 );
+
+const MediumWidthDiv = styled('div')({
+  width: 256,
+});
+
+/**
+ * [Internal] A Storybook decorator that is a medium width ( 256px) container.
+ */
+export const mediumWidth: DecoratorFn = (Story) => (
+  <MediumWidthDiv>
+    <Story />
+  </MediumWidthDiv>
+);
