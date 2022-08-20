@@ -320,6 +320,9 @@ export * from './Unstable_SvgIcon';
 export { default as Unstable_Tag } from './Unstable_Tag';
 export * from './Unstable_Tag';
 
+export { default as Unstable_Tooltip } from './Unstable_Tooltip';
+export * from './Unstable_Tooltip';
+
 export { default as Unstable_TextField } from './Unstable_TextField';
 export * from './Unstable_TextField';
 
