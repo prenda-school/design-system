@@ -2,6 +2,13 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.12...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_ContentGroup**
+  - Initial implementation.
+
 ## [v1.0.0-alpha.12](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2022-08-22)
 
 ### Unstable Preview
