@@ -47,6 +47,8 @@ _This section details previews of breaking changes or experimental features that
   - Fixed wrong font weight style of small size.
 - **Unstable_TextField**
   - See **Unstable_FormLabel** and **Unstable_Input** for changes.
+- **Unstable_Tooltip**
+  - Initial implementation.
 
 ## [v1.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2022-07-11)
 
