@@ -4,7 +4,7 @@ import {
   TooltipProps as MuiTooltipProps,
 } from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import makeStyles from '../makeStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
