@@ -50,7 +50,7 @@ export interface Unstable_ContentGroupTypeMap<
     /**
      * The primary typography element.
      */
-    primary?: ReactNode;
+    primary: ReactNode;
     /**
      * Props applied to the primary `Typography` element.
      */
