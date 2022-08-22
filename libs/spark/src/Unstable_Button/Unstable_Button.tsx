@@ -97,68 +97,69 @@ const buttonFontVariantLarge = buildVariant(
 const useStyles = makeStyles<Unstable_ButtonClassKey>(
   (theme) => ({
     root: (props: Unstable_ButtonProps) => ({
-      borderColor: 'transparent',
-      borderRadius: 4,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
-      },
-      /* variant */
-      ...(props.variant === 'primary' && {
-        backgroundColor: theme.unstable_palette.background.brand,
-        '&:hover': {
-          backgroundColor: lighten(
-            theme.unstable_palette.background.brand,
-            0.1
-          ),
-        },
-        '&:active': {
-          backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
-        },
-      }),
-      ...(props.variant === 'stroked' && {
-        backgroundColor: 'transparent',
-        borderColor: theme.unstable_palette.neutral[90],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-        '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
-        },
-      }),
-      ...(props.variant === 'ghost' && {
-        backgroundColor: 'transparent',
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-        '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
-        },
-      }),
-      ...(props.variant === 'destructive' && {
-        backgroundColor: theme.unstable_palette.red[700],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.red[600],
-        },
-        '&:active': {
-          backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
-        },
-      }),
-      /* size */
-      ...(props.size === 'small' && {
-        padding: '8px 16px',
-      }),
-      ...(props.size === 'medium' && {
-        padding: '12px 24px',
-      }),
-      ...(props.size === 'large' && {
-        padding: '20px 32px',
-      }),
       // double-specificity section for overriding v1 styles from STP
       '&&': {
         borderColor: 'transparent',
+        borderRadius: 4,
+        borderStyle: 'solid',
         borderWidth: 1,
+        '&.Mui-focusVisible, &:focus-visible': {
+          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+        },
+        /* variant */
+        ...(props.variant === 'primary' && {
+          backgroundColor: theme.unstable_palette.background.brand,
+          '&:hover': {
+            backgroundColor: lighten(
+              theme.unstable_palette.background.brand,
+              0.1
+            ),
+          },
+          '&:active': {
+            backgroundColor: darken(
+              theme.unstable_palette.background.brand,
+              0.2
+            ),
+          },
+        }),
+        ...(props.variant === 'stroked' && {
+          backgroundColor: 'transparent',
+          borderColor: theme.unstable_palette.neutral[90],
+          '&:hover': {
+            backgroundColor: theme.unstable_palette.neutral[70],
+          },
+          '&:active': {
+            backgroundColor: theme.unstable_palette.blue[100],
+          },
+        }),
+        ...(props.variant === 'ghost' && {
+          backgroundColor: 'transparent',
+          '&:hover': {
+            backgroundColor: theme.unstable_palette.neutral[70],
+          },
+          '&:active': {
+            backgroundColor: theme.unstable_palette.blue[100],
+          },
+        }),
+        ...(props.variant === 'destructive' && {
+          backgroundColor: theme.unstable_palette.red[700],
+          '&:hover': {
+            backgroundColor: theme.unstable_palette.red[600],
+          },
+          '&:active': {
+            backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
+          },
+        }),
+        /* size */
+        ...(props.size === 'small' && {
+          padding: '8px 16px',
+        }),
+        ...(props.size === 'medium' && {
+          padding: '12px 24px',
+        }),
+        ...(props.size === 'large' && {
+          padding: '20px 32px',
+        }),
         /* variant */
         ...(props.variant === 'stroked' && {
           borderColor: theme.unstable_palette.neutral[90],
