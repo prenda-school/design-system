@@ -43,6 +43,8 @@ _This section details previews of breaking changes or experimental features that
   - See **Unstable_Input** for changes.
 - **Unstable_Switch**
   - Initial implementation.
+- **Unstable_SwitchField**
+  - Initial implementation.
 - **Unstable_Tag**
   - Fixed wrong font weight style of small size.
 - **Unstable_TextField**
