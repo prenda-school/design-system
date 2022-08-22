@@ -317,6 +317,9 @@ export * from './Unstable_Select';
 export { default as Unstable_SvgIcon } from './Unstable_SvgIcon';
 export * from './Unstable_SvgIcon';
 
+export { default as Unstable_Switch } from './Unstable_Switch';
+export * from './Unstable_Switch';
+
 export { default as Unstable_Tag } from './Unstable_Tag';
 export * from './Unstable_Tag';
 
