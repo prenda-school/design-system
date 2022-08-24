@@ -19,7 +19,6 @@ export default {
     children: <>Label</>,
   },
   argTypes: {
-    leadingEl: Unstable_ListItemMeta.argTypes.leadingEl,
     primaryAction: Unstable_ListItemMeta.argTypes.primaryAction,
     secondaryAction: Unstable_ListItemMeta.argTypes.secondaryAction,
   },
@@ -36,16 +35,18 @@ Default.storyName = '(default)';
 
 export const SelectedStudent = (args) => (
   <Unstable_MenuItem
-    leadingEl={
-      <Unstable_Avatar
-        size="small"
-        src="/img/student-boy-1.png"
-        alt="Boy smiling"
-      />
-    }
-    row
+    ContentGroupProps={{
+      leadingEl: (
+        <Unstable_Avatar
+          size="small"
+          src="/img/student-boy-1.png"
+          alt="Boy smiling"
+        />
+      ),
+      row: true,
+      tertiary: '4th grade',
+    }}
     selected
-    tertiary="4th grade"
     {...args}
   >
     John Doe

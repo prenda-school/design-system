@@ -19,7 +19,6 @@ export default {
     children: <>Label</>,
   },
   argTypes: {
-    leadingEl: Unstable_CheckboxListItemMeta.argTypes.leadingEl,
     secondaryAction: Unstable_CheckboxListItemMeta.argTypes.secondaryAction,
   },
 } as Meta;

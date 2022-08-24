@@ -2,6 +2,82 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.13...vNext) (yyyy-mm-dd)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+- **Unstable_ContentGroup**
+  - Initial implementation.
+- **Unstable_CheckboxListItem**
+  - Props API Changes: see **Unstable_ListItem** Props API Changes.
+  - CSS API Changes:
+    - `label`: added
+    - `primary`: removed
+  - Migration:
+    - CSS API:
+      - `primary` -> `label`
+- **Unstable_CheckboxMenuItem**
+  - see **Unstable_CheckboxListItem**
+- **Unstable_ListItem**
+  - Props API Changes:
+    - `alignItems`: changed default to `"flex-start"`.
+    - `ContentGroupProps`: added; see Props API of **Unstable_ContentGroup**.
+    - `disableFocusable`: added; values: `undefined | true | false`; default: `false`.
+    - `flexWrap`: removed
+    - `focusableButton`: removed; see `disableFocusable`
+    - `inset`: removed
+    - `leadingEl`: removed
+    - `primary`: removed
+    - `primaryTypographyProps`: removed
+    - `row`: removed
+    - `secondary`: removed
+    - `secondaryTypographyProps`: removed
+    - `tertiary`: removed
+    - `tertiaryTypographyProps`: removed
+  - CSS API Changes:
+    - `contentGroup`: removed
+    - `contentGroupRow`: removed
+    - `contentGroupInset`: removed
+    - `contentGroupWrap`: removed
+    - `contentGroupWrapReverse`: removed
+    - `flexWrapWrap`: removed
+    - `flexWrapReverse`: removed
+    - `leadingEl`: removed
+    - `primary`: removed
+    - `primaryAndSecondary`: removed
+    - `secondary`: removed
+    - `tertiary`: removed
+  - Migration:
+    - Props API:
+      - ` ` (no `alignItems` set) -> `alignItems='stretch'`
+      - `alignItems="flex-start"` -> ` ` (remove)
+      - `focusableButton={false}` -> `disableFocusable`
+      - `flexWrap={...}` -> `ContentGroupProps={{ flexWrap: (...) }}`
+      - `leadingEl={...}` -> `ContentGroupProps={{ leadingEl: (...) }}`
+      - `inset={...}` -> `ContentGroupProps={{ inset: (...) }}`
+      - `primary={...}` -> `ContentGroupProps={{ primary: (...) }}`
+      - `primaryTypographyProps={...}` -> `ContentGroupProps={{ primaryTypographyProps: (...) }}`
+      - `row={...}` -> `ContentGroupProps={{ row: (...) }}`
+      - `secondary={...}` -> `ContentGroupProps={{ secondary: (...) }}`
+      - `secondaryTypographyProps={...}` -> `ContentGroupProps={{ secondaryTypographyProps: (...) }}`
+      - `tertiary={...}` -> `ContentGroupProps={{ tertiary: (...) }}`
+      - `tertiaryTypographyProps={...}` -> `ContentGroupProps={{ tertiaryTypographyProps: (...) }}`
+    - CSS API
+      - `contentGroup` -> `ContentGroupProps.classes.root`
+      - `contentGroupRow` -> `ContentGroupProps.classes.root`
+      - `contentGroupInset` -> `ContentGroupProps.classes.root`
+      - `contentGroupWrap` -> `ContentGroupProps.classes.wrap`
+      - `contentGroupWrapReverse` -> `ContentGroupProps.classes.wrapReverse`
+      - `flexWrapWrap` -> move styles to `root`
+      - `flexWrapReverse` -> move styles to `root`
+      - `leadingEl` -> `ContentGroupProps.classes.leadingEl`
+      - `primary` -> `ContentGroupProps.classes.primary`
+      - `primaryAndSecondary` -> `ContentGroupProps.classes.primaryWithSecondary`
+      - `secondary` -> `ContentGroupProps.classes.secondary`
+      - `tertiary` -> `ContentGroupProps.classes.tertiary`
+- **Unstable_MenuItem**
+  - see **Unstable_ListItem**
+
 ## [v1.0.0-alpha.13](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2022-08-23)
 
 ### Unstable Preview
@@ -10,13 +86,6 @@ _This section details previews of breaking changes or experimental features that
 
 - **Unstable_Tooltip**
   - Fixed "React is not defined" error
-
-### Unstable Preview
-
-_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
-
-- **Unstable_ContentGroup**
-  - Initial implementation.
 
 ## [v1.0.0-alpha.12](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2022-08-22)
 

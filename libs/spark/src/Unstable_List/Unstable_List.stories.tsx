@@ -96,40 +96,61 @@ export const EnrollmentDetails = (args) => (
     {...args}
     style={{}}
   >
-    <EnrollmentDetail primary="School year" secondary="2022-2023" />
-    <EnrollmentDetail primary="Prenda program" secondary="Prenda Microschool" />
     <EnrollmentDetail
-      primary="Partner/Funding source"
-      secondary="Sequoia Choice Distance Learning"
+      ContentGroupProps={{
+        primary: 'School year',
+        secondary: '2022-2023',
+      }}
     />
-    <EnrollmentDetail primary="State of residence" secondary="AZ" />
+    <EnrollmentDetail
+      ContentGroupProps={{
+        primary: 'Prenda program',
+        secondary: 'Prenda Microschool',
+      }}
+    />
+    <EnrollmentDetail
+      ContentGroupProps={{
+        primary: 'Partner/Funding source',
+        secondary: 'Sequoia Choice Distance Learning',
+      }}
+    />
+    <EnrollmentDetail
+      ContentGroupProps={{
+        primary: 'State of residence',
+        secondary: 'AZ',
+      }}
+    />
   </Unstable_List>
 );
 
 const MicroschoolGuaranteesTemplate = (args) => (
   <Unstable_List aria-label="Microschool guarantees" {...args} style={{}}>
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<ShieldCheckDuotone fontSize="large" />}
-      primary="Background checked"
-      secondary={
-        <>
-          Any adult present in the microschool facility must pass a detailed{' '}
-          <Unstable_Link href="#">background check</Unstable_Link>.
-        </>
-      }
+      ContentGroupProps={{
+        leadingEl: <ShieldCheckDuotone fontSize="large" />,
+        primary: 'Background checked',
+        secondary: (
+          <>
+            Any adult present in the microschool facility must pass a detailed{' '}
+            <Unstable_Link href="#">background check</Unstable_Link>.
+          </>
+        ),
+      }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<FileHeartDuotone fontSize="large" />}
-      primary="First aid certified"
-      secondary="Jane Doe is trained to administer first aid."
+      ContentGroupProps={{
+        leadingEl: <FileHeartDuotone fontSize="large" />,
+        primary: 'First aid certified',
+        secondary: 'Jane Doe is trained to administer first aid.',
+      }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<PinCheckDuotone fontSize="large" />}
-      primary="Site inspected"
-      secondary="Prenda microschools are inspected to ensure your child's safety."
+      ContentGroupProps={{
+        leadingEl: <PinCheckDuotone fontSize="large" />,
+        primary: 'Site inspected',
+        secondary:
+          "Prenda microschools are inspected to ensure your child's safety.",
+      }}
     />
   </Unstable_List>
 );
@@ -137,15 +158,6 @@ const MicroschoolGuaranteesTemplate = (args) => (
 export const MicroschoolGuarantees: Story = MicroschoolGuaranteesTemplate.bind(
   {}
 );
-
-export const MicroschoolGuaranteesSmallMobile: Story = MicroschoolGuaranteesTemplate.bind(
-  {}
-);
-MicroschoolGuaranteesSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-MicroschoolGuaranteesSmallMobile.storyName =
-  'Microschool Guarantees (small mobile)';
 
 const MicroschoolInformationTemplate = (args) => (
   <Unstable_List
@@ -158,52 +170,59 @@ const MicroschoolInformationTemplate = (args) => (
     }}
   >
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CheckCircleDuotone />}
-      primary="Swimming pool"
-      secondary="Yes"
+      ContentGroupProps={{
+        leadingEl: <CheckCircleDuotone />,
+        primary: 'Swimming pool',
+        secondary: 'Yes',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CrossCircleDuotone />}
-      primary="Backyard"
-      secondary="No"
+      ContentGroupProps={{
+        leadingEl: <CrossCircleDuotone />,
+        primary: 'Backyard',
+        secondary: 'No',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CheckCircleDuotone />}
-      primary="Non-smoking"
-      secondary="Yes"
+      ContentGroupProps={{
+        leadingEl: <CheckCircleDuotone />,
+        primary: 'Non-smoking',
+        secondary: 'Yes',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CheckCircleDuotone />}
-      primary="Recess"
-      secondary="Yes"
+      ContentGroupProps={{
+        leadingEl: <CheckCircleDuotone />,
+        primary: 'Recess',
+        secondary: 'Yes',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CheckCircleDuotone />}
-      primary="Pets"
-      secondary="Yes"
+      ContentGroupProps={{
+        leadingEl: <CheckCircleDuotone />,
+        primary: 'Pets',
+        secondary: 'Yes',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CrossCircleDuotone />}
-      primary="Nearby park"
-      secondary="No"
+      ContentGroupProps={{
+        leadingEl: <CrossCircleDuotone />,
+        primary: 'Nearby park',
+        secondary: 'No',
+      }}
       style={{ flexBasis: 200 }}
     />
     <Unstable_ListItem
-      alignItems="flex-start"
-      leadingEl={<CheckCircleDuotone />}
-      primary="Field trips"
-      secondary="Yes"
+      ContentGroupProps={{
+        leadingEl: <CheckCircleDuotone />,
+        primary: 'Field trips',
+        secondary: 'Yes',
+      }}
       style={{ flexBasis: 200 }}
     />
   </Unstable_List>
@@ -212,15 +231,6 @@ const MicroschoolInformationTemplate = (args) => (
 export const MicroschoolInformation: Story = MicroschoolInformationTemplate.bind(
   {}
 );
-
-export const MicroschoolInformationSmallMobile: Story = MicroschoolInformationTemplate.bind(
-  {}
-);
-MicroschoolInformationSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-MicroschoolInformationSmallMobile.storyName =
-  'Microschool Information (small mobile)';
 
 const MicroschoolThumbnailsTemplate = (args) => (
   <Unstable_List
@@ -281,12 +291,3 @@ const MicroschoolThumbnailsTemplate = (args) => (
 export const MicroschoolThumbnails: Story = MicroschoolThumbnailsTemplate.bind(
   {}
 );
-
-export const MicroschoolThumbnailsSmallMobile: Story = MicroschoolThumbnailsTemplate.bind(
-  {}
-);
-MicroschoolThumbnailsSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-MicroschoolThumbnailsSmallMobile.storyName =
-  'Microschool Thumbnails (small mobile)';
