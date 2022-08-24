@@ -14,78 +14,22 @@ import type { TypographyClassKey } from '../Typography';
 import type { PaletteTertiaryColor, TypeBrand } from './palette';
 import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
-import type { Unstable_Palette } from './unstable_palette';
-import type { Unstable_TypographyOptions } from './unstable_typography';
 
 // Augment global interfaces so consumers TS can recognize the customizations
 
 // Note: when augmenting, only need to declare custom properties; overriding or re-declaring will throw.
 
 declare module '@material-ui/core/styles/createTheme' {
-  interface Theme {
-    unstable_palette: Unstable_Palette;
-    unstable_typography: Unstable_TypographyOptions;
-  }
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface Theme {}
 }
 
 declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {
-    unstable_palette: Unstable_Palette;
-    unstable_typography: Unstable_TypographyOptions;
-  }
+  interface DefaultTheme extends Theme {}
 }
 
 declare module '@material-ui/core/styles/createPalette' {
-  // :unstable_: use when stable
-  // interface TypeText {
-  //   heading: string;
-  //   body: string;
-  //   subdued: string;
-  //   // disabled exists
-  //   // icon exists
-  //   secondaryIcon: string;
-  //   inverseHeading: string;
-  //   inverseBody: string;
-  //   inverseSubdued: string;
-  //   inverseDisabled: string;
-  //   inverseIcon: string;
-  //   inverseSecondaryIcon: string;
-  // }
-  // interface TypeBackground {
-  //   default: string;
-  //   alternative: string;
-  //   brand: string;
-  //   inverse: string;
-  // }
-  // interface TypeAction {
-  //   focusBoxShadow: CSS.Property.BoxShadow;
-  // }
-  // interface Palette {
-  //   text: TypeText;
-  //   background: TypeBackground;
-  //   brand: TypeBrand;
-  //   red: Color;
-  //   yellow: Color;
-  //   green: Color;
-  //   blue: Color;
-  //   purple: Color;
-  //   teal: Color;
-  //   magenta: Color;
-  // }
-  // interface PaletteOptions {
-  //   text: TypeText;
-  //   background: TypeBackground;
-  //   brand: TypeBrand;
-  //   red: Color;
-  //   yellow: Color;
-  //   green: Color;
-  //   blue: Color;
-  //   purple: Color;
-  //   teal: Color;
-  //   magenta: Color;
-  // }
-
   interface TypeText {
     dark: string;
     darkLowContrast: string;
@@ -147,7 +91,6 @@ declare module '@material-ui/core/styles/overrides' {
 
 // Augment global interface at top level
 declare module '@material-ui/core/index' {
-  // :unstable_: replace `SparkVariant` with `unstable_TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface TypographyOptions
     extends TypographyUtils,
@@ -155,14 +98,12 @@ declare module '@material-ui/core/index' {
         Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
       > {}
 
-  // :unstable_: replace `SparkVariant` with `unstable_TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface Typography extends Record<SparkVariant, TypographyStyle> {}
 }
 
 // Augment global interface at source -- affects Theme interface
 declare module '@material-ui/core/styles/createTypography' {
-  // :unstable_: replace `SparkVariant` with `unstable_TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface TypographyOptions
     extends TypographyUtils,
@@ -170,7 +111,6 @@ declare module '@material-ui/core/styles/createTypography' {
         Record<SparkVariant, TypographyStyleOptions> & FontStyleOptions
       > {}
 
-  // :unstable_: replace `SparkVariant` with `unstable_TypographyVariant`
   /* eslint-disable-next-line @typescript-eslint/no-empty-interface */
   interface Typography extends Record<SparkVariant, TypographyStyle> {}
 }
