@@ -17,7 +17,6 @@ export default {
   decorators: [statefulValue, enableHooks, containFocusIndicator],
   args: { children: <>Label</> },
   argTypes: {
-    leadingEl: Unstable_ListItemMeta.argTypes.leadingEl,
     secondaryAction: Unstable_ListItemMeta.argTypes.secondaryAction,
   },
 } as Meta;
@@ -68,14 +67,16 @@ export const Student: Story = Template.bind({});
 Student.args = {
   checked: true,
   children: <>John Doe</>,
-  leadingEl: (
-    <Unstable_Avatar
-      size="small"
-      src="/img/student-boy-1.png"
-      alt="Boy smiling"
-    />
-  ),
-  row: true,
-  tertiary: '4th grade',
+  ContentGroupProps: {
+    leadingEl: (
+      <Unstable_Avatar
+        size="small"
+        src="/img/student-boy-1.png"
+        alt="Boy smiling"
+      />
+    ),
+    row: true,
+    tertiary: '4th grade',
+  },
   value: 'value',
 };

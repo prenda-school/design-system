@@ -14,8 +14,6 @@ import {
 import {
   CheckCircleDuotone,
   containFocusIndicator,
-  Cross,
-  ExternalLink,
   Heart,
   Home3,
   Microschool,
@@ -33,29 +31,6 @@ export default {
   decorators: [containFocusIndicator],
   argTypes: {
     button: { control: 'boolean' },
-    leadingEl: {
-      control: 'select',
-      options: ['undefined', '(Avatar)', '(Avatar 2)', '(Icon)', '(Icon 2)'],
-      mapping: {
-        undefined: undefined,
-        '(Avatar)': (
-          <Unstable_Avatar
-            size="small"
-            src="/img/student-boy-1.png"
-            alt="Boy smiling"
-          />
-        ),
-        '(Avatar 2)': (
-          <Unstable_Avatar
-            size="small"
-            src="/img/guide-1.png"
-            alt="Woman smiling"
-          />
-        ),
-        '(Icon)': <Home3 />,
-        '(Icon 2)': <PinCheckDuotone fontSize="large" />,
-      },
-    },
     primaryAction: {
       control: 'select',
       options: ['undefined', '(Checkbox)'],
@@ -168,161 +143,49 @@ ButtonSelectedDisabledHover.args = {
 ButtonSelectedDisabledHover.parameters = { pseudo: { hover: true } };
 ButtonSelectedDisabledHover.storyName = 'button selected disabled :hover';
 
-export const Inset: Story = Template.bind({});
-Inset.args = { inset: true };
-Inset.storyName = 'inset';
-
-export const LeadingElAvatar: Story = Template.bind({});
-LeadingElAvatar.args = { leadingEl: '(Avatar)' };
-LeadingElAvatar.storyName = 'leadingEl=(Avatar)';
-
-export const LeadingElIcon: Story = Template.bind({});
-LeadingElIcon.args = { leadingEl: '(Icon)' };
-LeadingElIcon.storyName = 'leadingEl=(Icon)';
-
-export const LeadingElIconButtonDisabled: Story = Template.bind({});
-LeadingElIconButtonDisabled.args = {
-  leadingEl: '(Icon)',
-  button: true,
-  disabled: true,
-};
-LeadingElIconButtonDisabled.storyName = 'leadingEl=(Icon) button disabled';
-
-export const LeadingElIconButtonSelected: Story = Template.bind({});
-LeadingElIconButtonSelected.args = {
-  leadingEl: '(Icon)',
-  button: true,
-  selected: true,
-};
-LeadingElIconButtonSelected.storyName = 'leadingEl=(Icon) button selected';
-
-export const LeadingElIconButtonSelectedDisabled: Story = Template.bind({});
-LeadingElIconButtonSelectedDisabled.args = {
-  leadingEl: '(Icon)',
-  button: true,
-  selected: true,
-  disabled: true,
-};
-LeadingElIconButtonSelectedDisabled.storyName =
-  'leadingEl=(Icon) button selected disabled';
-
 export const Nested: Story = Template.bind({});
 Nested.args = { nested: true };
 Nested.storyName = 'nested';
 
-export const Primary: Story = Template.bind({});
-Primary.args = { children: undefined, primary: 'Primary text' };
-Primary.storyName = 'primary';
+export const ButtonPrimaryAction: Story = Template.bind({});
+ButtonPrimaryAction.args = { button: true, primaryAction: '(Checkbox)' };
+ButtonPrimaryAction.storyName = 'button primaryAction';
 
-export const PrimaryAction: Story = Template.bind({});
-PrimaryAction.args = { primaryAction: '(Checkbox)' };
-PrimaryAction.storyName = 'primaryAction=(Checkbox)';
+export const ButtonNested: Story = Template.bind({});
+ButtonNested.args = { button: true, nested: true };
+ButtonNested.storyName = 'button nested';
 
-export const PrimaryActionNested: Story = Template.bind({});
-PrimaryActionNested.args = { primaryAction: '(Checkbox)', nested: true };
-PrimaryActionNested.storyName = 'primaryAction=(Checkbox) nested';
+export const ButtonSecondaryAction: Story = Template.bind({});
+ButtonSecondaryAction.args = {
+  button: true,
+  secondaryAction: '(IconButton)',
+};
+ButtonSecondaryAction.storyName = 'button secondaryAction';
 
-export const PrimaryActionSecondaryActionButton: Story = Template.bind({});
-PrimaryActionSecondaryActionButton.args = {
+export const ButtonPrimaryActionSecondaryAction: Story = Template.bind({});
+ButtonPrimaryActionSecondaryAction.args = {
+  button: true,
   primaryAction: '(Checkbox)',
   secondaryAction: '(IconButton)',
-  button: true,
 };
-PrimaryActionSecondaryActionButton.storyName =
-  'primaryAction=(Checkbox) secondaryAction=(IconButton) button';
+ButtonPrimaryActionSecondaryAction.storyName =
+  'button primaryAction secondaryAction';
 
-export const Secondary: Story = Template.bind({});
-Secondary.args = { secondary: 'Secondary' };
-Secondary.storyName = 'secondary';
-
-export const SecondaryLeadingElIcon: Story = Template.bind({});
-SecondaryLeadingElIcon.args = {
-  secondary: 'Secondary text',
-  leadingEl: '(Icon)',
-};
-SecondaryLeadingElIcon.storyName = 'secondary leadingEl=(Icon)';
-
-export const SecondaryLeadingElIconFlexStart: Story = Template.bind({});
-SecondaryLeadingElIconFlexStart.args = {
-  secondary: 'Secondary text',
-  leadingEl: '(Icon)',
-  alignItems: 'flex-start',
-};
-SecondaryLeadingElIconFlexStart.storyName =
-  'secondary leadingEl=(Icon) alignItems=flex-start';
-
-export const SecondarySecondaryAction: Story = Template.bind({});
-SecondarySecondaryAction.args = {
-  secondary: 'Secondary text',
-  secondaryAction: '(IconButton)',
-};
-SecondarySecondaryAction.storyName = 'secondary secondaryAction=(IconButton)';
-
-export const SecondaryTertiary: Story = Template.bind({});
-SecondaryTertiary.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-};
-SecondaryTertiary.storyName = 'secondary tertiary';
-
-export const SecondaryTertiaryLeadingElSIconSecondaryActionFlexStart: Story = Template.bind(
+export const ButtonPrimaryActionSecondaryActionContentGroupProps: Story = Template.bind(
   {}
 );
-SecondaryTertiaryLeadingElSIconSecondaryActionFlexStart.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-  leadingEl: '(Icon)',
+ButtonPrimaryActionSecondaryActionContentGroupProps.args = {
+  button: true,
+  ContentGroupProps: {
+    secondary: 'Secondary text',
+    tertiary: 'Tertiary text',
+    leadingEl: <Home3 />,
+  },
+  primaryAction: '(Checkbox)',
   secondaryAction: '(IconButton)',
-  alignItems: 'flex-start',
 };
-SecondaryTertiaryLeadingElSIconSecondaryActionFlexStart.storyName =
-  'secondary tertiary leadingEl=(Icon) secondaryAction=(IconButton) alignItems=flex-start';
-
-export const SecondaryTertiaryRow: Story = Template.bind({});
-SecondaryTertiaryRow.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-  row: true,
-};
-SecondaryTertiaryRow.storyName = 'secondary tertiary row';
-
-export const SecondaryTertiaryRowSmallMobile: Story = Template.bind({});
-SecondaryTertiaryRowSmallMobile.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-  row: true,
-};
-SecondaryTertiaryRowSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-SecondaryTertiaryRowSmallMobile.storyName =
-  'secondary tertiary row (small mobile)';
-
-export const SecondaryTertiaryRowFlexWrap: Story = Template.bind({});
-SecondaryTertiaryRowFlexWrap.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-  row: true,
-  flexWrap: 'wrap',
-};
-SecondaryTertiaryRowFlexWrap.storyName = 'secondary tertiary row flexWrap=wrap';
-
-export const SecondaryTertiaryRowFlexWrapSmallMobile: Story = Template.bind({});
-SecondaryTertiaryRowFlexWrapSmallMobile.args = {
-  secondary: 'Secondary text',
-  tertiary: 'Tertiary text',
-  row: true,
-  flexWrap: 'wrap',
-};
-SecondaryTertiaryRowFlexWrapSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-SecondaryTertiaryRowFlexWrapSmallMobile.storyName =
-  'secondary tertiary row flexWrap=wrap (small mobile)';
-
-export const SecondaryAction: Story = Template.bind({});
-SecondaryAction.args = { secondaryAction: '(IconButton)' };
-SecondaryAction.storyName = 'secondaryAction=(IconButton)';
+ButtonPrimaryActionSecondaryActionContentGroupProps.storyName =
+  'button primaryAction secondaryAction ContentGroupProps={...}';
 
 // ============
 // = Examples =
@@ -330,10 +193,11 @@ SecondaryAction.storyName = 'secondaryAction=(IconButton)';
 
 export const MicroschoolInformation = (args) => (
   <Unstable_ListItem
-    alignItems="flex-start"
-    leadingEl={<CheckCircleDuotone />}
-    primary="Recess"
-    secondary="Yes"
+    ContentGroupProps={{
+      leadingEl: <CheckCircleDuotone />,
+      primary: 'Recess',
+      secondary: 'Yes',
+    }}
     {...args}
     children={undefined}
   />
@@ -341,10 +205,12 @@ export const MicroschoolInformation = (args) => (
 
 export const MicroschoolGuarantee = (args) => (
   <Unstable_ListItem
-    alignItems="flex-start"
-    leadingEl={<PinCheckDuotone fontSize="large" />}
-    primary="Site inspected"
-    secondary="Prenda microschools are inspected to ensure your child's safety."
+    ContentGroupProps={{
+      leadingEl: <PinCheckDuotone fontSize="large" />,
+      primary: 'Site inspected',
+      secondary:
+        "Prenda microschools are inspected to ensure your child's safety.",
+    }}
     {...args}
     children={undefined}
   />
@@ -352,102 +218,24 @@ export const MicroschoolGuarantee = (args) => (
 
 export const EnrollmentResource = (args) => (
   <Unstable_ListItem
-    alignItems="flex-start"
-    leadingEl={<Microschool />}
-    primary="Find a microschool"
-    secondary={
-      <>
-        Visit our <Unstable_Link href="#">microschool map</Unstable_Link> to
-        discover Prenda Guides in your area.
-      </>
-    }
-    tertiary="For the next school year, check the map in May for the most up-to-date list."
+    ContentGroupProps={{
+      leadingEl: <Microschool />,
+      primary: 'Find a microschool',
+      secondary: (
+        <>
+          Visit our <Unstable_Link href="#">microschool map</Unstable_Link> to
+          discover Prenda Guides in your area.
+        </>
+      ),
+      tertiary:
+        'For the next school year, check the map in May for the most up-to-date list.',
+    }}
     {...args}
     children={undefined}
   />
 );
 
-const useEnrollmentMicroschoolInformationStyles = makeStyles((theme) => ({
-  root: {
-    borderRadius: 4,
-    border: `1px solid ${theme.unstable_palette.neutral[100]}`,
-    minWidth: 320,
-    padding: 16,
-    paddingRight: 40 + 16,
-  },
-  secondaryAction: {
-    top: 8,
-    right: 8,
-  },
-}));
-
-export const EnrollmentMicroschoolInformation = (args) => {
-  const classes = useEnrollmentMicroschoolInformationStyles();
-  return (
-    <Unstable_ListItem
-      alignItems="flex-start"
-      classes={classes}
-      ContainerComponent="div"
-      primary="Jane Doe Microschool"
-      secondary="Jane Doe"
-      secondaryAction={
-        <Unstable_IconButton
-          aria-label="Microschool details"
-          component="a"
-          href="#"
-          size="small"
-          variant="ghost"
-        >
-          <ExternalLink />
-        </Unstable_IconButton>
-      }
-      tertiary="2022-2023 · Grades: K-2"
-      {...args}
-      children={undefined}
-    />
-  );
-};
-
-const useEnrollmentGuideCodeStyles = makeStyles((theme) => ({
-  root: {
-    borderRadius: 4,
-    border: `1px solid ${theme.unstable_palette.neutral[100]}`,
-    minWidth: 320,
-    padding: 16,
-    paddingRight: 40 + 16,
-  },
-  secondary: {
-    fontSize: theme.unstable_typography.pxToRem(32),
-    letterSpacing: '0.25em',
-    lineHeight: 40 / 32,
-  },
-  secondaryAction: {
-    top: 8,
-    right: 8,
-  },
-}));
-
-export const EnrollmentGuideCode = (args) => {
-  const classes = useEnrollmentGuideCodeStyles();
-  return (
-    <Unstable_ListItem
-      alignItems="flex-start"
-      classes={classes}
-      ContainerComponent="div"
-      primary="Guide code"
-      secondary="123456"
-      secondaryAction={
-        <Unstable_IconButton aria-label="Close" size="small" variant="ghost">
-          <Cross />
-        </Unstable_IconButton>
-      }
-      {...args}
-      children={undefined}
-    />
-  );
-};
-
-const useEnrollmentDetailStyles = makeStyles({
+const useEnrollmentDetailContentGroupStyles = makeStyles({
   secondary: {
     paddingBlockEnd: 8,
     paddingBlockStart: 4,
@@ -455,23 +243,42 @@ const useEnrollmentDetailStyles = makeStyles({
 });
 
 export const EnrollmentDetail = (args) => {
-  const classes = useEnrollmentDetailStyles();
+  const contentGroupClasses = useEnrollmentDetailContentGroupStyles();
   return (
     <Unstable_ListItem
-      classes={classes}
-      primary="School year"
-      secondary="2022-2023"
-      secondaryTypographyProps={{ variant: 'T22' }}
       {...args}
+      ContentGroupProps={{
+        classes: contentGroupClasses,
+        primary: 'School year',
+        secondary: '2022-2023',
+        secondaryTypographyProps: { variant: 'T22' },
+        ...args.ContentGroupProps,
+      }}
       children={undefined}
     />
   );
 };
 
-const useMicroschoolThumbnailStyles = makeStyles((theme) => ({
+const useMicroschoolThumbnailListItemStyles = makeStyles((theme) => ({
   root: {
     paddingBlockStart: 24,
   },
+  rootWithSecondaryAction: {
+    '@media (max-width: 320px)': {
+      paddingInlineEnd: 16,
+    },
+  },
+  secondaryAction: {
+    top: 16,
+    right: 8,
+    '@media (max-width: 320px)': {
+      top: 28,
+      right: 20,
+    },
+  },
+}));
+
+const useMicroschoolThumbnailContentGroupStyles = makeStyles((theme) => ({
   leadingEl: {
     paddingBlockEnd: 8,
     paddingInlineStart: 16,
@@ -501,18 +308,6 @@ const useMicroschoolThumbnailStyles = makeStyles((theme) => ({
       paddingInlineStart: 0,
     },
   },
-  rootWithSecondaryAction: {
-    '@media (max-width: 320px)': {
-      paddingRight: 16,
-    },
-  },
-  secondaryAction: {
-    top: 16,
-    '@media (max-width: 320px)': {
-      top: 28,
-      right: 20,
-    },
-  },
 }));
 
 // tested with NVDA on Windows
@@ -532,39 +327,45 @@ export const MicroschoolThumbnailTemplate = ({
   microschoolName: string;
   siteImgProps: { alt: string; srcSet: string };
 }) => {
-  const classes = useMicroschoolThumbnailStyles();
+  const listItemClasses = useMicroschoolThumbnailListItemStyles();
+  const contentGroupClasses = useMicroschoolThumbnailContentGroupStyles();
   const isSmallMobile = useMediaQuery('(max-width: 320px)');
 
   const favoriteButtonVariant = isSmallMobile ? 'stroked' : 'ghost';
 
   return (
     <Unstable_ListItem
-      alignItems="flex-start"
-      // @ts-expect-error ???
+      // @ts-expect-error lost prop
       button
-      focusableButton={false}
-      classes={classes}
+      disableFocusable
+      ContentGroupProps={{
+        classes: contentGroupClasses,
+        flexWrap: 'wrap',
+        leadingEl: (
+          <>
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <img className="site-photo" {...siteImgProps} />
+            <span className="guide-photo-border">
+              <Unstable_Avatar {...guideAvatarProps} />
+            </span>
+          </>
+        ),
+        primary: microschoolName,
+        primaryTypographyProps: {
+          // @ts-expect-error not recognized
+          component: (props) => (
+            <Unstable_Link href="#" standalone variant="alias" {...props} />
+          ),
+        },
+        secondary: location,
+        tertiary: `Grades ${gradesRange} · ${
+          acceptingStudents ? 'Accepting Students' : 'Not Accepting Students'
+        }`,
+      }}
+      classes={listItemClasses}
       onClick={() => {
         window.location.href = '#';
       }}
-      flexWrap="wrap"
-      leadingEl={
-        <>
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <img className="site-photo" {...siteImgProps} />
-          <span className="guide-photo-border">
-            <Unstable_Avatar {...guideAvatarProps} />
-          </span>
-        </>
-      }
-      primary={microschoolName}
-      primaryTypographyProps={{
-        // @ts-expect-error not recognized
-        component: (props) => (
-          <Unstable_Link href="#" standalone variant="alias" {...props} />
-        ),
-      }}
-      secondary={location}
       secondaryAction={
         // FUTURE: replace with Toggle Button
         <Unstable_IconButton
@@ -575,9 +376,6 @@ export const MicroschoolThumbnailTemplate = ({
           <Heart />
         </Unstable_IconButton>
       }
-      tertiary={`Grades ${gradesRange} · ${
-        acceptingStudents ? 'Accepting Students' : 'Not Accepting Students'
-      }`}
       {...other}
       children={undefined}
     />
@@ -600,23 +398,3 @@ MicroschoolThumbnail.args = {
     srcSet: '/img/microschool-site-1.jpg 480w',
   },
 };
-
-export const MicroschoolThumbnailLargeMobile: Story = MicroschoolThumbnailTemplate.bind(
-  {}
-);
-MicroschoolThumbnailLargeMobile.args = MicroschoolThumbnail.args;
-MicroschoolThumbnailLargeMobile.parameters = {
-  viewport: { defaultViewport: 'mobile2' },
-};
-MicroschoolThumbnailLargeMobile.storyName =
-  'Microschool Thumbnail (large mobile)';
-
-export const MicroschoolThumbnailSmallMobile: Story = MicroschoolThumbnailTemplate.bind(
-  {}
-);
-MicroschoolThumbnailSmallMobile.args = MicroschoolThumbnail.args;
-MicroschoolThumbnailSmallMobile.parameters = {
-  viewport: { defaultViewport: 'mobile1' },
-};
-MicroschoolThumbnailSmallMobile.storyName =
-  'Microschool Thumbnail (small mobile)';

@@ -17,8 +17,6 @@ export type Unstable_CheckboxListItemTypeMap<
   D extends ElementType = 'li'
 > = Omit<Unstable_ListItemTypeMap<P, D>, 'classKey'> & {
   classKey: Unstable_CheckboxListItemClassKey;
-
-  // 'button' | 'onClick' | 'primaryAction' | 'value'
   props: P & {
     /**
      * Props applied to the `Checkbox` element.
@@ -66,12 +64,12 @@ export type Unstable_CheckboxListItemProps<
   P = {}
 > = OverrideProps<Unstable_CheckboxListItemTypeMap<P, D>, D>;
 
-export type Unstable_CheckboxListItemClassKey = 'root' | 'primary';
+export type Unstable_CheckboxListItemClassKey = 'root' | 'label';
 
-const useStyles = makeStyles(
+const useStyles = makeStyles<Unstable_CheckboxListItemClassKey>(
   {
     root: {},
-    primary: {
+    label: {
       '$root:hover &': {
         textDecoration: 'underline',
       },
@@ -99,40 +97,27 @@ const Unstable_CheckboxListItem: OverridableComponent<
     checked: checkedProp,
     children,
     classes: classesProp,
+    ContentGroupProps = {},
     disabled,
     id: idProp,
     indeterminate,
     ListItemClasses,
     onClick,
-    primary,
-    primaryTypographyProps,
-    secondary,
-    secondaryTypographyProps,
     selected,
-    tertiary,
-    tertiaryTypographyProps,
     value,
     ...other
   } = props;
 
   const classes = useStyles();
 
-  const primaryId = useId(primaryTypographyProps?.id);
-  const secondaryId = useId(secondaryTypographyProps?.id);
-  const tertiaryId = useId(tertiaryTypographyProps?.id);
-
-  if (process.env.NODE_ENV !== 'production') {
-    if (!primary && !children) {
-      console.error(
-        'Prenda Spark: Material-UI: `children` or `primary` must be passed when using the `CheckboxListItem` component.'
-      );
-    }
-  }
+  const primaryId = useId(ContentGroupProps.primaryTypographyProps?.id);
+  const secondaryId = useId(ContentGroupProps.secondaryTypographyProps?.id);
+  const tertiaryId = useId(ContentGroupProps.tertiaryTypographyProps?.id);
 
   const ariaLabelledBy = primaryId;
   const ariaDescribedBy = clsx({
-    [secondaryId]: !!secondary,
-    [tertiaryId]: !!tertiary,
+    [secondaryId]: !!ContentGroupProps.secondary,
+    [tertiaryId]: !!ContentGroupProps.tertiary,
   });
   const inputProps: Unstable_CheckboxProps['inputProps'] = {
     'aria-labelledby': ariaLabelledBy,
@@ -156,16 +141,31 @@ const Unstable_CheckboxListItem: OverridableComponent<
       button
       classes={{
         ...ListItemClasses,
-        primary: clsx(
-          classes.primary,
-          classesProp?.primary,
-          ListItemClasses?.primary
-        ),
       }}
       className={clsx(classes.root, classesProp?.root, className)}
+      ContentGroupProps={{
+        ...ContentGroupProps,
+        classes: {
+          ...ContentGroupProps.classes,
+          primary: clsx(classes.label, ContentGroupProps.classes?.primary),
+        },
+        primaryTypographyProps: {
+          ...ContentGroupProps.primaryTypographyProps,
+          id: primaryId,
+          // reset default description of primary to secondary/tertiary
+          'aria-describedby': undefined,
+        },
+        secondaryTypographyProps: {
+          ...ContentGroupProps.secondaryTypographyProps,
+          id: secondaryId,
+        },
+        tertiaryTypographyProps: {
+          ...ContentGroupProps.tertiaryTypographyProps,
+          id: tertiaryId,
+        },
+      }}
       disabled={disabled}
       onClick={handleClick}
-      primary={primary}
       primaryAction={
         <Unstable_Checkbox
           checked={checked}
@@ -177,23 +177,7 @@ const Unstable_CheckboxListItem: OverridableComponent<
           {...CheckboxProps}
         />
       }
-      primaryTypographyProps={{
-        id: primaryId,
-        // reset default description of primary to secondary/tertiary
-        'aria-describedby': undefined,
-        ...primaryTypographyProps,
-      }}
       ref={ref as Ref<HTMLLIElement>}
-      secondary={secondary}
-      secondaryTypographyProps={{
-        id: secondaryId,
-        ...secondaryTypographyProps,
-      }}
-      tertiary={tertiary}
-      tertiaryTypographyProps={{
-        id: tertiaryId,
-        ...tertiaryTypographyProps,
-      }}
       value={value}
       {...other}
     >
