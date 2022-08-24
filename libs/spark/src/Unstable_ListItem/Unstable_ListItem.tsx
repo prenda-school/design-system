@@ -26,7 +26,7 @@ export interface Unstable_ListItemTypeMap<
       /**
        * Props applied to the `ContentGroup` element.
        */
-      ContentGroupProps?: Unstable_ContentGroupProps;
+      ContentGroupProps?: Partial<Unstable_ContentGroupProps>;
       /**
        * Remove the component from the tab-order of the page.
        */
