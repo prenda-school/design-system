@@ -6,6 +6,14 @@ No changes.
 
 ## [v1.0.0](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.14...v1.0.0) (2022-08-24)
 
+### Unstable Preview
+
+_This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
+
+Removed all unstable components, properties, and utilities in preparation of v1 stable release.
+
+Migration: install, alias, and migrate to upcoming v2 alphas.
+
 ## [v1.0.0-alpha.14](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-08-23)
 
 ### Unstable Preview
