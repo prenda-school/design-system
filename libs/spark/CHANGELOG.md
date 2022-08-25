@@ -2,7 +2,9 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0...vNext) (yyyy-mm-dd)
 
-No changes.
+Removed all stable components.
+
+Restored unstable components, values, and utilities and removed the "unstable\_" prefix.
 
 ## [v1.0.0](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.14...v1.0.0) (2022-08-24)
 
@@ -10,7 +12,7 @@ No changes.
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
-Removed all unstable components, properties, and utilities in preparation of v1 stable release.
+Removed all unstable components, values, and utilities in preparation of v1 stable release.
 
 Migration: install, alias, and migrate to upcoming v2 alphas.
 
