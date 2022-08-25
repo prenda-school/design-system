@@ -7,6 +7,8 @@ export default {
   component: SectionMessage,
   args: {
     children: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</>,
+    // prevent Storybook from adding default action handler
+    onClose: null,
   },
 } as Meta;
 
