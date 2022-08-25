@@ -37,7 +37,7 @@ const useStyles = makeStyles(
       width: 'auto',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-      '&& .MuiPDSCheckboxIcon-root': {
+      '&& [class*=MuiPDSCheckboxIcon-root]': {
         // remove focus shadow because menu item should be only element with the styling
         boxShadow: 'none',
       },

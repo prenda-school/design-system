@@ -96,7 +96,7 @@ const useStyles = makeStyles<SelectClassKey>(
         '&&': {
           paddingRight: 24 + 14 + 4, // override MUI (icon width + right margin + left margin) (requires increased specificity)
         },
-        '.MuiPDSInputAdornment-root ~ &': {
+        '[class*=MuiPDSInputAdornment-root] ~ &': {
           paddingLeft: 14 + 24 + 8,
           // adjust embedded Menu's anchor/transform position to edge when there's a startAdornment
           marginLeft: -40,
