@@ -1,15 +1,6 @@
 import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
 import { DecoratorFn } from '@storybook/react';
-import { SparkThemeProvider, styled } from '../src';
-
-/**
- * [Internal] A Storybook decorator that wraps a story in the `SparkThemeProvider`.
- */
-export const sparkThemeProvider: DecoratorFn = (Story) => (
-  <SparkThemeProvider>
-    <Story />
-  </SparkThemeProvider>
-);
+import { styled } from '../src';
 
 /**
  * [Internal] A Storybook decorator to enable the use of hooks in a story (otherwise, crashes).
@@ -68,7 +59,7 @@ export const statefulValue: DecoratorFn = (Story, context) => {
 };
 
 const InverseBackgroundDiv = styled('div')(({ theme }) => ({
-  backgroundColor: theme.unstable_palette.background.inverse,
+  backgroundColor: theme.palette.background.inverse,
 }));
 
 /**

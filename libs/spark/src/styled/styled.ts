@@ -1,15 +1,14 @@
-import { ComponentProps, ComponentType, ElementType } from 'react';
 import {
   default as muiStyled,
   StyledProps,
 } from '@material-ui/core/styles/styled';
+import { ComponentProps, ComponentType, ElementType } from 'react';
+import theme, { DefaultTheme } from '../theme';
 import {
   CreateCSSProperties,
   StyledComponentProps,
   WithStylesOptions,
 } from '../withStyles';
-import type { DefaultTheme } from '../theme';
-import initialTheme from '../theme/initialTheme';
 
 export type { StyledProps };
 
@@ -43,7 +42,7 @@ const styled = <Component extends ElementType>(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore Unintelligable "Type ... is not assignable to type ..." cascade during Storybook compilation
     componentCreator(styles, {
-      defaultTheme: initialTheme,
+      defaultTheme: theme,
       ...options,
     });
 };
