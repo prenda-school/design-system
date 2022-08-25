@@ -10,7 +10,7 @@ import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_FormGroup as typeof Unstable_FormGroup;
 
 export default {
-  title: '@ps/Unstable_FormGroup',
+  title: '@ps/FormGroup',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

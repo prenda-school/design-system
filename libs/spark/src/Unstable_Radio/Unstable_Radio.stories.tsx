@@ -11,7 +11,7 @@ import {
 export const _retyped = Unstable_Radio as typeof Unstable_Radio;
 
 export default {
-  title: '@ps/Unstable_Radio',
+  title: '@ps/Radio',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

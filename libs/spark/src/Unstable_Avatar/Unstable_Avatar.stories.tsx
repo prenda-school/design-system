@@ -4,7 +4,7 @@ import { Unstable_Avatar, Unstable_AvatarProps } from '..';
 import { sparkThemeProvider, User } from '../../stories';
 
 export default {
-  title: '@ps/Unstable_Avatar',
+  title: '@ps/Avatar',
   component: Unstable_Avatar,
   argTypes: {
     children: {

@@ -6,7 +6,7 @@ import { containFocusIndicator, Info } from '../../stories';
 export const _retyped = Unstable_CheckboxGroupField as typeof Unstable_CheckboxGroupField;
 
 export default {
-  title: '@ps/Unstable_CheckboxGroupField',
+  title: '@ps/CheckboxGroupField',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

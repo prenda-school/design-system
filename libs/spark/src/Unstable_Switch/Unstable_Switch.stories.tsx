@@ -11,7 +11,7 @@ import {
 export const _retyped = Unstable_Switch as typeof Unstable_Switch;
 
 export default {
-  title: '@ps/Unstable_Switch',
+  title: '@ps/Switch',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

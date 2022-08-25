@@ -11,7 +11,7 @@ import {
 export const _retyped = Unstable_Checkbox as typeof Unstable_Checkbox;
 
 export default {
-  title: '@ps/Unstable_Checkbox',
+  title: '@ps/Checkbox',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

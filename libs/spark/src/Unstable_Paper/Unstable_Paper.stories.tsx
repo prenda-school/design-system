@@ -5,7 +5,7 @@ import { Unstable_Paper } from '..';
 export const _retyped = Unstable_Paper as typeof Unstable_Paper;
 
 export default {
-  title: '@ps/Unstable_Paper',
+  title: '@ps/Paper',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

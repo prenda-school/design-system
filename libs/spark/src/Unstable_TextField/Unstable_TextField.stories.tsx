@@ -14,7 +14,7 @@ import {
 export const _retyped = Unstable_TextField as typeof Unstable_TextField;
 
 export default {
-  title: '@ps/Unstable_TextField',
+  title: '@ps/TextField',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

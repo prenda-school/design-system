@@ -6,7 +6,7 @@ import { Info } from '../../stories';
 export const _retyped = Unstable_FormHelperText as typeof Unstable_FormHelperText;
 
 export default {
-  title: '@ps/Unstable_FormHelperText',
+  title: '@ps/FormHelperText',
   component: _retyped,
   excludeStories: ['_retyped'],
   argTypes: {

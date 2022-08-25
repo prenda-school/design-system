@@ -12,7 +12,7 @@ import {
 export const _retyped = Unstable_IconButton as typeof Unstable_IconButton;
 
 export default {
-  title: '@ps/Unstable_IconButton',
+  title: '@ps/IconButton',
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },

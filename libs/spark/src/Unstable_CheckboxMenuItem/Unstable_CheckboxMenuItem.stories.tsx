@@ -11,7 +11,7 @@ import { default as Unstable_CheckboxListItemMeta } from '../Unstable_CheckboxLi
 export const _retyped = Unstable_CheckboxMenuItem as typeof Unstable_CheckboxMenuItem;
 
 export default {
-  title: '@ps/Unstable_CheckboxMenuItem',
+  title: '@ps/CheckboxMenuItem',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

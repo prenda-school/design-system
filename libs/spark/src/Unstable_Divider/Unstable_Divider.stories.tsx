@@ -12,7 +12,7 @@ const boundary: DecoratorFn = (Story) => (
 );
 
 export default {
-  title: '@ps/Unstable_Divider',
+  title: '@ps/Divider',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [boundary],

@@ -6,7 +6,7 @@ import { containFocusIndicator } from '../../stories';
 export const _retyped = Unstable_Link as typeof Unstable_Link;
 
 export default {
-  title: '@ps/Unstable_Link',
+  title: '@ps/Link',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

@@ -5,7 +5,7 @@ import { Unstable_ListSubheader } from '..';
 export const _retyped = Unstable_ListSubheader as typeof Unstable_ListSubheader;
 
 export default {
-  title: '@ps/Unstable_ListSubheader',
+  title: '@ps/ListSubheader',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

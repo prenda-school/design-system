@@ -6,7 +6,7 @@ import { containFocusIndicator } from '../../stories';
 export const _retyped = Unstable_RadioField as typeof Unstable_RadioField;
 
 export default {
-  title: '@ps/Unstable_RadioField',
+  title: '@ps/RadioField',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

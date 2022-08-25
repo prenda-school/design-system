@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_SectionMessage } from '..';
 
 export default {
-  title: '@ps/Unstable_SectionMessage',
+  title: '@ps/SectionMessage',
   component: Unstable_SectionMessage,
   args: {
     children: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</>,

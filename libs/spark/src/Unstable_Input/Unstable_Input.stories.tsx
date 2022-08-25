@@ -37,7 +37,7 @@ export const _retyped = (props: Unstable_InputProps) => (
 );
 
 export default {
-  title: '@ps/Unstable_Input',
+  title: '@ps/Input',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

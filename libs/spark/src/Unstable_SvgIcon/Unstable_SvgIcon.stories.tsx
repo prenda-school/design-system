@@ -5,7 +5,7 @@ import { Unstable_SvgIcon } from '..';
 export const _retyped = Unstable_SvgIcon as typeof Unstable_SvgIcon;
 
 export default {
-  title: '@ps/Unstable_SvgIcon',
+  title: '@ps/SvgIcon',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

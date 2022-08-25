@@ -11,7 +11,7 @@ import {
 export const _retyped = Unstable_AvatarButton as typeof Unstable_AvatarButton;
 
 export default {
-  title: '@ps/Unstable_AvatarButton',
+  title: '@ps/AvatarButton',
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },

@@ -5,7 +5,7 @@ import { Unstable_MenuItem, Unstable_MenuList } from '..';
 export const _retyped = Unstable_MenuList as typeof Unstable_MenuList;
 
 export default {
-  title: '@ps/Unstable_MenuList',
+  title: '@ps/MenuList',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {
