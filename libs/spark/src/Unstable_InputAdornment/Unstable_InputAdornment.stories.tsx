@@ -6,7 +6,7 @@ import { Search, sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_InputAdornment as typeof Unstable_InputAdornment;
 
 export default {
-  title: '@ps/Unstable_InputAdornment',
+  title: '@ps/InputAdornment',
   component: _retyped,
   excludeStories: ['_retyped'],
   argTypes: {

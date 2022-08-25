@@ -24,7 +24,7 @@ import {
 export const _retyped = Unstable_List as typeof Unstable_List;
 
 export default {
-  title: '@ps/Unstable_List',
+  title: '@ps/List',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

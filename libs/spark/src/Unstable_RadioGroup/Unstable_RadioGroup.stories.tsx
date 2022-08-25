@@ -6,7 +6,7 @@ import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_RadioGroup as typeof Unstable_RadioGroup;
 
 export default {
-  title: '@ps/Unstable_RadioGroup',
+  title: '@ps/RadioGroup',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

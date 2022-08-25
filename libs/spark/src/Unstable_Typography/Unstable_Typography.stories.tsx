@@ -6,7 +6,7 @@ import { inverseBackground, sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_Typography as typeof Unstable_Typography;
 
 export default {
-  title: '@ps/Unstable_Typography',
+  title: '@ps/Typography',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

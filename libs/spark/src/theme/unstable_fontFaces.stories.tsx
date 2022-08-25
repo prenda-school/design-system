@@ -4,7 +4,7 @@ import { ScopedCssBaseline, styled, withStyles } from '..';
 import { VariantUseFor } from './unstable_typography.stories';
 
 export default {
-  title: '@ps/theme/unstable_fonts',
+  title: '@ps/theme/fonts',
 } as Meta;
 
 const FontsBaseline = withStyles({

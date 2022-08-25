@@ -6,7 +6,7 @@ import { containFocusIndicator, mediumWidth } from '../../stories';
 export const _retyped = Unstable_SwitchField as typeof Unstable_SwitchField;
 
 export default {
-  title: '@ps/Unstable_SwitchField',
+  title: '@ps/SwitchField',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

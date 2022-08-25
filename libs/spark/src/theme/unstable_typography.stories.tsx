@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { ScopedCssBaseline, styled, withStyles } from '..';
 
 export default {
-  title: '@ps/theme/unstable_typography',
+  title: '@ps/theme/typography',
   excludeStories: ['VariantUseFor'],
 } as Meta;
 

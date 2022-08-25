@@ -25,7 +25,7 @@ import {
 export const _retyped = Unstable_ListItem as typeof Unstable_ListItem;
 
 export default {
-  title: '@ps/Unstable_ListItem',
+  title: '@ps/ListItem',
   component: _retyped,
   excludeStories: ['_retyped', 'MicroschoolThumbnailTemplate'],
   decorators: [containFocusIndicator],

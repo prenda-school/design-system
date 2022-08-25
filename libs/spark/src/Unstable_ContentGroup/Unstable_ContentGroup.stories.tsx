@@ -50,7 +50,7 @@ const elementMapping = {
 };
 
 export default {
-  title: '@ps/Unstable_ContentGroup',
+  title: '@ps/ContentGroup',
   component: _retyped,
   excludeStories: ['_retyped', 'MicroschoolThumbnailTemplate'],
   decorators: [containFocusIndicator],

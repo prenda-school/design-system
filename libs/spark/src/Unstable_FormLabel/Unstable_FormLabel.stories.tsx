@@ -6,7 +6,7 @@ import { sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_FormLabel as typeof Unstable_FormLabel;
 
 export default {
-  title: '@ps/Unstable_FormLabel',
+  title: '@ps/FormLabel',
   component: _retyped,
   excludeStories: ['_retyped'],
   args: {

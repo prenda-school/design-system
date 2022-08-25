@@ -11,7 +11,7 @@ import { enableHooks } from '../../stories';
 export const _retyped = Unstable_Menu as typeof Unstable_Menu;
 
 export default {
-  title: '@ps/Unstable_Menu',
+  title: '@ps/Menu',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [enableHooks],

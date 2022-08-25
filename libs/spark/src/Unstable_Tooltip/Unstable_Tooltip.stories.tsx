@@ -13,7 +13,7 @@ const pad: DecoratorFn = (Story) => (
 );
 
 export default {
-  title: '@ps/Unstable_Tooltip',
+  title: '@ps/Tooltip',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [pad],

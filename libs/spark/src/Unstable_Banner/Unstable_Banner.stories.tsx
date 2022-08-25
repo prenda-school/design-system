@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_Banner } from '..';
 
 export default {
-  title: '@ps/Unstable_Banner',
+  title: '@ps/Banner',
   component: Unstable_Banner,
   args: {
     children: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</>,

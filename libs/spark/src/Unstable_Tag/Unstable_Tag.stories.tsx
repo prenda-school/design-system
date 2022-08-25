@@ -14,7 +14,7 @@ const emptyFn = () => {
 };
 
 export default {
-  title: '@ps/Unstable_Tag',
+  title: '@ps/Tag',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react/types-6-0';
 import { styled, theme, Theme } from '..';
 
 export default {
-  title: '@ps/theme/unstable_palette',
+  title: '@ps/theme/palette',
 } as Meta;
 
 /**

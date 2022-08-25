@@ -10,7 +10,7 @@ import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 export const _retyped = Unstable_FormControlLabel as typeof Unstable_FormControlLabel;
 
 export default {
-  title: '@ps/Unstable_FormControlLabel',
+  title: '@ps/FormControlLabel',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [containFocusIndicator],

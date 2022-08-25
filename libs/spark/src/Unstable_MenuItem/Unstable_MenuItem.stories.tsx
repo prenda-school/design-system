@@ -11,7 +11,7 @@ import { default as Unstable_ListItemMeta } from '../Unstable_ListItem/Unstable_
 export const _retyped = Unstable_MenuItem as typeof Unstable_MenuItem;
 
 export default {
-  title: '@ps/Unstable_MenuItem',
+  title: '@ps/MenuItem',
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [statefulValue, enableHooks, containFocusIndicator],

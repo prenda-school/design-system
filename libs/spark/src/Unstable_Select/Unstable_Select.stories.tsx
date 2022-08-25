@@ -41,7 +41,7 @@ const getLabel = (value: string) =>
   `Value label${value.split('-')[1] === '1' ? '' : ' ' + value.split('-')[1]}`;
 
 export default {
-  title: '@ps/Unstable_Select',
+  title: '@ps/Select',
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
