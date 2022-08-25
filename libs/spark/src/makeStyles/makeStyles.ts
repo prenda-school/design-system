@@ -1,6 +1,5 @@
 import muiMakeStyles from '@material-ui/core/styles/makeStyles';
-import type { DefaultTheme } from '../theme';
-import initialTheme from '../theme/initialTheme';
+import theme, { DefaultTheme } from '../theme';
 import type { ClassNameMap, Styles, WithStylesOptions } from '../withStyles';
 
 export default function makeStyles<
@@ -16,7 +15,7 @@ export default function makeStyles<
     (props?: any) => ClassNameMap<ClassKey>
   : (props: Props) => ClassNameMap<ClassKey> {
   return muiMakeStyles(styles, {
-    defaultTheme: initialTheme,
+    defaultTheme: theme,
     ...options,
   });
 }

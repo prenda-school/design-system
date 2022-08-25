@@ -1,0 +1,93 @@
+import React, { ElementType, forwardRef, Ref } from 'react';
+import clsx from 'clsx';
+import makeStyles from '../makeStyles';
+import ListItem, { ListItemProps, ListItemTypeMap } from '../ListItem';
+import { OverridableComponent, OverrideProps } from '../utils';
+import { ExtendButtonBase } from '../ButtonBase';
+
+export type MenuItemTypeMap<
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
+  D extends ElementType = 'li'
+> = Omit<ListItemTypeMap<P, D>, 'classKey'> & {
+  classKey: MenuItemClassKey;
+  props: P & {
+    /**
+     * The `classes` prop applied to the `ListItem` element.
+     */
+    ListItemClasses?: ListItemProps['classes'];
+  };
+};
+
+export type MenuItemProps<
+  D extends ElementType = MenuItemTypeMap['defaultComponent'],
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
+> = OverrideProps<MenuItemTypeMap<P, D>, D>;
+
+export type MenuItemClassKey = 'root' | 'selected';
+
+const useStyles = makeStyles(
+  {
+    root: {
+      width: 'auto',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+    },
+    selected: {},
+  },
+  { name: 'MuiPDSMenuItem' }
+);
+
+// @ts-expect-error can't handle overloads by `button` values
+const MenuItem: OverridableComponent<
+  MenuItemTypeMap<{ button: false }, MenuItemTypeMap['defaultComponent']>
+> &
+  ExtendButtonBase<
+    MenuItemTypeMap<{ button?: true }, MenuItemTypeMap['defaultComponent']>
+  > = forwardRef(function MenuItem(props, ref) {
+  const {
+    children,
+    classes: classesProp,
+    className,
+    // @ts-expect-error not picked up
+    component = 'li',
+    ListItemClasses,
+    role = 'menuitem',
+    selected,
+    tabIndex: tabIndexProp,
+    ...other
+  } = props;
+
+  const classes = useStyles();
+
+  let tabIndex;
+  if (!props.disabled) {
+    tabIndex = tabIndexProp !== undefined ? tabIndexProp : -1;
+  }
+
+  return (
+    <ListItem
+      button
+      classes={ListItemClasses}
+      className={clsx(
+        classes.root,
+        classesProp?.root,
+        {
+          [clsx(classes.selected, classesProp?.selected)]: selected,
+        },
+        className
+      )}
+      component={component}
+      ref={ref as Ref<HTMLLIElement>}
+      role={role}
+      selected={selected}
+      tabIndex={tabIndex}
+      {...other}
+    >
+      {children}
+    </ListItem>
+  );
+});
+
+export default MenuItem;

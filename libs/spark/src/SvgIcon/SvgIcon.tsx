@@ -5,95 +5,7 @@ import {
   SvgIconProps as MuiSvgIconProps,
 } from '@material-ui/core/SvgIcon';
 import makeStyles from '../makeStyles';
-import {
-  capitalize,
-  OverridableComponent,
-  OverrideProps,
-  useMergeClasses,
-} from '../utils';
-
-export type SvgIconClassKey =
-  | 'root'
-  | 'colorDark'
-  | 'colorLight'
-  | 'colorWhite'
-  | 'colorDisabled'
-  | 'colorError'
-  | 'colorSuccess'
-  | 'colorWarning'
-  | 'colorInfo'
-  | 'fontSizeSmall'
-  | 'fontSizeMedium'
-  | 'fontSizeLarge'
-  | 'lowContrast';
-
-// :NOTE:
-//  - Duotone fill selector is & > * [fill = "#F0F1F2"]
-//  - the last two chars of an eight-char hex value are the alpha channel / transparency
-//    - b8 = 72%, 47 = 28%
-const useStyles = makeStyles<SvgIconClassKey>(
-  ({ palette, typography }) => ({
-    root: {
-      color: 'inherit',
-      fontSize: 'inherit',
-    },
-    colorDark: {
-      color: palette.text.dark,
-    },
-    colorLight: {
-      color: palette.text.light,
-      '& > *[fill="#F0F1F2"]': {
-        fill: `#f0f1f247`,
-      },
-    },
-    colorWhite: {
-      color: palette.common.white,
-      '& > *[fill="#F0F1F2"]': {
-        fill: `#f0f1f247`,
-      },
-    },
-    colorDisabled: {
-      color: palette.action.disabled,
-    },
-    colorError: {
-      color: palette.red[2],
-      '& > *[fill="#F0F1F2"]': {
-        fill: `${palette.red[1]}b8`,
-      },
-    },
-    colorSuccess: {
-      color: palette.green[2],
-      '& > *[fill="#F0F1F2"]': {
-        fill: `${palette.green[1]}b8`,
-      },
-    },
-    colorWarning: {
-      color: palette.yellow[2],
-      '& > *[fill="#F0F1F2"]': {
-        fill: `${palette.yellow[1]}b8`,
-      },
-    },
-    colorInfo: {
-      color: palette.blue[2],
-      '& > *[fill="#F0F1F2"]': {
-        fill: `${palette.blue[1]}b8`,
-      },
-    },
-    fontSizeSmall: {
-      fontSize: typography.pxToRem(16),
-    },
-    fontSizeMedium: {
-      fontSize: typography.pxToRem(24),
-    },
-    fontSizeLarge: {
-      fontSize: typography.pxToRem(32),
-    },
-    lowContrast: {
-      opacity: 0.72,
-    },
-  }),
-  { name: 'MuiSparkSvgIcon' }
-);
+import { OverridableComponent, OverrideProps } from '../utils';
 
 export interface SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -101,24 +13,22 @@ export interface SvgIconTypeMap<
   D extends ElementType = 'svg'
 > {
   props: P &
-    Omit<MuiSvgIconProps, 'color' | 'classes'> & {
+    Omit<MuiSvgIconProps, 'classes' | 'color' | 'fontSize'> & {
       /**
-       * The color of the component.
+       * The color of the component. Defaults to `'inherit'`.
+       *
+       * It supports those theme colors that make sense for this component. You can use the `htmlColor` prop to apply a color attribute to the SVG element.
        */
       color?:
         | 'inherit'
-        | 'dark'
-        | 'light'
-        | 'disabled'
-        | 'error'
-        | 'success'
-        | 'warning'
-        | 'info'
-        | 'white';
+        | 'normal'
+        | 'secondary'
+        | 'inverse'
+        | 'inverseSecondary';
       /**
-       * Whether the component should appear with low contrast.
+       * The font size applied to the icon. Defaults to `'inherit'`.
        */
-      lowContrast?: boolean;
+      fontSize?: 'inherit' | 'small' | 'medium' | 'large' | 'xlarge';
     };
   defaultComponent: D;
   classKey: SvgIconClassKey;
@@ -130,32 +40,61 @@ export type SvgIconProps<
   P = {}
 > = OverrideProps<SvgIconTypeMap<P, D>, D>;
 
+export type SvgIconClassKey = 'root';
+
+// :NOTE:
+//  - Duotone layer selector is & > *[opacity=".12"]
+//  - Duocolor layer selector is & > *[opacity=".4"]
+const useStyles = makeStyles<SvgIconClassKey>(
+  (theme) => ({
+    root: (props: SvgIconProps) => ({
+      /* color */
+      ...(props.color === 'inherit' && { color: 'inherit' }),
+      ...(props.color === 'normal' && {
+        color: theme.palette.text.icon,
+      }),
+      ...(props.color === 'secondary' && {
+        color: theme.palette.text.secondaryIcon,
+      }),
+      ...(props.color === 'inverse' && {
+        color: theme.palette.text.inverseIcon,
+      }),
+      ...(props.color === 'inverseSecondary' && {
+        color: theme.palette.text.inverseSecondaryIcon,
+      }),
+      /* fontSize */
+      ...(props.fontSize === 'inherit' && { fontSize: 'inherit' }),
+      ...(props.fontSize === 'small' && {
+        fontSize: theme.typography.pxToRem(16),
+      }),
+      ...(props.fontSize === 'medium' && {
+        fontSize: theme.typography.pxToRem(24),
+      }),
+      ...(props.fontSize === 'large' && {
+        fontSize: theme.typography.pxToRem(32),
+      }),
+      ...(props.fontSize === 'xlarge' && {
+        fontSize: theme.typography.pxToRem(48),
+      }),
+    }),
+  }),
+  { name: 'MuiPDSSvgIcon' }
+);
+
 const SvgIcon: OverridableComponent<SvgIconTypeMap> = forwardRef(
-  function SvgIcon(
-    {
-      lowContrast,
+  function SvgIcon(props, ref) {
+    const {
       classes: classesProp,
       color = 'inherit',
       fontSize = 'inherit',
-      className,
       ...other
-    },
-    ref
-  ) {
-    const baseClasses = useStyles();
+    } = props;
 
-    const classes = useMergeClasses({
-      baseClasses,
-      classesProp,
-    });
+    const classes = useStyles({ color, fontSize });
 
     return (
       <MuiSvgIcon
-        className={clsx(className, classes.root, {
-          [classes[`color${capitalize(color)}`]]: color !== 'inherit',
-          [classes[`fontSize${capitalize(fontSize)}`]]: fontSize !== 'inherit',
-          [classes.lowContrast]: lowContrast,
-        })}
+        classes={{ root: clsx(classes.root, classesProp?.root) }}
         ref={ref}
         {...other}
       />
