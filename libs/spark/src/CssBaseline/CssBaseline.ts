@@ -23,11 +23,10 @@ const CssBaseline = withStyles(
         boxSizing: 'inherit',
       },
       body: {
-        backgroundColor: theme.palette.background.default,
-        color: theme.palette.text.dark,
-        fontFamily: theme.typography.fontFamily,
-        fontSize: theme.typography.fontSize,
-        lineHeight: theme.typography['paragraph-md'].lineHeight,
+        backgroundColor: theme.unstable_palette.background.default,
+        color: theme.unstable_palette.text.body,
+        fontFamily: theme.unstable_typography.fontFamily,
+        fontSize: theme.unstable_typography.fontSize,
         margin: 0, // Remove the margin in all browsers.
         '@media print': {
           // Save printer ink.
@@ -36,13 +35,13 @@ const CssBaseline = withStyles(
         // Add support for document.body.requestFullScreen().
         // Other elements, if background transparent, are not supported.
         '&::backdrop': {
-          backgroundColor: theme.palette.background.default,
+          backgroundColor: theme.unstable_palette.background.default,
         },
       },
     },
   }),
   {
-    name: 'MuiSparkCssBaseline',
+    name: 'MuiPDSCssBaseline',
   }
 )(() => null);
 
