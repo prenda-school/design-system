@@ -1,11 +1,11 @@
-import { render } from '@testing-library/react';
 import React from 'react';
+import { render } from '@testing-library/react';
 import { stub } from 'sinon';
 import makeStyles from './makeStyles';
-import theme from '../theme';
+import initialTheme from '../theme/initialTheme';
 
-describe('makeStyles', () => {
-  it('should supply custom theme by default', () => {
+describe('styled', () => {
+  it("should supply Spark's theme by default", () => {
     const styles = stub().returns({ root: {} });
 
     const useStyles = makeStyles(styles);
@@ -16,6 +16,6 @@ describe('makeStyles', () => {
 
     render(<StyledComponent />);
 
-    expect(styles.args[0][0]).toEqual(theme);
+    expect(styles.args[0][0]).toEqual(initialTheme);
   });
 });

@@ -1,93 +1,115 @@
-import React, { forwardRef } from 'react';
-import clsx from 'clsx';
-import makeStyles from '../makeStyles';
-import Alert, { AlertClassKey, AlertProps } from '../internal/Alert';
+import React, { CSSProperties, SyntheticEvent } from 'react';
+import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
+import Button from '../Button';
+import IconButton from '../IconButton';
+import { ArrowRight, Cross } from '../internal';
+import withStyles from '../withStyles';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface BannerProps extends AlertProps {}
+export interface BannerProps extends Omit<AlertProps, 'variant'> {
+  /**
+   * Override the default label for the *details popup* button.
+   */
+  detailsText?: string;
+  /**
+   * Callback fired when the component requests to go to details.
+   * When provided and no `action` prop is set, a details  button is displayed that triggers the callback when clicked.
+   *
+   * @param {object} event The event source of the callback.
+   */
+  onDetails?: (event: SyntheticEvent) => void;
+}
 
 export type BannerClassKey = AlertClassKey;
 
-const useStyles = makeStyles<BannerClassKey>(
+const CustomIconButton = withStyles((theme) => ({
+  root: {
+    color: 'inherit',
+    padding: 4,
+    '&:active, &:focus-visible, &.Mui-focusVisible': {
+      color: theme.palette.text.dark,
+    },
+  },
+}))(IconButton);
+
+const CustomButton = withStyles((theme) => ({
+  root: {
+    borderColor: 'transparent',
+    padding: 4,
+    '&:active, &:focus-visible, &.Mui-focusVisible': {
+      color: theme.palette.text.dark,
+    },
+  },
+}))(Button);
+
+const actionMapping = {
+  Close: ({ closeText, onClose }) => (
+    <CustomIconButton
+      aria-label={closeText}
+      title={closeText}
+      color="inherit"
+      variant="text"
+      onClick={onClose}
+    >
+      <Cross />
+    </CustomIconButton>
+  ),
+  Details: ({ detailsText = 'Details', onDetails }) => (
+    <CustomButton
+      color="inherit"
+      variant="text"
+      onClick={onDetails}
+      endIcon={<ArrowRight />}
+    >
+      {detailsText}
+    </CustomButton>
+  ),
+};
+
+export default withStyles(
   (theme) => ({
-    root: (props: BannerProps) => ({
-      alignItems: 'flex-start',
-      display: 'flex',
-      gap: 16,
-      padding: 24,
-      /* severity */
-      ...(props.severity === 'error' && {
-        backgroundColor: theme.palette.red[700],
-      }),
-      ...(props.severity === 'info' && {
-        backgroundColor: theme.palette.blue[700],
-      }),
-      ...(props.severity === 'success' && {
-        backgroundColor: theme.palette.green[700],
-      }),
-      ...(props.severity === 'warning' && {
-        backgroundColor: theme.palette.yellow[600],
-      }),
-    }),
-    icon: (props: BannerProps) => ({
-      color: theme.palette.neutral[0],
-      display: 'flex',
+    root: {
+      borderRadius: 0,
+      padding: '15px 24px',
+    },
+    filledInfo: {
+      backgroundColor: theme.palette.blue[2],
+    },
+    filledSuccess: {
+      backgroundColor: theme.palette.green[2],
+    },
+    filledWarning: {
+      backgroundColor: theme.palette.yellow[2],
+      color: theme.palette.text.dark,
+    },
+    filledError: {
+      backgroundColor: theme.palette.red[2],
+    },
+    icon: {
       fontSize: theme.typography.pxToRem(24),
-      lineHeight: 1,
-      paddingBottom: 4,
-      paddingTop: 4,
-      /* severity */
-      ...(props.severity === 'warning' && {
-        color: theme.palette.neutral[600],
-      }),
-    }),
-    message: (props: BannerProps) => ({
-      ...theme.typography.body,
-      color: theme.palette.neutral[0],
-      flexGrow: 2,
-      paddingTop: 4,
-      /* severity */
-      ...(props.severity === 'warning' && {
-        color: theme.palette.neutral[600],
-      }),
-    }),
-    action: {
-      justifySelf: 'flex-end',
-      marginTop: -2,
+      opacity: 1,
+      marginRight: 8,
+    },
+    message: {
+      ...(theme.typography['label-lg-strong'] as CSSProperties),
+      padding: '9px 0',
     },
   }),
-  { name: 'MuiPDSBanner' }
-);
-
-const Banner = forwardRef<unknown, BannerProps>(function Banner(props, ref) {
-  const {
-    classes: classesProp,
-    severity = 'info',
-    CloseProps: ClosePropsProp,
-    ...other
-  } = props;
-
-  const classes = useStyles({ severity });
-
-  let CloseProps: AlertProps['CloseProps'] = ClosePropsProp;
-  if (['info', 'success', 'error'].includes(severity)) {
-    CloseProps = { color: 'inverse', ...CloseProps };
+  {
+    name: 'MuiSparkBanner',
+  }
+)(({ onClose, closeText, onDetails, detailsText, ...other }: BannerProps) => {
+  let Action = null;
+  if (onClose) {
+    Action = () => (
+      <actionMapping.Close onClose={onClose} closeText={closeText} />
+    );
+  } else if (onDetails) {
+    Action = () => (
+      <actionMapping.Details onDetails={onDetails} detailsText={detailsText} />
+    );
   }
 
   return (
-    <Alert
-      classes={{
-        root: clsx(classes.root, classesProp?.root),
-        icon: clsx(classes.icon, classesProp?.icon),
-        message: clsx(classes.message, classesProp?.message),
-        action: clsx(classes.action, classesProp?.action),
-      }}
-      severity={severity}
-      ref={ref}
-      CloseProps={CloseProps}
-      {...other}
-    />
+    <Alert action={Action ? <Action /> : null} {...other} variant="filled" />
   );
 });
-
-export default Banner;

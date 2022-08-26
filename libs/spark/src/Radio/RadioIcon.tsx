@@ -1,142 +1,84 @@
 import React from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
-import createSvgIcon from '../createSvgIcon';
+import styled from '../styled';
+import { createSvgIcon } from '../utils';
 
-const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      display: 'flex',
-      position: 'relative' as const,
+// Recreation of MUI's internal RadioButton component,
+//  but with our icons (bit larger at 26x26, no empty border space)
+const RadioIconRoot = styled('span')(({ theme: { palette, transitions } }) => ({
+  '&.RadioIcon-root': {
+    position: 'relative' as const,
+    display: 'flex',
+    borderRadius: '50%',
+    // Adjust for irregular svg size of radio unchecked button
+    height: '26px',
+    width: '26px',
+    '& [class*=MuiSvgIcon-root]': {
+      height: '26px',
+      width: '26px',
+      backgroundColor: palette.common.white,
+    },
+    '&:hover, input:hover ~ &, label:hover &': {
+      color: palette.text.dark,
+      '&.RadioIcon-checked .RadioIcon-dot': {
+        color: palette.blue[3],
+      },
+    },
+    '&:focus-visible, input:focus-visible ~ &': {
+      boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+      '&:not(.RadioIcon-checked) .RadioIcon-dot': {
+        color: palette.blue[1],
+      },
+      '& .RadioIcon-checked .RadioIcon-dot': {
+        color: palette.blue[3],
+      },
+    },
+    '& .RadioIcon-circle': {
       borderRadius: '50%',
-      color: theme.palette.neutral[200],
-      // Adjust for irregular svg size of radio unchecked button
-      height: 17,
-      width: 17,
-      '& > svg': {
-        height: 17,
-        width: 17,
-      },
-      /* error */
-      '.Mui-error &': {
-        boxShadow: `0 0 0 4px ${theme.palette.red[100]}`,
-        color: theme.palette.red[700],
-      },
-      /* focus-visible */
-      '.Mui-focusVisible &, input:focus-visible ~ &': {
-        boxShadow: `0 0 2px 4px ${theme.palette.teal[200]}`,
-      },
-      /* disabled */
-      'input:disabled ~ &&&': {
-        boxShadow: 'none', // can be present from `error`
-        color: theme.palette.neutral[90],
-      },
+      // (from Mui) Scale applied to prevent dot misalignment in Safari
+      transform: 'scale(1)',
     },
-    /* Styles applied to the root element when `checked={true}`. */
-    checked: {
-      color: theme.palette.blue[600],
-      /* hover */
-      'input:hover ~ &, label:hover ~ &': {
-        color: theme.palette.blue[400],
-      },
-      /* error */
-      '.Mui-error &': {
-        color: theme.palette.red[600],
-      },
-      /* error & hover */
-      '.Mui-error input:hover ~ &, .Mui-error label:hover ~ &': {
-        color: theme.palette.red[400],
-      },
-    },
-    /* Styles applied to the circle icon element. */
-    circle: {
-      borderRadius: '50%',
-      transform: 'scale(1)', // (from Mui) Scale applied to prevent dot misalignment in Safari
-      /* hover */
-      'input:hover ~ $root > &, label:hover ~ $root > &': {
-        backgroundColor: theme.palette.neutral[70],
-      },
-      /* checked & hover */
-      'input:hover ~ $checked > &, label:hover ~ $checked > &': {
-        backgroundColor: 'unset',
-      },
-      /* focus-visible */
-      '.Mui-focusVisible $root > &, input:focus-visible ~ $root > &': {
-        backgroundColor: 'unset', // unset Mui default
-      },
-      /* disabled */
-      'input:disabled ~ $root > &': {
-        backgroundColor: theme.palette.neutral[80],
-      },
-      /* disabled & checked */
-      'input:disabled ~ $root$checked > &': {
-        backgroundColor: 'unset',
-      },
-    },
-    /* Styles applied to the dot icon element. */
-    dot: {
+    '& .RadioIcon-dot': {
       backgroundColor: 'transparent',
       position: 'absolute' as const,
       left: 0,
       transform: 'scale(0)',
-      transition: theme.transitions.create('transform', {
-        easing: theme.transitions.easing.easeIn,
-        duration: theme.transitions.duration.shortest,
+      transition: transitions.create('transform', {
+        easing: transitions.easing.easeIn,
+        duration: transitions.duration.shortest,
       }),
-      /* checked */
-      '$checked > &': {
-        transform: 'scale(1)',
-        transition: theme.transitions.create('transform', {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.shortest,
-        }),
-      },
-      /* error */
-      '.Mui-error $root > &': {
-        color: theme.palette.red[600],
-      },
-      /* error & hover */
-      '.Mui-error input:hover ~ $root > &, .Mui-error label:hover ~ $root > &': {
-        color: theme.palette.red[400],
-      },
-      /* disabled */
-      'input:disabled ~ $root > &&': {
-        color: theme.palette.neutral[90],
-      },
     },
-    error: {},
-  }),
-  { name: 'MuiPDSRadioIcon' }
-);
+    '&.RadioIcon-checked .RadioIcon-dot': {
+      transform: 'scale(1)',
+      transition: transitions.create('transform', {
+        easing: transitions.easing.easeOut,
+        duration: transitions.duration.shortest,
+      }),
+    },
+  },
+}));
 
 const RadioCircle = createSvgIcon(
-  <path d="M8.5 17a8.5 8.5 0 1 0 0-17 8.5 8.5 0 0 0 0 17Zm0-1a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" />,
+  <path d="M13 2C6.92487 2 2 6.92487 2 13C2 19.0751 6.92487 24 13 24C19.0751 24 24 19.0751 24 13C24 6.92487 19.0751 2 13 2ZM0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z" />,
   'RadioCircle',
-  '0 0 17 17'
+  '0 0 26 26'
 );
 
 const RadioDot = createSvgIcon(
-  <path d="M13.5 8.5a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z" />,
+  <path d="M13 21C17.4183 21 21 17.4183 21 13C21 8.58172 17.4183 5 13 5C8.58172 5 5 8.58172 5 13C5 17.4183 8.58172 21 13 21Z" />,
   'RadioDot',
-  '0 0 17 17'
+  '0 0 26 26'
 );
 
-const RadioIcon = (props: { checked?: boolean }) => {
-  const { checked } = props;
-
-  const classes = useStyles();
-
+export default function RadioIcon({ checked }: { checked?: boolean }) {
   return (
-    <span
-      className={clsx(classes.root, {
-        [classes.checked]: checked,
+    <RadioIconRoot
+      className={clsx('RadioIcon-root', {
+        'RadioIcon-checked': checked,
       })}
     >
-      <RadioCircle className={classes.circle} />
-      <RadioDot className={classes.dot} />
-    </span>
+      <RadioCircle className="RadioIcon-circle" />
+      <RadioDot className="RadioIcon-dot" />
+    </RadioIconRoot>
   );
-};
-
-export default RadioIcon;
+}
