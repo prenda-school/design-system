@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import fontFaces from '../theme/fontFaces';
+import unstable_fontFaces from '../theme/unstable_fontFaces';
 import withStyles from '../withStyles';
 
 /**
@@ -8,19 +8,18 @@ import withStyles from '../withStyles';
  * @example
  *  const MyApp = () => (
  *    <>
- *      <FontFacesBaseline />
+ *      <Unstable_FontFacesBaseline />
  *      // rest of my app
  *    </>
- *  )
  */
-const FontFacesBaseline = withStyles(
+const Unstable_FontFacesBaseline = withStyles(
   {
     '@global': {
       // cast to avoid error when invoked (<FontFacesBaseline />) from bad typing of `@font-face` key.
-      '@font-face': fontFaces as CSS.AtRule.FontFace,
+      '@font-face': unstable_fontFaces as CSS.AtRule.FontFace,
     },
   },
-  { name: 'MuiSparkFontFacesBaseline' }
+  { name: 'MuiSparkUnstable_FontFacesBaseline' }
 )(() => null);
 
-export default FontFacesBaseline;
+export default Unstable_FontFacesBaseline;
