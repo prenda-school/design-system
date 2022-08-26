@@ -1,176 +1,42 @@
-import React, { forwardRef, Ref } from 'react';
-import clsx from 'clsx';
+import React, { ElementType, forwardRef } from 'react';
 import {
   default as MuiSwitch,
+  SwitchClassKey as MuiSwitchClassKey,
   SwitchProps as MuiSwitchProps,
 } from '@material-ui/core/Switch';
-import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
+import { OverridableComponent, OverrideProps } from '../utils';
 
-export interface SwitchProps
-  extends Omit<
-      MuiSwitchProps,
-      | 'checkedIcon'
-      | 'classes'
-      | 'color'
-      | 'centerRipple'
-      | 'disableRipple'
-      | 'disableFocusRipple'
-      | 'disableTouchRipple'
-      | 'edge'
-      | 'focusRipple'
-      | 'icon'
-      | 'size'
-      | 'TouchRippleProps'
-    >,
-    StyledComponentProps<SwitchClassKey> {
-  /**
-   * If `true`, the component should be displayed in an error state.
-   */
-  error?: boolean;
-  /**
-   * The size of the switch.
-   */
-  size?: 'medium' | 'large';
+// Add keys missing from Mui
+export type SwitchClassKey = MuiSwitchClassKey | 'edgeEnd' | 'edgeStart';
+
+export interface SwitchTypeMap<
+  P = Record<string, unknown>,
+  D extends ElementType = 'div'
+> {
+  props: P &
+    Omit<MuiSwitchProps, 'size' | 'color'> & {
+      /**
+       * The size of the switch.
+       */
+      size?: 'large' | 'small';
+    };
+  defaultComponent: D;
+  classKey: SwitchClassKey;
 }
 
-export type SwitchClassKey =
-  | 'root'
-  | 'checked'
-  | 'disabled'
-  | 'error'
-  | 'input'
-  | 'sizeMedium'
-  | 'sizeLarge'
-  | 'switchBase'
-  | 'thumb'
-  | 'track';
+export type SwitchProps<
+  D extends ElementType = SwitchTypeMap['defaultComponent'],
+  P = Record<string, unknown>
+> = OverrideProps<SwitchTypeMap<P, D>, D>;
 
-const useStyles = makeStyles<SwitchClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      padding: 4,
-    },
-    checked: {},
-    disabled: {},
-    error: {},
-    input: {},
-    sizeLarge: {
-      height: 32 + 8,
-      width: 56 + 8,
-    },
-    sizeMedium: {
-      height: 24 + 8,
-      width: 48 + 8,
-    },
-    switchBase: {
-      padding: 7,
-      '&:hover': {
-        backgroundColor: 'unset',
-      },
-      '$sizeMedium &$checked': {
-        transform: 'translateX(24px)',
-      },
-      '$sizeLarge &$checked': {
-        transform: 'translateX(28px)',
-      },
-    },
-    thumb: {
-      backgroundColor: theme.palette.neutral[0],
-      boxShadow: `0px 1px 1px 0px ${theme.palette.neutral[600]}29`,
-      '$disabled &': {
-        backgroundColor: theme.palette.neutral[90],
-        boxShadow: 'none',
-      },
-      '$sizeLarge &': {
-        height: 24,
-        width: 24,
-      },
-      '$sizeMedium &': {
-        height: 18,
-        width: 18,
-      },
-    },
-    track: {
-      backgroundColor: theme.palette.neutral[80],
-      '$sizeLarge &': {
-        borderRadius: 16,
-        height: 32,
-        width: 56,
-      },
-      '$sizeMedium &': {
-        borderRadius: 12,
-        height: 24,
-        width: 48,
-      },
-      // double specificity to override PDS v1
-      '$checked + &&': {
-        backgroundColor: theme.palette.blue[600],
-      },
-      '$disabled + &&': {
-        backgroundColor: theme.palette.neutral[80],
-      },
-      '$switchBase:hover + &&': {
-        backgroundColor: theme.palette.neutral[90],
-      },
-      '$disabled:hover + &&': {
-        backgroundColor: theme.palette.neutral[80],
-      },
-      '$checked:hover + &&': {
-        backgroundColor: theme.palette.blue[400],
-      },
-      '$checked$disabled:hover + &&': {
-        backgroundColor: theme.palette.neutral[80],
-      },
-      /* error */
-      '.Mui-error + &&': {
-        boxShadow: `0 0 0 4px ${theme.palette.red[100]}`,
-      },
-      /* focus-visible */
-      '$switchBase:focus-visible + &&, $switchBase.Mui-focusVisible + &&': {
-        boxShadow: `0 0 2px 4px ${theme.palette.teal[200]}`,
-      },
-      // triple specificity to override PDS v1
-      '&&&': {
-        opacity: 1,
-      },
-    },
-  }),
-  { name: 'MuiPDSSwitch' }
-);
+const Switch: OverridableComponent<SwitchTypeMap> = forwardRef(function Switch(
+  { size: passedSize = 'small', ...other },
+  ref
+) {
+  // Spark spec's large & small, Mui spec's medium and small => map large to medium.
+  const size = passedSize === 'large' ? 'medium' : passedSize;
 
-const Switch = forwardRef<unknown, SwitchProps>(function Switch(props, ref) {
-  const { classes: classesProp, error, size = 'medium', ...other } = props;
-
-  const classes = useStyles();
-
-  return (
-    <MuiSwitch
-      classes={{
-        root: clsx(classes.root, classesProp?.root, {
-          [clsx(classes.sizeMedium, classesProp?.sizeMedium)]:
-            size === 'medium',
-          [clsx(classes.sizeLarge, classesProp?.sizeLarge)]: size === 'large',
-        }),
-        checked: clsx(classes.checked, classesProp?.checked),
-        disabled: clsx(classes.disabled, classesProp?.disabled),
-        input: clsx(classes.input, classesProp?.input),
-        switchBase: clsx(classes.switchBase, classesProp?.switchBase, {
-          [clsx(classes.error, classesProp?.error)]: error,
-        }),
-        thumb: clsx(classes.thumb, classesProp?.thumb),
-        track: clsx(classes.track, classesProp?.track),
-      }}
-      color="default"
-      disableFocusRipple
-      disableRipple
-      disableTouchRipple
-      focusRipple={false}
-      ref={ref as Ref<HTMLButtonElement>}
-      {...other}
-    />
-  );
+  return <MuiSwitch size={size} color="default" ref={ref} {...other} />;
 });
 
 export default Switch;

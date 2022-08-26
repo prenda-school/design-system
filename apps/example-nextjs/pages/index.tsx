@@ -1,11 +1,6 @@
 import styled from '@emotion/styled';
-import {
-  Box,
-  Button as MuiButton,
-  ButtonProps as MuiButtonProps,
-  Typography,
-} from '@material-ui/core';
-import { Button, ButtonProps } from '@prenda/spark';
+import { Box, Button, ButtonProps, Typography } from '@material-ui/core';
+import { Unstable_Button, Unstable_ButtonProps } from '@prenda/spark';
 import { useState } from 'react';
 import {
   DynamicEmotionCssMuiButton,
@@ -39,15 +34,14 @@ const SubtitleContainer = styled.div({
 
 export function Index() {
   const [count, setCount] = useState(0);
-  const [muiVariants, setMuiVariants] = useState<
-    Array<MuiButtonProps['variant']>
-  >(['contained', 'outlined', 'text']);
   const [variants, setVariants] = useState<Array<ButtonProps['variant']>>([
-    'primary',
-    'stroked',
-    'ghost',
-    'destructive',
+    'contained',
+    'outlined',
+    'text',
   ]);
+  const [unstableVariants, setUnstableVariants] = useState<
+    Array<Unstable_ButtonProps['variant']>
+  >(['primary', 'stroked', 'ghost', 'destructive']);
 
   const props = {
     children: count.toString(),
@@ -55,8 +49,8 @@ export function Index() {
   };
 
   const cycleVariants = () => {
-    setMuiVariants((prev) => prev.slice(1).concat(prev.slice(0, 1)));
     setVariants((prev) => prev.slice(1).concat(prev.slice(0, 1)));
+    setUnstableVariants((prev) => prev.slice(1).concat(prev.slice(0, 1)));
   };
 
   return (
@@ -80,116 +74,98 @@ export function Index() {
         @material-ui/core - (control) - (control)
       </Typography>
       <ButtonsContainer>
-        <MuiButton variant={muiVariants[0]} {...props} />
-        <MuiButton variant={muiVariants[1]} {...props} />
-        <MuiButton variant={muiVariants[2]} {...props} />
+        <Button variant={variants[0]} {...props} />
+        <Button variant={variants[1]} {...props} />
+        <Button variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - static - styled
       </Typography>
       <ButtonsContainer>
-        <StaticMuiStyledMuiButton variant={muiVariants[0]} {...props} />
-        <StaticMuiStyledMuiButton variant={muiVariants[1]} {...props} />
-        <StaticMuiStyledMuiButton variant={muiVariants[2]} {...props} />
+        <StaticMuiStyledMuiButton variant={variants[0]} {...props} />
+        <StaticMuiStyledMuiButton variant={variants[1]} {...props} />
+        <StaticMuiStyledMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - static - makeStyles
       </Typography>
       <ButtonsContainer>
-        <StaticMuiMakeStylesMuiButton variant={muiVariants[0]} {...props} />
-        <StaticMuiMakeStylesMuiButton variant={muiVariants[1]} {...props} />
-        <StaticMuiMakeStylesMuiButton variant={muiVariants[2]} {...props} />
+        <StaticMuiMakeStylesMuiButton variant={variants[0]} {...props} />
+        <StaticMuiMakeStylesMuiButton variant={variants[1]} {...props} />
+        <StaticMuiMakeStylesMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/styled - static - styled
       </Typography>
       <ButtonsContainer>
-        <StaticEmotionStyledMuiButton variant={muiVariants[0]} {...props} />
-        <StaticEmotionStyledMuiButton variant={muiVariants[1]} {...props} />
-        <StaticEmotionStyledMuiButton variant={muiVariants[2]} {...props} />
+        <StaticEmotionStyledMuiButton variant={variants[0]} {...props} />
+        <StaticEmotionStyledMuiButton variant={variants[1]} {...props} />
+        <StaticEmotionStyledMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/css - static - css
       </Typography>
       <ButtonsContainer>
-        <StaticEmotionCssMuiButton variant={muiVariants[0]} {...props} />
-        <StaticEmotionCssMuiButton variant={muiVariants[1]} {...props} />
-        <StaticEmotionCssMuiButton variant={muiVariants[2]} {...props} />
+        <StaticEmotionCssMuiButton variant={variants[0]} {...props} />
+        <StaticEmotionCssMuiButton variant={variants[1]} {...props} />
+        <StaticEmotionCssMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         tss-react - static - makeStyles
       </Typography>
       <ButtonsContainer>
-        <StaticTssReactMakeStylesMuiButton
-          variant={muiVariants[0]}
-          {...props}
-        />
-        <StaticTssReactMakeStylesMuiButton
-          variant={muiVariants[1]}
-          {...props}
-        />
-        <StaticTssReactMakeStylesMuiButton
-          variant={muiVariants[2]}
-          {...props}
-        />
+        <StaticTssReactMakeStylesMuiButton variant={variants[0]} {...props} />
+        <StaticTssReactMakeStylesMuiButton variant={variants[1]} {...props} />
+        <StaticTssReactMakeStylesMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - dynamic - styled
       </Typography>
       <ButtonsContainer>
-        <DynamicMuiStyledMuiButton variant={muiVariants[0]} {...props} />
-        <DynamicMuiStyledMuiButton variant={muiVariants[1]} {...props} />
-        <DynamicMuiStyledMuiButton variant={muiVariants[2]} {...props} />
+        <DynamicMuiStyledMuiButton variant={variants[0]} {...props} />
+        <DynamicMuiStyledMuiButton variant={variants[1]} {...props} />
+        <DynamicMuiStyledMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @material-ui/core - dynamic - makeStyles
       </Typography>
       <ButtonsContainer>
-        <DynamicMuiMakeStylesMuiButton variant={muiVariants[0]} {...props} />
-        <DynamicMuiMakeStylesMuiButton variant={muiVariants[1]} {...props} />
-        <DynamicMuiMakeStylesMuiButton variant={muiVariants[2]} {...props} />
+        <DynamicMuiMakeStylesMuiButton variant={variants[0]} {...props} />
+        <DynamicMuiMakeStylesMuiButton variant={variants[1]} {...props} />
+        <DynamicMuiMakeStylesMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/styled - dynamic - styled
       </Typography>
       <ButtonsContainer>
-        <DynamicEmotionStyledMuiButton variant={muiVariants[0]} {...props} />
-        <DynamicEmotionStyledMuiButton variant={muiVariants[1]} {...props} />
-        <DynamicEmotionStyledMuiButton variant={muiVariants[2]} {...props} />
+        <DynamicEmotionStyledMuiButton variant={variants[0]} {...props} />
+        <DynamicEmotionStyledMuiButton variant={variants[1]} {...props} />
+        <DynamicEmotionStyledMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @emotion/css - dynamic - css
       </Typography>
       <ButtonsContainer>
-        <DynamicEmotionCssMuiButton variant={muiVariants[0]} {...props} />
-        <DynamicEmotionCssMuiButton variant={muiVariants[1]} {...props} />
-        <DynamicEmotionCssMuiButton variant={muiVariants[2]} {...props} />
+        <DynamicEmotionCssMuiButton variant={variants[0]} {...props} />
+        <DynamicEmotionCssMuiButton variant={variants[1]} {...props} />
+        <DynamicEmotionCssMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         tss-react - dynamic - makeStyles
       </Typography>
       <ButtonsContainer>
-        <DynamicTssReactMakeStylesMuiButton
-          variant={muiVariants[0]}
-          {...props}
-        />
-        <DynamicTssReactMakeStylesMuiButton
-          variant={muiVariants[1]}
-          {...props}
-        />
-        <DynamicTssReactMakeStylesMuiButton
-          variant={muiVariants[2]}
-          {...props}
-        />
+        <DynamicTssReactMakeStylesMuiButton variant={variants[0]} {...props} />
+        <DynamicTssReactMakeStylesMuiButton variant={variants[1]} {...props} />
+        <DynamicTssReactMakeStylesMuiButton variant={variants[2]} {...props} />
       </ButtonsContainer>
       <Typography color="inherit" gutterBottom>
         @prenda/spark - dynamic - makeStyles
       </Typography>
       <ButtonsContainer>
-        <Button variant={variants[0]} {...props} />
-        <Button variant={variants[1]} {...props} />
-        <Button variant={variants[2]} {...props} />
-        <Button variant={variants[3]} {...props} />
+        <Unstable_Button variant={unstableVariants[0]} {...props} />
+        <Unstable_Button variant={unstableVariants[1]} {...props} />
+        <Unstable_Button variant={unstableVariants[2]} {...props} />
+        <Unstable_Button variant={unstableVariants[3]} {...props} />
       </ButtonsContainer>
     </Container>
   );

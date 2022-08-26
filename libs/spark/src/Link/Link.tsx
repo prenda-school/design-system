@@ -5,7 +5,7 @@ import {
   LinkProps as MuiLinkProps,
 } from '@material-ui/core/Link';
 import makeStyles from '../makeStyles';
-import { OverridableComponent, OverrideProps } from '../utils';
+import { OverridableComponent, OverrideProps, useMergeClasses } from '../utils';
 
 export interface LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -13,19 +13,11 @@ export interface LinkTypeMap<
   D extends ElementType = 'a'
 > {
   props: P &
-    Omit<MuiLinkProps, 'color' | 'classes' | 'underline'> & {
+    Omit<MuiLinkProps, 'classes' | 'underline'> & {
       /**
        * Whether the link is displayed alone (not inline with other text). Removes "underline" text-decoration of the link.
        */
       standalone?: boolean;
-      /**
-       * The color of the link.
-       */
-      color?: 'standard' | 'inherit';
-      /**
-       * The variant of the link.
-       */
-      variant?: 'standard' | 'alias';
     };
   defaultComponent: D;
   classKey: LinkClassKey;
@@ -37,66 +29,67 @@ export type LinkProps<
   P = {}
 > = OverrideProps<LinkTypeMap<P, D>, D>;
 
-export type LinkClassKey = 'root';
+export type LinkClassKey = 'root' | 'standalone' | 'focusVisible';
 
 const useStyles = makeStyles<LinkClassKey>(
-  (theme) => ({
+  ({ palette }) => ({
     /* Styles applied to the root element. */
-    root: (props: LinkProps) => ({
+    root: {
       textDecoration: 'underline',
-      '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0 0 2px 4px ${theme.palette.teal[200]}`,
+      color: palette.blue[3],
+      '&:hover': {
+        color: palette.blue[2],
       },
-      /* standalone */
-      ...(props.standalone && {
-        textDecoration: 'none',
-      }),
-      /* color */
-      ...(props.color === 'standard' && {
-        color: theme.palette.blue['600'],
-        '&:hover': {
-          color: theme.palette.blue['500'],
-        },
-        '&:visited': {
-          color: theme.palette.purple[600],
-          '&:hover': {
-            color: theme.palette.purple[400],
-          },
-        },
-      }),
-      ...(props.color === 'inherit' && { color: 'inherit' }),
-      /* variant */
-      ...(props.variant === 'standard' && {
-        ...theme.typography.body,
-      }),
       // reset browser default
       '&:focus': {
         outline: 'none',
       },
-    }),
+      '&$focusVisible, &:focus-visible': {
+        color: palette.blue[2],
+        boxShadow: `0 0 0 4px ${palette.blue[1]}`,
+      },
+      '&:visited': {
+        color: palette.purple[3],
+        '&:hover': {
+          color: palette.purple[2],
+        },
+      },
+    },
+    /* Styles applied to the root element if `standalone={true}`. */
+    standalone: {
+      textDecoration: 'none',
+    },
+    /* Pseudo-class applied to the root element if the link is keyboard focused. */
+    focusVisible: {},
   }),
-  { name: 'MuiPDSLink' }
+  { name: 'MuiSparkLink' }
 );
 
 const Link: OverridableComponent<LinkTypeMap> = forwardRef(function Link(
-  props,
-  ref
-) {
-  const {
+  {
     classes: classesProp,
-    color = 'standard',
-    variant = 'standard',
+    // reset MuiLink default prop to match our Typography default
+    color = 'inherit',
     standalone,
     ...other
-  } = props;
+  },
+  ref
+) {
+  const baseClasses = useStyles();
 
-  const classes = useStyles({ color, variant, standalone });
+  // Should use classes capture, but this extra work is menial.
+  const { standalone: standaloneClass, ...otherClasses } = useMergeClasses({
+    baseClasses,
+    classesProp,
+  });
 
   return (
     <MuiLink
       classes={{
-        root: clsx(classes.root, classesProp?.root),
+        ...otherClasses,
+        root: clsx(otherClasses.root, { [standaloneClass]: standalone }),
       }}
+      color={color}
       underline="none"
       ref={ref}
       {...other}

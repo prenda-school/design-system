@@ -2,34 +2,39 @@ import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import {
   default as MuiAvatar,
+  AvatarClassKey as MuiAvatarClassKey,
   AvatarProps as MuiAvatarProps,
 } from '@material-ui/core/Avatar';
 import makeStyles from '../makeStyles';
-import { OverridableComponent, OverrideProps } from '../utils';
-import { buildVariant } from '../theme/typography';
+import {
+  OverridableComponent,
+  OverrideProps,
+  capitalize,
+  useClassesCapture,
+} from '../utils';
+
+export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
+
+type CustomClassKey =
+  // from underlying
+  | 'root'
+  | 'colorDefault'
+  // custom
+  | 'sizeLarge'
+  | 'sizeMedium'
+  | 'sizeSmall'
+  | 'sizeXsmall';
 
 export interface AvatarTypeMap<
   P = Record<string, unknown>,
   D extends ElementType = 'div'
 > {
   props: P &
-    Omit<MuiAvatarProps, 'classes' | 'variant'> & {
+    Omit<MuiAvatarProps, 'variant' | 'classes'> & {
       /**
-       * The color of the component.
+       * The size of the avatar.
        */
-      color?:
-        | 'neutral'
-        | 'orange'
-        | 'yellow'
-        | 'green'
-        | 'blue'
-        | 'purple'
-        | 'teal'
-        | 'magenta';
-      /**
-       * The size of the component.
-       */
-      size?: 'large' | 'medium' | 'small';
+      size?: 'large' | 'medium' | 'small' | 'xsmall';
     };
   defaultComponent: D;
   classKey: AvatarClassKey;
@@ -40,134 +45,83 @@ export type AvatarProps<
   P = Record<string, unknown>
 > = OverrideProps<AvatarTypeMap<P, D>, D>;
 
-export type AvatarClassKey = 'root' | 'img' | 'fallback';
-
-// extracted since there's not an equivalent typography variant
-const avatarFontVariantLarge = buildVariant(
-  500,
-  28,
-  36,
-  -0.01,
-  'none',
-  '"Poppins", sans-serif'
-);
-const avatarFontVariantMedium = buildVariant(
-  500,
-  20,
-  20,
-  -0.01,
-  'none',
-  '"Poppins", sans-serif'
-);
-const avatarFontVariantSmall = buildVariant(
-  500,
-  14,
-  24,
-  -0.01,
-  'none',
-  '"Poppins", sans-serif'
-);
-
-const useStyles = makeStyles<AvatarClassKey>(
-  (theme) => ({
-    root: (props: AvatarProps) => ({
-      backgroundColor: theme.palette.neutral[70],
-      color: theme.palette.text.heading,
-      /* size */
-      // must set height/width instead of padding because different children (text, icon) require different padding but there's no way to tell which is passed here
-      // set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
-      ...(props.size === 'large' && {
-        borderRadius: 8,
-        minHeight: 64,
-        minWidth: 64,
-        height: theme.typography.pxToRem(32),
-        width: theme.typography.pxToRem(32),
-        ...avatarFontVariantLarge,
-      }),
-      ...(props.size === 'medium' && {
-        borderRadius: 6,
-        minHeight: 40,
-        minWidth: 40,
-        height: theme.typography.pxToRem(24),
-        width: theme.typography.pxToRem(24),
-        ...avatarFontVariantMedium,
-      }),
-      ...(props.size === 'small' && {
-        borderRadius: 4,
-        minHeight: 24,
-        minWidth: 24,
-        height: theme.typography.pxToRem(16),
-        width: theme.typography.pxToRem(16),
-        ...avatarFontVariantSmall,
-      }),
-      /* color */
-      ...(props.color === 'neutral' && {
-        backgroundColor: theme.palette.neutral[70],
-      }),
-      ...(props.color === 'orange' && {
-        backgroundColor: theme.palette.red[200],
-      }),
-      ...(props.color === 'yellow' && {
-        backgroundColor: theme.palette.yellow[200],
-      }),
-      ...(props.color === 'green' && {
-        backgroundColor: theme.palette.green[200],
-      }),
-      ...(props.color === 'blue' && {
-        backgroundColor: theme.palette.blue[200],
-      }),
-      ...(props.color === 'purple' && {
-        backgroundColor: theme.palette.purple[200],
-      }),
-      ...(props.color === 'teal' && {
-        backgroundColor: theme.palette.teal[200],
-      }),
-      ...(props.color === 'magenta' && {
-        backgroundColor: theme.palette.magenta[300],
-      }),
-      /* icon children */
+const useCustomStyles = makeStyles<CustomClassKey>(
+  ({ palette, typography }) => ({
+    root: {
+      border: `2px solid ${palette.grey.medium}`,
+    },
+    colorDefault: {
+      backgroundColor: palette.common.white,
+      color: palette.text.dark,
       '& [class*=MuiSvgIcon-root]': {
-        color: theme.palette.text.icon,
-        /* size */
-        ...(props.size === 'large' && {
-          fontSize: theme.typography.pxToRem(32),
-        }),
-        ...(props.size === 'medium' && {
-          fontSize: theme.typography.pxToRem(24),
-        }),
-        ...(props.size === 'small' && {
-          fontSize: theme.typography.pxToRem(16),
-        }),
+        color: palette.text.darkLowContrast,
       },
-    }),
-    img: {},
-    fallback: {},
+    },
+    sizeLarge: {
+      ...typography['heading-lg'],
+      width: 80,
+      height: 80,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: typography.pxToRem(40),
+      },
+    },
+    sizeMedium: {
+      ...typography['heading-md'],
+      width: 56,
+      height: 56,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: typography.pxToRem(28),
+      },
+    },
+    sizeSmall: {
+      ...typography['label-md'],
+      fontWeight: 700,
+      width: 32,
+      height: 32,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: typography.pxToRem(16),
+      },
+    },
+    sizeXsmall: {
+      width: 24,
+      height: 24,
+      fontSize: typography.pxToRem(8),
+      lineHeight: 1.5,
+      fontWeight: 700,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: typography.pxToRem(12),
+      },
+    },
   }),
-  { name: 'MuiPDSAvatar' }
+  { name: 'MuiSparkAvatar' }
 );
 
 const Avatar: OverridableComponent<AvatarTypeMap> = forwardRef(function Avatar(
-  props,
+  { classes, size = 'medium', ...other },
   ref
 ) {
-  const {
-    classes: classesProp,
-    color = 'neutral',
-    size = 'large',
-    ...other
-  } = props;
+  const baseCustomClasses = useCustomStyles();
 
-  const classes = useStyles({ color, size });
+  const { otherClasses, customClasses } = useClassesCapture<
+    AvatarClassKey,
+    CustomClassKey
+  >({
+    classes,
+    baseCustomClasses,
+  });
 
   return (
     <MuiAvatar
       classes={{
-        root: clsx(classes.root, classesProp?.root),
-        img: clsx(classes.img, classesProp?.img),
-        fallback: clsx(classes.fallback, classesProp?.fallback),
+        ...otherClasses,
+        root: clsx(
+          customClasses.root,
+          customClasses[`size${capitalize(size)}`]
+        ),
+        colorDefault: customClasses.colorDefault,
       }}
-      ref={ref}
       {...other}
+      ref={ref}
     />
   );
 });

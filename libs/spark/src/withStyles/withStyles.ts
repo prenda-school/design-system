@@ -1,3 +1,4 @@
+import { PropInjector } from '@material-ui/types';
 import {
   default as muiWithStyles,
   StyledComponentProps,
@@ -5,8 +6,8 @@ import {
   WithStyles,
   WithStylesOptions,
 } from '@material-ui/core/styles/withStyles';
-import { PropInjector } from '@material-ui/types';
-import theme, { Theme } from '../theme';
+import type { Theme } from '../theme';
+import initialTheme from '../theme/initialTheme';
 
 export * from '@material-ui/core/styles/withStyles';
 
@@ -24,7 +25,7 @@ export default function withStyles<
   StyledComponentProps<ClassKey> & Props
 > {
   return muiWithStyles(styles, {
-    defaultTheme: theme,
+    defaultTheme: initialTheme,
     ...options,
   });
 }
