@@ -1,8 +1,12 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v1.0.0...vNext) (yyyy-mm-dd)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...vNext) (YYYY-MM-DD)
 
 No changes.
+
+## [v2.0.0-alpha.1](https://github.com/prenda-school/prenda-spark/compare/v1.0.0...v2.0.0-alpha.1) (2022-08-29)
+
+Restore all unstable exports (components, properties, utilities). Identical to v1.0.0-alpha.14.
 
 ## [v1.0.0](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.14...v1.0.0) (2022-08-24)
 
@@ -10,9 +14,9 @@ No changes.
 
 _This section details previews of breaking changes or experimental features that are subject to breaking changes at any time._
 
-Removed all unstable components, properties, and utilities in preparation of v1 stable release.
+Removed all unstable exports (components, properties, utilities) in preparation of v1 stable release.
 
-Migration: install, alias, and migrate to upcoming v2 alphas.
+Migration: Skip this version if you depend on both stable and unstable exports. Migrate to v2.0.0-alpha.1 instead.
 
 ## [v1.0.0-alpha.14](https://github.com/prenda-school/prenda-spark/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2022-08-23)
 
