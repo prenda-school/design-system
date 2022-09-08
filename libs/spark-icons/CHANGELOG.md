@@ -1,6 +1,10 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...vNext) (YYYY-MM-DD)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...vNext) (YYYY-MM-DD)
+
+No changes.
+
+## [v2.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-09-08)
 
 No changes.
 
