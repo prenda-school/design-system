@@ -1,8 +1,6 @@
 import { CSSProperties, Ref } from 'react';
 import { StyledComponentProps } from '../withStyles';
 
-export { StyledComponentProps };
-
 /**
  * All standard components exposed by `material-ui` are `StyledComponents` with
  * certain `classes`, on which one can also set a top-level `className` and inline

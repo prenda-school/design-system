@@ -5,8 +5,8 @@ import {
   FormControlLabelProps as MuiFormControlLabelProps,
 } from '@material-ui/core/FormControlLabel';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_FormControlLabelProps
   extends Omit<MuiFormControlLabelProps, 'classes'>,

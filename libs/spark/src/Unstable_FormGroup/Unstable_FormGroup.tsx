@@ -4,7 +4,7 @@ import MuiFormGroup, {
 } from '@material-ui/core/FormGroup';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_FormGroupProps
   extends Omit<MuiFormGroupProps, 'classes'>,

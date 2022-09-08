@@ -5,7 +5,7 @@ import {
   SwitchProps as MuiSwitchProps,
 } from '@material-ui/core/Switch';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_SwitchProps
   extends Omit<
