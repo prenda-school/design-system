@@ -5,8 +5,8 @@ import {
   CheckboxProps as MuiCheckboxProps,
 } from '@material-ui/core/Checkbox';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
 import Unstable_CheckboxIcon from './Unstable_CheckboxIcon';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_CheckboxProps
   extends Omit<

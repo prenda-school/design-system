@@ -4,9 +4,9 @@ import MuiRadioGroup, {
 } from '@material-ui/core/RadioGroup';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
 import RadioGroupMoreContext from './RadioGroupMoreContext';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_RadioGroupProps
   extends Omit<MuiRadioGroupProps, 'classes'>,

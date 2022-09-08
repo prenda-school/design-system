@@ -5,9 +5,9 @@ import {
   RadioProps as MuiRadioProps,
 } from '@material-ui/core/Radio';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
 import Unstable_RadioIcon from './Unstable_RadioIcon';
 import { useRadioGroupMore } from '../Unstable_RadioGroup';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_RadioProps
   extends Omit<

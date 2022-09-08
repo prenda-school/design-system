@@ -5,8 +5,8 @@ import {
   InputBaseProps as MuiInputBaseProps,
 } from '@material-ui/core/InputBase';
 import makeStyles from '../makeStyles';
-import { StyledComponentProps } from '../utils';
 import Unstable_InputAdornment from '../Unstable_InputAdornment';
+import { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_InputProps
   extends Omit<

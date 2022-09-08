@@ -9,7 +9,19 @@ import {
 import type { Theme } from '../theme';
 import initialTheme from '../theme/initialTheme';
 
-export * from '@material-ui/core/styles/withStyles';
+// enumerate all exports since `tsc` incorrectly identifies the re-exports in '@material-ui/core/styles/withStyles' as JS objects and not TS types.
+export type {
+  CreateCSSProperties,
+  CSSProperties,
+  ClassNameMap,
+  StyledComponentProps,
+  Styles,
+  WithStylesOptions,
+  StyleRulesCallback,
+  BaseCSSProperties,
+  StyleRules,
+  WithStyles,
+} from '@material-ui/core/styles/withStyles';
 
 export default function withStyles<
   ClassKey extends string,
