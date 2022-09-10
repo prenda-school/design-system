@@ -1,27 +1,45 @@
 import { PropInjector } from '@material-ui/types';
 import {
   default as muiWithStyles,
+  BaseCSSProperties,
+  ClassNameMap,
+  CreateCSSProperties,
+  CSSProperties,
   StyledComponentProps,
-  Styles,
+  Styles as MuiStyles,
+  StyleRules,
+  StyleRulesCallback,
   WithStyles,
   WithStylesOptions,
 } from '@material-ui/core/styles/withStyles';
-import type { Theme } from '../theme';
+import type { DefaultTheme, Theme } from '../theme';
 import initialTheme from '../theme/initialTheme';
+
+type Styles<
+  ClassKey extends string = string,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  Props extends object = {},
+  Theme = DefaultTheme
+> = MuiStyles<
+  Theme,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  Props,
+  ClassKey
+>;
 
 // enumerate all exports since `tsc` incorrectly identifies the re-exports in '@material-ui/core/styles/withStyles' as JS objects and not TS types.
 export type {
+  BaseCSSProperties,
+  ClassNameMap,
   CreateCSSProperties,
   CSSProperties,
-  ClassNameMap,
   StyledComponentProps,
   Styles,
-  WithStylesOptions,
-  StyleRulesCallback,
-  BaseCSSProperties,
   StyleRules,
+  StyleRulesCallback,
   WithStyles,
-} from '@material-ui/core/styles/withStyles';
+  WithStylesOptions,
+};
 
 export default function withStyles<
   ClassKey extends string,
@@ -30,7 +48,7 @@ export default function withStyles<
   // eslint-disable-next-line @typescript-eslint/ban-types
   Props extends object = {}
 >(
-  styles: Styles<Theme, Props, ClassKey>,
+  styles: Styles<ClassKey, Props>,
   options?: Options
 ): PropInjector<
   WithStyles<ClassKey, Options['withTheme']>,
