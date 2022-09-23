@@ -2,7 +2,18 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...vNext) (YYYY-MM-DD)
 
-No changes.
+### Features
+
+- **Unstable_ModalDialog**
+  - Initial implementation.
+- **Unstable_ModalDialogActions**
+  - Initial implementation.
+- **Unstable_ModalDialogContent**
+  - Initial implementation.
+- **Unstable_ModalDialogContentText**
+  - Initial implementation.
+- **Unstable_ModalDialogTitle**
+  - Initial implementation.
 
 ## [v2.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-09-08)
 

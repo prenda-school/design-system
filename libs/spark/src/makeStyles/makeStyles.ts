@@ -9,7 +9,7 @@ export default function makeStyles<
   Props extends object = {},
   Theme = DefaultTheme
 >(
-  styles: Styles<Theme, Props, ClassKey>,
+  styles: Styles<ClassKey, Props, Theme>,
   options?: Omit<WithStylesOptions<Theme>, 'withTheme'>
 ): keyof Props extends never
   ? // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -296,6 +296,21 @@ export * from './Unstable_MenuItem';
 export { default as Unstable_MenuList } from './Unstable_MenuList';
 export * from './Unstable_MenuList';
 
+export { default as Unstable_ModalDialog } from './Unstable_ModalDialog';
+export * from './Unstable_ModalDialog';
+
+export { default as Unstable_ModalDialogActions } from './Unstable_ModalDialogActions';
+export * from './Unstable_ModalDialogActions';
+
+export { default as Unstable_ModalDialogContent } from './Unstable_ModalDialogContent';
+export * from './Unstable_ModalDialogContent';
+
+export { default as Unstable_ModalDialogContentText } from './Unstable_ModalDialogContentText';
+export * from './Unstable_ModalDialogContentText';
+
+export { default as Unstable_ModalDialogTitle } from './Unstable_ModalDialogTitle';
+export * from './Unstable_ModalDialogTitle';
+
 export { default as Unstable_Paper } from './Unstable_Paper';
 export * from './Unstable_Paper';
 
