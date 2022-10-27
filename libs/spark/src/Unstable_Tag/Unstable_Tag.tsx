@@ -110,7 +110,7 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
         backgroundColor = theme.unstable_palette.red[700];
         color = theme.unstable_palette.text.inverseHeading;
       } else if (props.color === 'red' && props.variant === 'subtle') {
-        backgroundColor = theme.unstable_palette.red[100];
+        backgroundColor = theme.unstable_palette.red[200];
       } else if (props.color === 'yellow' && props.variant === 'bold') {
         backgroundColor = theme.unstable_palette.yellow[500];
       } else if (props.color === 'yellow' && props.variant === 'subtle') {
@@ -119,22 +119,22 @@ const useStyles = makeStyles<Unstable_TagClassKey>(
         backgroundColor = theme.unstable_palette.teal[600];
         color = theme.unstable_palette.text.inverseHeading;
       } else if (props.color === 'teal' && props.variant === 'subtle') {
-        backgroundColor = theme.unstable_palette.teal[100];
+        backgroundColor = theme.unstable_palette.teal[200];
       } else if (props.color === 'green' && props.variant === 'bold') {
         backgroundColor = theme.unstable_palette.green[600];
         color = theme.unstable_palette.text.inverseHeading;
       } else if (props.color === 'green' && props.variant === 'subtle') {
-        backgroundColor = theme.unstable_palette.green[100];
+        backgroundColor = theme.unstable_palette.green[200];
       } else if (props.color === 'blue' && props.variant === 'bold') {
         backgroundColor = theme.unstable_palette.blue[600];
         color = theme.unstable_palette.text.inverseHeading;
       } else if (props.color === 'blue' && props.variant === 'subtle') {
-        backgroundColor = theme.unstable_palette.blue[100];
+        backgroundColor = theme.unstable_palette.blue[200];
       } else if (props.color === 'purple' && props.variant === 'bold') {
         backgroundColor = theme.unstable_palette.purple[600];
         color = theme.unstable_palette.text.inverseHeading;
       } else if (props.color === 'purple' && props.variant === 'subtle') {
-        backgroundColor = theme.unstable_palette.purple[100];
+        backgroundColor = theme.unstable_palette.purple[200];
       }
 
       return {
