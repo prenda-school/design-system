@@ -56,7 +56,7 @@ const Unstable_ModalDialog = forwardRef<
       classes={muiClasses}
       onClose={onClose}
       PaperComponent={Unstable_Paper}
-      PaperProps={{ elevation: 3 }}
+      PaperProps={{ elevation: 300 }}
       ref={ref}
       {...other}
     >

@@ -7,6 +7,9 @@
 - **theme**
   - Add "elevations" of 0, 100, 200, 300, 400, 500 (`theme.unstable_elevations[...]`).
   - Add "overlay" to background palette (`theme.unstable_palette.background.overlay`).
+- **Unstable_Menu**
+  - Props API Changes:
+    - `PaperProps`: see **Unstable_Paper**.
 - **Unstable_ModalDialog**
   - Initial implementation.
 - **Unstable_ModalDialogActions**
@@ -17,6 +20,30 @@
   - Initial implementation.
 - **Unstable_ModalDialogTitle**
   - Initial implementation.
+- **Unstable_Paper**
+  - Changed elevations to match new theme elevations.
+  - Props API Changes:
+    - `elevation`: added values 100, 200, 300, 400, 500.
+- **Unstable_Select**
+  - Props API Changes:
+    - `MenuProps`: see **Unstable_Menu**.
+- **Unstable_TextField**
+  - Props API Changes:
+    - `SelectProps`: see **Unstable_Select**.
+
+### Breaking changes
+
+- **Unstable_Paper**
+  - Props API:
+    - `elevation`: removed values 1..24.
+  - Migration:
+    - Props API:
+      - `elevation={1}` -> `elevation={100}`
+      - `elevation={2}` -> `elevation={200}`
+      - `elevation={3}` -> `elevation={300}`
+      - `elevation={4}` -> `elevation={400}`
+      - `elevation={5}` -> `elevation={500}`
+      - `elevation={6..24}` -> `elevation={500}`
 
 ## [v2.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-09-08)
 
