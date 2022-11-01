@@ -1,12 +1,14 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_Paper } from '..';
+import { containElevation } from '../../stories';
 
 export const _retyped = Unstable_Paper as typeof Unstable_Paper;
 
 export default {
   title: '@ps/Paper',
   component: _retyped,
+  decorators: [containElevation],
   excludeStories: ['_retyped'],
   args: {
     style: { height: 120, width: 120 },

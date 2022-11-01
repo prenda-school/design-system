@@ -112,3 +112,23 @@ export const mediumWidth: DecoratorFn = (Story) => (
     <Story />
   </MediumWidthDiv>
 );
+
+const ContainElevationDiv = styled('div')({
+  // width of highest elevation
+  padding: 28,
+  // without setting it to fit, the story snapshot will expand to 100%
+  width: 'fit-content',
+  // prevent larger-than-necessary height because of added browser-default space for ascender/descenders.
+  display: 'flex',
+  // prevent overflowing past viewport
+  maxWidth: '100%',
+});
+
+/**
+ * [Internal] A Storybook decorator that applies padding so that any elevation is captured in Chromatic snapshots.
+ */
+export const containElevation: DecoratorFn = (Story) => (
+  <ContainElevationDiv>
+    <Story />
+  </ContainElevationDiv>
+);
