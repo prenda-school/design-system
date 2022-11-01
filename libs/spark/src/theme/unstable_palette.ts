@@ -130,6 +130,7 @@ const aliasTokens: Pick<Unstable_Palette, 'background' | 'text' | 'action'> = {
     alternative: globalTokens.neutral[60],
     brand: globalTokens.brand.blue,
     inverse: globalTokens.neutral[600],
+    overlay: `${globalTokens.neutral[600]}cc`,
   },
   text: {
     heading: globalTokens.neutral[600],
@@ -213,6 +214,7 @@ export interface PaletteBackground {
   alternative: string;
   brand: string;
   inverse: string;
+  overlay: string;
 }
 
 export interface PaletteText {

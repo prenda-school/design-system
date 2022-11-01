@@ -222,6 +222,7 @@ export const Primary: Story = () => (
         { name: 'Alternative', field: 'background.alternative' },
         { name: 'Brand', field: 'background.brand' },
         { name: 'Inverse', field: 'background.inverse' },
+        { name: 'Overlay', field: 'background.overlay' },
       ]}
     />
     <SmallSpacer />
