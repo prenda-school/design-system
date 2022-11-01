@@ -4,6 +4,8 @@
 
 ### Features
 
+- **theme**
+  - Add "overlay" to background palette.
 - **Unstable_ModalDialog**
   - Initial implementation.
 - **Unstable_ModalDialogActions**
