@@ -183,6 +183,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       SelectDisplayProps,
       ...other
     } = props;
+    const { PaperProps: { elevation = 400, ...PaperProps } = {} } = MenuProps;
 
     const classes = useStyles({
       preventMultipleOverflow,
@@ -242,14 +243,13 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               MenuProps: {
                 ...MenuProps,
                 PaperProps: {
+                  ...PaperProps,
                   className: clsx(
                     classes.menuPaper,
-                    MenuProps.PaperProps?.className
+                    PaperProps.className,
+                    paperClasses[`elevation${elevation}`]
                   ),
-                  classes: {
-                    ...paperClasses,
-                    ...MenuProps.PaperProps?.classes,
-                  },
+                  elevation: 0,
                 },
               },
               onClose,

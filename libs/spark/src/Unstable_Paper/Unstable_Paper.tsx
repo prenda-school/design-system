@@ -6,36 +6,43 @@ import MuiPaper, {
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
 import { StandardProps } from '../utils';
+import type { Elevation } from '../theme/unstable_elevations';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_PaperProps
-  extends StandardProps<MuiPaperProps, Unstable_PaperClassKey> {}
+  extends StandardProps<
+    Omit<MuiPaperProps, 'elevation'>,
+    Unstable_PaperClassKey
+  > {
+  /**
+   * Shadow depth.
+   */
+  elevation?: Elevation;
+}
 
 export type Unstable_PaperClassKey = MuiPaperClassKey;
 
 const useStyles = makeStyles(
-  (theme) => {
-    const shadows = [
-      'none',
-      `0px 1px 1px 0px ${theme.unstable_palette.neutral[600]}29`,
-      `0px 3px 5px 0px ${theme.unstable_palette.neutral[600]}29`,
-      `0px 8px 12px 0px ${theme.unstable_palette.neutral[600]}29`,
-      `0px 10px 18px 0px ${theme.unstable_palette.neutral[600]}29`,
-      `0px 18px 28px 0px ${theme.unstable_palette.neutral[600]}29`,
-    ];
-    for (let i = 6; i < 25; i++) {
-      shadows.push(shadows[5]);
-    }
-
-    const elevations = {};
-    shadows.forEach((shadow, index) => {
-      elevations[`elevation${index}`] = {
-        boxShadow: shadow,
-      };
-    });
-
-    return { ...elevations };
-  },
+  (theme) => ({
+    elevation0: {
+      boxShadow: theme.unstable_elevations[0],
+    },
+    elevation100: {
+      boxShadow: theme.unstable_elevations[100],
+    },
+    elevation200: {
+      boxShadow: theme.unstable_elevations[200],
+    },
+    elevation300: {
+      boxShadow: theme.unstable_elevations[300],
+    },
+    elevation400: {
+      boxShadow: theme.unstable_elevations[400],
+    },
+    elevation500: {
+      boxShadow: theme.unstable_elevations[500],
+    },
+  }),
   { name: 'MuiSparkUnstable_Paper' }
 );
 export const useUnstable_PaperStyles = useStyles;
@@ -43,8 +50,9 @@ export const useUnstable_PaperStyles = useStyles;
 const Unstable_Paper = forwardRef<unknown, Unstable_PaperProps>(
   function Unstable_Paper(props, ref) {
     const {
+      className,
       classes: classesProp,
-      elevation = 1,
+      elevation = 100,
       variant = 'elevation',
       ...other
     } = props;
@@ -53,15 +61,14 @@ const Unstable_Paper = forwardRef<unknown, Unstable_PaperProps>(
 
     return (
       <MuiPaper
-        classes={{
-          [`elevation${elevation}`]:
-            variant === 'elevation' &&
-            clsx(
-              classes[`elevation${elevation}`],
-              classesProp?.[`elevation${elevation}`]
-            ),
-        }}
-        elevation={elevation}
+        className={clsx(className, {
+          [clsx(
+            classes[`elevation${elevation}`],
+            classesProp?.[`elevation${elevation}`]
+          )]: variant === 'elevation',
+        })}
+        classes={classesProp}
+        elevation={0}
         ref={ref as Ref<HTMLUListElement>}
         variant={variant}
         {...other}
