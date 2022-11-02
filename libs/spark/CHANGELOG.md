@@ -27,6 +27,16 @@
 - **Unstable_Select**
   - Props API Changes:
     - `MenuProps`: see **Unstable_Menu**.
+- **Unstable_SvgIcon**
+  - CSS API Changes:
+    - `colorNormal`: added.
+    - `colorSecondary`: added.
+    - `colorInverse`: added.
+    - `colorInverseSecondary`: added.
+    - `fontSizeSmall`: added.
+    - `fontSizeMedium`: added.
+    - `fontSizeLarge`: added.
+    - `fontSizeXLarge`: added.
 - **Unstable_TextField**
   - Props API Changes:
     - `SelectProps`: see **Unstable_Select**.

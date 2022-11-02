@@ -4,8 +4,8 @@ import {
   default as MuiSvgIcon,
   SvgIconProps as MuiSvgIconProps,
 } from '@material-ui/core/SvgIcon';
-import makeStyles from '../makeStyles';
-import { OverridableComponent, OverrideProps } from '../utils';
+import { capitalize, OverridableComponent, OverrideProps } from '../utils';
+import withStyles from '../withStyles';
 
 export interface Unstable_SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -40,61 +40,35 @@ export type Unstable_SvgIconProps<
   P = {}
 > = OverrideProps<Unstable_SvgIconTypeMap<P, D>, D>;
 
-export type Unstable_SvgIconClassKey = 'root';
-
-// :NOTE:
-//  - Duotone layer selector is & > *[opacity=".12"]
-//  - Duocolor layer selector is & > *[opacity=".4"]
-const useStyles = makeStyles<Unstable_SvgIconClassKey>(
-  (theme) => ({
-    root: (props: Unstable_SvgIconProps) => ({
-      /* color */
-      ...(props.color === 'inherit' && { color: 'inherit' }),
-      ...(props.color === 'normal' && {
-        color: theme.unstable_palette.text.icon,
-      }),
-      ...(props.color === 'secondary' && {
-        color: theme.unstable_palette.text.secondaryIcon,
-      }),
-      ...(props.color === 'inverse' && {
-        color: theme.unstable_palette.text.inverseIcon,
-      }),
-      ...(props.color === 'inverseSecondary' && {
-        color: theme.unstable_palette.text.inverseSecondaryIcon,
-      }),
-      /* fontSize */
-      ...(props.fontSize === 'inherit' && { fontSize: 'inherit' }),
-      ...(props.fontSize === 'small' && {
-        fontSize: theme.unstable_typography.pxToRem(16),
-      }),
-      ...(props.fontSize === 'medium' && {
-        fontSize: theme.unstable_typography.pxToRem(24),
-      }),
-      ...(props.fontSize === 'large' && {
-        fontSize: theme.unstable_typography.pxToRem(32),
-      }),
-      ...(props.fontSize === 'xlarge' && {
-        fontSize: theme.unstable_typography.pxToRem(48),
-      }),
-    }),
-  }),
-  { name: 'MuiSparkUnstable_SvgIcon' }
-);
+export type Unstable_SvgIconClassKey =
+  | 'root'
+  | 'colorNormal'
+  | 'colorSecondary'
+  | 'colorInverse'
+  | 'colorInverseSecondary'
+  | 'fontSizeSmall'
+  | 'fontSizeMedium'
+  | 'fontSizeLarge'
+  | 'fontSizeXlarge';
 
 const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardRef(
   function Unstable_SvgIcon(props, ref) {
     const {
-      classes: classesProp,
+      classes,
       color = 'inherit',
       fontSize = 'inherit',
       ...other
     } = props;
 
-    const classes = useStyles({ color, fontSize });
-
     return (
       <MuiSvgIcon
-        classes={{ root: clsx(classes.root, classesProp?.root) }}
+        classes={{
+          root: clsx(classes.root, {
+            [classes[`color${capitalize(color)}`]]: color !== 'inherit',
+            [classes[`fontSize${capitalize(fontSize)}`]]:
+              fontSize !== 'inherit',
+          }),
+        }}
         ref={ref}
         {...other}
       />
@@ -102,4 +76,37 @@ const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardR
   }
 );
 
-export default Unstable_SvgIcon;
+export default withStyles<Unstable_SvgIconClassKey>((theme) => ({
+  // :NOTE:
+  //  - Duotone layer selector is & > *[opacity=".12"]
+  //  - Duocolor layer selector is & > *[opacity=".4"]
+
+  root: {
+    color: 'inherit',
+    fontSize: 'inherit',
+  },
+  colorNormal: {
+    color: theme.unstable_palette.text.icon,
+  },
+  colorSecondary: {
+    color: theme.unstable_palette.text.secondaryIcon,
+  },
+  colorInverse: {
+    color: theme.unstable_palette.text.inverseIcon,
+  },
+  colorInverseSecondary: {
+    color: theme.unstable_palette.text.inverseSecondaryIcon,
+  },
+  fontSizeSmall: {
+    fontSize: theme.unstable_typography.pxToRem(16),
+  },
+  fontSizeMedium: {
+    fontSize: theme.unstable_typography.pxToRem(24),
+  },
+  fontSizeLarge: {
+    fontSize: theme.unstable_typography.pxToRem(32),
+  },
+  fontSizeXlarge: {
+    fontSize: theme.unstable_typography.pxToRem(48),
+  },
+}))(Unstable_SvgIcon) as typeof Unstable_SvgIcon;
