@@ -37,6 +37,8 @@
     - `fontSizeMedium`: added.
     - `fontSizeLarge`: added.
     - `fontSizeXLarge`: added.
+- **Unstable_Tag**
+  - Change background colors for subtle variant (spec-change).
 - **Unstable_TextField**
   - Props API Changes:
     - `SelectProps`: see **Unstable_Select**.
