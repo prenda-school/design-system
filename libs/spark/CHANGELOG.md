@@ -42,6 +42,8 @@
 - **Unstable_TextField**
   - Props API Changes:
     - `SelectProps`: see **Unstable_Select**.
+- **Unstable_Typography**
+  - Change default `component` for heading variants to `'span'`.
 
 ### Breaking changes
 
@@ -56,6 +58,12 @@
       - `elevation={4}` -> `elevation={400}`
       - `elevation={5}` -> `elevation={500}`
       - `elevation={6..24}` -> `elevation={500}`
+- **Unstable_Typography**
+  - Props API:
+    - `variantMapping`: removed.
+  - Migration:
+    - Props API:
+      - `variantMapping={...}` -> ` ` (remove) (use `component` prop directly)
 
 ## [v2.0.0-alpha.2](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-09-08)
 
