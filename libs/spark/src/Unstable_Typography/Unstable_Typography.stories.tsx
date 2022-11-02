@@ -55,9 +55,23 @@ export const VariantBody: Story = Template.bind({});
 VariantBody.args = { variant: 'body' };
 VariantBody.storyName = 'variant=body';
 
+export const VariantBodyStrong: Story = Template.bind({});
+VariantBodyStrong.args = {
+  variant: 'body',
+  children: <strong>typography</strong>,
+};
+VariantBodyStrong.storyName = 'variant=body children=<strong>';
+
 export const VariantDescription: Story = Template.bind({});
 VariantDescription.args = { variant: 'description' };
 VariantDescription.storyName = 'variant=description';
+
+export const VariantDescriptionStrong: Story = Template.bind({});
+VariantDescriptionStrong.args = {
+  variant: 'description',
+  children: <strong>typography</strong>,
+};
+VariantDescriptionStrong.storyName = 'variant=description children=<strong>';
 
 export const VariantCode: Story = Template.bind({});
 VariantCode.args = { variant: 'code' };

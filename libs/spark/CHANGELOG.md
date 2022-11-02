@@ -44,6 +44,39 @@
     - `SelectProps`: see **Unstable_Select**.
 - **Unstable_Typography**
   - Change default `component` for heading variants to `'span'`.
+  - CSS API Changes:
+    - `variantDisplay`: added.
+    - `variantT32`: added.
+    - `variantT28`: added.
+    - `variantT22`: added.
+    - `variantT18`: added.
+    - `variantT14`: added.
+    - `variantBody`: added.
+    - `variantLabel`: added.
+    - `variantDescription`: added.
+    - `variantCode`: added.
+    - `colorNormal`: added.
+    - `colorNormal-variantDisplay`: added.
+    - `colorNormal-variantT32`: added.
+    - `colorNormal-variantT28`: added.
+    - `colorNormal-variantT22`: added.
+    - `colorNormal-variantT18`: added.
+    - `colorNormal-variantT14`: added.
+    - `colorNormal-variantBody`: added.
+    - `colorNormal-variantLabel`: added.
+    - `colorNormal-variantDescription`: added.
+    - `colorNormal-variantCode`: added.
+    - `colorInverse`: added.
+    - `colorInverse-variantDisplay`: added.
+    - `colorInverse-variantT32`: added.
+    - `colorInverse-variantT28`: added.
+    - `colorInverse-variantT22`: added.
+    - `colorInverse-variantT18`: added.
+    - `colorInverse-variantT14`: added.
+    - `colorInverse-variantBody`: added.
+    - `colorInverse-variantLabel`: added.
+    - `colorInverse-variantDescription`: added.
+    - `colorInverse-variantCode`: added.
 
 ### Breaking changes
 
