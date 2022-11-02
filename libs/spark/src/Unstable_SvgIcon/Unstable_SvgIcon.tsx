@@ -49,7 +49,7 @@ export type Unstable_SvgIconClassKey =
   | 'fontSizeSmall'
   | 'fontSizeMedium'
   | 'fontSizeLarge'
-  | 'fontSizeXLarge';
+  | 'fontSizeXlarge';
 
 const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardRef(
   function Unstable_SvgIcon(props, ref) {
@@ -106,7 +106,7 @@ export default withStyles<Unstable_SvgIconClassKey>((theme) => ({
   fontSizeLarge: {
     fontSize: theme.unstable_typography.pxToRem(32),
   },
-  fontSizeXLarge: {
+  fontSizeXlarge: {
     fontSize: theme.unstable_typography.pxToRem(48),
   },
 }))(Unstable_SvgIcon) as typeof Unstable_SvgIcon;
