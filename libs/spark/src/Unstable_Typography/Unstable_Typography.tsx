@@ -14,7 +14,10 @@ export interface Unstable_TypographyTypeMap<
   D extends ElementType = 'span'
 > {
   props: P &
-    Omit<MuiTypographyProps, 'classes' | 'variant' | 'color'> & {
+    Omit<
+      MuiTypographyProps,
+      'classes' | 'variant' | 'variantMapping' | 'color'
+    > & {
       variant?:
         | 'display'
         | 'T32'
@@ -127,13 +130,13 @@ const useStyles = makeStyles<Unstable_TypographyClassKey>(
   { name: 'MuiSparkUnstable_Typography' }
 );
 
-const defaultVariantMapping: Record<Unstable_TypographyVariant, string> = {
-  display: 'h1',
-  T32: 'h2',
-  T28: 'h3',
-  T22: 'h4',
-  T18: 'h5',
-  T14: 'h6',
+const variantToComponent: Record<Unstable_TypographyVariant, string> = {
+  display: 'span',
+  T32: 'span',
+  T28: 'span',
+  T22: 'span',
+  T18: 'span',
+  T14: 'span',
   body: 'p',
   label: 'span',
   description: 'p',
@@ -158,7 +161,7 @@ const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = fo
         classes={{
           root: clsx(classes.root, classesProp?.root),
         }}
-        component={component || defaultVariantMapping[variant]}
+        component={component || variantToComponent[variant]}
         ref={ref}
         {...other}
       />
