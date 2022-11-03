@@ -4,9 +4,9 @@ import {
   default as MuiAvatar,
   AvatarProps as MuiAvatarProps,
 } from '@material-ui/core/Avatar';
-import makeStyles from '../makeStyles';
-import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
+import { OverridableComponent, OverrideProps } from '../utils';
+import withStyles from '../withStyles';
 
 export interface Unstable_AvatarTypeMap<
   P = Record<string, unknown>,
@@ -42,6 +42,19 @@ export type Unstable_AvatarProps<
 
 export type Unstable_AvatarClassKey = 'root' | 'img' | 'fallback';
 
+type PrivateClassKey =
+  | 'private-root-size-small'
+  | 'private-root-size-medium'
+  | 'private-root-size-large'
+  | 'private-root-color-neutral'
+  | 'private-root-color-orange'
+  | 'private-root-color-yellow'
+  | 'private-root-color-green'
+  | 'private-root-color-blue'
+  | 'private-root-color-purple'
+  | 'private-root-color-teal'
+  | 'private-root-color-magenta';
+
 // extracted since there's not an equivalent typography variant
 const avatarFontVariantLarge = buildVariant(
   500,
@@ -68,101 +81,98 @@ const avatarFontVariantSmall = buildVariant(
   '"Poppins", sans-serif'
 );
 
-const useStyles = makeStyles<Unstable_AvatarClassKey>(
+const withClasses = withStyles<Unstable_AvatarClassKey | PrivateClassKey>(
   (theme) => ({
-    root: (props: Unstable_AvatarProps) => ({
+    root: {
       backgroundColor: theme.unstable_palette.neutral[70],
       color: theme.unstable_palette.text.heading,
-      /* size */
-      // must set height/width instead of padding because different children (text, icon) require different padding but there's no way to tell which is passed here
-      // set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
-      ...(props.size === 'large' && {
-        borderRadius: 8,
-        minHeight: 64,
-        minWidth: 64,
-        height: theme.unstable_typography.pxToRem(32),
-        width: theme.unstable_typography.pxToRem(32),
-        ...avatarFontVariantLarge,
-      }),
-      ...(props.size === 'medium' && {
-        borderRadius: 6,
-        minHeight: 40,
-        minWidth: 40,
-        height: theme.unstable_typography.pxToRem(24),
-        width: theme.unstable_typography.pxToRem(24),
-        ...avatarFontVariantMedium,
-      }),
-      ...(props.size === 'small' && {
-        borderRadius: 4,
-        minHeight: 24,
-        minWidth: 24,
-        height: theme.unstable_typography.pxToRem(16),
-        width: theme.unstable_typography.pxToRem(16),
-        ...avatarFontVariantSmall,
-      }),
-      /* color */
-      ...(props.color === 'neutral' && {
-        backgroundColor: theme.unstable_palette.neutral[70],
-      }),
-      ...(props.color === 'orange' && {
-        backgroundColor: theme.unstable_palette.red[200],
-      }),
-      ...(props.color === 'yellow' && {
-        backgroundColor: theme.unstable_palette.yellow[200],
-      }),
-      ...(props.color === 'green' && {
-        backgroundColor: theme.unstable_palette.green[200],
-      }),
-      ...(props.color === 'blue' && {
-        backgroundColor: theme.unstable_palette.blue[200],
-      }),
-      ...(props.color === 'purple' && {
-        backgroundColor: theme.unstable_palette.purple[200],
-      }),
-      ...(props.color === 'teal' && {
-        backgroundColor: theme.unstable_palette.teal[200],
-      }),
-      ...(props.color === 'magenta' && {
-        backgroundColor: theme.unstable_palette.magenta[300],
-      }),
-      /* icon children */
       '& [class*=MuiSvgIcon-root]': {
         color: theme.unstable_palette.text.icon,
-        /* size */
-        ...(props.size === 'large' && {
-          fontSize: theme.unstable_typography.pxToRem(32),
-        }),
-        ...(props.size === 'medium' && {
-          fontSize: theme.unstable_typography.pxToRem(24),
-        }),
-        ...(props.size === 'small' && {
-          fontSize: theme.unstable_typography.pxToRem(16),
-        }),
       },
-    }),
+    },
     img: {},
     fallback: {},
+    /* Private */
+    'private-root-color-neutral': {
+      backgroundColor: theme.unstable_palette.neutral[70],
+    },
+    'private-root-color-orange': {
+      backgroundColor: theme.unstable_palette.red[200],
+    },
+    'private-root-color-yellow': {
+      backgroundColor: theme.unstable_palette.yellow[200],
+    },
+    'private-root-color-green': {
+      backgroundColor: theme.unstable_palette.green[200],
+    },
+    'private-root-color-blue': {
+      backgroundColor: theme.unstable_palette.blue[200],
+    },
+    'private-root-color-purple': {
+      backgroundColor: theme.unstable_palette.purple[200],
+    },
+    'private-root-color-teal': {
+      backgroundColor: theme.unstable_palette.teal[200],
+    },
+    'private-root-color-magenta': {
+      backgroundColor: theme.unstable_palette.magenta[300],
+    },
+    /* 
+      size
+        - must set height/width instead of padding because different children (text, icon) require different padding but there's no way to tell which is passed here
+        - set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
+    */
+    'private-root-size-small': {
+      borderRadius: 4,
+      minHeight: 24,
+      minWidth: 24,
+      height: theme.unstable_typography.pxToRem(16),
+      width: theme.unstable_typography.pxToRem(16),
+      ...avatarFontVariantSmall,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: theme.unstable_typography.pxToRem(16),
+      },
+    },
+    'private-root-size-medium': {
+      borderRadius: 6,
+      minHeight: 40,
+      minWidth: 40,
+      height: theme.unstable_typography.pxToRem(24),
+      width: theme.unstable_typography.pxToRem(24),
+      ...avatarFontVariantMedium,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: theme.unstable_typography.pxToRem(24),
+      },
+    },
+    'private-root-size-large': {
+      borderRadius: 8,
+      minHeight: 64,
+      minWidth: 64,
+      height: theme.unstable_typography.pxToRem(32),
+      width: theme.unstable_typography.pxToRem(32),
+      ...avatarFontVariantLarge,
+      '& [class*=MuiSvgIcon-root]': {
+        fontSize: theme.unstable_typography.pxToRem(32),
+      },
+    },
   }),
   { name: 'MuiSparkUnstable_Avatar' }
 );
 
 const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = forwardRef(
   function Unstable_Avatar(props, ref) {
-    const {
-      classes: classesProp,
-      color = 'neutral',
-      size = 'large',
-      ...other
-    } = props;
-
-    const classes = useStyles({ color, size });
+    const { classes, color = 'neutral', size = 'large', ...other } = props;
 
     return (
       <MuiAvatar
         classes={{
-          root: clsx(classes.root, classesProp?.root),
-          img: clsx(classes.img, classesProp?.img),
-          fallback: clsx(classes.fallback, classesProp?.fallback),
+          root: clsx(
+            classes.root,
+            classes[`private-root-color-${color}`],
+            classes[`private-root-size-${size}`]
+          ),
+          img: clsx(classes.img),
+          fallback: clsx(classes.fallback),
         }}
         ref={ref}
         {...other}
@@ -171,4 +181,4 @@ const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = forwardRef
   }
 );
 
-export default Unstable_Avatar;
+export default withClasses(Unstable_Avatar) as typeof Unstable_Avatar;

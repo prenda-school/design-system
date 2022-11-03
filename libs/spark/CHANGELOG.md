@@ -12,6 +12,8 @@
 - **theme**
   - Add "elevations" of 0, 100, 200, 300, 400, 500 (`theme.unstable_elevations[...]`).
   - Add "overlay" to background palette (`theme.unstable_palette.background.overlay`).
+- **Unstable_Avatar**
+  - Removed props-dynamic styles.
 - **Unstable_Banner**
   - Removed props-dynamic styles.
 - **Unstable_Button**
