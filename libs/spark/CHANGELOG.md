@@ -28,15 +28,7 @@
   - Props API Changes:
     - `MenuProps`: see **Unstable_Menu**.
 - **Unstable_SvgIcon**
-  - CSS API Changes:
-    - `colorNormal`: added.
-    - `colorSecondary`: added.
-    - `colorInverse`: added.
-    - `colorInverseSecondary`: added.
-    - `fontSizeSmall`: added.
-    - `fontSizeMedium`: added.
-    - `fontSizeLarge`: added.
-    - `fontSizeXLarge`: added.
+  - Removed props-dynamic styles.
 - **Unstable_Tag**
   - Change background colors for subtle variant (spec-change).
 - **Unstable_TextField**
