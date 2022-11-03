@@ -40,15 +40,27 @@ const usePrivateStyles = makeStyles<PrivateClassKey>(
     'root-severity-warning': {
       backgroundColor: theme.unstable_palette.yellow[600],
     },
-    'icon-severity-error': {},
-    'icon-severity-info': {},
-    'icon-severity-success': {},
+    'icon-severity-error': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'icon-severity-info': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'icon-severity-success': {
+      color: theme.unstable_palette.neutral[0],
+    },
     'icon-severity-warning': {
       color: theme.unstable_palette.neutral[600],
     },
-    'message-severity-error': {},
-    'message-severity-info': {},
-    'message-severity-success': {},
+    'message-severity-error': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'message-severity-info': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'message-severity-success': {
+      color: theme.unstable_palette.neutral[0],
+    },
     'message-severity-warning': {
       color: theme.unstable_palette.neutral[600],
     },
@@ -101,7 +113,6 @@ export default withStyles<Unstable_BannerClassKey>(
       padding: 24,
     },
     icon: {
-      color: theme.unstable_palette.neutral[0],
       display: 'flex',
       fontSize: theme.unstable_typography.pxToRem(24),
       lineHeight: 1,
@@ -110,7 +121,6 @@ export default withStyles<Unstable_BannerClassKey>(
     },
     message: {
       ...theme.unstable_typography.body,
-      color: theme.unstable_palette.neutral[0],
       flexGrow: 2,
       paddingTop: 4,
     },
