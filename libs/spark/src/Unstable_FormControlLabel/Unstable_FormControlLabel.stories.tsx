@@ -1,8 +1,9 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_Checkbox,
   Unstable_FormControlLabel,
+  Unstable_FormControlLabelProps,
   Unstable_Radio,
 } from '..';
 import { containFocusIndicator, sparkThemeProvider } from '../../stories';
@@ -27,6 +28,13 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_FormControlLabel {...args} />;
+
+type Story = DefaultStory<
+  Unstable_FormControlLabelProps & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    control: any;
+  }
+>;
 
 export const LabelControlCheckbox: Story = Template.bind({});
 LabelControlCheckbox.args = { label: 'Label', control: '(Checkbox)' };

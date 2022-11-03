@@ -1,9 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_Checkbox,
   Unstable_FormControlLabel,
   Unstable_FormGroup,
+  Unstable_FormGroupProps,
 } from '..';
 import { containFocusIndicator, sparkThemeProvider } from '../../stories';
 
@@ -50,6 +51,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_FormGroup {...args} />;
+
+type Story = DefaultStory<Unstable_FormGroupProps>;
 
 export const ChildrenLabeledCheckboxes: Story = Template.bind({});
 ChildrenLabeledCheckboxes.args = { children: '(Labeled Checkboxes)' };

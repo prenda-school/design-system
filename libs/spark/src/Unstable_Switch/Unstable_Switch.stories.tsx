@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Switch } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_Switch, Unstable_SwitchProps } from '..';
 import {
   containFocusIndicator,
   enableHooks,
@@ -21,6 +21,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Switch {...args} />;
+
+type Story = DefaultStory<Unstable_SwitchProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { DecoratorFn } from '@storybook/react';
-import { Unstable_Divider } from '..';
+import { Unstable_Divider, Unstable_DividerProps } from '..';
 
 export const _retyped = Unstable_Divider as typeof Unstable_Divider;
 
@@ -19,6 +19,13 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Divider {...args} />;
+
+type Story = DefaultStory<
+  Unstable_DividerProps & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component: any;
+  }
+>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

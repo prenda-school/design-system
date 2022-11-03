@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_Input,
   Unstable_InputProps as _Unstable_InputProps,
@@ -68,6 +68,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Input {...args} />;
+
+type Story = DefaultStory<Unstable_InputProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

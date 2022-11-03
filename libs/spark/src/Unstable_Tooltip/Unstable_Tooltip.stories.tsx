@@ -1,6 +1,11 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_IconButton, Unstable_Tooltip, Unstable_Typography } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_IconButton,
+  Unstable_Tooltip,
+  Unstable_TooltipProps,
+  Unstable_Typography,
+} from '..';
 import { Plus } from '../../stories';
 import { DecoratorFn } from '@storybook/react';
 
@@ -29,6 +34,8 @@ const Template = (args) => (
     </Unstable_IconButton>
   </Unstable_Tooltip>
 );
+
+type Story = DefaultStory<Unstable_TooltipProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

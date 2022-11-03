@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Typography } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_Typography, Unstable_TypographyProps } from '..';
 import { inverseBackground, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_Typography as typeof Unstable_Typography;
@@ -15,6 +15,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Typography {...args} />;
+
+type Story = DefaultStory<Unstable_TypographyProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

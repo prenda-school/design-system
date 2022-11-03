@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_CheckboxMenuItem,
   Unstable_MenuItem,
@@ -103,6 +103,13 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Select {...args} />;
+
+type Story = DefaultStory<
+  Unstable_SelectProps & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    getTagProps: any;
+  }
+>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

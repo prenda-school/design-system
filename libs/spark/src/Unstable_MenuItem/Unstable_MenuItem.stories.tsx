@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Avatar, Unstable_MenuItem } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_Avatar, Unstable_MenuItem, Unstable_MenuItemProps } from '..';
 import {
   containFocusIndicator,
   enableHooks,
@@ -25,6 +25,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_MenuItem {...args} />;
+
+type Story = DefaultStory<Unstable_MenuItemProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

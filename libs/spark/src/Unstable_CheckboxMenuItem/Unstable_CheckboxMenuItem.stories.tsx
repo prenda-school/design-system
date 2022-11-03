@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_CheckboxMenuItem } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_CheckboxMenuItem, Unstable_CheckboxMenuItemProps } from '..';
 import {
   containFocusIndicator,
   enableHooks,
@@ -24,6 +24,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_CheckboxMenuItem {...args} />;
+
+type Story = DefaultStory<Unstable_CheckboxMenuItemProps>;
 
 export const FocusVisible: Story = Template.bind({});
 FocusVisible.parameters = { pseudo: { focusVisible: true } };

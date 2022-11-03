@@ -1,6 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_CheckboxField, Unstable_CheckboxGroupField } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_CheckboxField,
+  Unstable_CheckboxGroupField,
+  Unstable_CheckboxGroupFieldProps,
+} from '..';
 import { containFocusIndicator, Info } from '../../stories';
 
 export const _retyped = Unstable_CheckboxGroupField as typeof Unstable_CheckboxGroupField;
@@ -82,6 +86,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_CheckboxGroupField {...args} />;
+
+type Story = DefaultStory<Unstable_CheckboxGroupFieldProps>;
 
 export const LabelHelperText: Story = Template.bind({});
 LabelHelperText.args = {

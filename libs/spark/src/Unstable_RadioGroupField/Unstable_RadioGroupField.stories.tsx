@@ -1,6 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_RadioField, Unstable_RadioGroupField } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_RadioField,
+  Unstable_RadioGroupField,
+  Unstable_RadioGroupFieldProps,
+} from '..';
 import { containFocusIndicator, Info } from '../../stories';
 
 export const _retyped = Unstable_RadioGroupField as typeof Unstable_RadioGroupField;
@@ -78,6 +82,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_RadioGroupField {...args} />;
+
+type Story = DefaultStory<Unstable_RadioGroupFieldProps>;
 
 export const LabelHelperText: Story = Template.bind({});
 LabelHelperText.args = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   makeStyles,
   Unstable_Avatar,
@@ -107,6 +107,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_ContentGroup {...args} />;
+
+type Story = DefaultStory<Unstable_ContentGroupProps>;
 
 export const Primary: Story = Template.bind({});
 Primary.args = { primary: 'Primary' };
@@ -502,7 +504,7 @@ export const MicroschoolThumbnailTemplate = ({
   );
 };
 
-export const MicroschoolThumbnail: Story = MicroschoolThumbnailTemplate.bind(
+export const MicroschoolThumbnail: DefaultStory = MicroschoolThumbnailTemplate.bind(
   {}
 );
 MicroschoolThumbnail.args = {

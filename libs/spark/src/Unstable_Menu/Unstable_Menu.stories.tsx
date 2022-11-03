@@ -1,10 +1,11 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_Button,
   Unstable_CheckboxMenuItem,
   Unstable_MenuItem,
   Unstable_Menu,
+  Unstable_MenuProps,
 } from '..';
 import { enableHooks } from '../../stories';
 
@@ -68,6 +69,8 @@ const Template = (args) => {
     </>
   );
 };
+
+type Story = DefaultStory<Unstable_MenuProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_FormLabel } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_FormLabel, Unstable_FormLabelProps } from '..';
 import { sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_FormLabel as typeof Unstable_FormLabel;
@@ -15,6 +15,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_FormLabel {...args} />;
+
+type Story = DefaultStory<Unstable_FormLabelProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
