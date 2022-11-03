@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...vNext) (YYYY-MM-DD)
 
+### Fixes
+
+- **Unstable_Link**
+  - Clashing types for `variant` props resulting in `never`.
+
 ### Features
 
 - **theme**
