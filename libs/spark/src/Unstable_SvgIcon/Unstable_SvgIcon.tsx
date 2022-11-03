@@ -4,8 +4,9 @@ import {
   default as MuiSvgIcon,
   SvgIconProps as MuiSvgIconProps,
 } from '@material-ui/core/SvgIcon';
-import { capitalize, OverridableComponent, OverrideProps } from '../utils';
+import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles from '../withStyles';
+import makeStyles from '../makeStyles';
 
 export interface Unstable_SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -16,8 +17,6 @@ export interface Unstable_SvgIconTypeMap<
     Omit<MuiSvgIconProps, 'classes' | 'color' | 'fontSize'> & {
       /**
        * The color of the component. Defaults to `'inherit'`.
-       *
-       * It supports those theme colors that make sense for this component. You can use the `htmlColor` prop to apply a color attribute to the SVG element.
        */
       color?:
         | 'inherit'
@@ -40,16 +39,56 @@ export type Unstable_SvgIconProps<
   P = {}
 > = OverrideProps<Unstable_SvgIconTypeMap<P, D>, D>;
 
-export type Unstable_SvgIconClassKey =
-  | 'root'
-  | 'colorNormal'
-  | 'colorSecondary'
-  | 'colorInverse'
-  | 'colorInverseSecondary'
-  | 'fontSizeSmall'
-  | 'fontSizeMedium'
-  | 'fontSizeLarge'
-  | 'fontSizeXlarge';
+export type Unstable_SvgIconClassKey = 'root';
+
+type PrivateClassKey =
+  | 'color-normal'
+  | 'color-secondary'
+  | 'color-inverse'
+  | 'color-inverseSecondary'
+  | 'fontSize-small'
+  | 'fontSize-medium'
+  | 'fontSize-large'
+  | 'fontSize-xlarge';
+
+const usePrivateStyles = makeStyles<PrivateClassKey>(
+  (theme) => ({
+    // :NOTE:
+    //  - Duotone layer selector is & > *[opacity=".12"]
+    //  - Duocolor layer selector is & > *[opacity=".4"]
+    'color-inherit': {
+      color: 'inherit',
+    },
+    'color-normal': {
+      color: theme.unstable_palette.text.icon,
+    },
+    'color-secondary': {
+      color: theme.unstable_palette.text.secondaryIcon,
+    },
+    'color-inverse': {
+      color: theme.unstable_palette.text.inverseIcon,
+    },
+    'color-inverseSecondary': {
+      color: theme.unstable_palette.text.inverseSecondaryIcon,
+    },
+    'fontSize-inherit': {
+      fontSize: 'inherit',
+    },
+    'fontSize-small': {
+      fontSize: theme.unstable_typography.pxToRem(16),
+    },
+    'fontSize-medium': {
+      fontSize: theme.unstable_typography.pxToRem(24),
+    },
+    'fontSize-large': {
+      fontSize: theme.unstable_typography.pxToRem(32),
+    },
+    'fontSize-xlarge': {
+      fontSize: theme.unstable_typography.pxToRem(48),
+    },
+  }),
+  { name: 'MuiSparkPrivate-SvgIcon' }
+);
 
 const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardRef(
   function Unstable_SvgIcon(props, ref) {
@@ -60,14 +99,16 @@ const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardR
       ...other
     } = props;
 
+    const privateClasses = usePrivateStyles();
+
     return (
       <MuiSvgIcon
         classes={{
-          root: clsx(classes.root, {
-            [classes[`color${capitalize(color)}`]]: color !== 'inherit',
-            [classes[`fontSize${capitalize(fontSize)}`]]:
-              fontSize !== 'inherit',
-          }),
+          root: clsx(
+            classes.root,
+            privateClasses[`color-${color}`],
+            privateClasses[`fontSize-${fontSize}`]
+          ),
         }}
         ref={ref}
         {...other}
@@ -76,37 +117,7 @@ const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardR
   }
 );
 
-export default withStyles<Unstable_SvgIconClassKey>((theme) => ({
-  // :NOTE:
-  //  - Duotone layer selector is & > *[opacity=".12"]
-  //  - Duocolor layer selector is & > *[opacity=".4"]
-
-  root: {
-    color: 'inherit',
-    fontSize: 'inherit',
-  },
-  colorNormal: {
-    color: theme.unstable_palette.text.icon,
-  },
-  colorSecondary: {
-    color: theme.unstable_palette.text.secondaryIcon,
-  },
-  colorInverse: {
-    color: theme.unstable_palette.text.inverseIcon,
-  },
-  colorInverseSecondary: {
-    color: theme.unstable_palette.text.inverseSecondaryIcon,
-  },
-  fontSizeSmall: {
-    fontSize: theme.unstable_typography.pxToRem(16),
-  },
-  fontSizeMedium: {
-    fontSize: theme.unstable_typography.pxToRem(24),
-  },
-  fontSizeLarge: {
-    fontSize: theme.unstable_typography.pxToRem(32),
-  },
-  fontSizeXlarge: {
-    fontSize: theme.unstable_typography.pxToRem(48),
-  },
-}))(Unstable_SvgIcon) as typeof Unstable_SvgIcon;
+export default withStyles<Unstable_SvgIconClassKey>(
+  { root: {} },
+  { name: 'MuiSparkUnstable_SvgIcon' }
+)(Unstable_SvgIcon) as typeof Unstable_SvgIcon;
