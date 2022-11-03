@@ -1,12 +1,11 @@
 import React, { ElementType, forwardRef } from 'react';
-import clsx from 'clsx';
 import {
   default as ButtonBase,
   ExtendButtonBaseTypeMap,
 } from '@material-ui/core/ButtonBase';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import Unstable_Avatar, { Unstable_AvatarProps } from '../Unstable_Avatar';
+import withStyles from '../withStyles';
 
 type _Unstable_AvatarButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -53,7 +52,7 @@ export type Unstable_AvatarButtonProps<
 
 export type Unstable_AvatarButtonClassKey = 'root' | 'avatar';
 
-const useStyles = makeStyles<Unstable_AvatarButtonClassKey>(
+const withClasses = withStyles<Unstable_AvatarButtonClassKey>(
   (theme) => ({
     root: {
       borderColor: 'transparent',
@@ -94,7 +93,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
     const {
       alt,
       children,
-      classes: classesProp,
+      classes,
       color,
       imgProps,
       size = 'large',
@@ -104,13 +103,9 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
       ...other
     } = props;
 
-    const classes = useStyles();
-
     return (
       <ButtonBase
-        classes={{
-          root: clsx(classes.root, classesProp?.root),
-        }}
+        classes={{ root: classes.root }}
         disableRipple
         disableTouchRipple
         focusRipple={false}
@@ -125,9 +120,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
           sizes={sizes}
           src={src}
           srcSet={srcSet}
-          classes={{
-            root: clsx(classes.avatar, classesProp?.avatar),
-          }}
+          classes={{ root: classes.avatar }}
         >
           {children}
         </Unstable_Avatar>
@@ -136,4 +129,6 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
   }
 );
 
-export default Unstable_AvatarButton;
+export default withClasses(
+  Unstable_AvatarButton
+) as typeof Unstable_AvatarButton;
