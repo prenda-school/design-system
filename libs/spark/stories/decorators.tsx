@@ -67,17 +67,18 @@ export const statefulValue: DecoratorFn = (Story, context) => {
   return <Story />;
 };
 
-const InverseBackgroundDiv = styled('div')(({ theme }) => ({
+const InverseBackgroundSpan = styled('span')(({ theme }) => ({
   backgroundColor: theme.unstable_palette.background.inverse,
+  display: 'inline-flex',
 }));
 
 /**
  * [Internal] A Storybook decorator that applies the inverse background to a story.
  */
 export const inverseBackground: DecoratorFn = (Story) => (
-  <InverseBackgroundDiv>
+  <InverseBackgroundSpan>
     <Story />
-  </InverseBackgroundDiv>
+  </InverseBackgroundSpan>
 );
 
 const ContainFocusIndicatorDiv = styled('div')({

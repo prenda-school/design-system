@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
 import { Unstable_SvgIcon } from '..';
+import { inverseBackground } from '../../stories';
 
 export const _retyped = Unstable_SvgIcon as typeof Unstable_SvgIcon;
 
@@ -38,10 +39,12 @@ ColorSecondary.storyName = 'color=secondary';
 
 export const ColorInverse: Story = Template.bind({});
 ColorInverse.args = { color: 'inverse' };
+ColorInverse.decorators = [inverseBackground];
 ColorInverse.storyName = 'color=inverse';
 
 export const ColorInverseSecondary: Story = Template.bind({});
 ColorInverseSecondary.args = { color: 'inverseSecondary' };
+ColorInverseSecondary.decorators = [inverseBackground];
 ColorInverseSecondary.storyName = 'color=inverseSecondary';
 
 export const FontSizeInherit: Story = Template.bind({});
