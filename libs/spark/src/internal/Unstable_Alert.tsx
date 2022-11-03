@@ -10,6 +10,7 @@ import Unstable_IconButton, {
   Unstable_IconButtonProps,
 } from '../Unstable_IconButton';
 import { StandardProps } from '../utils';
+import withStyles from '../withStyles';
 
 export interface Unstable_AlertProps
   extends StandardProps<
@@ -87,15 +88,15 @@ const Unstable_Alert = forwardRef(function Unstable_Alert(
       {...other}
     >
       {icon !== false ? (
-        <div className={clsx(classes?.icon)}>
+        <div className={clsx(classes.icon)}>
           {icon || defaultIconMapping[severity]}
         </div>
       ) : null}
 
-      <div className={clsx(classes?.message)}>{children}</div>
+      <div className={clsx(classes.message)}>{children}</div>
 
       {action != null ? (
-        <div className={clsx(classes?.action)}>{action}</div>
+        <div className={clsx(classes.action)}>{action}</div>
       ) : null}
 
       {action == null && onClose ? (
@@ -114,4 +115,9 @@ const Unstable_Alert = forwardRef(function Unstable_Alert(
   );
 });
 
-export default Unstable_Alert;
+export default withStyles<Unstable_AlertClassKey>({
+  root: {},
+  icon: {},
+  action: {},
+  message: {},
+})(Unstable_Alert) as typeof Unstable_Alert;
