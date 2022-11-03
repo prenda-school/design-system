@@ -31,6 +31,8 @@
   - Changed elevations to match new theme elevations.
   - Props API Changes:
     - `elevation`: added values 100, 200, 300, 400, 500.
+- **Unstable_SectionMessage**
+  - Removed props-dynamic styles.
 - **Unstable_Select**
   - Props API Changes:
     - `MenuProps`: see **Unstable_Menu**.
