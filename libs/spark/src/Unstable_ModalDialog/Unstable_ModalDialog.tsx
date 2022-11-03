@@ -1,15 +1,38 @@
-import MuiDialog from '@material-ui/core/Dialog';
+import MuiDialog, {
+  DialogClassKey as MuiDialogClassKey,
+  DialogProps as MuiDialogProps,
+} from '@material-ui/core/Dialog';
 import React, { forwardRef } from 'react';
 import { Unstable_Cross } from '../internal';
 import Unstable_IconButton, {
   Unstable_IconButtonProps,
 } from '../Unstable_IconButton';
-import {
-  Unstable_ModalDialogClassKey,
-  Unstable_ModalDialogProps,
-} from './Unstable_ModalDialogProps';
 import Unstable_Paper from '../Unstable_Paper';
 import withStyles, { Styles } from '../withStyles';
+import { StandardProps } from '../utils';
+import { Unstable_ModalProps } from '../Unstable_Modal';
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface Unstable_ModalDialogProps
+  extends StandardProps<
+    MuiDialogProps,
+    Unstable_ModalDialogClassKey,
+    'classes' | 'onClose'
+  > {
+  /**
+   * Whether a close button should be shown at the top-right of the component.
+   */
+  closeable?: boolean;
+  /**
+   * Callback fired when the component requests to be closed.
+   *
+   * @param event The event source of the callback.
+   * @param reason Can be: `"escapeKeyDown"`, `"backdropClick"`, `"closeClick"`.
+   */
+  onClose?: Unstable_ModalProps['onClose'];
+}
+
+export type Unstable_ModalDialogClassKey = MuiDialogClassKey | 'closeButton';
 
 const styles: Styles<Unstable_ModalDialogClassKey> = {
   root: {},

@@ -1,1 +1,1 @@
-export * from './Unstable_ModalProps';
+export * from './Unstable_Modal';

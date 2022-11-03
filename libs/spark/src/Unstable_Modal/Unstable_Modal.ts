@@ -1,4 +1,4 @@
-import { ModalProps as MuiModalProps } from '@material-ui/core/Modal';
+import type { ModalProps as MuiModalProps } from '@material-ui/core/Modal';
 
 export interface Unstable_ModalProps extends Omit<MuiModalProps, 'onClose'> {
   /**

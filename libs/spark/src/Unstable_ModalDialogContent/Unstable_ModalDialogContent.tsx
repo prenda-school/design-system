@@ -1,10 +1,20 @@
 import clsx from 'clsx';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
+import { StandardProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
-import {
-  Unstable_ModalDialogContentClassKey,
-  Unstable_ModalDialogContentProps,
-} from './Unstable_ModalDialogContentProps';
+
+export interface Unstable_ModalDialogContentProps
+  extends StandardProps<
+    HTMLAttributes<HTMLDivElement>,
+    Unstable_ModalDialogContentClassKey
+  > {
+  /**
+   * The content of the component.
+   */
+  children?: ReactNode;
+}
+
+export type Unstable_ModalDialogContentClassKey = 'root';
 
 const styles: Styles<Unstable_ModalDialogContentClassKey> = {
   /* Styles applied to the root element. */
