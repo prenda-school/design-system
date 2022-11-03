@@ -13,7 +13,7 @@ export interface Unstable_LinkTypeMap<
   D extends ElementType = 'a'
 > {
   props: P &
-    Omit<MuiLinkProps, 'color' | 'classes' | 'underline'> & {
+    Omit<MuiLinkProps, 'color' | 'classes' | 'underline' | 'variant'> & {
       /**
        * Whether the link is displayed alone (not inline with other text). Removes "underline" text-decoration of the link.
        */
