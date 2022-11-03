@@ -1,6 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_FormControlLabel, {
   Unstable_FormControlLabelProps,
 } from '../Unstable_FormControlLabel';
@@ -9,13 +8,19 @@ import Unstable_FormHelperText, {
 } from '../Unstable_FormHelperText';
 import Unstable_Checkbox from '../Unstable_Checkbox';
 import { useId } from '../utils';
+import withStyles, { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_CheckboxFieldProps
-  extends Omit<Unstable_FormControlLabelProps, 'control'> {
+  extends Omit<Unstable_FormControlLabelProps, 'classes' | 'control'>,
+    StyledComponentProps<Unstable_CheckboxFieldClassKey> {
   /**
-   * If `true`, the label will be displayed in an error state.
+   * If `true`, the component appears in an error state.
    */
   error?: boolean;
+  /**
+   * Props applied to the `FormControlLabel` element.
+   */
+  FormControlLabelProps?: Partial<Unstable_FormControlLabelProps>;
   /**
    * Props applied to the `FormHelperText` element.
    */
@@ -29,12 +34,18 @@ export interface Unstable_CheckboxFieldProps
    */
   id?: string;
   /**
-   * If `true`, the component appears indeterminate.
+   * If `true`, the component appears in an indeterminate state.
    */
   indeterminate?: boolean;
 }
 
-const useStyles = makeStyles(
+export type Unstable_CheckboxFieldClassKey = 'root';
+
+type PrivateClassKey = 'private-helperText';
+
+const withClasses = withStyles<
+  Unstable_CheckboxFieldClassKey | PrivateClassKey
+>(
   {
     /** Styles applied to the root element. */
     root: {
@@ -43,7 +54,7 @@ const useStyles = makeStyles(
       gap: 4,
     },
     /** Styles applied to the helper text element. */
-    helperText: {
+    'private-helperText': {
       marginLeft: 17 + 8, // control + gap
     },
   },
@@ -54,16 +65,16 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
   function Unstable_CheckboxField(props, ref) {
     const {
       className,
+      classes,
       disabled,
       error,
+      FormControlLabelProps,
       FormHelperTextProps,
       helperText,
       id: idProp,
       indeterminate,
       ...other
     } = props;
-
-    const classes = useStyles();
 
     const id = useId(idProp);
 
@@ -82,6 +93,7 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
           error={error}
           ref={ref}
           {...other}
+          {...FormControlLabelProps}
         />
 
         {helperText ? (
@@ -90,7 +102,10 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
             error={error}
             id={helperTextId}
             {...FormHelperTextProps}
-            className={clsx(classes.helperText, FormHelperTextProps?.className)}
+            className={clsx(
+              classes['private-helperText'],
+              FormHelperTextProps?.className
+            )}
           >
             {helperText}
           </Unstable_FormHelperText>
@@ -100,4 +115,6 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
   }
 );
 
-export default Unstable_CheckboxField;
+export default withClasses(
+  Unstable_CheckboxField
+) as typeof Unstable_CheckboxField;
