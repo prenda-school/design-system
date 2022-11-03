@@ -4,7 +4,8 @@ import {
   default as MuiTypography,
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
-import { capitalize, OverridableComponent, OverrideProps } from '../utils';
+import { OverridableComponent, OverrideProps } from '../utils';
+import makeStyles from '../makeStyles';
 import { Unstable_TypographyVariant } from '../theme/unstable_typography';
 import withStyles from '../withStyles';
 
@@ -41,40 +42,149 @@ export type Unstable_TypographyProps<
   P = {}
 > = OverrideProps<Unstable_TypographyTypeMap<P, D>, D>;
 
-export type Unstable_TypographyClassKey =
-  | 'root'
-  | 'variantDisplay'
-  | 'variantT32'
-  | 'variantT28'
-  | 'variantT22'
-  | 'variantT18'
-  | 'variantT14'
-  | 'variantBody'
-  | 'variantLabel'
-  | 'variantDescription'
-  | 'variantCode'
-  | 'colorNormal'
-  | 'colorNormal-variantDisplay'
-  | 'colorNormal-variantT32'
-  | 'colorNormal-variantT28'
-  | 'colorNormal-variantT22'
-  | 'colorNormal-variantT18'
-  | 'colorNormal-variantT14'
-  | 'colorNormal-variantBody'
-  | 'colorNormal-variantLabel'
-  | 'colorNormal-variantDescription'
-  | 'colorNormal-variantCode'
-  | 'colorInverse'
-  | 'colorInverse-variantDisplay'
-  | 'colorInverse-variantT32'
-  | 'colorInverse-variantT28'
-  | 'colorInverse-variantT22'
-  | 'colorInverse-variantT18'
-  | 'colorInverse-variantT14'
-  | 'colorInverse-variantBody'
-  | 'colorInverse-variantLabel'
-  | 'colorInverse-variantDescription'
-  | 'colorInverse-variantCode';
+export type Unstable_TypographyClassKey = 'root';
+
+type PrivateClassKey =
+  | 'color-inherit'
+  | 'color-normal'
+  | 'color-inverse'
+  | 'variant-display'
+  | 'variant-T32'
+  | 'variant-T28'
+  | 'variant-T22'
+  | 'variant-T18'
+  | 'variant-T14'
+  | 'variant-body'
+  | 'variant-label'
+  | 'variant-description'
+  | 'variant-code'
+  | 'color-normal-variant-display'
+  | 'color-normal-variant-T32'
+  | 'color-normal-variant-T28'
+  | 'color-normal-variant-T22'
+  | 'color-normal-variant-T18'
+  | 'color-normal-variant-T14'
+  | 'color-normal-variant-body'
+  | 'color-normal-variant-label'
+  | 'color-normal-variant-description'
+  | 'color-normal-variant-code'
+  | 'color-inverse-variant-display'
+  | 'color-inverse-variant-T32'
+  | 'color-inverse-variant-T28'
+  | 'color-inverse-variant-T22'
+  | 'color-inverse-variant-T18'
+  | 'color-inverse-variant-T14'
+  | 'color-inverse-variant-body'
+  | 'color-inverse-variant-label'
+  | 'color-inverse-variant-description'
+  | 'color-inverse-variant-code';
+
+const usePrivateStyles = makeStyles<PrivateClassKey>(
+  (theme) => ({
+    'color-normal': {},
+    'color-inverse': {},
+    'color-inherit': {
+      color: 'inherit',
+    },
+    'variant-display': {
+      ...theme.unstable_typography.display,
+    },
+    'variant-T32': {
+      ...theme.unstable_typography['T32'],
+    },
+    'variant-T28': {
+      ...theme.unstable_typography['T28'],
+    },
+    'variant-T22': {
+      ...theme.unstable_typography['T22'],
+    },
+    'variant-T18': {
+      ...theme.unstable_typography['T18'],
+    },
+    'variant-T14': {
+      ...theme.unstable_typography['T14'],
+    },
+    'variant-body': {
+      ...theme.unstable_typography['body'],
+      '& strong, b': {
+        fontWeight: 600,
+      },
+    },
+    'variant-label': {
+      ...theme.unstable_typography['label'],
+    },
+    'variant-description': {
+      ...theme.unstable_typography['description'],
+      '& strong, b': {
+        fontWeight: 700,
+      },
+    },
+    'variant-code': {
+      ...theme.unstable_typography['code'],
+    },
+    'color-normal-variant-display': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-T32': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-T28': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-T22': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-T18': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-T14': {
+      color: theme.unstable_palette.text.heading,
+    },
+    'color-normal-variant-body': {
+      color: theme.unstable_palette.text.body,
+    },
+    'color-normal-variant-label': {
+      color: theme.unstable_palette.text.body,
+    },
+    'color-normal-variant-description': {
+      color: theme.unstable_palette.text.body,
+    },
+    'color-normal-variant-code': {
+      color: theme.unstable_palette.text.body,
+    },
+    'color-inverse-variant-display': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-T32': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-T28': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-T22': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-T18': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-T14': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+    'color-inverse-variant-body': {
+      color: theme.unstable_palette.text.inverseBody,
+    },
+    'color-inverse-variant-label': {
+      color: theme.unstable_palette.text.inverseBody,
+    },
+    'color-inverse-variant-description': {
+      color: theme.unstable_palette.text.inverseBody,
+    },
+    'color-inverse-variant-code': {
+      color: theme.unstable_palette.text.inverseBody,
+    },
+  }),
+  { name: 'MuiSparkPrivate-Typography' }
+);
 
 const variantToComponent: Record<Unstable_TypographyVariant, string> = {
   display: 'span',
@@ -100,15 +210,17 @@ const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = fo
       ...other
     } = props;
 
+    const privateClasses = usePrivateStyles();
+
     return (
       <MuiTypography
         classes={{
-          root: clsx(classes.root, classes[`variant${capitalize(variant)}`], {
-            [classes[`color${capitalize(color)}`]]: color !== 'inherit',
-            [classes[
-              `color${capitalize(color)}-variant${capitalize(variant)}`
-            ]]: color !== 'inherit',
-          }),
+          root: clsx(
+            classes.root,
+            privateClasses[`color-${color}`],
+            privateClasses[`variant-${variant}`],
+            privateClasses[`color-${color}-variant-${variant}`]
+          ),
         }}
         component={component || variantToComponent[variant]}
         ref={ref}
@@ -119,108 +231,6 @@ const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = fo
 );
 
 export default withStyles<Unstable_TypographyClassKey>(
-  (theme) => ({
-    root: {
-      color: 'inherit',
-    },
-    variantDisplay: {
-      ...theme.unstable_typography.display,
-    },
-    variantT32: {
-      ...theme.unstable_typography['T32'],
-    },
-    variantT28: {
-      ...theme.unstable_typography['T28'],
-    },
-    variantT22: {
-      ...theme.unstable_typography['T22'],
-    },
-    variantT18: {
-      ...theme.unstable_typography['T18'],
-    },
-    variantT14: {
-      ...theme.unstable_typography['T14'],
-    },
-    variantBody: {
-      ...theme.unstable_typography['body'],
-      '& strong, b': {
-        fontWeight: 600,
-      },
-    },
-    variantLabel: {
-      ...theme.unstable_typography['label'],
-    },
-    variantDescription: {
-      ...theme.unstable_typography['description'],
-      '& strong, b': {
-        fontWeight: 700,
-      },
-    },
-    variantCode: {
-      ...theme.unstable_typography['code'],
-    },
-    colorNormal: {},
-    'colorNormal-variantDisplay': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantT32': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantT28': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantT22': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantT18': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantT14': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'colorNormal-variantBody': {
-      color: theme.unstable_palette.text.body,
-    },
-    'colorNormal-variantLabel': {
-      color: theme.unstable_palette.text.body,
-    },
-    'colorNormal-variantDescription': {
-      color: theme.unstable_palette.text.body,
-    },
-    'colorNormal-variantCode': {
-      color: theme.unstable_palette.text.body,
-    },
-    colorInverse: {},
-    'colorInverse-variantDisplay': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantT32': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantT28': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantT22': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantT18': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantT14': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'colorInverse-variantBody': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'colorInverse-variantLabel': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'colorInverse-variantDescription': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'colorInverse-variantCode': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-  }),
+  { root: {} },
   { name: 'MuiSparkUnstable_Typography' }
 )(Unstable_Typography) as typeof Unstable_Typography;
