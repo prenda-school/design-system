@@ -1,6 +1,5 @@
 import React, { ElementType, forwardRef, Ref } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_CheckboxListItem, {
   Unstable_CheckboxListItemProps,
   Unstable_CheckboxListItemTypeMap,
@@ -8,6 +7,7 @@ import Unstable_CheckboxListItem, {
 import { OverridableComponent, OverrideProps } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
 import { alpha } from '@material-ui/core/styles';
+import withStyles from '../withStyles';
 
 export type Unstable_CheckboxMenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -31,7 +31,7 @@ export type Unstable_CheckboxMenuItemProps<
 
 export type Unstable_CheckboxMenuItemClassKey = 'root' | 'selected';
 
-const useStyles = makeStyles(
+const withClasses = withStyles(
   (theme) => ({
     root: {
       width: 'auto',
@@ -73,7 +73,7 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   > = forwardRef(function Unstable_CheckboxMenuItem(props, ref) {
   const {
     children,
-    classes: classesProp,
+    classes,
     className,
     // @ts-expect-error not picked up
     component = 'li',
@@ -83,8 +83,6 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
     tabIndex: tabIndexProp,
     ...other
   } = props;
-
-  const classes = useStyles();
 
   let tabIndex;
   if (!props.disabled) {
@@ -96,10 +94,7 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
       classes={ListItemClasses}
       className={clsx(
         classes.root,
-        classesProp?.root,
-        {
-          [clsx(classes.selected, classesProp?.selected)]: selected,
-        },
+        { [classes.selected]: selected },
         className
       )}
       component={component}
@@ -114,4 +109,6 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   );
 });
 
-export default Unstable_CheckboxMenuItem;
+export default withClasses(
+  Unstable_CheckboxMenuItem
+) as typeof Unstable_CheckboxMenuItem;
