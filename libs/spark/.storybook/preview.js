@@ -11,9 +11,9 @@ import {
 const ChromaticCssBaseline = withStyles((theme) => ({
   '@global': {
     '*': {
-      animationDuration: '0.001ms !important',
-      animationIterationCount: '1 !important',
-      transitionDuration: '0.001ms !important',
+      animationPlayState: 'paused !important',
+      transition: 'none !important',
+      scrollBehavior: 'auto !important',
     },
   },
 }))(() => null);
