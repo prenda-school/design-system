@@ -4,9 +4,8 @@ import {
   default as MuiCheckbox,
   CheckboxProps as MuiCheckboxProps,
 } from '@material-ui/core/Checkbox';
-import makeStyles from '../makeStyles';
 import Unstable_CheckboxIcon from './Unstable_CheckboxIcon';
-import { StyledComponentProps } from '../withStyles';
+import withStyles, { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_CheckboxProps
   extends Omit<
@@ -34,7 +33,7 @@ export interface Unstable_CheckboxProps
 
 export type Unstable_CheckboxClassKey = 'root' | 'error';
 
-const useStyles = makeStyles<Unstable_CheckboxClassKey>(
+const withClasses = withStyles<Unstable_CheckboxClassKey>(
   {
     /* Styles applied to the root element. */
     root: {
@@ -54,18 +53,14 @@ const useStyles = makeStyles<Unstable_CheckboxClassKey>(
 
 const Unstable_Checkbox = forwardRef<unknown, Unstable_CheckboxProps>(
   function Unstable_Checkbox(props, ref) {
-    const { classes: classesProp, className, error, ...other } = props;
-
-    const classes = useStyles();
+    const { classes, className, error, ...other } = props;
 
     return (
       <MuiCheckbox
         checkedIcon={<Unstable_CheckboxIcon checked />}
         color="default"
         className={clsx(className, { [classes.error]: error })}
-        classes={{
-          root: clsx(classes.root, classesProp?.root),
-        }}
+        classes={{ root: classes.root }}
         disableFocusRipple
         disableRipple
         disableTouchRipple
@@ -79,4 +74,4 @@ const Unstable_Checkbox = forwardRef<unknown, Unstable_CheckboxProps>(
   }
 );
 
-export default Unstable_Checkbox;
+export default withClasses(Unstable_Checkbox) as typeof Unstable_Checkbox;
