@@ -1,6 +1,5 @@
 import React, { ElementType, forwardRef, MouseEvent, Ref } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_Checkbox, {
   Unstable_CheckboxProps,
 } from '../Unstable_Checkbox';
@@ -10,6 +9,7 @@ import Unstable_ListItem, {
 } from '../Unstable_ListItem';
 import { OverridableComponent, OverrideProps, useId } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
+import withStyles from '../withStyles';
 
 export type Unstable_CheckboxListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -66,7 +66,7 @@ export type Unstable_CheckboxListItemProps<
 
 export type Unstable_CheckboxListItemClassKey = 'root' | 'label';
 
-const useStyles = makeStyles<Unstable_CheckboxListItemClassKey>(
+const withClasses = withStyles<Unstable_CheckboxListItemClassKey>(
   {
     root: {},
     label: {
@@ -96,7 +96,7 @@ const Unstable_CheckboxListItem: OverridableComponent<
     CheckboxProps,
     checked: checkedProp,
     children,
-    classes: classesProp,
+    classes,
     ContentGroupProps = {},
     disabled,
     id: idProp,
@@ -107,8 +107,6 @@ const Unstable_CheckboxListItem: OverridableComponent<
     value,
     ...other
   } = props;
-
-  const classes = useStyles();
 
   const primaryId = useId(ContentGroupProps.primaryTypographyProps?.id);
   const secondaryId = useId(ContentGroupProps.secondaryTypographyProps?.id);
@@ -142,7 +140,7 @@ const Unstable_CheckboxListItem: OverridableComponent<
       classes={{
         ...ListItemClasses,
       }}
-      className={clsx(classes.root, classesProp?.root, className)}
+      className={clsx(classes.root, className)}
       ContentGroupProps={{
         ...ContentGroupProps,
         classes: {
@@ -186,4 +184,6 @@ const Unstable_CheckboxListItem: OverridableComponent<
   );
 });
 
-export default Unstable_CheckboxListItem;
+export default withClasses(
+  Unstable_CheckboxListItem
+) as typeof Unstable_CheckboxListItem;
