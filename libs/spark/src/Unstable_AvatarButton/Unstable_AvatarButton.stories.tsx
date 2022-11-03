@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_AvatarButton } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_AvatarButton, Unstable_AvatarButtonProps } from '..';
 import {
   containFocusIndicator,
   inverseBackground,
@@ -67,6 +67,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_AvatarButton {...args} />;
+
+type Story = DefaultStory<Unstable_AvatarButtonProps>;
 
 export const ChildrenInitials: Story = Template.bind({});
 ChildrenInitials.args = { children: '(Initials)' };

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_CheckboxListItem,
   Unstable_Divider,
@@ -7,6 +7,7 @@ import {
   Unstable_Link,
   Unstable_List,
   Unstable_ListItem,
+  Unstable_ListProps,
 } from '..';
 import {
   CheckCircleDuotone,
@@ -73,6 +74,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_List {...args} />;
+
+type Story = DefaultStory<Unstable_ListProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

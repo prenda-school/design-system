@@ -1,6 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Avatar, Unstable_CheckboxListItem } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_Avatar,
+  Unstable_CheckboxListItem,
+  Unstable_CheckboxListItemProps,
+} from '..';
 import {
   containFocusIndicator,
   enableHooks,
@@ -22,6 +26,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_CheckboxListItem {...args} />;
+
+type Story = DefaultStory<Unstable_CheckboxListItemProps>;
 
 export const Value: Story = Template.bind({});
 Value.args = { value: 'value', checked: false };
@@ -53,7 +59,6 @@ ValueDisabled.storyName = 'value disabled';
 
 export const ValueSelected: Story = Template.bind({});
 ValueSelected.args = {
-  primary: 'Label',
   value: 'value',
   selected: true,
 };

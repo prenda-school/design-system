@@ -1,11 +1,12 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import {
   Unstable_Button,
   Unstable_ModalDialog,
   Unstable_ModalDialogActions,
   Unstable_ModalDialogContent,
   Unstable_ModalDialogContentText,
+  Unstable_ModalDialogProps,
   Unstable_ModalDialogTitle,
 } from '..';
 
@@ -18,6 +19,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_ModalDialog {...args} />;
+
+type Story = DefaultStory<Unstable_ModalDialogProps>;
 
 export const Example: Story = Template.bind({});
 Example.args = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Avatar, Unstable_AvatarProps } from '..';
 import { sparkThemeProvider, User } from '../../stories';
 
@@ -57,6 +57,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Avatar {...args} />;
+
+type Story = DefaultStory<Unstable_AvatarProps>;
 
 export const ChildrenInitials: Story = Template.bind({});
 ChildrenInitials.args = { children: '(Initials)' };

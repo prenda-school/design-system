@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Radio } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_Radio, Unstable_RadioProps } from '..';
 import {
   containFocusIndicator,
   enableHooks,
@@ -19,6 +19,8 @@ export default {
     inputProps: { 'aria-label': 'Label' },
   },
 } as Meta;
+
+type Story = DefaultStory<Unstable_RadioProps>;
 
 const Template = (args) => <Unstable_Radio {...args} />;
 

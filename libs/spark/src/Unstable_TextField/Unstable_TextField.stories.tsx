@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_TextField } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_TextField, Unstable_TextFieldProps } from '..';
 import { default as Unstable_SelectMeta } from '../Unstable_Select/Unstable_Select.stories';
 import {
   containFocusIndicator,
@@ -61,6 +61,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_TextField {...args} />;
+
+type Story = DefaultStory<Unstable_TextFieldProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

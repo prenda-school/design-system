@@ -1,6 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_Button, Unstable_ModalDialogActions } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_Button,
+  Unstable_ModalDialogActions,
+  Unstable_ModalDialogActionsProps,
+} from '..';
 
 export const _retyped = Unstable_ModalDialogActions as typeof Unstable_ModalDialogActions;
 
@@ -11,6 +15,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_ModalDialogActions {...args} />;
+
+type Story = DefaultStory<Unstable_ModalDialogActionsProps>;
 
 export const Children: Story = Template.bind({});
 Children.args = {

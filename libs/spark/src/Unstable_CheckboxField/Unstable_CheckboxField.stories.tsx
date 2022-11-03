@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_CheckboxField } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_CheckboxField, Unstable_CheckboxFieldProps } from '..';
 import { containFocusIndicator } from '../../stories';
 
 export const _retyped = Unstable_CheckboxField as typeof Unstable_CheckboxField;
@@ -13,6 +13,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_CheckboxField {...args} />;
+
+type Story = DefaultStory<Unstable_CheckboxFieldProps>;
 
 export const Label: Story = Template.bind({});
 Label.args = { label: 'Label' };

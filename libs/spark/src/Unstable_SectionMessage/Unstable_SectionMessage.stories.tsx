@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_SectionMessage } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_SectionMessage, Unstable_SectionMessageProps } from '..';
 
 export default {
   title: '@ps/SectionMessage',
@@ -11,6 +11,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_SectionMessage {...args} />;
+
+type Story = DefaultStory<Unstable_SectionMessageProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

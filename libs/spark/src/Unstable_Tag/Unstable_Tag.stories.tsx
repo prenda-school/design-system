@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Tag, Unstable_TagProps } from '..';
 import {
   containFocusIndicator,
@@ -59,6 +59,17 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Tag {...args} />;
+
+type Story = DefaultStory<
+  Unstable_TagProps & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    icon: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onClick: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDelete: any;
+  }
+>;
 
 export const Label: Story = Template.bind({});
 Label.args = { label: 'Label' };

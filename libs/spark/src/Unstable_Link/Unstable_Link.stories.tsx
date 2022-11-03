@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { theme, Unstable_Link } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { theme, Unstable_Link, Unstable_LinkProps } from '..';
 import { containFocusIndicator } from '../../stories';
 
 export const _retyped = Unstable_Link as typeof Unstable_Link;
@@ -17,6 +17,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Link {...args} />;
+
+type Story = DefaultStory<Unstable_LinkProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

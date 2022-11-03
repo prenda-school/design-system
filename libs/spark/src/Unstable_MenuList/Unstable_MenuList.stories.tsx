@@ -1,6 +1,10 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_MenuItem, Unstable_MenuList } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import {
+  Unstable_MenuItem,
+  Unstable_MenuList,
+  Unstable_MenuListProps,
+} from '..';
 
 export const _retyped = Unstable_MenuList as typeof Unstable_MenuList;
 
@@ -26,6 +30,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_MenuList {...args} />;
+
+type Story = DefaultStory<Unstable_MenuListProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Avatar, Unstable_Button, Unstable_ButtonProps } from '..';
 import {
   ChevronDown,
@@ -51,6 +51,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_Button {...args} />;
+
+type Story = DefaultStory<Unstable_ButtonProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';

@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_SwitchField } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_SwitchField, Unstable_SwitchFieldProps } from '..';
 import { containFocusIndicator, mediumWidth } from '../../stories';
 
 export const _retyped = Unstable_SwitchField as typeof Unstable_SwitchField;
@@ -13,6 +13,8 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_SwitchField {...args} />;
+
+type Story = DefaultStory<Unstable_SwitchFieldProps>;
 
 export const Label: Story = Template.bind({});
 Label.args = { label: 'Label' };

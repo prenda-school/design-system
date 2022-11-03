@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Meta, Story } from '@storybook/react/types-6-0';
-import { Unstable_FormHelperText } from '..';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import { Unstable_FormHelperText, Unstable_FormHelperTextProps } from '..';
 import { Info } from '../../stories';
 
 export const _retyped = Unstable_FormHelperText as typeof Unstable_FormHelperText;
@@ -53,6 +53,13 @@ export default {
 } as Meta;
 
 const Template = (args) => <Unstable_FormHelperText {...args} />;
+
+type Story = DefaultStory<
+  Unstable_FormHelperTextProps & {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    component: any;
+  }
+>;
 
 export const ChildrenText: Story = Template.bind({});
 ChildrenText.args = { children: '(text)' };
