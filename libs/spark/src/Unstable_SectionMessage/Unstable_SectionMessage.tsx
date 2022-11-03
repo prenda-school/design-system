@@ -102,7 +102,6 @@ export default withStyles<Unstable_SectionMessageClassKey>(
       borderStyle: 'solid',
     },
     icon: {
-      color: theme.unstable_palette.text.icon,
       display: 'flex',
       fontSize: theme.unstable_typography.pxToRem(24),
       lineHeight: 1,
