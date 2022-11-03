@@ -12,6 +12,8 @@
 - **theme**
   - Add "elevations" of 0, 100, 200, 300, 400, 500 (`theme.unstable_elevations[...]`).
   - Add "overlay" to background palette (`theme.unstable_palette.background.overlay`).
+- **Unstable_CssBaseline**
+  - Added global styles to support reduced motion by disabling animations, transitions.
 - **Unstable_Menu**
   - Props API Changes:
     - `PaperProps`: see **Unstable_Paper**.

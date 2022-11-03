@@ -39,6 +39,13 @@ const CssBaseline = withStyles(
           backgroundColor: theme.palette.background.default,
         },
       },
+      '@media (prefers-reduced-motion: reduce)': {
+        '*': {
+          animationDuration: '0.001ms !important',
+          animationIterationCount: '1 !important',
+          transitionDuration: '0.001ms !important',
+        },
+      },
     },
   }),
   {
