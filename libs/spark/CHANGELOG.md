@@ -14,6 +14,8 @@
   - Add "overlay" to background palette (`theme.unstable_palette.background.overlay`).
 - **Unstable_Banner**
   - Removed props-dynamic styles.
+- **Unstable_Button**
+  - Removed props-dynamic styles.
 - **Unstable_CssBaseline**
   - Added global styles to support reduced motion by disabling animations, transitions.
 - **Unstable_Menu**
