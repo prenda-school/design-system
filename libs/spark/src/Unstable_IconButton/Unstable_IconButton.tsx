@@ -4,9 +4,9 @@ import {
   default as MuiIconButton,
   IconButtonProps as MuiIconButtonProps,
 } from '@material-ui/core/IconButton';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { lighten, darken, alpha } from '@material-ui/core/styles';
+import withStyles from '../withStyles';
 
 export interface Unstable_IconButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -51,9 +51,33 @@ export type Unstable_IconButtonProps<
 
 export type Unstable_IconButtonClassKey = 'root' | 'label';
 
-const useStyles = makeStyles<Unstable_IconButtonClassKey>(
+type PrivateClassKey =
+  | 'private-root-variant-primary'
+  | 'private-root-variant-primary-color-standard'
+  | 'private-root-variant-primary-color-inverse'
+  | 'private-root-variant-stroked'
+  | 'private-root-variant-stroked-color-standard'
+  | 'private-root-variant-stroked-color-inverse'
+  | 'private-root-variant-ghost'
+  | 'private-root-variant-ghost-color-standard'
+  | 'private-root-variant-ghost-color-inverse'
+  | 'private-root-size-small'
+  | 'private-root-size-medium'
+  | 'private-label-variant-primary'
+  | 'private-label-variant-primary-color-standard'
+  | 'private-label-variant-primary-color-inverse'
+  | 'private-label-variant-stroked'
+  | 'private-label-variant-stroked-color-standard'
+  | 'private-label-variant-stroked-color-inverse'
+  | 'private-label-variant-ghost'
+  | 'private-label-variant-ghost-color-standard'
+  | 'private-label-variant-ghost-color-inverse'
+  | 'private-label-ariaExpanded'
+  | 'private-label-disabled';
+
+const withClasses = withStyles<Unstable_IconButtonClassKey | PrivateClassKey>(
   (theme) => ({
-    root: (props: Unstable_IconButtonProps) => ({
+    root: {
       borderColor: 'transparent',
       borderRadius: 4,
       borderStyle: 'solid',
@@ -61,105 +85,105 @@ const useStyles = makeStyles<Unstable_IconButtonClassKey>(
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
-      /* variant & color */
-      ...(props.variant === 'primary' && {
-        backgroundColor: theme.unstable_palette.brand.blue,
-        '&:hover': {
-          backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
-        },
-        '&:active': {
-          backgroundColor: darken(theme.unstable_palette.brand.blue, 0.2),
-        },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
-        },
-      }),
-      ...(props.variant === 'stroked' && {
-        backgroundColor: theme.unstable_palette.neutral[0],
-        borderColor: theme.unstable_palette.neutral[90],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-        '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
-        },
-        '&[aria-expanded="true"]': {
-          backgroundColor: theme.unstable_palette.neutral[600],
-        },
-        '&:disabled': {
-          backgroundColor: theme.unstable_palette.neutral[80],
-        },
-      }),
-      ...(props.variant === 'ghost' &&
-        props.color === 'standard' && {
-          backgroundColor: 'transparent',
-          '&:hover': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-          },
-          '&:active': {
-            backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
-          },
-          '&[aria-expanded="true"]': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
-          },
-          '&:disabled': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
-          },
-        }),
-      ...(props.variant === 'ghost' &&
-        props.color === 'inverse' && {
-          backgroundColor: 'transparent',
-          '&:hover': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
-          },
-          '&:active': {
-            backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
-          },
-          '&[aria-expanded="true"]': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
-          },
-          '&:disabled': {
-            backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
-          },
-        }),
-      /* size */
-      ...(props.size === 'small' && {
-        padding: 4,
-      }),
-      ...(props.size === 'medium' && {
-        padding: 12,
-      }),
-    }),
-
-    label: (props: Unstable_IconButtonProps) => ({
+    },
+    label: {
       fontSize: '1.5rem',
-      /* variant & color */
-      ...(props.variant === 'primary' && {
-        color: theme.unstable_palette.neutral[0],
-      }),
-      ...(props.variant === 'stroked' && {
-        color: theme.unstable_palette.brand.blue,
-      }),
-      ...(props.variant === 'ghost' &&
-        props.color === 'standard' && {
-          color: theme.unstable_palette.brand.blue,
-        }),
-      ...(props.variant === 'ghost' &&
-        props.color === 'inverse' && {
-          color: theme.unstable_palette.neutral[0],
-        }),
-      /* aria-expanded */
-      ...(props['aria-expanded'] && {
-        color: theme.unstable_palette.neutral[0],
-      }),
-      /* disabled */
-      ...(props.disabled && {
-        color: theme.unstable_palette.text.disabled,
-      }),
-    }),
+    },
+    'private-root-variant-primary': {
+      backgroundColor: theme.unstable_palette.brand.blue,
+      '&:hover': {
+        backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
+      },
+      '&:active': {
+        backgroundColor: darken(theme.unstable_palette.brand.blue, 0.2),
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.neutral[600],
+      },
+      '&:disabled': {
+        backgroundColor: theme.unstable_palette.neutral[80],
+      },
+    },
+    'private-root-variant-primary-color-standard': {},
+    'private-root-variant-primary-color-inverse': {},
+    'private-root-variant-stroked': {
+      backgroundColor: theme.unstable_palette.neutral[0],
+      borderColor: theme.unstable_palette.neutral[90],
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.neutral[70],
+      },
+      '&:active': {
+        backgroundColor: theme.unstable_palette.blue[100],
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.neutral[600],
+      },
+      '&:disabled': {
+        backgroundColor: theme.unstable_palette.neutral[80],
+      },
+    },
+    'private-root-variant-stroked-color-standard': {},
+    'private-root-variant-stroked-color-inverse': {},
+    'private-root-variant-ghost': {},
+    'private-root-variant-ghost-color-standard': {
+      backgroundColor: 'transparent',
+      '&:hover': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+      },
+      '&:active': {
+        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
+      },
+      '&:disabled': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      },
+    },
+    'private-root-variant-ghost-color-inverse': {
+      backgroundColor: 'transparent',
+      '&:hover': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
+      },
+      '&:active': {
+        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
+      },
+      '&:disabled': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      },
+    },
+    'private-root-size-small': {
+      padding: 4,
+    },
+    'private-root-size-medium': {
+      padding: 12,
+    },
+    'private-label-variant-primary': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-label-variant-primary-color-standard': {},
+    'private-label-variant-primary-color-inverse': {},
+    'private-label-variant-stroked': {
+      color: theme.unstable_palette.brand.blue,
+    },
+    'private-label-variant-stroked-color-standard': {},
+    'private-label-variant-stroked-color-inverse': {},
+    'private-label-variant-ghost': {},
+    'private-label-variant-ghost-color-standard': {
+      color: theme.unstable_palette.brand.blue,
+    },
+    'private-label-variant-ghost-color-inverse': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-label-ariaExpanded': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-label-disabled': {
+      color: theme.unstable_palette.text.disabled,
+    },
   }),
   { name: 'MuiSparkUnstable_IconButton' }
 );
@@ -169,7 +193,7 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
     const {
       'aria-expanded': ariaExpanded,
       color = 'standard',
-      classes: classesProp,
+      classes,
       disabled,
       size = 'medium',
       variant = 'primary',
@@ -178,20 +202,25 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
       ...other
     } = props;
 
-    const classes = useStyles({
-      'aria-expanded': ariaExpanded,
-      color,
-      disabled,
-      size,
-      variant,
-    });
-
     return (
       <MuiIconButton
         aria-expanded={ariaExpanded}
         classes={{
-          root: clsx(classes.root, classesProp?.root),
-          label: clsx(classes.label, classesProp?.label),
+          root: clsx(
+            classes.root,
+            classes[`private-root-variant-${variant}`],
+            classes[`private-root-variant-${variant}-color-${color}`],
+            classes[`private-root-size-${size}`]
+          ),
+          label: clsx(
+            classes.label,
+            classes[`private-label-variant-${variant}`],
+            classes[`private-label-variant-${variant}-color-${color}`],
+            {
+              [classes['private-label-ariaExpanded']]: ariaExpanded,
+              [classes['private-label-disabled']]: disabled,
+            }
+          ),
         }}
         disabled={disabled}
         disableFocusRipple
@@ -205,4 +234,4 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
   }
 );
 
-export default Unstable_IconButton;
+export default withClasses(Unstable_IconButton) as typeof Unstable_IconButton;

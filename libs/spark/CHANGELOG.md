@@ -18,6 +18,8 @@
   - Removed props-dynamic styles.
 - **Unstable_CssBaseline**
   - Added global styles to support reduced motion by disabling animations, transitions.
+- **Unstable_IconButton**
+  - Removed props-dynamic styles.
 - **Unstable_Menu**
   - Props API Changes:
     - `PaperProps`: see **Unstable_Paper**.
