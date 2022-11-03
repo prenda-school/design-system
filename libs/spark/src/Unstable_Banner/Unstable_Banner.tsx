@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_Alert, {
   Unstable_AlertClassKey,
   Unstable_AlertProps,
@@ -13,98 +12,20 @@ export interface Unstable_BannerProps extends Unstable_AlertProps {}
 export type Unstable_BannerClassKey = Unstable_AlertClassKey;
 
 type PrivateClassKey =
-  | 'root-severity-error'
-  | 'root-severity-info'
-  | 'root-severity-success'
-  | 'root-severity-warning'
-  | 'icon-severity-error'
-  | 'icon-severity-info'
-  | 'icon-severity-success'
-  | 'icon-severity-warning'
-  | 'message-severity-error'
-  | 'message-severity-info'
-  | 'message-severity-success'
-  | 'message-severity-warning';
+  | 'private-root-severity-error'
+  | 'private-root-severity-info'
+  | 'private-root-severity-success'
+  | 'private-root-severity-warning'
+  | 'private-icon-severity-error'
+  | 'private-icon-severity-info'
+  | 'private-icon-severity-success'
+  | 'private-icon-severity-warning'
+  | 'private-message-severity-error'
+  | 'private-message-severity-info'
+  | 'private-message-severity-success'
+  | 'private-message-severity-warning';
 
-const usePrivateStyles = makeStyles<PrivateClassKey>(
-  (theme) => ({
-    'root-severity-error': {
-      backgroundColor: theme.unstable_palette.red[700],
-    },
-    'root-severity-info': {
-      backgroundColor: theme.unstable_palette.blue[700],
-    },
-    'root-severity-success': {
-      backgroundColor: theme.unstable_palette.green[700],
-    },
-    'root-severity-warning': {
-      backgroundColor: theme.unstable_palette.yellow[600],
-    },
-    'icon-severity-error': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'icon-severity-info': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'icon-severity-success': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'icon-severity-warning': {
-      color: theme.unstable_palette.neutral[600],
-    },
-    'message-severity-error': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'message-severity-info': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'message-severity-success': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'message-severity-warning': {
-      color: theme.unstable_palette.neutral[600],
-    },
-  }),
-  { name: 'MuiSparkPrivate-Banner' }
-);
-
-const Unstable_Banner = forwardRef<unknown, Unstable_BannerProps>(
-  function Unstable_Banner(props, ref) {
-    const {
-      classes,
-      severity = 'info',
-      CloseProps: ClosePropsProp,
-      ...other
-    } = props;
-
-    const privateClasses = usePrivateStyles();
-
-    let CloseProps: Unstable_AlertProps['CloseProps'] = ClosePropsProp;
-    if (['info', 'success', 'error'].includes(severity)) {
-      CloseProps = { color: 'inverse', ...CloseProps };
-    }
-
-    return (
-      <Unstable_Alert
-        classes={{
-          root: clsx(classes.root, privateClasses[`root-severity-${severity}`]),
-          icon: clsx(classes.icon, privateClasses[`icon-severity-${severity}`]),
-          message: clsx(
-            classes.message,
-            privateClasses[`message-severity-${severity}`]
-          ),
-          action: classes.action,
-        }}
-        severity={severity}
-        ref={ref}
-        CloseProps={CloseProps}
-        {...other}
-      />
-    );
-  }
-);
-
-export default withStyles<Unstable_BannerClassKey>(
+const withClasses = withStyles<Unstable_BannerClassKey | PrivateClassKey>(
   (theme) => ({
     root: {
       alignItems: 'flex-start',
@@ -128,6 +49,85 @@ export default withStyles<Unstable_BannerClassKey>(
       justifySelf: 'flex-end',
       marginTop: -2,
     },
+    /* Private */
+    'private-root-severity-error': {
+      backgroundColor: theme.unstable_palette.red[700],
+    },
+    'private-root-severity-info': {
+      backgroundColor: theme.unstable_palette.blue[700],
+    },
+    'private-root-severity-success': {
+      backgroundColor: theme.unstable_palette.green[700],
+    },
+    'private-root-severity-warning': {
+      backgroundColor: theme.unstable_palette.yellow[600],
+    },
+    'private-icon-severity-error': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-icon-severity-info': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-icon-severity-success': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-icon-severity-warning': {
+      color: theme.unstable_palette.neutral[600],
+    },
+    'private-message-severity-error': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-message-severity-info': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-message-severity-success': {
+      color: theme.unstable_palette.neutral[0],
+    },
+    'private-message-severity-warning': {
+      color: theme.unstable_palette.neutral[600],
+    },
   }),
   { name: 'MuiSparkUnstable_Banner' }
-)(Unstable_Banner) as typeof Unstable_Banner;
+);
+
+const Unstable_Banner = forwardRef<unknown, Unstable_BannerProps>(
+  function Unstable_Banner(props, ref) {
+    const {
+      classes,
+      severity = 'info',
+      CloseProps: ClosePropsProp,
+      ...other
+    } = props;
+
+    let CloseProps: Unstable_AlertProps['CloseProps'] = ClosePropsProp;
+    if (['info', 'success', 'error'].includes(severity)) {
+      CloseProps = { color: 'inverse', ...CloseProps };
+    }
+
+    return (
+      <Unstable_Alert
+        classes={{
+          root: clsx(
+            classes.root,
+            classes[`private-root-severity-${severity}`]
+          ),
+          icon: clsx(
+            classes.icon,
+            classes[`private-icon-severity-${severity}`]
+          ),
+          message: clsx(
+            classes.message,
+            classes[`private-message-severity-${severity}`]
+          ),
+          action: classes.action,
+        }}
+        severity={severity}
+        ref={ref}
+        CloseProps={CloseProps}
+        {...other}
+      />
+    );
+  }
+);
+
+export default withClasses(Unstable_Banner) as typeof Unstable_Banner;
