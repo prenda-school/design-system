@@ -4,9 +4,8 @@ import {
   default as MuiInputBase,
   InputBaseProps as MuiInputBaseProps,
 } from '@material-ui/core/InputBase';
-import makeStyles from '../makeStyles';
 import Unstable_InputAdornment from '../Unstable_InputAdornment';
-import { StyledComponentProps } from '../withStyles';
+import withStyles, { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_InputProps
   extends Omit<
@@ -37,10 +36,21 @@ export interface Unstable_InputProps
 
 export type Unstable_InputClassKey = 'root' | 'input';
 
-const useStyles = makeStyles<Unstable_InputClassKey>(
+type PrivateClassKey =
+  | 'private-root-value'
+  | 'private-root-multiline'
+  | 'private-root-leadingEl'
+  | 'private-root-trailingEl'
+  | 'private-root-success'
+  | 'private-input-placeholder'
+  | 'private-input-multiline'
+  | 'private-input-leadingEl'
+  | 'private-input-trailingEl';
+
+const withClasses = withStyles<Unstable_InputClassKey | PrivateClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
-    root: (props: Unstable_InputProps) => ({
+    root: {
       ...theme.unstable_typography.body,
       boxSizing: 'border-box',
       backgroundColor: theme.unstable_palette.neutral[0],
@@ -55,38 +65,12 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[60],
       },
-      /* value */
-      ...(props.value && {
-        backgroundColor: theme.unstable_palette.neutral[60],
-        borderColor: theme.unstable_palette.neutral[100],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-      }),
-      // must come after `value`
       '&.Mui-focused, &:focus-visible': {
         backgroundColor: theme.unstable_palette.neutral[0],
         borderColor: theme.unstable_palette.blue[600],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.blue[100]}`,
       },
-      /* multiline */
-      ...(props.multiline && {
-        padding: 0,
-      }),
-      /* leadingEl */
-      ...(props.leadingEl && {
-        paddingLeft: 14,
-      }),
-      /* trailingEl */
-      ...(props.trailingEl && {
-        paddingRight: 14,
-      }),
-      /* success */
-      ...(props.success && {
-        borderColor: theme.unstable_palette.green[600],
-        boxShadow: `0 0 0 4px ${theme.unstable_palette.green[100]}`,
-      }),
-      /* error -- -- can get from internal context => can't condition on prop */
+      /* error -- can get from internal context => can't condition on prop */
       '&.Mui-error': {
         borderColor: theme.unstable_palette.red[700],
         boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
@@ -97,41 +81,58 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
         opacity: 1,
         color: theme.unstable_palette.text.disabled, // override Mui default
       },
-    }),
+    },
     /* Styles applied to the `input` element. */
-    input: (props: Unstable_InputProps) => ({
+    input: {
       borderRadius: 4,
       color: 'inherit',
       height: 'unset', // override weird default `em` height
       padding: '12px 16px',
-      /* placeholder */
-      ...(props.placeholder && {
-        color: theme.unstable_palette.neutral[400],
-        opacity: 0.87,
-        // override mui default
-        '&::placeholder': {
-          color: theme.unstable_palette.neutral[400],
-          opacity: 0.87,
-        },
-      }),
-      /* multiline */
-      ...(props.multiline && {
-        padding: '12px 16px',
-      }),
-      /* leadingEl */
-      ...(props.leadingEl && {
-        paddingLeft: 8,
-      }),
-      /* trailingEl */
-      ...(props.trailingEl && {
-        paddingRight: 8,
-      }),
       /* disabled -- can get from internal context => can't condition on prop */
       '&.Mui-disabled': {
         color: 'inherit',
         opacity: 1,
       },
-    }),
+    },
+    /* Private */
+    'private-root-value': {
+      backgroundColor: theme.unstable_palette.neutral[60],
+      borderColor: theme.unstable_palette.neutral[100],
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.neutral[70],
+      },
+    },
+    'private-root-multiline': {
+      padding: 0,
+    },
+    'private-root-leadingEl': {
+      paddingLeft: 14,
+    },
+    'private-root-trailingEl': {
+      paddingRight: 14,
+    },
+    'private-root-success': {
+      borderColor: theme.unstable_palette.green[600],
+      boxShadow: `0 0 0 4px ${theme.unstable_palette.green[100]}`,
+    },
+    'private-input-placeholder': {
+      color: theme.unstable_palette.neutral[400],
+      opacity: 0.87,
+      // override mui default
+      '&::placeholder': {
+        color: theme.unstable_palette.neutral[400],
+        opacity: 0.87,
+      },
+    },
+    'private-input-multiline': {
+      padding: '12px 16px',
+    },
+    'private-input-leadingEl': {
+      paddingLeft: 8,
+    },
+    'private-input-trailingEl': {
+      paddingRight: 8,
+    },
   }),
   { name: 'MuiSparkUnstable_Input' }
 );
@@ -139,9 +140,7 @@ const useStyles = makeStyles<Unstable_InputClassKey>(
 const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
   function Unstable_Input(props, ref) {
     const {
-      classes: classesProp,
-      disabled,
-      error,
+      classes,
       leadingEl,
       multiline,
       placeholder,
@@ -151,24 +150,23 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
       ...other
     } = props;
 
-    const classes = useStyles({
-      disabled,
-      error,
-      leadingEl,
-      multiline,
-      placeholder,
-      success,
-      trailingEl,
-      value,
-    });
-
     return (
       <MuiInputBase
         classes={{
-          root: clsx(classes.root, classesProp?.root),
-          input: clsx(classes.input, classesProp?.input),
+          root: clsx(classes.root, {
+            [classes['private-root-value']]: value,
+            [classes['private-root-multiline']]: multiline,
+            [classes['private-root-leadingEl']]: leadingEl,
+            [classes['private-root-trailingEl']]: trailingEl,
+            [classes['private-root-success']]: success,
+          }),
+          input: clsx(classes.input, {
+            [classes['private-input-placeholder']]: placeholder,
+            [classes['private-input-multiline']]: multiline,
+            [classes['private-input-leadingEl']]: leadingEl,
+            [classes['private-input-trailingEl']]: trailingEl,
+          }),
         }}
-        disabled={disabled}
         endAdornment={
           trailingEl ? (
             <Unstable_InputAdornment position="end">
@@ -176,7 +174,6 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
             </Unstable_InputAdornment>
           ) : undefined
         }
-        error={error}
         multiline={multiline}
         placeholder={placeholder}
         startAdornment={
@@ -194,4 +191,4 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
   }
 );
 
-export default Unstable_Input;
+export default withClasses(Unstable_Input) as typeof Unstable_Input;
