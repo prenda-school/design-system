@@ -24,6 +24,8 @@
   - Removed props-dynamic styles.
 - **Unstable_Input**
   - Removed props-dynamic styles.
+- **Unstable_InputAdornment**
+  - Removed props-dynamic styles.
 - **Unstable_Menu**
   - Props API Changes:
     - `PaperProps`: see **Unstable_Paper**.
