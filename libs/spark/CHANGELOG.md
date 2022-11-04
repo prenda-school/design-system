@@ -28,6 +28,8 @@
   - Removed props-dynamic styles.
 - **Unstable_Link**
   - Removed props-dynamic styles.
+- **Unstable_List**
+  - Removed props-dynamic styles.
 - **Unstable_ListItem**
   - Removed props-dynamic styles.
 - **Unstable_Menu**
@@ -119,6 +121,13 @@
     - `button` -> ` ` (remove) (move styles to `root`)
     - `nest` -> ` ` (remove) (move styles to `root`)
     - `secondaryActionFlexStart` -> ` ` (remove) (move styles to `secondaryAction`)
+- **Unstable_List**
+  - CSS API:
+    - `rootWithSubheader`: removed
+    - `rootWithPadding`: removed
+  - Migration:
+    - `rootWithSubheader` -> ` ` (remove) (move styles to `root`)
+    - `rootWithPadding` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
