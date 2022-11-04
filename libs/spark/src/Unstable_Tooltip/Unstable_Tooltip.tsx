@@ -4,10 +4,12 @@ import {
 } from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
-import withStyles, { Styles } from '../withStyles';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Unstable_TooltipProps extends MuiTooltipProps {}
+export interface Unstable_TooltipProps
+  extends Omit<MuiTooltipProps, 'classes'>,
+    StyledComponentProps<Unstable_TooltipClassKey> {}
 
 export type Unstable_TooltipClassKey = 'arrow' | 'tooltip' | 'popper';
 
