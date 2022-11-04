@@ -37,7 +37,7 @@ export type Unstable_ListProps<
 
 export type Unstable_ListClassKey = 'root';
 
-type PrivateClassKey = 'private-root-subheader' | 'private-root-disablePadding';
+type PrivateClassKey = 'private-root-subheader' | 'private-root-padding';
 
 const styles: Styles<Unstable_ListClassKey | PrivateClassKey> = {
   /* Styles applied to the root element. */
@@ -46,16 +46,14 @@ const styles: Styles<Unstable_ListClassKey | PrivateClassKey> = {
     margin: 0,
     padding: 0,
     position: 'relative',
-    paddingBlockStart: 8,
-    paddingBlockEnd: 8,
   },
   /* Private */
   'private-root-subheader': {
     paddingBlockStart: 0,
   },
-  'private-root-disablePadding': {
-    paddingBlockStart: 0,
-    paddingBlockEnd: 0,
+  'private-root-padding': {
+    paddingBlockStart: 8,
+    paddingBlockEnd: 8,
   },
 };
 const Unstable_List: OverridableComponent<Unstable_ListTypeMap> = forwardRef(
@@ -80,7 +78,7 @@ const Unstable_List: OverridableComponent<Unstable_ListTypeMap> = forwardRef(
           classes.root,
           {
             [classes['private-root-subheader']]: !!subheader,
-            [classes['private-root-disablePadding']]: disablePadding,
+            [classes['private-root-padding']]: !disablePadding,
           },
           className
         )}
