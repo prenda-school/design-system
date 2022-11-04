@@ -172,6 +172,25 @@
   - Migration:
     - `sizeMedium` -> ` ` (remove) (move styles to `root`)
     - `sizeLarge` -> ` ` (remove) (move styles to `root`)
+- **Unstable_Tooltip**
+  - CSS API:
+    - `arrowPlacementBottom`: removed
+    - `arrowPlacementRight`: removed
+    - `arrowPlacementLeft`: removed
+    - `arrowPlacementTop`: removed
+    - `tooltipPlacementBottom`: removed
+    - `tooltipPlacementRight`: removed
+    - `tooltipPlacementLeft`: removed
+    - `tooltipPlacementTop`: removed
+  - Migration:
+    - `arrowPlacementBottom` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementRight` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementLeft` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementTop` -> ` ` (remove) (move styles to `arrow`)
+    - `tooltipPlacementBottom` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementRight` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementLeft` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementTop` -> ` ` (remove) (move styles to `tooltip`)
 - **Unstable_Typography**
   - Props API:
     - `variantMapping`: removed.
