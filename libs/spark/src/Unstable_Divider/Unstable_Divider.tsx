@@ -1,11 +1,11 @@
 import React, { ElementType, forwardRef } from 'react';
-import clsx from 'clsx';
 import {
   default as MuiDivider,
   DividerProps as MuiDividerProps,
 } from '@material-ui/core/Divider';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
+import withStyles from '../withStyles';
+import clsx from 'clsx';
 
 export interface Unstable_DividerTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -29,30 +29,29 @@ export type Unstable_DividerProps<
   P = {}
 > = OverrideProps<Unstable_DividerTypeMap<P, D>, D>;
 
-export type Unstable_DividerClassKey =
-  | 'root'
-  | 'rootDarker'
-  | 'rootInset'
-  | 'rootMiddle';
+export type Unstable_DividerClassKey = 'root';
 
-const useStyles = makeStyles<Unstable_DividerClassKey>(
+type PrivateClassKey =
+  | 'private-root-darker'
+  | 'private-root-inset'
+  | 'private-root-middle';
+
+const withClasses = withStyles<Unstable_DividerClassKey | PrivateClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
       backgroundColor: theme.unstable_palette.neutral[80],
       display: 'block',
     },
-    /* Styles applied to the root element if `darker={true}`. */
-    rootDarker: {
+    /* Private */
+    'private-root-darker': {
       backgroundColor: theme.unstable_palette.neutral[90],
     },
-    /* Styles applied to the root element if `variant='inset'`. */
-    rootInset: {
+    'private-root-inset': {
       marginLeft: 'unset',
       marginInlineStart: 40,
     },
-    /* Styles applied to the root element if `variant='middle'`. */
-    rootMiddle: {
+    'private-root-middle': {
       marginLeft: 'unset',
       marginInlineEnd: 16,
       marginInlineStart: 16,
@@ -64,18 +63,16 @@ const useStyles = makeStyles<Unstable_DividerClassKey>(
 
 const Unstable_Divider: OverridableComponent<Unstable_DividerTypeMap> = forwardRef(
   function Unstable_Divider(props, ref) {
-    const { classes: classesProp, darker, ...other } = props;
-
-    const classes = useStyles();
+    const { classes, darker, ...other } = props;
 
     return (
       <MuiDivider
         classes={{
-          root: clsx(classes.root, classesProp?.root, {
-            [clsx(classes.rootDarker, classesProp?.rootDarker)]: darker,
+          root: clsx(classes.root, {
+            [classes['private-root-darker']]: darker,
           }),
-          inset: clsx(classes.rootInset, classesProp?.rootInset),
-          middle: clsx(classes.rootMiddle, classesProp?.rootMiddle),
+          inset: classes['private-root-inset'],
+          middle: classes['private-root-middle'],
         }}
         ref={ref}
         {...other}
@@ -84,4 +81,4 @@ const Unstable_Divider: OverridableComponent<Unstable_DividerTypeMap> = forwardR
   }
 );
 
-export default Unstable_Divider;
+export default withClasses(Unstable_Divider) as typeof Unstable_Divider;
