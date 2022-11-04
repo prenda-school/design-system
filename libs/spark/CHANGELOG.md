@@ -108,6 +108,13 @@
       - `elevation={4}` -> `elevation={400}`
       - `elevation={5}` -> `elevation={500}`
       - `elevation={6..24}` -> `elevation={500}`
+- **Unstable_Switch**
+  - CSS API:
+    - `sizeMedium`: removed
+    - `sizeLarge`: removed
+  - Migration:
+    - `sizeMedium` -> ` ` (remove) (move styles to `root`)
+    - `sizeLarge` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Typography**
   - Props API:
     - `variantMapping`: removed.
