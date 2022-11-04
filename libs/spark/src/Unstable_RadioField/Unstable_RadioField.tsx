@@ -1,6 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_FormControlLabel, {
   Unstable_FormControlLabelProps,
 } from '../Unstable_FormControlLabel';
@@ -9,9 +8,11 @@ import Unstable_FormHelperText, {
 } from '../Unstable_FormHelperText';
 import Unstable_Radio from '../Unstable_Radio/Unstable_Radio';
 import { useId } from '../utils';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 export interface Unstable_RadioFieldProps
-  extends Omit<Unstable_FormControlLabelProps, 'control'> {
+  extends Omit<Unstable_FormControlLabelProps, 'classes' | 'control'>,
+    StyledComponentProps<Unstable_RadioFieldClassKey> {
   /**
    * If `true`, the label will be displayed in an error state.
    */
@@ -30,26 +31,26 @@ export interface Unstable_RadioFieldProps
   id?: string;
 }
 
-const useStyles = makeStyles(
-  {
-    /** Styles applied to the root element. */
-    root: {
-      display: 'inline-flex',
-      flexDirection: 'column',
-      gap: 4,
-    },
-    /** Styles applied to the helper text element. */
-    helperText: {
-      marginLeft: 17 + 8, // control + gap
-    },
+type Unstable_RadioFieldClassKey = 'root' | 'helperText';
+
+const styles: Styles<Unstable_RadioFieldClassKey> = {
+  /** Styles applied to the root element. */
+  root: {
+    display: 'inline-flex',
+    flexDirection: 'column',
+    gap: 4,
   },
-  { name: 'MuiSparkUnstable_RadioField' }
-);
+  /** Styles applied to the helper text element. */
+  helperText: {
+    marginLeft: 17 + 8, // control + gap
+  },
+};
 
 const Unstable_RadioField = forwardRef<unknown, Unstable_RadioFieldProps>(
   function Unstable_RadioField(props, ref) {
     const {
       className,
+      classes,
       disabled,
       error,
       FormHelperTextProps,
@@ -57,8 +58,6 @@ const Unstable_RadioField = forwardRef<unknown, Unstable_RadioFieldProps>(
       id: idProp,
       ...other
     } = props;
-
-    const classes = useStyles();
 
     const id = useId(idProp);
 
@@ -92,4 +91,6 @@ const Unstable_RadioField = forwardRef<unknown, Unstable_RadioFieldProps>(
   }
 );
 
-export default Unstable_RadioField;
+export default withStyles(styles, { name: 'MuiSparkUnstable_RadioField' })(
+  Unstable_RadioField
+) as typeof Unstable_RadioField;

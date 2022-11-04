@@ -1,12 +1,12 @@
 import React, { ElementType, forwardRef, Ref } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_ListItem, {
   Unstable_ListItemProps,
   Unstable_ListItemTypeMap,
 } from '../Unstable_ListItem';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
+import withStyles, { Styles } from '../withStyles';
 
 export type Unstable_MenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -30,17 +30,14 @@ export type Unstable_MenuItemProps<
 
 export type Unstable_MenuItemClassKey = 'root' | 'selected';
 
-const useStyles = makeStyles(
-  {
-    root: {
-      width: 'auto',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-    },
-    selected: {},
+const styles: Styles<Unstable_MenuItemClassKey> = {
+  root: {
+    width: 'auto',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
   },
-  { name: 'MuiSparkUnstable_MenuItem' }
-);
+  selected: {},
+};
 
 // @ts-expect-error can't handle overloads by `button` values
 const Unstable_MenuItem: OverridableComponent<
@@ -57,7 +54,7 @@ const Unstable_MenuItem: OverridableComponent<
   > = forwardRef(function Unstable_MenuItem(props, ref) {
   const {
     children,
-    classes: classesProp,
+    classes,
     className,
     // @ts-expect-error not picked up
     component = 'li',
@@ -67,8 +64,6 @@ const Unstable_MenuItem: OverridableComponent<
     tabIndex: tabIndexProp,
     ...other
   } = props;
-
-  const classes = useStyles();
 
   let tabIndex;
   if (!props.disabled) {
@@ -81,9 +76,8 @@ const Unstable_MenuItem: OverridableComponent<
       classes={ListItemClasses}
       className={clsx(
         classes.root,
-        classesProp?.root,
         {
-          [clsx(classes.selected, classesProp?.selected)]: selected,
+          [classes.selected]: selected,
         },
         className
       )}
@@ -99,4 +93,6 @@ const Unstable_MenuItem: OverridableComponent<
   );
 });
 
-export default Unstable_MenuItem;
+export default withStyles(styles, { name: 'MuiSparkUnstable_MenuItem' })(
+  Unstable_MenuItem
+) as typeof Unstable_MenuItem;

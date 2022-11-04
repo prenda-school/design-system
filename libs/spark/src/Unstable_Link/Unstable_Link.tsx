@@ -4,8 +4,8 @@ import {
   default as MuiLink,
   LinkProps as MuiLinkProps,
 } from '@material-ui/core/Link';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -39,61 +39,68 @@ export type Unstable_LinkProps<
 
 export type Unstable_LinkClassKey = 'root';
 
-const useStyles = makeStyles<Unstable_LinkClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: (props: Unstable_LinkProps) => ({
-      textDecoration: 'underline',
-      '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+type PrivateClassKey =
+  | 'private-root-standalone'
+  | 'private-root-color-inherit'
+  | 'private-root-color-standard'
+  | 'private-root-variant-alias'
+  | 'private-root-variant-standard';
+
+const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
+  /* Styles applied to the root element. */
+  root: {
+    textDecoration: 'underline',
+    '&.Mui-focusVisible, &:focus-visible': {
+      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+    },
+    // reset browser default
+    '&:focus': {
+      outline: 'none',
+    },
+  },
+  'private-root-standalone': {
+    textDecoration: 'none',
+  },
+  'private-root-color-inherit': { color: 'inherit' },
+  'private-root-color-standard': {
+    color: theme.unstable_palette.blue['600'],
+    '&:hover': {
+      color: theme.unstable_palette.blue['500'],
+    },
+    '&:visited': {
+      color: theme.unstable_palette.purple[600],
+      '&:hover': {
+        color: theme.unstable_palette.purple[400],
       },
-      /* standalone */
-      ...(props.standalone && {
-        textDecoration: 'none',
-      }),
-      /* color */
-      ...(props.color === 'standard' && {
-        color: theme.unstable_palette.blue['600'],
-        '&:hover': {
-          color: theme.unstable_palette.blue['500'],
-        },
-        '&:visited': {
-          color: theme.unstable_palette.purple[600],
-          '&:hover': {
-            color: theme.unstable_palette.purple[400],
-          },
-        },
-      }),
-      ...(props.color === 'inherit' && { color: 'inherit' }),
-      /* variant */
-      ...(props.variant === 'standard' && {
-        ...theme.unstable_typography.body,
-      }),
-      // reset browser default
-      '&:focus': {
-        outline: 'none',
-      },
-    }),
-  }),
-  { name: 'MuiSparkUnstable_Link' }
-);
+    },
+  },
+  'private-root-variant-alias': {},
+  'private-root-variant-standard': {
+    ...theme.unstable_typography.body,
+  },
+});
 
 const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   function Unstable_Link(props, ref) {
     const {
-      classes: classesProp,
+      classes,
       color = 'standard',
       variant = 'standard',
       standalone,
       ...other
     } = props;
 
-    const classes = useStyles({ color, variant, standalone });
-
     return (
       <MuiLink
         classes={{
-          root: clsx(classes.root, classesProp?.root),
+          root: clsx(
+            classes.root,
+            classes[`private-root-color-${color}`],
+            classes[`private-root-variant-${variant}`],
+            {
+              [classes[`private-root-standalone`]]: standalone,
+            }
+          ),
         }}
         underline="none"
         ref={ref}
@@ -103,4 +110,6 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   }
 );
 
-export default Unstable_Link;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Link' })(
+  Unstable_Link
+) as typeof Unstable_Link;

@@ -1,75 +1,84 @@
 import {
   default as MuiTooltip,
-  TooltipClassKey as MuiTooltipClassKey,
   TooltipProps as MuiTooltipProps,
 } from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
-import makeStyles from '../makeStyles';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Unstable_TooltipProps extends MuiTooltipProps {}
+export interface Unstable_TooltipProps
+  extends Omit<MuiTooltipProps, 'classes'>,
+    StyledComponentProps<Unstable_TooltipClassKey> {}
 
-export type Unstable_TooltipClassKey = MuiTooltipClassKey;
+export type Unstable_TooltipClassKey = 'arrow' | 'tooltip' | 'popper';
 
-const useStyles = makeStyles(
-  (theme) => ({
-    arrow: {
-      color: theme.unstable_palette.neutral[600],
+type PrivateClassKey =
+  | 'private-arrow-placement-bottom'
+  | 'private-arrow-placement-left'
+  | 'private-arrow-placement-right'
+  | 'private-arrow-placement-top'
+  | 'private-tooltip-placement-bottom'
+  | 'private-tooltip-placement-left'
+  | 'private-tooltip-placement-right'
+  | 'private-tooltip-placement-top';
+
+const styles: Styles<Unstable_TooltipClassKey | PrivateClassKey> = (theme) => ({
+  arrow: {
+    color: theme.unstable_palette.neutral[600],
+  },
+  'private-arrow-placement-bottom': {
+    '&::before': {
+      borderTopLeftRadius: 4,
     },
-    arrowPlacementBottom: {
-      '&::before': {
-        borderTopLeftRadius: 4,
-      },
+  },
+  'private-arrow-placement-left': {
+    '&::before': {
+      borderTopRightRadius: 4,
     },
-    arrowPlacementLeft: {
-      '&::before': {
-        borderTopRightRadius: 4,
-      },
+  },
+  'private-arrow-placement-right': {
+    '&::before': {
+      borderBottomLeftRadius: 4,
     },
-    arrowPlacementRight: {
-      '&::before': {
-        borderBottomLeftRadius: 4,
-      },
+  },
+  'private-arrow-placement-top': {
+    '&::before': {
+      borderBottomRightRadius: 4,
     },
-    arrowPlacementTop: {
-      '&::before': {
-        borderBottomRightRadius: 4,
-      },
-    },
-    tooltip: {
-      ...theme.unstable_typography.body,
-      alignItems: 'flex-start',
-      backgroundColor: theme.unstable_palette.neutral[600],
-      borderRadius: 8,
-      color: theme.unstable_palette.neutral[80],
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 24,
-      maxWidth: 256,
-      padding: '8px 12px',
-    },
-    tooltipPlacementBottom: {
-      marginTop: 15,
-    },
-    tooltipPlacementLeft: {
-      marginRight: 15,
-    },
-    tooltipPlacementTop: {
-      marginBottom: 15,
-    },
-    tooltipPlacementRight: {
-      marginLeft: 15,
-    },
-  }),
-  { name: 'MuiSparkUnstable_Tooltip' }
-);
+  },
+  tooltip: {
+    ...theme.unstable_typography.body,
+    alignItems: 'flex-start',
+    backgroundColor: theme.unstable_palette.neutral[600],
+    borderRadius: 8,
+    color: theme.unstable_palette.neutral[80],
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 24,
+    maxWidth: 256,
+    padding: '8px 12px',
+  },
+  'private-tooltip-placement-bottom': {
+    marginTop: 15,
+  },
+  'private-tooltip-placement-left': {
+    marginRight: 15,
+  },
+  'private-tooltip-placement-top': {
+    marginBottom: 15,
+  },
+  'private-tooltip-placement-right': {
+    marginLeft: 15,
+  },
+  popper: {},
+});
 
 const Unstable_Tooltip = forwardRef<unknown, Unstable_TooltipProps>(
   function Unstable_Tooltip(props, ref) {
     const {
       arrow = true,
-      classes: classesProp,
+      classes,
       // match MUI default `enterDelay`
       enterTouchDelay = 100,
       interactive = true,
@@ -79,36 +88,19 @@ const Unstable_Tooltip = forwardRef<unknown, Unstable_TooltipProps>(
       ...other
     } = props;
 
-    const classes = useStyles();
-
     return (
       <MuiTooltip
         arrow={arrow}
         classes={{
-          ...classesProp,
-          arrow: clsx(classes.arrow, classesProp?.arrow, {
-            [classes.arrowPlacementBottom]: placement === 'bottom',
-            [classes.arrowPlacementLeft]: placement === 'left',
-            [classes.arrowPlacementRight]: placement === 'right',
-            [classes.arrowPlacementTop]: placement === 'top',
-          }),
-          tooltip: clsx(classes.tooltip, classesProp?.tooltip),
-          tooltipPlacementBottom: clsx(
-            classes.tooltipPlacementBottom,
-            classesProp?.tooltipPlacementBottom
+          arrow: clsx(
+            classes.arrow,
+            classes[`private-arrow-placement-${placement}`]
           ),
-          tooltipPlacementLeft: clsx(
-            classes.tooltipPlacementLeft,
-            classesProp?.tooltipPlacementLeft
+          tooltip: clsx(
+            classes.tooltip,
+            classes[`private-tooltip-placement-${placement}`]
           ),
-          tooltipPlacementRight: clsx(
-            classes.tooltipPlacementRight,
-            classesProp?.tooltipPlacementRight
-          ),
-          tooltipPlacementTop: clsx(
-            classes.tooltipPlacementTop,
-            classesProp?.tooltipPlacementTop
-          ),
+          popper: classes.popper,
         }}
         enterTouchDelay={enterTouchDelay}
         interactive={interactive}
@@ -121,4 +113,6 @@ const Unstable_Tooltip = forwardRef<unknown, Unstable_TooltipProps>(
   }
 );
 
-export default Unstable_Tooltip;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Tooltip' })(
+  Unstable_Tooltip
+) as typeof Unstable_Tooltip;

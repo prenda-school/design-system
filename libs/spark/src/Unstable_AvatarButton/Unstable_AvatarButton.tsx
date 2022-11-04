@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/ButtonBase';
 import { OverridableComponent, OverrideProps } from '../utils';
 import Unstable_Avatar, { Unstable_AvatarProps } from '../Unstable_Avatar';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 type _Unstable_AvatarButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -52,41 +52,38 @@ export type Unstable_AvatarButtonProps<
 
 export type Unstable_AvatarButtonClassKey = 'root' | 'avatar';
 
-const withClasses = withStyles<Unstable_AvatarButtonClassKey>(
-  (theme) => ({
-    root: {
-      borderColor: 'transparent',
-      borderRadius: 8,
-      borderStyle: 'solid',
-      borderWidth: 1,
-      '&.Mui-focusVisible > $avatar, &:focus-visible > $avatar': {
-        boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
-      },
-      '&:hover > $avatar': {
-        borderColor: theme.unstable_palette.neutral[70],
-      },
-      '&:active > $avatar': {
-        borderColor: theme.unstable_palette.blue[100],
-      },
-      '&[aria-expanded="true"] > $avatar': {
-        borderColor: theme.unstable_palette.blue[600],
-      },
-      '&:disabled': {
-        backgroundColor: theme.unstable_palette.neutral[80],
-        '& > $avatar': {
-          opacity: 0.62,
-        },
+const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
+  root: {
+    borderColor: 'transparent',
+    borderRadius: 8,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    '&.Mui-focusVisible > $avatar, &:focus-visible > $avatar': {
+      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+    },
+    '&:hover > $avatar': {
+      borderColor: theme.unstable_palette.neutral[70],
+    },
+    '&:active > $avatar': {
+      borderColor: theme.unstable_palette.blue[100],
+    },
+    '&[aria-expanded="true"] > $avatar': {
+      borderColor: theme.unstable_palette.blue[600],
+    },
+    '&:disabled': {
+      backgroundColor: theme.unstable_palette.neutral[80],
+      '& > $avatar': {
+        opacity: 0.62,
       },
     },
-    avatar: {
-      borderColor: 'transparent',
-      borderStyle: 'solid',
-      borderWidth: 1,
-      margin: -1,
-    },
-  }),
-  { name: 'MuiSparkUnstable_AvatarButton' }
-);
+  },
+  avatar: {
+    borderColor: 'transparent',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    margin: -1,
+  },
+});
 
 const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> = forwardRef(
   function Unstable_AvatarButton(props, ref) {
@@ -129,6 +126,6 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
   }
 );
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_AvatarButton' })(
   Unstable_AvatarButton
 ) as typeof Unstable_AvatarButton;

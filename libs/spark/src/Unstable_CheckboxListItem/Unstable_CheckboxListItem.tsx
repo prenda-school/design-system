@@ -9,7 +9,7 @@ import Unstable_ListItem, {
 } from '../Unstable_ListItem';
 import { OverridableComponent, OverrideProps, useId } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export type Unstable_CheckboxListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -66,17 +66,14 @@ export type Unstable_CheckboxListItemProps<
 
 export type Unstable_CheckboxListItemClassKey = 'root' | 'label';
 
-const withClasses = withStyles<Unstable_CheckboxListItemClassKey>(
-  {
-    root: {},
-    label: {
-      '$root:hover &': {
-        textDecoration: 'underline',
-      },
+const styles: Styles<Unstable_CheckboxListItemClassKey> = {
+  root: {},
+  label: {
+    '$root:hover &': {
+      textDecoration: 'underline',
     },
   },
-  { name: 'MuiSparkUnstable_CheckboxListItem' }
-);
+};
 
 // @ts-expect-error can't handle overloads by `button` values
 const Unstable_CheckboxListItem: OverridableComponent<
@@ -184,6 +181,6 @@ const Unstable_CheckboxListItem: OverridableComponent<
   );
 });
 
-export default withClasses(
-  Unstable_CheckboxListItem
-) as typeof Unstable_CheckboxListItem;
+export default withStyles(styles, {
+  name: 'MuiSparkUnstable_CheckboxListItem',
+})(Unstable_CheckboxListItem) as typeof Unstable_CheckboxListItem;

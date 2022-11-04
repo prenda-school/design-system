@@ -22,6 +22,16 @@
   - Added global styles to support reduced motion by disabling animations, transitions.
 - **Unstable_IconButton**
   - Removed props-dynamic styles.
+- **Unstable_Input**
+  - Removed props-dynamic styles.
+- **Unstable_InputAdornment**
+  - Removed props-dynamic styles.
+- **Unstable_Link**
+  - Removed props-dynamic styles.
+- **Unstable_List**
+  - Removed props-dynamic styles.
+- **Unstable_ListItem**
+  - Removed props-dynamic styles.
 - **Unstable_Menu**
   - Props API Changes:
     - `PaperProps`: see **Unstable_Paper**.
@@ -37,17 +47,20 @@
   - Initial implementation.
 - **Unstable_Paper**
   - Changed elevations to match new theme elevations.
+  - Removed props-dynamic styles.
   - Props API Changes:
     - `elevation`: added values 100, 200, 300, 400, 500.
 - **Unstable_SectionMessage**
   - Removed props-dynamic styles.
 - **Unstable_Select**
+  - Removed props-dynamic styles.
   - Props API Changes:
     - `MenuProps`: see **Unstable_Menu**.
 - **Unstable_SvgIcon**
   - Removed props-dynamic styles.
 - **Unstable_Tag**
   - Change background colors for subtle variant (spec-change).
+  - Removed props-dynamic styles.
 - **Unstable_TextField**
   - Props API Changes:
     - `SelectProps`: see **Unstable_Select**.
@@ -97,9 +110,40 @@
     - `rootDarker` -> ` ` (remove) (move styles to `root`)
     - `rootInset` -> ` ` (remove) (move styles to `root`)
     - `rootMiddle` -> ` ` (remove) (move styles to `root`)
+- **Unstable_Divider**
+  - CSS API:
+    - `rootWithSecondaryAction`: removed
+    - `button`: removed
+    - `nest`: removed
+    - `secondaryActionFlexStart`: removed
+  - Migration:
+    - `rootWithSecondaryAction` -> ` ` (remove) (move styles to `root`)
+    - `button` -> ` ` (remove) (move styles to `root`)
+    - `nest` -> ` ` (remove) (move styles to `root`)
+    - `secondaryActionFlexStart` -> ` ` (remove) (move styles to `secondaryAction`)
+- **Unstable_List**
+  - CSS API:
+    - `rootWithSubheader`: removed
+    - `rootWithPadding`: removed
+  - Migration:
+    - `rootWithSubheader` -> ` ` (remove) (move styles to `root`)
+    - `rootWithPadding` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
+  - CSS API:
+    - `scrollPaper`: removed
+    - `scrollBody`: removed
+    - `paperScrollPaper`: removed
+    - `paperScrollBody`: removed
+    - `paperWidthFalse`: removed
+    - `paperWidthXs`: removed
+    - `paperWidthSm`: removed
+    - `paperWidthMd`: removed
+    - `paperWidthLg`: removed
+    - `paperWidthXl`: removed
+    - `paperFullWidth`: removed
+    - `paperFullScreen`: removed
   - Migration:
     - Props API:
       - `elevation={1}` -> `elevation={100}`
@@ -108,6 +152,45 @@
       - `elevation={4}` -> `elevation={400}`
       - `elevation={5}` -> `elevation={500}`
       - `elevation={6..24}` -> `elevation={500}`
+    - CSS API:
+      - `scrollPaper` -> ` ` (remove) (move styles to `root`)
+      - `scrollBody` -> ` ` (remove) (move styles to `root`)
+      - `paperScrollPaper` -> ` ` (remove) (move styles to `root`)
+      - `paperScrollBody` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthFalse` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthXs` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthSm` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthMd` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthLg` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthXl` -> ` ` (remove) (move styles to `root`)
+      - `paperFullWidth` -> ` ` (remove) (move styles to `root`)
+      - `paperFullScreen` -> ` ` (remove) (move styles to `root`)
+- **Unstable_Switch**
+  - CSS API:
+    - `sizeMedium`: removed
+    - `sizeLarge`: removed
+  - Migration:
+    - `sizeMedium` -> ` ` (remove) (move styles to `root`)
+    - `sizeLarge` -> ` ` (remove) (move styles to `root`)
+- **Unstable_Tooltip**
+  - CSS API:
+    - `arrowPlacementBottom`: removed
+    - `arrowPlacementRight`: removed
+    - `arrowPlacementLeft`: removed
+    - `arrowPlacementTop`: removed
+    - `tooltipPlacementBottom`: removed
+    - `tooltipPlacementRight`: removed
+    - `tooltipPlacementLeft`: removed
+    - `tooltipPlacementTop`: removed
+  - Migration:
+    - `arrowPlacementBottom` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementRight` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementLeft` -> ` ` (remove) (move styles to `arrow`)
+    - `arrowPlacementTop` -> ` ` (remove) (move styles to `arrow`)
+    - `tooltipPlacementBottom` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementRight` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementLeft` -> ` ` (remove) (move styles to `tooltip`)
+    - `tooltipPlacementTop` -> ` ` (remove) (move styles to `tooltip`)
 - **Unstable_Typography**
   - Props API:
     - `variantMapping`: removed.

@@ -1,5 +1,4 @@
 import MuiDialog, {
-  DialogClassKey as MuiDialogClassKey,
   DialogProps as MuiDialogProps,
 } from '@material-ui/core/Dialog';
 import React, { forwardRef } from 'react';
@@ -32,7 +31,11 @@ export interface Unstable_ModalDialogProps
   onClose?: Unstable_ModalProps['onClose'];
 }
 
-export type Unstable_ModalDialogClassKey = MuiDialogClassKey | 'closeButton';
+export type Unstable_ModalDialogClassKey =
+  | 'root'
+  | 'container'
+  | 'paper'
+  | 'closeButton';
 
 const styles: Styles<Unstable_ModalDialogClassKey> = {
   root: {},
@@ -42,21 +45,9 @@ const styles: Styles<Unstable_ModalDialogClassKey> = {
     right: 24,
   },
   container: {},
-  scrollPaper: {},
-  scrollBody: {},
   paper: {
     position: 'relative',
   },
-  paperScrollPaper: {},
-  paperScrollBody: {},
-  paperWidthFalse: {},
-  paperWidthXs: {},
-  paperWidthSm: {},
-  paperWidthMd: {},
-  paperWidthLg: {},
-  paperWidthXl: {},
-  paperFullWidth: {},
-  paperFullScreen: {},
 };
 
 const Unstable_ModalDialog = forwardRef<
@@ -66,8 +57,6 @@ const Unstable_ModalDialog = forwardRef<
 >(function Unstable_ModalDialog(props, ref) {
   const { children, classes, closeable, onClose, ...other } = props;
 
-  const { closeButton: closeButtonClass, ...muiClasses } = classes;
-
   const handleCloseClick: Unstable_IconButtonProps['onClick'] = (event) => {
     if (onClose) {
       onClose(event, 'closeClick');
@@ -76,7 +65,11 @@ const Unstable_ModalDialog = forwardRef<
 
   return (
     <MuiDialog
-      classes={muiClasses}
+      classes={{
+        root: classes.root,
+        container: classes.container,
+        paper: classes.paper,
+      }}
       onClose={onClose}
       PaperComponent={Unstable_Paper}
       PaperProps={{ elevation: 300 }}
@@ -86,7 +79,7 @@ const Unstable_ModalDialog = forwardRef<
       {closeable ? (
         <Unstable_IconButton
           aria-label="Close"
-          className={closeButtonClass}
+          className={classes.closeButton}
           onClick={handleCloseClick}
           size="small"
           variant="ghost"

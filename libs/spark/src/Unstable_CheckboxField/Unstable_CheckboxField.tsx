@@ -8,7 +8,7 @@ import Unstable_FormHelperText, {
 } from '../Unstable_FormHelperText';
 import Unstable_Checkbox from '../Unstable_Checkbox';
 import { useId } from '../utils';
-import withStyles, { StyledComponentProps } from '../withStyles';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 export interface Unstable_CheckboxFieldProps
   extends Omit<Unstable_FormControlLabelProps, 'classes' | 'control'>,
@@ -43,23 +43,18 @@ export type Unstable_CheckboxFieldClassKey = 'root';
 
 type PrivateClassKey = 'private-helperText';
 
-const withClasses = withStyles<
-  Unstable_CheckboxFieldClassKey | PrivateClassKey
->(
-  {
-    /** Styles applied to the root element. */
-    root: {
-      display: 'inline-flex',
-      flexDirection: 'column',
-      gap: 4,
-    },
-    /** Styles applied to the helper text element. */
-    'private-helperText': {
-      marginLeft: 17 + 8, // control + gap
-    },
+const styles: Styles<Unstable_CheckboxFieldClassKey | PrivateClassKey> = {
+  /** Styles applied to the root element. */
+  root: {
+    display: 'inline-flex',
+    flexDirection: 'column',
+    gap: 4,
   },
-  { name: 'MuiSparkUnstable_CheckboxField' }
-);
+  /** Styles applied to the helper text element. */
+  'private-helperText': {
+    marginLeft: 17 + 8, // control + gap
+  },
+};
 
 const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
   function Unstable_CheckboxField(props, ref) {
@@ -115,6 +110,6 @@ const Unstable_CheckboxField = forwardRef<unknown, Unstable_CheckboxFieldProps>(
   }
 );
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_CheckboxField' })(
   Unstable_CheckboxField
 ) as typeof Unstable_CheckboxField;

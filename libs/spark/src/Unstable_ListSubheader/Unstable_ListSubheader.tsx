@@ -1,7 +1,7 @@
 import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
-import makeStyles from '../makeStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_ListSubheaderTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -22,48 +22,46 @@ export interface Unstable_ListSubheaderTypeMap<
   classKey: Unstable_ListSubheaderClassKey;
 }
 
-export type Unstable_ListSubheaderClassKey =
-  | 'root'
-  | 'rootInset'
-  | 'rootSticky';
-
 export type Unstable_ListSubheaderProps<
   D extends ElementType = Unstable_ListSubheaderTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_ListSubheaderTypeMap<P, D>, D>;
 
-const useStyles = makeStyles<Unstable_ListSubheaderClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      ...theme.unstable_typography.description,
-      alignItems: 'center',
-      color: theme.unstable_palette.text.subdued,
-      display: 'flex',
-      fontWeight: 600,
-      height: 40,
-      listStyle: 'none',
-      paddingInlineStart: 16,
-    },
-    /* Styles applied to the root element if `inset={true}`. */
-    rootInset: {
-      paddingInlineStart: 40,
-    },
-    /* Styles applied to the root element if `disableSticky={false}`. */
-    rootSticky: {
-      position: 'sticky',
-      top: 0,
-      zIndex: 1,
-      backgroundColor: 'inherit',
-    },
-  }),
-  { name: 'MuiSparkUnstable_ListSubheader' }
-);
+export type Unstable_ListSubheaderClassKey = 'root';
+
+type PrivateClassKey = 'private-root-inset' | 'private-root-sticky';
+
+const styles: Styles<Unstable_ListSubheaderClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  /* Styles applied to the root element. */
+  root: {
+    ...theme.unstable_typography.description,
+    alignItems: 'center',
+    color: theme.unstable_palette.text.subdued,
+    display: 'flex',
+    fontWeight: 600,
+    height: 40,
+    listStyle: 'none',
+    paddingInlineStart: 16,
+  },
+  /* Private */
+  'private-root-inset': {
+    paddingInlineStart: 40,
+  },
+  'private-root-sticky': {
+    position: 'sticky',
+    top: 0,
+    zIndex: 1,
+    backgroundColor: 'inherit',
+  },
+});
+
 const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap> = forwardRef(
   function Unstable_ListSubheader(props, ref) {
     const {
-      classes: classesProp,
+      classes,
       className,
       // @ts-expect-error not picked up
       component: Component = 'li',
@@ -72,16 +70,13 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
       ...other
     } = props;
 
-    const classes = useStyles();
-
     return (
       <Component
         className={clsx(
           classes.root,
-          classesProp?.root,
           {
-            [clsx(classes.rootInset, classesProp?.rootInset)]: inset,
-            [clsx(classes.rootSticky, classesProp?.rootSticky)]: !disableSticky,
+            [classes['private-root-inset']]: inset,
+            [classes['private-root-sticky']]: !disableSticky,
           },
           className
         )}
@@ -92,4 +87,6 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
   }
 );
 
-export default Unstable_ListSubheader;
+export default withStyles(styles, { name: 'MuiSparkUnstable_ListSubheader' })(
+  Unstable_ListSubheader
+) as typeof Unstable_ListSubheader;

@@ -3,7 +3,7 @@ import MuiFormControl, {
   FormControlProps as MuiFormControlProps,
 } from '@material-ui/core/FormControl';
 import { OverridableComponent, OverrideProps } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_FormControlTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -27,15 +27,12 @@ export type Unstable_FormControlProps<
 
 export type Unstable_FormControlClassKey = 'root';
 
-const withClasses = withStyles<Unstable_FormControlClassKey>(
-  {
-    /** Styles applied to the root element. */
-    root: {
-      gap: 8,
-    },
+const styles: Styles<Unstable_FormControlClassKey> = {
+  /** Styles applied to the root element. */
+  root: {
+    gap: 8,
   },
-  { name: 'MuiSparkUnstable_FormControl' }
-);
+};
 
 const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = forwardRef(
   function Unstable_FormControl(props, ref) {
@@ -45,4 +42,6 @@ const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = 
   }
 );
 
-export default withClasses(Unstable_FormControl) as typeof Unstable_FormControl;
+export default withStyles(styles, { name: 'MuiSparkUnstable_FormControl' })(
+  Unstable_FormControl
+) as typeof Unstable_FormControl;

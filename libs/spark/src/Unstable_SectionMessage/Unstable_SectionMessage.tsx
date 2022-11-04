@@ -5,7 +5,7 @@ import Unstable_Alert, {
   Unstable_AlertProps,
 } from '../internal/Unstable_Alert';
 import { StandardProps } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_SectionMessageProps
@@ -28,70 +28,67 @@ type PrivateClassKey =
   | 'private-icon-severity-success'
   | 'private-icon-severity-warning';
 
-const withClasses = withStyles<
-  Unstable_SectionMessageClassKey | PrivateClassKey
->(
-  (theme) => ({
-    root: {
-      alignItems: 'flex-start',
-      borderRadius: 4,
-      display: 'flex',
-      gap: 16,
-      padding: 24,
-      borderWidth: 1,
-      borderStyle: 'solid',
-    },
-    icon: {
-      display: 'flex',
-      fontSize: theme.unstable_typography.pxToRem(24),
-      lineHeight: 1,
-    },
-    message: {
-      ...theme.unstable_typography.body,
-      color: theme.unstable_palette.text.body,
-      flexGrow: 2,
-    },
-    action: {
-      alignSelf: 'flex-start',
-      justifySelf: 'flex-end',
-    },
-    title: {
-      ...theme.unstable_typography.label,
-      color: theme.unstable_palette.text.heading,
-      marginBottom: 4,
-    },
-    /* Private */
-    'private-root-severity-error': {
-      backgroundColor: theme.unstable_palette.red[100],
-      borderColor: theme.unstable_palette.red[700],
-    },
-    'private-root-severity-info': {
-      backgroundColor: theme.unstable_palette.blue[100],
-      borderColor: theme.unstable_palette.blue[600],
-    },
-    'private-root-severity-success': {
-      backgroundColor: theme.unstable_palette.green[100],
-      borderColor: theme.unstable_palette.green[600],
-    },
-    'private-root-severity-warning': {
-      backgroundColor: theme.unstable_palette.yellow[100],
-      borderColor: theme.unstable_palette.yellow[600],
-    },
-    'private-icon-severity-error': {
-      color: theme.unstable_palette.red[700],
-    },
-    'private-icon-severity-info': {
-      color: theme.unstable_palette.blue[600],
-    },
-    'private-icon-severity-success': {
-      color: theme.unstable_palette.green[600],
-    },
-    'private-icon-severity-warning': {
-      color: theme.unstable_palette.yellow[600],
-    },
-  }),
-  { name: 'MuiSparkUnstable_SectionMessage' }
-);
+const styles: Styles<Unstable_SectionMessageClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  root: {
+    alignItems: 'flex-start',
+    borderRadius: 4,
+    display: 'flex',
+    gap: 16,
+    padding: 24,
+    borderWidth: 1,
+    borderStyle: 'solid',
+  },
+  icon: {
+    display: 'flex',
+    fontSize: theme.unstable_typography.pxToRem(24),
+    lineHeight: 1,
+  },
+  message: {
+    ...theme.unstable_typography.body,
+    color: theme.unstable_palette.text.body,
+    flexGrow: 2,
+  },
+  action: {
+    alignSelf: 'flex-start',
+    justifySelf: 'flex-end',
+  },
+  title: {
+    ...theme.unstable_typography.label,
+    color: theme.unstable_palette.text.heading,
+    marginBottom: 4,
+  },
+  /* Private */
+  'private-root-severity-error': {
+    backgroundColor: theme.unstable_palette.red[100],
+    borderColor: theme.unstable_palette.red[700],
+  },
+  'private-root-severity-info': {
+    backgroundColor: theme.unstable_palette.blue[100],
+    borderColor: theme.unstable_palette.blue[600],
+  },
+  'private-root-severity-success': {
+    backgroundColor: theme.unstable_palette.green[100],
+    borderColor: theme.unstable_palette.green[600],
+  },
+  'private-root-severity-warning': {
+    backgroundColor: theme.unstable_palette.yellow[100],
+    borderColor: theme.unstable_palette.yellow[600],
+  },
+  'private-icon-severity-error': {
+    color: theme.unstable_palette.red[700],
+  },
+  'private-icon-severity-info': {
+    color: theme.unstable_palette.blue[600],
+  },
+  'private-icon-severity-success': {
+    color: theme.unstable_palette.green[600],
+  },
+  'private-icon-severity-warning': {
+    color: theme.unstable_palette.yellow[600],
+  },
+});
 
 const Unstable_SectionMessage = forwardRef<
   unknown,
@@ -118,6 +115,6 @@ const Unstable_SectionMessage = forwardRef<
   );
 });
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_SectionMessage' })(
   Unstable_SectionMessage
 ) as typeof Unstable_SectionMessage;

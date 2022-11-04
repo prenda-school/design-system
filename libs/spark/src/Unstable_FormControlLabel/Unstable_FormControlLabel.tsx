@@ -5,7 +5,7 @@ import {
   FormControlLabelProps as MuiFormControlLabelProps,
 } from '@material-ui/core/FormControlLabel';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
-import withStyles, { StyledComponentProps } from '../withStyles';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 export interface Unstable_FormControlLabelProps
   extends Omit<MuiFormControlLabelProps, 'classes'>,
@@ -22,39 +22,36 @@ export interface Unstable_FormControlLabelProps
 
 export type Unstable_FormControlLabelClassKey = 'root' | 'label' | 'error';
 
-const withClasses = withStyles<Unstable_FormControlLabelClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      gap: 8,
-      marginLeft: 0,
-      marginRight: 0,
-      // Reset PDS v1
-      height: 'unset',
-      marginTop: 0,
-      marginBottom: 0,
+const styles: Styles<Unstable_FormControlLabelClassKey> = (theme) => ({
+  /* Styles applied to the root element. */
+  root: {
+    gap: 8,
+    marginLeft: 0,
+    marginRight: 0,
+    // Reset PDS v1
+    height: 'unset',
+    marginTop: 0,
+    marginBottom: 0,
+  },
+  /* Styles applied to the label element. */
+  label: {
+    ...theme.unstable_typography.body,
+    color: theme.unstable_palette.text.body,
+    'label:hover > &': {
+      textDecoration: 'underline',
     },
-    /* Styles applied to the label element. */
-    label: {
-      ...theme.unstable_typography.body,
-      color: theme.unstable_palette.text.body,
-      'label:hover > &': {
-        textDecoration: 'underline',
-      },
-      /* error */
-      '$root.Mui-error > &': {
-        color: theme.unstable_palette.red[700],
-      },
-      /* disabled -- can get from internal context => can't condition on prop */
-      '$root.Mui-disabled > &': {
-        color: theme.unstable_palette.text.disabled,
-        textDecoration: 'none',
-      },
+    /* error */
+    '$root.Mui-error > &': {
+      color: theme.unstable_palette.red[700],
     },
-    error: {},
-  }),
-  { name: 'MuiSparkUnstable_FormControlLabel' }
-);
+    /* disabled -- can get from internal context => can't condition on prop */
+    '$root.Mui-disabled > &': {
+      color: theme.unstable_palette.text.disabled,
+      textDecoration: 'none',
+    },
+  },
+  error: {},
+});
 
 const Unstable_FormControlLabel = forwardRef<
   unknown,
@@ -101,6 +98,6 @@ const Unstable_FormControlLabel = forwardRef<
   );
 });
 
-export default withClasses(
-  Unstable_FormControlLabel
-) as typeof Unstable_FormControlLabel;
+export default withStyles(styles, {
+  name: 'MuiSparkUnstable_FormControlLabel',
+})(Unstable_FormControlLabel) as typeof Unstable_FormControlLabel;
