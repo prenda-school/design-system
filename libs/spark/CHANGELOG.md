@@ -22,6 +22,8 @@
   - Added global styles to support reduced motion by disabling animations, transitions.
 - **Unstable_IconButton**
   - Removed props-dynamic styles.
+- **Unstable_List**
+  - Removed props-dynamic styles.
 - **Unstable_Menu**
   - Props API Changes:
     - `PaperProps`: see **Unstable_Paper**.
@@ -97,6 +99,13 @@
     - `rootDarker` -> ` ` (remove) (move styles to `root`)
     - `rootInset` -> ` ` (remove) (move styles to `root`)
     - `rootMiddle` -> ` ` (remove) (move styles to `root`)
+- **Unstable_List**
+  - CSS API:
+    - `rootWithSubheader`: removed
+    - `rootWithPadding`: removed
+  - Migration:
+    - `rootWithSubheader` -> ` ` (remove) (move styles to `root`)
+    - `rootWithPadding` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
