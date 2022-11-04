@@ -49,6 +49,7 @@
   - Removed props-dynamic styles.
 - **Unstable_Tag**
   - Change background colors for subtle variant (spec-change).
+  - Removed props-dynamic styles.
 - **Unstable_TextField**
   - Props API Changes:
     - `SelectProps`: see **Unstable_Select**.
