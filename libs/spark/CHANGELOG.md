@@ -88,6 +88,15 @@
     - `trailingActionFlexStart` -> ` ` (remove) (move styles to `trailingAction`)
     - `wrap` -> ` ` (remove) (move styles to `root`)
     - `wrapReverse` -> ` ` (remove) (move styles to `root`)
+- **Unstable_Divider**
+  - CSS API:
+    - `rootDarker`: removed
+    - `rootInset`: removed
+    - `rootMiddle`: removed
+  - Migration:
+    - `rootDarker` -> ` ` (remove) (move styles to `root`)
+    - `rootInset` -> ` ` (remove) (move styles to `root`)
+    - `rootMiddle` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
