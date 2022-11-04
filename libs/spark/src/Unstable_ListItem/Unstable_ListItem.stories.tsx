@@ -264,8 +264,6 @@ export const EnrollmentDetail = (args) => {
 const useMicroschoolThumbnailListItemStyles = makeStyles((theme) => ({
   root: {
     paddingBlockStart: 24,
-  },
-  rootWithSecondaryAction: {
     '@media (max-width: 320px)': {
       paddingInlineEnd: 16,
     },

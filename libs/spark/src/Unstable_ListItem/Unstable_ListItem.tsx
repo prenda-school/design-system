@@ -7,11 +7,11 @@ import {
 import { default as MuiListItemSecondaryAction } from '@material-ui/core/ListItemSecondaryAction';
 import { darken, alpha } from '@material-ui/core/styles';
 import { ExtendButtonBase } from '../ButtonBase';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import Unstable_ContentGroup, {
   Unstable_ContentGroupProps,
 } from '../Unstable_ContentGroup';
+import withStyles from '../withStyles';
 
 export interface Unstable_ListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -60,32 +60,48 @@ export type Unstable_ListItemProps<
 
 export type Unstable_ListItemClassKey =
   | 'root'
-  | 'rootWithSecondaryAction'
-  | 'button'
   | 'container'
-  | 'nested'
-  | 'selected'
-  | 'disabled'
   | 'secondaryAction'
-  | 'secondaryActionFlexStart';
+  | 'selected'
+  | 'disabled';
 
-const useStyles = makeStyles<Unstable_ListItemClassKey>(
+type PrivateClassKey =
+  | 'private-root-secondaryAction'
+  | 'private-root-button'
+  | 'private-root-nested'
+  | 'private-secondaryAction-alignItems-center'
+  | 'private-secondaryAction-alignItems-flex-start';
+
+const withClasses = withStyles<Unstable_ListItemClassKey | PrivateClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
       padding: '8px 16px',
     },
-    /* Styles applied to the root element when a secondary action is given. */
-    rootWithSecondaryAction: {
-      // add some space to avoid collision since secondary action is absolutely positioned.
-      paddingRight: 40 + 16, // width of small icon button + gap
-    },
-    /* Styles applied to the added container element when a secondary action is given. */
+    /* Styles applied to the container element (added when a secondary action is given). */
     container: {
       listStyle: 'none',
     },
-    /* Styles applied to the root element when `button={true}`. */
-    button: {
+    /* Pseudo-class applied to the root element when `disabled={true}`. */
+    disabled: {},
+    /* Pseudo-class applied to the root element when `selected={true}`. */
+    selected: {},
+    /* Styles applied to the secondary action element. */
+    secondaryAction: {
+      display: 'inline-flex',
+      justifyContent: 'center',
+      right: 0,
+      // don't leave slivers of space for the behind list item
+      fontSize: theme.unstable_typography.pxToRem(40),
+      minHeight: '1em',
+      minWidth: '1em',
+    },
+    /* Private */
+    'private-root-secondaryAction': {
+      // add some space to avoid collision since secondary action is absolutely positioned.
+      paddingRight: 40 + 16, // width of small icon button + gap
+    },
+    'private-root-button': {
       cursor: 'pointer',
       userSelect: 'text',
       '&:hover': {
@@ -119,27 +135,14 @@ const useStyles = makeStyles<Unstable_ListItemClassKey>(
         boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
       },
     },
-    /* Pseudo-class applied to the root element when `disabled={true}`. */
-    disabled: {},
-    /* Pseudo-class applied to the root element when `selected={true}`. */
-    selected: {},
-    /* Styles applied to the root element when `nested={true}`. */
-    nested: {
+    'private-root-nested': {
       paddingInlineStart: 24,
     },
-    /* Styles applied to the secondary action element. */
-    secondaryAction: {
+    'private-secondaryAction-alignItems-center': {
       alignItems: 'center',
-      display: 'inline-flex',
-      justifyContent: 'center',
-      right: 0,
-      // don't leave slivers of space for the behind list item
-      fontSize: theme.unstable_typography.pxToRem(40),
-      minHeight: '1em',
-      minWidth: '1em',
     },
-    /* Styles applied to the secondary action element when `alignItems='flex-start'`. */
-    secondaryActionFlexStart: {
+    'private-secondaryAction-alignItems-flex-start': {
+      alignItems: 'center',
       top: 0,
       transform: 'none',
     },
@@ -158,7 +161,7 @@ const Unstable_ListItem: OverridableComponent<
     alignItems = 'flex-start',
     button,
     children,
-    classes: classesProp,
+    classes,
     ContentGroupProps = {},
     disableFocusable = true,
     nested = false,
@@ -168,25 +171,20 @@ const Unstable_ListItem: OverridableComponent<
     ...other
   } = props;
 
-  const classes = useStyles();
-
   return (
     <MuiListItem
       alignItems={alignItems}
       // @ts-expect-error ???
       button={disableFocusable ? false : button}
       classes={{
-        root: clsx(classes.root, classesProp?.root, {
-          [clsx(classes.button, classesProp?.button)]: button,
-          [clsx(classes.nested, classesProp?.nested)]: nested,
+        root: clsx(classes.root, {
+          [classes['private-root-button']]: button,
+          [classes['private-root-nested']]: nested,
         }),
-        selected: clsx(classes.selected, classesProp?.selected),
-        disabled: clsx(classes.disabled, classesProp?.disabled),
-        secondaryAction: clsx(
-          classes.rootWithSecondaryAction,
-          classesProp?.rootWithSecondaryAction
-        ),
-        container: clsx(classes.container, classesProp?.container),
+        selected: classes.selected,
+        disabled: classes.disabled,
+        secondaryAction: classes['private-root-secondaryAction'],
+        container: classes.container,
       }}
       // `value` doesn't mean anything for a list item, so add a data attribute
       data-value={value}
@@ -213,12 +211,10 @@ const Unstable_ListItem: OverridableComponent<
       {secondaryAction ? (
         <MuiListItemSecondaryAction
           classes={{
-            root: clsx(classes.secondaryAction, classesProp?.secondaryAction, {
-              [clsx(
-                classes.secondaryActionFlexStart,
-                classesProp?.secondaryActionFlexStart
-              )]: alignItems === 'flex-start',
-            }),
+            root: clsx(
+              classes.secondaryAction,
+              classes[`private-secondaryAction-alignItems-${alignItems}`]
+            ),
           }}
         >
           {secondaryAction}
@@ -228,4 +224,4 @@ const Unstable_ListItem: OverridableComponent<
   );
 });
 
-export default Unstable_ListItem;
+export default withClasses(Unstable_ListItem) as typeof Unstable_ListItem;
