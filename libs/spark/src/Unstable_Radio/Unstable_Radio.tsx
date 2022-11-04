@@ -4,10 +4,9 @@ import {
   default as MuiRadio,
   RadioProps as MuiRadioProps,
 } from '@material-ui/core/Radio';
-import makeStyles from '../makeStyles';
 import Unstable_RadioIcon from './Unstable_RadioIcon';
 import { useRadioGroupMore } from '../Unstable_RadioGroup';
-import { StyledComponentProps } from '../withStyles';
+import withStyles, { Styles, StyledComponentProps } from '../withStyles';
 
 export interface Unstable_RadioProps
   extends Omit<
@@ -34,37 +33,32 @@ export interface Unstable_RadioProps
 
 export type Unstable_RadioClassKey = 'root' | 'error';
 
-const useStyles = makeStyles<Unstable_RadioClassKey>(
-  {
-    /* Styles applied to the root element. */
-    root: {
-      // unset Mui internal IconButton default
-      padding: 0,
+const styles: Styles<Unstable_RadioClassKey> = {
+  /* Styles applied to the root element. */
+  root: {
+    // unset Mui internal IconButton default
+    padding: 0,
+    backgroundColor: 'unset',
+    color: 'unset',
+    '&:hover': {
       backgroundColor: 'unset',
       color: 'unset',
-      '&:hover': {
-        backgroundColor: 'unset',
-        color: 'unset',
-      },
-      // unset PDS v1
-      margin: 0,
     },
-    error: {},
+    // unset PDS v1
+    margin: 0,
   },
-  { name: 'MuiSparkUnstable_Radio' }
-);
+  error: {},
+};
 
 const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
   function Unstable_Radio(props, ref) {
     const {
-      classes: classesProp,
+      classes,
       className,
       error,
       required: requiredProp,
       ...other
     } = props;
-
-    const classes = useStyles();
 
     const radioGroup = useRadioGroupMore();
 
@@ -79,8 +73,8 @@ const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
     return (
       <MuiRadio
         checkedIcon={<Unstable_RadioIcon checked />}
-        classes={{ root: clsx(classes.root, classesProp?.root) }}
-        className={clsx(className, { [classes.error]: error })}
+        classes={{ root: classes.root }}
+        className={clsx({ [classes.error]: error }, className)}
         color="default"
         disableFocusRipple
         disableRipple
@@ -95,4 +89,6 @@ const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
   }
 );
 
-export default Unstable_Radio;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Radio' })(
+  Unstable_Radio
+) as typeof Unstable_Radio;
