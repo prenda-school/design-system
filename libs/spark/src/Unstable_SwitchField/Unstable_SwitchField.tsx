@@ -1,6 +1,5 @@
 import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_FormControlLabel, {
   Unstable_FormControlLabelProps,
 } from '../Unstable_FormControlLabel';
@@ -9,9 +8,11 @@ import Unstable_FormHelperText, {
 } from '../Unstable_FormHelperText';
 import Unstable_Switch from '../Unstable_Switch/Unstable_Switch';
 import { useId } from '../utils';
+import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 export interface Unstable_SwitchFieldProps
-  extends Omit<Unstable_FormControlLabelProps, 'control'> {
+  extends Omit<Unstable_FormControlLabelProps, 'classes' | 'control'>,
+    StyledComponentProps<Unstable_SwitchFieldClassKey> {
   /**
    * If `true`, the label will be displayed in an error state.
    */
@@ -34,42 +35,42 @@ export interface Unstable_SwitchFieldProps
   id?: string;
 }
 
-const useStyles = makeStyles(
-  {
-    /** Styles applied to the root element. */
-    root: {
-      display: 'inline-flex',
-      flexDirection: 'column',
-      gap: 4,
-    },
-    /** Styles applied to the root element when `fullWidth={true}`. */
-    fullWidth: {
-      width: '100%',
-    },
-    /** Styles applied to the form control element. */
-    formControl: {
-      justifyContent: 'space-between',
-    },
-    /** Styles applied to the helper text element. */
-    helperText: {},
+type Unstable_SwitchFieldClassKey = 'root' | 'formControl' | 'helperText';
+
+type PrivateClassKey = 'private-root-fullWidth';
+
+const styles: Styles<Unstable_SwitchFieldClassKey | PrivateClassKey> = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'inline-flex',
+    flexDirection: 'column',
+    gap: 4,
   },
-  { name: 'MuiSparkUnstable_SwitchField' }
-);
+  /* Styles applied to the form control element. */
+  formControl: {
+    justifyContent: 'space-between',
+  },
+  /* Styles applied to the helper text element. */
+  helperText: {},
+  /* Private */
+  'private-root-fullWidth': {
+    width: '100%',
+  },
+};
 
 const Unstable_SwitchField = forwardRef<unknown, Unstable_SwitchFieldProps>(
   function Unstable_SwitchField(props, ref) {
     const {
       className,
+      classes,
       disabled,
       error,
       FormHelperTextProps,
-      fullWidth = false,
+      fullWidth,
       helperText,
       id: idProp,
       ...other
     } = props;
-
-    const classes = useStyles();
 
     const id = useId(idProp);
 
@@ -80,13 +81,13 @@ const Unstable_SwitchField = forwardRef<unknown, Unstable_SwitchFieldProps>(
         className={clsx(
           classes.root,
           {
-            [classes.fullWidth]: fullWidth,
+            [classes['private-root-fullWidth']]: fullWidth,
           },
           className
         )}
       >
         <Unstable_FormControlLabel
-          className={clsx(classes.formControl)}
+          className={classes.formControl}
           control={
             <Unstable_Switch
               inputProps={{ 'aria-describedby': helperTextId }}
@@ -114,4 +115,6 @@ const Unstable_SwitchField = forwardRef<unknown, Unstable_SwitchFieldProps>(
   }
 );
 
-export default Unstable_SwitchField;
+export default withStyles(styles, { name: 'MuiSparkUnstable_SwitchField' })(
+  Unstable_SwitchField
+) as typeof Unstable_SwitchField;
