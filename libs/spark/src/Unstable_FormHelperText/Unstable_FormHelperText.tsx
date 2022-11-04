@@ -1,8 +1,8 @@
 import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
+import withStyles from '../withStyles';
 
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -47,7 +47,13 @@ export interface Unstable_FormHelperTextTypeMap<
   classKey: Unstable_FormHelperTextClassKey;
 }
 
-export type Unstable_FormHelperTextClassKey = 'root' | 'leadingIcon';
+export type Unstable_FormHelperTextClassKey =
+  | 'root'
+  | 'leadingIcon'
+  | 'error'
+  | 'disabled'
+  | 'focused'
+  | 'required';
 
 export type Unstable_FormHelperTextProps<
   D extends ElementType = Unstable_FormHelperTextTypeMap['defaultComponent'],
@@ -55,13 +61,7 @@ export type Unstable_FormHelperTextProps<
   P = {}
 > = OverrideProps<Unstable_FormHelperTextTypeMap<P, D>, D>;
 
-const useStyles = makeStyles<
-  | Unstable_FormHelperTextClassKey
-  | 'error'
-  | 'disabled'
-  | 'focused'
-  | 'required'
->(
+const withClasses = withStyles<Unstable_FormHelperTextClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
@@ -109,7 +109,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
   function Unstable_FormHelperText(props, ref) {
     const {
       children,
-      classes: classesProp,
+      classes,
       className,
       // @ts-expect-error not picked up as a prop from `OverridableComponent`
       component: Component = 'p',
@@ -122,8 +122,6 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       required,
       ...other
     } = props;
-
-    const classes = useStyles();
 
     const muiFormControl = useFormControl();
     const fcs = formControlState({
@@ -144,7 +142,6 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       <Component
         className={clsx(
           classes.root,
-          classesProp?.root,
           {
             [classes.disabled]: fcs.disabled,
             [classes.error]: fcs.error,
@@ -157,9 +154,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
         {...other}
       >
         {leadingIcon ? (
-          <span className={clsx(classes.leadingIcon, classesProp?.leadingIcon)}>
-            {leadingIcon}
-          </span>
+          <span className={classes.leadingIcon}>{leadingIcon}</span>
         ) : null}
         {children}
         {reserveLineHeight && !leadingIcon && !children ? (
@@ -171,4 +166,6 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
   }
 );
 
-export default Unstable_FormHelperText;
+export default withClasses(
+  Unstable_FormHelperText
+) as typeof Unstable_FormHelperText;
