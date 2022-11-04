@@ -1,7 +1,7 @@
 import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
-import makeStyles from '../makeStyles';
+import withStyles from '../withStyles';
 
 export interface Unstable_ListSubheaderTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -22,18 +22,19 @@ export interface Unstable_ListSubheaderTypeMap<
   classKey: Unstable_ListSubheaderClassKey;
 }
 
-export type Unstable_ListSubheaderClassKey =
-  | 'root'
-  | 'rootInset'
-  | 'rootSticky';
-
 export type Unstable_ListSubheaderProps<
   D extends ElementType = Unstable_ListSubheaderTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<Unstable_ListSubheaderTypeMap<P, D>, D>;
 
-const useStyles = makeStyles<Unstable_ListSubheaderClassKey>(
+export type Unstable_ListSubheaderClassKey = 'root';
+
+type PrivateClassKey = 'private-root-inset' | 'private-root-sticky';
+
+const withClasses = withStyles<
+  Unstable_ListSubheaderClassKey | PrivateClassKey
+>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
@@ -46,12 +47,11 @@ const useStyles = makeStyles<Unstable_ListSubheaderClassKey>(
       listStyle: 'none',
       paddingInlineStart: 16,
     },
-    /* Styles applied to the root element if `inset={true}`. */
-    rootInset: {
+    /* Private */
+    'private-root-inset': {
       paddingInlineStart: 40,
     },
-    /* Styles applied to the root element if `disableSticky={false}`. */
-    rootSticky: {
+    'private-root-sticky': {
       position: 'sticky',
       top: 0,
       zIndex: 1,
@@ -60,10 +60,11 @@ const useStyles = makeStyles<Unstable_ListSubheaderClassKey>(
   }),
   { name: 'MuiSparkUnstable_ListSubheader' }
 );
+
 const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap> = forwardRef(
   function Unstable_ListSubheader(props, ref) {
     const {
-      classes: classesProp,
+      classes,
       className,
       // @ts-expect-error not picked up
       component: Component = 'li',
@@ -72,16 +73,13 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
       ...other
     } = props;
 
-    const classes = useStyles();
-
     return (
       <Component
         className={clsx(
           classes.root,
-          classesProp?.root,
           {
-            [clsx(classes.rootInset, classesProp?.rootInset)]: inset,
-            [clsx(classes.rootSticky, classesProp?.rootSticky)]: !disableSticky,
+            [classes['private-root-inset']]: inset,
+            [classes['private-root-sticky']]: !disableSticky,
           },
           className
         )}
@@ -92,4 +90,6 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
   }
 );
 
-export default Unstable_ListSubheader;
+export default withClasses(
+  Unstable_ListSubheader
+) as typeof Unstable_ListSubheader;
