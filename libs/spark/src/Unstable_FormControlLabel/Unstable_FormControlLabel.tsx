@@ -4,9 +4,8 @@ import {
   default as MuiFormControlLabel,
   FormControlLabelProps as MuiFormControlLabelProps,
 } from '@material-ui/core/FormControlLabel';
-import makeStyles from '../makeStyles';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
-import { StyledComponentProps } from '../withStyles';
+import withStyles, { StyledComponentProps } from '../withStyles';
 
 export interface Unstable_FormControlLabelProps
   extends Omit<MuiFormControlLabelProps, 'classes'>,
@@ -23,7 +22,7 @@ export interface Unstable_FormControlLabelProps
 
 export type Unstable_FormControlLabelClassKey = 'root' | 'label' | 'error';
 
-const useStyles = makeStyles<Unstable_FormControlLabelClassKey>(
+const withClasses = withStyles<Unstable_FormControlLabelClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
@@ -42,11 +41,11 @@ const useStyles = makeStyles<Unstable_FormControlLabelClassKey>(
       'label:hover > &': {
         textDecoration: 'underline',
       },
-      /** error -- can condition on prop but don't to mirror below */
+      /* error */
       '$root.Mui-error > &': {
         color: theme.unstable_palette.red[700],
       },
-      /** disabled -- can get from internal context => can't condition on prop */
+      /* disabled -- can get from internal context => can't condition on prop */
       '$root.Mui-disabled > &': {
         color: theme.unstable_palette.text.disabled,
         textDecoration: 'none',
@@ -62,7 +61,7 @@ const Unstable_FormControlLabel = forwardRef<
   Unstable_FormControlLabelProps
 >(function Unstable_FormControlLabel(props, ref) {
   const {
-    classes: classesProp,
+    classes,
     className,
     control,
     // underscored props will be processed directly from `props` by `formControlState` below
@@ -70,8 +69,6 @@ const Unstable_FormControlLabel = forwardRef<
     required: _required,
     ...other
   } = props;
-
-  const classes = useStyles();
 
   const fc = useFormControl();
   const fcs = formControlState({
@@ -94,8 +91,8 @@ const Unstable_FormControlLabel = forwardRef<
     <MuiFormControlLabel
       className={clsx({ [classes.error]: fcs.error }, className)}
       classes={{
-        root: clsx(classes.root, classesProp?.root),
-        label: clsx(classes.label, classesProp?.label),
+        root: classes.root,
+        label: classes.label,
       }}
       control={cloneElement(control, controlProps)}
       ref={ref}
@@ -104,4 +101,6 @@ const Unstable_FormControlLabel = forwardRef<
   );
 });
 
-export default Unstable_FormControlLabel;
+export default withClasses(
+  Unstable_FormControlLabel
+) as typeof Unstable_FormControlLabel;
