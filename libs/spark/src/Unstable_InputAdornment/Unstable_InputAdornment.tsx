@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import { OverridableComponent, OverrideProps } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_InputAdornmentTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -28,34 +28,31 @@ type PrivateClassKey =
   | 'private-root-position-end'
   | 'private-root-children-string';
 
-const withClasses = withStyles<
-  Unstable_InputAdornmentClassKey | PrivateClassKey
->(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      /* from Mui */
-      display: 'flex',
-      alignItems: 'flex-start',
-      whiteSpace: 'nowrap',
-      /* for PDS */
-      fontSize: theme.unstable_typography.pxToRem(24),
-      lineHeight: 1,
-      alignSelf: 'flex-start', // un-center in multiline input
-      marginTop: 12, // shift-down in multiline input (= half of typical icon height + input top margin)
-    },
-    'private-root-position-start': {
-      marginRight: 2,
-    },
-    'private-root-position-end': {
-      marginLeft: 2,
-    },
-    'private-root-children-string': {
-      ...theme.unstable_typography.body,
-    },
-  }),
-  { name: 'MuiSparkUnstable_InputAdornment' }
-);
+const styles: Styles<Unstable_InputAdornmentClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  /* Styles applied to the root element. */
+  root: {
+    /* from Mui */
+    display: 'flex',
+    alignItems: 'flex-start',
+    whiteSpace: 'nowrap',
+    /* for PDS */
+    fontSize: theme.unstable_typography.pxToRem(24),
+    lineHeight: 1,
+    alignSelf: 'flex-start', // un-center in multiline input
+    marginTop: 12, // shift-down in multiline input (= half of typical icon height + input top margin)
+  },
+  'private-root-position-start': {
+    marginRight: 2,
+  },
+  'private-root-position-end': {
+    marginLeft: 2,
+  },
+  'private-root-children-string': {
+    ...theme.unstable_typography.body,
+  },
+});
 
 const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeMap> = forwardRef(
   function Unstable_InputAdornment(props, ref) {
@@ -89,6 +86,6 @@ const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeM
   }
 );
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_InputAdornment' })(
   Unstable_InputAdornment
 ) as typeof Unstable_InputAdornment;

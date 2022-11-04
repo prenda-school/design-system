@@ -7,7 +7,7 @@ import Unstable_CheckboxListItem, {
 import { OverridableComponent, OverrideProps } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
 import { alpha } from '@material-ui/core/styles';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export type Unstable_CheckboxMenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -31,32 +31,29 @@ export type Unstable_CheckboxMenuItemProps<
 
 export type Unstable_CheckboxMenuItemClassKey = 'root' | 'selected';
 
-const withClasses = withStyles(
-  (theme) => ({
-    root: {
-      width: 'auto',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      '&& .MuiSparkUnstable_CheckboxIcon-root': {
-        // remove focus shadow because menu item should be only element with the styling
-        boxShadow: 'none',
-      },
-      // reset selected styles since only checkbox should appear selected
-      '&$selected': {
-        backgroundColor: 'transparent',
-        color: theme.unstable_palette.text.body,
-      },
-      '&$selected:hover': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-      },
-      '&$selected:active': {
-        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
-      },
+const styles: Styles<Unstable_CheckboxMenuItemClassKey> = (theme) => ({
+  root: {
+    width: 'auto',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    '&& .MuiSparkUnstable_CheckboxIcon-root': {
+      // remove focus shadow because menu item should be only element with the styling
+      boxShadow: 'none',
     },
-    selected: {},
-  }),
-  { name: 'MuiSparkUnstable_CheckboxMenuItem' }
-);
+    // reset selected styles since only checkbox should appear selected
+    '&$selected': {
+      backgroundColor: 'transparent',
+      color: theme.unstable_palette.text.body,
+    },
+    '&$selected:hover': {
+      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+    },
+    '&$selected:active': {
+      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+    },
+  },
+  selected: {},
+});
 
 // @ts-expect-error can't handle overloads by `button` values
 const Unstable_CheckboxMenuItem: OverridableComponent<
@@ -109,6 +106,6 @@ const Unstable_CheckboxMenuItem: OverridableComponent<
   );
 });
 
-export default withClasses(
-  Unstable_CheckboxMenuItem
-) as typeof Unstable_CheckboxMenuItem;
+export default withStyles(styles, {
+  name: 'MuiSparkUnstable_CheckboxMenuItem',
+})(Unstable_CheckboxMenuItem) as typeof Unstable_CheckboxMenuItem;

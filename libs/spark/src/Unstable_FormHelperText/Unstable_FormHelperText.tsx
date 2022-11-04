@@ -2,7 +2,7 @@ import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { formControlState, useFormControl } from '../Unstable_FormControl';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -61,49 +61,46 @@ export type Unstable_FormHelperTextProps<
   P = {}
 > = OverrideProps<Unstable_FormHelperTextTypeMap<P, D>, D>;
 
-const withClasses = withStyles<Unstable_FormHelperTextClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      ...theme.unstable_typography.description,
-      alignItems: 'center',
-      color: theme.unstable_palette.text.subdued,
-      display: 'inline-flex',
-      gap: 4,
-      letterSpacing: 0,
-      margin: 0,
-      textAlign: 'left',
-      width: 'fit-content',
-      '& ul, & ol': {
-        marginBlock: 0, // reset HTML default
-        paddingInlineStart: '1rem', // reduce HTML default
-      },
-      /* error -- can get from internal context => can't condition on prop */
-      '&.Mui-error': {
-        color: theme.unstable_palette.red[700],
-      },
-      /* disabled -- can get from internal context => can't condition on prop */
-      '&.Mui-disabled': {
-        color: theme.unstable_palette.text.disabled,
-      },
+const styles: Styles<Unstable_FormHelperTextClassKey> = (theme) => ({
+  /* Styles applied to the root element. */
+  root: {
+    ...theme.unstable_typography.description,
+    alignItems: 'center',
+    color: theme.unstable_palette.text.subdued,
+    display: 'inline-flex',
+    gap: 4,
+    letterSpacing: 0,
+    margin: 0,
+    textAlign: 'left',
+    width: 'fit-content',
+    '& ul, & ol': {
+      marginBlock: 0, // reset HTML default
+      paddingInlineStart: '1rem', // reduce HTML default
     },
-    /* Class applied to the root element if `error={true}`. */
-    error: {},
-    /* Class applied to the root element if `disabled={true}`. */
-    disabled: {},
-    /* Class applied to the root element if `focused={true}`. */
-    focused: {},
-    /* Class applied to the root element if `required={true}`. */
-    required: {},
-    /* Styles applied to the leadingIcon element. */
-    leadingIcon: {
-      alignSelf: 'flex-start',
-      display: 'flex',
-      marginTop: 3,
+    /* error -- can get from internal context => can't condition on prop */
+    '&.Mui-error': {
+      color: theme.unstable_palette.red[700],
     },
-  }),
-  { name: 'MuiSparkUnstable_FormHelperText' }
-);
+    /* disabled -- can get from internal context => can't condition on prop */
+    '&.Mui-disabled': {
+      color: theme.unstable_palette.text.disabled,
+    },
+  },
+  /* Class applied to the root element if `error={true}`. */
+  error: {},
+  /* Class applied to the root element if `disabled={true}`. */
+  disabled: {},
+  /* Class applied to the root element if `focused={true}`. */
+  focused: {},
+  /* Class applied to the root element if `required={true}`. */
+  required: {},
+  /* Styles applied to the leadingIcon element. */
+  leadingIcon: {
+    alignSelf: 'flex-start',
+    display: 'flex',
+    marginTop: 3,
+  },
+});
 
 const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = forwardRef(
   function Unstable_FormHelperText(props, ref) {
@@ -166,6 +163,6 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
   }
 );
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_FormHelperText' })(
   Unstable_FormHelperText
 ) as typeof Unstable_FormHelperText;

@@ -11,7 +11,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import Unstable_ContentGroup, {
   Unstable_ContentGroupProps,
 } from '../Unstable_ContentGroup';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_ListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -72,83 +72,82 @@ type PrivateClassKey =
   | 'private-secondaryAction-alignItems-center'
   | 'private-secondaryAction-alignItems-flex-start';
 
-const withClasses = withStyles<Unstable_ListItemClassKey | PrivateClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      padding: '8px 16px',
+const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  /* Styles applied to the root element. */
+  root: {
+    padding: '8px 16px',
+  },
+  /* Styles applied to the container element (added when a secondary action is given). */
+  container: {
+    listStyle: 'none',
+  },
+  /* Pseudo-class applied to the root element when `disabled={true}`. */
+  disabled: {},
+  /* Pseudo-class applied to the root element when `selected={true}`. */
+  selected: {},
+  /* Styles applied to the secondary action element. */
+  secondaryAction: {
+    display: 'inline-flex',
+    justifyContent: 'center',
+    right: 0,
+    // don't leave slivers of space for the behind list item
+    fontSize: theme.unstable_typography.pxToRem(40),
+    minHeight: '1em',
+    minWidth: '1em',
+  },
+  /* Private */
+  'private-root-secondaryAction': {
+    // add some space to avoid collision since secondary action is absolutely positioned.
+    paddingRight: 40 + 16, // width of small icon button + gap
+  },
+  'private-root-button': {
+    cursor: 'pointer',
+    userSelect: 'text',
+    '&:hover': {
+      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
     },
-    /* Styles applied to the container element (added when a secondary action is given). */
-    container: {
-      listStyle: 'none',
+    '&:active': {
+      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
     },
-    /* Pseudo-class applied to the root element when `disabled={true}`. */
-    disabled: {},
-    /* Pseudo-class applied to the root element when `selected={true}`. */
-    selected: {},
-    /* Styles applied to the secondary action element. */
-    secondaryAction: {
-      display: 'inline-flex',
-      justifyContent: 'center',
-      right: 0,
-      // don't leave slivers of space for the behind list item
-      fontSize: theme.unstable_typography.pxToRem(40),
-      minHeight: '1em',
-      minWidth: '1em',
+    '&$selected': {
+      backgroundColor: theme.unstable_palette.blue[600],
+      color: theme.unstable_palette.text.inverseBody,
     },
-    /* Private */
-    'private-root-secondaryAction': {
-      // add some space to avoid collision since secondary action is absolutely positioned.
-      paddingRight: 40 + 16, // width of small icon button + gap
+    '&$selected:hover': {
+      backgroundColor: alpha(theme.unstable_palette.blue[600], 0.86),
     },
-    'private-root-button': {
-      cursor: 'pointer',
-      userSelect: 'text',
-      '&:hover': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-      },
-      '&:active': {
-        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
-      },
-      '&$selected': {
-        backgroundColor: theme.unstable_palette.blue[600],
-        color: theme.unstable_palette.text.inverseBody,
-      },
-      '&$selected:hover': {
-        backgroundColor: alpha(theme.unstable_palette.blue[600], 0.86),
-      },
-      '&$selected:active': {
-        backgroundColor: darken(theme.unstable_palette.blue[600], 0.2),
-      },
-      '&$disabled': {
-        backgroundColor: 'transparent',
-        color: theme.unstable_palette.text.disabled,
-        opacity: 1, // reset Mui default
-      },
-      '&$selected$disabled': {
-        backgroundColor: theme.unstable_palette.neutral[80],
-        color: theme.unstable_palette.text.disabled,
-      },
-      '&.Mui-focusVisible, &:focus-visible': {
-        // doesn't appear in story because is under `Mui-focusVisible`
-        // backgroundColor: 'transparent',
-        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
-      },
+    '&$selected:active': {
+      backgroundColor: darken(theme.unstable_palette.blue[600], 0.2),
     },
-    'private-root-nested': {
-      paddingInlineStart: 24,
+    '&$disabled': {
+      backgroundColor: 'transparent',
+      color: theme.unstable_palette.text.disabled,
+      opacity: 1, // reset Mui default
     },
-    'private-secondaryAction-alignItems-center': {
-      alignItems: 'center',
+    '&$selected$disabled': {
+      backgroundColor: theme.unstable_palette.neutral[80],
+      color: theme.unstable_palette.text.disabled,
     },
-    'private-secondaryAction-alignItems-flex-start': {
-      alignItems: 'center',
-      top: 0,
-      transform: 'none',
+    '&.Mui-focusVisible, &:focus-visible': {
+      // doesn't appear in story because is under `Mui-focusVisible`
+      // backgroundColor: 'transparent',
+      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
     },
-  }),
-  { name: 'MuiSparkUnstable_ListItem' }
-);
+  },
+  'private-root-nested': {
+    paddingInlineStart: 24,
+  },
+  'private-secondaryAction-alignItems-center': {
+    alignItems: 'center',
+  },
+  'private-secondaryAction-alignItems-flex-start': {
+    alignItems: 'center',
+    top: 0,
+    transform: 'none',
+  },
+});
 
 // @ts-expect-error can't handle overloads by `button` values
 const Unstable_ListItem: OverridableComponent<
@@ -224,4 +223,6 @@ const Unstable_ListItem: OverridableComponent<
   );
 });
 
-export default withClasses(Unstable_ListItem) as typeof Unstable_ListItem;
+export default withStyles(styles, { name: 'MuiSparkUnstable_ListItem' })(
+  Unstable_ListItem
+) as typeof Unstable_ListItem;

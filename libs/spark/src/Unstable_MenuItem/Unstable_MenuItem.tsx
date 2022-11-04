@@ -6,7 +6,7 @@ import Unstable_ListItem, {
 } from '../Unstable_ListItem';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { ExtendButtonBase } from '../ButtonBase';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export type Unstable_MenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -30,17 +30,14 @@ export type Unstable_MenuItemProps<
 
 export type Unstable_MenuItemClassKey = 'root' | 'selected';
 
-const withClasses = withStyles(
-  {
-    root: {
-      width: 'auto',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-    },
-    selected: {},
+const styles: Styles<Unstable_MenuItemClassKey> = {
+  root: {
+    width: 'auto',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
   },
-  { name: 'MuiSparkUnstable_MenuItem' }
-);
+  selected: {},
+};
 
 // @ts-expect-error can't handle overloads by `button` values
 const Unstable_MenuItem: OverridableComponent<
@@ -96,4 +93,6 @@ const Unstable_MenuItem: OverridableComponent<
   );
 });
 
-export default withClasses(Unstable_MenuItem) as typeof Unstable_MenuItem;
+export default withStyles(styles, { name: 'MuiSparkUnstable_MenuItem' })(
+  Unstable_MenuItem
+) as typeof Unstable_MenuItem;

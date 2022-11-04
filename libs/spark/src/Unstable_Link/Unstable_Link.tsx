@@ -5,7 +5,7 @@ import {
   LinkProps as MuiLinkProps,
 } from '@material-ui/core/Link';
 import { OverridableComponent, OverrideProps } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -46,42 +46,39 @@ type PrivateClassKey =
   | 'private-root-variant-alias'
   | 'private-root-variant-standard';
 
-const withClasses = withStyles<Unstable_LinkClassKey | PrivateClassKey>(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      textDecoration: 'underline',
-      '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
-      },
-      // reset browser default
-      '&:focus': {
-        outline: 'none',
-      },
+const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
+  /* Styles applied to the root element. */
+  root: {
+    textDecoration: 'underline',
+    '&.Mui-focusVisible, &:focus-visible': {
+      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
     },
-    'private-root-standalone': {
-      textDecoration: 'none',
+    // reset browser default
+    '&:focus': {
+      outline: 'none',
     },
-    'private-root-color-inherit': { color: 'inherit' },
-    'private-root-color-standard': {
-      color: theme.unstable_palette.blue['600'],
+  },
+  'private-root-standalone': {
+    textDecoration: 'none',
+  },
+  'private-root-color-inherit': { color: 'inherit' },
+  'private-root-color-standard': {
+    color: theme.unstable_palette.blue['600'],
+    '&:hover': {
+      color: theme.unstable_palette.blue['500'],
+    },
+    '&:visited': {
+      color: theme.unstable_palette.purple[600],
       '&:hover': {
-        color: theme.unstable_palette.blue['500'],
-      },
-      '&:visited': {
-        color: theme.unstable_palette.purple[600],
-        '&:hover': {
-          color: theme.unstable_palette.purple[400],
-        },
+        color: theme.unstable_palette.purple[400],
       },
     },
-    'private-root-variant-alias': {},
-    'private-root-variant-standard': {
-      ...theme.unstable_typography.body,
-    },
-  }),
-  { name: 'MuiSparkUnstable_Link' }
-);
+  },
+  'private-root-variant-alias': {},
+  'private-root-variant-standard': {
+    ...theme.unstable_typography.body,
+  },
+});
 
 const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   function Unstable_Link(props, ref) {
@@ -113,4 +110,6 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
   }
 );
 
-export default withClasses(Unstable_Link) as typeof Unstable_Link;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Link' })(
+  Unstable_Link
+) as typeof Unstable_Link;

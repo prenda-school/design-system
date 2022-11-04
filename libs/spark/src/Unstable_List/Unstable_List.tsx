@@ -4,7 +4,7 @@ import Unstable_ListSubheader, {
   Unstable_ListSubheaderProps,
 } from '../Unstable_ListSubheader';
 import { OverridableComponent, OverrideProps, useId } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_ListTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -39,28 +39,25 @@ export type Unstable_ListClassKey = 'root';
 
 type PrivateClassKey = 'private-root-subheader' | 'private-root-disablePadding';
 
-const withClasses = withStyles<Unstable_ListClassKey | PrivateClassKey>(
-  {
-    /* Styles applied to the root element. */
-    root: {
-      listStyle: 'none',
-      margin: 0,
-      padding: 0,
-      position: 'relative',
-      paddingBlockStart: 8,
-      paddingBlockEnd: 8,
-    },
-    /* Private */
-    'private-root-subheader': {
-      paddingBlockStart: 0,
-    },
-    'private-root-disablePadding': {
-      paddingBlockStart: 0,
-      paddingBlockEnd: 0,
-    },
+const styles: Styles<Unstable_ListClassKey | PrivateClassKey> = {
+  /* Styles applied to the root element. */
+  root: {
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    position: 'relative',
+    paddingBlockStart: 8,
+    paddingBlockEnd: 8,
   },
-  { name: 'MuiSparkUnstable_List' }
-);
+  /* Private */
+  'private-root-subheader': {
+    paddingBlockStart: 0,
+  },
+  'private-root-disablePadding': {
+    paddingBlockStart: 0,
+    paddingBlockEnd: 0,
+  },
+};
 const Unstable_List: OverridableComponent<Unstable_ListTypeMap> = forwardRef(
   function Unstable_List(props, ref) {
     const {
@@ -102,4 +99,6 @@ const Unstable_List: OverridableComponent<Unstable_ListTypeMap> = forwardRef(
   }
 );
 
-export default withClasses(Unstable_List) as typeof Unstable_List;
+export default withStyles(styles, { name: 'MuiSparkUnstable_List' })(
+  Unstable_List
+) as typeof Unstable_List;

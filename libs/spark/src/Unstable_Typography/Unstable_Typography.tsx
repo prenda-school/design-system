@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/Typography';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { Unstable_TypographyVariant } from '../theme/unstable_typography';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_TypographyTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -78,113 +78,112 @@ type PrivateClassKey =
   | 'private-color-inverse-variant-description'
   | 'private-color-inverse-variant-code';
 
-const withClasses = withStyles<Unstable_TypographyClassKey | PrivateClassKey>(
-  (theme) => ({
-    root: {},
-    'private-color-normal': {},
-    'private-color-inverse': {},
-    'private-color-inherit': {
-      color: 'inherit',
+const styles: Styles<Unstable_TypographyClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  root: {},
+  'private-color-normal': {},
+  'private-color-inverse': {},
+  'private-color-inherit': {
+    color: 'inherit',
+  },
+  'private-variant-display': {
+    ...theme.unstable_typography.display,
+  },
+  'private-variant-T32': {
+    ...theme.unstable_typography['T32'],
+  },
+  'private-variant-T28': {
+    ...theme.unstable_typography['T28'],
+  },
+  'private-variant-T22': {
+    ...theme.unstable_typography['T22'],
+  },
+  'private-variant-T18': {
+    ...theme.unstable_typography['T18'],
+  },
+  'private-variant-T14': {
+    ...theme.unstable_typography['T14'],
+  },
+  'private-variant-body': {
+    ...theme.unstable_typography['body'],
+    '& strong, b': {
+      fontWeight: 600,
     },
-    'private-variant-display': {
-      ...theme.unstable_typography.display,
+  },
+  'private-variant-label': {
+    ...theme.unstable_typography['label'],
+  },
+  'private-variant-description': {
+    ...theme.unstable_typography['description'],
+    '& strong, b': {
+      fontWeight: 700,
     },
-    'private-variant-T32': {
-      ...theme.unstable_typography['T32'],
-    },
-    'private-variant-T28': {
-      ...theme.unstable_typography['T28'],
-    },
-    'private-variant-T22': {
-      ...theme.unstable_typography['T22'],
-    },
-    'private-variant-T18': {
-      ...theme.unstable_typography['T18'],
-    },
-    'private-variant-T14': {
-      ...theme.unstable_typography['T14'],
-    },
-    'private-variant-body': {
-      ...theme.unstable_typography['body'],
-      '& strong, b': {
-        fontWeight: 600,
-      },
-    },
-    'private-variant-label': {
-      ...theme.unstable_typography['label'],
-    },
-    'private-variant-description': {
-      ...theme.unstable_typography['description'],
-      '& strong, b': {
-        fontWeight: 700,
-      },
-    },
-    'private-variant-code': {
-      ...theme.unstable_typography['code'],
-    },
-    'private-color-normal-variant-display': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-T32': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-T28': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-T22': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-T18': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-T14': {
-      color: theme.unstable_palette.text.heading,
-    },
-    'private-color-normal-variant-body': {
-      color: theme.unstable_palette.text.body,
-    },
-    'private-color-normal-variant-label': {
-      color: theme.unstable_palette.text.body,
-    },
-    'private-color-normal-variant-description': {
-      color: theme.unstable_palette.text.body,
-    },
-    'private-color-normal-variant-code': {
-      color: theme.unstable_palette.text.body,
-    },
-    'private-color-inverse-variant-display': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-T32': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-T28': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-T22': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-T18': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-T14': {
-      color: theme.unstable_palette.text.inverseHeading,
-    },
-    'private-color-inverse-variant-body': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'private-color-inverse-variant-label': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'private-color-inverse-variant-description': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-    'private-color-inverse-variant-code': {
-      color: theme.unstable_palette.text.inverseBody,
-    },
-  }),
-  { name: 'MuiSparkUnstable_Typography' }
-);
+  },
+  'private-variant-code': {
+    ...theme.unstable_typography['code'],
+  },
+  'private-color-normal-variant-display': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-T32': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-T28': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-T22': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-T18': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-T14': {
+    color: theme.unstable_palette.text.heading,
+  },
+  'private-color-normal-variant-body': {
+    color: theme.unstable_palette.text.body,
+  },
+  'private-color-normal-variant-label': {
+    color: theme.unstable_palette.text.body,
+  },
+  'private-color-normal-variant-description': {
+    color: theme.unstable_palette.text.body,
+  },
+  'private-color-normal-variant-code': {
+    color: theme.unstable_palette.text.body,
+  },
+  'private-color-inverse-variant-display': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-T32': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-T28': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-T22': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-T18': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-T14': {
+    color: theme.unstable_palette.text.inverseHeading,
+  },
+  'private-color-inverse-variant-body': {
+    color: theme.unstable_palette.text.inverseBody,
+  },
+  'private-color-inverse-variant-label': {
+    color: theme.unstable_palette.text.inverseBody,
+  },
+  'private-color-inverse-variant-description': {
+    color: theme.unstable_palette.text.inverseBody,
+  },
+  'private-color-inverse-variant-code': {
+    color: theme.unstable_palette.text.inverseBody,
+  },
+});
 
 const variantToComponent: Record<Unstable_TypographyVariant, string> = {
   display: 'span',
@@ -228,4 +227,6 @@ const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = fo
   }
 );
 
-export default withClasses(Unstable_Typography) as typeof Unstable_Typography;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Typography' })(
+  Unstable_Typography
+) as typeof Unstable_Typography;

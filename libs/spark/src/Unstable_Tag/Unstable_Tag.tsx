@@ -57,26 +57,6 @@ export type Unstable_TagClassKey =
   | 'icon'
   | 'avatar';
 
-// extracted since there's not an equivalent typography variant
-const tagFontVariantMedium = buildVariant(
-  500,
-  16,
-  20,
-  undefined,
-  'none',
-  '"Inter", sans-serif',
-  "'cv05' 1, 'ss03' 1"
-);
-const tagFontVariantSmall = buildVariant(
-  500,
-  12,
-  20,
-  undefined,
-  'none',
-  '"Inter", sans-serif',
-  "'cv05' 1, 'ss03' 1"
-);
-
 type PrivateClassKey =
   | 'private-root-clickable'
   | 'private-root-deletable'
@@ -106,6 +86,26 @@ type PrivateClassKey =
   | 'private-deleteIcon-size-medium'
   | 'private-deleteIcon-variant-bold'
   | 'private-deleteIcon-variant-subtle';
+
+// extracted since there's not an equivalent typography variant
+const tagFontVariantMedium = buildVariant(
+  500,
+  16,
+  20,
+  undefined,
+  'none',
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
+const tagFontVariantSmall = buildVariant(
+  500,
+  12,
+  20,
+  undefined,
+  'none',
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
 
 const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   root: {

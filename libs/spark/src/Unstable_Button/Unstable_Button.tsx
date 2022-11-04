@@ -8,7 +8,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
 import { lighten, darken } from '@material-ui/core/styles';
 import { Unstable_AvatarProps } from '../Unstable_Avatar';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -126,183 +126,177 @@ const buttonFontVariantLarge = buildVariant(
   "'cv05' 1, 'ss03' 1"
 );
 
-const withClasses = withStyles<Unstable_ButtonClassKey | PrivateClassKey>(
-  (theme) => ({
-    root: {
-      // double-specificity section for overriding v1 styles from STP
-      '&&': {
-        borderColor: 'transparent',
-        borderRadius: 4,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        '&.Mui-focusVisible, &:focus-visible': {
-          boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
-        },
+const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
+  root: {
+    // double-specificity section for overriding v1 styles from STP
+    '&&': {
+      borderColor: 'transparent',
+      borderRadius: 4,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      '&.Mui-focusVisible, &:focus-visible': {
+        boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
       },
     },
-    label: {},
-    leadingAvatar: {
-      color: 'inherit',
-      display: 'flex',
-      marginRight: 8,
-    },
-    leadingIcon: {
-      color: 'inherit',
-      display: 'flex',
-      lineHeight: 1,
-      margin: '0 8px 0 0',
-    },
-    trailingIcon: {
-      color: 'inherit',
-      display: 'flex',
-      lineHeight: 1,
-      margin: '0 0 0 8px',
-    },
-    'private-textBaselineShift': {
-      marginTop: theme.unstable_typography.pxToRem(1),
-      marginBottom: theme.unstable_typography.pxToRem(-1),
-    },
-    'private-root-variant-primary': {
-      '&&': {
-        backgroundColor: theme.unstable_palette.background.brand,
-        '&:hover': {
-          backgroundColor: lighten(
-            theme.unstable_palette.background.brand,
-            0.1
-          ),
-        },
-        '&:active': {
-          backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
-        },
+  },
+  label: {},
+  leadingAvatar: {
+    color: 'inherit',
+    display: 'flex',
+    marginRight: 8,
+  },
+  leadingIcon: {
+    color: 'inherit',
+    display: 'flex',
+    lineHeight: 1,
+    margin: '0 8px 0 0',
+  },
+  trailingIcon: {
+    color: 'inherit',
+    display: 'flex',
+    lineHeight: 1,
+    margin: '0 0 0 8px',
+  },
+  'private-textBaselineShift': {
+    marginTop: theme.unstable_typography.pxToRem(1),
+    marginBottom: theme.unstable_typography.pxToRem(-1),
+  },
+  'private-root-variant-primary': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.background.brand,
+      '&:hover': {
+        backgroundColor: lighten(theme.unstable_palette.background.brand, 0.1),
+      },
+      '&:active': {
+        backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
       },
     },
-    'private-root-variant-stroked': {
-      '&&': {
-        backgroundColor: 'transparent',
-        borderColor: theme.unstable_palette.neutral[90],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-        '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
-        },
+  },
+  'private-root-variant-stroked': {
+    '&&': {
+      backgroundColor: 'transparent',
+      borderColor: theme.unstable_palette.neutral[90],
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.neutral[70],
+      },
+      '&:active': {
+        backgroundColor: theme.unstable_palette.blue[100],
       },
     },
-    'private-root-variant-ghost': {
-      '&&': {
-        backgroundColor: 'transparent',
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.neutral[70],
-        },
-        '&:active': {
-          backgroundColor: theme.unstable_palette.blue[100],
-        },
+  },
+  'private-root-variant-ghost': {
+    '&&': {
+      backgroundColor: 'transparent',
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.neutral[70],
+      },
+      '&:active': {
+        backgroundColor: theme.unstable_palette.blue[100],
       },
     },
-    'private-root-variant-destructive': {
-      '&&': {
-        backgroundColor: theme.unstable_palette.red[700],
-        '&:hover': {
-          backgroundColor: theme.unstable_palette.red[600],
-        },
-        '&:active': {
-          backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
-        },
+  },
+  'private-root-variant-destructive': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.red[700],
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.red[600],
+      },
+      '&:active': {
+        backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
       },
     },
-    'private-root-size-small': {
-      '&&': {
-        padding: '8px 16px',
-      },
+  },
+  'private-root-size-small': {
+    '&&': {
+      padding: '8px 16px',
     },
-    'private-root-size-medium': {
-      '&&': {
-        padding: '12px 24px',
-      },
+  },
+  'private-root-size-medium': {
+    '&&': {
+      padding: '12px 24px',
     },
-    'private-root-size-large': {
-      '&&': {
-        padding: '20px 32px',
-      },
+  },
+  'private-root-size-large': {
+    '&&': {
+      padding: '20px 32px',
     },
-    'private-root-ariaExpanded': {
-      '&&': {
-        backgroundColor: theme.unstable_palette.background.inverse,
-      },
+  },
+  'private-root-ariaExpanded': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.background.inverse,
     },
-    'private-root-disabled': {
-      '&&': {
-        backgroundColor: theme.unstable_palette.neutral[80],
-        color: theme.unstable_palette.text.disabled,
-        opacity: 'unset',
-      },
-    },
-    'private-label-size-small': {
-      ...buttonFontVariantSmall,
-    },
-    'private-label-size-medium': {
-      ...buttonFontVariantMedium,
-    },
-    'private-label-size-large': {
-      ...buttonFontVariantLarge,
-    },
-    'private-label-variant-primary': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'private-label-variant-stroked': {
-      color: theme.unstable_palette.brand.blue,
-    },
-    'private-label-variant-ghost': {
-      color: theme.unstable_palette.brand.blue,
-    },
-    'private-label-variant-destructive': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'private-label-ariaExpanded': {
-      color: theme.unstable_palette.neutral[0],
-    },
-    'private-label-disabled': {
+  },
+  'private-root-disabled': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.neutral[80],
       color: theme.unstable_palette.text.disabled,
+      opacity: 'unset',
     },
-    'private-leadingAvatar-size-small': {
-      marginBottom: -4,
-      marginLeft: -8,
-      marginTop: -4,
-    },
-    'private-leadingAvatar-size-medium': {
-      marginBottom: -8,
-      marginLeft: -8,
-      marginTop: -8,
-    },
-    'private-leadingAvatar-size-large': {
-      marginBottom: -8,
-      marginLeft: -8,
-      marginTop: -8,
-    },
-    'private-leadingAvatar-disabled': {
-      opacity: 0.62,
-    },
-    'private-leadingIcon-size-small': {
-      fontSize: theme.typography.pxToRem(16),
-    },
-    'private-leadingIcon-size-medium': {
-      fontSize: theme.typography.pxToRem(24),
-    },
-    'private-leadingIcon-size-large': {
-      fontSize: theme.typography.pxToRem(24),
-    },
-    'private-trailingIcon-size-small': {
-      fontSize: theme.typography.pxToRem(16),
-    },
-    'private-trailingIcon-size-medium': {
-      fontSize: theme.typography.pxToRem(24),
-    },
-    'private-trailingIcon-size-large': {
-      fontSize: theme.typography.pxToRem(24),
-    },
-  }),
-  { name: 'MuiSparkUnstable_Button' }
-);
+  },
+  'private-label-size-small': {
+    ...buttonFontVariantSmall,
+  },
+  'private-label-size-medium': {
+    ...buttonFontVariantMedium,
+  },
+  'private-label-size-large': {
+    ...buttonFontVariantLarge,
+  },
+  'private-label-variant-primary': {
+    color: theme.unstable_palette.neutral[0],
+  },
+  'private-label-variant-stroked': {
+    color: theme.unstable_palette.brand.blue,
+  },
+  'private-label-variant-ghost': {
+    color: theme.unstable_palette.brand.blue,
+  },
+  'private-label-variant-destructive': {
+    color: theme.unstable_palette.neutral[0],
+  },
+  'private-label-ariaExpanded': {
+    color: theme.unstable_palette.neutral[0],
+  },
+  'private-label-disabled': {
+    color: theme.unstable_palette.text.disabled,
+  },
+  'private-leadingAvatar-size-small': {
+    marginBottom: -4,
+    marginLeft: -8,
+    marginTop: -4,
+  },
+  'private-leadingAvatar-size-medium': {
+    marginBottom: -8,
+    marginLeft: -8,
+    marginTop: -8,
+  },
+  'private-leadingAvatar-size-large': {
+    marginBottom: -8,
+    marginLeft: -8,
+    marginTop: -8,
+  },
+  'private-leadingAvatar-disabled': {
+    opacity: 0.62,
+  },
+  'private-leadingIcon-size-small': {
+    fontSize: theme.typography.pxToRem(16),
+  },
+  'private-leadingIcon-size-medium': {
+    fontSize: theme.typography.pxToRem(24),
+  },
+  'private-leadingIcon-size-large': {
+    fontSize: theme.typography.pxToRem(24),
+  },
+  'private-trailingIcon-size-small': {
+    fontSize: theme.typography.pxToRem(16),
+  },
+  'private-trailingIcon-size-medium': {
+    fontSize: theme.typography.pxToRem(24),
+  },
+  'private-trailingIcon-size-large': {
+    fontSize: theme.typography.pxToRem(24),
+  },
+});
 
 const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef(
   function Unstable_Button(props, ref) {
@@ -404,4 +398,6 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
   }
 );
 
-export default withClasses(Unstable_Button) as typeof Unstable_Button;
+export default withStyles(styles, { name: 'MuiSparkUnstable_Button' })(
+  Unstable_Button
+) as typeof Unstable_Button;

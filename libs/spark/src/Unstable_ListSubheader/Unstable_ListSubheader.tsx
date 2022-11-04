@@ -1,7 +1,7 @@
 import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
-import withStyles from '../withStyles';
+import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_ListSubheaderTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -32,34 +32,31 @@ export type Unstable_ListSubheaderClassKey = 'root';
 
 type PrivateClassKey = 'private-root-inset' | 'private-root-sticky';
 
-const withClasses = withStyles<
-  Unstable_ListSubheaderClassKey | PrivateClassKey
->(
-  (theme) => ({
-    /* Styles applied to the root element. */
-    root: {
-      ...theme.unstable_typography.description,
-      alignItems: 'center',
-      color: theme.unstable_palette.text.subdued,
-      display: 'flex',
-      fontWeight: 600,
-      height: 40,
-      listStyle: 'none',
-      paddingInlineStart: 16,
-    },
-    /* Private */
-    'private-root-inset': {
-      paddingInlineStart: 40,
-    },
-    'private-root-sticky': {
-      position: 'sticky',
-      top: 0,
-      zIndex: 1,
-      backgroundColor: 'inherit',
-    },
-  }),
-  { name: 'MuiSparkUnstable_ListSubheader' }
-);
+const styles: Styles<Unstable_ListSubheaderClassKey | PrivateClassKey> = (
+  theme
+) => ({
+  /* Styles applied to the root element. */
+  root: {
+    ...theme.unstable_typography.description,
+    alignItems: 'center',
+    color: theme.unstable_palette.text.subdued,
+    display: 'flex',
+    fontWeight: 600,
+    height: 40,
+    listStyle: 'none',
+    paddingInlineStart: 16,
+  },
+  /* Private */
+  'private-root-inset': {
+    paddingInlineStart: 40,
+  },
+  'private-root-sticky': {
+    position: 'sticky',
+    top: 0,
+    zIndex: 1,
+    backgroundColor: 'inherit',
+  },
+});
 
 const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap> = forwardRef(
   function Unstable_ListSubheader(props, ref) {
@@ -90,6 +87,6 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
   }
 );
 
-export default withClasses(
+export default withStyles(styles, { name: 'MuiSparkUnstable_ListSubheader' })(
   Unstable_ListSubheader
 ) as typeof Unstable_ListSubheader;
