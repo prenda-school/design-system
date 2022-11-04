@@ -1,10 +1,10 @@
 import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import makeStyles from '../makeStyles';
 import Unstable_Typography, {
   Unstable_TypographyProps,
 } from '../Unstable_Typography';
 import { OverridableComponent, OverrideProps, useId } from '../utils';
+import withStyles from '../withStyles';
 
 export interface Unstable_ContentGroupTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -105,36 +105,40 @@ export type Unstable_ContentGroupProps<
 
 export type Unstable_ContentGroupClassKey =
   | 'root'
-  | 'alignItemsBaseline'
-  | 'alignItemsCenter'
-  | 'alignItemsFlexEnd'
-  | 'alignItemsStretch'
-  | 'colorInherit'
-  | 'disablePadding'
   | 'leadingAction'
   | 'leadingEl'
   | 'typography'
-  | 'typographyRow'
-  | 'typographyInset'
-  | 'typographyWrap'
-  | 'typographyWrapReverse'
   | 'primary'
-  | 'primaryWithSecondary'
   | 'secondary'
   | 'tertiary'
   | 'trailingAction'
-  | 'trailingActionFlexStart'
-  | 'trailingEl'
-  | 'wrap'
-  | 'wrapReverse';
+  | 'trailingEl';
 
-const useStyles = makeStyles<Unstable_ContentGroupClassKey>(
+type PrivateClassKey =
+  | 'private-root-alignItems-baseline'
+  | 'private-root-alignItems-center'
+  | 'private-root-alignItems-flex-end'
+  | 'private-root-alignItems-flex-start'
+  | 'private-root-alignItems-stretch'
+  | 'private-root-color-inherit'
+  | 'private-root-color-standard'
+  | 'private-root-disablePadding'
+  | 'private-root-flexWrap-nowrap'
+  | 'private-root-flexWrap-wrap'
+  | 'private-root-flexWrap-wrapReverse'
+  | 'private-typography-row'
+  | 'private-typography-inset'
+  | 'private-typography-flexWrap-nowrap'
+  | 'private-typography-flexWrap-wrap'
+  | 'private-typography-flexWrap-wrapReverse'
+  | 'private-primary-secondary';
+
+const withClasses = withStyles<Unstable_ContentGroupClassKey | PrivateClassKey>(
   (theme) => ({
     /* Styles applied to the root element. */
     root: {
       alignItems: 'flex-start',
       backgroundColor: 'transparent',
-      color: theme.unstable_palette.text.body,
       columnGap: 16,
       display: 'flex',
       minHeight: 'unset',
@@ -142,63 +146,7 @@ const useStyles = makeStyles<Unstable_ContentGroupClassKey>(
       position: 'relative',
       rowGap: 8,
     },
-    /* Styles applied to the root element when `alignItems='baseline'`. */
-    alignItemsBaseline: {
-      alignItems: 'baseline',
-    },
-    /* Styles applied to the root element when `alignItems='center'`. */
-    alignItemsCenter: {
-      alignItems: 'center',
-    },
-    /* Styles applied to the root element when `alignItems='flex-start'`. */
-    alignItemsFlexEnd: {
-      alignItems: 'flex-end',
-    },
-    /* Styles applied to the root element when `alignItems='stretch'`. */
-    alignItemsStretch: {
-      alignItems: 'stretch',
-    },
-    /* Styles applied to the root element when `color='inherit'`. */
-    colorInherit: {
-      color: 'inherit',
-    },
-    disablePadding: {
-      padding: 0,
-    },
-    /* Styles applied to the root element when `flexWrap='wrap'`. */
-    wrap: {
-      flexWrap: 'wrap',
-    },
-    /* Styles applied to the root element when `flexWrap='wrap-reverse'`. */
-    wrapReverse: {
-      flexWrap: 'wrap-reverse',
-    },
-    /* Styles applied to the group of typography elements. */
-    typography: {
-      alignItems: 'baseline',
-      columnGap: 8,
-      display: 'flex',
-      flexDirection: 'column',
-    },
-    /* Styles applied to the group of typography elements when `inset={true}`. */
-    typographyInset: {
-      paddingInlineStart: 40,
-    },
-    /* Styles applied to the group of typography elements when `row={true}`. */
-    typographyRow: {
-      flexDirection: 'row',
-    },
-    /* Styles applied to the group of typography elements when `flexWrap='wrap'`. */
-    typographyWrap: {
-      flexWrap: 'wrap',
-    },
-    /* Styles applied to the group of typography elements when `flexWrap='wrap-reverse'`. */
-    typographyWrapReverse: {
-      flexWrap: 'wrap-reverse',
-    },
-    /* Styles applied to the primary element. */
-    primary: {},
-    /* Styles applied to the primary action element. */
+    /* Styles applied to the leading (primary) action element. */
     leadingAction: {
       display: 'inline-flex',
       flexShrink: 0,
@@ -210,13 +158,32 @@ const useStyles = makeStyles<Unstable_ContentGroupClassKey>(
       minHeight: '1em',
       minWidth: '1em',
     },
-    /* Styles applied to the primary typography element when secondary is also supplied. */
-    primaryWithSecondary: {
-      fontWeight: 600,
+    /* Styles applied to the leading element, usually an avatar or icon. */
+    leadingEl: {
+      display: 'inline-flex',
+      flexShrink: 0,
+      maxWidth: '100%',
+      // for icon
+      color: 'inherit',
+      fontSize: theme.unstable_typography.pxToRem(24),
     },
+    /* Styles applied to the group of typography elements. */
+    typography: {
+      alignItems: 'baseline',
+      columnGap: 8,
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    /* Styles applied to the primary typography element. */
+    primary: {},
     /* Styles applied to the secondary typography element. */
     secondary: {},
-    /* Styles applied to the secondary action element. */
+    /* Styles applied to the tertiary typography element. */
+    tertiary: {
+      // set `opacity` instead of `color` so that `color="inherit"` can work
+      opacity: 0.86, // average alpha of color blending body (N500) to subdued (N400)
+    },
+    /* Styles applied to the trailing (secondary) action element. */
     trailingAction: {
       display: 'inline-flex',
       flexShrink: 0,
@@ -228,25 +195,6 @@ const useStyles = makeStyles<Unstable_ContentGroupClassKey>(
       minHeight: '1em',
       minWidth: '1em',
     },
-    /* Styles applied to the secondary action element when `alignItems='flex-start'`. */
-    trailingActionFlexStart: {
-      top: 0,
-      transform: 'none',
-    },
-    /* Styles applied to the tertiary typography element. */
-    tertiary: {
-      // set `opacity` instead of `color` so that `color="inherit"` can work
-      opacity: 0.86, // average alpha of color blending body (N500) to subdued (N400)
-    },
-    /* Styles applied to the leading element, usually an avatar or icon. */
-    leadingEl: {
-      display: 'inline-flex',
-      flexShrink: 0,
-      maxWidth: '100%',
-      // for icon
-      color: 'inherit',
-      fontSize: theme.unstable_typography.pxToRem(24),
-    },
     /* Styles applied to the trailing element, usually an avatar or icon. */
     trailingEl: {
       display: 'inline-flex',
@@ -255,6 +203,58 @@ const useStyles = makeStyles<Unstable_ContentGroupClassKey>(
       // for icon
       color: 'inherit',
       fontSize: theme.unstable_typography.pxToRem(24),
+    },
+    /* Private */
+    'private-root-alignItems-baseline': {
+      alignItems: 'baseline',
+    },
+    'private-root-alignItems-center': {
+      alignItems: 'center',
+    },
+    'private-root-alignItems-flex-end': {
+      alignItems: 'flex-end',
+    },
+    'private-root-alignItems-flex-start': {
+      alignItems: 'flex-start',
+    },
+    'private-root-alignItems-stretch': {
+      alignItems: 'stretch',
+    },
+    'private-root-color-inherit': {
+      color: 'inherit',
+    },
+    'private-root-color-standard': {
+      color: theme.unstable_palette.text.body,
+    },
+    'private-root-disablePadding': {
+      padding: 0,
+    },
+    'private-root-flexWrap-nowrap': {
+      flexWrap: 'nowrap',
+    },
+    'private-root-flexWrap-wrap': {
+      flexWrap: 'wrap',
+    },
+    'private-root-flexWrap-wrapReverse': {
+      flexWrap: 'wrap-reverse',
+    },
+    'private-typography-row': {
+      flexDirection: 'row',
+    },
+    'private-typography-inset': {
+      paddingInlineStart: 40,
+    },
+    'private-typography-flexWrap-nowrap': {
+      flexWrap: 'nowrap',
+    },
+    'private-typography-flexWrap-wrap': {
+      flexWrap: 'wrap',
+    },
+    'private-typography-flexWrap-wrapReverse': {
+      flexWrap: 'wrap-reverse',
+    },
+    'private-primary-secondary': {
+      fontWeight: 600,
     },
   }),
   { name: 'MuiSparkUnstable_ContentGroup' }
@@ -265,7 +265,7 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
     const {
       alignItems = 'flex-start',
       color = 'standard',
-      classes: classesProp,
+      classes,
       disablePadding = false,
       flexWrap = 'nowrap',
       leadingAction,
@@ -283,8 +283,6 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
       ...other
     } = props;
 
-    const classes = useStyles();
-
     const primaryId = useId(primaryTypographyProps?.id);
     const secondaryId = useId(secondaryTypographyProps?.id);
     const tertiaryId = useId(tertiaryTypographyProps?.id);
@@ -297,61 +295,37 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
 
     return (
       <div
-        className={clsx(classes.root, classesProp?.root, {
-          [clsx(classes.alignItemsBaseline, classesProp?.alignItemsBaseline)]:
-            alignItems === 'baseline',
-          [clsx(classes.alignItemsCenter, classesProp?.alignItemsCenter)]:
-            alignItems === 'center',
-          [clsx(classes.alignItemsFlexEnd, classesProp?.alignItemsFlexEnd)]:
-            alignItems === 'flex-end',
-          [clsx(classes.alignItemsStretch, classesProp?.alignItemsStretch)]:
-            alignItems === 'stretch',
-          [clsx(
-            classes.disablePadding,
-            classesProp?.disablePadding
-          )]: disablePadding,
-          [clsx(classes.colorInherit, classesProp?.colorInherit)]:
-            color === 'inherit',
-          [clsx(classes.wrap, classesProp?.wrap)]: flexWrap === 'wrap',
-          [clsx(classes.wrapReverse, classesProp?.wrapReverse)]:
-            flexWrap === 'wrap-reverse',
-        })}
+        className={clsx(
+          classes.root,
+          classes[`private-root-alignItems-${alignItems}`],
+          classes[`private-root-color-${color}`],
+          classes[`private-root-flexWrap-${flexWrap}`],
+          {
+            [classes['private-root-disablePadding']]: disablePadding,
+          }
+        )}
         ref={ref}
         {...other}
       >
         {leadingAction ? (
-          <span
-            className={clsx(classes.leadingAction, classesProp?.leadingAction)}
-          >
-            {leadingAction}
-          </span>
+          <span className={classes.leadingAction}>{leadingAction}</span>
         ) : null}
         {leadingEl ? (
-          <span className={clsx(classes.leadingEl, classesProp?.leadingEl)}>
-            {leadingEl}
-          </span>
+          <span className={classes.leadingEl}>{leadingEl}</span>
         ) : null}
         <span
-          className={clsx(classes.typography, classesProp?.typography, {
-            [clsx(classes.typographyRow, classesProp?.typographyRow)]: row,
-            [clsx(
-              classes.typographyInset,
-              classesProp?.typographyInset
-            )]: inset,
-            [clsx(classes.typographyWrap, classesProp?.typographyWrap)]:
-              flexWrap === 'wrap',
-            [clsx(
-              classes.typographyWrapReverse,
-              classesProp?.typographyWrapReverse
-            )]: flexWrap === 'wrap-reverse',
-          })}
+          className={clsx(
+            classes.typography,
+            classes[`private-typography-flexWrap-${flexWrap}`],
+            {
+              [classes['private-typography-row']]: row,
+              [classes['private-typography-inset']]: inset,
+            }
+          )}
         >
           <Unstable_Typography
-            className={clsx(classes.primary, classesProp?.primary, {
-              [clsx(
-                classes.primaryWithSecondary,
-                classesProp?.primaryWithSecondary
-              )]: !!secondary,
+            className={clsx(classes.primary, {
+              [classes['private-primary-secondary']]: !!secondary,
             })}
             color="inherit"
             component="span"
@@ -366,7 +340,7 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
           </Unstable_Typography>
           {secondary ? (
             <Unstable_Typography
-              className={clsx(classes.secondary, classesProp?.secondary)}
+              className={classes.secondary}
               color="inherit"
               component="p"
               id={secondaryId}
@@ -378,7 +352,7 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
           ) : null}
           {tertiary ? (
             <Unstable_Typography
-              className={clsx(classes.tertiary, classesProp?.tertiary)}
+              className={classes.tertiary}
               color="inherit"
               component="p"
               id={tertiaryId}
@@ -390,23 +364,16 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
           ) : null}
         </span>
         {trailingEl ? (
-          <span className={clsx(classes.trailingEl, classesProp?.trailingEl)}>
-            {trailingEl}
-          </span>
+          <span className={classes.trailingEl}>{trailingEl}</span>
         ) : null}
         {trailingAction ? (
-          <span
-            className={clsx(
-              classes.trailingAction,
-              classesProp?.trailingAction
-            )}
-          >
-            {trailingAction}
-          </span>
+          <span className={classes.trailingAction}>{trailingAction}</span>
         ) : null}
       </div>
     );
   }
 );
 
-export default Unstable_ContentGroup;
+export default withClasses(
+  Unstable_ContentGroup
+) as typeof Unstable_ContentGroup;

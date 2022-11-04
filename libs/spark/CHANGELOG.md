@@ -57,6 +57,37 @@
 
 ### Breaking changes
 
+- **Unstable_ContentGroup**
+  - CSS API:
+    - `alignItemsBaseline`: removed
+    - `alignItemsCenter`: removed
+    - `alignItemsFlexEnd`: removed
+    - `alignItemsStretch`: removed
+    - `colorInherit`: removed
+    - `disablePadding`: removed
+    - `typographyRow`: removed
+    - `typographyInset`: removed
+    - `typographyWrap`: removed
+    - `typographyWrapReverse`: removed
+    - `primaryWithSecondary`: removed
+    - `trailingActionFlexStart`: removed
+    - `wrap`: removed
+    - `wrapReverse`: removed
+  - Migration:
+    - `alignItemsBaseline` -> ` ` (remove) (move styles to `root`)
+    - `alignItemsCenter` -> ` ` (remove) (move styles to `root`)
+    - `alignItemsFlexEnd` -> ` ` (remove) (move styles to `root`)
+    - `alignItemsStretch` -> ` ` (remove) (move styles to `root`)
+    - `colorInherit` -> ` ` (remove) (move styles to `root`)
+    - `disablePadding` -> ` ` (remove) (move styles to `root`)
+    - `typographyRow` -> ` ` (remove) (move styles to `typography`)
+    - `typographyInset` -> ` ` (remove) (move styles to `typography`)
+    - `typographyWrap` -> ` ` (remove) (move styles to `typography`)
+    - `typographyWrapReverse` -> ` ` (remove) (move styles to `typography`)
+    - `primaryWithSecondary` -> ` ` (remove) (move styles to `primary`)
+    - `trailingActionFlexStart` -> ` ` (remove) (move styles to `trailingAction`)
+    - `wrap` -> ` ` (remove) (move styles to `root`)
+    - `wrapReverse` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
