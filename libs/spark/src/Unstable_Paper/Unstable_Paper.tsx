@@ -1,12 +1,10 @@
 import React, { forwardRef, Ref } from 'react';
-import MuiPaper, {
-  PaperClassKey as MuiPaperClassKey,
-  PaperProps as MuiPaperProps,
-} from '@material-ui/core/Paper';
+import MuiPaper, { PaperProps as MuiPaperProps } from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import { StandardProps } from '../utils';
 import type { Elevation } from '../theme/unstable_elevations';
+import { StandardProps } from '../utils';
+import withStyles, { Styles } from '../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_PaperProps
@@ -20,54 +18,59 @@ export interface Unstable_PaperProps
   elevation?: Elevation;
 }
 
-export type Unstable_PaperClassKey = MuiPaperClassKey;
+export type Unstable_PaperClassKey = 'root';
 
-const useStyles = makeStyles(
-  (theme) => ({
-    elevation0: {
-      boxShadow: theme.unstable_elevations[0],
-    },
-    elevation100: {
-      boxShadow: theme.unstable_elevations[100],
-    },
-    elevation200: {
-      boxShadow: theme.unstable_elevations[200],
-    },
-    elevation300: {
-      boxShadow: theme.unstable_elevations[300],
-    },
-    elevation400: {
-      boxShadow: theme.unstable_elevations[400],
-    },
-    elevation500: {
-      boxShadow: theme.unstable_elevations[500],
-    },
-  }),
-  { name: 'MuiSparkUnstable_Paper' }
-);
-export const useUnstable_PaperStyles = useStyles;
+type PrivateClassKey =
+  | 'private-root-variant-elevation-0'
+  | 'private-root-variant-elevation-100'
+  | 'private-root-variant-elevation-200'
+  | 'private-root-variant-elevation-300'
+  | 'private-root-variant-elevation-400'
+  | 'private-root-variant-elevation-500';
+
+const styles: Styles<Unstable_PaperClassKey | PrivateClassKey> = (theme) => ({
+  root: {},
+  /* Private */
+  'private-root-variant-elevation-0': {
+    boxShadow: theme.unstable_elevations[0],
+  },
+  'private-root-variant-elevation-100': {
+    boxShadow: theme.unstable_elevations[100],
+  },
+  'private-root-variant-elevation-200': {
+    boxShadow: theme.unstable_elevations[200],
+  },
+  'private-root-variant-elevation-300': {
+    boxShadow: theme.unstable_elevations[300],
+  },
+  'private-root-variant-elevation-400': {
+    boxShadow: theme.unstable_elevations[400],
+  },
+  'private-root-variant-elevation-500': {
+    boxShadow: theme.unstable_elevations[500],
+  },
+});
+
+export const useUnstable_PaperStyles = makeStyles(styles, {
+  name: 'MuiSparkUnstable_Paper',
+});
 
 const Unstable_Paper = forwardRef<unknown, Unstable_PaperProps>(
   function Unstable_Paper(props, ref) {
     const {
       className,
-      classes: classesProp,
+      classes,
       elevation = 100,
       variant = 'elevation',
       ...other
     } = props;
 
-    const classes = useStyles();
-
     return (
       <MuiPaper
-        className={clsx(className, {
-          [clsx(
-            classes[`elevation${elevation}`],
-            classesProp?.[`elevation${elevation}`]
-          )]: variant === 'elevation',
+        className={clsx(className, classes.root, {
+          [classes[`private-root-variant-elevation-${elevation}`]]:
+            variant === 'elevation',
         })}
-        classes={classesProp}
         elevation={0}
         ref={ref as Ref<HTMLUListElement>}
         variant={variant}
@@ -77,4 +80,6 @@ const Unstable_Paper = forwardRef<unknown, Unstable_PaperProps>(
   }
 );
 
-export default Unstable_Paper;
+export default withStyles(styles, {
+  name: 'MuiSparkUnstable_Paper',
+})(Unstable_Paper) as typeof Unstable_Paper;

@@ -37,6 +37,7 @@
   - Initial implementation.
 - **Unstable_Paper**
   - Changed elevations to match new theme elevations.
+  - Removed props-dynamic styles.
   - Props API Changes:
     - `elevation`: added values 100, 200, 300, 400, 500.
 - **Unstable_SectionMessage**
@@ -100,6 +101,19 @@
 - **Unstable_Paper**
   - Props API:
     - `elevation`: removed values 1..24.
+  - CSS API:
+    - `scrollPaper`: removed
+    - `scrollBody`: removed
+    - `paperScrollPaper`: removed
+    - `paperScrollBody`: removed
+    - `paperWidthFalse`: removed
+    - `paperWidthXs`: removed
+    - `paperWidthSm`: removed
+    - `paperWidthMd`: removed
+    - `paperWidthLg`: removed
+    - `paperWidthXl`: removed
+    - `paperFullWidth`: removed
+    - `paperFullScreen`: removed
   - Migration:
     - Props API:
       - `elevation={1}` -> `elevation={100}`
@@ -108,6 +122,19 @@
       - `elevation={4}` -> `elevation={400}`
       - `elevation={5}` -> `elevation={500}`
       - `elevation={6..24}` -> `elevation={500}`
+    - CSS API:
+      - `scrollPaper` -> ` ` (remove) (move styles to `root`)
+      - `scrollBody` -> ` ` (remove) (move styles to `root`)
+      - `paperScrollPaper` -> ` ` (remove) (move styles to `root`)
+      - `paperScrollBody` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthFalse` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthXs` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthSm` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthMd` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthLg` -> ` ` (remove) (move styles to `root`)
+      - `paperWidthXl` -> ` ` (remove) (move styles to `root`)
+      - `paperFullWidth` -> ` ` (remove) (move styles to `root`)
+      - `paperFullScreen` -> ` ` (remove) (move styles to `root`)
 - **Unstable_Typography**
   - Props API:
     - `variantMapping`: removed.
