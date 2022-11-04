@@ -116,3 +116,7 @@ export const CheckedErrorFocusVisible: Story = Template.bind({});
 CheckedErrorFocusVisible.args = { checked: true, error: true };
 CheckedErrorFocusVisible.parameters = { pseudo: { focusVisible: true } };
 CheckedErrorFocusVisible.storyName = 'checked error :focus-visible';
+
+export const SizeLarge: Story = Template.bind({});
+SizeLarge.args = { size: 'large' };
+SizeLarge.storyName = 'size=large';

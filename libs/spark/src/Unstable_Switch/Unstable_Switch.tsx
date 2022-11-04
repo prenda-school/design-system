@@ -43,7 +43,15 @@ export type Unstable_SwitchClassKey =
   | 'thumb'
   | 'track';
 
-type PrivateClassKey = 'private-root-size-medium' | 'private-root-size-large';
+type PrivateClassKey =
+  | 'private-root-size-medium'
+  | 'private-root-size-large'
+  | 'private-switchBase-size-medium'
+  | 'private-switchBase-size-large'
+  | 'private-thumb-size-medium'
+  | 'private-thumb-size-large'
+  | 'private-track-size-medium'
+  | 'private-track-size-large';
 
 const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
@@ -59,12 +67,6 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     '&:hover': {
       backgroundColor: 'unset',
     },
-    '$sizeMedium &$checked': {
-      transform: 'translateX(24px)',
-    },
-    '$sizeLarge &$checked': {
-      transform: 'translateX(28px)',
-    },
   },
   thumb: {
     backgroundColor: theme.unstable_palette.neutral[0],
@@ -73,27 +75,9 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
       backgroundColor: theme.unstable_palette.neutral[90],
       boxShadow: 'none',
     },
-    '$sizeLarge &': {
-      height: 24,
-      width: 24,
-    },
-    '$sizeMedium &': {
-      height: 18,
-      width: 18,
-    },
   },
   track: {
     backgroundColor: theme.unstable_palette.neutral[80],
-    '$sizeLarge &': {
-      borderRadius: 16,
-      height: 32,
-      width: 56,
-    },
-    '$sizeMedium &': {
-      borderRadius: 12,
-      height: 24,
-      width: 48,
-    },
     // double specificity to override PDS v1
     '$checked + &&': {
       backgroundColor: theme.unstable_palette.blue[600],
@@ -134,6 +118,34 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     height: 32 + 8,
     width: 56 + 8,
   },
+  'private-switchBase-size-medium': {
+    '&$checked': {
+      transform: 'translateX(24px)',
+    },
+  },
+  'private-switchBase-size-large': {
+    '&$checked': {
+      transform: 'translateX(24px)',
+    },
+  },
+  'private-thumb-size-medium': {
+    height: 18,
+    width: 18,
+  },
+  'private-thumb-size-large': {
+    height: 24,
+    width: 24,
+  },
+  'private-track-size-medium': {
+    borderRadius: 12,
+    height: 24,
+    width: 48,
+  },
+  'private-track-size-large': {
+    borderRadius: 16,
+    height: 32,
+    width: 56,
+  },
 });
 
 const Unstable_Switch = forwardRef<unknown, Unstable_SwitchProps>(
@@ -143,18 +155,19 @@ const Unstable_Switch = forwardRef<unknown, Unstable_SwitchProps>(
     return (
       <MuiSwitch
         classes={{
-          root: clsx(classes.root, {
-            [classes['private-root-size-medium']]: size === 'medium',
-            [classes['private-root-size-large']]: size === 'large',
-          }),
+          root: clsx(classes.root, classes[`private-root-size-${size}`]),
           checked: classes.checked,
           disabled: classes.disabled,
           input: classes.input,
-          switchBase: clsx(classes.switchBase, {
-            [classes.error]: error,
-          }),
-          thumb: classes.thumb,
-          track: classes.track,
+          switchBase: clsx(
+            classes.switchBase,
+            classes[`private-switchBase-size-${size}`],
+            {
+              [classes.error]: error,
+            }
+          ),
+          thumb: clsx(classes.thumb, classes[`private-thumb-size-${size}`]),
+          track: clsx(classes.track, classes[`private-track-size-${size}`]),
         }}
         color="default"
         disableFocusRipple
