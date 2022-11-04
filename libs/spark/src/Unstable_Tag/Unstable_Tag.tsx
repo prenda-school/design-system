@@ -482,11 +482,13 @@ const Unstable_Tag: OverridableComponent<Unstable_TagTypeMap> = forwardRef(
               [classes['private-root-clickable']]: !!onClick,
               [classes['private-root-deletable']]: !!onDelete,
               [classes['private-root-variant-subtle-color-neutral-size-small']]:
-                variant === 'bold' && color === 'neutral' && size === 'small',
+                variant === 'subtle' && color === 'neutral' && size === 'small',
               [classes[
                 'private-root-variant-subtle-color-neutral-size-medium'
               ]]:
-                variant === 'bold' && color === 'neutral' && size === 'medium',
+                variant === 'subtle' &&
+                color === 'neutral' &&
+                size === 'medium',
             }
           ),
           label: clsx(classes.label, classes[`private-label-size-${size}`]),
