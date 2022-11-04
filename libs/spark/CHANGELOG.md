@@ -42,6 +42,7 @@
 - **Unstable_SectionMessage**
   - Removed props-dynamic styles.
 - **Unstable_Select**
+  - Removed props-dynamic styles.
   - Props API Changes:
     - `MenuProps`: see **Unstable_Menu**.
 - **Unstable_SvgIcon**
