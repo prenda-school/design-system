@@ -22,6 +22,9 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   decorators: [pad],
+  parameters: {
+    chromatic: { delay: 1000 },
+  },
   args: {
     title: 'Title',
   },
