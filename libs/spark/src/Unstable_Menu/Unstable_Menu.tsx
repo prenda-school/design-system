@@ -56,7 +56,7 @@ const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
           ...PaperProps,
           className: clsx(
             PaperProps.className,
-            paperClasses[`elevation${elevation}`]
+            paperClasses[`private-root-variant-elevation-${elevation}`]
           ),
           elevation: 0,
         }}

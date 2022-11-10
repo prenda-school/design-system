@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.3...vNext) (YYYY-MM-DD)
 
+### Fixes
+
+- **Unstable_Menu**
+  - Missing elevation styles.
+
 ### Features
 
 - **DropdownMenu**
