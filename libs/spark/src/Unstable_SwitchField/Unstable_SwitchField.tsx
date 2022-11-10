@@ -37,7 +37,7 @@ export interface Unstable_SwitchFieldProps
 
 type Unstable_SwitchFieldClassKey = 'root' | 'formControl' | 'helperText';
 
-type PrivateClassKey = 'private-root-fullWidth';
+type PrivateClassKey = 'private-root-fullWidth' | 'private-formControl-label';
 
 const styles: Styles<Unstable_SwitchFieldClassKey | PrivateClassKey> = {
   /* Styles applied to the root element. */
@@ -55,6 +55,9 @@ const styles: Styles<Unstable_SwitchFieldClassKey | PrivateClassKey> = {
   /* Private */
   'private-root-fullWidth': {
     width: '100%',
+  },
+  'private-formControl-label': {
+    fontWeight: 600,
   },
 };
 
@@ -97,6 +100,7 @@ const Unstable_SwitchField = forwardRef<unknown, Unstable_SwitchFieldProps>(
           error={error}
           ref={ref}
           {...other}
+          classes={{ label: classes['private-formControl-label'] }}
         />
 
         {helperText ? (
