@@ -9,6 +9,8 @@
 
 ### Features
 
+- **useDropdownContext**
+  - Added return value property, `isOpen: boolean` to know whether the dropdown is open or not.
 - **DropdownMenu**
   - Allow overriding component.
   - Improve offset from Dropdown Anchor when open.

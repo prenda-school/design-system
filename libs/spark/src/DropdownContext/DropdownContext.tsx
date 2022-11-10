@@ -16,6 +16,7 @@ export interface DropdownContextValue {
   anchorEl: null | HTMLElement;
   openDropdown: (event: MouseEvent<HTMLElement>) => void;
   closeDropdown: () => void;
+  isOpen: boolean;
 }
 
 const Context = createContext<DropdownContextValue | null>(null);
@@ -46,10 +47,10 @@ export default function DropdownContext(
     setAnchorEl(null);
   };
 
-  const value = useMemo(() => ({ id, anchorEl, openDropdown, closeDropdown }), [
-    id,
-    anchorEl,
-  ]);
+  const value = useMemo(
+    () => ({ id, anchorEl, isOpen: !!anchorEl, openDropdown, closeDropdown }),
+    [id, anchorEl]
+  );
 
   return <Context.Provider value={value} {...props} />;
 }
