@@ -2,6 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.3...vNext) (YYYY-MM-DD)
 
+### Features
+
+- **Unstable_SwitchField**
+  - Increase label font weight.
+
 ## [v2.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-07-11)
 
 ### Fixes
