@@ -23,7 +23,7 @@ export default {
   excludeStories: ['_retyped'],
   decorators: [pad],
   parameters: {
-    chromatic: { delay: 1000 },
+    chromatic: { delay: 3000 },
   },
   args: {
     title: 'Title',

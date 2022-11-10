@@ -4,7 +4,7 @@
 
 No changes.
 
-## [v2.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-07-11)
+## [v2.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-11-07)
 
 No changes.
 
