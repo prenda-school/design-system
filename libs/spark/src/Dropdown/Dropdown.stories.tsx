@@ -1,6 +1,6 @@
-import React, { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { ChevronDown } from '@prenda/spark-icons';
+import { MoreHorizFilled } from '@prenda/spark-icons';
 import {
   DropdownAnchor,
   DropdownContext,
@@ -53,6 +53,7 @@ export default {
     'DropdownMenu.component': 'Unstable_Menu',
     'DropdownMenu.children': Unstable_MenuMeta.argTypes.children.options[0],
     'DropdownMenu.placement': 'bottom-left',
+    'DropdownMenu.PaperProps': { style: { width: 256 } },
   },
 } as Meta;
 
@@ -82,32 +83,30 @@ const Template: Story = (props) => {
     'DropdownMenu.children': dropdownMenuChildren,
     'DropdownMenu.component': dropdownMenuComponent,
     'DropdownMenu.placement': dropdownMenuPlacement,
+    'DropdownMenu.PaperProps': dropdownMenuPaperProps,
   } = props;
 
-  const anchorProps: {
-    component?: unknown;
-    endIcon?: ReactNode;
-    children?: ReactNode;
-    src?: string;
-  } = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const anchorProps: any = {
     children: 'Label',
+    disabled: dropdownAnchorDisabled,
   };
   if (dropdownAnchorComponent !== undefined) {
     anchorProps.component = dropdownAnchorComponent;
   }
-  if (dropdownAnchorComponent?._PDS_ID === 'Unstable_Button') {
-    anchorProps.endIcon = <ChevronDown />;
-  }
   if (dropdownAnchorComponent?._PDS_ID === 'Unstable_IconButton') {
-    anchorProps.children = <ChevronDown />;
+    anchorProps.children = <MoreHorizFilled />;
   }
   if (dropdownAnchorComponent?._PDS_ID === 'Unstable_AvatarButton') {
     anchorProps.src = '/img/guide-1.png';
     delete anchorProps.children;
   }
 
-  const menuProps: { component?: unknown; children: ReactNode } = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const menuProps: any = {
     children: dropdownMenuChildren,
+    PaperProps: dropdownMenuPaperProps,
+    placement: dropdownMenuPlacement,
   };
   if (dropdownMenuComponent !== undefined) {
     menuProps.component = dropdownMenuComponent;
@@ -120,12 +119,8 @@ const Template: Story = (props) => {
     <div style={{ position: 'relative', height: 182 + 48 + 8, width: 256 }}>
       <div style={positioningStyles}>
         <DropdownContext>
-          <DropdownAnchor disabled={dropdownAnchorDisabled} {...anchorProps} />
-          <DropdownMenu
-            placement={dropdownMenuPlacement}
-            PaperProps={{ style: { width: 256 } }}
-            {...menuProps}
-          />
+          <DropdownAnchor {...anchorProps} />
+          <DropdownMenu {...menuProps} />
         </DropdownContext>
       </div>
     </div>
