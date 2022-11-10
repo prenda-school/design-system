@@ -398,6 +398,11 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
   }
 );
 
-export default withStyles(styles, { name: 'MuiSparkUnstable_Button' })(
-  Unstable_Button
-) as typeof Unstable_Button;
+const Unstable_ButtonWithStyles = withStyles(styles, {
+  name: 'MuiSparkUnstable_Button',
+})(Unstable_Button) as typeof Unstable_Button;
+
+// @ts-expect-error property does not exist
+Unstable_ButtonWithStyles._PDS_ID = 'Unstable_Button';
+
+export default Unstable_ButtonWithStyles;

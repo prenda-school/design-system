@@ -2,10 +2,24 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.3...vNext) (YYYY-MM-DD)
 
+### Fixes
+
+- **Unstable_Menu**
+  - Missing elevation styles.
+
 ### Features
 
+- **DropdownAnchor**
+  - When component is **Unstable_Button**, adds default trailing icon and styles (to override, simply set `trailingIcon`).
+- **DropdownMenu**
+  - Allow overriding component.
+  - Improve offset from Dropdown Anchor when open.
+  - Props API:
+    - `component`: added, default of `Menu`.
 - **Unstable_SwitchField**
   - Increase label font weight.
+- **useDropdownContext**
+  - Added return value property, `isOpen: boolean` to know whether the dropdown is open or not.
 
 ## [v2.0.0-alpha.3](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-11-07)
 
