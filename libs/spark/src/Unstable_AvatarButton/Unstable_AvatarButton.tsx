@@ -126,6 +126,11 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
   }
 );
 
-export default withStyles(styles, { name: 'MuiSparkUnstable_AvatarButton' })(
-  Unstable_AvatarButton
-) as typeof Unstable_AvatarButton;
+const Unstable_AvatarButtonWithStyles = withStyles(styles, {
+  name: 'MuiSparkUnstable_AvatarButton',
+})(Unstable_AvatarButton) as typeof Unstable_AvatarButton;
+
+// @ts-expect-error property does not exist
+Unstable_AvatarButtonWithStyles._PDS_ID = 'Unstable_AvatarButton';
+
+export default Unstable_AvatarButtonWithStyles;
