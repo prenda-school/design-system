@@ -1,74 +1,38 @@
-import React, { forwardRef } from 'react';
+import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import { useDropdownContext } from '../DropdownContext';
 import type { MenuProps } from '../Menu';
 import Menu from '../Menu';
+import { OverridableComponent, OverrideProps } from '../utils';
+import withStyles, { Styles } from '../withStyles';
 
 type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 
-export interface DropdownMenuProps extends Omit<MenuProps, 'open'> {
-  /**
-   * If `true`, the menu is visible.
-   */
-  open?: boolean | undefined;
-  /**
-   * The placement of the menu `Popover` in relation to its anchor.
-   * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
-   */
-  placement?: Placement;
+export interface DropdownMenuTypeMap<
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
+  D extends ElementType = 'div'
+> {
+  props: P &
+    Omit<MenuProps, 'open'> & {
+      /**
+       * If `true`, the menu is visible.
+       */
+      open?: boolean | undefined;
+      /**
+       * The placement of the menu `Popover` in relation to its anchor.
+       * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
+       */
+      placement?: Placement;
+    };
+  defaultComponent: D;
+  classKey: never;
 }
 
-const DropdownMenu = forwardRef<HTMLUListElement, DropdownMenuProps>(
-  (
-    {
-      placement = 'bottom-left',
-      onClose,
-      PaperProps,
-      anchorOrigin,
-      transformOrigin,
-      ...other
-    },
-    ref
-  ) => {
-    const { id, anchorEl, closeDropdown } = useDropdownContext();
-
-    const origins = getOrigins(placement);
-
-    const finalAnchorOrigin = anchorOrigin ?? origins.anchorOrigin;
-    const finalTransformOrigin = transformOrigin ?? origins.transformOrigin;
-
-    let paperClassName;
-    if (
-      finalAnchorOrigin.vertical === 'bottom' &&
-      finalTransformOrigin.vertical === 'top'
-    ) {
-      paperClassName = 'MuiSparkMenu-offsetTop';
-    }
-
-    return (
-      <Menu
-        id={id}
-        getContentAnchorEl={null}
-        anchorEl={anchorEl}
-        keepMounted
-        onClose={(event, reason) => {
-          onClose?.(event, reason);
-          closeDropdown();
-        }}
-        open={Boolean(anchorEl)}
-        ref={ref}
-        PaperProps={{
-          ...PaperProps,
-          className: clsx(PaperProps?.className, paperClassName),
-        }}
-        {...origins}
-        {...other}
-      />
-    );
-  }
-);
-
-export default DropdownMenu;
+export type DropdownMenuProps<
+  D extends ElementType = DropdownMenuTypeMap['defaultComponent'],
+  P = Record<string, unknown>
+> = OverrideProps<DropdownMenuTypeMap<P, D>, D>;
 
 type Origins = Pick<MenuProps, 'anchorOrigin' | 'transformOrigin'>;
 
@@ -92,3 +56,74 @@ function getOrigins(placement: Placement): Origins {
 
   return { anchorOrigin, transformOrigin };
 }
+
+type PrivateClassKey =
+  | 'private-paper-placement-bottom-left'
+  | 'private-paper-placement-bottom-right'
+  | 'private-paper-placement-top-left'
+  | 'private-paper-placement-top-right';
+
+// since the menu is absolutely positioning by top & left, then position adjustments are made through top & left margin changes
+const styles: Styles<PrivateClassKey> = {
+  'private-paper-placement-bottom-left': {
+    marginTop: 8,
+  },
+  'private-paper-placement-bottom-right': {
+    marginTop: 8,
+  },
+  'private-paper-placement-top-left': {
+    marginTop: -8,
+  },
+  'private-paper-placement-top-right': {
+    marginTop: -8,
+  },
+};
+
+const DropdownMenu: OverridableComponent<DropdownMenuTypeMap> = forwardRef(
+  function DropdownMenu(props, ref) {
+    const {
+      classes,
+      component = Menu,
+      placement = 'bottom-left',
+      onClose,
+      PaperProps,
+      anchorOrigin,
+      transformOrigin,
+      ...other
+    } = props as DropdownMenuProps;
+
+    const Component = component as ElementType;
+
+    const { id, anchorEl, closeDropdown } = useDropdownContext();
+
+    const origins = getOrigins(placement);
+
+    return (
+      <Component
+        id={id}
+        getContentAnchorEl={null}
+        anchorEl={anchorEl}
+        keepMounted
+        onClose={(event, reason) => {
+          onClose?.(event, reason);
+          closeDropdown();
+        }}
+        open={Boolean(anchorEl)}
+        ref={ref}
+        PaperProps={{
+          ...PaperProps,
+          className: clsx(
+            classes[`private-paper-placement-${placement}`],
+            PaperProps?.className
+          ),
+        }}
+        {...origins}
+        {...other}
+      />
+    );
+  }
+);
+
+export default withStyles(styles, {
+  name: 'MuiSparkDropdownMenu',
+})(DropdownMenu) as typeof DropdownMenu;

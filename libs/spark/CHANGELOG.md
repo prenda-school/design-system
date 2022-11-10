@@ -4,6 +4,11 @@
 
 ### Features
 
+- **DropdownMenu**
+  - Allow overriding component.
+  - Improve offset from Dropdown Anchor when open.
+  - Props API:
+    - `component`: added, default of `Menu`.
 - **Unstable_SwitchField**
   - Increase label font weight.
 
