@@ -2,7 +2,16 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.4...vNext) (YYYY-MM-DD)
 
-No changes.
+### Features
+
+- **Unstable_Tab**
+  - Initial implementation.
+- **Unstable_TabPanel**
+  - Initial implementation.
+- **Unstable_Tabs**
+  - Initial implementation. Replaces `TabsContext`.
+- **Unstable_TabsList**
+  - Initial implementation. Replaces `TabList`.
 
 ## [v2.0.0-alpha.4](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2022-11-10)
 

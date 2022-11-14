@@ -341,6 +341,18 @@ export * from './Unstable_Switch';
 export { default as Unstable_SwitchField } from './Unstable_SwitchField';
 export * from './Unstable_SwitchField';
 
+export { default as Unstable_Tab } from './Unstable_Tab';
+export * from './Unstable_Tab';
+
+export { default as Unstable_TabPanel } from './Unstable_TabPanel';
+export * from './Unstable_TabPanel';
+
+export { default as Unstable_Tabs } from './Unstable_Tabs';
+export * from './Unstable_Tabs';
+
+export { default as Unstable_TabsList } from './Unstable_TabsList';
+export * from './Unstable_TabsList';
+
 export { default as Unstable_Tag } from './Unstable_Tag';
 export * from './Unstable_Tag';
 
