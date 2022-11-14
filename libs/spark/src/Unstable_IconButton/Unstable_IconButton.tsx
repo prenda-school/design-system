@@ -196,8 +196,6 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
       disabled,
       size = 'medium',
       variant = 'primary',
-      // `color` happens to be an html attribute as well; conflicts with Mui prop type
-      color: _color,
       ...other
     } = props;
 

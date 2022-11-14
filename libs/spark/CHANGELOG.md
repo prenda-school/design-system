@@ -6,6 +6,12 @@
 
 - **DropdownAnchor**
   - Minor design change of Chevron Down icon.
+- **Unstable_Button**
+  - Support ghost variant on inverse background with new color prop (mirror of Icon Button's API).
+  - Design changes:
+    - Corrected the background color of the stroked variant to white.
+  - Props API:
+    - `color`: added
 - **Unstable_Select**
   - Minor design change of Chevron Down icon.
 - **Unstable_Tab**

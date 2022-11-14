@@ -1,6 +1,11 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Unstable_Avatar, Unstable_Button, Unstable_ButtonProps } from '..';
+import {
+  theme,
+  Unstable_Avatar,
+  Unstable_Button,
+  Unstable_ButtonProps,
+} from '..';
 import {
   ChevronDown,
   containFocusIndicator,
@@ -89,6 +94,29 @@ const SizeByVariantTemplate = (args) => (
             {...args}
             variant={variant}
             size={size}
+          />
+        ))}
+      </div>
+    ))}
+    {sizes.map((size) => (
+      <div
+        key={size}
+        style={{
+          display: 'flex',
+          gap: 4,
+          alignItems: 'flex-start',
+          backgroundColor: theme.unstable_palette.background.inverse,
+          margin: -4,
+          padding: 4,
+        }}
+      >
+        {variants.map((variant) => (
+          <Unstable_Button
+            key={variant}
+            {...args}
+            variant={variant}
+            size={size}
+            color="inverse"
           />
         ))}
       </div>
