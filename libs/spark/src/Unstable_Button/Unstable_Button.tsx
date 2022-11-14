@@ -84,7 +84,6 @@ type PrivateClassKey =
   | 'private-root-size-small'
   | 'private-root-size-medium'
   | 'private-root-size-large'
-  | 'private-root-ariaExpanded'
   | 'private-root-disabled'
   | 'private-label-variant-primary'
   | 'private-label-variant-primary-color-standard'
@@ -186,6 +185,9 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       '&:active': {
         backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
       },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
+      },
     },
   },
   'private-root-variant-primary-color-standard': {},
@@ -199,6 +201,9 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
       '&:active': {
         backgroundColor: theme.unstable_palette.blue[100],
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
       },
     },
   },
@@ -218,7 +223,7 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
         backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
       },
       '&[aria-expanded="true"]': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.9),
       },
       '&:disabled': {
         backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
@@ -248,6 +253,9 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       '&:active': {
         backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
       },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
+      },
     },
   },
   'private-root-size-small': {
@@ -263,11 +271,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-root-size-large': {
     '&&': {
       padding: '20px 32px',
-    },
-  },
-  'private-root-ariaExpanded': {
-    '&&': {
-      backgroundColor: theme.unstable_palette.background.inverse,
     },
   },
   'private-root-disabled': {
@@ -421,7 +424,6 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes[`private-root-variant-${variant}`],
             classes[`private-root-variant-${variant}-color-${color}`],
             {
-              [classes['private-root-ariaExpanded']]: ariaExpanded,
               [classes['private-root-disabled']]: disabled,
             }
           ),
