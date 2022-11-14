@@ -52,9 +52,22 @@ export type Unstable_TabsProps<
 
 export type Unstable_TabsClassKey = 'root';
 
-const styles: Styles<Unstable_TabsClassKey> = {
+type PrivateClassKey =
+  | 'private-root-orientation-horizontal'
+  | 'private-root-orientation-vertical';
+
+const styles: Styles<Unstable_TabsClassKey | PrivateClassKey> = {
   /* Styles applied to the root element. */
-  root: {},
+  root: {
+    display: 'flex',
+  },
+  /* Private */
+  'private-root-orientation-horizontal': {
+    flexDirection: 'column',
+  },
+  'private-root-orientation-vertical': {
+    flexDirection: 'row',
+  },
 };
 
 const Unstable_Tabs: OverridableComponent<Unstable_TabsTypeMap> = forwardRef(
@@ -100,7 +113,15 @@ const Unstable_Tabs: OverridableComponent<Unstable_TabsTypeMap> = forwardRef(
     );
 
     return (
-      <div className={clsx(classes.root, className)} ref={ref} {...other}>
+      <div
+        className={clsx(
+          classes.root,
+          classes[`private-root-orientation-${orientation}`],
+          className
+        )}
+        ref={ref}
+        {...other}
+      >
         <Context.Provider value={contextValue}>
           <MuiTabContext value={value}>{children}</MuiTabContext>
         </Context.Provider>

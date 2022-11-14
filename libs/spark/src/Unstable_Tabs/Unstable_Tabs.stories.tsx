@@ -55,6 +55,13 @@ DefaultValueSTP.args = { defaultValue: '0' };
 DefaultValueSTP.decorators = [sparkThemeProvider];
 DefaultValueSTP.storyName = 'defaultValue (STP)';
 
+export const DefaultValueOrientationVertical: Story = Template.bind({});
+DefaultValueOrientationVertical.args = {
+  defaultValue: '0',
+  orientation: 'vertical',
+};
+DefaultValueOrientationVertical.storyName = 'defaultValue orientation=vertical';
+
 export const Value: Story = Template.bind({});
 Value.args = { value: '0' };
 Value.decorators = [statefulValue, enableHooks];

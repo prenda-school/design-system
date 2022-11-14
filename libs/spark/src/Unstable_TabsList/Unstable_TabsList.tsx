@@ -2,6 +2,7 @@ import MuiTabList, {
   TabListTypeMap as MuiTabListTypeMap,
   TabListProps as MuiTabListProps,
 } from '@material-ui/lab/TabList';
+import clsx from 'clsx';
 import { forwardRef } from 'react';
 import { useTabsContext } from '../Unstable_Tabs/Unstable_TabsContext';
 import { OverridableComponent, OverrideProps } from '../utils';
@@ -43,20 +44,28 @@ export type Unstable_TabsListClassKey =
   | 'flexContainer'
   | 'indicator';
 
+type PrivateClassKey =
+  | 'private-flexContainer-orientation-horizontal'
+  | 'private-flexContainer-orientation-vertical'
+  | 'private-indicator-orientation-horizontal'
+  | 'private-indicator-orientation-vertical';
+
 // all the padding/margin work is to get Tab focus shadows to not be cutoff
-const styles: Styles<Unstable_TabsListClassKey> = (theme) => ({
+const styles: Styles<Unstable_TabsListClassKey | PrivateClassKey> = (
+  theme
+) => ({
   /* Styles applied to the root element. */
   root: {
-    minHeight: 52,
-    marginLeft: -4,
-    paddingLeft: 4,
-    marginRight: -4,
-    paddingRight: 4,
+    margin: -4,
+    padding: 4,
+    // override v1
+    boxShadow: 'none',
+    // override MUI
+    minHeight: 'unset',
   },
   /* Styles applied to the tablist element (child of root element). */
   tablist: {
-    marginLeft: -4,
-    marginRight: -4,
+    margin: -4,
     overflowX: 'scroll',
     padding: 4,
     // from MUI (Tabs.styles.scrollable)
@@ -65,15 +74,31 @@ const styles: Styles<Unstable_TabsListClassKey> = (theme) => ({
     '&::-webkit-scrollbar': {
       display: 'none', // Safari + Chrome
     },
+    // override MUI
+    width: 'unset',
   },
   /* Styles applied to the flex container element (child of scroller element). */
-  flexContainer: {
-    boxShadow: `0px 2px ${theme.unstable_palette.neutral[0]}, 0px 4px ${theme.unstable_palette.neutral[80]}`,
-    gap: 32,
-  },
+  flexContainer: {},
   /* Styles applied to the indicator element (child of scroller element). */
   indicator: {
     backgroundColor: theme.unstable_palette.blue[600],
+  },
+  /* Private */
+  'private-flexContainer-orientation-horizontal': {
+    // boxShadow: `0px 2px ${theme.unstable_palette.neutral[0]}, 0px 4px ${theme.unstable_palette.neutral[80]}`,
+    boxShadow: `inset 0px -2px ${theme.unstable_palette.neutral[80]}`,
+    gap: 32,
+  },
+  'private-flexContainer-orientation-vertical': {
+    // boxShadow: `2px 0px ${theme.unstable_palette.neutral[0]}, 4px 0 ${theme.unstable_palette.neutral[80]}`,
+    boxShadow: `inset -2px 0 ${theme.unstable_palette.neutral[80]}`,
+    gap: 12,
+  },
+  'private-indicator-orientation-horizontal': {
+    bottom: 4,
+  },
+  'private-indicator-orientation-vertical': {
+    right: 4,
   },
 });
 
@@ -95,8 +120,14 @@ const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> = forwar
         classes={{
           root: classes.root,
           scroller: classes.tablist,
-          flexContainer: classes.flexContainer,
-          indicator: classes.indicator,
+          flexContainer: clsx(
+            classes.flexContainer,
+            classes[`private-flexContainer-orientation-${context.orientation}`]
+          ),
+          indicator: clsx(
+            classes.indicator,
+            classes[`private-indicator-orientation-${context.orientation}`]
+          ),
         }}
         onChange={onChange}
         orientation={context.orientation}

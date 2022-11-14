@@ -39,31 +39,17 @@ export type Unstable_TabClassKey = 'root' | 'label';
 
 type PrivateClassKey =
   | 'private-root-disabled'
-  | 'private-root-selected'
+  | 'private-root-orientation-horizontal'
+  | 'private-root-orientation-vertical'
   | 'private-label-disabled'
-  | 'private-label-selected';
+  | 'private-label-orientation-horizontal'
+  | 'private-label-orientation-vertical';
 
 const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
   root: {
     minHeight: 'unset',
     maxWidth: 'unset',
     minWidth: 'unset',
-    padding: '12px 0 12px 0',
-    // transition: theme.transitions.create('box-shadow', {
-    //   duration: theme.transitions.duration.short,
-    // }),
-    '&:hover': {
-      boxShadow: `0px 2px 0px ${theme.unstable_palette.neutral[0]}, 0px 4px 0px ${theme.unstable_palette.neutral[100]}`,
-    },
-    '&:active': {
-      zIndex: 2,
-      boxShadow: `0px 2px 0px ${theme.unstable_palette.neutral[0]}, 0px 4px 0px ${theme.unstable_palette.blue[400]}`,
-    },
-    '&.Mui-focusVisible, &:focus-visible': {
-      zIndex: 2,
-      borderRadius: 8,
-      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
-    },
     // override v1
     border: 'none',
     borderRadius: 0,
@@ -77,15 +63,47 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     color: theme.unstable_palette.text.body,
     textTransform: 'none',
   },
-  'private-root-selected': {},
   'private-root-disabled': {
     '&:hover': {
       boxShadow: 'none',
     },
   },
-  'private-label-selected': {},
+  'private-root-orientation-horizontal': {
+    padding: '16px 0',
+    '&:hover': {
+      boxShadow: `inset 0px -2px ${theme.unstable_palette.neutral[100]}`,
+    },
+    '&:active': {
+      zIndex: 2,
+      boxShadow: `inset 0px -2px ${theme.unstable_palette.blue[400]}`,
+    },
+    '&.Mui-focusVisible, &:focus-visible': {
+      zIndex: 2,
+      borderRadius: 8,
+      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+    },
+  },
+  'private-root-orientation-vertical': {
+    padding: '12px 12px',
+    '&:hover': {
+      boxShadow: `inset -2px 0 ${theme.unstable_palette.neutral[100]}`,
+    },
+    '&:active': {
+      zIndex: 2,
+      boxShadow: `inset -2px 0px ${theme.unstable_palette.blue[400]}`,
+    },
+    '&.Mui-focusVisible, &:focus-visible': {
+      zIndex: 2,
+      borderRadius: 8,
+      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+    },
+  },
   'private-label-disabled': {
     color: theme.unstable_palette.text.disabled,
+  },
+  'private-label-orientation-horizontal': {},
+  'private-label-orientation-vertical': {
+    alignItems: 'flex-start',
   },
 });
 
@@ -101,14 +119,20 @@ const Unstable_Tab: OverridableComponent<Unstable_TabTypeMap> = forwardRef(
     return (
       <MuiTab
         classes={{
-          root: clsx(classes.root, {
-            [classes['private-root-disabled']]: disabled,
-            [classes['private-root-selected']]: selected,
-          }),
-          wrapper: clsx(classes.label, {
-            [classes['private-label-disabled']]: disabled,
-            [classes['private-label-selected']]: selected,
-          }),
+          root: clsx(
+            classes.root,
+            classes[`private-root-orientation-${context.orientation}`],
+            {
+              [classes['private-root-disabled']]: disabled,
+            }
+          ),
+          wrapper: clsx(
+            classes.label,
+            classes[`private-label-orientation-${context.orientation}`],
+            {
+              [classes['private-label-disabled']]: disabled,
+            }
+          ),
         }}
         label={children}
         disabled={disabled}

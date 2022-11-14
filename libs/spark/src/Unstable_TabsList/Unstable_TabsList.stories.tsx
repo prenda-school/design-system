@@ -5,6 +5,7 @@ import {
   Unstable_Tabs,
   Unstable_TabsList,
   Unstable_TabsListProps,
+  Unstable_TabsProps,
 } from '..';
 import {
   containFocusIndicator,
@@ -26,10 +27,17 @@ export default {
 } as Meta;
 
 const Template = (args) => {
-  const { 'Tabs.defaultValue': TabsDefaultValue, ...other } = args;
+  const {
+    'Tabs.orientation': TabsOrientation,
+    'Tabs.defaultValue': TabsDefaultValue,
+    ...other
+  } = args;
 
   return (
-    <Unstable_Tabs defaultValue={TabsDefaultValue}>
+    <Unstable_Tabs
+      defaultValue={TabsDefaultValue}
+      orientation={TabsOrientation}
+    >
       <Unstable_TabsList {...other}>
         <Unstable_Tab value="0">Label 0</Unstable_Tab>
         <Unstable_Tab value="1">Label 1</Unstable_Tab>
@@ -39,7 +47,11 @@ const Template = (args) => {
   );
 };
 
-type Story = DefaultStory<Unstable_TabsListProps>;
+type Story = DefaultStory<
+  Unstable_TabsListProps & {
+    'Tabs.orientation': Unstable_TabsProps['orientation'];
+  }
+>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
@@ -59,3 +71,25 @@ FocusVisible.storyName = ':focus-visible';
 export const Active: Story = Template.bind({});
 Active.parameters = { pseudo: { active: true } };
 Active.storyName = ':active';
+
+export const TabsOrientationVertical: Story = Template.bind({});
+TabsOrientationVertical.args = { 'Tabs.orientation': 'vertical' };
+TabsOrientationVertical.storyName = 'Tabs.orientation=vertical';
+
+export const TabsOrientationVerticalHover: Story = Template.bind({});
+TabsOrientationVerticalHover.args = { 'Tabs.orientation': 'vertical' };
+TabsOrientationVerticalHover.parameters = { pseudo: { hover: true } };
+TabsOrientationVerticalHover.storyName = 'Tabs.orientation=vertical :hover';
+
+export const TabsOrientationVerticalFocusVisible: Story = Template.bind({});
+TabsOrientationVerticalFocusVisible.args = { 'Tabs.orientation': 'vertical' };
+TabsOrientationVerticalFocusVisible.parameters = {
+  pseudo: { focusVisible: true },
+};
+TabsOrientationVerticalFocusVisible.storyName =
+  'Tabs.orientation=vertical :focus-visible';
+
+export const TabsOrientationVerticalActive: Story = Template.bind({});
+TabsOrientationVerticalActive.args = { 'Tabs.orientation': 'vertical' };
+TabsOrientationVerticalActive.parameters = { pseudo: { active: true } };
+TabsOrientationVerticalActive.storyName = 'Tabs.orientation=vertical :active';
