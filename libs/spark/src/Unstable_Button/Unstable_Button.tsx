@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/Button';
 import { OverridableComponent, OverrideProps } from '../utils';
 import { buildVariant } from '../theme/typography';
-import { lighten, darken } from '@material-ui/core/styles';
+import { lighten, darken, alpha } from '@material-ui/core/styles';
 import { Unstable_AvatarProps } from '../Unstable_Avatar';
 import withStyles, { Styles } from '../withStyles';
 
@@ -31,6 +31,10 @@ export interface Unstable_ButtonTypeMap<
       | 'focusRipple'
       | 'TouchRippleProps'
     > & {
+      /**
+       * The color of the component.
+       */
+      color?: 'standard' | 'inverse';
       /**
        * The variant to use.
        */
@@ -68,17 +72,28 @@ export type Unstable_ButtonClassKey =
 
 type PrivateClassKey =
   | 'private-root-variant-primary'
+  | 'private-root-variant-primary-color-standard'
+  | 'private-root-variant-primary-color-inverse'
   | 'private-root-variant-stroked'
+  | 'private-root-variant-stroked-color-standard'
+  | 'private-root-variant-stroked-color-inverse'
   | 'private-root-variant-ghost'
+  | 'private-root-variant-ghost-color-standard'
+  | 'private-root-variant-ghost-color-inverse'
   | 'private-root-variant-destructive'
   | 'private-root-size-small'
   | 'private-root-size-medium'
   | 'private-root-size-large'
-  | 'private-root-ariaExpanded'
   | 'private-root-disabled'
   | 'private-label-variant-primary'
+  | 'private-label-variant-primary-color-standard'
+  | 'private-label-variant-primary-color-inverse'
   | 'private-label-variant-stroked'
+  | 'private-label-variant-stroked-color-standard'
+  | 'private-label-variant-stroked-color-inverse'
   | 'private-label-variant-ghost'
+  | 'private-label-variant-ghost-color-standard'
+  | 'private-label-variant-ghost-color-inverse'
   | 'private-label-variant-destructive'
   | 'private-label-size-small'
   | 'private-label-size-medium'
@@ -170,11 +185,16 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       '&:active': {
         backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
       },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
+      },
     },
   },
+  'private-root-variant-primary-color-standard': {},
+  'private-root-variant-primary-color-inverse': {},
   'private-root-variant-stroked': {
     '&&': {
-      backgroundColor: 'transparent',
+      backgroundColor: theme.unstable_palette.neutral[0],
       borderColor: theme.unstable_palette.neutral[90],
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[70],
@@ -182,17 +202,46 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       '&:active': {
         backgroundColor: theme.unstable_palette.blue[100],
       },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
+      },
     },
   },
+  'private-root-variant-stroked-color-standard': {},
+  'private-root-variant-stroked-color-inverse': {},
   'private-root-variant-ghost': {
     '&&': {
       backgroundColor: 'transparent',
+    },
+  },
+  'private-root-variant-ghost-color-standard': {
+    '&&': {
       '&:hover': {
-        backgroundColor: theme.unstable_palette.neutral[70],
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
       },
       '&:active': {
-        backgroundColor: theme.unstable_palette.blue[100],
+        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
       },
+      '&[aria-expanded="true"]': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.9),
+      },
+      '&:disabled': {
+        backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      },
+    },
+  },
+  'private-root-variant-ghost-color-inverse': {
+    '&:hover': {
+      backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
+    },
+    '&:active': {
+      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+    },
+    '&[aria-expanded="true"]': {
+      backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
+    },
+    '&:disabled': {
+      backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
     },
   },
   'private-root-variant-destructive': {
@@ -203,6 +252,9 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
       '&:active': {
         backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.inverse,
       },
     },
   },
@@ -219,11 +271,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-root-size-large': {
     '&&': {
       padding: '20px 32px',
-    },
-  },
-  'private-root-ariaExpanded': {
-    '&&': {
-      backgroundColor: theme.unstable_palette.background.inverse,
     },
   },
   'private-root-disabled': {
@@ -245,11 +292,19 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-label-variant-primary': {
     color: theme.unstable_palette.neutral[0],
   },
+  'private-label-variant-primary-color-standard': {},
+  'private-label-variant-primary-color-inverse': {},
   'private-label-variant-stroked': {
     color: theme.unstable_palette.brand.blue,
   },
-  'private-label-variant-ghost': {
+  'private-label-variant-stroked-color-standard': {},
+  'private-label-variant-stroked-color-inverse': {},
+  'private-label-variant-ghost': {},
+  'private-label-variant-ghost-color-standard': {
     color: theme.unstable_palette.brand.blue,
+  },
+  'private-label-variant-ghost-color-inverse': {
+    color: theme.unstable_palette.neutral[0],
   },
   'private-label-variant-destructive': {
     color: theme.unstable_palette.neutral[0],
@@ -304,13 +359,13 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
       'aria-expanded': ariaExpanded,
       children,
       classes,
+      color = 'standard',
       disabled,
       leadingAvatar,
       leadingIcon,
       size = 'medium',
       trailingIcon,
       variant = 'primary',
-      color: _color,
       ...other
     } = props;
 
@@ -367,8 +422,8 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes.root,
             classes[`private-root-size-${size}`],
             classes[`private-root-variant-${variant}`],
+            classes[`private-root-variant-${variant}-color-${color}`],
             {
-              [classes['private-root-ariaExpanded']]: ariaExpanded,
               [classes['private-root-disabled']]: disabled,
             }
           ),
@@ -376,6 +431,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes.label,
             classes[`private-label-size-${size}`],
             classes[`private-label-variant-${variant}`],
+            classes[`private-label-variant-${variant}-color-${color}`],
             {
               [classes['private-label-ariaExpanded']]: ariaExpanded,
               [classes['private-label-disabled']]: disabled,
