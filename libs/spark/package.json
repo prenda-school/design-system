@@ -9,7 +9,8 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "notistack": "^3.0.0-alpha.11"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0",

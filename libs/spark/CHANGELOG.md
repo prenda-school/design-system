@@ -2,6 +2,8 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.4...vNext) (YYYY-MM-DD)
 
+Added notistack v3 (alpha) as a dependency.
+
 ### Features
 
 - **DropdownAnchor**
@@ -22,6 +24,10 @@
   - Initial implementation. Replaces `TabsContext`.
 - **Unstable_TabsList**
   - Initial implementation. Replaces `TabList`.
+- **Unstable_Toast**
+  - Initial implementation.
+- **Unstable_ToastsProvider**
+  - Initial implementation.
 
 ## [v2.0.0-alpha.4](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2022-11-10)
 

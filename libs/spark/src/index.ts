@@ -359,6 +359,9 @@ export * from './Unstable_Tag';
 export { default as Unstable_Toast } from './Unstable_Toast';
 export * from './Unstable_Toast';
 
+export { default as Unstable_ToastsProvider } from './Unstable_ToastsProvider';
+export * from './Unstable_ToastsProvider';
+
 export { default as Unstable_Tooltip } from './Unstable_Tooltip';
 export * from './Unstable_Tooltip';
 
