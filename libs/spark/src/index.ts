@@ -356,6 +356,9 @@ export * from './Unstable_TabsList';
 export { default as Unstable_Tag } from './Unstable_Tag';
 export * from './Unstable_Tag';
 
+export { default as Unstable_Toast } from './Unstable_Toast';
+export * from './Unstable_Toast';
+
 export { default as Unstable_Tooltip } from './Unstable_Tooltip';
 export * from './Unstable_Tooltip';
 
