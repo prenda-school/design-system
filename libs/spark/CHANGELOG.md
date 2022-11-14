@@ -4,6 +4,10 @@
 
 ### Features
 
+- **DropdownAnchor**
+  - Minor design change of Chevron Down icon.
+- **Unstable_Select**
+  - Minor design change of Chevron Down icon.
 - **Unstable_Tab**
   - Initial implementation.
 - **Unstable_TabPanel**
