@@ -35,12 +35,16 @@ export const statefulValue: DecoratorFn = (Story, context) => {
     setValue(context.args.value);
   }, [context.args.checked, context.args.value]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>, value) => {
     // don't change uncontrolled to controlled
     if (event.target.checked !== undefined) {
       setChecked(event.target.checked);
     }
-    setValue(event.target.value);
+    if (value !== undefined) {
+      setValue(value);
+    } else {
+      setValue(event.target.value);
+    }
   };
 
   const handleClick = (
@@ -87,7 +91,7 @@ const ContainFocusIndicatorDiv = styled('div')({
   // without setting it to fit, the story snapshot will expand to 100%
   width: 'fit-content',
   // prevent larger-than-necessary height because of added browser-default space for ascender/descenders.
-  display: 'flex',
+  display: 'grid',
   // prevent overflowing past viewport
   maxWidth: '100%',
 });
@@ -106,12 +110,25 @@ const MediumWidthDiv = styled('div')({
 });
 
 /**
- * [Internal] A Storybook decorator that is a medium width ( 256px) container.
+ * [Internal] A Storybook decorator that is a medium width (256px) container.
  */
 export const mediumWidth: DecoratorFn = (Story) => (
   <MediumWidthDiv>
     <Story />
   </MediumWidthDiv>
+);
+
+const LargeWidthDiv = styled('div')({
+  width: 512,
+});
+
+/**
+ * [Internal] A Storybook decorator that is a large width (512px) container.
+ */
+export const largeWidth: DecoratorFn = (Story) => (
+  <LargeWidthDiv>
+    <Story />
+  </LargeWidthDiv>
 );
 
 const ContainElevationDiv = styled('div')({
