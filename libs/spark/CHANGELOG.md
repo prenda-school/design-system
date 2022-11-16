@@ -4,10 +4,17 @@
 
 ### Fixes
 
+- **Unstable_Menu**
+  - Incompatibility with **DropdownMenu** when passed as override component.
 - **Unstable_Tabs**
   - Missing react import.
 - **Unstable_TabsList**
   - Missing react import.
+
+### Features
+
+- **Unstable_Menu**
+  - Make `open` prop optional.
 
 ### Breaking changes
 
