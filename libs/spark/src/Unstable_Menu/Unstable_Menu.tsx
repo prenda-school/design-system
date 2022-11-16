@@ -16,10 +16,14 @@ import clsx from 'clsx';
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_MenuProps
   extends StandardProps<
-    MuiMenuProps,
+    Omit<MuiMenuProps, 'open'>,
     Unstable_MenuClassKey,
     'MenuListProps' | 'PaperProps'
   > {
+  /**
+   * Whether the menu is visible.
+   */
+  open?: boolean;
   /**
    * Props applied to the `MenuList` element.
    */
@@ -38,6 +42,7 @@ const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
   function Unstable_Menu(props, ref) {
     const {
       MenuListProps,
+      open = false,
       PaperProps: { elevation = 400, ...PaperProps } = {},
       ...other
     } = props;
@@ -60,6 +65,7 @@ const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
           ),
           elevation: 0,
         }}
+        open={open}
         MenuListProps={{
           subheader: subheader ? (
             <Unstable_ListSubheader id={subheaderId} {...ListSubheaderProps}>

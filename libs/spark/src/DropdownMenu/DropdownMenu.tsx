@@ -1,3 +1,4 @@
+import { PopoverProps } from '@material-ui/core/Popover';
 import React, { ElementType, forwardRef } from 'react';
 import clsx from 'clsx';
 import { useDropdownContext } from '../DropdownContext';
@@ -11,27 +12,33 @@ type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 export interface DropdownMenuTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
-  D extends ElementType = 'div'
+  D extends ElementType = typeof Menu
 > {
-  props: P &
-    Omit<MenuProps, 'open'> & {
-      /**
-       * If `true`, the menu is visible.
-       */
-      open?: boolean | undefined;
-      /**
-       * The placement of the menu `Popover` in relation to its anchor.
-       * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
-       */
-      placement?: Placement;
+  props: P & {
+    // possible props of override component that are deconstructed
+    onClose?: PopoverProps['onClose'];
+    PaperProps?: {
+      className?: string;
     };
+  } & {
+    /**
+     * If `true`, the menu is visible.
+     */
+    open?: boolean | undefined;
+    /**
+     * The placement of the menu `Popover` in relation to its anchor.
+     * This is a shortcut for common combinations of `anchorOrigin` and `transformOrigin`.
+     */
+    placement?: Placement;
+  };
   defaultComponent: D;
   classKey: never;
 }
 
 export type DropdownMenuProps<
   D extends ElementType = DropdownMenuTypeMap['defaultComponent'],
-  P = Record<string, unknown>
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
 > = OverrideProps<DropdownMenuTypeMap<P, D>, D>;
 
 type Origins = Pick<MenuProps, 'anchorOrigin' | 'transformOrigin'>;
@@ -83,6 +90,7 @@ const DropdownMenu: OverridableComponent<DropdownMenuTypeMap> = forwardRef(
   function DropdownMenu(props, ref) {
     const {
       classes,
+      // @ts-expect-error TS can't recognize component prop
       component = Menu,
       placement = 'bottom-left',
       onClose,
@@ -108,7 +116,7 @@ const DropdownMenu: OverridableComponent<DropdownMenuTypeMap> = forwardRef(
           onClose?.(event, reason);
           closeDropdown();
         }}
-        open={Boolean(anchorEl)}
+        open={!!anchorEl}
         ref={ref}
         PaperProps={{
           ...PaperProps,
