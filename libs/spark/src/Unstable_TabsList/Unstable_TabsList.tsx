@@ -3,7 +3,7 @@ import MuiTabList, {
   TabListProps as MuiTabListProps,
 } from '@material-ui/lab/TabList';
 import clsx from 'clsx';
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { useTabsContext } from '../Unstable_Tabs/Unstable_TabsContext';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
