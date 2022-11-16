@@ -1,6 +1,6 @@
 import MuiTabContext from '@material-ui/lab/TabContext';
 import clsx from 'clsx';
-import {
+import React, {
   ElementType,
   forwardRef,
   SyntheticEvent,
@@ -21,11 +21,11 @@ export interface Unstable_TabsTypeMap<
      * The value of the currently selected `Tab`.
      * If you don't want any selected `Tab`, you can set this prop to `false`.
      */
-    value?: string | false;
+    value?: Unstable_TabsContextValue['value'];
     /**
      * The default value. Use when the component is not controlled.
      */
-    defaultValue?: string | false;
+    defaultValue?: Unstable_TabsContextValue['value'];
     /**
      * The component orientation (layout flow direction).
      */
@@ -35,7 +35,7 @@ export interface Unstable_TabsTypeMap<
      */
     onChange?: (
       event: SyntheticEvent,
-      value: number | string | boolean
+      value: Unstable_TabsContextValue['value']
     ) => void;
   };
   defaultComponent: D;

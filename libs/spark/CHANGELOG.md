@@ -2,7 +2,19 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...vNext) (YYYY-MM-DD)
 
-No changes.
+### Fixes
+
+- **Unstable_Tabs**
+  - Missing react import.
+- **Unstable_TabsList**
+  - Missing react import.
+
+### Breaking changes
+
+- **Unstable_Tabs**
+  - Remove `number` and `true` from `value` in the `onChange` prop type (`(event, value) => void`).
+- **Unstable_TabsContext**
+  - Remove `number` from the `value` property type and `value` in the `onSelected` property type (`(event, value) => void`).
 
 ## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2022-11-14)
 

@@ -2,7 +2,9 @@ import {
   TabContextValue as MuiTabContextValue,
   useTabContext as useMuiTabContext,
 } from '@material-ui/lab/TabContext';
-import { createContext, useContext } from 'react';
+import { createContext, SyntheticEvent, useContext } from 'react';
+
+type Value = string | false;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_TabsContextValue
@@ -10,10 +12,7 @@ export interface Unstable_TabsContextValue
   /**
    * Callback for setting new value.
    */
-  onSelected: (
-    event: React.SyntheticEvent,
-    value: number | string | false
-  ) => void;
+  onSelected: (event: SyntheticEvent, value: Value) => void;
   /**
    * The component orientation (layout flow direction).
    */
@@ -21,12 +20,9 @@ export interface Unstable_TabsContextValue
   /**
    * The currently selected tab's value.
    */
-  value: number | string | false;
+  value: Value;
 }
 
-/**
- * @type {React.Context<{ idPrefix: string; value: string } | null>}
- */
 const Context = createContext<Unstable_TabsContextValue | null>(null);
 
 if (process.env.NODE_ENV !== 'production') {
