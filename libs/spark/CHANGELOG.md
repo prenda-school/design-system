@@ -2,7 +2,10 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...vNext) (YYYY-MM-DD)
 
-No changes.
+### Features
+
+- **SparkThemeProvider**
+  - Changed to inject styles last (previously injected first).
 
 ## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)
 
