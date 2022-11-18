@@ -5,8 +5,6 @@ import {
   Unstable_ToastsProviderProps,
   Unstable_Button,
   useToasts_unstable,
-  Unstable_ToastId,
-  Unstable_ToastsContextEnqueueOptions,
 } from '..';
 import { Email, enableHooks, largeWidth } from '../../stories';
 
@@ -56,11 +54,11 @@ const messageNode = (
 const Children = () => {
   const toasts = useToasts_unstable();
 
-  const [lastId, setLastId] = useState<Unstable_ToastId>();
+  const [lastId, setLastId] = useState<ReturnType<typeof toasts.enqueue>>();
 
   const handleClickWith = (
     children: ReactNode,
-    options?: Unstable_ToastsContextEnqueueOptions
+    options?: Parameters<typeof toasts.enqueue>[1]
   ) => () => {
     const id = toasts.enqueue(children, options);
     setLastId(id);
