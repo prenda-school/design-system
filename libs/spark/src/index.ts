@@ -323,6 +323,8 @@ export * from './Unstable_RadioField';
 export { default as Unstable_RadioGroup } from './Unstable_RadioGroup';
 export * from './Unstable_RadioGroup';
 
+export type { Unstable_RadioGroupExtraContextValue } from './Unstable_RadioGroupExtraContext';
+
 export { default as Unstable_RadioGroupField } from './Unstable_RadioGroupField';
 export * from './Unstable_RadioGroupField';
 
@@ -350,6 +352,8 @@ export * from './Unstable_TabPanel';
 export { default as Unstable_Tabs } from './Unstable_Tabs';
 export * from './Unstable_Tabs';
 
+export type { Unstable_TabsContextValue } from './Unstable_TabsContext';
+
 export { default as Unstable_TabsList } from './Unstable_TabsList';
 export * from './Unstable_TabsList';
 
@@ -358,6 +362,8 @@ export * from './Unstable_Tag';
 
 export { default as Unstable_Toast } from './Unstable_Toast';
 export * from './Unstable_Toast';
+
+export type { Unstable_ToastsContextValue } from './Unstable_ToastsContext';
 
 export { default as Unstable_ToastsProvider } from './Unstable_ToastsProvider';
 export * from './Unstable_ToastsProvider';
@@ -381,9 +387,17 @@ export * from './theme';
 
 export { default as unstable_createSvgIcon } from './unstable_createSvgIcon';
 
+export { default as useFormControl } from './useFormControl';
+
 export { default as useMediaQuery } from './useMediaQuery';
 
+export { default as useRadioGroupExtra_unstable } from './useRadioGroupExtra_unstable';
+
+export { default as useTabs_unstable } from './useTabs_unstable';
+
 export { default as useTheme } from './useTheme';
+
+export { default as useToasts_unstable } from './useToasts_unstable';
 
 export { default as withStyles } from './withStyles';
 export * from './withStyles';

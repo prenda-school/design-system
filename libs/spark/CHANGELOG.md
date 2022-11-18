@@ -2,10 +2,25 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...vNext) (YYYY-MM-DD)
 
-### Features
-
 - **SparkThemeProvider**
-  - Changed to inject styles last (previously injected first).
+  - [feat] changed to inject styles last (previously injected first)
+- **useFormControl**
+  - [feat] added as a top-level directory
+- **useRadioGroupMore**
+  - [feat] added as a top-level directory
+  - [breaking] removed (renamed to **useRadioGroupExtra_unstable**)
+- **useRadioGroupExtra_unstable**
+  - [feat] init (renamed from **useRadioGroupMore**)
+- **useTabsContext**
+  - [feat] added as a top-level directory
+  - [breaking] removed (renamed to **useTabs_unstable**)
+- **useTabs_unstable**
+  - [feat] init (renamed from **useTabsContext**)
+- **useToasts**
+  - [feat] added as a top-level directory
+  - [breaking] removed (renamed to **useToasts_unstable**)
+- **useToasts_unstable**
+  - [feat] init (renamed from **useToasts**)
 
 ## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)
 

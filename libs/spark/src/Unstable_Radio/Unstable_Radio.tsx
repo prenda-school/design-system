@@ -5,8 +5,8 @@ import {
   RadioProps as MuiRadioProps,
 } from '@material-ui/core/Radio';
 import Unstable_RadioIcon from './Unstable_RadioIcon';
-import { useRadioGroupMore } from '../Unstable_RadioGroup';
 import withStyles, { Styles, StyledComponentProps } from '../withStyles';
+import useRadioGroupExtra_unstable from '../useRadioGroupExtra_unstable/useRadioGroupExtra_unstable';
 
 export interface Unstable_RadioProps
   extends Omit<
@@ -60,13 +60,13 @@ const Unstable_Radio = forwardRef<unknown, Unstable_RadioProps>(
       ...other
     } = props;
 
-    const radioGroup = useRadioGroupMore();
+    const radioGroupExtra = useRadioGroupExtra_unstable();
 
     let required = requiredProp;
 
-    if (radioGroup) {
+    if (radioGroupExtra) {
       if (typeof required === 'undefined') {
-        required = radioGroup.required;
+        required = radioGroupExtra.required;
       }
     }
 

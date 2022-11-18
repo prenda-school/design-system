@@ -2,8 +2,9 @@ import React, { forwardRef } from 'react';
 import MuiRadioGroup, {
   RadioGroupProps as MuiRadioGroupProps,
 } from '@material-ui/core/RadioGroup';
-import { formControlState, useFormControl } from '../Unstable_FormControl';
-import RadioGroupMoreContext from './RadioGroupMoreContext';
+import Unstable_RadioGroupExtraContext from '../Unstable_RadioGroupExtraContext';
+import { formControlState } from '../Unstable_FormControl';
+import useFormControl from '../useFormControl';
 import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 
 export interface Unstable_RadioGroupProps
@@ -43,9 +44,11 @@ const Unstable_RadioGroup = forwardRef<unknown, Unstable_RadioGroupProps>(
     });
 
     return (
-      <RadioGroupMoreContext.Provider value={{ required: fcs.required }}>
+      <Unstable_RadioGroupExtraContext.Provider
+        value={{ required: fcs.required }}
+      >
         <MuiRadioGroup classes={{ root: classes.root }} ref={ref} {...other} />
-      </RadioGroupMoreContext.Provider>
+      </Unstable_RadioGroupExtraContext.Provider>
     );
   }
 );

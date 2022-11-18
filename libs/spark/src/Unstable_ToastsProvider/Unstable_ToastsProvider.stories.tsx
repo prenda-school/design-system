@@ -4,7 +4,7 @@ import {
   Unstable_ToastsProvider,
   Unstable_ToastsProviderProps,
   Unstable_Button,
-  useToasts,
+  useToasts_unstable,
   Unstable_ToastId,
   Unstable_ToastsContextEnqueueOptions,
 } from '..';
@@ -54,7 +54,7 @@ const messageNode = (
 );
 
 const Children = () => {
-  const toasts = useToasts();
+  const toasts = useToasts_unstable();
 
   const [lastId, setLastId] = useState<Unstable_ToastId>();
 
