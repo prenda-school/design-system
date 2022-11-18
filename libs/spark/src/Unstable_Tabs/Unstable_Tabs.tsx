@@ -9,7 +9,9 @@ import React, {
 } from 'react';
 import { OverridableComponent, OverrideProps, useControlled } from '../utils';
 import withStyles, { Styles } from '../withStyles';
-import Context, { Unstable_TabsContextValue } from './Unstable_TabsContext';
+import Unstable_TabsContext, {
+  Unstable_TabsContextValue,
+} from '../Unstable_TabsContext';
 
 export interface Unstable_TabsTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -122,9 +124,9 @@ const Unstable_Tabs: OverridableComponent<Unstable_TabsTypeMap> = forwardRef(
         ref={ref}
         {...other}
       >
-        <Context.Provider value={contextValue}>
+        <Unstable_TabsContext.Provider value={contextValue}>
           <MuiTabContext value={value}>{children}</MuiTabContext>
-        </Context.Provider>
+        </Unstable_TabsContext.Provider>
       </div>
     );
   }

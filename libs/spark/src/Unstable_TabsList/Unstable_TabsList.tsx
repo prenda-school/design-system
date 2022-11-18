@@ -4,7 +4,7 @@ import MuiTabList, {
 } from '@material-ui/lab/TabList';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
-import { useTabsContext } from '../Unstable_Tabs/Unstable_TabsContext';
+import useTabs_unstable from '../useTabs_unstable';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -106,13 +106,13 @@ const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> = forwar
   function Unstable_TabsList(props, ref) {
     const { classes, ...other } = props;
 
-    const context = useTabsContext();
-    if (context === null) {
-      throw new Error('No TabsContext provided');
+    const tabs = useTabs_unstable();
+    if (tabs === null) {
+      throw new Error('No Tabs provided');
     }
 
     const onChange = (event, value) => {
-      context.onSelected(event, value);
+      tabs.onSelected(event, value);
     };
 
     return (
@@ -122,15 +122,15 @@ const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> = forwar
           scroller: classes.tablist,
           flexContainer: clsx(
             classes.flexContainer,
-            classes[`private-flexContainer-orientation-${context.orientation}`]
+            classes[`private-flexContainer-orientation-${tabs.orientation}`]
           ),
           indicator: clsx(
             classes.indicator,
-            classes[`private-indicator-orientation-${context.orientation}`]
+            classes[`private-indicator-orientation-${tabs.orientation}`]
           ),
         }}
         onChange={onChange}
-        orientation={context.orientation}
+        orientation={tabs.orientation}
         ref={ref}
         {...other}
       />

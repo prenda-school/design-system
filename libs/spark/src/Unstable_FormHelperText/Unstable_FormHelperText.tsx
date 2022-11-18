@@ -1,7 +1,8 @@
 import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
-import { formControlState, useFormControl } from '../Unstable_FormControl';
+import { formControlState } from '../Unstable_FormControl';
+import useFormControl from '../useFormControl';
 import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_FormHelperTextTypeMap<

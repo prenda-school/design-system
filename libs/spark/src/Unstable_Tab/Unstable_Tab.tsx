@@ -2,7 +2,7 @@ import MuiTab, { TabProps as MuiTabProps } from '@material-ui/core/Tab';
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import { ButtonBaseTypeMap } from '../ButtonBase';
-import { useTabsContext } from '../Unstable_Tabs';
+import useTabs_unstable from '../useTabs_unstable';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -111,9 +111,9 @@ const Unstable_Tab: OverridableComponent<Unstable_TabTypeMap> = forwardRef(
   function Unstable_Tab(props, ref) {
     const { children, classes, disabled, selected, ...other } = props;
 
-    const context = useTabsContext();
-    if (context === null) {
-      throw new Error('No TabsContext provided');
+    const tabs = useTabs_unstable();
+    if (tabs === null) {
+      throw new Error('No Tabs provided');
     }
 
     return (
@@ -121,14 +121,14 @@ const Unstable_Tab: OverridableComponent<Unstable_TabTypeMap> = forwardRef(
         classes={{
           root: clsx(
             classes.root,
-            classes[`private-root-orientation-${context.orientation}`],
+            classes[`private-root-orientation-${tabs.orientation}`],
             {
               [classes['private-root-disabled']]: disabled,
             }
           ),
           wrapper: clsx(
             classes.label,
-            classes[`private-label-orientation-${context.orientation}`],
+            classes[`private-label-orientation-${tabs.orientation}`],
             {
               [classes['private-label-disabled']]: disabled,
             }

@@ -1,14 +1,13 @@
 import {
   OptionsObject as NotistackOptionsObject,
   SnackbarKey as NotistackSnackbarKey,
-  useSnackbar as useNotistackSnackbar,
 } from 'notistack';
-import { ReactNode, useCallback } from 'react';
+import { ReactNode } from 'react';
 import { Unstable_ToastProps } from '../Unstable_Toast/Unstable_Toast';
 
 export type Unstable_ToastId = NotistackSnackbarKey;
 
-export interface Unstable_ToastsContext {
+export interface Unstable_ToastsContextValue {
   /**
    * Dismiss a specific toast by its `id`, returned from `enqueue`.
    */
@@ -52,47 +51,5 @@ interface EnqueueOptions
    */
   placement?: 'bottom-left' | 'bottom-center' | 'bottom-right';
 }
-
-export const useToasts = (): Unstable_ToastsContext => {
-  const notistackSnackbar = useNotistackSnackbar();
-
-  const close: Unstable_ToastsContext['close'] = useCallback(
-    (id) => {
-      notistackSnackbar.closeSnackbar(id);
-    },
-    [notistackSnackbar]
-  );
-
-  const closeAll: Unstable_ToastsContext['closeAll'] = useCallback(() => {
-    notistackSnackbar.closeSnackbar();
-  }, [notistackSnackbar]);
-
-  const enqueue: Unstable_ToastsContext['enqueue'] = useCallback(
-    (children, options = {}) => {
-      const { id, placement = 'bottom-left', ...other } = options;
-
-      const anchorOrigin: NotistackOptionsObject['anchorOrigin'] =
-        placement === 'bottom-center'
-          ? { vertical: 'bottom', horizontal: 'center' }
-          : placement === 'bottom-left'
-          ? { vertical: 'bottom', horizontal: 'left' }
-          : placement === 'bottom-right'
-          ? { vertical: 'bottom', horizontal: 'right' }
-          : { vertical: 'bottom', horizontal: 'left' };
-
-      return notistackSnackbar.enqueueSnackbar({
-        anchorOrigin,
-        key: id,
-        message: children as string,
-        variant: 'default',
-        ...other,
-        hideIconVariant: true,
-      });
-    },
-    [notistackSnackbar]
-  );
-
-  return { close, closeAll, enqueue };
-};
 
 export type Unstable_ToastsContextEnqueueOptions = EnqueueOptions;

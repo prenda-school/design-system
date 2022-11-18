@@ -4,10 +4,8 @@ import {
   SnackbarProviderProps as NotistackSnackbarProviderProps,
 } from 'notistack';
 import React, { forwardRef, JSXElementConstructor } from 'react';
-import Unstable_Toast, {
-  Unstable_ToastProps,
-} from '../Unstable_Toast/Unstable_Toast';
-import { useToasts } from './Unstable_ToastsContext';
+import Unstable_Toast, { Unstable_ToastProps } from '../Unstable_Toast';
+import useToasts_unstable from '../useToasts_unstable';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface Unstable_ToastsProviderProps
@@ -49,7 +47,7 @@ const Default = forwardRef<
     ...other
   } = props;
 
-  const toasts = useToasts();
+  const toasts = useToasts_unstable();
 
   const onClose: Unstable_ToastProps['onClose'] = closeable
     ? () => {
