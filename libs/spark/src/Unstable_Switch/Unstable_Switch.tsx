@@ -137,12 +137,12 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     width: 24,
   },
   'private-track-size-medium': {
-    borderRadius: 12,
+    borderRadius: theme.unstable_radius.full,
     height: 24,
     width: 48,
   },
   'private-track-size-large': {
-    borderRadius: 16,
+    borderRadius: theme.unstable_radius.full,
     height: 32,
     width: 56,
   },

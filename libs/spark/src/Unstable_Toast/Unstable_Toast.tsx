@@ -24,7 +24,7 @@ const styles: Styles<Unstable_ToastClassKey | PrivateClassKey> = (theme) => ({
     alignItems: 'center',
     backgroundColor: theme.unstable_palette.background.inverse,
     color: theme.unstable_palette.text.inverseBody,
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     display: 'flex',
     gap: 8,
     minHeight: 56,

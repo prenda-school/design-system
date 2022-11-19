@@ -146,7 +146,7 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
     // double-specificity section for overriding v1 styles from STP
     '&&': {
       borderColor: 'transparent',
-      borderRadius: 4,
+      borderRadius: theme.unstable_radius.sm,
       borderStyle: 'solid',
       borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {

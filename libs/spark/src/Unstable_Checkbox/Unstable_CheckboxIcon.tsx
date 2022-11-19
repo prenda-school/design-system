@@ -11,7 +11,7 @@ const useStyles = makeStyles<
     root: {
       display: 'flex',
       position: 'relative' as const,
-      borderRadius: 2,
+      borderRadius: theme.unstable_radius.xs,
       color: theme.unstable_palette.neutral[200],
       // Adjust for irregular svg size
       height: 17,
@@ -77,7 +77,7 @@ const useStyles = makeStyles<
     },
     /* Styles applied to the box icon. */
     box: {
-      borderRadius: 2,
+      borderRadius: theme.unstable_radius.xs,
       /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[70],

@@ -52,7 +52,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     minWidth: 'unset',
     // override v1
     border: 'none',
-    borderRadius: 0,
+    borderRadius: theme.unstable_radius.zero,
     // override MUI defaults
     '&&': {
       opacity: 1,
@@ -79,7 +79,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     },
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
-      borderRadius: 8,
+      borderRadius: theme.unstable_radius.md,
       boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
     },
   },
@@ -94,7 +94,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     },
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
-      borderRadius: 8,
+      borderRadius: theme.unstable_radius.md,
       boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
     },
   },

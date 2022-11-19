@@ -109,7 +109,7 @@ const tagFontVariantSmall = buildVariant(
 
 const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     height: 'unset', // unset MUI
     // Determined in fn body
     color: theme.unstable_palette.text.heading,
@@ -131,7 +131,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
     width: '1em',
   },
   deleteIcon: {
-    borderRadius: 2,
+    borderRadius: theme.unstable_radius.xs,
     color: 'inherit',
     height: '1em',
     margin: '0 0 0 4px',

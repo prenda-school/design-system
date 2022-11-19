@@ -284,7 +284,7 @@ const useMicroschoolThumbnailContentGroupStyles = makeStyles((theme) => ({
     paddingInlineStart: 16,
     position: 'relative',
     '& .site-photo': {
-      borderRadius: 8,
+      borderRadius: theme.unstable_radius.md,
       width: 210,
       '@media (max-width: 320px)': {
         width: '100%',
