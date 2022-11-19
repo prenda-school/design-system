@@ -15,7 +15,7 @@ export interface Unstable_PaperProps
   /**
    * Shadow depth.
    */
-  elevation?: Elevation;
+  elevation?: 0 | Elevation;
 }
 
 export type Unstable_PaperClassKey = 'root';
