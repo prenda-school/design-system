@@ -16,6 +16,7 @@ import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
 import type { Unstable_Elevations } from './unstable_elevations';
 import type { Unstable_Palette } from './unstable_palette';
+import { Unstable_Radius } from './unstable_radius';
 import type { Unstable_TypographyOptions } from './unstable_typography';
 
 // Augment global interfaces so consumers TS can recognize the customizations
@@ -26,6 +27,7 @@ declare module '@material-ui/core/styles/createTheme' {
   interface Theme {
     unstable_elevations: Unstable_Elevations;
     unstable_palette: Unstable_Palette;
+    unstable_radius: Unstable_Radius;
     unstable_typography: Unstable_TypographyOptions;
   }
 }
@@ -35,6 +37,7 @@ declare module '@material-ui/styles/defaultTheme' {
   interface DefaultTheme extends Theme {
     unstable_elevations: Unstable_Elevations;
     unstable_palette: Unstable_Palette;
+    unstable_radius: Unstable_Radius;
     unstable_typography: Unstable_TypographyOptions;
   }
 }

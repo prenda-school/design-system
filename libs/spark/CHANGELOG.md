@@ -12,6 +12,8 @@ Added notistack v3 (alpha) as a dependency.
 
 - **DropdownAnchor**
   - Minor design change of Chevron Down icon.
+- **theme**
+  - Add "radius" of 'zero', 'xs', 'sm', 'md', 'lg', 'xl', 'full' (`theme.unstable_radius.<...>`).
 - **Unstable_Button**
   - Support ghost variant on inverse background with new color prop (mirror of Icon Button's API).
   - Design changes:
