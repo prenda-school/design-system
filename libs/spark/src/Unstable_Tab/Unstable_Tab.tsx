@@ -65,7 +65,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-root-disabled': {
     '&:hover': {
-      boxShadow: 'none',
+      boxShadow: theme.unstable_shadow.none,
     },
   },
   'private-root-orientation-horizontal': {
@@ -80,7 +80,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
       borderRadius: theme.unstable_radius.md,
-      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
   },
   'private-root-orientation-vertical': {
@@ -95,7 +95,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
       borderRadius: theme.unstable_radius.md,
-      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
   },
   'private-label-disabled': {

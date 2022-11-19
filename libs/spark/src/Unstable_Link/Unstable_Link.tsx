@@ -51,7 +51,7 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
   root: {
     textDecoration: 'underline',
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
     // reset browser default
     '&:focus': {

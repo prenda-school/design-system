@@ -150,7 +150,7 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       borderStyle: 'solid',
       borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+        boxShadow: theme.unstable_shadow.focus,
       },
     },
   },

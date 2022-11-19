@@ -2,7 +2,7 @@ import React, { forwardRef, Ref } from 'react';
 import MuiPaper, { PaperProps as MuiPaperProps } from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import type { Elevation } from '../theme/unstable_elevations';
+import type { Elevation } from '../theme/unstable_shadow';
 import { StandardProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -32,22 +32,22 @@ const styles: Styles<Unstable_PaperClassKey | PrivateClassKey> = (theme) => ({
   root: {},
   /* Private */
   'private-root-variant-elevation-0': {
-    boxShadow: theme.unstable_elevations[0],
+    boxShadow: theme.unstable_shadow.none,
   },
   'private-root-variant-elevation-100': {
-    boxShadow: theme.unstable_elevations[100],
+    boxShadow: theme.unstable_shadow.E100,
   },
   'private-root-variant-elevation-200': {
-    boxShadow: theme.unstable_elevations[200],
+    boxShadow: theme.unstable_shadow.E200,
   },
   'private-root-variant-elevation-300': {
-    boxShadow: theme.unstable_elevations[300],
+    boxShadow: theme.unstable_shadow.E300,
   },
   'private-root-variant-elevation-400': {
-    boxShadow: theme.unstable_elevations[400],
+    boxShadow: theme.unstable_shadow.E400,
   },
   'private-root-variant-elevation-500': {
-    boxShadow: theme.unstable_elevations[500],
+    boxShadow: theme.unstable_shadow.E500,
   },
 });
 

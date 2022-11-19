@@ -70,10 +70,10 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
   },
   thumb: {
     backgroundColor: theme.unstable_palette.neutral[0],
-    boxShadow: `0px 1px 1px 0px ${theme.unstable_palette.neutral[600]}29`,
+    boxShadow: theme.unstable_shadow.E100,
     '$disabled &': {
       backgroundColor: theme.unstable_palette.neutral[90],
-      boxShadow: 'none',
+      boxShadow: theme.unstable_shadow.none,
     },
   },
   track: {
@@ -99,11 +99,11 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     },
     /* error */
     '.Mui-error + &&': {
-      boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
+      boxShadow: theme.unstable_shadow.error,
     },
     /* focus-visible */
     '$switchBase:focus-visible + &&, $switchBase.Mui-focusVisible + &&': {
-      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
     // triple specificity to override PDS v1
     '&&&': {
