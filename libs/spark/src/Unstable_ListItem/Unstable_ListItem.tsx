@@ -133,7 +133,7 @@ const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
     '&.Mui-focusVisible, &:focus-visible': {
       // doesn't appear in story because is under `Mui-focusVisible`
       // backgroundColor: 'transparent',
-      boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
   },
   'private-root-nested': {

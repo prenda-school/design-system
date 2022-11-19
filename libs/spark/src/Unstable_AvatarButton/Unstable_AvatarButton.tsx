@@ -59,7 +59,7 @@ const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
     borderStyle: 'solid',
     borderWidth: 1,
     '&.Mui-focusVisible > $avatar, &:focus-visible > $avatar': {
-      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
     '&:hover > $avatar': {
       borderColor: theme.unstable_palette.neutral[70],

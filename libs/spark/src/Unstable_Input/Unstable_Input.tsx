@@ -67,12 +67,12 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     '&.Mui-focused, &:focus-visible': {
       backgroundColor: theme.unstable_palette.neutral[0],
       borderColor: theme.unstable_palette.blue[600],
-      boxShadow: `0 0 0 4px ${theme.unstable_palette.blue[100]}`,
+      boxShadow: theme.unstable_shadow.info,
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
       borderColor: theme.unstable_palette.red[700],
-      boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
+      boxShadow: theme.unstable_shadow.error,
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '&.Mui-disabled': {
@@ -112,7 +112,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-root-success': {
     borderColor: theme.unstable_palette.green[600],
-    boxShadow: `0 0 0 4px ${theme.unstable_palette.green[100]}`,
+    boxShadow: theme.unstable_shadow.success,
   },
   'private-input-placeholder': {
     color: theme.unstable_palette.neutral[400],

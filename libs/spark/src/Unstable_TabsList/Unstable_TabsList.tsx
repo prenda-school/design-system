@@ -59,7 +59,7 @@ const styles: Styles<Unstable_TabsListClassKey | PrivateClassKey> = (
     margin: -4,
     padding: 4,
     // override v1
-    boxShadow: 'none',
+    boxShadow: theme.unstable_shadow.none,
     // override MUI
     minHeight: 'unset',
   },
@@ -85,12 +85,10 @@ const styles: Styles<Unstable_TabsListClassKey | PrivateClassKey> = (
   },
   /* Private */
   'private-flexContainer-orientation-horizontal': {
-    // boxShadow: `0px 2px ${theme.unstable_palette.neutral[0]}, 0px 4px ${theme.unstable_palette.neutral[80]}`,
     boxShadow: `inset 0px -2px ${theme.unstable_palette.neutral[80]}`,
     gap: 32,
   },
   'private-flexContainer-orientation-vertical': {
-    // boxShadow: `2px 0px ${theme.unstable_palette.neutral[0]}, 4px 0 ${theme.unstable_palette.neutral[80]}`,
     boxShadow: `inset -2px 0 ${theme.unstable_palette.neutral[80]}`,
     gap: 12,
   },

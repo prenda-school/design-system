@@ -20,16 +20,16 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
       },
       /* error */
       '.Mui-error &': {
-        boxShadow: `0 0 0 4px ${theme.unstable_palette.red[100]}`,
+        boxShadow: theme.unstable_shadow.error,
         color: theme.unstable_palette.red[700],
       },
       /* focus-visible */
       '.Mui-focusVisible &, input:focus-visible ~ &': {
-        boxShadow: `0 0 2px 4px ${theme.unstable_palette.teal[200]}`,
+        boxShadow: theme.unstable_shadow.focus,
       },
       /* disabled */
       'input:disabled ~ &&&': {
-        boxShadow: 'none', // can be present from `error`
+        boxShadow: theme.unstable_shadow.none, // can be present from `error`
         color: theme.unstable_palette.neutral[90],
       },
     },

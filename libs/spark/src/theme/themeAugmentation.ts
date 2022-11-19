@@ -14,9 +14,9 @@ import type { TypographyClassKey } from '../Typography';
 import type { PaletteTertiaryColor, TypeBrand } from './palette';
 import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
-import type { Unstable_Elevations } from './unstable_elevations';
 import type { Unstable_Palette } from './unstable_palette';
 import { Unstable_Radius } from './unstable_radius';
+import type { Unstable_Shadow } from './unstable_shadow';
 import type { Unstable_TypographyOptions } from './unstable_typography';
 
 // Augment global interfaces so consumers TS can recognize the customizations
@@ -25,9 +25,9 @@ import type { Unstable_TypographyOptions } from './unstable_typography';
 
 declare module '@material-ui/core/styles/createTheme' {
   interface Theme {
-    unstable_elevations: Unstable_Elevations;
     unstable_palette: Unstable_Palette;
     unstable_radius: Unstable_Radius;
+    unstable_shadow: Unstable_Shadow;
     unstable_typography: Unstable_TypographyOptions;
   }
 }
@@ -35,9 +35,9 @@ declare module '@material-ui/core/styles/createTheme' {
 declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {
-    unstable_elevations: Unstable_Elevations;
     unstable_palette: Unstable_Palette;
     unstable_radius: Unstable_Radius;
+    unstable_shadow: Unstable_Shadow;
     unstable_typography: Unstable_TypographyOptions;
   }
 }

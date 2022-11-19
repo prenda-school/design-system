@@ -114,7 +114,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
     // Determined in fn body
     color: theme.unstable_palette.text.heading,
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: `0px 0px 2px 4px ${theme.unstable_palette.teal[300]}`,
+      boxShadow: theme.unstable_shadow.focus,
     },
   },
   label: {
@@ -146,7 +146,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   /* Private */
   'private-root-clickable': {
     '&:active': {
-      boxShadow: 'none', // override MUI
+      boxShadow: theme.unstable_shadow.none, // override MUI
     },
   },
   'private-root-deletable': {},
