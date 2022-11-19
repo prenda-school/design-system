@@ -74,7 +74,7 @@ const _Elevations = styled(function Elevations(props) {
   },
   '& .square': {
     backgroundColor: theme.unstable_palette.neutral[0],
-    borderRadius: 8,
+    borderRadius: theme.unstable_radius.md,
     height: 80,
     width: 80,
   },

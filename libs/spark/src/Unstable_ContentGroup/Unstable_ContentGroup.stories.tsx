@@ -300,7 +300,7 @@ export const EnrollmentResource = (args) => (
 
 const useEnrollmentMicroschoolInformationStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     border: `1px solid ${theme.unstable_palette.neutral[100]}`,
     minWidth: 320,
     padding: 16,
@@ -338,7 +338,7 @@ export const EnrollmentMicroschoolInformation = (args) => {
 
 const useEnrollmentGuideCodeStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     border: `1px solid ${theme.unstable_palette.neutral[100]}`,
     minWidth: 320,
     padding: 16,
@@ -407,7 +407,7 @@ const useMicroschoolThumbnailStyles = makeStyles((theme) => ({
     paddingInlineStart: 16,
     position: 'relative',
     '& .site-photo': {
-      borderRadius: 8,
+      borderRadius: theme.unstable_radius.md,
       width: 210,
       '@media (max-width: 320px)': {
         width: '100%',

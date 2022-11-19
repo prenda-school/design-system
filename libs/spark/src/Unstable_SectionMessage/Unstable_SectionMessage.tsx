@@ -33,7 +33,7 @@ const styles: Styles<Unstable_SectionMessageClassKey | PrivateClassKey> = (
 ) => ({
   root: {
     alignItems: 'flex-start',
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     display: 'flex',
     gap: 16,
     padding: 24,

@@ -9,7 +9,7 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
     root: {
       display: 'flex',
       position: 'relative' as const,
-      borderRadius: '50%',
+      borderRadius: theme.unstable_radius.full,
       color: theme.unstable_palette.neutral[200],
       // Adjust for irregular svg size of radio unchecked button
       height: 17,
@@ -51,7 +51,7 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
     },
     /* Styles applied to the circle icon element. */
     circle: {
-      borderRadius: '50%',
+      borderRadius: theme.unstable_radius.full,
       transform: 'scale(1)', // (from Mui) Scale applied to prevent dot misalignment in Safari
       /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {

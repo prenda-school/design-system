@@ -56,7 +56,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: theme.unstable_palette.neutral[90],
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     color: theme.unstable_palette.text.body,
     letterSpacing: 0,
     margin: 0,
@@ -83,7 +83,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Styles applied to the `input` element. */
   input: {
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     color: 'inherit',
     height: 'unset', // override weird default `em` height
     padding: '12px 16px',

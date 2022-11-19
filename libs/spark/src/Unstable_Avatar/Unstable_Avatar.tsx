@@ -122,7 +122,7 @@ const styles: Styles<Unstable_AvatarClassKey | PrivateClassKey> = (theme) => ({
         - set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
     */
   'private-root-size-small': {
-    borderRadius: 4,
+    borderRadius: theme.unstable_radius.sm,
     minHeight: 24,
     minWidth: 24,
     height: theme.unstable_typography.pxToRem(16),
@@ -144,7 +144,7 @@ const styles: Styles<Unstable_AvatarClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   'private-root-size-large': {
-    borderRadius: 8,
+    borderRadius: theme.unstable_radius.md,
     minHeight: 64,
     minWidth: 64,
     height: theme.unstable_typography.pxToRem(32),
