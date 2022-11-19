@@ -15,6 +15,70 @@ const _Shadow = styled(function Shadow(props) {
         <div>
           <div
             className="square"
+            style={{ boxShadow: theme.unstable_shadow.none }}
+          >
+            <span className="name">none</span>
+            <span className="code">shadow.none</span>
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="square"
+            style={{ boxShadow: theme.unstable_shadow.focus }}
+          >
+            <span className="name">focus</span>
+            <span className="code">shadow.focus</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="content">
+        <div>
+          <div
+            className="square"
+            style={{ boxShadow: theme.unstable_shadow.error }}
+          >
+            <span className="name">error</span>
+            <span className="code">shadow.error</span>
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="square"
+            style={{ boxShadow: theme.unstable_shadow.info }}
+          >
+            <span className="name">info</span>
+            <span className="code">shadow.info</span>
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="square"
+            style={{ boxShadow: theme.unstable_shadow.success }}
+          >
+            <span className="name">success</span>
+            <span className="code">shadow.success</span>
+          </div>
+        </div>
+
+        <div>
+          <div
+            className="square"
+            style={{ boxShadow: theme.unstable_shadow.warning }}
+          >
+            <span className="name">warning</span>
+            <span className="code">shadow.warning</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="content">
+        <div>
+          <div
+            className="square"
             style={{ boxShadow: theme.unstable_shadow.E100 }}
           >
             <span className="name">E100</span>
@@ -59,67 +123,6 @@ const _Shadow = styled(function Shadow(props) {
           >
             <span className="name">E500</span>
             <span className="code">shadow.E500</span>
-          </div>
-        </div>
-      </div>
-      <div className="content">
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.none }}
-          >
-            <span className="name">none</span>
-            <span className="code">shadow.none</span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.focus }}
-          >
-            <span className="name">focus</span>
-            <span className="code">shadow.focus</span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.error }}
-          >
-            <span className="name">error</span>
-            <span className="code">shadow.error</span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.info }}
-          >
-            <span className="name">info</span>
-            <span className="code">shadow.info</span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.success }}
-          >
-            <span className="name">success</span>
-            <span className="code">shadow.success</span>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className="square"
-            style={{ boxShadow: theme.unstable_shadow.warning }}
-          >
-            <span className="name">warning</span>
-            <span className="code">shadow.warning</span>
           </div>
         </div>
       </div>
