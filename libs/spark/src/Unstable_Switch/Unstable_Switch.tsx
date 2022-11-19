@@ -63,7 +63,6 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
   error: {},
   input: {},
   switchBase: {
-    padding: 7,
     '&:hover': {
       backgroundColor: 'unset',
     },
@@ -119,11 +118,13 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     width: 56 + 8,
   },
   'private-switchBase-size-medium': {
+    padding: 7,
     '&$checked': {
       transform: 'translateX(24px)',
     },
   },
   'private-switchBase-size-large': {
+    padding: 8,
     '&$checked': {
       transform: 'translateX(24px)',
     },

@@ -16,6 +16,8 @@ API surface:
   - [feat] added "shadow" property
     - unstable alias: `theme.unstable_shadow`
     - sub-properties: `none, E100, E200, E300, E400, E500, focus, error, info, success, warning`
+- **Unstable_Switch**
+  - [styles] improved alignment of thumb on track when size is "large"
 - **useFormControl**
   - [feat] added as a top-level directory
 - **useRadioGroupMore**
