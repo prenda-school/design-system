@@ -131,7 +131,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
     width: '1em',
   },
   deleteIcon: {
-    borderRadius: 2,
+    borderRadius: theme.unstable_radius.xs,
     color: 'inherit',
     height: '1em',
     margin: '0 0 0 4px',
