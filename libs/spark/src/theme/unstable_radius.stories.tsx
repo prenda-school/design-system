@@ -6,7 +6,7 @@ export default {
   title: '@ps/theme/radius',
 } as Meta;
 
-const _Radius = styled(function Elevations(props) {
+const _Radius = styled(function Radius(props) {
   return (
     <div {...props}>
       <h1 className="title">Radius</h1>

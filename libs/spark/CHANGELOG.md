@@ -2,8 +2,20 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...vNext) (YYYY-MM-DD)
 
+API surface:
+
 - **SparkThemeProvider**
   - [feat] changed to inject styles last (previously injected first)
+- **theme**
+  - [feat] added "radius" property
+    - unstable alias: `theme.unstable_radius`
+    - sub-properties: `zero, xs, sm, md, lg, xl, full`
+  - [breaking] removed "elevations" property
+    - see added "shadow" property for alternatives
+    - see migration guide
+  - [feat] added "shadow" property
+    - unstable alias: `theme.unstable_shadow`
+    - sub-properties: `none, E100, E200, E300, E400, E500, focus, error, info, success, warning`
 - **useFormControl**
   - [feat] added as a top-level directory
 - **useRadioGroupMore**
@@ -21,6 +33,23 @@
   - [breaking] removed (renamed to **useToasts_unstable**)
 - **useToasts_unstable**
   - [feat] init (renamed from **useToasts**)
+
+Migration guide:
+
+```
+theme.unstable_elevations[0] -> theme.unstable_shadow.none
+theme.unstable_elevations[100] -> theme.unstable_shadow.E100
+theme.unstable_elevations[200] -> theme.unstable_shadow.E200
+theme.unstable_elevations[300] -> theme.unstable_shadow.E300
+theme.unstable_elevations[400] -> theme.unstable_shadow.E400
+theme.unstable_elevations[500] -> theme.unstable_shadow.E500
+
+useRadioGroupMore() -> useRadioGroupExtra_unstable()
+
+useTabsContext() -> useTabs_unstable()
+
+useToasts() -> useToasts_unstable()
+```
 
 ## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)
 
@@ -53,8 +82,6 @@ Added notistack v3 (alpha) as a dependency.
 
 - **DropdownAnchor**
   - Minor design change of Chevron Down icon.
-- **theme**
-  - Add "radius" of 'zero', 'xs', 'sm', 'md', 'lg', 'xl', 'full' (`theme.unstable_radius.<...>`).
 - **Unstable_Button**
   - Support ghost variant on inverse background with new color prop (mirror of Icon Button's API).
   - Design changes:
