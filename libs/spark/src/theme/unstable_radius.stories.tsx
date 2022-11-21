@@ -93,9 +93,7 @@ const _Radius = styled(function Radius(props) {
   '& .square': {
     alignItems: 'center',
     backgroundColor: theme.unstable_palette.neutral[0],
-    borderColor: theme.unstable_palette.neutral[90],
-    borderStyle: 'solid',
-    borderWidth: 1,
+    border: theme.unstable_borders.standard,
     display: 'flex',
     flexDirection: 'column',
     height: 160,

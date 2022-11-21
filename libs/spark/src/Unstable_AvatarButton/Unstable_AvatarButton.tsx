@@ -54,21 +54,19 @@ export type Unstable_AvatarButtonClassKey = 'root' | 'avatar';
 
 const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
   root: {
-    borderColor: 'transparent',
+    border: theme.unstable_borders.transparent,
     borderRadius: theme.unstable_radius.md,
-    borderStyle: 'solid',
-    borderWidth: 1,
     '&.Mui-focusVisible > $avatar, &:focus-visible > $avatar': {
       boxShadow: theme.unstable_shadow.focus,
     },
     '&:hover > $avatar': {
-      borderColor: theme.unstable_palette.neutral[70],
+      border: theme.unstable_borders.hover,
     },
     '&:active > $avatar': {
-      borderColor: theme.unstable_palette.blue[100],
+      border: theme.unstable_borders.active,
     },
     '&[aria-expanded="true"] > $avatar': {
-      borderColor: theme.unstable_palette.blue[600],
+      border: theme.unstable_borders.expanded,
     },
     '&:disabled': {
       backgroundColor: theme.unstable_palette.neutral[80],
@@ -78,9 +76,7 @@ const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
     },
   },
   avatar: {
-    borderColor: 'transparent',
-    borderStyle: 'solid',
-    borderWidth: 1,
+    border: theme.unstable_borders.transparent,
     margin: -1,
   },
 });

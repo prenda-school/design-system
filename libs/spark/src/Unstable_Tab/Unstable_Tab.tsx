@@ -51,7 +51,7 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     maxWidth: 'unset',
     minWidth: 'unset',
     // override v1
-    border: 'none',
+    border: theme.unstable_borders.none,
     borderRadius: theme.unstable_radius.zero,
     // override MUI defaults
     '&&': {
