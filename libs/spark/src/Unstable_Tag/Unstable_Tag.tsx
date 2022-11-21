@@ -290,9 +290,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   'private-root-variant-subtle-color-neutral': {
     backgroundColor: theme.unstable_palette.neutral[0],
     // Special case: add border and decrease padding to account for the added height/width
-    borderColor: theme.unstable_palette.neutral[70],
-    borderStyle: 'solid',
-    borderWidth: 1,
+    border: theme.unstable_borders.subtle,
     '&:focus': {
       backgroundColor: theme.unstable_palette.neutral[0], // override MUI
     },

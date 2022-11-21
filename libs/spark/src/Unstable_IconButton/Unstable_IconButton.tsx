@@ -79,10 +79,8 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   theme
 ) => ({
   root: {
-    borderColor: 'transparent',
+    border: theme.unstable_borders.transparent,
     borderRadius: theme.unstable_radius.sm,
-    borderStyle: 'solid',
-    borderWidth: 1,
     '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: theme.unstable_shadow.focus,
     },
@@ -109,7 +107,7 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   'private-root-variant-primary-color-inverse': {},
   'private-root-variant-stroked': {
     backgroundColor: theme.unstable_palette.neutral[0],
-    borderColor: theme.unstable_palette.neutral[90],
+    border: theme.unstable_borders.standard,
     '&:hover': {
       backgroundColor: theme.unstable_palette.neutral[70],
     },

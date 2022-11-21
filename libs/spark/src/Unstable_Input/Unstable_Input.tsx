@@ -53,9 +53,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     ...theme.unstable_typography.body,
     boxSizing: 'border-box',
     backgroundColor: theme.unstable_palette.neutral[0],
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: theme.unstable_palette.neutral[90],
+    border: theme.unstable_borders.standard,
     borderRadius: theme.unstable_radius.sm,
     color: theme.unstable_palette.text.body,
     letterSpacing: 0,
@@ -66,12 +64,12 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     },
     '&.Mui-focused, &:focus-visible': {
       backgroundColor: theme.unstable_palette.neutral[0],
-      borderColor: theme.unstable_palette.blue[600],
+      border: theme.unstable_borders.focus,
       boxShadow: theme.unstable_shadow.info,
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
-      borderColor: theme.unstable_palette.red[700],
+      border: theme.unstable_borders.error,
       boxShadow: theme.unstable_shadow.error,
     },
     /* disabled -- can get from internal context => can't condition on prop */
@@ -96,7 +94,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   /* Private */
   'private-root-value': {
     backgroundColor: theme.unstable_palette.neutral[60],
-    borderColor: theme.unstable_palette.neutral[100],
+    border: theme.unstable_borders.bold,
     '&:hover': {
       backgroundColor: theme.unstable_palette.neutral[70],
     },
@@ -111,7 +109,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     paddingRight: 14,
   },
   'private-root-success': {
-    borderColor: theme.unstable_palette.green[600],
+    border: theme.unstable_borders.success,
     boxShadow: theme.unstable_shadow.success,
   },
   'private-input-placeholder': {

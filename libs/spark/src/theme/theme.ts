@@ -3,6 +3,7 @@ import initialTheme from './initialTheme';
 import overrides from './overrides';
 import props from './props';
 import type {} from './themeAugmentation';
+import unstable_borders, { Unstable_Borders } from './unstable_borders';
 import unstable_palette, { Unstable_Palette } from './unstable_palette';
 import unstable_radius, { Unstable_Radius } from './unstable_radius';
 import unstable_shadow, { Unstable_Shadow } from './unstable_shadow';
@@ -11,6 +12,7 @@ import unstable_typography, {
 } from './unstable_typography';
 
 export interface Theme extends MuiTheme {
+  unstable_borders: Unstable_Borders;
   unstable_palette: Unstable_Palette;
   unstable_radius: Unstable_Radius;
   unstable_shadow: Unstable_Shadow;
@@ -26,6 +28,7 @@ const theme = createTheme({
   overrides: overrides(initialTheme),
 });
 
+theme.unstable_borders = unstable_borders;
 theme.unstable_palette = unstable_palette;
 theme.unstable_radius = unstable_radius;
 theme.unstable_shadow = unstable_shadow;

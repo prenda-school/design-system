@@ -37,8 +37,7 @@ const styles: Styles<Unstable_SectionMessageClassKey | PrivateClassKey> = (
     display: 'flex',
     gap: 16,
     padding: 24,
-    borderWidth: 1,
-    borderStyle: 'solid',
+    border: theme.unstable_borders.bold,
   },
   icon: {
     display: 'flex',
@@ -62,19 +61,19 @@ const styles: Styles<Unstable_SectionMessageClassKey | PrivateClassKey> = (
   /* Private */
   'private-root-severity-error': {
     backgroundColor: theme.unstable_palette.red[100],
-    borderColor: theme.unstable_palette.red[700],
+    border: theme.unstable_borders.error,
   },
   'private-root-severity-info': {
     backgroundColor: theme.unstable_palette.blue[100],
-    borderColor: theme.unstable_palette.blue[600],
+    border: theme.unstable_borders.info,
   },
   'private-root-severity-success': {
     backgroundColor: theme.unstable_palette.green[100],
-    borderColor: theme.unstable_palette.green[600],
+    border: theme.unstable_borders.success,
   },
   'private-root-severity-warning': {
     backgroundColor: theme.unstable_palette.yellow[100],
-    borderColor: theme.unstable_palette.yellow[600],
+    border: theme.unstable_borders.warning,
   },
   'private-icon-severity-error': {
     color: theme.unstable_palette.red[700],

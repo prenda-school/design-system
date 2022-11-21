@@ -145,10 +145,8 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   root: {
     // double-specificity section for overriding v1 styles from STP
     '&&': {
-      borderColor: 'transparent',
+      border: theme.unstable_borders.transparent,
       borderRadius: theme.unstable_radius.sm,
-      borderStyle: 'solid',
-      borderWidth: 1,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: theme.unstable_shadow.focus,
       },
@@ -195,7 +193,7 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-root-variant-stroked': {
     '&&': {
       backgroundColor: theme.unstable_palette.neutral[0],
-      borderColor: theme.unstable_palette.neutral[90],
+      border: theme.unstable_borders.standard,
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[70],
       },
