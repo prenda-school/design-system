@@ -109,12 +109,12 @@ const tagFontVariantSmall = buildVariant(
 
 const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    borderRadius: theme.unstable_radius.sm,
+    borderRadius: theme.unstable_radii.sm,
     height: 'unset', // unset MUI
     // Determined in fn body
     color: theme.unstable_palette.text.heading,
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: theme.unstable_shadow.focus,
+      boxShadow: theme.unstable_shadows.focus,
     },
   },
   label: {
@@ -131,7 +131,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
     width: '1em',
   },
   deleteIcon: {
-    borderRadius: theme.unstable_radius.xs,
+    borderRadius: theme.unstable_radii.xs,
     color: 'inherit',
     height: '1em',
     margin: '0 0 0 4px',
@@ -146,7 +146,7 @@ const styles: Styles<Unstable_TagClassKey | PrivateClassKey> = (theme) => ({
   /* Private */
   'private-root-clickable': {
     '&:active': {
-      boxShadow: theme.unstable_shadow.none, // override MUI
+      boxShadow: theme.unstable_shadows.none, // override MUI
     },
   },
   'private-root-deletable': {},

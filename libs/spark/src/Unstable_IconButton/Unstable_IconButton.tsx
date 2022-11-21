@@ -80,9 +80,9 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
 ) => ({
   root: {
     border: theme.unstable_borders.transparent,
-    borderRadius: theme.unstable_radius.sm,
+    borderRadius: theme.unstable_radii.sm,
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: theme.unstable_shadow.focus,
+      boxShadow: theme.unstable_shadows.focus,
     },
   },
   label: {

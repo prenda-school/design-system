@@ -54,7 +54,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     boxSizing: 'border-box',
     backgroundColor: theme.unstable_palette.neutral[0],
     border: theme.unstable_borders.standard,
-    borderRadius: theme.unstable_radius.sm,
+    borderRadius: theme.unstable_radii.sm,
     color: theme.unstable_palette.text.body,
     letterSpacing: 0,
     margin: 0,
@@ -65,12 +65,12 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     '&.Mui-focused, &:focus-visible': {
       backgroundColor: theme.unstable_palette.neutral[0],
       border: theme.unstable_borders.focus,
-      boxShadow: theme.unstable_shadow.info,
+      boxShadow: theme.unstable_shadows.info,
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
       border: theme.unstable_borders.error,
-      boxShadow: theme.unstable_shadow.error,
+      boxShadow: theme.unstable_shadows.error,
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '&.Mui-disabled': {
@@ -81,7 +81,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Styles applied to the `input` element. */
   input: {
-    borderRadius: theme.unstable_radius.sm,
+    borderRadius: theme.unstable_radii.sm,
     color: 'inherit',
     height: 'unset', // override weird default `em` height
     padding: '12px 16px',
@@ -110,7 +110,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-root-success': {
     border: theme.unstable_borders.success,
-    boxShadow: theme.unstable_shadow.success,
+    boxShadow: theme.unstable_shadows.success,
   },
   'private-input-placeholder': {
     color: theme.unstable_palette.neutral[400],

@@ -6,73 +6,73 @@ export default {
   title: '@ps/theme/radius',
 } as Meta;
 
-const _Radius = styled(function Radius(props) {
+const _Radii = styled(function Radii(props) {
   return (
     <div {...props}>
-      <h1 className="title">Radius</h1>
-      <span className="code">theme.unstable_radius</span>
+      <h1 className="title">Radii</h1>
+      <span className="code">theme.unstable_radii</span>
       <div className="content">
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.zero }}
+            style={{ borderRadius: theme.unstable_radii.zero }}
           >
             <span className="name">zero</span>
-            <span className="code">radius.zero (0px)</span>
+            <span className="code">radii.zero (0px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.xs }}
+            style={{ borderRadius: theme.unstable_radii.xs }}
           >
             <span className="name">xs</span>
-            <span className="code">radius.xs (2px)</span>
+            <span className="code">radii.xs (2px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.sm }}
+            style={{ borderRadius: theme.unstable_radii.sm }}
           >
             <span className="name">sm</span>
-            <span className="code">radius.sm (4px)</span>
+            <span className="code">radii.sm (4px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.md }}
+            style={{ borderRadius: theme.unstable_radii.md }}
           >
             <span className="name">md</span>
-            <span className="code">radius.md (8px)</span>
+            <span className="code">radii.md (8px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.lg }}
+            style={{ borderRadius: theme.unstable_radii.lg }}
           >
             <span className="name">lg</span>
-            <span className="code">radius.lg (16px)</span>
+            <span className="code">radii.lg (16px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.xl }}
+            style={{ borderRadius: theme.unstable_radii.xl }}
           >
             <span className="name">xl</span>
-            <span className="code">radius.xl (32px)</span>
+            <span className="code">radii.xl (32px)</span>
           </div>
         </div>
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radius.full }}
+            style={{ borderRadius: theme.unstable_radii.full }}
           >
             <span className="name">full</span>
-            <span className="code">radius.full</span>
+            <span className="code">radii.full</span>
             <span className="code">(9999px)</span>
           </div>
         </div>
@@ -108,4 +108,4 @@ const _Radius = styled(function Radius(props) {
   },
 }));
 
-export const Radius: Story = () => <_Radius />;
+export const Radii: Story = () => <_Radii />;

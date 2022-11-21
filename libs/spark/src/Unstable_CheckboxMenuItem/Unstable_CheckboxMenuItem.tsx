@@ -38,7 +38,7 @@ const styles: Styles<Unstable_CheckboxMenuItemClassKey> = (theme) => ({
     whiteSpace: 'nowrap',
     '&& .MuiSparkUnstable_CheckboxIcon-root': {
       // remove focus shadow because menu item should be only element with the styling
-      boxShadow: theme.unstable_shadow.none,
+      boxShadow: theme.unstable_shadows.none,
     },
     // reset selected styles since only checkbox should appear selected
     '&$selected': {

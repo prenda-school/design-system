@@ -18,7 +18,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.none }}
           >
             <span className="name">none</span>
-            <span className="code">border.none</span>
+            <span className="code">borders.none</span>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.transparent }}
           >
             <span className="name">transparent</span>
-            <span className="code">border.transparent</span>
+            <span className="code">borders.transparent</span>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.subtle }}
           >
             <span className="name">subtle</span>
-            <span className="code">border.subtle</span>
+            <span className="code">borders.subtle</span>
           </div>
         </div>
 
@@ -50,7 +50,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.standard }}
           >
             <span className="name">standard</span>
-            <span className="code">border.standard</span>
+            <span className="code">borders.standard</span>
           </div>
         </div>
 
@@ -60,7 +60,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.bold }}
           >
             <span className="name">bold</span>
-            <span className="code">border.bold</span>
+            <span className="code">borders.bold</span>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.selected }}
           >
             <span className="name">selected</span>
-            <span className="code">border.selected</span>
+            <span className="code">borders.selected</span>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.active }}
           >
             <span className="name">active</span>
-            <span className="code">border.active</span>
+            <span className="code">borders.active</span>
           </div>
         </div>
 
@@ -92,7 +92,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.expanded }}
           >
             <span className="name">expanded</span>
-            <span className="code">border.expanded</span>
+            <span className="code">borders.expanded</span>
           </div>
         </div>
 
@@ -102,7 +102,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.hover }}
           >
             <span className="name">hover</span>
-            <span className="code">border.hover</span>
+            <span className="code">borders.hover</span>
           </div>
         </div>
 
@@ -112,7 +112,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.focus }}
           >
             <span className="name">focus</span>
-            <span className="code">border.focus</span>
+            <span className="code">borders.focus</span>
           </div>
         </div>
       </div>
@@ -124,7 +124,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.error }}
           >
             <span className="name">error</span>
-            <span className="code">border.error</span>
+            <span className="code">borders.error</span>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.info }}
           >
             <span className="name">info</span>
-            <span className="code">border.info</span>
+            <span className="code">borders.info</span>
           </div>
         </div>
 
@@ -144,7 +144,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.success }}
           >
             <span className="name">success</span>
-            <span className="code">border.success</span>
+            <span className="code">borders.success</span>
           </div>
         </div>
 
@@ -154,7 +154,7 @@ const _Borders = styled(function Borders(props) {
             style={{ border: theme.unstable_borders.warning }}
           >
             <span className="name">warning</span>
-            <span className="code">border.warning</span>
+            <span className="code">borders.warning</span>
           </div>
         </div>
       </div>
@@ -174,7 +174,7 @@ const _Borders = styled(function Borders(props) {
   '& .square': {
     alignItems: 'center',
     backgroundColor: theme.unstable_palette.neutral[0],
-    borderRadius: theme.unstable_radius.sm,
+    borderRadius: theme.unstable_radii.sm,
     display: 'flex',
     flexDirection: 'column',
     height: 200,
