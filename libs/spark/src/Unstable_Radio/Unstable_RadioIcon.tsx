@@ -9,7 +9,7 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
     root: {
       display: 'flex',
       position: 'relative' as const,
-      borderRadius: theme.unstable_radius.full,
+      borderRadius: theme.unstable_radii.full,
       color: theme.unstable_palette.neutral[200],
       // Adjust for irregular svg size of radio unchecked button
       height: 17,
@@ -20,16 +20,16 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
       },
       /* error */
       '.Mui-error &': {
-        boxShadow: theme.unstable_shadow.error,
+        boxShadow: theme.unstable_shadows.error,
         color: theme.unstable_palette.red[700],
       },
       /* focus-visible */
       '.Mui-focusVisible &, input:focus-visible ~ &': {
-        boxShadow: theme.unstable_shadow.focus,
+        boxShadow: theme.unstable_shadows.focus,
       },
       /* disabled */
       'input:disabled ~ &&&': {
-        boxShadow: theme.unstable_shadow.none, // can be present from `error`
+        boxShadow: theme.unstable_shadows.none, // can be present from `error`
         color: theme.unstable_palette.neutral[90],
       },
     },
@@ -51,7 +51,7 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
     },
     /* Styles applied to the circle icon element. */
     circle: {
-      borderRadius: theme.unstable_radius.full,
+      borderRadius: theme.unstable_radii.full,
       transform: 'scale(1)', // (from Mui) Scale applied to prevent dot misalignment in Safari
       /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {

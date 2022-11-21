@@ -63,7 +63,7 @@ const PaletteColor = styled(function PaletteColor(props: {
   ({ theme, field }) => ({
     '& .color': {
       backgroundColor: getValue(theme, field),
-      borderRadius: theme.unstable_radius.lg,
+      borderRadius: theme.unstable_radii.lg,
       height: 104,
       width: 177,
       marginBottom: 16,

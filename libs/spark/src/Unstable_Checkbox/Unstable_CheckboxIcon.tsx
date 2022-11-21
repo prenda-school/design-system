@@ -11,7 +11,7 @@ const useStyles = makeStyles<
     root: {
       display: 'flex',
       position: 'relative' as const,
-      borderRadius: theme.unstable_radius.xs,
+      borderRadius: theme.unstable_radii.xs,
       color: theme.unstable_palette.neutral[200],
       // Adjust for irregular svg size
       height: 17,
@@ -22,16 +22,16 @@ const useStyles = makeStyles<
       },
       /* error */
       '.Mui-error &': {
-        boxShadow: theme.unstable_shadow.error,
+        boxShadow: theme.unstable_shadows.error,
         color: theme.unstable_palette.red[700],
       },
       /* focus-visible */
       '.Mui-focusVisible &, input:focus-visible ~ &': {
-        boxShadow: theme.unstable_shadow.focus,
+        boxShadow: theme.unstable_shadows.focus,
       },
       /* disabled */
       'input:disabled ~ &&': {
-        boxShadow: theme.unstable_shadow.none, // can be present from `error`
+        boxShadow: theme.unstable_shadows.none, // can be present from `error`
         color: theme.unstable_palette.neutral[90],
       },
     },
@@ -77,7 +77,7 @@ const useStyles = makeStyles<
     },
     /* Styles applied to the box icon. */
     box: {
-      borderRadius: theme.unstable_radius.xs,
+      borderRadius: theme.unstable_radii.xs,
       /* hover */
       'input:hover ~ $root > &, label:hover ~ $root > &': {
         backgroundColor: theme.unstable_palette.neutral[70],

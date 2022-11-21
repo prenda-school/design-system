@@ -7,24 +7,22 @@ API surface:
 - **SparkThemeProvider**
   - [feat] changed to inject styles last (previously injected first)
 - **theme**
-  - [feat] added "radius" property
-    - unstable alias: `theme.unstable_radius`
+  - [feat] [unstable] added "radii" property
+    - property: `theme.unstable_radii`
     - sub-properties: `zero, xs, sm, md, lg, xl, full`
   - [breaking] removed "elevations" property
-    - see added "shadow" property for alternatives
+    - see added "shadows" property for alternatives
     - see migration guide
-  - [feat] added "shadow" property
-    - unstable alias: `theme.unstable_shadow`
+  - [feat] [unstable] added "shadows" property
+    - property: `theme.unstable_shadows`
     - sub-properties: `none, E100, E200, E300, E400, E500, focus, error, info, success, warning`
   - [feat] [unstable] added "borders" property
     - property: `theme.unstable_borders`
-    - sub-properties: `none, transparent, standard, filled, selected, active, expanded, hover, focus, error, info, success, warning`
+    - sub-properties: `none, transparent, subtle, standard, bold, selected, active, expanded, hover, focus, error, info, success, warning`
 - **Unstable_AvatarButton**
   - [style] changed border color of "hover"
 - **Unstable_Switch**
   - [style] improved alignment of thumb on track when size is "large"
-- **Unstable_Tag**
-  - [style] changed border color of "subtle, neutral"
 - **useFormControl**
   - [feat] added as a top-level directory
 - **useRadioGroupMore**

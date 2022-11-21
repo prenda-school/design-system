@@ -55,9 +55,9 @@ export type Unstable_AvatarButtonClassKey = 'root' | 'avatar';
 const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
   root: {
     border: theme.unstable_borders.transparent,
-    borderRadius: theme.unstable_radius.md,
+    borderRadius: theme.unstable_radii.md,
     '&.Mui-focusVisible > $avatar, &:focus-visible > $avatar': {
-      boxShadow: theme.unstable_shadow.focus,
+      boxShadow: theme.unstable_shadows.focus,
     },
     '&:hover > $avatar': {
       border: theme.unstable_borders.hover,

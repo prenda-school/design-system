@@ -51,7 +51,7 @@ const styles: Styles<Unstable_TooltipClassKey | PrivateClassKey> = (theme) => ({
     ...theme.unstable_typography.body,
     alignItems: 'flex-start',
     backgroundColor: theme.unstable_palette.neutral[600],
-    borderRadius: theme.unstable_radius.md,
+    borderRadius: theme.unstable_radii.md,
     color: theme.unstable_palette.neutral[80],
     display: 'flex',
     flexDirection: 'column',

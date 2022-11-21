@@ -69,10 +69,10 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
   },
   thumb: {
     backgroundColor: theme.unstable_palette.neutral[0],
-    boxShadow: theme.unstable_shadow.E100,
+    boxShadow: theme.unstable_shadows.E100,
     '$disabled &': {
       backgroundColor: theme.unstable_palette.neutral[90],
-      boxShadow: theme.unstable_shadow.none,
+      boxShadow: theme.unstable_shadows.none,
     },
   },
   track: {
@@ -98,11 +98,11 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     },
     /* error */
     '.Mui-error + &&': {
-      boxShadow: theme.unstable_shadow.error,
+      boxShadow: theme.unstable_shadows.error,
     },
     /* focus-visible */
     '$switchBase:focus-visible + &&, $switchBase.Mui-focusVisible + &&': {
-      boxShadow: theme.unstable_shadow.focus,
+      boxShadow: theme.unstable_shadows.focus,
     },
     // triple specificity to override PDS v1
     '&&&': {
@@ -138,12 +138,12 @@ const styles: Styles<Unstable_SwitchClassKey | PrivateClassKey> = (theme) => ({
     width: 24,
   },
   'private-track-size-medium': {
-    borderRadius: theme.unstable_radius.full,
+    borderRadius: theme.unstable_radii.full,
     height: 24,
     width: 48,
   },
   'private-track-size-large': {
-    borderRadius: theme.unstable_radius.full,
+    borderRadius: theme.unstable_radii.full,
     height: 32,
     width: 56,
   },

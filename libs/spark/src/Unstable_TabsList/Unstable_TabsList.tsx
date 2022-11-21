@@ -59,7 +59,7 @@ const styles: Styles<Unstable_TabsListClassKey | PrivateClassKey> = (
     margin: -4,
     padding: 4,
     // override v1
-    boxShadow: theme.unstable_shadow.none,
+    boxShadow: theme.unstable_shadows.none,
     // override MUI
     minHeight: 'unset',
   },
