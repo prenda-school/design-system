@@ -21,6 +21,8 @@ API surface:
     - sub-properties: `none, transparent, subtle, standard, bold, selected, active, expanded, hover, focus, error, info, success, warning`
 - **Unstable_AvatarButton**
   - [style] changed border color of "hover"
+- **Unstable_Card**
+  - [feat] initial implementation
 - **Unstable_Menu**
   - [breaking] changed "PaperProps" (see **Unstable_Paper** changes)
 - **Unstable_Paper**
