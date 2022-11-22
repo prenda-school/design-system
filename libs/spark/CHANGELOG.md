@@ -21,6 +21,13 @@ API surface:
     - sub-properties: `none, transparent, subtle, standard, bold, selected, active, expanded, hover, focus, error, info, success, warning`
 - **Unstable_AvatarButton**
   - [style] changed border color of "hover"
+- **Unstable_Menu**
+  - [breaking] changed "PaperProps" (see **Unstable_Paper** changes)
+- **Unstable_Paper**
+  - [breaking] removed "variant", "elevations" props
+    - see added props for alternatives
+    - see migration guide
+  - [feat] added "bgcolor", "border", "radius", "shadow" props
 - **Unstable_Switch**
   - [style] improved alignment of thumb on track when size is "large"
 - **useFormControl**
@@ -44,18 +51,34 @@ API surface:
 Migration guide:
 
 ```
-theme.unstable_elevations[0] -> theme.unstable_shadow.none
-theme.unstable_elevations[100] -> theme.unstable_shadow.E100
-theme.unstable_elevations[200] -> theme.unstable_shadow.E200
-theme.unstable_elevations[300] -> theme.unstable_shadow.E300
-theme.unstable_elevations[400] -> theme.unstable_shadow.E400
-theme.unstable_elevations[500] -> theme.unstable_shadow.E500
+theme.unstable_elevations[0] -> theme.unstable_shadows.none
+theme.unstable_elevations[100] -> theme.unstable_shadows.E100
+theme.unstable_elevations[200] -> theme.unstable_shadows.E200
+theme.unstable_elevations[300] -> theme.unstable_shadows.E300
+theme.unstable_elevations[400] -> theme.unstable_shadows.E400
+theme.unstable_elevations[500] -> theme.unstable_shadows.E500
 
 useRadioGroupMore() -> useRadioGroupExtra_unstable()
 
 useTabsContext() -> useTabs_unstable()
 
 useToasts() -> useToasts_unstable()
+
+<Unstable_Paper> -> <Unstable_Paper shadow='E100'>
+<Unstable_Paper elevation={0}> -> <Unstable_Paper shadow='none'> or <Unstable_Paper>
+<Unstable_Paper elevation={100}> -> <Unstable_Paper shadow='E100'>
+<Unstable_Paper elevation={200}> -> <Unstable_Paper shadow='E200'>
+<Unstable_Paper elevation={300}> -> <Unstable_Paper shadow='E300'>
+<Unstable_Paper elevation={400}> -> <Unstable_Paper shadow='E400'>
+<Unstable_Paper elevation={500}> -> <Unstable_Paper shadow='E500'>
+<Unstable_Paper variant='elevation'> -> <Unstable_Paper shadow='E100'>
+<Unstable_Paper variant='elevation' elevation={0}> -> <Unstable_Paper shadow='none'> or <Unstable_Paper>
+<Unstable_Paper variant='elevation' elevation={100}> -> <Unstable_Paper shadow='E100'>
+<Unstable_Paper variant='elevation' elevation={200}> -> <Unstable_Paper shadow='E200'>
+<Unstable_Paper variant='elevation' elevation={300}> -> <Unstable_Paper shadow='E300'>
+<Unstable_Paper variant='elevation' elevation={400}> -> <Unstable_Paper shadow='E400'>
+<Unstable_Paper variant='elevation' elevation={500}> -> <Unstable_Paper shadow='E500'>
+<Unstable_Paper variant='outlined'> -> <Unstable_Paper border='standard'>
 ```
 
 ## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)

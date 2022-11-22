@@ -16,7 +16,7 @@ import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
 import type { Unstable_Borders } from './unstable_borders';
 import type { Unstable_Palette } from './unstable_palette';
-import { Unstable_Radii } from './unstable_radii';
+import type { Unstable_Radii } from './unstable_radii';
 import type { Unstable_Shadows } from './unstable_shadows';
 import type { Unstable_TypographyOptions } from './unstable_typography';
 
