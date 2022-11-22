@@ -23,6 +23,12 @@ API surface:
   - [style] changed border color of "hover"
 - **Unstable_Card**
   - [feat] initial implementation
+- **Unstable_CheckboxListItem**
+  - see **Unstable_ListItem**
+- **Unstable_ListItem**
+  - [style] remove browser-default outline on focus-visible
+- **Unstable_MenuItem**
+  - see **Unstable_ListItem**
 - **Unstable_Menu**
   - [breaking] changed "PaperProps" (see **Unstable_Paper** changes)
 - **Unstable_Paper**

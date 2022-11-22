@@ -134,6 +134,7 @@ const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
       // doesn't appear in story because is under `Mui-focusVisible`
       // backgroundColor: 'transparent',
       boxShadow: theme.unstable_shadows.focus,
+      outline: 'unset', // override Chrome user agent
     },
   },
   'private-root-nested': {
