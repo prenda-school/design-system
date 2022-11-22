@@ -3,13 +3,12 @@ import MuiMenu, {
   MenuProps as MuiMenuProps,
   MenuClassKey as MuiMenuClassKey,
 } from '@material-ui/core/Menu';
-import { PaperProps as MuiPaperProps } from '@material-ui/core/Paper';
 import Unstable_ListSubheader from '../Unstable_ListSubheader';
 import { Unstable_ListProps } from '../Unstable_List';
 import { StandardProps, useId } from '../utils';
 import {
   Unstable_PaperProps,
-  useUnstable_PaperStyles,
+  usePaperStyles_unstable,
 } from '../Unstable_Paper';
 import clsx from 'clsx';
 
@@ -32,22 +31,25 @@ export interface Unstable_MenuProps
   /**
    * Props applied to the `Paper` element.
    */
-  PaperProps?: Partial<Omit<MuiPaperProps, 'elevation' | 'classes'>> &
-    Partial<Pick<Unstable_PaperProps, 'elevation'>>;
+  PaperProps?: Partial<Unstable_PaperProps>;
 }
 
 export type Unstable_MenuClassKey = MuiMenuClassKey;
 
 const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
   function Unstable_Menu(props, ref) {
-    const {
-      MenuListProps,
-      open = false,
-      PaperProps: { elevation = 400, ...PaperProps } = {},
-      ...other
-    } = props;
+    const { MenuListProps, open = false, PaperProps = {}, ...other } = props;
 
-    const paperClasses = useUnstable_PaperStyles();
+    const {
+      bgcolor: bgcolorPaperProp = 'default',
+      border: borderPaperProp = 'none',
+      className: classNamePaperProp,
+      radius: radiusPaperProp = 'sm',
+      shadow: shadowPaperProp = 'E400',
+      ...otherPaperProps
+    } = PaperProps;
+
+    const paperClasses_unstable = usePaperStyles_unstable();
 
     const { ListSubheaderProps, subheader, ...otherMenuListProps } =
       MenuListProps || {};
@@ -58,12 +60,15 @@ const Unstable_Menu = forwardRef<unknown, Unstable_MenuProps>(
       <MuiMenu
         ref={ref}
         PaperProps={{
-          ...PaperProps,
+          ...otherPaperProps,
           className: clsx(
-            PaperProps.className,
-            paperClasses[`private-root-variant-elevation-${elevation}`]
+            paperClasses_unstable.root,
+            paperClasses_unstable[`private-root-bgcolor-${bgcolorPaperProp}`],
+            paperClasses_unstable[`private-root-border-${borderPaperProp}`],
+            paperClasses_unstable[`private-root-radius-${radiusPaperProp}`],
+            paperClasses_unstable[`private-root-shadow-${shadowPaperProp}`],
+            classNamePaperProp
           ),
-          elevation: 0,
         }}
         open={open}
         MenuListProps={{

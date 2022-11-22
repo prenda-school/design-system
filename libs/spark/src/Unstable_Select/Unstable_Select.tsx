@@ -12,7 +12,10 @@ import clsx from 'clsx';
 import { Unstable_ChevronDown } from '../internal';
 import { Theme } from '../theme';
 import Unstable_Tag, { Unstable_TagProps } from '../Unstable_Tag';
-import { useUnstable_PaperStyles } from '../Unstable_Paper';
+import {
+  Unstable_PaperProps,
+  usePaperStyles_unstable,
+} from '../Unstable_Paper';
 import withStyles, { Styles } from '../withStyles';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
@@ -42,7 +45,6 @@ export interface Unstable_SelectProps
       | 'input'
       | 'inputProps'
       | 'labelId'
-      | 'MenuProps'
       | 'multiple'
       | 'native'
       | 'onChange'
@@ -53,6 +55,15 @@ export interface Unstable_SelectProps
       | 'SelectDisplayProps'
       | 'value'
     > {
+  /**
+   * Props applied to the `Menu` element.
+   */
+  // Hide MUI's Paper Props, add PDS's Paper Props (which will be used to apply class names, not forward as props, since the component cannot be overridden).
+  MenuProps?: Partial<
+    Omit<MuiSelectProps['MenuProps'], 'PaperProps'> & {
+      PaperProps?: Partial<Unstable_PaperProps>;
+    }
+  >;
   /**
    * A tag props getter. Use to customize the props of `Unstable_Tag`'s rendered when `renderValueAsTag={true}`.
    */
@@ -163,17 +174,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       input,
       inputProps,
       labelId,
-      MenuProps = {
-        getContentAnchorEl: null,
-        anchorOrigin: {
-          vertical: 'bottom',
-          horizontal: 'right',
-        },
-        transformOrigin: {
-          vertical: 'top',
-          horizontal: 'right',
-        },
-      },
+      MenuProps = {} as Unstable_SelectProps['MenuProps'],
       multiple = false,
       native = false,
       onClose,
@@ -186,9 +187,30 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       SelectDisplayProps,
       ...other
     } = props;
-    const { PaperProps: { elevation = 400, ...PaperProps } = {} } = MenuProps;
 
-    const paperClasses = useUnstable_PaperStyles();
+    const {
+      getContentAnchorEl: getContentAnchorElMenuProp = null,
+      anchorOrigin: anchorOriginMenuProp = {
+        vertical: 'bottom',
+        horizontal: 'right',
+      },
+      transformOrigin: transformOriginMenuProp = {
+        vertical: 'top',
+        horizontal: 'right',
+      },
+      PaperProps: MenuPaperProps = {} as Unstable_SelectProps['MenuProps']['PaperProps'],
+    } = MenuProps;
+
+    const {
+      bgcolor: bgcolorMenuPaperProp = 'default',
+      border: borderMenuPaperProp = 'none',
+      className: classMameMenuPaperProp,
+      radius: radiusMenuPaperProp = 'sm',
+      shadow: shadowMenuPaperProp = 'E400',
+      ...otherMenuPaperProps
+    } = MenuPaperProps;
+
+    const paperClasses_unstable = usePaperStyles_unstable();
 
     const inputComponent = native ? MuiNativeSelectInput : MuiSelectInput;
 
@@ -241,14 +263,28 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               labelId,
               MenuProps: {
                 ...MenuProps,
+                anchorOrigin: anchorOriginMenuProp,
+                getContentAnchorEl: getContentAnchorElMenuProp,
+                transformOrigin: transformOriginMenuProp,
                 PaperProps: {
-                  ...PaperProps,
+                  ...otherMenuPaperProps,
                   className: clsx(
                     classes.menuPaper,
-                    PaperProps.className,
-                    paperClasses[`elevation${elevation}`]
+                    paperClasses_unstable.root,
+                    paperClasses_unstable[
+                      `private-root-bgcolor-${bgcolorMenuPaperProp}`
+                    ],
+                    paperClasses_unstable[
+                      `private-root-border-${borderMenuPaperProp}`
+                    ],
+                    paperClasses_unstable[
+                      `private-root-radius-${radiusMenuPaperProp}`
+                    ],
+                    paperClasses_unstable[
+                      `private-root-shadow-${shadowMenuPaperProp}`
+                    ],
+                    classMameMenuPaperProp
                   ),
-                  elevation: 0,
                 },
               },
               onClose,

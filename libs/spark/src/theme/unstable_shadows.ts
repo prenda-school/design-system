@@ -1,8 +1,6 @@
 import * as CSS from 'csstype';
 import unstable_palette from './unstable_palette';
 
-export type Unstable_Shadow = keyof Unstable_Shadows;
-
 export interface Unstable_Shadows {
   none: CSS.Property.BoxShadow;
   E100: CSS.Property.BoxShadow;

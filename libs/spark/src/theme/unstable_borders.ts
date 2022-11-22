@@ -1,8 +1,6 @@
 import * as CSS from 'csstype';
 import unstable_palette from './unstable_palette';
 
-export type Unstable_Border = keyof Unstable_Borders;
-
 export interface Unstable_Borders {
   none: CSS.Property.Border;
   // stylistic

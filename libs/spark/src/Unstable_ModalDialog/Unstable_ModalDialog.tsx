@@ -1,12 +1,12 @@
 import MuiDialog, {
   DialogProps as MuiDialogProps,
 } from '@material-ui/core/Dialog';
-import React, { forwardRef } from 'react';
+import React, { ComponentType, forwardRef } from 'react';
 import { Unstable_Cross } from '../internal';
 import Unstable_IconButton, {
   Unstable_IconButtonProps,
 } from '../Unstable_IconButton';
-import Unstable_Paper from '../Unstable_Paper';
+import Unstable_Paper, { Unstable_PaperProps } from '../Unstable_Paper';
 import withStyles, { Styles } from '../withStyles';
 import { StandardProps } from '../utils';
 import { Unstable_ModalProps } from '../Unstable_Modal';
@@ -16,7 +16,7 @@ export interface Unstable_ModalDialogProps
   extends StandardProps<
     MuiDialogProps,
     Unstable_ModalDialogClassKey,
-    'classes' | 'onClose'
+    'classes' | 'onClose' | 'PaperProps'
   > {
   /**
    * Whether a close button should be shown at the top-right of the component.
@@ -29,6 +29,8 @@ export interface Unstable_ModalDialogProps
    * @param reason Can be: `"escapeKeyDown"`, `"backdropClick"`, `"closeClick"`.
    */
   onClose?: Unstable_ModalProps['onClose'];
+  PaperComponent: ComponentType<Unstable_PaperProps>;
+  PaperProps: Partial<Unstable_PaperProps>;
 }
 
 export type Unstable_ModalDialogClassKey =
@@ -72,7 +74,7 @@ const Unstable_ModalDialog = forwardRef<
       }}
       onClose={onClose}
       PaperComponent={Unstable_Paper}
-      PaperProps={{ elevation: 300 }}
+      PaperProps={{ radius: 'sm', shadow: 'E300' }}
       ref={ref}
       {...other}
     >

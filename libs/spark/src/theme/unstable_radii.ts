@@ -1,7 +1,5 @@
 import * as CSS from 'csstype';
 
-export type Radius = keyof Unstable_Radii;
-
 export interface Unstable_Radii {
   zero: CSS.Property.BorderRadius;
   xs: CSS.Property.BorderRadius;
