@@ -79,14 +79,16 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   theme
 ) => ({
   root: {
-    border: theme.unstable_borders.transparent,
+    border: theme.unstable_borders.none,
     borderRadius: theme.unstable_radii.sm,
+    padding: 'unset',
     '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: theme.unstable_shadows.focus,
     },
   },
   label: {
     fontSize: '1.5rem',
+    width: 'unset',
   },
   'private-root-variant-primary': {
     backgroundColor: theme.unstable_palette.brand.blue,
@@ -155,10 +157,12 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
     },
   },
   'private-root-size-small': {
-    padding: 4,
+    height: 'calc(32px - 24px + 1.5rem)',
+    width: 'calc(32px - 24px + 1.5rem)',
   },
   'private-root-size-medium': {
-    padding: 12,
+    height: 'calc(48px - 24px + 1.5rem)',
+    width: 'calc(48px - 24px + 1.5rem)',
   },
   'private-label-variant-primary': {
     color: theme.unstable_palette.neutral[0],

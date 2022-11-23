@@ -67,8 +67,7 @@ export type Unstable_ButtonClassKey =
   | 'leadingAvatar'
   | 'leadingIcon'
   | 'trailingIcon'
-  | 'label'
-  | 'private-textBaselineShift';
+  | 'label';
 
 type PrivateClassKey =
   | 'private-root-variant-primary'
@@ -82,8 +81,11 @@ type PrivateClassKey =
   | 'private-root-variant-ghost-color-inverse'
   | 'private-root-variant-destructive'
   | 'private-root-size-small'
+  | 'private-root-size-small-leadingAvatar'
   | 'private-root-size-medium'
+  | 'private-root-size-medium-leadingAvatar'
   | 'private-root-size-large'
+  | 'private-root-size-large-leadingAvatar'
   | 'private-root-disabled'
   | 'private-label-variant-primary'
   | 'private-label-variant-primary-color-standard'
@@ -100,17 +102,13 @@ type PrivateClassKey =
   | 'private-label-size-large'
   | 'private-label-ariaExpanded'
   | 'private-label-disabled'
-  | 'private-leadingAvatar-size-small'
-  | 'private-leadingAvatar-size-medium'
-  | 'private-leadingAvatar-size-large'
   | 'private-leadingAvatar-disabled'
   | 'private-leadingIcon-size-small'
   | 'private-leadingIcon-size-medium'
   | 'private-leadingIcon-size-large'
   | 'private-trailingIcon-size-small'
   | 'private-trailingIcon-size-medium'
-  | 'private-trailingIcon-size-large'
-  | 'private-textBaselineShift';
+  | 'private-trailingIcon-size-large';
 
 // extracted since there's not an equivalent typography variant
 const buttonFontVariantSmall = buildVariant(
@@ -143,9 +141,10 @@ const buttonFontVariantLarge = buildVariant(
 
 const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   root: {
+    backgroundClip: 'padding-box',
     // double-specificity section for overriding v1 styles from STP
     '&&': {
-      border: theme.unstable_borders.transparent,
+      border: theme.unstable_borders.none, // v1 $root$disabled
       borderRadius: theme.unstable_radii.sm,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: theme.unstable_shadows.focus,
@@ -169,10 +168,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
     display: 'flex',
     lineHeight: 1,
     margin: '0 0 0 8px',
-  },
-  'private-textBaselineShift': {
-    marginTop: theme.unstable_typography.pxToRem(1),
-    marginBottom: theme.unstable_typography.pxToRem(-1),
   },
   'private-root-variant-primary': {
     '&&': {
@@ -257,19 +252,26 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   'private-root-size-small': {
-    '&&': {
-      padding: '8px 16px',
-    },
+    height: `calc(32px - 14px + ${buttonFontVariantSmall.fontSize})`,
+
+    padding: '0 16px',
+  },
+  'private-root-size-small-leadingAvatar': {
+    padding: '0 8px',
   },
   'private-root-size-medium': {
-    '&&': {
-      padding: '12px 24px',
-    },
+    height: `calc(48px - 16px + ${buttonFontVariantMedium.fontSize})`,
+    padding: '0 24px',
+  },
+  'private-root-size-medium-leadingAvatar': {
+    padding: '0 16px',
   },
   'private-root-size-large': {
-    '&&': {
-      padding: '20px 32px',
-    },
+    height: `calc(64px - 18px + ${buttonFontVariantLarge.fontSize})`,
+    padding: '0 32px',
+  },
+  'private-root-size-large-leadingAvatar': {
+    padding: '0 24px',
   },
   'private-root-disabled': {
     '&&': {
@@ -280,12 +282,15 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-label-size-small': {
     ...buttonFontVariantSmall,
+    lineHeight: 0,
   },
   'private-label-size-medium': {
     ...buttonFontVariantMedium,
+    lineHeight: 0,
   },
   'private-label-size-large': {
     ...buttonFontVariantLarge,
+    lineHeight: 0,
   },
   'private-label-variant-primary': {
     color: theme.unstable_palette.neutral[0],
@@ -312,21 +317,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-label-disabled': {
     color: theme.unstable_palette.text.disabled,
-  },
-  'private-leadingAvatar-size-small': {
-    marginBottom: -4,
-    marginLeft: -8,
-    marginTop: -4,
-  },
-  'private-leadingAvatar-size-medium': {
-    marginBottom: -8,
-    marginLeft: -8,
-    marginTop: -8,
-  },
-  'private-leadingAvatar-size-large': {
-    marginBottom: -8,
-    marginLeft: -8,
-    marginTop: -8,
   },
   'private-leadingAvatar-disabled': {
     opacity: 0.62,
@@ -373,13 +363,9 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
         size === 'small' ? 'small' : 'medium';
       leadingEl = (
         <span
-          className={clsx(
-            classes.leadingAvatar,
-            classes[`private-leadingAvatar-size-${size}`],
-            {
-              [classes['private-leadingAvatar-disabled']]: disabled,
-            }
-          )}
+          className={clsx(classes.leadingAvatar, {
+            [classes['private-leadingAvatar-disabled']]: disabled,
+          })}
         >
           {/* @ts-expect-error can't know if actually given an Unstable_Avatar instance, so prop may be invalid */}
           {cloneElement(leadingAvatar, { size: avatarSize })}
@@ -423,6 +409,9 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes[`private-root-variant-${variant}-color-${color}`],
             {
               [classes['private-root-disabled']]: disabled,
+              [classes[
+                `private-root-size-${size}-leadingAvatar`
+              ]]: !!leadingAvatar,
             }
           ),
           label: clsx(
@@ -445,7 +434,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
         {...other}
       >
         {leadingEl}
-        <span className={classes['private-textBaselineShift']}>{children}</span>
+        {children}
         {trailingEl}
       </MuiButton>
     );
