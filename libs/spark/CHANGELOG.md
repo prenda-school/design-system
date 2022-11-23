@@ -21,10 +21,15 @@ API surface:
     - sub-properties: `none, transparent, subtle, standard, bold, selected, active, expanded, hover, focus, error, info, success, warning`
 - **Unstable_AvatarButton**
   - [style] changed border color of "hover"
+- **Unstable_Button**
+  - [style] corrected text centering for all browsers (Chromium, Firefox, WebKit)
+  - [style] corrected height across all variants, sizes
 - **Unstable_Card**
   - [feat] initial implementation
 - **Unstable_CheckboxListItem**
   - see **Unstable_ListItem**
+- **Unstable_IconButton**
+  - [style] corrected height across all variants, sizes
 - **Unstable_ListItem**
   - [style] remove browser-default outline on focus-visible
 - **Unstable_MenuItem**
