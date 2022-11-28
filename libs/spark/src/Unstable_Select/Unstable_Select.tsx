@@ -17,6 +17,7 @@ import {
   usePaperStyles_unstable,
 } from '../Unstable_Paper';
 import withStyles, { Styles } from '../withStyles';
+import useFormControl_unstable from '../useFormControl_unstable';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
   export const styles: (
@@ -172,6 +173,7 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
 const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
   function Unstable_Select(props, ref) {
     const {
+      'aria-describedby': ariaDescribedByProp,
       autoWidth = false,
       children,
       classes,
@@ -179,10 +181,10 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       displayEmpty = true,
       getTagProps,
       IconComponent = Unstable_ChevronDown,
-      id,
+      id: idProp,
       input,
       inputProps,
-      labelId,
+      labelId: labelIdProp,
       MenuProps = {} as Unstable_SelectProps['MenuProps'],
       multiple = false,
       native = false,
@@ -192,11 +194,13 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       preventMultipleOverflow = false,
       renderValue: renderValueProp,
       renderValueAsTag = false,
-      size = 'medium',
+      size: _size,
       SelectDisplayProps,
       value,
       ...other
     } = props;
+
+    const formControl = useFormControl_unstable(props);
 
     const {
       getContentAnchorEl: getContentAnchorElMenuProp = null,
@@ -258,6 +262,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
     }
 
     return cloneElement(InputComponent, {
+      'aria-describedby': ariaDescribedByProp || formControl.helperTextId,
       disabled,
       inputComponent,
       inputProps: {
@@ -266,11 +271,11 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         type: undefined, // We render a select. We can ignore the type provided by the `Input`.
         multiple,
         ...(native
-          ? { id }
+          ? { id: idProp || formControl.id }
           : {
               autoWidth,
               displayEmpty,
-              labelId,
+              labelId: labelIdProp || formControl.labelId,
               MenuProps: {
                 ...MenuProps,
                 anchorOrigin: anchorOriginMenuProp,
@@ -301,7 +306,10 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               onOpen,
               open,
               renderValue,
-              SelectDisplayProps: { id, ...SelectDisplayProps },
+              SelectDisplayProps: {
+                id: idProp || formControl.id,
+                ...SelectDisplayProps,
+              },
             }),
         ...inputProps,
         classes: {
@@ -322,13 +330,13 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
           icon: clsx(
             classes.icon,
             inputProps?.classes?.icon,
-            classes[`private-icon-size-${size}`]
+            classes[`private-icon-size-${formControl.size}`]
           ),
           iconOpen: clsx(classes.iconOpen, inputProps?.classes?.iconOpen),
         },
         ...(input ? input.props.inputProps : {}),
       },
-      size,
+      size: formControl.size,
       value,
       ref,
       ...other,
