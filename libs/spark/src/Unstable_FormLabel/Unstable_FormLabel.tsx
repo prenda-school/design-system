@@ -6,6 +6,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import clsx from 'clsx';
 import { buildVariant } from '../theme/typography';
+import useFormControl_unstable from '../useFormControl_unstable';
 
 export interface Unstable_FormLabelTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -84,12 +85,17 @@ const styles: Styles<Unstable_FormLabelClassKey | PrivateClassKey> = (
 
 const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forwardRef(
   function Unstable_FormLabel(props, ref) {
-    const { classes, color: _color, size = 'medium', ...other } = props;
+    const { classes, color: _color, size: _size, ...other } = props;
+
+    const formControl = useFormControl_unstable(props);
 
     return (
       <MuiFormLabel
         classes={{
-          root: clsx(classes.root, classes[`private-root-size-${size}`]),
+          root: clsx(
+            classes.root,
+            classes[`private-root-size-${formControl.size}`]
+          ),
           asterisk: classes.asterisk,
         }}
         ref={ref}

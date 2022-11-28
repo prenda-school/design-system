@@ -1,10 +1,9 @@
 import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
-import { formControlState } from '../Unstable_FormControl';
-import useFormControl from '../useFormControl';
 import withStyles, { Styles } from '../withStyles';
 import { buildVariant } from '../theme/typography';
+import useFormControl_unstable from '../useFormControl_unstable';
 
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -136,42 +135,29 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       className,
       // @ts-expect-error not picked up as a prop from `OverridableComponent`
       component: Component = 'p',
-      disabled,
-      error,
-      filled,
-      focused,
+      disabled: _disabled,
+      error: _error,
+      filled: _filled,
+      focused: _focused,
       leadingIcon,
       reserveLineHeight,
-      required,
-      size = 'medium',
+      required: _required,
+      size: _size,
       ...other
     } = props;
 
-    const muiFormControl = useFormControl();
-    const fcs = formControlState({
-      props,
-      muiFormControl,
-      states: [
-        'variant',
-        'margin',
-        'disabled',
-        'error',
-        'filled',
-        'focused',
-        'required',
-      ],
-    });
+    const formControl = useFormControl_unstable(props);
 
     return (
       <Component
         className={clsx(
           classes.root,
-          classes[`private-root-size-${size}`],
+          classes[`private-root-size-${formControl.size}`],
           {
-            [classes.disabled]: fcs.disabled,
-            [classes.error]: fcs.error,
-            [classes.focused]: fcs.focused,
-            [classes.required]: fcs.required,
+            [classes.disabled]: formControl.disabled,
+            [classes.error]: formControl.error,
+            [classes.focused]: formControl.focused,
+            [classes.required]: formControl.required,
           },
           className
         )}

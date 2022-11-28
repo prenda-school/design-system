@@ -5,6 +5,7 @@ import MuiFormControl, {
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import clsx from 'clsx';
+import Unstable_FormControlExtraContext from '../Unstable_FormControlExtraContext';
 
 export interface Unstable_FormControlTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -17,7 +18,11 @@ export interface Unstable_FormControlTypeMap<
       'classes' | 'color' | 'hiddenLabel' | 'margin' | 'size' | 'variant'
     > & {
       /**
-       * The size of the form control.
+       * If `true`, the descendant components should be displayed in an success state.
+       */
+      success?: boolean;
+      /**
+       * The size of the descendant components.
        */
       size?: 'medium' | 'small';
     };
@@ -49,16 +54,24 @@ const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
 
 const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = forwardRef(
   function Unstable_FormControl(props, ref) {
-    const { classes, color: _color, size = 'medium', ...other } = props;
+    const {
+      classes,
+      color: _color,
+      size = 'medium',
+      success = false,
+      ...other
+    } = props;
 
     return (
-      <MuiFormControl
-        classes={{
-          root: clsx(classes.root, classes[`private-root-size-${size}`]),
-        }}
-        ref={ref}
-        {...other}
-      />
+      <Unstable_FormControlExtraContext.Provider value={{ success, size }}>
+        <MuiFormControl
+          classes={{
+            root: clsx(classes.root, classes[`private-root-size-${size}`]),
+          }}
+          ref={ref}
+          {...other}
+        />
+      </Unstable_FormControlExtraContext.Provider>
     );
   }
 );

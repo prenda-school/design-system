@@ -7,6 +7,7 @@ import {
 import Unstable_InputAdornment from '../Unstable_InputAdornment';
 import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 import { buildVariant } from '../theme/typography';
+import useFormControl_unstable from '../useFormControl_unstable';
 
 export interface Unstable_InputProps
   extends Omit<
@@ -172,32 +173,46 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
       leadingEl,
       multiline,
       placeholder,
-      size = 'medium',
-      success,
+      size: _size,
+      success: _success,
       trailingEl,
       value,
       ...other
     } = props;
 
+    const formControl = useFormControl_unstable(props);
+
     return (
       <MuiInputBase
         classes={{
-          root: clsx(classes.root, classes[`private-root-size-${size}`], {
-            [classes['private-root-value']]: value,
-            [classes['private-root-multiline']]: multiline,
-            [classes[`private-root-size-${size}-leadingEl`]]: leadingEl,
-            [classes[`private-root-size-${size}-trailingEl`]]: trailingEl,
-            [classes['private-root-success']]: success,
-          }),
-          input: clsx(classes.input, classes[`private-input-size-${size}`], {
-            [classes['private-input-placeholder']]: placeholder,
-            [classes['private-input-leadingEl']]: leadingEl,
-            [classes['private-input-trailingEl']]: trailingEl,
-          }),
+          root: clsx(
+            classes.root,
+            classes[`private-root-size-${formControl.size}`],
+            {
+              [classes['private-root-value']]: value,
+              [classes['private-root-multiline']]: multiline,
+              [classes[
+                `private-root-size-${formControl.size}-leadingEl`
+              ]]: leadingEl,
+              [classes[
+                `private-root-size-${formControl.size}-trailingEl`
+              ]]: trailingEl,
+              [classes['private-root-success']]: formControl.success,
+            }
+          ),
+          input: clsx(
+            classes.input,
+            classes[`private-input-size-${formControl.size}`],
+            {
+              [classes['private-input-placeholder']]: placeholder,
+              [classes['private-input-leadingEl']]: leadingEl,
+              [classes['private-input-trailingEl']]: trailingEl,
+            }
+          ),
         }}
         endAdornment={
           trailingEl ? (
-            <Unstable_InputAdornment position="end" size={size}>
+            <Unstable_InputAdornment position="end" size={formControl.size}>
               {trailingEl}
             </Unstable_InputAdornment>
           ) : undefined
@@ -206,7 +221,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
         placeholder={placeholder}
         startAdornment={
           leadingEl ? (
-            <Unstable_InputAdornment position="start" size={size}>
+            <Unstable_InputAdornment position="start" size={formControl.size}>
               {leadingEl}
             </Unstable_InputAdornment>
           ) : undefined

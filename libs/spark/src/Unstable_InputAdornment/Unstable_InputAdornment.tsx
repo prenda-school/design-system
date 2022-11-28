@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import { buildVariant } from '../theme/typography';
+import useFormControl_unstable from '../useFormControl_unstable';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -94,18 +95,20 @@ const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeM
       // @ts-expect-error prop does not exist :/
       component: Component = 'div',
       position,
-      size = 'medium',
+      size: _size,
       ...other
     } = props;
+
+    const formControl = useFormControl_unstable(props);
 
     return (
       <Component
         className={clsx(
           classes.root,
           classes[`private-root-position-${position}`],
-          classes[`private-root-size-${size}`],
+          classes[`private-root-size-${formControl.size}`],
           {
-            [classes[`private-root-size-${size}-children-string`]]:
+            [classes[`private-root-size-${formControl.size}-children-string`]]:
               typeof props.children === 'string',
           },
           className

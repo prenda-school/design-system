@@ -17,6 +17,7 @@ import {
   usePaperStyles_unstable,
 } from '../Unstable_Paper';
 import withStyles, { Styles } from '../withStyles';
+import useFormControl_unstable from '../useFormControl_unstable';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {
   export const styles: (
@@ -192,11 +193,13 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       preventMultipleOverflow = false,
       renderValue: renderValueProp,
       renderValueAsTag = false,
-      size = 'medium',
+      size: _size,
       SelectDisplayProps,
       value,
       ...other
     } = props;
+
+    const formControl = useFormControl_unstable(props);
 
     const {
       getContentAnchorEl: getContentAnchorElMenuProp = null,
@@ -322,13 +325,13 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
           icon: clsx(
             classes.icon,
             inputProps?.classes?.icon,
-            classes[`private-icon-size-${size}`]
+            classes[`private-icon-size-${formControl.size}`]
           ),
           iconOpen: clsx(classes.iconOpen, inputProps?.classes?.iconOpen),
         },
         ...(input ? input.props.inputProps : {}),
       },
-      size,
+      size: formControl.size,
       value,
       ref,
       ...other,
