@@ -93,7 +93,9 @@ export type Unstable_SelectClassKey =
 
 type PrivateClassKey =
   | 'private-root-renderValueAsTag'
-  | 'private-root-renderValueAsTag-preventMultipleOverflow';
+  | 'private-root-renderValueAsTag-preventMultipleOverflow'
+  | 'private-icon-size-medium'
+  | 'private-icon-size-small';
 
 const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
   const styles = nativeSelectStyles(theme);
@@ -122,7 +124,6 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
     icon: {
       ...styles.icon,
       color: theme.unstable_palette.text.icon,
-      fontSize: theme.unstable_typography.pxToRem(24),
       marginRight: 14,
       transition: 'transform 250ms ease',
       /* disabled -- can get from internal context => can't condition on prop */
@@ -157,6 +158,14 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
         whiteSpace: 'nowrap',
       },
     },
+    'private-icon-size-medium': {
+      fontSize: theme.unstable_typography.pxToRem(24),
+      top: 'calc(50% - 12px)',
+    },
+    'private-icon-size-small': {
+      fontSize: theme.unstable_typography.pxToRem(16),
+      top: 'calc(50% - 8px)',
+    },
   };
 };
 
@@ -183,8 +192,9 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       preventMultipleOverflow = false,
       renderValue: renderValueProp,
       renderValueAsTag = false,
-      value,
+      size = 'medium',
       SelectDisplayProps,
+      value,
       ...other
     } = props;
 
@@ -309,11 +319,16 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
             classes.nativeInput,
             inputProps?.classes?.nativeInput
           ),
-          icon: clsx(classes.icon, inputProps?.classes?.icon),
+          icon: clsx(
+            classes.icon,
+            inputProps?.classes?.icon,
+            classes[`private-icon-size-${size}`]
+          ),
           iconOpen: clsx(classes.iconOpen, inputProps?.classes?.iconOpen),
         },
         ...(input ? input.props.inputProps : {}),
       },
+      size,
       value,
       ref,
       ...other,

@@ -4,6 +4,7 @@ import MuiFormControl, {
 } from '@material-ui/core/FormControl';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
+import clsx from 'clsx';
 
 export interface Unstable_FormControlTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -14,7 +15,12 @@ export interface Unstable_FormControlTypeMap<
     Omit<
       MuiFormControlProps,
       'classes' | 'color' | 'hiddenLabel' | 'margin' | 'size' | 'variant'
-    >;
+    > & {
+      /**
+       * The size of the form control.
+       */
+      size?: 'medium' | 'small';
+    };
   defaultComponent: D;
   classKey: Unstable_FormControlClassKey;
 }
@@ -27,18 +33,33 @@ export type Unstable_FormControlProps<
 
 export type Unstable_FormControlClassKey = 'root';
 
-const styles: Styles<Unstable_FormControlClassKey> = {
+type PrivateClassKey = 'private-root-size-medium' | 'private-root-size-small';
+
+const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
   /** Styles applied to the root element. */
-  root: {
+  root: {},
+  /* Private */
+  'private-root-size-medium': {
     gap: 8,
+  },
+  'private-root-size-small': {
+    gap: 4,
   },
 };
 
 const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = forwardRef(
   function Unstable_FormControl(props, ref) {
-    const { color: _color, ...other } = props;
+    const { classes, color: _color, size = 'medium', ...other } = props;
 
-    return <MuiFormControl ref={ref} {...other} />;
+    return (
+      <MuiFormControl
+        classes={{
+          root: clsx(classes.root, classes[`private-root-size-${size}`]),
+        }}
+        ref={ref}
+        {...other}
+      />
+    );
   }
 );
 

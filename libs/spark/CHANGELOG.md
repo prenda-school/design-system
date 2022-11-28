@@ -28,8 +28,28 @@ API surface:
   - [feat] initial implementation
 - **Unstable_CheckboxListItem**
   - see **Unstable_ListItem**
+- **Unstable_FormControl**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
+- **Unstable_FormHelperText**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
+- **Unstable_FormLabel**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
 - **Unstable_IconButton**
   - [style] corrected height across all variants, sizes
+- **Unstable_Input**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
+- **Unstable_InputAdornment**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
 - **Unstable_ListItem**
   - [style] remove browser-default outline on focus-visible
 - **Unstable_MenuItem**
@@ -41,8 +61,14 @@ API surface:
     - see added props for alternatives
     - see migration guide
   - [feat] added "bgcolor", "border", "radius", "shadow" props
+- **Unstable_Select**
+  - [feat] added "size" prop
+    - values: `"small" | "medium"`
+    - default: `"medium"`
 - **Unstable_Switch**
   - [style] improved alignment of thumb on track when size is "large"
+- **Unstable_TextField**
+  - see **Unstable_FormControl**
 - **useFormControl**
   - [feat] added as a top-level directory
 - **useRadioGroupMore**

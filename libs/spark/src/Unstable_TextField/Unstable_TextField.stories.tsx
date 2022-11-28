@@ -121,6 +121,14 @@ LabelHelperTextLeadingEl.args = {
 };
 LabelHelperTextLeadingEl.storyName = 'label helperText leadingEl';
 
+export const LabelHelperTextSizeSmall: Story = Template.bind({});
+LabelHelperTextSizeSmall.args = {
+  label: 'Label',
+  helperText: 'Helper text',
+  size: 'small',
+};
+LabelHelperTextSizeSmall.storyName = 'label helperText size="small"';
+
 export const LabelHelperTextSuccess: Story = Template.bind({});
 LabelHelperTextSuccess.args = {
   label: 'Label',

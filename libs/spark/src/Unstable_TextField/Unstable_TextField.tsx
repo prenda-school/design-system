@@ -182,6 +182,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       minRows,
       select = false,
       SelectProps,
+      size = 'medium',
       success,
       trailingEl,
       type,
@@ -224,6 +225,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         name={name}
         maxRows={maxRows}
         minRows={minRows}
+        size={size}
         success={success}
         trailingEl={trailingEl}
         type={type}
@@ -247,10 +249,16 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         fullWidth={fullWidth}
         ref={(ref as unknown) as RefObject<HTMLDivElement>}
         required={required}
+        size={size}
         {...other}
       >
         {label ? (
-          <Unstable_FormLabel htmlFor={id} id={labelId} {...FormLabelProps}>
+          <Unstable_FormLabel
+            htmlFor={id}
+            id={labelId}
+            size={size}
+            {...FormLabelProps}
+          >
             {label}
           </Unstable_FormLabel>
         ) : null}
@@ -260,6 +268,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
             aria-describedby={helperTextId}
             id={id}
             labelId={labelId}
+            size={size}
             value={value}
             input={InputElement}
             {...SelectProps}
@@ -271,7 +280,11 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         )}
 
         {helperText ? (
-          <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
+          <Unstable_FormHelperText
+            id={helperTextId}
+            size={size}
+            {...FormHelperTextProps}
+          >
             {helperText}
           </Unstable_FormHelperText>
         ) : null}
