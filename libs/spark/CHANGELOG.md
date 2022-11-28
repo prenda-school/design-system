@@ -35,6 +35,7 @@ API surface:
   - [feat] added "success" prop
     - values: `true | false`
     - default: `false`
+  - [feat] add default support for accessibility by linking the descendent input (Input or Select), label (FormLabel), and helper text (FormHelperText).
 - **Unstable_FormHelperText**
   - [feat] added "size" prop
     - values: `"small" | "medium"`

@@ -2,6 +2,18 @@ import { createContext } from 'react';
 
 export interface Unstable_FormControlExtraContextValue {
   /**
+   * The id of the descendent input.
+   */
+  id?: string;
+  /**
+   * The id of the descendent label.
+   */
+  labelId?: string;
+  /**
+   * The id of the descendent helper text.
+   */
+  helperTextId?: string;
+  /**
    * The size of the descendant components
    */
   size?: 'medium' | 'small';

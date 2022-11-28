@@ -85,7 +85,14 @@ const styles: Styles<Unstable_FormLabelClassKey | PrivateClassKey> = (
 
 const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forwardRef(
   function Unstable_FormLabel(props, ref) {
-    const { classes, color: _color, size: _size, ...other } = props;
+    const {
+      classes,
+      color: _color,
+      htmlFor: htmlForProp,
+      id: idProp,
+      size: _size,
+      ...other
+    } = props;
 
     const formControl = useFormControl_unstable(props);
 
@@ -98,6 +105,8 @@ const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forw
           ),
           asterisk: classes.asterisk,
         }}
+        htmlFor={htmlForProp || formControl.id}
+        id={idProp || formControl.labelId}
         ref={ref}
         {...other}
       />

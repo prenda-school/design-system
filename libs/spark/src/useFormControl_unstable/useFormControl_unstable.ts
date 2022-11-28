@@ -50,6 +50,10 @@ const useFormControl_unstable = (parameters: {
     required,
     size,
     success,
+    // PDS : not prop-controlled
+    id: formControlExtra.id,
+    labelId: formControlExtra.labelId,
+    helperTextId: formControlExtra.helperTextId,
     // MUI : internal-determined
     filled: muiFormControl?.filled,
     focused: muiFormControl?.focused,

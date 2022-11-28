@@ -2,7 +2,7 @@ import React, { ElementType, forwardRef } from 'react';
 import MuiFormControl, {
   FormControlProps as MuiFormControlProps,
 } from '@material-ui/core/FormControl';
-import { OverridableComponent, OverrideProps } from '../utils';
+import { OverridableComponent, OverrideProps, useId } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import clsx from 'clsx';
 import Unstable_FormControlExtraContext from '../Unstable_FormControlExtraContext';
@@ -57,13 +57,20 @@ const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = 
     const {
       classes,
       color: _color,
+      id: idProp,
       size = 'medium',
       success = false,
       ...other
     } = props;
 
+    const id = useId(idProp);
+    const labelId = `${id}-label`;
+    const helperTextId = `${id}-helper-text`;
+
     return (
-      <Unstable_FormControlExtraContext.Provider value={{ success, size }}>
+      <Unstable_FormControlExtraContext.Provider
+        value={{ helperTextId, id, labelId, success, size }}
+      >
         <MuiFormControl
           classes={{
             root: clsx(classes.root, classes[`private-root-size-${size}`]),

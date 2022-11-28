@@ -169,7 +169,9 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
 const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
   function Unstable_Input(props, ref) {
     const {
+      'aria-describedby': ariaDescribedByProp,
       classes,
+      id: idProp,
       leadingEl,
       multiline,
       placeholder,
@@ -184,6 +186,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
 
     return (
       <MuiInputBase
+        aria-describedby={ariaDescribedByProp || formControl.helperTextId}
         classes={{
           root: clsx(
             classes.root,
@@ -217,6 +220,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
             </Unstable_InputAdornment>
           ) : undefined
         }
+        id={idProp || formControl.id}
         multiline={multiline}
         placeholder={placeholder}
         startAdornment={

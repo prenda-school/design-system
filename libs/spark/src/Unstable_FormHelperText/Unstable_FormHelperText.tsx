@@ -139,6 +139,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       error: _error,
       filled: _filled,
       focused: _focused,
+      id: idProp,
       leadingIcon,
       reserveLineHeight,
       required: _required,
@@ -161,6 +162,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
           },
           className
         )}
+        id={idProp || formControl.helperTextId}
         ref={ref}
         {...other}
       >

@@ -16,7 +16,6 @@ import Unstable_FormHelperText, {
   Unstable_FormHelperTextProps,
 } from '../Unstable_FormHelperText';
 import Unstable_Select, { Unstable_SelectProps } from '../Unstable_Select';
-import { useId } from '../utils';
 
 export interface Unstable_TextFieldProps
   extends Omit<
@@ -160,7 +159,6 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       FormHelperTextProps,
       fullWidth = false,
       helperText,
-      id: idProp,
       FormLabelProps,
       inputProps,
       InputProps,
@@ -186,8 +184,6 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       ...other
     } = props;
 
-    const id = useId(idProp);
-
     if (process.env.NODE_ENV !== 'production') {
       if (select && !children) {
         console.error(
@@ -206,11 +202,8 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       InputMore['aria-describedby'] = undefined;
     }
 
-    const helperTextId = helperText && id ? `${id}-helper-text` : undefined;
-    const labelId = label && id ? `${id}-label` : undefined;
     const InputElement = (
       <Unstable_Input
-        aria-describedby={helperTextId}
         autoComplete={autoComplete}
         autoFocus={autoFocus}
         disabled={disabled}
@@ -224,7 +217,6 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         trailingEl={trailingEl}
         type={type}
         value={value}
-        id={id}
         inputRef={inputRef}
         onBlur={onBlur}
         onChange={onChange}
@@ -248,20 +240,11 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         {...other}
       >
         {label ? (
-          <Unstable_FormLabel htmlFor={id} id={labelId} {...FormLabelProps}>
-            {label}
-          </Unstable_FormLabel>
+          <Unstable_FormLabel {...FormLabelProps}>{label}</Unstable_FormLabel>
         ) : null}
 
         {select ? (
-          <Unstable_Select
-            aria-describedby={helperTextId}
-            id={id}
-            labelId={labelId}
-            value={value}
-            input={InputElement}
-            {...SelectProps}
-          >
+          <Unstable_Select value={value} input={InputElement} {...SelectProps}>
             {children}
           </Unstable_Select>
         ) : (
@@ -269,7 +252,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
         )}
 
         {helperText ? (
-          <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
+          <Unstable_FormHelperText {...FormHelperTextProps}>
             {helperText}
           </Unstable_FormHelperText>
         ) : null}

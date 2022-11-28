@@ -173,6 +173,7 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
 const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
   function Unstable_Select(props, ref) {
     const {
+      'aria-describedby': ariaDescribedByProp,
       autoWidth = false,
       children,
       classes,
@@ -180,10 +181,10 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       displayEmpty = true,
       getTagProps,
       IconComponent = Unstable_ChevronDown,
-      id,
+      id: idProp,
       input,
       inputProps,
-      labelId,
+      labelId: labelIdProp,
       MenuProps = {} as Unstable_SelectProps['MenuProps'],
       multiple = false,
       native = false,
@@ -261,6 +262,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
     }
 
     return cloneElement(InputComponent, {
+      'aria-describedby': ariaDescribedByProp || formControl.helperTextId,
       disabled,
       inputComponent,
       inputProps: {
@@ -269,11 +271,11 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         type: undefined, // We render a select. We can ignore the type provided by the `Input`.
         multiple,
         ...(native
-          ? { id }
+          ? { id: idProp || formControl.id }
           : {
               autoWidth,
               displayEmpty,
-              labelId,
+              labelId: labelIdProp || formControl.labelId,
               MenuProps: {
                 ...MenuProps,
                 anchorOrigin: anchorOriginMenuProp,
@@ -304,7 +306,10 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               onOpen,
               open,
               renderValue,
-              SelectDisplayProps: { id, ...SelectDisplayProps },
+              SelectDisplayProps: {
+                id: idProp || formControl.id,
+                ...SelectDisplayProps,
+              },
             }),
         ...inputProps,
         classes: {
