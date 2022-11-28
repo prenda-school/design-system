@@ -93,6 +93,10 @@ export const ChildrenTextRequired: Story = Template.bind({});
 ChildrenTextRequired.args = { children: '(text)', required: true };
 ChildrenTextRequired.storyName = 'children=(text) required';
 
+export const ChildrenTextSizeSmall: Story = Template.bind({});
+ChildrenTextSizeSmall.args = { children: '(text)', size: 'small' };
+ChildrenTextSizeSmall.storyName = 'children=(text) size="small"';
+
 export const ChildrenListItemsComponentUl: Story = Template.bind({});
 ChildrenListItemsComponentUl.args = {
   children: '(ul)',

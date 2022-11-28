@@ -43,6 +43,10 @@ export const PositionEnd: Story = Template.bind({});
 PositionEnd.args = { position: 'end' };
 PositionEnd.storyName = 'position=end';
 
+export const SizeSmall: Story = Template.bind({});
+SizeSmall.args = { size: 'small' };
+SizeSmall.storyName = 'size="small"';
+
 export const ChildrenKg: Story = Template.bind({});
 ChildrenKg.args = { children: 'kg' };
 ChildrenKg.storyName = 'children=kg';

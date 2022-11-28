@@ -4,13 +4,21 @@ import MuiFormLabel, {
 } from '@material-ui/core/FormLabel';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
+import clsx from 'clsx';
+import { buildVariant } from '../theme/typography';
 
 export interface Unstable_FormLabelTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
   D extends ElementType = 'label'
 > {
-  props: P & Omit<MuiFormLabelProps, 'classes' | 'color' | 'filled'>;
+  props: P &
+    Omit<MuiFormLabelProps, 'classes' | 'color' | 'filled'> & {
+      /**
+       * The size of the label.
+       */
+      size?: 'medium' | 'small';
+    };
   defaultComponent: D;
   classKey: Unstable_FormLabelClassKey;
 }
@@ -23,10 +31,23 @@ export type Unstable_FormLabelProps<
 
 export type Unstable_FormLabelClassKey = 'root' | 'asterisk';
 
-const styles: Styles<Unstable_FormLabelClassKey> = (theme) => ({
+type PrivateClassKey = 'private-root-size-medium' | 'private-root-size-small';
+
+const sizeSmallVariant = buildVariant(
+  600,
+  14,
+  16,
+  undefined,
+  undefined,
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
+
+const styles: Styles<Unstable_FormLabelClassKey | PrivateClassKey> = (
+  theme
+) => ({
   /* Styles applied to the root element. */
   root: {
-    ...theme.unstable_typography.label,
     color: theme.unstable_palette.text.heading,
     margin: 0,
     /* focused -- can get from internal context => can't condition on prop */
@@ -52,13 +73,29 @@ const styles: Styles<Unstable_FormLabelClassKey> = (theme) => ({
       color: theme.unstable_palette.text.disabled,
     },
   },
+  /* Private */
+  'private-root-size-medium': {
+    ...theme.unstable_typography.label,
+  },
+  'private-root-size-small': {
+    ...sizeSmallVariant,
+  },
 });
 
 const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forwardRef(
   function Unstable_FormLabel(props, ref) {
-    const { color: _color, ...other } = props;
+    const { classes, color: _color, size = 'medium', ...other } = props;
 
-    return <MuiFormLabel ref={ref} {...other} />;
+    return (
+      <MuiFormLabel
+        classes={{
+          root: clsx(classes.root, classes[`private-root-size-${size}`]),
+          asterisk: classes.asterisk,
+        }}
+        ref={ref}
+        {...other}
+      />
+    );
   }
 );
 

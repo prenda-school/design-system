@@ -205,3 +205,7 @@ ValueMultilineMinRowsLeadingEl.args = {
   leadingEl: '<Gear />',
 };
 ValueMultilineMinRowsLeadingEl.storyName = 'value multiline minRows leadingEl ';
+
+export const SizeSmall: Story = Template.bind({});
+SizeSmall.args = { size: 'small' };
+SizeSmall.storyName = 'size="small"';

@@ -4,6 +4,7 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import { formControlState } from '../Unstable_FormControl';
 import useFormControl from '../useFormControl';
 import withStyles, { Styles } from '../withStyles';
+import { buildVariant } from '../theme/typography';
 
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -43,10 +44,20 @@ export interface Unstable_FormHelperTextTypeMap<
      * If `true`, the helper text should use required classes key.
      */
     required?: boolean;
+    /**
+     * The size of the component.
+     */
+    size?: 'medium' | 'small';
   };
   defaultComponent: D;
   classKey: Unstable_FormHelperTextClassKey;
 }
+
+export type Unstable_FormHelperTextProps<
+  D extends ElementType = Unstable_FormHelperTextTypeMap['defaultComponent'],
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
+> = OverrideProps<Unstable_FormHelperTextTypeMap<P, D>, D>;
 
 export type Unstable_FormHelperTextClassKey =
   | 'root'
@@ -56,16 +67,23 @@ export type Unstable_FormHelperTextClassKey =
   | 'focused'
   | 'required';
 
-export type Unstable_FormHelperTextProps<
-  D extends ElementType = Unstable_FormHelperTextTypeMap['defaultComponent'],
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  P = {}
-> = OverrideProps<Unstable_FormHelperTextTypeMap<P, D>, D>;
+type PrivateClassKey = 'private-root-size-medium' | 'private-root-size-small';
 
-const styles: Styles<Unstable_FormHelperTextClassKey> = (theme) => ({
+const sizeSmallVariant = buildVariant(
+  400,
+  12,
+  16,
+  undefined,
+  undefined,
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
+
+const styles: Styles<Unstable_FormHelperTextClassKey | PrivateClassKey> = (
+  theme
+) => ({
   /* Styles applied to the root element. */
   root: {
-    ...theme.unstable_typography.description,
     alignItems: 'center',
     color: theme.unstable_palette.text.subdued,
     display: 'inline-flex',
@@ -101,6 +119,13 @@ const styles: Styles<Unstable_FormHelperTextClassKey> = (theme) => ({
     display: 'flex',
     marginTop: 3,
   },
+  /* Private */
+  'private-root-size-medium': {
+    ...theme.unstable_typography.description,
+  },
+  'private-root-size-small': {
+    ...sizeSmallVariant,
+  },
 });
 
 const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = forwardRef(
@@ -118,6 +143,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       leadingIcon,
       reserveLineHeight,
       required,
+      size = 'medium',
       ...other
     } = props;
 
@@ -140,6 +166,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       <Component
         className={clsx(
           classes.root,
+          classes[`private-root-size-${size}`],
           {
             [classes.disabled]: fcs.disabled,
             [classes.error]: fcs.error,

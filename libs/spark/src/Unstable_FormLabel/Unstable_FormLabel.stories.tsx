@@ -56,3 +56,7 @@ RequiredError.storyName = 'required error';
 export const RequiredErrorDisabled: Story = Template.bind({});
 RequiredErrorDisabled.args = { required: true, error: true, disabled: true };
 RequiredErrorDisabled.storyName = 'required error disabled';
+
+export const SizeSmall: Story = Template.bind({});
+SizeSmall.args = { size: 'small' };
+SizeSmall.storyName = 'size="small"';
