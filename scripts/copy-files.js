@@ -74,7 +74,7 @@ async function typescriptCopy({ from, to }) {
     return [];
   }
 
-  const files = glob.sync(path.resolve(relativeInDir, '**/*.d.ts'), {
+  const files = glob.sync('**/*.d.ts', {
     cwd: from,
   });
   const cmds = files.map((file) =>
