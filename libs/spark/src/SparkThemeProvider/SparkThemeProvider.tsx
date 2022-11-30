@@ -12,7 +12,7 @@ const generateClassName = createGenerateClassName({
 
 const SparkThemeProvider = (props) => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
+    <StylesProvider injectFirst generateClassName={generateClassName}>
       <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
     </StylesProvider>
   );
