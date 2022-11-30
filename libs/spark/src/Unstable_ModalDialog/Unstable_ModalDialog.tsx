@@ -43,7 +43,7 @@ const styles: Styles<Unstable_ModalDialogClassKey> = {
   root: {},
   closeButton: {
     position: 'absolute',
-    top: 19,
+    top: 24,
     right: 24,
   },
   container: {},
