@@ -2,7 +2,11 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.7...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **SparkThemeProvider**
+  - [feat] changed to inject styles first
+    - [revert] change in v2.0.0-alpha.6
 
 ## [v2.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2022-11-28)
 
