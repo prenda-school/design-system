@@ -27,7 +27,7 @@ const styles: Styles<Unstable_ToastClassKey | PrivateClassKey> = (theme) => ({
     borderRadius: theme.unstable_radii.sm,
     display: 'flex',
     gap: 8,
-    minHeight: 54,
+    minHeight: 56,
     padding: '11px 16px',
   },
   icon: {
