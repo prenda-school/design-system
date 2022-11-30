@@ -16,7 +16,7 @@ export interface Unstable_ModalDialogProps
   extends StandardProps<
     MuiDialogProps,
     Unstable_ModalDialogClassKey,
-    'classes' | 'onClose' | 'PaperProps'
+    'classes' | 'onClose' | 'PaperComponent' | 'PaperProps'
   > {
   /**
    * Whether a close button should be shown at the top-right of the component.
@@ -29,8 +29,8 @@ export interface Unstable_ModalDialogProps
    * @param reason Can be: `"escapeKeyDown"`, `"backdropClick"`, `"closeClick"`.
    */
   onClose?: Unstable_ModalProps['onClose'];
-  PaperComponent: ComponentType<Unstable_PaperProps>;
-  PaperProps: Partial<Unstable_PaperProps>;
+  PaperComponent?: ComponentType<Unstable_PaperProps>;
+  PaperProps?: Partial<Unstable_PaperProps>;
 }
 
 export type Unstable_ModalDialogClassKey =
@@ -74,7 +74,11 @@ const Unstable_ModalDialog = forwardRef<
       }}
       onClose={onClose}
       PaperComponent={Unstable_Paper}
-      PaperProps={{ radius: 'sm', shadow: 'E300' }}
+      PaperProps={{
+        // @ts-expect-error TS doesn't know that it should be `Unstable_PaperProps`
+        radius: 'sm',
+        shadow: 'E300',
+      }}
       ref={ref}
       {...other}
     >

@@ -19,6 +19,8 @@ API surface:
   - [revert] "[style] corrected height across all variants, sizes (v2.0.0-alpha.7)"
   - [style] correct height across all variants, sizes
     - achieved in a different manner than the reverted work
+- **Unstable_ModalDialog**
+  - [fix] required props that should be optional: `PaperComponent`, `PaperProps`
 
 ## [v2.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2022-11-28)
 
