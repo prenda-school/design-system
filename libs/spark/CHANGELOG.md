@@ -5,8 +5,12 @@
 API surface:
 
 - **SparkThemeProvider**
-  - [feat] changed to inject styles first
-    - [revert] change in v2.0.0-alpha.6
+  - [revert] "[feat] changed to inject styles last (previously injected first)" from v2.0.0-alpha.7
+- **Unstable_ButtonButton**
+  - [revert] "[style] corrected text centering for all browsers (Chromium, Firefox, WebKit)" from v2.0.0-alpha.7
+  - [revert] "[style] corrected height across all variants, sizes" from v2.0.0-alpha.7
+- **Unstable_IconButton**
+  - [revert] "[style] corrected height across all variants, sizes" from v2.0.0-alpha.7
 
 ## [v2.0.0-alpha.7](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2022-11-28)
 

@@ -46,6 +46,7 @@ const styles: Styles<Unstable_BannerClassKey | PrivateClassKey> = (theme) => ({
   },
   action: {
     justifySelf: 'flex-end',
+    marginTop: -2,
   },
   /* Private */
   'private-root-severity-error': {
