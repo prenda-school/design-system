@@ -67,30 +67,30 @@ export type Unstable_ButtonClassKey =
   | 'leadingAvatar'
   | 'leadingIcon'
   | 'trailingIcon'
-  | 'label'
-  | 'private-textBaselineShift';
+  | 'label';
 
 type PrivateClassKey =
+  | 'private-root-size-small'
+  | 'private-root-size-medium'
+  | 'private-root-size-large'
+  | 'private-root-leadingAvatar-size-small'
+  | 'private-root-leadingAvatar-size-medium'
+  | 'private-root-leadingAvatar-size-large'
   | 'private-root-variant-primary'
-  | 'private-root-variant-primary-color-standard'
-  | 'private-root-variant-primary-color-inverse'
   | 'private-root-variant-stroked'
-  | 'private-root-variant-stroked-color-standard'
-  | 'private-root-variant-stroked-color-inverse'
+  | 'private-root-variant-stroked-size-small'
+  | 'private-root-variant-stroked-size-medium'
+  | 'private-root-variant-stroked-size-large'
+  | 'private-root-leadingAvatar-variant-stroked-size-small'
+  | 'private-root-leadingAvatar-variant-stroked-size-medium'
+  | 'private-root-leadingAvatar-variant-stroked-size-large'
   | 'private-root-variant-ghost'
   | 'private-root-variant-ghost-color-standard'
   | 'private-root-variant-ghost-color-inverse'
   | 'private-root-variant-destructive'
-  | 'private-root-size-small'
-  | 'private-root-size-medium'
-  | 'private-root-size-large'
   | 'private-root-disabled'
   | 'private-label-variant-primary'
-  | 'private-label-variant-primary-color-standard'
-  | 'private-label-variant-primary-color-inverse'
   | 'private-label-variant-stroked'
-  | 'private-label-variant-stroked-color-standard'
-  | 'private-label-variant-stroked-color-inverse'
   | 'private-label-variant-ghost'
   | 'private-label-variant-ghost-color-standard'
   | 'private-label-variant-ghost-color-inverse'
@@ -100,17 +100,13 @@ type PrivateClassKey =
   | 'private-label-size-large'
   | 'private-label-ariaExpanded'
   | 'private-label-disabled'
-  | 'private-leadingAvatar-size-small'
-  | 'private-leadingAvatar-size-medium'
-  | 'private-leadingAvatar-size-large'
   | 'private-leadingAvatar-disabled'
   | 'private-leadingIcon-size-small'
   | 'private-leadingIcon-size-medium'
   | 'private-leadingIcon-size-large'
   | 'private-trailingIcon-size-small'
   | 'private-trailingIcon-size-medium'
-  | 'private-trailingIcon-size-large'
-  | 'private-textBaselineShift';
+  | 'private-trailingIcon-size-large';
 
 // extracted since there's not an equivalent typography variant
 const buttonFontVariantSmall = buildVariant(
@@ -143,36 +139,65 @@ const buttonFontVariantLarge = buildVariant(
 
 const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    // double-specificity section for overriding v1 styles from STP
     '&&': {
-      border: theme.unstable_borders.transparent,
+      // override PDS v1 (requires double-specifity)
+      border: theme.unstable_borders.none,
       borderRadius: theme.unstable_radii.sm,
       '&.Mui-focusVisible, &:focus-visible': {
         boxShadow: theme.unstable_shadows.focus,
       },
+      // overide Bootstrap (requires double-specifity)
+      color: 'unset',
+      outline: 'unset',
+      outlineOffset: 'unset',
     },
   },
-  label: {},
+  label: {
+    gap: 8,
+  },
   leadingAvatar: {
     color: 'inherit',
     display: 'flex',
-    marginRight: 8,
   },
   leadingIcon: {
     color: 'inherit',
     display: 'flex',
     lineHeight: 1,
-    margin: '0 8px 0 0',
   },
   trailingIcon: {
     color: 'inherit',
     display: 'flex',
     lineHeight: 1,
-    margin: '0 0 0 8px',
   },
-  'private-textBaselineShift': {
-    marginTop: theme.unstable_typography.pxToRem(1),
-    marginBottom: theme.unstable_typography.pxToRem(-1),
+  'private-root-size-small': {
+    '&&': {
+      padding: '8px 16px',
+    },
+  },
+  'private-root-size-medium': {
+    '&&': {
+      padding: '12px 24px',
+    },
+  },
+  'private-root-size-large': {
+    '&&': {
+      padding: '20px 32px',
+    },
+  },
+  'private-root-leadingAvatar-size-small': {
+    '&&': {
+      padding: '4px 8px',
+    },
+  },
+  'private-root-leadingAvatar-size-medium': {
+    '&&': {
+      padding: '4px 16px',
+    },
+  },
+  'private-root-leadingAvatar-size-large': {
+    '&&': {
+      padding: '12px 24px',
+    },
   },
   'private-root-variant-primary': {
     '&&': {
@@ -188,8 +213,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
     },
   },
-  'private-root-variant-primary-color-standard': {},
-  'private-root-variant-primary-color-inverse': {},
   'private-root-variant-stroked': {
     '&&': {
       backgroundColor: theme.unstable_palette.neutral[0],
@@ -205,8 +228,36 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
     },
   },
-  'private-root-variant-stroked-color-standard': {},
-  'private-root-variant-stroked-color-inverse': {},
+  'private-root-variant-stroked-size-small': {
+    '&&': {
+      padding: '7px 15px',
+    },
+  },
+  'private-root-variant-stroked-size-medium': {
+    '&&': {
+      padding: '11px 23px',
+    },
+  },
+  'private-root-variant-stroked-size-large': {
+    '&&': {
+      padding: '19px 31px',
+    },
+  },
+  'private-root-leadingAvatar-variant-stroked-size-small': {
+    '&&': {
+      padding: '3px 7px',
+    },
+  },
+  'private-root-leadingAvatar-variant-stroked-size-medium': {
+    '&&': {
+      padding: '3px 15px',
+    },
+  },
+  'private-root-leadingAvatar-variant-stroked-size-large': {
+    '&&': {
+      padding: '11px 23px',
+    },
+  },
   'private-root-variant-ghost': {
     '&&': {
       backgroundColor: 'transparent',
@@ -256,21 +307,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
     },
   },
-  'private-root-size-small': {
-    '&&': {
-      padding: '8px 16px',
-    },
-  },
-  'private-root-size-medium': {
-    '&&': {
-      padding: '12px 24px',
-    },
-  },
-  'private-root-size-large': {
-    '&&': {
-      padding: '20px 32px',
-    },
-  },
   'private-root-disabled': {
     '&&': {
       backgroundColor: theme.unstable_palette.neutral[80],
@@ -290,13 +326,9 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-label-variant-primary': {
     color: theme.unstable_palette.neutral[0],
   },
-  'private-label-variant-primary-color-standard': {},
-  'private-label-variant-primary-color-inverse': {},
   'private-label-variant-stroked': {
     color: theme.unstable_palette.brand.blue,
   },
-  'private-label-variant-stroked-color-standard': {},
-  'private-label-variant-stroked-color-inverse': {},
   'private-label-variant-ghost': {},
   'private-label-variant-ghost-color-standard': {
     color: theme.unstable_palette.brand.blue,
@@ -312,21 +344,6 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-label-disabled': {
     color: theme.unstable_palette.text.disabled,
-  },
-  'private-leadingAvatar-size-small': {
-    marginBottom: -4,
-    marginLeft: -8,
-    marginTop: -4,
-  },
-  'private-leadingAvatar-size-medium': {
-    marginBottom: -8,
-    marginLeft: -8,
-    marginTop: -8,
-  },
-  'private-leadingAvatar-size-large': {
-    marginBottom: -8,
-    marginLeft: -8,
-    marginTop: -8,
   },
   'private-leadingAvatar-disabled': {
     opacity: 0.62,
@@ -373,13 +390,9 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
         size === 'small' ? 'small' : 'medium';
       leadingEl = (
         <span
-          className={clsx(
-            classes.leadingAvatar,
-            classes[`private-leadingAvatar-size-${size}`],
-            {
-              [classes['private-leadingAvatar-disabled']]: disabled,
-            }
-          )}
+          className={clsx(classes.leadingAvatar, {
+            [classes['private-leadingAvatar-disabled']]: disabled,
+          })}
         >
           {/* @ts-expect-error can't know if actually given an Unstable_Avatar instance, so prop may be invalid */}
           {cloneElement(leadingAvatar, { size: avatarSize })}
@@ -420,19 +433,29 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes.root,
             classes[`private-root-size-${size}`],
             classes[`private-root-variant-${variant}`],
-            classes[`private-root-variant-${variant}-color-${color}`],
             {
               [classes['private-root-disabled']]: disabled,
+              [classes[
+                `private-root-leadingAvatar-size-${size}`
+              ]]: !!leadingAvatar,
+              [classes[
+                `private-root-leadingAvatar-variant-stroked-size-${size}`
+              ]]: !!leadingAvatar && variant === 'stroked',
+              [classes[`private-root-variant-stroked-size-${size}`]]:
+                variant === 'stroked',
+              [classes[`private-root-variant-ghost-color-${color}`]]:
+                variant === 'ghost',
             }
           ),
           label: clsx(
             classes.label,
             classes[`private-label-size-${size}`],
             classes[`private-label-variant-${variant}`],
-            classes[`private-label-variant-${variant}-color-${color}`],
             {
               [classes['private-label-ariaExpanded']]: ariaExpanded,
               [classes['private-label-disabled']]: disabled,
+              [classes[`private-label-variant-ghost-color-${color}`]]:
+                variant === 'ghost',
             }
           ),
         }}
@@ -445,7 +468,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
         {...other}
       >
         {leadingEl}
-        <span className={classes['private-textBaselineShift']}>{children}</span>
+        {children}
         {trailingEl}
       </MuiButton>
     );

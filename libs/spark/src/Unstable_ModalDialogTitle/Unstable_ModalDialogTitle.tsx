@@ -28,7 +28,7 @@ const styles: Styles<Unstable_ModalDialogTitleClassKey> = {
   root: {
     flex: '0 0 auto',
     margin: 0,
-    padding: '24px 24px 8px 24px',
+    padding: '28px 24px 8px 24px',
     // dialog with close button
     '&:not(:first-child)': {
       paddingRight: 68,
