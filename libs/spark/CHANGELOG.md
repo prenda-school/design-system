@@ -1,6 +1,10 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.7...vNext) (YYYY-MM-DD)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.8...vNext) (YYYY-MM-DD)
+
+No changes.
+
+## [v2.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2022-11-30)
 
 API surface:
 
@@ -148,7 +152,7 @@ useToasts() -> useToasts_unstable()
 <Unstable_Paper variant='outlined'> -> <Unstable_Paper border='standard'>
 ```
 
-## [v2.0.0-alpha.5](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)
+## [v2.0.0-alpha.6](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-16)
 
 ### Fixes
 
