@@ -52,23 +52,17 @@ export type Unstable_IconButtonProps<
 export type Unstable_IconButtonClassKey = 'root' | 'label';
 
 type PrivateClassKey =
+  | 'private-root-size-small'
+  | 'private-root-size-medium'
   | 'private-root-variant-primary'
-  | 'private-root-variant-primary-color-standard'
-  | 'private-root-variant-primary-color-inverse'
   | 'private-root-variant-stroked'
-  | 'private-root-variant-stroked-color-standard'
-  | 'private-root-variant-stroked-color-inverse'
+  | 'private-root-variant-stroked-size-small'
+  | 'private-root-variant-stroked-size-medium'
   | 'private-root-variant-ghost'
   | 'private-root-variant-ghost-color-standard'
   | 'private-root-variant-ghost-color-inverse'
-  | 'private-root-size-small'
-  | 'private-root-size-medium'
   | 'private-label-variant-primary'
-  | 'private-label-variant-primary-color-standard'
-  | 'private-label-variant-primary-color-inverse'
   | 'private-label-variant-stroked'
-  | 'private-label-variant-stroked-color-standard'
-  | 'private-label-variant-stroked-color-inverse'
   | 'private-label-variant-ghost'
   | 'private-label-variant-ghost-color-standard'
   | 'private-label-variant-ghost-color-inverse'
@@ -79,7 +73,7 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   theme
 ) => ({
   root: {
-    border: theme.unstable_borders.transparent,
+    border: theme.unstable_borders.none,
     borderRadius: theme.unstable_radii.sm,
     '&.Mui-focusVisible, &:focus-visible': {
       boxShadow: theme.unstable_shadows.focus,
@@ -87,6 +81,12 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   },
   label: {
     fontSize: '1.5rem',
+  },
+  'private-root-size-small': {
+    padding: 4,
+  },
+  'private-root-size-medium': {
+    padding: 12,
   },
   'private-root-variant-primary': {
     backgroundColor: theme.unstable_palette.brand.blue,
@@ -103,8 +103,6 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
       backgroundColor: theme.unstable_palette.neutral[80],
     },
   },
-  'private-root-variant-primary-color-standard': {},
-  'private-root-variant-primary-color-inverse': {},
   'private-root-variant-stroked': {
     backgroundColor: theme.unstable_palette.neutral[0],
     border: theme.unstable_borders.standard,
@@ -121,8 +119,12 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
       backgroundColor: theme.unstable_palette.neutral[80],
     },
   },
-  'private-root-variant-stroked-color-standard': {},
-  'private-root-variant-stroked-color-inverse': {},
+  'private-root-variant-stroked-size-small': {
+    padding: 3,
+  },
+  'private-root-variant-stroked-size-medium': {
+    padding: 11,
+  },
   'private-root-variant-ghost': {},
   'private-root-variant-ghost-color-standard': {
     backgroundColor: 'transparent',
@@ -154,22 +156,12 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
       backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
     },
   },
-  'private-root-size-small': {
-    padding: 4,
-  },
-  'private-root-size-medium': {
-    padding: 12,
-  },
   'private-label-variant-primary': {
     color: theme.unstable_palette.neutral[0],
   },
-  'private-label-variant-primary-color-standard': {},
-  'private-label-variant-primary-color-inverse': {},
   'private-label-variant-stroked': {
     color: theme.unstable_palette.brand.blue,
   },
-  'private-label-variant-stroked-color-standard': {},
-  'private-label-variant-stroked-color-inverse': {},
   'private-label-variant-ghost': {},
   'private-label-variant-ghost-color-standard': {
     color: theme.unstable_palette.brand.blue,
@@ -203,17 +195,23 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
         classes={{
           root: clsx(
             classes.root,
+            classes[`private-root-size-${size}`],
             classes[`private-root-variant-${variant}`],
-            classes[`private-root-variant-${variant}-color-${color}`],
-            classes[`private-root-size-${size}`]
+            {
+              [classes[`private-root-variant-stroked-size-${size}`]]:
+                variant === 'stroked',
+              [classes[`private-root-variant-ghost-color-${color}`]]:
+                variant === 'ghost',
+            }
           ),
           label: clsx(
             classes.label,
             classes[`private-label-variant-${variant}`],
-            classes[`private-label-variant-${variant}-color-${color}`],
             {
               [classes['private-label-ariaExpanded']]: ariaExpanded,
               [classes['private-label-disabled']]: disabled,
+              [classes[`private-label-variant-ghost-color-${color}`]]:
+                variant === 'ghost',
             }
           ),
         }}
