@@ -21,7 +21,7 @@ export interface Unstable_LinkTypeMap<
       /**
        * The color of the link.
        */
-      color?: 'standard' | 'inherit';
+      color?: 'standard' | 'inverse' | 'inherit';
       /**
        * The variant of the link.
        */
@@ -41,8 +41,9 @@ export type Unstable_LinkClassKey = 'root';
 
 type PrivateClassKey =
   | 'private-root-standalone'
-  | 'private-root-color-inherit'
   | 'private-root-color-standard'
+  | 'private-root-color-inherit'
+  | 'private-root-color-inverse'
   | 'private-root-variant-alias'
   | 'private-root-variant-standard';
 
@@ -61,7 +62,30 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
   'private-root-standalone': {
     textDecoration: 'none',
   },
-  'private-root-color-inherit': { color: 'inherit' },
+  'private-root-color-inherit': {
+    color: 'inherit',
+    '&:hover': {
+      color: 'inherit',
+    },
+    '&:visited': {
+      color: 'inherit',
+      '&:hover': {
+        color: 'inherit',
+      },
+    },
+  },
+  'private-root-color-inverse': {
+    color: theme.unstable_palette.neutral[0],
+    '&:hover': {
+      color: theme.unstable_palette.neutral[80],
+    },
+    '&:visited': {
+      color: theme.unstable_palette.purple[200],
+      '&:hover': {
+        color: theme.unstable_palette.purple[100],
+      },
+    },
+  },
   'private-root-color-standard': {
     color: theme.unstable_palette.blue['600'],
     '&:hover': {

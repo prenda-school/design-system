@@ -6,6 +6,9 @@ API surface:
 
 - **Unstable_Card**
   - [fix] required props that should be optional: `orientation`
+- **Unstable_Link**
+  - [feat] add `color` prop value: `inverse`
+  - [style] prevent non-inherited hover or visited colors when `color="inherit"`
 - **Unstable_Paper**
   - [fix] required props that should be optional: `bgcolor`
 

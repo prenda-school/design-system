@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { theme, Unstable_Link, Unstable_LinkProps } from '..';
-import { containFocusIndicator } from '../../stories';
+import { containFocusIndicator, inverseBackground } from '../../stories';
 
 export const _retyped = Unstable_Link as typeof Unstable_Link;
 
@@ -77,6 +77,37 @@ StandaloneVisitedFocusVisible.parameters = {
   pseudo: { visited: true, focusVisible: true },
 };
 StandaloneVisitedFocusVisible.storyName = 'standalone :visited :focus-visible';
+
+const ColorInverseTemplate = (args) => (
+  <span style={{ padding: '0px 4px' }}>
+    <Unstable_Link {...args}>Text</Unstable_Link>
+  </span>
+);
+
+export const ColorInverse: Story = ColorInverseTemplate.bind({});
+ColorInverse.args = { color: 'inverse' };
+ColorInverse.decorators = [inverseBackground];
+ColorInverse.storyName = 'color="inverse"';
+
+export const ColorInverseHover: Story = ColorInverseTemplate.bind({});
+ColorInverseHover.args = { color: 'inverse' };
+ColorInverseHover.decorators = [inverseBackground];
+ColorInverseHover.parameters = { pseudo: { visited: false, hover: true } };
+ColorInverseHover.storyName = 'color="inverse" :hover';
+
+export const ColorInverseVisited: Story = ColorInverseTemplate.bind({});
+ColorInverseVisited.args = { color: 'inverse' };
+ColorInverseVisited.decorators = [inverseBackground];
+ColorInverseVisited.parameters = { pseudo: { visited: true } };
+ColorInverseVisited.storyName = 'color="inverse" :visited';
+
+export const ColorInverseVisitedHover: Story = ColorInverseTemplate.bind({});
+ColorInverseVisitedHover.args = { color: 'inverse' };
+ColorInverseVisitedHover.decorators = [inverseBackground];
+ColorInverseVisitedHover.parameters = {
+  pseudo: { visited: true, hover: true },
+};
+ColorInverseVisitedHover.storyName = 'color="inverse" :visited :hover';
 
 const ColorInheritTemplate = (args) => (
   <span style={{ color: '#a72100' }}>
