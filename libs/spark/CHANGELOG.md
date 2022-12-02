@@ -2,7 +2,12 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.8...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **Unstable_Card**
+  - [fix] required props that should be optional: `orientation`
+- **Unstable_Paper**
+  - [fix] required props that should be optional: `bgcolor`
 
 ## [v2.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2022-11-30)
 

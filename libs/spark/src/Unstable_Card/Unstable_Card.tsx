@@ -11,7 +11,7 @@ export interface Unstable_CardTypeMap<
 > {
   props: P &
     Unstable_PaperProps & {
-      orientation: 'horizontal' | 'vertical';
+      orientation?: 'horizontal' | 'vertical';
     };
   defaultComponent: D;
   classKey: Unstable_CardClassKey;

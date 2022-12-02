@@ -17,7 +17,7 @@ export interface Unstable_PaperTypeMap<
     /**
      * Background color.
      */
-    bgcolor: keyof Unstable_Palette['background'];
+    bgcolor?: keyof Unstable_Palette['background'];
     /**
      * Border styling.
      */
