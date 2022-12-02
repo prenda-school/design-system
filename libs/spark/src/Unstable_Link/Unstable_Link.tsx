@@ -15,13 +15,17 @@ export interface Unstable_LinkTypeMap<
   props: P &
     Omit<MuiLinkProps, 'color' | 'classes' | 'underline' | 'variant'> & {
       /**
+       * Whether the link suppresses line breaks (text wrapping).
+       */
+      nowrap?: boolean;
+      /**
        * Whether the link is displayed alone (not inline with other text). Removes "underline" text-decoration of the link.
        */
       standalone?: boolean;
       /**
        * The color of the link.
        */
-      color?: 'standard' | 'inherit';
+      color?: 'standard' | 'inverse' | 'inherit';
       /**
        * The variant of the link.
        */
@@ -41,10 +45,12 @@ export type Unstable_LinkClassKey = 'root';
 
 type PrivateClassKey =
   | 'private-root-standalone'
-  | 'private-root-color-inherit'
   | 'private-root-color-standard'
+  | 'private-root-color-inherit'
+  | 'private-root-color-inverse'
   | 'private-root-variant-alias'
-  | 'private-root-variant-standard';
+  | 'private-root-variant-standard'
+  | 'private-root-nowrap';
 
 const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
@@ -61,7 +67,30 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
   'private-root-standalone': {
     textDecoration: 'none',
   },
-  'private-root-color-inherit': { color: 'inherit' },
+  'private-root-color-inherit': {
+    color: 'inherit',
+    '&:hover': {
+      color: 'inherit',
+    },
+    '&:visited': {
+      color: 'inherit',
+      '&:hover': {
+        color: 'inherit',
+      },
+    },
+  },
+  'private-root-color-inverse': {
+    color: theme.unstable_palette.neutral[0],
+    '&:hover': {
+      color: theme.unstable_palette.neutral[80],
+    },
+    '&:visited': {
+      color: theme.unstable_palette.purple[200],
+      '&:hover': {
+        color: theme.unstable_palette.purple[100],
+      },
+    },
+  },
   'private-root-color-standard': {
     color: theme.unstable_palette.blue['600'],
     '&:hover': {
@@ -73,6 +102,9 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
         color: theme.unstable_palette.purple[400],
       },
     },
+  },
+  'private-root-nowrap': {
+    whiteSpace: 'nowrap',
   },
   'private-root-variant-alias': {},
   'private-root-variant-standard': {
@@ -86,6 +118,7 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
       classes,
       color = 'standard',
       variant = 'standard',
+      nowrap,
       standalone,
       ...other
     } = props;
@@ -98,6 +131,7 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
             classes[`private-root-color-${color}`],
             classes[`private-root-variant-${variant}`],
             {
+              [classes[`private-root-nowrap`]]: nowrap,
               [classes[`private-root-standalone`]]: standalone,
             }
           ),
