@@ -12,6 +12,9 @@ API surface:
   - [feat] add `nowrap` prop
 - **Unstable_Paper**
   - [fix] required props that should be optional: `bgcolor`
+- **useToasts_unstable**
+  - [fix] value changing every render or action (i.e. close, closeAll, enqueue)
+    - changed to a (reasonably) stable reference
 
 ## [v2.0.0-alpha.8](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2022-11-30)
 

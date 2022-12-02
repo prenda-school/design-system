@@ -54,18 +54,21 @@ const messageNode = (
 const Children = () => {
   const toasts = useToasts_unstable();
 
-  const [lastId, setLastId] = useState<ReturnType<typeof toasts.enqueue>>();
+  const [ids, setIds] = useState<Array<ReturnType<typeof toasts.enqueue>>>([]);
 
   const handleClickWith = (
     children: ReactNode,
     options?: Parameters<typeof toasts.enqueue>[1]
   ) => () => {
     const id = toasts.enqueue(children, options);
-    setLastId(id);
+    setIds((ids) => ids.concat(id));
   };
+
   const handleCloseLastClick = () => {
-    toasts.close(lastId);
+    toasts.close(ids[ids.length - 1]);
+    setIds((ids) => ids.slice(0, -1));
   };
+
   const handleCloseAllClick = () => {
     toasts.closeAll();
   };

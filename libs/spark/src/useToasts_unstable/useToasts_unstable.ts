@@ -2,22 +2,24 @@ import {
   OptionsObject as NotistackOptionsObject,
   useSnackbar as useNotistackSnackbar,
 } from 'notistack';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { Unstable_ToastsContextValue } from '../Unstable_ToastsContext';
 
 const useToasts_unstable = (): Unstable_ToastsContextValue => {
-  const notistackSnackbar = useNotistackSnackbar();
+  const _notistackSnackbar = useNotistackSnackbar();
 
-  const close: Unstable_ToastsContextValue['close'] = useCallback(
-    (id) => {
-      notistackSnackbar.closeSnackbar(id);
-    },
-    [notistackSnackbar]
-  );
+  const notistackSnackbarRef = useRef(_notistackSnackbar);
+  useEffect(() => {
+    notistackSnackbarRef.current = _notistackSnackbar;
+  });
+
+  const close: Unstable_ToastsContextValue['close'] = useCallback((id) => {
+    notistackSnackbarRef.current.closeSnackbar(id);
+  }, []);
 
   const closeAll: Unstable_ToastsContextValue['closeAll'] = useCallback(() => {
-    notistackSnackbar.closeSnackbar();
-  }, [notistackSnackbar]);
+    notistackSnackbarRef.current.closeSnackbar();
+  }, []);
 
   const enqueue: Unstable_ToastsContextValue['enqueue'] = useCallback(
     (children, options = {}) => {
@@ -32,7 +34,7 @@ const useToasts_unstable = (): Unstable_ToastsContextValue => {
           ? { vertical: 'bottom', horizontal: 'right' }
           : { vertical: 'bottom', horizontal: 'left' };
 
-      return notistackSnackbar.enqueueSnackbar({
+      return notistackSnackbarRef.current.enqueueSnackbar({
         anchorOrigin,
         key: id,
         message: children as string,
@@ -41,10 +43,14 @@ const useToasts_unstable = (): Unstable_ToastsContextValue => {
         hideIconVariant: true,
       });
     },
-    [notistackSnackbar]
+    []
   );
 
-  return { close, closeAll, enqueue };
+  const value = useMemo(() => {
+    return { close, closeAll, enqueue };
+  }, [close, closeAll, enqueue]);
+
+  return value;
 };
 
 export default useToasts_unstable;
