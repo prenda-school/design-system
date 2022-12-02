@@ -15,6 +15,10 @@ export interface Unstable_LinkTypeMap<
   props: P &
     Omit<MuiLinkProps, 'color' | 'classes' | 'underline' | 'variant'> & {
       /**
+       * Whether the link suppresses line breaks (text wrapping).
+       */
+      nowrap?: boolean;
+      /**
        * Whether the link is displayed alone (not inline with other text). Removes "underline" text-decoration of the link.
        */
       standalone?: boolean;
@@ -45,7 +49,8 @@ type PrivateClassKey =
   | 'private-root-color-inherit'
   | 'private-root-color-inverse'
   | 'private-root-variant-alias'
-  | 'private-root-variant-standard';
+  | 'private-root-variant-standard'
+  | 'private-root-nowrap';
 
 const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
@@ -98,6 +103,9 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
       },
     },
   },
+  'private-root-nowrap': {
+    whiteSpace: 'nowrap',
+  },
   'private-root-variant-alias': {},
   'private-root-variant-standard': {
     ...theme.unstable_typography.body,
@@ -110,6 +118,7 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
       classes,
       color = 'standard',
       variant = 'standard',
+      nowrap,
       standalone,
       ...other
     } = props;
@@ -122,6 +131,7 @@ const Unstable_Link: OverridableComponent<Unstable_LinkTypeMap> = forwardRef(
             classes[`private-root-color-${color}`],
             classes[`private-root-variant-${variant}`],
             {
+              [classes[`private-root-nowrap`]]: nowrap,
               [classes[`private-root-standalone`]]: standalone,
             }
           ),

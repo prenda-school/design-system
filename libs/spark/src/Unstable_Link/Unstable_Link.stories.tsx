@@ -119,6 +119,17 @@ export const ColorInherit: Story = ColorInheritTemplate.bind({});
 ColorInherit.args = { color: 'inherit' };
 ColorInherit.storyName = 'color=inherit';
 
+const NowrapTemplate = (args) => (
+  <span style={{ ...theme.unstable_typography.body, width: 200 }}>
+    Other words wrapping in a container but not{' '}
+    <Unstable_Link {...args}>many words of text</Unstable_Link>
+  </span>
+);
+
+export const Nowrap: Story = NowrapTemplate.bind({});
+Nowrap.args = { nowrap: true };
+Nowrap.storyName = 'nowrap';
+
 const VariantAliasTemplate = (args) => (
   <span style={{ ...theme.unstable_typography.label }}>
     <Unstable_Link {...args}>Text</Unstable_Link>

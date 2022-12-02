@@ -9,6 +9,7 @@ API surface:
 - **Unstable_Link**
   - [feat] add `color` prop value: `inverse`
   - [style] prevent non-inherited hover or visited colors when `color="inherit"`
+  - [feat] add `nowrap` prop
 - **Unstable_Paper**
   - [fix] required props that should be optional: `bgcolor`
 
