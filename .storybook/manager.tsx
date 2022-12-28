@@ -22,7 +22,7 @@ const config: Config = {
     base: 'light',
     brandTitle: 'Prenda Design System',
     brandUrl: 'https://github.com/prenda-school/design-system',
-    brandImage: '/img/pds-brand-image.svg',
+    brandImage: '/img/prenda-design-system-combination-mark-logo.svg',
   }),
 };
 
