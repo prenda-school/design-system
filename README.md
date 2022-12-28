@@ -1,9 +1,9 @@
 <p align="center">
   
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo-inverse.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo.svg">
-  <img alt="Prenda Design System logo" src="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo.svg" width="128">
+  <source media="(prefers-color-scheme: dark)" srcset="public/img/prenda-design-system-abstract-mark-logo-inverse.svg">
+  <source media="(prefers-color-scheme: light)" srcset="public/img/prenda-design-system-abstract-mark-logo.svg">
+  <img alt="Prenda Design System logo" src="public/img/prenda-design-system-abstract-mark-logo.svg" width="128">
 </picture>
 
 </p>
@@ -16,7 +16,7 @@
   </p>
 
 [![Contributors](https://img.shields.io/github/contributors/prenda-school/design-system)](https://github.com/prenda-school/design-system/graphs/contributors)
-[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/prenda-school/design-system/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest)](https://www.npmjs.com/package/@prenda/spark)
 [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark)](https://www.npmjs.com/package/@prenda/spark)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org)
@@ -70,8 +70,8 @@ Read the [contributing guide](/CONTRIBUTING.md) to learn about our development p
 
 Read the changelog of each library to address breaking changes and learn about new features and fixes.
 
-- [`@prenda/spark/CHANGELOG`](https://github.com/prenda-school/design-system/blob/main/libs/spark/CHANGELOG.md)
-- [`@prenda/spark-icons/CHANGELOG`](https://github.com/prenda-school/design-system/blob/main/libs/spark-icons/CHANGELOG.md)
+- [`@prenda/spark/CHANGELOG`](libs/spark/CHANGELOG.md)
+- [`@prenda/spark-icons/CHANGELOG`](libs/spark-icons/CHANGELOG.md)
 
 ## License
 
