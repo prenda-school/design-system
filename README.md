@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo-inverse.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo.svg">
-  <img alt="Prenda Design System logo" src="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo.svg">
+  <img alt="Prenda Design System logo" src="https://github.com/prenda-school/design-system/blob/main/public/img/prenda-design-system-abstract-mark-logo.svg" width="128">
 </picture>
 
 </p>
