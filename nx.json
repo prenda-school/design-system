@@ -24,24 +24,6 @@
       }
     }
   },
-  "projects": {
-    "example-nextjs": {
-      "tags": []
-    },
-    "spark": {
-      "tags": []
-    },
-    "spark-e2e": {
-      "tags": [],
-      "implicitDependencies": ["spark"]
-    },
-    "spark-icons": {
-      "tags": []
-    },
-    "workspace": {
-      "tags": []
-    }
-  },
   "cli": {
     "defaultCollection": "@nrwl/react"
   },

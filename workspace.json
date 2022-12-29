@@ -58,7 +58,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": []
     },
     "spark": {
       "root": "libs/spark",
@@ -144,7 +145,8 @@
             "syncVersions": false
           }
         }
-      }
+      },
+      "tags": []
     },
     "spark-e2e": {
       "root": "apps/spark-e2e",
@@ -177,7 +179,9 @@
             "syncVersions": false
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["spark"]
     },
     "spark-icons": {
       "root": "libs/spark-icons",
@@ -224,7 +228,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "workspace": {
       "targets": {
@@ -235,7 +240,8 @@
           }
         }
       },
-      "root": "."
+      "root": ".",
+      "tags": []
     }
   }
 }
