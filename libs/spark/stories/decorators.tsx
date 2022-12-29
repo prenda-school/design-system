@@ -5,7 +5,7 @@ import { SparkThemeProvider, styled } from '../src';
 /**
  * [Internal] A Storybook decorator that wraps a story in the `SparkThemeProvider`.
  */
-export const sparkThemeProvider: DecoratorFn = (Story) => (
+export const sparkThemeProvider = (Story) => (
   <SparkThemeProvider>
     <Story />
   </SparkThemeProvider>
@@ -112,7 +112,7 @@ const MediumWidthDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that is a medium width (256px) container.
  */
-export const mediumWidth: DecoratorFn = (Story) => (
+export const mediumWidth = (Story) => (
   <MediumWidthDiv>
     <Story />
   </MediumWidthDiv>
