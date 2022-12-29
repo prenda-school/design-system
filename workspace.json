@@ -237,22 +237,5 @@
       },
       "root": "."
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "defaultProject": "example-nextjs",
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
-    }
   }
 }
