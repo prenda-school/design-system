@@ -91,10 +91,13 @@
     "@storybook/addon-essentials": "^6.3.8",
     "@storybook/addon-links": "^6.3.8",
     "@storybook/addon-storyshots": "^6.3.8",
+    "@storybook/builder-webpack5": "^6.3.8",
+    "@storybook/manager-webpack5": "^6.3.8",
     "@storybook/react": "^6.3.8",
     "@svgr/webpack": "^5.4.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "12.1.2",
+    "@testing-library/react-hooks": "7.0.2",
     "@types/jest": "27.0.2",
     "@types/node": "14.14.33",
     "@types/react": "17.0.30",
@@ -133,8 +136,6 @@
     "ts-node": "~9.1.1",
     "typescript": "4.3.5",
     "url-loader": "^3.0.0",
-    "yargs": "^17.1.1",
-    "@storybook/builder-webpack5": "^6.3.8",
-    "@storybook/manager-webpack5": "^6.3.8"
+    "yargs": "^17.1.1"
   }
 }
