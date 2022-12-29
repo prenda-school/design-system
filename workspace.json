@@ -138,12 +138,6 @@
               "quiet": true
             }
           }
-        },
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": false
-          }
         }
       },
       "tags": []
@@ -172,12 +166,6 @@
             "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
           },
           "outputs": ["{options.outputFile}"]
-        },
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": false
-          }
         }
       },
       "tags": [],
@@ -229,18 +217,6 @@
           }
         }
       },
-      "tags": []
-    },
-    "workspace": {
-      "targets": {
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": true
-          }
-        }
-      },
-      "root": ".",
       "tags": []
     }
   }

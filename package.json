@@ -76,7 +76,6 @@
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.12.13",
     "@emotion/babel-plugin": "11.3.0",
-    "@jscutlery/semver": "^2.6.0",
     "@nrwl/cli": "13.5.0",
     "@nrwl/cypress": "13.5.0",
     "@nrwl/eslint-plugin-nx": "13.5.0",
