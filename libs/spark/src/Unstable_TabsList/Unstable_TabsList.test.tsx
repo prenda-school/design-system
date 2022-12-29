@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_Tabs from '../Unstable_Tabs';
 import Unstable_TabsList from './Unstable_TabsList';
 

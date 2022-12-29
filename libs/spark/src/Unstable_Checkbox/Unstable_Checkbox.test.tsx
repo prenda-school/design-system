@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_Checkbox from './Unstable_Checkbox';
 
 describe('Unstable_Checkbox', () => {

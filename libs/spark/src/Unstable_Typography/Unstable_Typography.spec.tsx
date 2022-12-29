@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_Typography from './Unstable_Typography';
 
 describe('Unstable_Typography', () => {

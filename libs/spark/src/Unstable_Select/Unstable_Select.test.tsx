@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import MenuItem from '../MenuItem';
 import Unstable_Select from './Unstable_Select';
 

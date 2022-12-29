@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import DropdownContext from '../DropdownContext';
 import Unstable_Menu from '../Unstable_Menu';
 import DropdownMenu from './DropdownMenu';
