@@ -111,7 +111,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
-            "staticDirs": ["libs/spark/public"],
+            "staticDir": ["libs/spark/public"],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
@@ -128,7 +128,7 @@
           "options": {
             "uiFramework": "@storybook/react",
             "outputPath": "dist/storybook/spark",
-            "staticDirs": ["libs/spark/public"],
+            "staticDir": ["libs/spark/public"],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
