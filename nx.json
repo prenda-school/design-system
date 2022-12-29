@@ -58,5 +58,13 @@
       }
     }
   },
-  "defaultProject": "example-nextjs"
+  "defaultProject": "example-nextjs",
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  }
 }
