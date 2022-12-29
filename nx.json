@@ -35,10 +35,10 @@
       "tags": [],
       "implicitDependencies": ["spark"]
     },
-    "workspace": {
+    "spark-icons": {
       "tags": []
     },
-    "spark-icons": {
+    "workspace": {
       "tags": []
     }
   },
