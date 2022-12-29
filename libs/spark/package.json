@@ -1,8 +1,8 @@
 {
   "name": "@prenda/spark",
   "version": "2.0.0-alpha.9",
-  "author": "Prenda",
-  "license": "MIT",
+  "author": "Prenda, Inc.",
+  "license": "UNLICENSED",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

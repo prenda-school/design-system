@@ -121,8 +121,8 @@ async function run() {
     await Promise.all(
       [
         path.resolve(relativeInDir, './README.md'),
-        // path.resolve(relativeInDir, './CHANGELOG.md'),
-        // path.resolve(relativeInDir, './LICENSE'),
+        path.resolve(relativeInDir, './CHANGELOG.md'),
+        path.resolve(relativeInDir, './LICENSE'),
       ].map((file) => includeFileInBuild(file))
     );
 

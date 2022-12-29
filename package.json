@@ -1,6 +1,7 @@
 {
   "name": "prenda-spark",
-  "license": "MIT",
+  "author": "Prenda, Inc.",
+  "license": "UNLICENSED",
   "scripts": {
     "nx": "nx",
     "start": "nx serve",

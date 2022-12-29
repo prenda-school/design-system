@@ -16,7 +16,6 @@
   </p>
 
 [![Contributors](https://img.shields.io/github/contributors/prenda-school/design-system)](https://github.com/prenda-school/design-system/graphs/contributors)
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest)](https://www.npmjs.com/package/@prenda/spark)
 [![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark)](https://www.npmjs.com/package/@prenda/spark)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org)
@@ -73,9 +72,11 @@ Read the changelog of each library to address breaking changes and learn about n
 - [`@prenda/spark/CHANGELOG`](libs/spark/CHANGELOG.md)
 - [`@prenda/spark-icons/CHANGELOG`](libs/spark-icons/CHANGELOG.md)
 
-## License
+## No license
 
-This project is licensed under the terms of the [MIT license](/LICENSE).
+Copyright (C) 2021 Prenda, Inc. -- All Rights Reserved
+
+This project is not licensed. Prenda, Inc. is the copyright holder and retains all rights to the source code, and no one may reproduce, distribute, or create derivative works of this project.
 
 ## About
 
