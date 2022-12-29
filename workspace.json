@@ -8,7 +8,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "defaultConfiguration": "production",
           "options": {
             "root": "apps/example-nextjs",
@@ -45,7 +47,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/example-nextjs"],
+          "outputs": [
+            "coverage/apps/example-nextjs"
+          ],
           "options": {
             "jestConfig": "apps/example-nextjs/jest.config.ts",
             "passWithNoTests": true
@@ -54,9 +58,13 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/example-nextjs/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/example-nextjs/**/*.{ts,tsx,js,jsx}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -68,7 +76,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:rollup",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/spark",
             "tsConfig": "libs/spark/tsconfig.lib.json",
@@ -94,13 +104,19 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/spark/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/spark/**/*.{ts,tsx,js,jsx}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/spark"],
+          "outputs": [
+            "coverage/libs/spark"
+          ],
           "options": {
             "jestConfig": "libs/spark/jest.config.js",
             "passWithNoTests": true
@@ -111,7 +127,9 @@
           "options": {
             "uiFramework": "@storybook/react",
             "port": 4400,
-            "staticDir": ["libs/spark/public"],
+            "staticDir": [
+              "libs/spark/public"
+            ],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
@@ -124,11 +142,15 @@
         },
         "build-storybook": {
           "executor": "@nrwl/storybook:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "uiFramework": "@storybook/react",
             "outputPath": "dist/storybook/spark",
-            "staticDir": ["libs/spark/public"],
+            "staticDir": [
+              "libs/spark/public"
+            ],
             "config": {
               "configFolder": "libs/spark/.storybook"
             }
@@ -163,13 +185,19 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/spark-e2e/**/*.{js,ts}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": [],
-      "implicitDependencies": ["spark"]
+      "implicitDependencies": [
+        "spark"
+      ]
     },
     "spark-icons": {
       "root": "libs/spark-icons",
@@ -178,7 +206,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:rollup",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/spark-icons",
             "tsConfig": "libs/spark-icons/tsconfig.lib.json",
@@ -204,13 +234,19 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/spark-icons/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/spark-icons/**/*.{ts,tsx,js,jsx}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/spark-icons"],
+          "outputs": [
+            "coverage/libs/spark-icons"
+          ],
           "options": {
             "jestConfig": "libs/spark-icons/jest.config.js",
             "passWithNoTests": true
