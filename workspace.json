@@ -25,11 +25,11 @@
             "project": "libs/spark/package.json",
             "entryFile": "libs/spark/src/index.ts",
             "external": [
+              "@material-ui/core",
+              "@material-ui/lab",
               "react",
               "react-dom",
-              "react-is",
-              "@material-ui/core",
-              "@material-ui/lab"
+              "react/jsx-runtime"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -104,10 +104,9 @@
             "project": "libs/spark-icons/package.json",
             "entryFile": "libs/spark-icons/src/index.ts",
             "external": [
+              "@material-ui/core",
               "react",
               "react-dom",
-              "react-is",
-              "@material-ui/core",
               "react/jsx-runtime"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
