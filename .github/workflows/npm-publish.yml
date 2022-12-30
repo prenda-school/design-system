@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Test
-        run: npx nx run spark:test && npx nx run spark-e2e:e2e
+        run: npx nx run spark:test
 
       - name: Get the version
         id: get_version

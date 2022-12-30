@@ -28,10 +28,6 @@
     "spark": {
       "tags": []
     },
-    "spark-e2e": {
-      "tags": [],
-      "implicitDependencies": ["spark"]
-    },
     "workspace": {
       "tags": []
     },

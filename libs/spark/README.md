@@ -42,8 +42,6 @@ The Spark theme refers to font files for _Nunito_, which should be served at the
 Run tests with `nx run spark:test`.
 Spark uses Jest tests with React Testing Library.
 
-To run end-to-end tests with [Cypress.io](https://www.cypress.io/), run `nx run spark-e2e:e2e`, and add the `--watch` flag to keep the Cypress test runner open and manually run specific Cypress tests.
-
 ## WIP and TODOS
 
 - Please see the Asana board for all current WIP and TODOS https://app.asana.com/share/prenda/spark-v1-release-wip-and-todos/995455616843969/2480fe89c9ef452f98b70ba4d981caa9
