@@ -1,6 +1,6 @@
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const rootWebpackConfig = require('../../../.storybook/webpack.config');
-const path = require('path');
+
 /**
  * Export a function. Accept the base config as the only param.
  *
@@ -16,11 +16,6 @@ module.exports = async ({ config, mode }) => {
   config.resolve.plugins
     ? config.resolve.plugins.push(tsPaths)
     : (config.resolve.plugins = [tsPaths]);
-
-  config.resolve.alias['@prenda/spark-icons'] = path.resolve(
-    __dirname,
-    '../../spark-icons/src'
-  );
 
   // Found this here: https://github.com/nrwl/nx/issues/2859
   // And copied the part of the solution that made it work

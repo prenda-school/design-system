@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
-import { GearFilled } from '@prenda/spark-icons';
 import StepIcon from './StepIcon';
+import SvgIcon from '../SvgIcon';
 
 describe('StepIcon', () => {
   it('renders number icon', () => {
@@ -39,7 +39,16 @@ describe('StepIcon', () => {
   });
 
   it('renders custom icon', () => {
-    const { getByTestId } = render(<StepIcon icon={<GearFilled />} />);
-    expect(getByTestId('GearFilledIcon')).not.toBe(null);
+    const testId = 'Spec_CircleIcon';
+    const { getByTestId } = render(
+      <StepIcon
+        icon={
+          <SvgIcon data-testid={testId}>
+            <circle key="0" fill="#fafbfc" cx="12" cy="12" r="9" />
+          </SvgIcon>
+        }
+      />
+    );
+    expect(getByTestId(testId)).not.toBe(null);
   });
 });
