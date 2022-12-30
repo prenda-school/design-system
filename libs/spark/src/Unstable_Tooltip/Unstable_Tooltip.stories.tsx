@@ -11,9 +11,9 @@ import { DecoratorFn } from '@storybook/react';
 
 export const _retyped = Unstable_Tooltip as typeof Unstable_Tooltip;
 
-const pad: DecoratorFn = (Story) => (
+const pad: DecoratorFn = (Story, context) => (
   <div style={{ padding: '80px 120px' }}>
-    <Story />
+    <Story {...context} />
   </div>
 );
 
