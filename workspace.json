@@ -87,25 +87,8 @@
               "quiet": true
             }
           }
-        },
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": false
-          }
         }
       }
-    },
-    "workspace": {
-      "targets": {
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": true
-          }
-        }
-      },
-      "root": "."
     },
     "spark-icons": {
       "root": "libs/spark-icons",
