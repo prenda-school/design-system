@@ -1,3 +1,3 @@
-module.exports = {
-  projects: ['<rootDir>/libs/spark', '<rootDir>/libs/spark-icons'],
-};
+const { getJestProjects } = require('@nrwl/jest');
+
+module.exports = { projects: getJestProjects() };
