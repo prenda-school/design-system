@@ -2,11 +2,7 @@ const rootMain = require('../../../.storybook/main');
 
 // Use the following syntax to add addons!
 // rootMain.addons.push('');
-rootMain.addons.push(
-  '@storybook/addon-links',
-  '@storybook/addon-essentials',
-  'storybook-addon-pseudo-states'
-);
+rootMain.addons.push('@storybook/addon-links', 'storybook-addon-pseudo-states');
 rootMain.stories.push('../**/*.stories.@(js|jsx|ts|tsx|mdx)');
 
 rootMain.typescript = {
