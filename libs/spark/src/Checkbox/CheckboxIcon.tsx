@@ -23,10 +23,11 @@ const CheckboxIconRoot = styled('span')(
       },
       '&:focus-visible, input:focus-visible ~ &': {
         boxShadow: `0 0 0 4px ${palette.blue[1]}`,
-        '&:not(.CheckboxIcon-checked):not(.CheckboxIcon-indeterminate) .CheckboxIcon-box': {
-          color: palette.blue[3],
-          backgroundColor: palette.common.white,
-        },
+        '&:not(.CheckboxIcon-checked):not(.CheckboxIcon-indeterminate) .CheckboxIcon-box':
+          {
+            color: palette.blue[3],
+            backgroundColor: palette.common.white,
+          },
       },
     },
     '&.CheckboxIcon-checked': {

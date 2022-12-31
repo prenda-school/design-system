@@ -30,14 +30,13 @@ const styles: Styles<Unstable_ModalDialogContentTextClassKey> = {
   },
 };
 
-const Unstable_ModalDialogContentText: OverridableComponent<Unstable_ModalDialogContentTextTypeMap> = forwardRef(
-  function Unstable_ModalDialogContentText(props, ref) {
+const Unstable_ModalDialogContentText: OverridableComponent<Unstable_ModalDialogContentTextTypeMap> =
+  forwardRef(function Unstable_ModalDialogContentText(props, ref) {
     return (
       // @ts-expect-error ref??
       <Unstable_Typography component="p" variant="body" ref={ref} {...props} />
     );
-  }
-);
+  });
 
 export default withStyles(styles, {
   name: 'MuiSparkUnstable_ModalDialogContentText',

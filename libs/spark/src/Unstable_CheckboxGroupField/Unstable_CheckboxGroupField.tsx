@@ -101,7 +101,7 @@ const Unstable_CheckboxGroupField = forwardRef<
       fullWidth={fullWidth}
       id={id}
       // @ts-expect-error not identical types
-      ref={(ref as unknown) as RefObject<HTMLFieldSetElement>}
+      ref={ref as unknown as RefObject<HTMLFieldSetElement>}
       required={required}
       role="group"
       {...other}
@@ -113,9 +113,7 @@ const Unstable_CheckboxGroupField = forwardRef<
             component="legend"
             id={labelId}
             // @ts-expect-error not identical types
-            ref={
-              (FormLabelProps?.ref as unknown) as RefObject<HTMLLegendElement>
-            }
+            ref={FormLabelProps?.ref as unknown as RefObject<HTMLLegendElement>}
             {...FormLabelProps}
           >
             {label}

@@ -6,7 +6,8 @@ import {
   Unstable_ModalDialogActionsProps,
 } from '..';
 
-export const _retyped = Unstable_ModalDialogActions as typeof Unstable_ModalDialogActions;
+export const _retyped =
+  Unstable_ModalDialogActions as typeof Unstable_ModalDialogActions;
 
 export default {
   title: '@ps/ModalDialogActions',

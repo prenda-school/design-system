@@ -58,8 +58,8 @@ const styles: Styles<Unstable_DividerClassKey | PrivateClassKey> = (theme) => ({
   },
 });
 
-const Unstable_Divider: OverridableComponent<Unstable_DividerTypeMap> = forwardRef(
-  function Unstable_Divider(props, ref) {
+const Unstable_Divider: OverridableComponent<Unstable_DividerTypeMap> =
+  forwardRef(function Unstable_Divider(props, ref) {
     const { classes, darker, ...other } = props;
 
     return (
@@ -75,8 +75,7 @@ const Unstable_Divider: OverridableComponent<Unstable_DividerTypeMap> = forwardR
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_Divider' })(
   Unstable_Divider

@@ -194,12 +194,10 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
             {
               [classes['private-root-value']]: value,
               [classes['private-root-multiline']]: multiline,
-              [classes[
-                `private-root-size-${formControl.size}-leadingEl`
-              ]]: leadingEl,
-              [classes[
-                `private-root-size-${formControl.size}-trailingEl`
-              ]]: trailingEl,
+              [classes[`private-root-size-${formControl.size}-leadingEl`]]:
+                leadingEl,
+              [classes[`private-root-size-${formControl.size}-trailingEl`]]:
+                trailingEl,
               [classes['private-root-success']]: formControl.success,
             }
           ),

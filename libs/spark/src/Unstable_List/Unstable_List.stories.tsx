@@ -231,9 +231,8 @@ const MicroschoolInformationTemplate = (args) => (
   </Unstable_List>
 );
 
-export const MicroschoolInformation: Story = MicroschoolInformationTemplate.bind(
-  {}
-);
+export const MicroschoolInformation: Story =
+  MicroschoolInformationTemplate.bind({});
 
 const MicroschoolThumbnailsTemplate = (args) => (
   <Unstable_List

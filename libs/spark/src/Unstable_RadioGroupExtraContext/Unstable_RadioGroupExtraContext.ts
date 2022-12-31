@@ -7,11 +7,10 @@ export interface Unstable_RadioGroupExtraContextValue {
   required?: boolean;
 }
 
-const Unstable_RadioGroupExtraContext = createContext<Unstable_RadioGroupExtraContextValue>(
-  {
+const Unstable_RadioGroupExtraContext =
+  createContext<Unstable_RadioGroupExtraContextValue>({
     required: false,
-  }
-);
+  });
 
 if (process.env.NODE_ENV !== 'production') {
   Unstable_RadioGroupExtraContext.displayName = 'RadioGroupExtraContext';

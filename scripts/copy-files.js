@@ -88,13 +88,8 @@ async function createPackageFile() {
     path.resolve(packagePath, relativeInDir, './package.json'),
     'utf8'
   );
-  const {
-    nyc,
-    scripts,
-    devDependencies,
-    workspaces,
-    ...packageDataOther
-  } = JSON.parse(packageData);
+  const { nyc, scripts, devDependencies, workspaces, ...packageDataOther } =
+    JSON.parse(packageData);
   const newPackageData = {
     ...packageDataOther,
     private: false,

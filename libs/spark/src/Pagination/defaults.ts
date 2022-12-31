@@ -29,8 +29,9 @@ export const MuiPaginationStyleOverrides: Partial<
     '& > li > [class*=MuiPaginationItem-root].Mui-selected': {
       zIndex: 2,
     },
-    '& > li > [class*=MuiPaginationItem-root]:hover, [class*=MuiPaginationItem-root]:focus-visible, button.Mui-focusVisible': {
-      zIndex: 1,
-    },
+    '& > li > [class*=MuiPaginationItem-root]:hover, [class*=MuiPaginationItem-root]:focus-visible, button.Mui-focusVisible':
+      {
+        zIndex: 1,
+      },
   },
 };

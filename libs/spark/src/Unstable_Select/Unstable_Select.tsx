@@ -212,7 +212,8 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         vertical: 'top',
         horizontal: 'right',
       },
-      PaperProps: MenuPaperProps = {} as Unstable_SelectProps['MenuProps']['PaperProps'],
+      PaperProps:
+        MenuPaperProps = {} as Unstable_SelectProps['MenuProps']['PaperProps'],
     } = MenuProps;
 
     const {

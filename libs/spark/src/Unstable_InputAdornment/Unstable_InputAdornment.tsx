@@ -86,8 +86,8 @@ const styles: Styles<Unstable_InputAdornmentClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeMap> = forwardRef(
-  function Unstable_InputAdornment(props, ref) {
+const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeMap> =
+  forwardRef(function Unstable_InputAdornment(props, ref) {
     const {
       children,
       classes,
@@ -119,8 +119,7 @@ const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeM
         {children}
       </Component>
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_InputAdornment' })(
   Unstable_InputAdornment

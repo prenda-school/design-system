@@ -8,7 +8,8 @@ import {
 } from '..';
 import { Email, enableHooks, largeWidth } from '../../stories';
 
-export const _retyped = Unstable_ToastsProvider as typeof Unstable_ToastsProvider;
+export const _retyped =
+  Unstable_ToastsProvider as typeof Unstable_ToastsProvider;
 
 export default {
   title: '@ps/ToastsProvider',
@@ -56,13 +57,12 @@ const Children = () => {
 
   const [ids, setIds] = useState<Array<ReturnType<typeof toasts.enqueue>>>([]);
 
-  const handleClickWith = (
-    children: ReactNode,
-    options?: Parameters<typeof toasts.enqueue>[1]
-  ) => () => {
-    const id = toasts.enqueue(children, options);
-    setIds((ids) => ids.concat(id));
-  };
+  const handleClickWith =
+    (children: ReactNode, options?: Parameters<typeof toasts.enqueue>[1]) =>
+    () => {
+      const id = toasts.enqueue(children, options);
+      setIds((ids) => ids.concat(id));
+    };
 
   const handleCloseLastClick = () => {
     toasts.close(ids[ids.length - 1]);

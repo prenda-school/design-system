@@ -58,8 +58,8 @@ const styles: Styles<Unstable_ListSubheaderClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap> = forwardRef(
-  function Unstable_ListSubheader(props, ref) {
+const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap> =
+  forwardRef(function Unstable_ListSubheader(props, ref) {
     const {
       classes,
       className,
@@ -84,8 +84,7 @@ const Unstable_ListSubheader: OverridableComponent<Unstable_ListSubheaderTypeMap
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_ListSubheader' })(
   Unstable_ListSubheader

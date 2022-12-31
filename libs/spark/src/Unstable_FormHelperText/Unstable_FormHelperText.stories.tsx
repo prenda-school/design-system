@@ -3,7 +3,8 @@ import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_FormHelperText, Unstable_FormHelperTextProps } from '..';
 import { Info } from '../../stories';
 
-export const _retyped = Unstable_FormHelperText as typeof Unstable_FormHelperText;
+export const _retyped =
+  Unstable_FormHelperText as typeof Unstable_FormHelperText;
 
 export default {
   title: '@ps/FormHelperText',

@@ -156,8 +156,8 @@ const styles: Styles<Unstable_AvatarClassKey | PrivateClassKey> = (theme) => ({
   },
 });
 
-const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = forwardRef(
-  function Unstable_Avatar(props, ref) {
+const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> =
+  forwardRef(function Unstable_Avatar(props, ref) {
     const { classes, color = 'neutral', size = 'large', ...other } = props;
 
     return (
@@ -175,8 +175,7 @@ const Unstable_Avatar: OverridableComponent<Unstable_AvatarTypeMap> = forwardRef
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_Avatar' })(
   Unstable_Avatar
