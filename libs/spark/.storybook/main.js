@@ -1,15 +1,31 @@
 const rootMain = require('../../../.storybook/main');
 
-// Use the following syntax to add addons!
-// rootMain.addons.push('');
-rootMain.addons.push('@storybook/addon-links', 'storybook-addon-pseudo-states');
-rootMain.stories.push('../**/*.stories.@(js|jsx|ts|tsx|mdx)');
+module.exports = {
+  ...rootMain,
+  // core: {
+  //   ...rootMain.core,
+  //   // opt-into Storybook Webpack 5
+  //   builder: 'webpack5',
+  // },
+  stories: [
+    ...rootMain.stories,
+    '../src/**/*.stories.mdx',
+    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+  ],
+  addons: [
+    ...rootMain.addons,
+    '@nrwl/react/plugins/storybook',
+    '@storybook/addon-links',
+    'storybook-addon-pseudo-states',
+  ],
+  webpackFinal: async (config, { configType }) => {
+    // apply any global webpack configs that might have been specified in .storybook/main.js
+    if (rootMain.webpackFinal) {
+      config = await rootMain.webpackFinal(config, { configType });
+    }
 
-rootMain.typescript = {
-  check: true,
-  checkOptions: {
-    tsconfig: './libs/spark/.storybook/tsconfig.json',
+    // add your own webpack tweaks if needed
+
+    return config;
   },
 };
-
-module.exports = rootMain;
