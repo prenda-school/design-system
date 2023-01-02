@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_Banner from './Unstable_Banner';
 
 describe('Unstable_Banner', () => {

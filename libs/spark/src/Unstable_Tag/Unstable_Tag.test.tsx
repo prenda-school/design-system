@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_Tag from './Unstable_Tag';
 
 describe('Unstable_Tag', () => {

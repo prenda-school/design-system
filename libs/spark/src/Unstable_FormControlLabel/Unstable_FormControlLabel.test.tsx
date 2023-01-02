@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import Unstable_FormControlLabel from './Unstable_FormControlLabel';
 
 describe('Unstable_FormControlLabel', () => {

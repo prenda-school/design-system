@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from 'compat-testing-library-react-17';
 import { stub } from 'sinon';
 import makeStyles from './makeStyles';
 import initialTheme from '../theme/initialTheme';

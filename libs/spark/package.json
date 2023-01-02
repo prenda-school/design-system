@@ -23,5 +23,8 @@
     "@types/react": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "compat-testing-library-react-17": "*"
   }
 }
