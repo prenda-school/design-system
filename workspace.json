@@ -1,15 +1,5 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    }
-  },
   "projects": {
     "spark": {
       "root": "libs/spark",
@@ -89,7 +79,8 @@
             }
           }
         }
-      }
+      },
+      "tags": []
     },
     "spark-icons": {
       "root": "libs/spark-icons",
@@ -135,7 +126,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     }
   }
 }

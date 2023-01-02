@@ -24,14 +24,6 @@
       }
     }
   },
-  "projects": {
-    "spark": {
-      "tags": []
-    },
-    "spark-icons": {
-      "tags": []
-    }
-  },
   "targetDependencies": {
     "build": [
       {
@@ -39,5 +31,15 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
   }
 }
