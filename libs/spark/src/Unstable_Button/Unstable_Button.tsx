@@ -368,8 +368,8 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
   },
 });
 
-const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef(
-  function Unstable_Button(props, ref) {
+const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> =
+  forwardRef(function Unstable_Button(props, ref) {
     const {
       'aria-expanded': ariaExpanded,
       children,
@@ -435,9 +435,8 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
             classes[`private-root-variant-${variant}`],
             {
               [classes['private-root-disabled']]: disabled,
-              [classes[
-                `private-root-leadingAvatar-size-${size}`
-              ]]: !!leadingAvatar,
+              [classes[`private-root-leadingAvatar-size-${size}`]]:
+                !!leadingAvatar,
               [classes[
                 `private-root-leadingAvatar-variant-stroked-size-${size}`
               ]]: !!leadingAvatar && variant === 'stroked',
@@ -472,8 +471,7 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> = forwardRef
         {trailingEl}
       </MuiButton>
     );
-  }
-);
+  });
 
 const Unstable_ButtonWithStyles = withStyles(styles, {
   name: 'MuiSparkUnstable_Button',

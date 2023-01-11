@@ -81,8 +81,8 @@ const styles: Styles<Unstable_AvatarButtonClassKey> = (theme) => ({
   },
 });
 
-const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> = forwardRef(
-  function Unstable_AvatarButton(props, ref) {
+const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> =
+  forwardRef(function Unstable_AvatarButton(props, ref) {
     const {
       alt,
       children,
@@ -119,8 +119,7 @@ const Unstable_AvatarButton: OverridableComponent<Unstable_AvatarButtonTypeMap> 
         </Unstable_Avatar>
       </ButtonBase>
     );
-  }
-);
+  });
 
 const Unstable_AvatarButtonWithStyles = withStyles(styles, {
   name: 'MuiSparkUnstable_AvatarButton',

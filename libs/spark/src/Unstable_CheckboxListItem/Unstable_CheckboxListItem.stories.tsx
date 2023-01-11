@@ -12,7 +12,8 @@ import {
 } from '../../stories';
 import { default as Unstable_ListItemMeta } from '../Unstable_ListItem/Unstable_ListItem.stories';
 
-export const _retyped = Unstable_CheckboxListItem as typeof Unstable_CheckboxListItem;
+export const _retyped =
+  Unstable_CheckboxListItem as typeof Unstable_CheckboxListItem;
 
 export default {
   title: '@ps/CheckboxListItem',

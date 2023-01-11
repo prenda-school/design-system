@@ -198,8 +198,8 @@ const variantToComponent: Record<Unstable_TypographyVariant, string> = {
   code: 'pre',
 };
 
-const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = forwardRef(
-  function Unstable_Typography(props, ref) {
+const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> =
+  forwardRef(function Unstable_Typography(props, ref) {
     const {
       classes,
       variant = 'body',
@@ -224,8 +224,7 @@ const Unstable_Typography: OverridableComponent<Unstable_TypographyTypeMap> = fo
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_Typography' })(
   Unstable_Typography

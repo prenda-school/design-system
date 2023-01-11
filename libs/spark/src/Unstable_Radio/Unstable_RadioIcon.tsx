@@ -97,9 +97,10 @@ const useStyles = makeStyles<'root' | 'checked' | 'circle' | 'dot'>(
         color: theme.unstable_palette.red[600],
       },
       /* error & hover */
-      '.Mui-error input:hover ~ $root > &, .Mui-error label:hover ~ $root > &': {
-        color: theme.unstable_palette.red[400],
-      },
+      '.Mui-error input:hover ~ $root > &, .Mui-error label:hover ~ $root > &':
+        {
+          color: theme.unstable_palette.red[400],
+        },
       /* disabled */
       'input:disabled ~ $root > &&': {
         color: theme.unstable_palette.neutral[90],

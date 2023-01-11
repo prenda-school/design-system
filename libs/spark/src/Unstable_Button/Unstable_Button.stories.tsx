@@ -182,9 +182,8 @@ export const SizeByVariantLeadingAvatar: Story = SizeByVariantTemplate.bind({});
 SizeByVariantLeadingAvatar.args = { leadingAvatar: '(Guide)' };
 SizeByVariantLeadingAvatar.storyName = 'size ⨯ variant leadingAvatar';
 
-export const SizeByVariantLeadingAvatarDisabled: Story = SizeByVariantTemplate.bind(
-  {}
-);
+export const SizeByVariantLeadingAvatarDisabled: Story =
+  SizeByVariantTemplate.bind({});
 SizeByVariantLeadingAvatarDisabled.args = {
   leadingAvatar: '(Guide)',
   disabled: true,
@@ -196,9 +195,8 @@ export const SizeByVariantLeadingIcon: Story = SizeByVariantTemplate.bind({});
 SizeByVariantLeadingIcon.args = { leadingIcon: 'Plus' };
 SizeByVariantLeadingIcon.storyName = 'size ⨯ variant leadingIcon';
 
-export const SizeByVariantLeadingIconDisabled: Story = SizeByVariantTemplate.bind(
-  {}
-);
+export const SizeByVariantLeadingIconDisabled: Story =
+  SizeByVariantTemplate.bind({});
 SizeByVariantLeadingIconDisabled.args = {
   leadingIcon: 'Plus',
   disabled: true,
@@ -210,9 +208,8 @@ export const SizeByVariantTrailingIcon: Story = SizeByVariantTemplate.bind({});
 SizeByVariantTrailingIcon.args = { trailingIcon: 'ChevronDown' };
 SizeByVariantTrailingIcon.storyName = 'size ⨯ variant trailingIcon';
 
-export const SizeByVariantTrailingIconDisabled: Story = SizeByVariantTemplate.bind(
-  {}
-);
+export const SizeByVariantTrailingIconDisabled: Story =
+  SizeByVariantTemplate.bind({});
 SizeByVariantTrailingIconDisabled.args = {
   trailingIcon: 'ChevronDown',
   disabled: true,

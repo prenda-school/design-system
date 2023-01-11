@@ -23,12 +23,11 @@ export interface Unstable_FormControlExtraContextValue {
   success?: boolean;
 }
 
-const Unstable_FormControlExtraContext = createContext<Unstable_FormControlExtraContextValue>(
-  {
+const Unstable_FormControlExtraContext =
+  createContext<Unstable_FormControlExtraContextValue>({
     size: 'medium',
     success: false,
-  }
-);
+  });
 
 if (process.env.NODE_ENV !== 'production') {
   Unstable_FormControlExtraContext.displayName = 'FormControlExtraContext';

@@ -5,7 +5,8 @@ import {
   Unstable_ModalDialogTitleProps,
 } from '..';
 
-export const _retyped = Unstable_ModalDialogContent as typeof Unstable_ModalDialogContent;
+export const _retyped =
+  Unstable_ModalDialogContent as typeof Unstable_ModalDialogContent;
 
 export default {
   title: '@ps/ModalDialogContent',

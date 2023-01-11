@@ -100,8 +100,8 @@ const styles: Styles<Unstable_TabsListClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> = forwardRef(
-  function Unstable_TabsList(props, ref) {
+const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> =
+  forwardRef(function Unstable_TabsList(props, ref) {
     const { classes, ...other } = props;
 
     const tabs = useTabs_unstable();
@@ -133,8 +133,7 @@ const Unstable_TabsList: OverridableComponent<Unstable_TabsListTypeMap> = forwar
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, {
   name: 'MuiSparkUnstable_TabsList',

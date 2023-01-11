@@ -52,8 +52,8 @@ const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
   },
 };
 
-const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = forwardRef(
-  function Unstable_FormControl(props, ref) {
+const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> =
+  forwardRef(function Unstable_FormControl(props, ref) {
     const {
       classes,
       color: _color,
@@ -80,8 +80,7 @@ const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> = 
         />
       </Unstable_FormControlExtraContext.Provider>
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_FormControl' })(
   Unstable_FormControl

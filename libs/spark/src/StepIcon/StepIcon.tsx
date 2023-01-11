@@ -76,13 +76,15 @@ const useCustomStyles = makeStyles<StepIconClassKey>(
         color: palette.common.white,
         backgroundColor: palette.blue[3],
         borderColor: palette.blue[5],
-        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &': {
-          color: palette.common.white,
-          backgroundColor: palette.blue[4],
-        },
-        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &, [class*="MuiSparkStepButton"]:focus-visible &': {
-          color: palette.common.white,
-        },
+        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &':
+          {
+            color: palette.common.white,
+            backgroundColor: palette.blue[4],
+          },
+        '[class*="MuiSparkStepButton"]:hover &, [class*="MuiSparkStepButton"]:active &, [class*="MuiSparkStepButton"]:focus-visible &':
+          {
+            color: palette.common.white,
+          },
       },
     },
     /* Styles applied to the SVG text element. */

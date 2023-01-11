@@ -259,8 +259,8 @@ const styles: Styles<Unstable_ContentGroupClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> = forwardRef(
-  function Unstable_ContentGroup(props, ref) {
+const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> =
+  forwardRef(function Unstable_ContentGroup(props, ref) {
     const {
       alignItems = 'flex-start',
       color = 'standard',
@@ -370,8 +370,7 @@ const Unstable_ContentGroup: OverridableComponent<Unstable_ContentGroupTypeMap> 
         ) : null}
       </div>
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_ContentGroup' })(
   Unstable_ContentGroup

@@ -154,75 +154,74 @@ const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
 const Unstable_ListItem: OverridableComponent<
   Unstable_ListItemTypeMap<{ button?: false }, 'li'>
 > &
-  ExtendButtonBase<
-    Unstable_ListItemTypeMap<{ button: true }, 'div'>
-  > = forwardRef(function Unstable_ListItem(props, ref) {
-  const {
-    alignItems = 'flex-start',
-    button,
-    children,
-    classes,
-    ContentGroupProps = {},
-    disableFocusable = true,
-    nested = false,
-    primaryAction,
-    secondaryAction,
-    value,
-    ...other
-  } = props;
+  ExtendButtonBase<Unstable_ListItemTypeMap<{ button: true }, 'div'>> =
+  forwardRef(function Unstable_ListItem(props, ref) {
+    const {
+      alignItems = 'flex-start',
+      button,
+      children,
+      classes,
+      ContentGroupProps = {},
+      disableFocusable = true,
+      nested = false,
+      primaryAction,
+      secondaryAction,
+      value,
+      ...other
+    } = props;
 
-  return (
-    <MuiListItem
-      alignItems={alignItems}
-      // @ts-expect-error ???
-      button={disableFocusable ? false : button}
-      classes={{
-        root: clsx(classes.root, {
-          [classes['private-root-button']]: button,
-          [classes['private-root-nested']]: nested,
-        }),
-        selected: classes.selected,
-        disabled: classes.disabled,
-        secondaryAction: classes['private-root-secondaryAction'],
-        container: classes.container,
-      }}
-      // `value` doesn't mean anything for a list item, so add a data attribute
-      data-value={value}
-      // @ts-expect-error `ref` types are slightly different
-      ref={ref}
-      {...other}
-      {...(button &&
-        !disableFocusable && {
-          disableRipple: true,
-          disableTouchRipple: true,
-          focusRipple: false,
-        })}
-    >
-      <Unstable_ContentGroup
+    return (
+      <MuiListItem
         alignItems={alignItems}
-        color="inherit"
-        // disable padding so that consumers can customize it with this component's `'root'` class key
-        disablePadding
-        leadingAction={primaryAction}
-        // `ContentGroupProps.primary` should and will override this
-        primary={children}
-        {...ContentGroupProps}
-      />
-      {secondaryAction ? (
-        <MuiListItemSecondaryAction
-          classes={{
-            root: clsx(
-              classes.secondaryAction,
-              classes[`private-secondaryAction-alignItems-${alignItems}`]
-            ),
-          }}
-        >
-          {secondaryAction}
-        </MuiListItemSecondaryAction>
-      ) : null}
-    </MuiListItem>
-  );
-});
+        // @ts-expect-error ???
+        button={disableFocusable ? false : button}
+        classes={{
+          root: clsx(classes.root, {
+            [classes['private-root-button']]: button,
+            [classes['private-root-nested']]: nested,
+          }),
+          selected: classes.selected,
+          disabled: classes.disabled,
+          secondaryAction: classes['private-root-secondaryAction'],
+          container: classes.container,
+        }}
+        // `value` doesn't mean anything for a list item, so add a data attribute
+        data-value={value}
+        // @ts-expect-error `ref` types are slightly different
+        ref={ref}
+        {...other}
+        {...(button &&
+          !disableFocusable && {
+            disableRipple: true,
+            disableTouchRipple: true,
+            focusRipple: false,
+          })}
+      >
+        <Unstable_ContentGroup
+          alignItems={alignItems}
+          color="inherit"
+          // disable padding so that consumers can customize it with this component's `'root'` class key
+          disablePadding
+          leadingAction={primaryAction}
+          // `ContentGroupProps.primary` should and will override this
+          primary={children}
+          {...ContentGroupProps}
+        />
+        {secondaryAction ? (
+          <MuiListItemSecondaryAction
+            classes={{
+              root: clsx(
+                classes.secondaryAction,
+                classes[`private-secondaryAction-alignItems-${alignItems}`]
+              ),
+            }}
+          >
+            {secondaryAction}
+          </MuiListItemSecondaryAction>
+        ) : null}
+      </MuiListItem>
+    );
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_ListItem' })(
   Unstable_ListItem

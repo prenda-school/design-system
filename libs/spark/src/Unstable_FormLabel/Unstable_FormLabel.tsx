@@ -83,8 +83,8 @@ const styles: Styles<Unstable_FormLabelClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forwardRef(
-  function Unstable_FormLabel(props, ref) {
+const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> =
+  forwardRef(function Unstable_FormLabel(props, ref) {
     const {
       classes,
       color: _color,
@@ -111,8 +111,7 @@ const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> = forw
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_FormLabel' })(
   Unstable_FormLabel

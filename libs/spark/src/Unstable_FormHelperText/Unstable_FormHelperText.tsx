@@ -127,8 +127,8 @@ const styles: Styles<Unstable_FormHelperTextClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> = forwardRef(
-  function Unstable_FormHelperText(props, ref) {
+const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeMap> =
+  forwardRef(function Unstable_FormHelperText(props, ref) {
     const {
       children,
       classes,
@@ -176,8 +176,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
         ) : null}
       </Component>
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_FormHelperText' })(
   Unstable_FormHelperText

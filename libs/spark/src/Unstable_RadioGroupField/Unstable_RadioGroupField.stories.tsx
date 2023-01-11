@@ -7,7 +7,8 @@ import {
 } from '..';
 import { containFocusIndicator, Info } from '../../stories';
 
-export const _retyped = Unstable_RadioGroupField as typeof Unstable_RadioGroupField;
+export const _retyped =
+  Unstable_RadioGroupField as typeof Unstable_RadioGroupField;
 
 export default {
   title: '@ps/RadioGroupField',

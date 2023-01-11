@@ -91,8 +91,8 @@ const styles: Styles<Unstable_SvgIconClassKey | PrivateClassKey> = (theme) => ({
   },
 });
 
-const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardRef(
-  function Unstable_SvgIcon(props, ref) {
+const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> =
+  forwardRef(function Unstable_SvgIcon(props, ref) {
     const {
       classes,
       color = 'inherit',
@@ -113,8 +113,7 @@ const Unstable_SvgIcon: OverridableComponent<Unstable_SvgIconTypeMap> = forwardR
         {...other}
       />
     );
-  }
-);
+  });
 
 export default withStyles(styles, { name: 'MuiSparkUnstable_SvgIcon' })(
   Unstable_SvgIcon

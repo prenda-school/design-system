@@ -504,9 +504,8 @@ export const MicroschoolThumbnailTemplate = ({
   );
 };
 
-export const MicroschoolThumbnail: DefaultStory = MicroschoolThumbnailTemplate.bind(
-  {}
-);
+export const MicroschoolThumbnail: DefaultStory =
+  MicroschoolThumbnailTemplate.bind({});
 MicroschoolThumbnail.args = {
   acceptingStudents: true,
   gradesRange: 'K - 2nd',
@@ -514,8 +513,7 @@ MicroschoolThumbnail.args = {
   location: 'Peoria, AZ',
   microschoolName: 'Jane Doe Microschool',
   siteImgProps: {
-    alt:
-      'Home interior with crafts table, craft supplies, stools, and wall decorations.',
+    alt: 'Home interior with crafts table, craft supplies, stools, and wall decorations.',
     srcSet: '/img/microschool-site-1.jpg 480w',
   },
 };

@@ -3,7 +3,8 @@ import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_InputAdornment, Unstable_InputAdornmentProps } from '..';
 import { Search, sparkThemeProvider } from '../../stories';
 
-export const _retyped = Unstable_InputAdornment as typeof Unstable_InputAdornment;
+export const _retyped =
+  Unstable_InputAdornment as typeof Unstable_InputAdornment;
 
 export default {
   title: '@ps/InputAdornment',

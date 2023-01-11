@@ -10,5 +10,10 @@
     "../**/*.spec.tsx",
     "../**/*.spec.jsx"
   ],
-  "include": ["../**/*.stories.*", "*.js"]
+  "include": ["../**/*.stories.*", "*.js"],
+  "files": [
+    "../../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
+    "../../../node_modules/@nrwl/react/typings/image.d.ts",
+    "../../../node_modules/@nrwl/react/typings/styled-jsx.d.ts"
+  ]
 }

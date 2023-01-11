@@ -177,8 +177,8 @@ const styles: Styles<Unstable_IconButtonClassKey | PrivateClassKey> = (
   },
 });
 
-const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = forwardRef(
-  function Unstable_IconButton(props, ref) {
+const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> =
+  forwardRef(function Unstable_IconButton(props, ref) {
     const {
       'aria-expanded': ariaExpanded,
       color = 'standard',
@@ -224,8 +224,7 @@ const Unstable_IconButton: OverridableComponent<Unstable_IconButtonTypeMap> = fo
         {...other}
       />
     );
-  }
-);
+  });
 
 const Unstable_IconButtonWithStyles = withStyles(styles, {
   name: 'MuiSparkUnstable_IconButton',

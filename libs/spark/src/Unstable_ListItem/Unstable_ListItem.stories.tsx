@@ -173,9 +173,8 @@ ButtonPrimaryActionSecondaryAction.args = {
 ButtonPrimaryActionSecondaryAction.storyName =
   'button primaryAction secondaryAction';
 
-export const ButtonPrimaryActionSecondaryActionContentGroupProps: Story = Template.bind(
-  {}
-);
+export const ButtonPrimaryActionSecondaryActionContentGroupProps: Story =
+  Template.bind({});
 ButtonPrimaryActionSecondaryActionContentGroupProps.args = {
   button: true,
   ContentGroupProps: {
@@ -382,9 +381,8 @@ export const MicroschoolThumbnailTemplate = ({
   );
 };
 
-export const MicroschoolThumbnail: DefaultStory = MicroschoolThumbnailTemplate.bind(
-  {}
-);
+export const MicroschoolThumbnail: DefaultStory =
+  MicroschoolThumbnailTemplate.bind({});
 MicroschoolThumbnail.args = {
   acceptingStudents: true,
   children: undefined,
@@ -393,8 +391,7 @@ MicroschoolThumbnail.args = {
   location: 'Peoria, AZ',
   microschoolName: 'Jane Doe Microschool',
   siteImgProps: {
-    alt:
-      'Home interior with crafts table, craft supplies, stools, and wall decorations.',
+    alt: 'Home interior with crafts table, craft supplies, stools, and wall decorations.',
     srcSet: '/img/microschool-site-1.jpg 480w',
   },
 };

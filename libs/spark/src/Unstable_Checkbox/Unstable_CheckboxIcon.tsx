@@ -87,17 +87,19 @@ const useStyles = makeStyles<
         backgroundColor: theme.unstable_palette.blue[600],
       },
       /* (checked | indeterminate) & hover */
-      'input:hover ~ $checked > &, input:hover ~ $indeterminate > &, label:hover ~ $checked > &,  label:hover ~ $indeterminate > &': {
-        backgroundColor: theme.unstable_palette.blue[400],
-      },
+      'input:hover ~ $checked > &, input:hover ~ $indeterminate > &, label:hover ~ $checked > &,  label:hover ~ $indeterminate > &':
+        {
+          backgroundColor: theme.unstable_palette.blue[400],
+        },
       /* error & (checked | indeterminate) */
       '.Mui-error $checked > &, .Mui-error $indeterminate > &': {
         backgroundColor: theme.unstable_palette.red[600],
       },
       /* error & (checked | indeterminate) & hover */
-      '.Mui-error input:hover ~ $checked > &, .Mui-error label:hover ~ $checked > &, .Mui-error input:hover ~ $indeterminate > &, .Mui-error label:hover ~ $indeterminate > &': {
-        backgroundColor: theme.unstable_palette.red[400],
-      },
+      '.Mui-error input:hover ~ $checked > &, .Mui-error label:hover ~ $checked > &, .Mui-error input:hover ~ $indeterminate > &, .Mui-error label:hover ~ $indeterminate > &':
+        {
+          backgroundColor: theme.unstable_palette.red[400],
+        },
       /** disabled */
       'input:disabled ~ $root > &&': {
         backgroundColor: theme.unstable_palette.neutral[80],

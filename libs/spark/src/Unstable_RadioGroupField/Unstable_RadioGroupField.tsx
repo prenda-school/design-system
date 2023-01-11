@@ -118,7 +118,7 @@ const Unstable_RadioGroupField = forwardRef<
       disabled={disabled}
       error={error}
       fullWidth={fullWidth}
-      ref={(ref as unknown) as RefObject<HTMLDivElement>}
+      ref={ref as unknown as RefObject<HTMLDivElement>}
       required={required}
       {...other}
     >
