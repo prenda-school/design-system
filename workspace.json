@@ -1,65 +1,16 @@
 {
   "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
+  },
   "projects": {
-    "example-nextjs": {
-      "root": "apps/example-nextjs",
-      "sourceRoot": "apps/example-nextjs",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
-          "defaultConfiguration": "production",
-          "options": {
-            "root": "apps/example-nextjs",
-            "outputPath": "dist/apps/example-nextjs"
-          },
-          "configurations": {
-            "development": {},
-            "production": {}
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/next:server",
-          "defaultConfiguration": "development",
-          "options": {
-            "buildTarget": "example-nextjs:build",
-            "dev": true
-          },
-          "configurations": {
-            "development": {
-              "buildTarget": "example-nextjs:build:development",
-              "dev": true
-            },
-            "production": {
-              "buildTarget": "example-nextjs:build:production",
-              "dev": false
-            }
-          }
-        },
-        "export": {
-          "executor": "@nrwl/next:export",
-          "options": {
-            "buildTarget": "example-nextjs:build:production"
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/example-nextjs"],
-          "options": {
-            "jestConfig": "apps/example-nextjs/jest.config.ts",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/example-nextjs/**/*.{ts,tsx,js,jsx}"]
-          }
-        }
-      },
-      "tags": []
-    },
     "spark": {
       "root": "libs/spark",
       "sourceRoot": "libs/spark/src",
@@ -74,11 +25,11 @@
             "project": "libs/spark/package.json",
             "entryFile": "libs/spark/src/index.ts",
             "external": [
+              "@material-ui/core",
+              "@material-ui/lab",
               "react",
               "react-dom",
-              "react-is",
-              "@material-ui/core",
-              "@material-ui/lab"
+              "react/jsx-runtime"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
@@ -136,44 +87,6 @@
               "quiet": true
             }
           }
-        },
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": false
-          }
-        }
-      }
-    },
-    "spark-e2e": {
-      "root": "apps/spark-e2e",
-      "sourceRoot": "apps/spark-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/spark-e2e/cypress.json",
-            "tsConfig": "apps/spark-e2e/tsconfig.e2e.json",
-            "devServerTarget": "spark:storybook"
-          },
-          "configurations": {
-            "ci": {
-              "devServerTarget": "spark:storybook:ci"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/spark-e2e/**/*.{js,ts}"]
-          }
-        },
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": false
-          }
         }
       }
     },
@@ -191,10 +104,9 @@
             "project": "libs/spark-icons/package.json",
             "entryFile": "libs/spark-icons/src/index.ts",
             "external": [
+              "@material-ui/core",
               "react",
               "react-dom",
-              "react-is",
-              "@material-ui/core",
               "react/jsx-runtime"
             ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
@@ -222,17 +134,6 @@
           }
         }
       }
-    },
-    "workspace": {
-      "targets": {
-        "version": {
-          "executor": "@jscutlery/semver:version",
-          "options": {
-            "syncVersions": true
-          }
-        }
-      },
-      "root": "."
     }
   }
 }

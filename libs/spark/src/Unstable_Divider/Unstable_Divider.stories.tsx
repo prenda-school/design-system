@@ -5,9 +5,9 @@ import { Unstable_Divider, Unstable_DividerProps } from '..';
 
 export const _retyped = Unstable_Divider as typeof Unstable_Divider;
 
-const boundary: DecoratorFn = (Story) => (
+const boundary: DecoratorFn = (Story, context) => (
   <span style={{ display: 'block', height: 90, width: 360 }}>
-    <Story />
+    <Story {...context} />
   </span>
 );
 

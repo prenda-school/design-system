@@ -5,16 +5,18 @@ import { SparkThemeProvider, styled } from '../src';
 /**
  * [Internal] A Storybook decorator that wraps a story in the `SparkThemeProvider`.
  */
-export const sparkThemeProvider: DecoratorFn = (Story) => (
+export const sparkThemeProvider: DecoratorFn = (Story, context) => (
   <SparkThemeProvider>
-    <Story />
+    <Story {...context} />
   </SparkThemeProvider>
 );
 
 /**
  * [Internal] A Storybook decorator to enable the use of hooks in a story (otherwise, crashes).
  */
-export const enableHooks: DecoratorFn = (Story) => <Story />;
+export const enableHooks: DecoratorFn = (Story, context) => (
+  <Story {...context} />
+);
 
 /**
  * [Internal] A Storybook decorator to transform a story's `args.value` into a stateful value with an `onChange` handler passed on.
@@ -68,7 +70,7 @@ export const statefulValue: DecoratorFn = (Story, context) => {
   context.args.onChange = handleChange;
   context.args.onClick = handleClick;
 
-  return <Story />;
+  return <Story {...context} />;
 };
 
 const InverseBackgroundSpan = styled('span')(({ theme }) => ({
@@ -79,9 +81,9 @@ const InverseBackgroundSpan = styled('span')(({ theme }) => ({
 /**
  * [Internal] A Storybook decorator that applies the inverse background to a story.
  */
-export const inverseBackground: DecoratorFn = (Story) => (
+export const inverseBackground: DecoratorFn = (Story, context) => (
   <InverseBackgroundSpan>
-    <Story />
+    <Story {...context} />
   </InverseBackgroundSpan>
 );
 
@@ -99,9 +101,9 @@ const ContainFocusIndicatorDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that applies padding so that the standard focus indicator is captured in Chromatic snapshots.
  */
-export const containFocusIndicator: DecoratorFn = (Story) => (
+export const containFocusIndicator: DecoratorFn = (Story, context) => (
   <ContainFocusIndicatorDiv>
-    <Story />
+    <Story {...context} />
   </ContainFocusIndicatorDiv>
 );
 
@@ -112,9 +114,9 @@ const MediumWidthDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that is a medium width (256px) container.
  */
-export const mediumWidth: DecoratorFn = (Story) => (
+export const mediumWidth: DecoratorFn = (Story, context) => (
   <MediumWidthDiv>
-    <Story />
+    <Story {...context} />
   </MediumWidthDiv>
 );
 
@@ -125,9 +127,9 @@ const LargeWidthDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that is a large width (512px) container.
  */
-export const largeWidth: DecoratorFn = (Story) => (
+export const largeWidth: DecoratorFn = (Story, context) => (
   <LargeWidthDiv>
-    <Story />
+    <Story {...context} />
   </LargeWidthDiv>
 );
 
@@ -145,8 +147,8 @@ const ContainElevationDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that applies padding so that any elevation is captured in Chromatic snapshots.
  */
-export const containElevation: DecoratorFn = (Story) => (
+export const containElevation: DecoratorFn = (Story, context) => (
   <ContainElevationDiv>
-    <Story />
+    <Story {...context} />
   </ContainElevationDiv>
 );

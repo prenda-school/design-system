@@ -1,6 +1,5 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { MoreHorizFilled } from '@prenda/spark-icons';
 import {
   DropdownAnchor,
   DropdownContext,
@@ -11,6 +10,7 @@ import {
   Unstable_Menu,
 } from '..';
 import Unstable_MenuMeta from '../Unstable_Menu/Unstable_Menu.stories';
+import { MoreHorizFilled } from '../../stories';
 
 const anchorComponents = {
   default: undefined,
