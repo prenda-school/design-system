@@ -1,11 +1,10 @@
 import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
-import { DecoratorFn } from '@storybook/react';
 import { SparkThemeProvider, styled } from '../src';
 
 /**
  * [Internal] A Storybook decorator that wraps a story in the `SparkThemeProvider`.
  */
-export const sparkThemeProvider: DecoratorFn = (Story, context) => (
+export const sparkThemeProvider = (Story, context) => (
   <SparkThemeProvider>
     <Story {...context} />
   </SparkThemeProvider>
@@ -14,9 +13,7 @@ export const sparkThemeProvider: DecoratorFn = (Story, context) => (
 /**
  * [Internal] A Storybook decorator to enable the use of hooks in a story (otherwise, crashes).
  */
-export const enableHooks: DecoratorFn = (Story, context) => (
-  <Story {...context} />
-);
+export const enableHooks = (Story, context) => <Story {...context} />;
 
 /**
  * [Internal] A Storybook decorator to transform a story's `args.value` into a stateful value with an `onChange` handler passed on.
@@ -25,7 +22,7 @@ export const enableHooks: DecoratorFn = (Story, context) => (
  * @example
  *  Story.decorators = [statefulValue, enableHooks];
  */
-export const statefulValue: DecoratorFn = (Story, context) => {
+export const statefulValue = (Story, context) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [checked, setChecked] = useState(context.args.checked);
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -81,7 +78,7 @@ const InverseBackgroundSpan = styled('span')(({ theme }) => ({
 /**
  * [Internal] A Storybook decorator that applies the inverse background to a story.
  */
-export const inverseBackground: DecoratorFn = (Story, context) => (
+export const inverseBackground = (Story, context) => (
   <InverseBackgroundSpan>
     <Story {...context} />
   </InverseBackgroundSpan>
@@ -101,7 +98,7 @@ const ContainFocusIndicatorDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that applies padding so that the standard focus indicator is captured in Chromatic snapshots.
  */
-export const containFocusIndicator: DecoratorFn = (Story, context) => (
+export const containFocusIndicator = (Story, context) => (
   <ContainFocusIndicatorDiv>
     <Story {...context} />
   </ContainFocusIndicatorDiv>
@@ -114,7 +111,7 @@ const MediumWidthDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that is a medium width (256px) container.
  */
-export const mediumWidth: DecoratorFn = (Story, context) => (
+export const mediumWidth = (Story, context) => (
   <MediumWidthDiv>
     <Story {...context} />
   </MediumWidthDiv>
@@ -127,7 +124,7 @@ const LargeWidthDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that is a large width (512px) container.
  */
-export const largeWidth: DecoratorFn = (Story, context) => (
+export const largeWidth = (Story, context) => (
   <LargeWidthDiv>
     <Story {...context} />
   </LargeWidthDiv>
@@ -147,7 +144,7 @@ const ContainElevationDiv = styled('div')({
 /**
  * [Internal] A Storybook decorator that applies padding so that any elevation is captured in Chromatic snapshots.
  */
-export const containElevation: DecoratorFn = (Story, context) => (
+export const containElevation = (Story, context) => (
   <ContainElevationDiv>
     <Story {...context} />
   </ContainElevationDiv>

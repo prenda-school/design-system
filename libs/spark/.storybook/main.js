@@ -2,11 +2,7 @@ const rootMain = require('../../../.storybook/main');
 
 module.exports = {
   ...rootMain,
-  // core: {
-  //   ...rootMain.core,
-  //   // opt-into Storybook Webpack 5
-  //   builder: 'webpack5',
-  // },
+  core: { ...rootMain.core, builder: 'webpack5' },
   stories: [
     ...rootMain.stories,
     '../src/**/*.stories.mdx',

@@ -1,20 +1,20 @@
 {
   "migrations": [
     {
+      "version": "13.9.0-beta.0",
+      "description": "Update the decorate-angular-cli script to require nx instead of @nrwl/cli",
       "cli": "nx",
-      "version": "12.9.0-beta.0",
-      "description": "Add outputs for caching",
-      "factory": "./src/migrations/update-12-9-0/add-outputs",
-      "package": "@nrwl/linter",
-      "name": "add-outputs"
+      "implementation": "./src/migrations/update-13-9-0/update-decorate-cli",
+      "package": "@nrwl/workspace",
+      "name": "13-9-0-update-decorate-cli"
     },
     {
+      "version": "13.9.0-beta.0",
+      "description": "Replace @nrwl/tao with nx",
       "cli": "nx",
-      "version": "12.9.0-beta.0",
-      "description": "Remove ESLint parserOptions.project config if no rules requiring type-checking are in use",
-      "factory": "./src/migrations/update-12-4-0/remove-eslint-project-config-if-no-type-checking-rules",
-      "package": "@nrwl/linter",
-      "name": "remove-eslint-project-config-if-no-type-checking-rules-again"
+      "implementation": "./src/migrations/update-13-9-0/replace-tao-with-nx",
+      "package": "@nrwl/workspace",
+      "name": "13-9-0-replace-tao-with-nx"
     }
   ]
 }

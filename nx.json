@@ -20,16 +20,9 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "spark": {
-      "tags": []
-    },
-    "spark-icons": {
-      "tags": []
     }
   },
   "targetDependencies": {
@@ -39,5 +32,15 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    }
   }
 }
