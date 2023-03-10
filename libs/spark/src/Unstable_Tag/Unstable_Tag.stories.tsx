@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Tag, Unstable_TagProps } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadowInline,
   Filter,
   sparkThemeProvider,
 } from '../../stories';
@@ -17,7 +17,7 @@ export default {
   title: '@ps/Tag',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadowInline],
   parameters: {
     actions: {
       // override default actions regex

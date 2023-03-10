@@ -5,6 +5,7 @@ import {
   Unstable_MenuList,
   Unstable_MenuListProps,
 } from '..';
+import { containBoxShadow } from '../../stories';
 
 export const _retyped = Unstable_MenuList as typeof Unstable_MenuList;
 
@@ -14,7 +15,6 @@ export default {
   excludeStories: ['_retyped'],
   args: {
     children: '(MenuItem x4)',
-    style: { maxWidth: 256 },
   },
   argTypes: {
     children: {
@@ -35,6 +35,11 @@ type Story = DefaultStory<Unstable_MenuListProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
+
+export const FocusVisible: Story = Template.bind({});
+FocusVisible.decorators = [containBoxShadow];
+FocusVisible.parameters = { pseudo: { focusVisible: true } };
+FocusVisible.storyName = ':focus-visible';
 
 export const DisablePadding: Story = Template.bind({});
 DisablePadding.args = { disablePadding: true };

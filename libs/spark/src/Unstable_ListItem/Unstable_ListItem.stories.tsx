@@ -13,7 +13,7 @@ import {
 } from '..';
 import {
   CheckCircleDuotone,
-  containFocusIndicator,
+  containBoxShadow,
   Heart,
   Home3,
   Microschool,
@@ -28,7 +28,6 @@ export default {
   title: '@ps/ListItem',
   component: _retyped,
   excludeStories: ['_retyped', 'MicroschoolThumbnailTemplate'],
-  decorators: [containFocusIndicator],
   argTypes: {
     button: { control: 'boolean' },
     primaryAction: {
@@ -102,6 +101,7 @@ ButtonActive.storyName = 'button :active';
 
 export const ButtonFocusVisible: Story = Template.bind({});
 ButtonFocusVisible.args = { button: true };
+ButtonFocusVisible.decorators = [containBoxShadow];
 ButtonFocusVisible.parameters = { pseudo: { focusVisible: true } };
 ButtonFocusVisible.storyName = 'button :focus-visible';
 
@@ -129,6 +129,7 @@ ButtonSelectedActive.storyName = 'button selected :active';
 
 export const ButtonSelectedFocusVisible: Story = Template.bind({});
 ButtonSelectedFocusVisible.args = { button: true, selected: true };
+ButtonSelectedFocusVisible.decorators = [containBoxShadow];
 ButtonSelectedFocusVisible.parameters = { pseudo: { focusVisible: true } };
 ButtonSelectedFocusVisible.storyName = 'button selected :focus-visible';
 

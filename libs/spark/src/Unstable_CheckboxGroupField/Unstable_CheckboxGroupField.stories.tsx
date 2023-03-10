@@ -5,7 +5,7 @@ import {
   Unstable_CheckboxGroupField,
   Unstable_CheckboxGroupFieldProps,
 } from '..';
-import { containFocusIndicator, Info } from '../../stories';
+import { containBoxShadow, Info } from '../../stories';
 
 export const _retyped =
   Unstable_CheckboxGroupField as typeof Unstable_CheckboxGroupField;
@@ -14,7 +14,7 @@ export default {
   title: '@ps/CheckboxGroupField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadow],
   argTypes: {
     children: {
       control: 'select',
@@ -128,6 +128,16 @@ LabelHelperTextError.args = {
 };
 LabelHelperTextError.storyName =
   'children=(CheckboxFields) label helperText error';
+
+export const LabelHelperTextFullWidth: Story = Template.bind({});
+LabelHelperTextFullWidth.args = {
+  children: '(CheckboxFields)',
+  label: 'Label',
+  helperText: 'Helper text',
+  fullWidth: true,
+};
+LabelHelperTextFullWidth.storyName =
+  'children=(CheckboxFields) label helperText fullWidth';
 
 export const LabelHelperTextRequired: Story = Template.bind({});
 LabelHelperTextRequired.args = {

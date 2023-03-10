@@ -1,11 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Avatar, Unstable_MenuItem, Unstable_MenuItemProps } from '..';
-import {
-  containFocusIndicator,
-  enableHooks,
-  statefulValue,
-} from '../../stories';
+import { containBoxShadow, enableHooks, statefulValue } from '../../stories';
 import { default as Unstable_ListItemMeta } from '../Unstable_ListItem/Unstable_ListItem.stories';
 
 export const _retyped = Unstable_MenuItem as typeof Unstable_MenuItem;
@@ -14,7 +10,7 @@ export default {
   title: '@ps/MenuItem',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks],
   args: {
     children: <>Label</>,
   },
@@ -30,6 +26,11 @@ type Story = DefaultStory<Unstable_MenuItemProps>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
+
+export const FocusVisible: Story = Template.bind({});
+FocusVisible.decorators = [containBoxShadow];
+FocusVisible.parameters = { pseudo: { focusVisible: true } };
+FocusVisible.storyName = ':focus-visible';
 
 // ============
 // = Examples =

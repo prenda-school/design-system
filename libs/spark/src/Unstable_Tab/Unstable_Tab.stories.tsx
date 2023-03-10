@@ -6,7 +6,7 @@ import {
   Unstable_Tabs,
   Unstable_TabsProps,
 } from '..';
-import { containFocusIndicator, sparkThemeProvider } from '../../stories';
+import { containBoxShadowInline, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_Tab as typeof Unstable_Tab;
 
@@ -15,7 +15,7 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadowInline],
   argTypes: {},
   args: {
     children: <>Label</>,

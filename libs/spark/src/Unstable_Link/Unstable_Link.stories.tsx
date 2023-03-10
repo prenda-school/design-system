@@ -1,7 +1,11 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { theme, Unstable_Link, Unstable_LinkProps } from '..';
-import { containFocusIndicator, inverseBackground } from '../../stories';
+import {
+  containBoxShadowInline,
+  inverseBackground,
+  mediumWidth,
+} from '../../stories';
 
 export const _retyped = Unstable_Link as typeof Unstable_Link;
 
@@ -9,7 +13,6 @@ export default {
   title: '@ps/Link',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
   args: {
     children: <>Text</>,
     href: '#',
@@ -28,6 +31,7 @@ Hover.parameters = { pseudo: { visited: false, hover: true } };
 Hover.storyName = ':hover';
 
 export const FocusVisible: Story = Template.bind({});
+FocusVisible.decorators = [containBoxShadowInline];
 FocusVisible.parameters = { pseudo: { visited: false, focusVisible: true } };
 FocusVisible.storyName = ':focus-visible';
 
@@ -40,6 +44,7 @@ VisitedHover.parameters = { pseudo: { visited: true, hover: true } };
 VisitedHover.storyName = ':visited :hover';
 
 export const VisitedFocusVisible: Story = Template.bind({});
+VisitedFocusVisible.decorators = [containBoxShadowInline];
 VisitedFocusVisible.parameters = {
   pseudo: { visited: true, focusVisible: true },
 };
@@ -56,6 +61,7 @@ StandaloneHover.storyName = 'standalone :hover';
 
 export const StandaloneFocusVisible: Story = Template.bind({});
 StandaloneFocusVisible.args = { standalone: true };
+StandaloneFocusVisible.decorators = [containBoxShadowInline];
 StandaloneFocusVisible.parameters = {
   pseudo: { visited: false, focusVisible: true },
 };
@@ -73,6 +79,7 @@ StandaloneVisitedHover.storyName = 'standalone :visited :hover';
 
 export const StandaloneVisitedFocusVisible: Story = Template.bind({});
 StandaloneVisitedFocusVisible.args = { standalone: true };
+StandaloneVisitedFocusVisible.decorators = [containBoxShadowInline];
 StandaloneVisitedFocusVisible.parameters = {
   pseudo: { visited: true, focusVisible: true },
 };
@@ -128,6 +135,7 @@ const NowrapTemplate = (args) => (
 
 export const Nowrap: Story = NowrapTemplate.bind({});
 Nowrap.args = { nowrap: true };
+Nowrap.decorators = [mediumWidth];
 Nowrap.storyName = 'nowrap';
 
 const VariantAliasTemplate = (args) => (

@@ -7,11 +7,7 @@ import {
   Unstable_TabsListProps,
   Unstable_TabsProps,
 } from '..';
-import {
-  containFocusIndicator,
-  largeWidth,
-  sparkThemeProvider,
-} from '../../stories';
+import { containBoxShadow, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_TabsList as typeof Unstable_TabsList;
 
@@ -19,7 +15,7 @@ export default {
   title: '@ps/TabsList',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [largeWidth, containFocusIndicator],
+  decorators: [containBoxShadow],
   args: {
     'Tabs.defaultValue': '0',
     'aria-label': 'Example of three tabs',

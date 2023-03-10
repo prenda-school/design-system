@@ -3,7 +3,7 @@ import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_TextField, Unstable_TextFieldProps } from '..';
 import { default as Unstable_SelectMeta } from '../Unstable_Select/Unstable_Select.stories';
 import {
-  containFocusIndicator,
+  containBoxShadow,
   enableHooks,
   Gear,
   Info,
@@ -17,7 +17,7 @@ export default {
   title: '@ps/TextField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks, containBoxShadow],
   args: {
     // start component as "controlled"
     value: '',
@@ -112,6 +112,14 @@ LabelHelperTextError.args = {
   error: true,
 };
 LabelHelperTextError.storyName = 'label helperText error';
+
+export const LabelHelperTextFullWidth: Story = Template.bind({});
+LabelHelperTextFullWidth.args = {
+  label: 'Label',
+  helperText: 'Helper text',
+  fullWidth: true,
+};
+LabelHelperTextFullWidth.storyName = 'label helperText fullWidth';
 
 export const LabelHelperTextLeadingEl: Story = Template.bind({});
 LabelHelperTextLeadingEl.args = {

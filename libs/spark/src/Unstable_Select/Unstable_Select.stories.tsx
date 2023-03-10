@@ -7,7 +7,7 @@ import {
   Unstable_SelectProps as _Unstable_SelectProps,
 } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadow,
   enableHooks,
   Home3,
   sparkThemeProvider,
@@ -45,7 +45,7 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks, containBoxShadow],
   argTypes: {
     getTagProps: {
       control: 'select',
@@ -138,6 +138,10 @@ DisabledHover.storyName = 'disabled :hover';
 export const Error: Story = Template.bind({});
 Error.args = { error: true };
 Error.storyName = 'error';
+
+export const FullWidth: Story = Template.bind({});
+FullWidth.args = { fullWidth: true };
+FullWidth.storyName = 'fullWidth';
 
 export const LeadingEl: Story = Template.bind({});
 LeadingEl.args = { leadingEl: '<Home3 />' };

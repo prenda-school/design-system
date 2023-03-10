@@ -1,11 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_CheckboxMenuItem, Unstable_CheckboxMenuItemProps } from '..';
-import {
-  containFocusIndicator,
-  enableHooks,
-  statefulValue,
-} from '../../stories';
+import { containBoxShadow, enableHooks, statefulValue } from '../../stories';
 import { default as Unstable_CheckboxListItemMeta } from '../Unstable_CheckboxListItem/Unstable_CheckboxListItem.stories';
 
 export const _retyped =
@@ -15,7 +11,7 @@ export default {
   title: '@ps/CheckboxMenuItem',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks],
   args: {
     children: <>Label</>,
   },
@@ -29,6 +25,7 @@ const Template = (args) => <Unstable_CheckboxMenuItem {...args} />;
 type Story = DefaultStory<Unstable_CheckboxMenuItemProps>;
 
 export const FocusVisible: Story = Template.bind({});
+FocusVisible.decorators = [containBoxShadow];
 FocusVisible.parameters = { pseudo: { focusVisible: true } };
 FocusVisible.storyName = ':focus-visible';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_AvatarButton, Unstable_AvatarButtonProps } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadowInline,
   inverseBackground,
   sparkThemeProvider,
   User,
@@ -15,7 +15,6 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [containFocusIndicator],
   argTypes: {
     children: {
       control: 'select',
@@ -102,6 +101,7 @@ ChildrenInitialsExpanded.storyName = 'children=(Initials) aria-expanded';
 
 export const ChildrenInitialsFocusVisible: Story = Template.bind({});
 ChildrenInitialsFocusVisible.args = { children: '(Initials)' };
+ChildrenInitialsFocusVisible.decorators = [containBoxShadowInline];
 ChildrenInitialsFocusVisible.parameters = { pseudo: { focusVisible: true } };
 ChildrenInitialsFocusVisible.storyName = 'children=(Initials) :focus-visible';
 

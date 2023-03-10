@@ -8,9 +8,8 @@ import {
   Unstable_TabsProps,
 } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadow,
   enableHooks,
-  largeWidth,
   sparkThemeProvider,
   statefulValue,
 } from '../../stories';
@@ -21,7 +20,7 @@ export default {
   title: '@ps/Tabs',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [largeWidth, containFocusIndicator],
+  decorators: [containBoxShadow],
   args: {
     'TabsList.aria-label': 'tabs story',
   },

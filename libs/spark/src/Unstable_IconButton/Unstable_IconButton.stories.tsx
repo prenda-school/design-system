@@ -3,7 +3,7 @@ import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { theme, Unstable_IconButton, Unstable_IconButtonProps } from '..';
 import {
   ChevronDown,
-  containFocusIndicator,
+  containBoxShadowInline,
   Info,
   Plus,
   sparkThemeProvider,
@@ -16,7 +16,6 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [containFocusIndicator],
   argTypes: {
     children: {
       control: 'select',
@@ -136,13 +135,17 @@ SizeByVariantExpandedSTP.decorators = [sparkThemeProvider];
 SizeByVariantExpandedSTP.storyName = 'size ⨯ variant aria-expanded (STP)';
 
 export const SizeByVariantFocusVisible: Story = SizeByVariantTemplate.bind({});
+SizeByVariantFocusVisible.decorators = [containBoxShadowInline];
 SizeByVariantFocusVisible.parameters = { pseudo: { focusVisible: true } };
 SizeByVariantFocusVisible.storyName = 'size ⨯ variant :focus-visible';
 
 export const SizeByVariantFocusVisibleSTP: Story = SizeByVariantTemplate.bind(
   {}
 );
-SizeByVariantFocusVisibleSTP.decorators = [sparkThemeProvider];
+SizeByVariantFocusVisibleSTP.decorators = [
+  sparkThemeProvider,
+  containBoxShadowInline,
+];
 SizeByVariantFocusVisibleSTP.parameters = { pseudo: { focusVisible: true } };
 SizeByVariantFocusVisibleSTP.storyName = 'size ⨯ variant :focus-visible (STP)';
 
