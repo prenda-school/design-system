@@ -77,6 +77,7 @@ const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
 ) => ({
   /* Styles applied to the root element. */
   root: {
+    color: theme.unstable_palette.text.body,
     padding: '8px 16px',
   },
   /* Styles applied to the container element (added when a secondary action is given). */
@@ -103,33 +104,45 @@ const styles: Styles<Unstable_ListItemClassKey | PrivateClassKey> = (
     paddingRight: 40 + 16, // width of small icon button + gap
   },
   'private-root-button': {
+    color: theme.unstable_palette.text.body, // override Bootstrap.css
+    textDecoration: 'unset', // override Bootstrap.css
     cursor: 'pointer',
     userSelect: 'text',
-    '&:hover': {
+    WebkitTapHighlightColor: 'transparent',
+    '&:hover, &[data-focus="true"]': {
       backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+      color: theme.unstable_palette.text.body, // override Bootstrap.css
+      textDecoration: 'unset', // override Bootstrap.css
+    },
+    '&:focus': {
+      outline: 'unset', // override Bootstrap.css
+      color: theme.unstable_palette.text.body, // override Bootstrap.css
+      textDecoration: 'unset', // override Bootstrap.css
     },
     '&:active': {
       backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
     },
-    '&$selected': {
+    '&$selected, &[aria-selected="true"]': {
       backgroundColor: theme.unstable_palette.blue[600],
       color: theme.unstable_palette.text.inverseBody,
     },
-    '&$selected:hover': {
+    '&$selected:hover, &[aria-selected="true"]:hover': {
       backgroundColor: alpha(theme.unstable_palette.blue[600], 0.86),
     },
-    '&$selected:active': {
+    '&$selected:active, &[aria-selected="true"]:active': {
       backgroundColor: darken(theme.unstable_palette.blue[600], 0.2),
     },
-    '&$disabled': {
+    '&$disabled, &[aria-disabled="true"]': {
       backgroundColor: 'transparent',
       color: theme.unstable_palette.text.disabled,
       opacity: 1, // reset Mui default
     },
-    '&$selected$disabled': {
-      backgroundColor: theme.unstable_palette.neutral[80],
-      color: theme.unstable_palette.text.disabled,
-    },
+    '&$selected$disabled, &$selected[aria-disabled="true"], &[aria-selected="true"][aria-disabled="true"]':
+      {
+        backgroundColor: theme.unstable_palette.neutral[80],
+        color: theme.unstable_palette.text.disabled,
+        pointerEvents: 'none',
+      },
     '&.Mui-focusVisible, &:focus-visible': {
       // doesn't appear in story because is under `Mui-focusVisible`
       // backgroundColor: 'transparent',
