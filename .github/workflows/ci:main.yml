@@ -14,14 +14,14 @@ jobs:
         run: sudo sysctl fs.inotify.max_user_watches=524288
 
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: 14
 
       - name: NPM clean install
         run: npm ci
