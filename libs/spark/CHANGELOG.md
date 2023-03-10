@@ -14,6 +14,17 @@ API surface:
   - see **Unstable_ListItem**
 - **Unstable_CheckboxMenuItem**
   - see **Unstable_MenuItem**
+- **Unstable_Dropdown**
+  - [feat] added
+  - Replaces v1 **DropdownContext**
+- **Unstable_DropdownContext**
+  - [feat] added
+- **Unstable_DropdownMenu**
+  - [feat] added
+  - Replaces v1 **DropdownMenu**
+- **Unstable_DropdownTrigger**
+  - [feat] added
+  - Replaces v1 **DropdownButton**
 - **Unstable_FormControl**
   - [fix] `fullWidth` not working
 - **Unstable_FormGroup**
@@ -40,6 +51,8 @@ API surface:
     - `toasts.enqueue.info(message, options)`
     - `toasts.enqueue.success(message, options)`
     - `toasts.enqueue.warning(message, options)`of the toast while preserving the API:
+- **useDropdown_unstable**
+  - [feat] added
 - **useToasts_unstable**
   - see **Unstable_ToastsContext**
   - [feat] change default placement to `"bottom-center"`

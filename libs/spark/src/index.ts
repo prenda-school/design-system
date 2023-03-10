@@ -252,6 +252,17 @@ export { default as Unstable_CssBaseline } from './Unstable_CssBaseline';
 export { default as Unstable_Divider } from './Unstable_Divider';
 export * from './Unstable_Divider';
 
+export { default as Unstable_Dropdown } from './Unstable_Dropdown';
+export * from './Unstable_Dropdown';
+
+export type { Unstable_DropdownContextValue } from './Unstable_DropdownContext';
+
+export { default as Unstable_DropdownMenu } from './Unstable_DropdownMenu';
+export * from './Unstable_DropdownMenu';
+
+export { default as Unstable_DropdownTrigger } from './Unstable_DropdownTrigger';
+export * from './Unstable_DropdownTrigger';
+
 export { default as Unstable_FontFacesBaseline } from './Unstable_FontFacesBaseline';
 
 export { default as Unstable_FormControl } from './Unstable_FormControl';
@@ -389,6 +400,8 @@ export { default as theme } from './theme';
 export * from './theme';
 
 export { default as unstable_createSvgIcon } from './unstable_createSvgIcon';
+
+export { default as useDropdown_unstable } from './useDropdown_unstable';
 
 export { default as useFormControl } from './useFormControl';
 

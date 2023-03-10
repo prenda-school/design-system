@@ -1,18 +1,18 @@
 import React, { CSSProperties } from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import {
-  DropdownAnchor,
-  DropdownContext,
-  DropdownMenu,
   Unstable_AvatarButton,
   Unstable_Button,
+  Unstable_Dropdown,
+  Unstable_DropdownMenu,
+  Unstable_DropdownTrigger,
   Unstable_IconButton,
   Unstable_Menu,
 } from '..';
 import Unstable_MenuMeta from '../Unstable_Menu/Unstable_Menu.stories';
 import { MoreHorizFilled } from '../../stories';
 
-const anchorComponents = {
+const triggerComponents = {
   default: undefined,
   Unstable_Button,
   Unstable_IconButton,
@@ -22,17 +22,17 @@ const anchorComponents = {
 const menuComponents = { default: undefined, Unstable_Menu };
 
 export default {
-  title: '@ps/Dropdown (pattern)',
+  title: '@ps/Dropdown',
   argTypes: {
-    /* Dropdown Anchor props */
-    'DropdownAnchor.component': {
-      options: Object.keys(anchorComponents),
-      mapping: anchorComponents,
+    /* Dropdown Trigger props */
+    'DropdownTrigger.component': {
+      options: Object.keys(triggerComponents),
+      mapping: triggerComponents,
       control: {
         type: 'select',
       },
     },
-    'DropdownAnchor.disabled': { control: 'boolean' },
+    'DropdownTrigger.disabled': { control: 'boolean' },
 
     /* Dropdown Menu props */
     'DropdownMenu.component': {
@@ -49,8 +49,6 @@ export default {
     'DropdownMenu.children': Unstable_MenuMeta.argTypes.children,
   },
   args: {
-    'DropdownAnchor.component': 'Unstable_Button',
-    'DropdownMenu.component': 'Unstable_Menu',
     'DropdownMenu.children': Unstable_MenuMeta.argTypes.children.options[0],
     'DropdownMenu.placement': 'bottom-left',
     'DropdownMenu.PaperProps': { style: { width: 256 } },
@@ -78,8 +76,8 @@ function getPositioningStyles(placement): CSSProperties {
 
 const Template: Story = (props) => {
   const {
-    'DropdownAnchor.component': dropdownAnchorComponent,
-    'DropdownAnchor.disabled': dropdownAnchorDisabled,
+    'DropdownTrigger.component': dropdownTriggerComponent,
+    'DropdownTrigger.disabled': dropdownTriggerDisabled,
     'DropdownMenu.children': dropdownMenuChildren,
     'DropdownMenu.component': dropdownMenuComponent,
     'DropdownMenu.placement': dropdownMenuPlacement,
@@ -87,19 +85,19 @@ const Template: Story = (props) => {
   } = props;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const anchorProps: any = {
+  const triggerProps: any = {
     children: 'Label',
-    disabled: dropdownAnchorDisabled,
+    disabled: dropdownTriggerDisabled,
   };
-  if (dropdownAnchorComponent !== undefined) {
-    anchorProps.component = dropdownAnchorComponent;
+  if (dropdownTriggerComponent !== undefined) {
+    triggerProps.component = dropdownTriggerComponent;
   }
-  if (dropdownAnchorComponent?._PDS_ID === 'Unstable_IconButton') {
-    anchorProps.children = <MoreHorizFilled />;
+  if (dropdownTriggerComponent?._PDS_ID === 'Unstable_IconButton') {
+    triggerProps.children = <MoreHorizFilled />;
   }
-  if (dropdownAnchorComponent?._PDS_ID === 'Unstable_AvatarButton') {
-    anchorProps.src = '/img/guide-1.png';
-    delete anchorProps.children;
+  if (dropdownTriggerComponent?._PDS_ID === 'Unstable_AvatarButton') {
+    triggerProps.src = '/img/guide-1.png';
+    delete triggerProps.children;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -116,12 +114,12 @@ const Template: Story = (props) => {
 
   return (
     // menu height + (largest) anchor el height + space between; menu width
-    <div style={{ position: 'relative', height: 182 + 48 + 8, width: 256 }}>
+    <div style={{ position: 'relative', height: 273 + 48 + 8, width: 256 }}>
       <div style={positioningStyles}>
-        <DropdownContext>
-          <DropdownAnchor {...anchorProps} />
-          <DropdownMenu {...menuProps} />
-        </DropdownContext>
+        <Unstable_Dropdown>
+          <Unstable_DropdownTrigger {...triggerProps} />
+          <Unstable_DropdownMenu {...menuProps} />
+        </Unstable_Dropdown>
       </div>
     </div>
   );
