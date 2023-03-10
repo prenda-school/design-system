@@ -4,6 +4,14 @@
 
 API surface:
 
+- **Unstable_Banner**
+  - [style] reduce gap, padding on mobile
+- **Unstable_Card**
+  - [style] reduce padding on mobile
+- **Unstable_CheckboxListItem**
+  - see **Unstable_ListItem**
+- **Unstable_CheckboxMenuItem**
+  - see **Unstable_MenuItem**
 - **Unstable_FormControl**
   - [fix] `fullWidth` not working
 - **Unstable_FormGroup**
@@ -11,9 +19,17 @@ API surface:
 - **Unstable_Input**
   - [fix] `fullWidth` not working
   - [fix] overflowing out of parent that is smaller than the default width
+- **Unstable_ListItem**
+  - [style] override Bootstrap.css
+- **Unstable_MenuItem**
+  - see **Unstable_ListItem**
+- **Unstable_SectionMessage**
+  - [style] reduce gap, padding on mobile
 - **Unstable_Select**
   - see **Unstable_Input**
   - [fix] wrong icon size and spacing when `size="small"`
+- **Unstable_Tab**
+  - [style] override Bootstrap.css
 - **Unstable_TextField**
   - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
 

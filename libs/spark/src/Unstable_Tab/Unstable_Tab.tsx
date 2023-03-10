@@ -57,6 +57,18 @@ const styles: Styles<Unstable_TabClassKey | PrivateClassKey> = (theme) => ({
     '&&': {
       opacity: 1,
     },
+    textDecoration: 'unset', // override Bootstrap.css
+    color: 'unset', // override Bootstrap.css
+    '&:focus': {
+      outline: 'unset', // override Bootstrap.css
+      color: 'unset', // override Bootstrap.css
+      textDecoration: 'unset', // override Bootstrap.css
+    },
+    '&:hover': {
+      // override Bootstrap.css
+      color: 'unset', // override Bootstrap.css
+      textDecoration: 'unset', // override Bootstrap.css
+    },
   },
   label: {
     ...theme.unstable_typography.label,
