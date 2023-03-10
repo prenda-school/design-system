@@ -13,6 +13,7 @@ API surface:
   - [fix] overflowing out of parent that is smaller than the default width
 - **Unstable_Select**
   - see **Unstable_Input**
+  - [fix] wrong icon size and spacing when `size="small"`
 - **Unstable_TextField**
   - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
 

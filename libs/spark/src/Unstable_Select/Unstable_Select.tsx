@@ -125,7 +125,6 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
     icon: {
       ...styles.icon,
       color: theme.unstable_palette.text.icon,
-      marginRight: 14,
       transition: 'transform 250ms ease',
       /* disabled -- can get from internal context => can't condition on prop */
       '.Mui-disabled > &': {
@@ -161,11 +160,13 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
     },
     'private-icon-size-medium': {
       fontSize: theme.unstable_typography.pxToRem(24),
+      marginRight: 16,
       top: 'calc(50% - 12px)',
     },
     'private-icon-size-small': {
-      fontSize: theme.unstable_typography.pxToRem(16),
-      top: 'calc(50% - 8px)',
+      fontSize: theme.unstable_typography.pxToRem(20),
+      marginRight: 8,
+      top: 'calc(50% - 10px)',
     },
   };
 };
