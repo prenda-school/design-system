@@ -43,6 +43,7 @@ export interface Unstable_InputProps
 export type Unstable_InputClassKey = 'root' | 'input';
 
 type PrivateClassKey =
+  | 'private-root-fullWidth'
   | 'private-root-value'
   | 'private-root-multiline'
   | 'private-root-size-small'
@@ -78,7 +79,8 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     color: theme.unstable_palette.text.body,
     letterSpacing: 0,
     margin: 0,
-    width: theme.unstable_typography.pxToRem(320),
+    maxWidth: theme.unstable_typography.pxToRem(320),
+    width: '100%',
     '&:hover': {
       backgroundColor: theme.unstable_palette.neutral[60],
     },
@@ -111,6 +113,9 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   /* Private */
+  'private-root-fullWidth': {
+    maxWidth: '100%',
+  },
   'private-root-value': {
     backgroundColor: theme.unstable_palette.neutral[60],
     border: theme.unstable_borders.bold,
@@ -172,6 +177,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
       'aria-describedby': ariaDescribedByProp,
       classes,
       id: idProp,
+      fullWidth,
       leadingEl,
       multiline,
       placeholder,
@@ -192,6 +198,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
             classes.root,
             classes[`private-root-size-${formControl.size}`],
             {
+              [classes['private-root-fullWidth']]: fullWidth,
               [classes['private-root-value']]: value,
               [classes['private-root-multiline']]: multiline,
               [classes[`private-root-size-${formControl.size}-leadingEl`]]:
