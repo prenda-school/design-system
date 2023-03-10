@@ -1,7 +1,11 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { theme, Unstable_Link, Unstable_LinkProps } from '..';
-import { containBoxShadowInline, inverseBackground } from '../../stories';
+import {
+  containBoxShadowInline,
+  inverseBackground,
+  mediumWidth,
+} from '../../stories';
 
 export const _retyped = Unstable_Link as typeof Unstable_Link;
 
@@ -131,6 +135,7 @@ const NowrapTemplate = (args) => (
 
 export const Nowrap: Story = NowrapTemplate.bind({});
 Nowrap.args = { nowrap: true };
+Nowrap.decorators = [mediumWidth];
 Nowrap.storyName = 'nowrap';
 
 const VariantAliasTemplate = (args) => (
