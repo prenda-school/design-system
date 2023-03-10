@@ -15,7 +15,6 @@ const styles: Styles<Unstable_FormGroupClassKey> = {
   root: {
     columnGap: 32,
     rowGap: 16,
-    width: 'fit-content',
   },
 };
 

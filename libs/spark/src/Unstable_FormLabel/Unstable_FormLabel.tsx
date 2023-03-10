@@ -50,6 +50,7 @@ const styles: Styles<Unstable_FormLabelClassKey | PrivateClassKey> = (
   /* Styles applied to the root element. */
   root: {
     color: theme.unstable_palette.text.heading,
+    display: 'inline-block',
     margin: 0,
     /* focused -- can get from internal context => can't condition on prop */
     '&.Mui-focused': {
