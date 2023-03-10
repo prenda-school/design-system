@@ -158,6 +158,17 @@ LabelHelperTextRow.args = {
 };
 LabelHelperTextRow.storyName = 'children=(CheckboxFields) label helperText row';
 
+export const LabelHelperTextRowFullWidth: Story = Template.bind({});
+LabelHelperTextRowFullWidth.args = {
+  children: '(CheckboxFields)',
+  label: 'Label',
+  helperText: 'Helper text',
+  row: true,
+  fullWidth: true,
+};
+LabelHelperTextRowFullWidth.storyName =
+  'children=(CheckboxFields) label helperText row fullWidth';
+
 export const Children2LabelHelperText: Story = Template.bind({});
 Children2LabelHelperText.args = {
   children: '(CheckboxFields helperText)',

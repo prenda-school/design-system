@@ -187,6 +187,17 @@ LabelHelperTextRow.args = {
 };
 LabelHelperTextRow.storyName = 'children=(RadioFields) label helperText row';
 
+export const LabelHelperTextRowFullWidth: Story = Template.bind({});
+LabelHelperTextRowFullWidth.args = {
+  children: '(RadioFields)',
+  label: 'Label',
+  helperText: 'Helper text',
+  row: true,
+  fullWidth: true,
+};
+LabelHelperTextRowFullWidth.storyName =
+  'children=(RadioFields) label helperText row fullWidth';
+
 export const LabelHelperTextValue: Story = Template.bind({});
 LabelHelperTextValue.args = {
   children: '(RadioFields)',
