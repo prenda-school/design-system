@@ -2,45 +2,79 @@ import { useFormControl } from '@material-ui/core/FormControl';
 import { useContext } from 'react';
 import Unstable_FormControlExtraContext from '../Unstable_FormControlExtraContext';
 
-const useFormControl_unstable = (parameters: {
+export type UseFormControl_UnstableParams = {
   disabled?: boolean;
   error?: boolean;
   fullWidth?: boolean;
   required?: boolean;
   size?: 'medium' | 'small';
   success?: boolean;
-}) => {
+};
+
+export type UseFormControl_UnstableResult = {
+  disabled: boolean;
+  error: boolean;
+  fullWidth: boolean;
+  required: boolean;
+  size: 'medium' | 'small';
+  success: boolean;
+  id?: string;
+  labelId?: string;
+  helperTextId?: string;
+  filled?: boolean;
+  focused?: boolean;
+  onBlur?: () => void;
+  onEmpty?: () => void;
+  onFilled?: () => void;
+  onFocus?: () => void;
+};
+
+const useFormControl_unstable = (
+  params: UseFormControl_UnstableParams
+): UseFormControl_UnstableResult => {
   const muiFormControl = useFormControl();
   const formControlExtra = useContext(Unstable_FormControlExtraContext);
 
-  let disabled = parameters.disabled;
-  if (typeof parameters.disabled === 'undefined') {
-    disabled = muiFormControl?.disabled;
+  let disabled = false;
+  if (typeof params.disabled === 'undefined' && muiFormControl) {
+    disabled = muiFormControl.disabled;
+  } else {
+    disabled = params.disabled;
   }
 
-  let error = parameters.error;
-  if (typeof parameters.error === 'undefined') {
-    error = muiFormControl?.error;
+  let error = false;
+  if (typeof params.error === 'undefined' && muiFormControl) {
+    error = muiFormControl.error;
+  } else {
+    error = params.error;
   }
 
-  let fullWidth = parameters.fullWidth;
-  if (typeof parameters.fullWidth === 'undefined') {
-    fullWidth = muiFormControl?.fullWidth;
+  let fullWidth = false;
+  if (typeof params.fullWidth === 'undefined' && muiFormControl) {
+    fullWidth = muiFormControl.fullWidth;
+  } else {
+    fullWidth = params.fullWidth;
   }
 
-  let required = parameters.required;
-  if (typeof parameters.required === 'undefined') {
-    required = muiFormControl?.required;
+  let required = false;
+  if (typeof params.required === 'undefined' && muiFormControl) {
+    required = muiFormControl.required;
+  } else {
+    required = params.required;
   }
 
-  let size = parameters.size;
-  if (typeof parameters.size === 'undefined') {
+  let size: 'medium' | 'small' = 'medium';
+  if (typeof params.size === 'undefined' && formControlExtra) {
     size = formControlExtra.size;
+  } else {
+    size = params.size;
   }
 
-  let success = parameters.success;
-  if (typeof parameters.success === 'undefined') {
+  let success = false;
+  if (typeof params.success === 'undefined' && formControlExtra) {
     success = formControlExtra.success;
+  } else {
+    success = params.success;
   }
 
   return {

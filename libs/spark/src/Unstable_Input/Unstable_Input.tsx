@@ -27,6 +27,20 @@ export interface Unstable_InputProps
    */
   leadingEl?: ReactNode;
   /**
+   * Render the leading element.
+   */
+  renderLeadingEl?: (
+    props: { children: ReactNode; className?: string },
+    state: { size: 'medium' | 'small' }
+  ) => ReactNode;
+  /**
+   * Render the trailing element.
+   */
+  renderTrailingEl?: (
+    props: { children: ReactNode; className?: string },
+    state: { size: 'medium' | 'small' }
+  ) => ReactNode;
+  /**
    * The content of the `endAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
   trailingEl?: ReactNode;
@@ -40,7 +54,11 @@ export interface Unstable_InputProps
   size?: 'medium' | 'small';
 }
 
-export type Unstable_InputClassKey = 'root' | 'input';
+export type Unstable_InputClassKey =
+  | 'root'
+  | 'input'
+  | 'leadingEl'
+  | 'trailingEl';
 
 type PrivateClassKey =
   | 'private-root-fullWidth'
@@ -112,6 +130,8 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
       opacity: 1,
     },
   },
+  leadingEl: {},
+  trailingEl: {},
   /* Private */
   'private-root-fullWidth': {
     maxWidth: '100%',
@@ -171,6 +191,24 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
   },
 });
 
+const defaultRenderLeadingEl: Unstable_InputProps['renderLeadingEl'] = (
+  props: { children: ReactNode; className?: string },
+  state: { size: 'medium' | 'small' }
+) => {
+  return (
+    <Unstable_InputAdornment position="start" size={state.size} {...props} />
+  );
+};
+
+const defaultRenderTrailingEl: Unstable_InputProps['renderTrailingEl'] = (
+  props: { children: ReactNode; className?: string },
+  state: { size: 'medium' | 'small' }
+) => {
+  return (
+    <Unstable_InputAdornment position="end" size={state.size} {...props} />
+  );
+};
+
 const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
   function Unstable_Input(props, ref) {
     const {
@@ -181,6 +219,8 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
       leadingEl,
       multiline,
       placeholder,
+      renderLeadingEl = defaultRenderLeadingEl,
+      renderTrailingEl = defaultRenderTrailingEl,
       size: _size,
       success: _success,
       trailingEl,
@@ -219,21 +259,29 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
           ),
         }}
         endAdornment={
-          trailingEl ? (
-            <Unstable_InputAdornment position="end" size={formControl.size}>
-              {trailingEl}
-            </Unstable_InputAdornment>
-          ) : undefined
+          trailingEl
+            ? renderTrailingEl(
+                {
+                  className: classes.trailingEl,
+                  children: trailingEl,
+                },
+                { size: formControl.size }
+              )
+            : undefined
         }
         id={idProp || formControl.id}
         multiline={multiline}
         placeholder={placeholder}
         startAdornment={
-          leadingEl ? (
-            <Unstable_InputAdornment position="start" size={formControl.size}>
-              {leadingEl}
-            </Unstable_InputAdornment>
-          ) : undefined
+          leadingEl
+            ? renderLeadingEl(
+                {
+                  className: classes.leadingEl,
+                  children: leadingEl,
+                },
+                { size: formControl.size }
+              )
+            : undefined
         }
         value={value}
         ref={ref}

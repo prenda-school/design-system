@@ -4,6 +4,8 @@
 
 API surface:
 
+- **Unstable_Autocomplete**
+  - [feat] added
 - **Unstable_Banner**
   - [style] reduce gap, padding on mobile
 - **Unstable_Button**
@@ -41,6 +43,7 @@ API surface:
 - **Unstable_Select**
   - see **Unstable_Input**
   - [fix] wrong icon size and spacing when `size="small"`
+  - [feat] added `renderLeadingEl`, `renderTrailingEl` for advanced customization
 - **Unstable_Tab**
   - [style] override Bootstrap.css
 - **Unstable_TextField**
@@ -51,8 +54,12 @@ API surface:
     - `toasts.enqueue.info(message, options)`
     - `toasts.enqueue.success(message, options)`
     - `toasts.enqueue.warning(message, options)`of the toast while preserving the API:
+- **useAutocomplete_unstable**
+  - [feat] added
 - **useDropdown_unstable**
   - [feat] added
+- **useFormControl_unstable**
+  - [feat] improved default values and typings
 - **useToasts_unstable**
   - see **Unstable_ToastsContext**
   - [feat] change default placement to `"bottom-center"`
