@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_CheckboxField, Unstable_CheckboxFieldProps } from '..';
-import { containFocusIndicator } from '../../stories';
+import { containBoxShadowInline } from '../../stories';
 
 export const _retyped = Unstable_CheckboxField as typeof Unstable_CheckboxField;
 
@@ -9,7 +9,7 @@ export default {
   title: '@ps/CheckboxField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadowInline],
 } as Meta;
 
 const Template = (args) => <Unstable_CheckboxField {...args} />;

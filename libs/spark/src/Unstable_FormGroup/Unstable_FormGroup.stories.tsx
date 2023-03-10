@@ -6,7 +6,7 @@ import {
   Unstable_FormGroup,
   Unstable_FormGroupProps,
 } from '..';
-import { containFocusIndicator, sparkThemeProvider } from '../../stories';
+import { containBoxShadow, sparkThemeProvider } from '../../stories';
 
 export const _retyped = Unstable_FormGroup as typeof Unstable_FormGroup;
 
@@ -14,7 +14,7 @@ export default {
   title: '@ps/FormGroup',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadow],
   argTypes: {
     children: {
       control: 'select',

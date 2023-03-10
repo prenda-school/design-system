@@ -13,7 +13,6 @@ import {
 } from '..';
 import {
   CheckCircleDuotone,
-  containFocusIndicator,
   Cross,
   ExternalLink,
   Heart,
@@ -53,7 +52,6 @@ export default {
   title: '@ps/ContentGroup',
   component: _retyped,
   excludeStories: ['_retyped', 'MicroschoolThumbnailTemplate'],
-  decorators: [containFocusIndicator],
   argTypes: {
     button: { control: 'boolean' },
     leadingEl: {

@@ -84,24 +84,18 @@ export const inverseBackground = (Story, context) => (
   </InverseBackgroundSpan>
 );
 
-const ContainFocusIndicatorDiv = styled('div')({
-  // width of focus indicator
+const ContainBoxShadowDiv = styled('div')({
+  // width of box shadows like focus indicator, input state severity
   padding: 4,
-  // without setting it to fit, the story snapshot will expand to 100%
-  width: 'fit-content',
-  // prevent larger-than-necessary height because of added browser-default space for ascender/descenders.
-  display: 'grid',
-  // prevent overflowing past viewport
-  maxWidth: '100%',
 });
 
 /**
  * [Internal] A Storybook decorator that applies padding so that the standard focus indicator is captured in Chromatic snapshots.
  */
-export const containFocusIndicator = (Story, context) => (
-  <ContainFocusIndicatorDiv>
+export const containBoxShadow = (Story, context) => (
+  <ContainBoxShadowDiv>
     <Story {...context} />
-  </ContainFocusIndicatorDiv>
+  </ContainBoxShadowDiv>
 );
 
 const MediumWidthDiv = styled('div')({
@@ -149,3 +143,23 @@ export const containElevation = (Story, context) => (
     <Story {...context} />
   </ContainElevationDiv>
 );
+
+const ContainBoxShadowInlineDiv = styled(ContainBoxShadowDiv)({
+  // 'inline' => prevent taking up full width available (block-level element default) (results in story snapshot being width being window width rather than element width)
+  // 'grid' / 'flex' => prevent added space for font ascender/descender (inline element default) (results in story snapshot height being larger than necessary by a pixel or two)
+  display: 'inline-grid',
+});
+
+/**
+ * [Internal] ...
+ *
+ * Prevents `fullWidth` feature.
+ */
+export const containBoxShadowInline = (Story, context) => (
+  <ContainBoxShadowInlineDiv>
+    <Story {...context} />
+  </ContainBoxShadowInlineDiv>
+);
+
+// // prevent overflowing past viewport
+// maxWidth: '100%',

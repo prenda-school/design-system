@@ -8,7 +8,7 @@ import {
 } from '..';
 import {
   ChevronDown,
-  containFocusIndicator,
+  containBoxShadowInline,
   Plus,
   sparkThemeProvider,
 } from '../../stories';
@@ -20,7 +20,6 @@ export default {
   component: _retyped,
   excludeStories: ['_retyped'],
   parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [containFocusIndicator],
   argTypes: {
     leadingAvatar: {
       control: 'select',
@@ -49,6 +48,9 @@ export default {
         ChevronDown: <ChevronDown />,
       },
     },
+    disabled: {
+      control: 'boolean',
+    },
   },
   args: {
     children: <>Label</>,
@@ -65,6 +67,10 @@ Default.storyName = '(default)';
 export const STP: Story = Template.bind({});
 STP.decorators = [sparkThemeProvider];
 STP.storyName = '(STP)';
+
+export const FullWidth: Story = Template.bind({});
+FullWidth.args = { fullWidth: true };
+FullWidth.storyName = 'fullWidth';
 
 const variants: Array<Unstable_ButtonProps['variant']> = [
   'primary',
@@ -159,13 +165,17 @@ SizeByVariantExpandedSTP.decorators = [sparkThemeProvider];
 SizeByVariantExpandedSTP.storyName = 'size ⨯ variant aria-expanded (STP)';
 
 export const SizeByVariantFocusVisible: Story = SizeByVariantTemplate.bind({});
+SizeByVariantFocusVisible.decorators = [containBoxShadowInline];
 SizeByVariantFocusVisible.parameters = { pseudo: { focusVisible: true } };
 SizeByVariantFocusVisible.storyName = 'size ⨯ variant :focus-visible';
 
 export const SizeByVariantFocusVisibleSTP: Story = SizeByVariantTemplate.bind(
   {}
 );
-SizeByVariantFocusVisibleSTP.decorators = [sparkThemeProvider];
+SizeByVariantFocusVisibleSTP.decorators = [
+  sparkThemeProvider,
+  containBoxShadowInline,
+];
 SizeByVariantFocusVisibleSTP.parameters = { pseudo: { focusVisible: true } };
 SizeByVariantFocusVisibleSTP.storyName = 'size ⨯ variant :focus-visible (STP)';
 

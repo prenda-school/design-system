@@ -5,11 +5,7 @@ import {
   Unstable_CheckboxListItem,
   Unstable_CheckboxListItemProps,
 } from '..';
-import {
-  containFocusIndicator,
-  enableHooks,
-  statefulValue,
-} from '../../stories';
+import { containBoxShadow, enableHooks, statefulValue } from '../../stories';
 import { default as Unstable_ListItemMeta } from '../Unstable_ListItem/Unstable_ListItem.stories';
 
 export const _retyped =
@@ -19,7 +15,7 @@ export default {
   title: '@ps/CheckboxListItem',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks],
   args: { children: <>Label</> },
   argTypes: {
     secondaryAction: Unstable_ListItemMeta.argTypes.secondaryAction,
@@ -38,6 +34,12 @@ export const ValueHover: Story = Template.bind({});
 ValueHover.args = { value: 'value', checked: false };
 ValueHover.parameters = { pseudo: { hover: true } };
 ValueHover.storyName = 'value :hover';
+
+export const ValueFocusVisible: Story = Template.bind({});
+ValueFocusVisible.args = { value: 'value', checked: false };
+ValueFocusVisible.decorators = [containBoxShadow];
+ValueFocusVisible.parameters = { pseudo: { focusVisible: true } };
+ValueFocusVisible.storyName = 'value :focus-visible';
 
 export const ValueChecked: Story = Template.bind({});
 ValueChecked.args = { value: 'value', checked: true };

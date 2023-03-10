@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_Switch, Unstable_SwitchProps } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadowInline,
   enableHooks,
   sparkThemeProvider,
   statefulValue,
@@ -14,7 +14,7 @@ export default {
   title: '@ps/Switch',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks, containBoxShadowInline],
   args: {
     inputProps: { 'aria-label': 'Label' },
   },

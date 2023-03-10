@@ -5,7 +5,7 @@ import {
   Unstable_InputProps as _Unstable_InputProps,
 } from '..';
 import {
-  containFocusIndicator,
+  containBoxShadow,
   enableHooks,
   Gear,
   Info,
@@ -40,7 +40,7 @@ export default {
   title: '@ps/Input',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [statefulValue, enableHooks, containFocusIndicator],
+  decorators: [statefulValue, enableHooks, containBoxShadow],
   argTypes: {
     leadingEl: {
       control: 'select',
@@ -99,9 +99,17 @@ export const Error: Story = Template.bind({});
 Error.args = { error: true };
 Error.storyName = 'error';
 
+export const FullWidth: Story = Template.bind({});
+FullWidth.args = { fullWidth: true };
+FullWidth.storyName = 'fullWidth';
+
 export const LeadingEl: Story = Template.bind({});
 LeadingEl.args = { leadingEl: '<Gear />' };
 LeadingEl.storyName = 'leadingEl';
+
+export const LeadingElSizeSmall: Story = Template.bind({});
+LeadingElSizeSmall.args = { leadingEl: '<Gear />', size: 'small' };
+LeadingElSizeSmall.storyName = 'leadingEl size="small" ';
 
 export const Success: Story = Template.bind({});
 Success.args = { success: true };
@@ -110,6 +118,10 @@ Success.storyName = 'success';
 export const TrailingEl: Story = Template.bind({});
 TrailingEl.args = { trailingEl: '<Info />' };
 TrailingEl.storyName = 'trailingEl';
+
+export const TrailingElSizeSmall: Story = Template.bind({});
+TrailingElSizeSmall.args = { trailingEl: '<Info />', size: 'small' };
+TrailingElSizeSmall.storyName = 'trailingEl size="small" ';
 
 export const MultilineMinRows: Story = Template.bind({});
 MultilineMinRows.args = { multiline: true, minRows: 3 };

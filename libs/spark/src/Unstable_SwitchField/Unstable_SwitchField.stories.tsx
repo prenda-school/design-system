@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_SwitchField, Unstable_SwitchFieldProps } from '..';
-import { containFocusIndicator, mediumWidth } from '../../stories';
+import { containBoxShadow } from '../../stories';
 
 export const _retyped = Unstable_SwitchField as typeof Unstable_SwitchField;
 
@@ -9,7 +9,7 @@ export default {
   title: '@ps/SwitchField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadow],
 } as Meta;
 
 const Template = (args) => <Unstable_SwitchField {...args} />;
@@ -25,7 +25,6 @@ LabelFullWidth.args = {
   label: 'Label',
   fullWidth: true,
 };
-LabelFullWidth.decorators = [mediumWidth];
 LabelFullWidth.storyName = 'label fullWidth';
 
 export const LabelHelperText: Story = Template.bind({});
@@ -61,6 +60,5 @@ LabelLabelPlacementStartFullWidth.args = {
   labelPlacement: 'start',
   fullWidth: true,
 };
-LabelLabelPlacementStartFullWidth.decorators = [mediumWidth];
 LabelLabelPlacementStartFullWidth.storyName =
   'label labelPlacement=start fullWidth';

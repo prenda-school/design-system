@@ -5,7 +5,7 @@ import {
   Unstable_RadioGroupField,
   Unstable_RadioGroupFieldProps,
 } from '..';
-import { containFocusIndicator, Info } from '../../stories';
+import { containBoxShadow, Info } from '../../stories';
 
 export const _retyped =
   Unstable_RadioGroupField as typeof Unstable_RadioGroupField;
@@ -14,7 +14,7 @@ export default {
   title: '@ps/RadioGroupField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadow],
   argTypes: {
     children: {
       control: 'select',
@@ -134,6 +134,16 @@ LabelHelperTextErrorDisabled.args = {
 };
 LabelHelperTextErrorDisabled.storyName =
   'children=(RadioFields) label helperText error disabled';
+
+export const LabelHelperTextFullWidth: Story = Template.bind({});
+LabelHelperTextErrorDisabled.args = {
+  children: '(RadioFields)',
+  label: 'Label',
+  helperText: 'Helper text',
+  fullWidth: true,
+};
+LabelHelperTextErrorDisabled.storyName =
+  'children=(RadioFields) label helperText fullWidth';
 
 export const LabelHelperTextRequired: Story = Template.bind({});
 LabelHelperTextRequired.args = {

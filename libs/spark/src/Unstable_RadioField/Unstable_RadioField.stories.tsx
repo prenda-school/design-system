@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { Unstable_RadioField, Unstable_RadioFieldProps } from '..';
-import { containFocusIndicator } from '../../stories';
+import { containBoxShadowInline } from '../../stories';
 
 export const _retyped = Unstable_RadioField as typeof Unstable_RadioField;
 
@@ -9,7 +9,7 @@ export default {
   title: '@ps/RadioField',
   component: _retyped,
   excludeStories: ['_retyped'],
-  decorators: [containFocusIndicator],
+  decorators: [containBoxShadowInline],
 } as Meta;
 
 const Template = (args) => <Unstable_RadioField {...args} />;
