@@ -214,6 +214,9 @@ export * from './NavBar';
 export { default as NavBarButton } from './NavBarButton';
 export * from './NavBarButton';
 
+export { default as Unstable_Autocomplete } from './Unstable_Autocomplete';
+export * from './Unstable_Autocomplete';
+
 export { default as Unstable_Avatar } from './Unstable_Avatar';
 export * from './Unstable_Avatar';
 
@@ -400,6 +403,8 @@ export { default as theme } from './theme';
 export * from './theme';
 
 export { default as unstable_createSvgIcon } from './unstable_createSvgIcon';
+
+export { default as useAutocomplete_unstable } from './useAutocomplete_unstable';
 
 export { default as useDropdown_unstable } from './useDropdown_unstable';
 
