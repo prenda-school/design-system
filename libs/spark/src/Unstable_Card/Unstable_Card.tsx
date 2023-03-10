@@ -29,10 +29,13 @@ type PrivateClassKey =
   | 'private-root-orientation-horizontal'
   | 'private-root-orientation-vertical';
 
-const styles: Styles<Unstable_CardClassKey | PrivateClassKey> = {
+const styles: Styles<Unstable_CardClassKey | PrivateClassKey> = (theme) => ({
   root: {
     display: 'flex',
     padding: '32px 24px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '24px 18px',
+    },
   },
   'private-root-orientation-horizontal': {
     flexDirection: 'row',
@@ -40,7 +43,7 @@ const styles: Styles<Unstable_CardClassKey | PrivateClassKey> = {
   'private-root-orientation-vertical': {
     flexDirection: 'column',
   },
-};
+});
 
 const Unstable_Card: OverridableComponent<Unstable_CardTypeMap> = forwardRef(
   function Unstable_Card(props, ref) {

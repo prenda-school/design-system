@@ -31,6 +31,10 @@ const styles: Styles<Unstable_BannerClassKey | PrivateClassKey> = (theme) => ({
     display: 'flex',
     gap: 16,
     padding: 24,
+    [theme.breakpoints.down('sm')]: {
+      gap: 8,
+      padding: 12,
+    },
   },
   icon: {
     display: 'flex',

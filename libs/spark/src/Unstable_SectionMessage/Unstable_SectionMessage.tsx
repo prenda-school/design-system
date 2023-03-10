@@ -38,6 +38,10 @@ const styles: Styles<Unstable_SectionMessageClassKey | PrivateClassKey> = (
     gap: 16,
     padding: 24,
     border: theme.unstable_borders.bold,
+    [theme.breakpoints.down('sm')]: {
+      gap: 12,
+      padding: 18,
+    },
   },
   icon: {
     display: 'flex',
