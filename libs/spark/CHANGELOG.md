@@ -2,7 +2,15 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.9...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **Unstable_Input**
+  - [fix] `fullWidth` not working
+  - [fix] overflowing out of parent that is smaller than the default width
+- **Unstable_Select**
+  - see **Unstable_Input**
+- **Unstable_TextField**
+  - see **Unstable_Input**
 
 ## [v2.0.0-alpha.9](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2022-12-02)
 
