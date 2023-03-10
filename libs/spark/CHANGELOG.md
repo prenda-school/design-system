@@ -4,13 +4,17 @@
 
 API surface:
 
+- **Unstable_FormControl**
+  - [fix] `fullWidth` not working
+- **Unstable_FormGroup**
+  - [style] remove `width: fit-content`
 - **Unstable_Input**
   - [fix] `fullWidth` not working
   - [fix] overflowing out of parent that is smaller than the default width
 - **Unstable_Select**
   - see **Unstable_Input**
 - **Unstable_TextField**
-  - see **Unstable_Input**
+  - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
 
 ## [v2.0.0-alpha.9](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2022-12-02)
 

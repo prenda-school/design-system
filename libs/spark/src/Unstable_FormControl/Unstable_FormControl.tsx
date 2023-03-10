@@ -38,25 +38,37 @@ export type Unstable_FormControlProps<
 
 export type Unstable_FormControlClassKey = 'root';
 
-type PrivateClassKey = 'private-root-size-medium' | 'private-root-size-small';
+type PrivateClassKey =
+  | 'private-root-fullWidth'
+  | 'private-root-size-medium'
+  | 'private-root-size-small';
 
-const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
+const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = (
+  theme
+) => ({
   /** Styles applied to the root element. */
-  root: {},
+  root: {
+    maxWidth: theme.unstable_typography.pxToRem(320),
+    width: '100%',
+  },
   /* Private */
+  'private-root-fullWidth': {
+    maxWidth: '100%',
+  },
   'private-root-size-medium': {
     gap: 8,
   },
   'private-root-size-small': {
     gap: 4,
   },
-};
+});
 
 const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> =
   forwardRef(function Unstable_FormControl(props, ref) {
     const {
       classes,
       color: _color,
+      fullWidth,
       id: idProp,
       size = 'medium',
       success = false,
@@ -73,8 +85,11 @@ const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> =
       >
         <MuiFormControl
           classes={{
-            root: clsx(classes.root, classes[`private-root-size-${size}`]),
+            root: clsx(classes.root, classes[`private-root-size-${size}`], {
+              [classes['private-root-fullWidth']]: fullWidth,
+            }),
           }}
+          fullWidth={fullWidth}
           ref={ref}
           {...other}
         />
