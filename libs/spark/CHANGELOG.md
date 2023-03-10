@@ -34,6 +34,15 @@ API surface:
   - [style] override Bootstrap.css
 - **Unstable_TextField**
   - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
+- **Unstable_ToastsContext**
+  - [feat] add properties to enqueue that are shorter ways to set the "severity"
+    - `toasts.enqueue.error(message, options)`
+    - `toasts.enqueue.info(message, options)`
+    - `toasts.enqueue.success(message, options)`
+    - `toasts.enqueue.warning(message, options)`of the toast while preserving the API:
+- **useToasts_unstable**
+  - see **Unstable_ToastsContext**
+  - [feat] change default placement to `"bottom-center"`
 
 ## [v2.0.0-alpha.9](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.8...v2.0.0-alpha.9) (2022-12-02)
 
