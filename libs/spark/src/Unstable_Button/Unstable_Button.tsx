@@ -77,7 +77,11 @@ type PrivateClassKey =
   | 'private-root-leadingAvatar-size-medium'
   | 'private-root-leadingAvatar-size-large'
   | 'private-root-variant-primary'
+  | 'private-root-variant-primary-color-standard'
+  | 'private-root-variant-primary-color-inverse'
   | 'private-root-variant-stroked'
+  | 'private-root-variant-stroked-color-standard'
+  | 'private-root-variant-stroked-color-inverse'
   | 'private-root-variant-stroked-size-small'
   | 'private-root-variant-stroked-size-medium'
   | 'private-root-variant-stroked-size-large'
@@ -90,7 +94,11 @@ type PrivateClassKey =
   | 'private-root-variant-destructive'
   | 'private-root-disabled'
   | 'private-label-variant-primary'
+  | 'private-label-variant-primary-color-standard'
+  | 'private-label-variant-primary-color-inverse'
   | 'private-label-variant-stroked'
+  | 'private-label-variant-stroked-color-standard'
+  | 'private-label-variant-stroked-color-inverse'
   | 'private-label-variant-ghost'
   | 'private-label-variant-ghost-color-standard'
   | 'private-label-variant-ghost-color-inverse'
@@ -208,14 +216,26 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       '&:active': {
         backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
       },
+    },
+  },
+  'private-root-variant-primary-color-standard': {
+    '&&': {
       '&[aria-expanded="true"]': {
         backgroundColor: theme.unstable_palette.background.inverse,
       },
     },
   },
-  'private-root-variant-stroked': {
+  'private-root-variant-primary-color-inverse': {
     '&&': {
-      backgroundColor: theme.unstable_palette.neutral[0],
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.default,
+      },
+    },
+  },
+  'private-root-variant-stroked': {},
+  'private-root-variant-stroked-color-standard': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.background.default,
       border: theme.unstable_borders.standard,
       '&:hover': {
         backgroundColor: theme.unstable_palette.neutral[70],
@@ -225,6 +245,24 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
       },
       '&[aria-expanded="true"]': {
         backgroundColor: theme.unstable_palette.background.inverse,
+      },
+    },
+  },
+  'private-root-variant-stroked-color-inverse': {
+    '&&': {
+      backgroundColor: theme.unstable_palette.background.inverse,
+      border: `1px solid ${theme.unstable_palette.neutral[80]}`,
+      '&:hover': {
+        backgroundColor: theme.unstable_palette.neutral[500],
+      },
+      '&:active': {
+        backgroundColor: lighten(
+          theme.unstable_palette.background.inverse,
+          0.2
+        ),
+      },
+      '&[aria-expanded="true"]': {
+        backgroundColor: theme.unstable_palette.background.default,
       },
     },
   },
@@ -324,24 +362,41 @@ const styles: Styles<Unstable_ButtonClassKey | PrivateClassKey> = (theme) => ({
     ...buttonFontVariantLarge,
   },
   'private-label-variant-primary': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.unstable_palette.text.inverseHeading,
   },
-  'private-label-variant-stroked': {
+  'private-label-variant-primary-color-standard': {},
+  'private-label-variant-primary-color-inverse': {
+    '[aria-expanded="true"] &': {
+      color: theme.unstable_palette.text.heading,
+    },
+  },
+  'private-label-variant-stroked': {},
+  'private-label-variant-stroked-color-standard': {
     color: theme.unstable_palette.brand.blue,
+    '[aria-expanded="true"] &': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
+  },
+  'private-label-variant-stroked-color-inverse': {
+    color: theme.unstable_palette.text.inverseHeading,
+    '[aria-expanded="true"] &': {
+      color: theme.unstable_palette.text.heading,
+    },
   },
   'private-label-variant-ghost': {},
   'private-label-variant-ghost-color-standard': {
     color: theme.unstable_palette.brand.blue,
+    '[aria-expanded="true"] &': {
+      color: theme.unstable_palette.text.inverseHeading,
+    },
   },
   'private-label-variant-ghost-color-inverse': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.unstable_palette.text.inverseHeading,
   },
   'private-label-variant-destructive': {
     color: theme.unstable_palette.neutral[0],
   },
-  'private-label-ariaExpanded': {
-    color: theme.unstable_palette.neutral[0],
-  },
+  'private-label-ariaExpanded': {},
   'private-label-disabled': {
     color: theme.unstable_palette.text.disabled,
   },
@@ -442,6 +497,10 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> =
               ]]: !!leadingAvatar && variant === 'stroked',
               [classes[`private-root-variant-stroked-size-${size}`]]:
                 variant === 'stroked',
+              [classes[`private-root-variant-primary-color-${color}`]]:
+                variant === 'primary',
+              [classes[`private-root-variant-stroked-color-${color}`]]:
+                variant === 'stroked',
               [classes[`private-root-variant-ghost-color-${color}`]]:
                 variant === 'ghost',
             }
@@ -453,8 +512,12 @@ const Unstable_Button: OverridableComponent<Unstable_ButtonTypeMap> =
             {
               [classes['private-label-ariaExpanded']]: ariaExpanded,
               [classes['private-label-disabled']]: disabled,
+              [classes[`private-label-variant-primary-color-${color}`]]:
+                variant === 'primary',
               [classes[`private-label-variant-ghost-color-${color}`]]:
                 variant === 'ghost',
+              [classes[`private-label-variant-stroked-color-${color}`]]:
+                variant === 'stroked',
             }
           ),
         }}
