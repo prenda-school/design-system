@@ -9,7 +9,8 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
 export interface Unstable_AvatarTypeMap<
-  P = Record<string, unknown>,
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {},
   D extends ElementType = 'div'
 > {
   props: P &
@@ -37,7 +38,8 @@ export interface Unstable_AvatarTypeMap<
 
 export type Unstable_AvatarProps<
   D extends ElementType = Unstable_AvatarTypeMap['defaultComponent'],
-  P = Record<string, unknown>
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  P = {}
 > = OverrideProps<Unstable_AvatarTypeMap<P, D>, D>;
 
 export type Unstable_AvatarClassKey = 'root' | 'img' | 'fallback';
