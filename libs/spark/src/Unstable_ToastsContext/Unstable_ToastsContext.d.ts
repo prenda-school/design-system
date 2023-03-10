@@ -22,8 +22,21 @@ export interface Unstable_ToastsContextValue {
    * @param options The options processed by Toasts and Toast.
    * @returns an id to reference that toast later on (i.e. dismiss it programmatically)
    */
-  enqueue: (children: ReactNode, options?: EnqueueOptions) => Unstable_ToastId;
+  enqueue: ConvenienceEnqueue;
 }
+
+export type _Enqueue = (
+  children: ReactNode,
+  options?: EnqueueOptions
+) => Unstable_ToastId;
+
+type ConvenienceEnqueue = {
+  (children: ReactNode, options?: EnqueueOptions): Unstable_ToastId;
+  error: _Enqueue;
+  info: _Enqueue;
+  success: _Enqueue;
+  warning: _Enqueue;
+};
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface EnqueueOptions
