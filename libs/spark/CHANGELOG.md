@@ -6,6 +6,8 @@ API surface:
 
 - **Unstable_Banner**
   - [style] reduce gap, padding on mobile
+- **Unstable_Button**
+  - [style] improve styles when `color="inverse"`
 - **Unstable_Card**
   - [style] reduce padding on mobile
 - **Unstable_CheckboxListItem**
