@@ -63,6 +63,9 @@ const styles: Styles<Unstable_LinkClassKey | PrivateClassKey> = (theme) => ({
     '&:focus': {
       outline: 'none',
     },
+    'button&': {
+      verticalAlign: 'baseline',
+    },
   },
   'private-root-standalone': {
     textDecoration: 'none',
