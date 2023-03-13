@@ -21,7 +21,7 @@ export default {
 
 const Template = (args) => <Unstable_Link {...args} />;
 
-type Story = DefaultStory<Unstable_LinkProps>;
+type Story = DefaultStory<Unstable_LinkProps & { component?: 'button' }>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
@@ -147,3 +147,13 @@ const VariantAliasTemplate = (args) => (
 export const VariantAlias: Story = VariantAliasTemplate.bind({});
 VariantAlias.args = { variant: 'alias' };
 VariantAlias.storyName = 'variant=alias';
+
+const InlineWithTextTemplate = (args) => (
+  <span>
+    <Unstable_Link {...args}>Text</Unstable_Link> with text
+  </span>
+);
+
+export const ComponentButton: Story = InlineWithTextTemplate.bind({});
+ComponentButton.args = { component: 'button' };
+ComponentButton.storyName = 'component=button';

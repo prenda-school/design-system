@@ -2,7 +2,10 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **Unstable_Link**
+  - [fix] vertical alignment when `component="button"`
 
 ## [v2.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2023-03-13)
 
