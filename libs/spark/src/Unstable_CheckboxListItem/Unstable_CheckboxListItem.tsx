@@ -1,4 +1,10 @@
-import React, { ElementType, forwardRef, MouseEvent, Ref } from 'react';
+import React, {
+  ElementType,
+  forwardRef,
+  MouseEvent,
+  MouseEventHandler,
+  Ref,
+} from 'react';
 import clsx from 'clsx';
 import Unstable_Checkbox, {
   Unstable_CheckboxProps,
@@ -15,7 +21,9 @@ export type Unstable_CheckboxListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
   D extends ElementType = 'li'
-> = Omit<Unstable_ListItemTypeMap<P, D>, 'classKey'> & {
+> = Omit<Unstable_ListItemTypeMap<P, D>, 'props' | 'classKey'> & {
+  props: Omit<Unstable_ListItemTypeMap<P, D>['props'], 'onClick'>;
+} & {
   classKey: Unstable_CheckboxListItemClassKey;
   props: P & {
     /**
@@ -62,7 +70,8 @@ export type Unstable_CheckboxListItemProps<
   D extends ElementType = Unstable_CheckboxListItemTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
-> = OverrideProps<Unstable_CheckboxListItemTypeMap<P, D>, D>;
+> = Omit<OverrideProps<Unstable_CheckboxListItemTypeMap<P, D>, D>, 'onClick'> &
+  Pick<Unstable_CheckboxListItemTypeMap<P, D>['props'], 'onClick'>;
 
 export type Unstable_CheckboxListItemClassKey = 'root' | 'label';
 
@@ -124,8 +133,7 @@ const Unstable_CheckboxListItem: OverridableComponent<
 
   const checked = checkedProp === undefined ? selected : checkedProp;
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  const handleClick = (event) => {
+  const handleClick: MouseEventHandler<HTMLLIElement> = (event) => {
     if (onClick) {
       onClick(event, value, checked);
     }
