@@ -14,6 +14,7 @@ API surface:
   - [style] reduce padding on mobile
 - **Unstable_CheckboxListItem**
   - see **Unstable_ListItem**
+  - [fix] underlying `onClick` type preventing custom signature
 - **Unstable_CheckboxMenuItem**
   - see **Unstable_MenuItem**
 - **Unstable_Dropdown**
