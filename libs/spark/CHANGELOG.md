@@ -27,6 +27,8 @@ API surface:
   - [style] improve styles when `color="inverse"`
 - **Unstable_Card**
   - [style] reduce padding on mobile
+- **Unstable_CheckboxGroupField**
+  - see **Unstable_FormControl**, **Unstable_FormGroup**
 - **Unstable_CheckboxListItem**
   - see **Unstable_ListItem**
   - [fix] underlying `onClick` type preventing custom signature
@@ -54,6 +56,8 @@ API surface:
   - [style] override Bootstrap.css
 - **Unstable_MenuItem**
   - see **Unstable_ListItem**
+- **Unstable_RadioGroupField**
+  - see **Unstable_FormControl**
 - **Unstable_SectionMessage**
   - [style] reduce gap, padding on mobile
 - **Unstable_Select**

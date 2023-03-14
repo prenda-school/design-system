@@ -108,7 +108,7 @@ export default {
       options: ['undefined', '(alpha)'],
       mapping: {
         undefined: undefined,
-        '(alpha)': (option) => option.charAt(0),
+        '(alpha)': (option) => option.label.charAt(0),
       },
     },
     InputProps: {
@@ -583,14 +583,6 @@ OpenOptions1.args = {
 };
 OpenOptions1.storyName = 'open options=[..1]';
 
-export const OpenOptionsPrimitiveGroupBy: StoryAutocomplete = Template.bind({});
-OpenOptionsPrimitiveGroupBy.args = {
-  options: '[..string]',
-  open: true,
-  groupBy: '(alpha)',
-};
-OpenOptionsPrimitiveGroupBy.storyName = 'open groupBy=(alpha)';
-
 export const OpenOptionsPrimitiveMultipleValue1: StoryAutocomplete<
   string,
   true
@@ -902,3 +894,12 @@ OptionsAlphaFreeSoloDisableClearable.args = {
 };
 OptionsAlphaFreeSoloDisableClearable.storyName =
   '(alpha) freeSolo disableClearable';
+
+export const OptionsAlphaOpenGroupBy: StoryAutocomplete = Template.bind({});
+OptionsAlphaOpenGroupBy.args = {
+  options: '[..alpha]',
+  getOptionLabel: '..fn',
+  open: true,
+  groupBy: '(alpha)',
+};
+OptionsAlphaOpenGroupBy.storyName = '(alpha) open groupBy=(alpha)';
