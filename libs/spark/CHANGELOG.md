@@ -4,8 +4,16 @@
 
 API surface:
 
+- **Unstable_Autocomplete**
+  - see **Unstable_Input** for changes affecting default value of `renderInput`
+- **Unstable_Input**
+  - see **Unstable_InputAdornment** for changes affecting default values of `renderLeadingEl`, `renderTrailingEl`
+- **Unstable_InputAdornment**
+  - [style] increase font size when `size="small`
 - **Unstable_Link**
   - [fix] vertical alignment when `component="button"`
+- **Unstable_Select**
+  - see **Unstable_Input** for changes affecting default value of `input`
 
 ## [v2.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2023-03-13)
 
