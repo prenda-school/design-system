@@ -6,6 +6,7 @@ import { OverridableComponent, OverrideProps, useId } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import clsx from 'clsx';
 import Unstable_FormControlExtraContext from '../Unstable_FormControlExtraContext';
+import { FormControlProperties_Unstable } from '../useFormControl_unstable';
 
 export interface Unstable_FormControlTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -15,16 +16,38 @@ export interface Unstable_FormControlTypeMap<
   props: P &
     Omit<
       MuiFormControlProps,
-      'classes' | 'color' | 'hiddenLabel' | 'margin' | 'size' | 'variant'
+      | 'classes'
+      | 'color'
+      | 'hiddenLabel'
+      | 'margin'
+      | 'variant'
+      // form control
+      | 'disabled'
+      | 'error'
+      | 'focused'
+      | 'fullWidth'
+      | 'required'
+      | 'size'
+    > &
+    Partial<
+      Pick<
+        FormControlProperties_Unstable,
+        | 'inputId'
+        | 'labelId'
+        | 'helperTextId'
+        | 'disabled'
+        | 'error'
+        | 'focused'
+        | 'fullWidth'
+        | 'required'
+        | 'size'
+        | 'success'
+      >
     > & {
       /**
-       * If `true`, the descendant components should be displayed in an success state.
+       * The id of the root, wrapper element.
        */
-      success?: boolean;
-      /**
-       * The size of the descendant components.
-       */
-      size?: 'medium' | 'small';
+      id?: string;
     };
   defaultComponent: D;
   classKey: Unstable_FormControlClassKey;
@@ -69,19 +92,25 @@ const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> =
       classes,
       color: _color,
       fullWidth,
-      id: idProp,
+      inputId: inputIdProp,
+      labelId: labelIdProp,
+      helperTextId: helperTextIdProp,
       size = 'medium',
       success = false,
       ...other
     } = props;
 
-    const id = useId(idProp);
-    const labelId = `${id}-label`;
-    const helperTextId = `${id}-helper-text`;
+    const inputId = useId(inputIdProp);
 
     return (
       <Unstable_FormControlExtraContext.Provider
-        value={{ helperTextId, id, labelId, success, size }}
+        value={{
+          inputId,
+          labelId: labelIdProp,
+          helperTextId: helperTextIdProp,
+          success,
+          size,
+        }}
       >
         <MuiFormControl
           classes={{

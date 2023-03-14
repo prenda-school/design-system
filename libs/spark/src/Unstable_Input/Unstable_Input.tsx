@@ -7,7 +7,9 @@ import {
 import Unstable_InputAdornment from '../Unstable_InputAdornment';
 import withStyles, { StyledComponentProps, Styles } from '../withStyles';
 import { buildVariant } from '../theme/typography';
-import useFormControl_unstable from '../useFormControl_unstable';
+import useFormControl_unstable, {
+  FormControlProperties_Unstable,
+} from '../useFormControl_unstable';
 
 export interface Unstable_InputProps
   extends Omit<
@@ -20,8 +22,19 @@ export interface Unstable_InputProps
       | 'rowsMax'
       | 'rowsMin'
       | 'startAdornment'
+      // form control
+      | 'disabled'
+      | 'error'
+      | 'fullWidth'
+      | 'required'
     >,
-    StyledComponentProps<Unstable_InputClassKey> {
+    StyledComponentProps<Unstable_InputClassKey>,
+    Partial<
+      Pick<
+        FormControlProperties_Unstable,
+        'disabled' | 'error' | 'fullWidth' | 'required' | 'size' | 'success'
+      >
+    > {
   /**
    * The content of the `startAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
@@ -31,27 +44,19 @@ export interface Unstable_InputProps
    */
   renderLeadingEl?: (
     props: { children: ReactNode; className?: string },
-    state: { size: 'medium' | 'small' }
+    state: Pick<FormControlProperties_Unstable, 'size'>
   ) => ReactNode;
   /**
    * Render the trailing element.
    */
   renderTrailingEl?: (
     props: { children: ReactNode; className?: string },
-    state: { size: 'medium' | 'small' }
+    state: Pick<FormControlProperties_Unstable, 'size'>
   ) => ReactNode;
   /**
    * The content of the `endAdornment` (an InputAdornment), usually an Icon, IconButton, or string.
    */
   trailingEl?: ReactNode;
-  /**
-   * If `true`, the input will indicate a success.
-   */
-  success?: boolean;
-  /**
-   * The size of the input.
-   */
-  size?: 'medium' | 'small';
 }
 
 export type Unstable_InputClassKey =
@@ -193,7 +198,7 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
 
 const defaultRenderLeadingEl: Unstable_InputProps['renderLeadingEl'] = (
   props: { children: ReactNode; className?: string },
-  state: { size: 'medium' | 'small' }
+  state: Pick<FormControlProperties_Unstable, 'size'>
 ) => {
   return (
     <Unstable_InputAdornment position="start" size={state.size} {...props} />
@@ -202,7 +207,7 @@ const defaultRenderLeadingEl: Unstable_InputProps['renderLeadingEl'] = (
 
 const defaultRenderTrailingEl: Unstable_InputProps['renderTrailingEl'] = (
   props: { children: ReactNode; className?: string },
-  state: { size: 'medium' | 'small' }
+  state: Pick<FormControlProperties_Unstable, 'size'>
 ) => {
   return (
     <Unstable_InputAdornment position="end" size={state.size} {...props} />
@@ -212,33 +217,46 @@ const defaultRenderTrailingEl: Unstable_InputProps['renderTrailingEl'] = (
 const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
   function Unstable_Input(props, ref) {
     const {
-      'aria-describedby': ariaDescribedByProp,
       classes,
-      id: idProp,
-      fullWidth,
       leadingEl,
       multiline,
       placeholder,
       renderLeadingEl = defaultRenderLeadingEl,
       renderTrailingEl = defaultRenderTrailingEl,
-      size: _size,
-      success: _success,
       trailingEl,
       value,
+      // form control
+      'aria-describedby': ariaDescribedByProp,
+      disabled: disabledProp,
+      error: errorProp,
+      fullWidth: fullWidthProp,
+      id: idProp,
+      required: requiredProp,
+      size: sizeProp,
+      success: successProp,
       ...other
     } = props;
 
-    const formControl = useFormControl_unstable(props);
+    const formControl = useFormControl_unstable({
+      disabled: disabledProp,
+      error: errorProp,
+      fullWidth: fullWidthProp,
+      helperTextId: ariaDescribedByProp,
+      inputId: idProp,
+      required: requiredProp,
+      size: sizeProp,
+      success: successProp,
+    });
 
     return (
       <MuiInputBase
-        aria-describedby={ariaDescribedByProp || formControl.helperTextId}
+        aria-describedby={formControl.helperTextId}
         classes={{
           root: clsx(
             classes.root,
             classes[`private-root-size-${formControl.size}`],
             {
-              [classes['private-root-fullWidth']]: fullWidth,
+              [classes['private-root-fullWidth']]: formControl.fullWidth,
               [classes['private-root-value']]: value,
               [classes['private-root-multiline']]: multiline,
               [classes[`private-root-size-${formControl.size}-leadingEl`]]:
@@ -258,6 +276,7 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
             }
           ),
         }}
+        disabled={formControl.disabled}
         endAdornment={
           trailingEl
             ? renderTrailingEl(
@@ -269,9 +288,12 @@ const Unstable_Input = forwardRef<unknown, Unstable_InputProps>(
               )
             : undefined
         }
-        id={idProp || formControl.id}
+        error={formControl.error}
+        fullWidth={formControl.fullWidth}
+        id={formControl.inputId}
         multiline={multiline}
         placeholder={placeholder}
+        required={formControl.required}
         startAdornment={
           leadingEl
             ? renderLeadingEl(

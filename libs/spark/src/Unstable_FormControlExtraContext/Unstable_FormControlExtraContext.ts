@@ -1,33 +1,19 @@
 import { createContext } from 'react';
+import { FormControlProperties_Unstable } from '../useFormControl_unstable';
 
-export interface Unstable_FormControlExtraContextValue {
-  /**
-   * The id of the descendent input.
-   */
-  id?: string;
-  /**
-   * The id of the descendent label.
-   */
-  labelId?: string;
-  /**
-   * The id of the descendent helper text.
-   */
-  helperTextId?: string;
-  /**
-   * The size of the descendant components
-   */
-  size?: 'medium' | 'small';
-  /**
-   * If `true`, then descendant components will be displayed in a success state.
-   */
-  success?: boolean;
-}
+/** internal */
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface Unstable_FormControlExtraContextValue
+  extends Partial<
+    Pick<
+      FormControlProperties_Unstable,
+      'inputId' | 'labelId' | 'helperTextId' | 'size' | 'success'
+    >
+  > {}
 
+/** internal */
 const Unstable_FormControlExtraContext =
-  createContext<Unstable_FormControlExtraContextValue>({
-    size: 'medium',
-    success: false,
-  });
+  createContext<Unstable_FormControlExtraContextValue | null>(null);
 
 if (process.env.NODE_ENV !== 'production') {
   Unstable_FormControlExtraContext.displayName = 'FormControlExtraContext';

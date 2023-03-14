@@ -42,14 +42,6 @@ export interface Unstable_TextFieldProps
    */
   defaultValue?: unknown;
   /**
-   * If `true`, the `input` element will be disabled.
-   */
-  disabled?: boolean;
-  /**
-   * If `true`, the label will be displayed in an error state.
-   */
-  error?: boolean;
-  /**
    * Props applied to the `FormHelperText` element.
    */
   FormHelperTextProps?: Partial<Unstable_FormHelperTextProps>;
@@ -57,10 +49,6 @@ export interface Unstable_TextFieldProps
    * Props applied to the `FormLabel` element.
    */
   FormLabelProps?: Partial<Unstable_FormLabelProps>;
-  /**
-   * If `true`, the input will take up the full width of its container.
-   */
-  fullWidth?: boolean;
   /**
    * The helper text content.
    */
@@ -113,10 +101,6 @@ export interface Unstable_TextFieldProps
    */
   placeholder?: string;
   /**
-   * If `true`, the label is displayed as required and the `input` element` will be required.
-   */
-  required?: boolean;
-  /**
    * Maximum number of rows to display when multiline option is set to true.
    */
   maxRows?: string | number;
@@ -147,6 +131,9 @@ export interface Unstable_TextFieldProps
   value?: unknown;
 }
 
+/**
+ * @deprecated Compose the Form Control pattern directly.
+ */
 const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
   function Unstable_TextField(props, ref) {
     const {
@@ -154,10 +141,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       autoFocus = false,
       children,
       defaultValue,
-      disabled = false,
-      error = false,
       FormHelperTextProps,
-      fullWidth = false,
       helperText,
       FormLabelProps,
       inputProps,
@@ -171,13 +155,10 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       onChange,
       onFocus,
       placeholder,
-      required = false,
       maxRows,
       minRows,
       select = false,
       SelectProps,
-      size,
-      success,
       trailingEl,
       type,
       value,
@@ -206,9 +187,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
       <Unstable_Input
         autoComplete={autoComplete}
         autoFocus={autoFocus}
-        disabled={disabled}
         defaultValue={defaultValue}
-        fullWidth={fullWidth}
         leadingEl={leadingEl}
         multiline={multiline}
         name={name}
@@ -230,13 +209,7 @@ const Unstable_TextField = forwardRef<unknown, Unstable_TextFieldProps>(
 
     return (
       <Unstable_FormControl
-        disabled={disabled}
-        error={error}
-        fullWidth={fullWidth}
         ref={ref as unknown as RefObject<HTMLDivElement>}
-        required={required}
-        size={size}
-        success={success}
         {...other}
       >
         {label ? (

@@ -20,14 +20,6 @@ export interface Unstable_CheckboxGroupFieldProps
    */
   children: ReactNode;
   /**
-   * If `true`, the label, control, and helper text will be disabled.
-   */
-  disabled?: boolean;
-  /**
-   * If `true`, the label, control, and helper text will be displayed in an error state.
-   */
-  error?: boolean;
-  /**
    * Props applied to the `FormHelperText` element.
    */
   FormHelperTextProps?: Partial<Unstable_FormHelperTextProps>;
@@ -35,10 +27,6 @@ export interface Unstable_CheckboxGroupFieldProps
    * Props applied to the `FormLabel` element.
    */
   FormLabelProps?: Partial<Unstable_FormLabelProps>;
-  /**
-   * If `true`, the input will take up the full width of its container.
-   */
-  fullWidth?: boolean;
   /**
    * The helper text content.
    */
@@ -56,10 +44,6 @@ export interface Unstable_CheckboxGroupFieldProps
    */
   FormGroupProps?: Partial<Unstable_FormGroupProps>;
   /**
-   * If `true`, the label is displayed as required and the controls will be required.
-   */
-  required?: boolean;
-  /**
    * Display the `FormGroup` in a row.
    */
   row?: boolean;
@@ -71,17 +55,13 @@ const Unstable_CheckboxGroupField = forwardRef<
 >(function Unstable_CheckboxGroupField(props, ref) {
   const {
     children,
-    disabled = false,
-    error = false,
     FormHelperTextProps,
     FormLabelProps,
-    fullWidth = false,
     helperText,
     id: idProp,
     label,
     name,
     FormGroupProps,
-    required = false,
     row,
     ...other
   } = props;
@@ -93,17 +73,16 @@ const Unstable_CheckboxGroupField = forwardRef<
 
   return (
     <Unstable_FormControl
-      aria-describedby={helperTextId}
-      aria-labelledby={labelId}
       component="fieldset"
-      disabled={disabled}
-      error={error}
-      fullWidth={fullWidth}
       id={id}
+      inputId={id}
+      labelId={labelId}
+      helperTextId={helperTextId}
+      role="group"
       // @ts-expect-error not identical types
       ref={ref as unknown as RefObject<HTMLFieldSetElement>}
-      required={required}
-      role="group"
+      {...(helperTextId && { 'aria-describedby': helperTextId })}
+      {...(labelId && { 'aria-labelledby': labelId })}
       {...other}
     >
       {label ? (
@@ -111,7 +90,6 @@ const Unstable_CheckboxGroupField = forwardRef<
         <span>
           <Unstable_FormLabel
             component="legend"
-            id={labelId}
             // @ts-expect-error not identical types
             ref={FormLabelProps?.ref as unknown as RefObject<HTMLLegendElement>}
             {...FormLabelProps}
@@ -126,7 +104,7 @@ const Unstable_CheckboxGroupField = forwardRef<
       </Unstable_FormGroup>
 
       {helperText ? (
-        <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
+        <Unstable_FormHelperText {...FormHelperTextProps}>
           {helperText}
         </Unstable_FormHelperText>
       ) : null}

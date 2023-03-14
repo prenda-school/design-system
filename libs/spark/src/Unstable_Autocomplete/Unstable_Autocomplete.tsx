@@ -27,7 +27,9 @@ import { buildVariant } from '../theme/typography';
 import useAutocomplete_unstable, {
   UseAutocomplete_UnstableResultGetOptionProps,
 } from '../useAutocomplete_unstable';
-import useFormControl_unstable from '../useFormControl_unstable';
+import useFormControl_unstable, {
+  FormControlProperties_Unstable,
+} from '../useFormControl_unstable';
 import { StandardProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -37,23 +39,32 @@ export interface Unstable_AutocompleteProps<
   DisableClearable extends boolean | undefined,
   FreeSolo extends boolean | undefined
 > extends StandardProps<
-    AutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
-    Unstable_AutocompleteClassKey,
-    | 'ChipProps'
-    | 'classes'
-    | 'closeIcon'
-    | 'getLimitTagsText'
-    | 'getOptionLabel'
-    | 'limitTags'
-    | 'ListboxProps'
-    | 'loading'
-    | 'loadingText'
-    | 'renderGroup'
-    | 'renderInput'
-    | 'renderOption'
-    | 'renderTags'
-    | 'size'
-  > {
+      AutocompleteProps<T, Multiple, DisableClearable, FreeSolo>,
+      Unstable_AutocompleteClassKey,
+      | 'ChipProps'
+      | 'classes'
+      | 'closeIcon'
+      | 'getLimitTagsText'
+      | 'getOptionLabel'
+      | 'limitTags'
+      | 'ListboxProps'
+      | 'loading'
+      | 'loadingText'
+      | 'renderGroup'
+      | 'renderInput'
+      | 'renderOption'
+      | 'renderTags'
+      // form control
+      | 'disabled'
+      | 'fullWidth'
+      | 'size'
+    >,
+    Partial<
+      Pick<
+        FormControlProperties_Unstable,
+        'disabled' | 'error' | 'fullWidth' | 'required' | 'size' | 'success'
+      >
+    > {
   /**
    * Whether the options should render with checkboxes (i.e. as `CheckboxMenuItem`) when `multiple={true}`.
    */
@@ -84,10 +95,6 @@ export interface Unstable_AutocompleteProps<
    * @param more The number of truncated elements.
    */
   getMultipleValueVisibleLimitText?: Unstable_AutocompleteGetMultipleValueVisibleLimitText;
-  /**
-   * If `true`, the descendant components should be displayed in an error state.
-   */
-  error?: boolean;
   /**
    * Props applied to the Input element.
    */
@@ -159,14 +166,6 @@ export interface Unstable_AutocompleteProps<
    */
   PopupIndicatorComponent?: ComponentType<HTMLAttributes<HTMLElement>>;
   /**
-   * The size of the descendant components.
-   */
-  size?: 'medium' | 'small';
-  /**
-   * If `true`, the descendant components should be displayed in a success state.
-   */
-  success?: boolean;
-  /**
    * Whether the value should render as tags in the leading element of the input when `multiple={true}`.
    */
   tags?: boolean;
@@ -181,11 +180,10 @@ export interface Unstable_AutocompleteProps<
 
 export type Unstable_AutocompleteRenderInput = (
   props: Partial<Unstable_InputProps>,
-  state: {
+  state: Pick<FormControlProperties_Unstable, 'size'> & {
     clearIndicator: ReactNode;
     popupIndicator: ReactNode;
     multipleValue: ReactNode[];
-    size: 'medium' | 'small';
   }
 ) => ReactNode;
 
@@ -233,10 +231,8 @@ export type Unstable_AutocompleteRenderIndicator = (
 export type Unstable_AutocompleteRenderMultipleValue<T> = (
   getProps: Unstable_AutocompleteGetMultipleValueChildProps<T>,
   value: T[],
-  state: {
-    disabled: boolean;
+  state: Pick<FormControlProperties_Unstable, 'disabled' | 'size'> & {
     getOptionLabel: Unstable_AutocompleteGetOptionLabel<T>;
-    size: 'medium' | 'small';
     inputValue: string;
   }
 ) => ReactNode[];
@@ -758,20 +754,14 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
     clearOnEscape = false,
     debug = false,
     defaultValue = props.multiple ? [] : null,
-    disabled: _disabled,
     disableCloseOnSelect = false,
     disabledItemsFocusable = false,
     disableListWrap = false,
-    error: _error,
     filterSelectedOptions = false,
-    fullWidth: _fullWidth,
     handleHomeEndKeys = !props.freeSolo,
-    id: _id,
     includeInputInList = false,
     openOnFocus = false,
     selectOnFocus = !props.freeSolo,
-    size: _size,
-    success: _success,
     /* eslint-enable @typescript-eslint/no-unused-vars */
     classes,
     className,
@@ -829,19 +819,29 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
     multipleValueVisibleLimit = -1,
     // needs to come after `tags`
     renderMultipleValue = tags ? defaultRenderTags : defaultRenderMultipleValue,
+    // form control
+    disabled: disabledProp,
+    error: errorProp,
+    fullWidth: fullWidthProp,
+    id: idProp,
+    required: requiredProp,
+    size: sizeProp,
+    success: successProp,
     ...other
   } = props;
   /* eslint-enable no-unused-vars */
 
   const PopperComponent = disablePortal ? DisablePortal : PopperComponentProp;
 
-  const formControl = useFormControl_unstable(props);
-  const disabled = formControl.disabled;
-  const error = formControl.error;
-  const fullWidth = formControl.fullWidth;
-  const required = formControl.required;
-  const size = formControl.size;
-  const success = formControl.success;
+  const formControl = useFormControl_unstable({
+    disabled: disabledProp,
+    error: errorProp,
+    fullWidth: fullWidthProp,
+    inputId: idProp,
+    required: requiredProp,
+    size: sizeProp,
+    success: successProp,
+  });
 
   const {
     getRootProps,
@@ -864,11 +864,11 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
   } = useAutocomplete_unstable({
     ...props,
     componentName: 'Autocomplete',
-    id: formControl.id,
-    disabled,
+    id: formControl.inputId,
+    disabled: formControl.disabled,
   });
 
-  const hasClearIndicator = !disableClearable && !disabled;
+  const hasClearIndicator = !disableClearable && !formControl.disabled;
   const hasPopupIndicator =
     (!freeSolo || forcePopupIcon === true) && forcePopupIcon !== false;
   const hasLoadingOptions = loadingOptions && groupedOptions.length === 0;
@@ -898,9 +898,9 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
       },
       value as T[],
       {
-        disabled,
+        disabled: formControl.disabled,
         getOptionLabel,
-        size,
+        size: formControl.size,
         inputValue,
       }
     );
@@ -958,7 +958,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
           classes.root,
           {
             [classes.focused]: focused,
-            [classes['private-root-fullWidth']]: fullWidth,
+            [classes['private-root-fullWidth']]: formControl.fullWidth,
             [classes['private-root-hasClearIndicator']]: hasClearIndicator,
             [classes['private-root-hasPopupIndicator']]: hasPopupIndicator,
           },
@@ -973,17 +973,17 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
             ref: setAnchorEl,
             // pass all parts of being a form control -- avoids different default values when used outside of a provided context
             fullWidth: true,
-            disabled,
-            error,
-            required,
-            size,
-            success,
+            disabled: formControl.disabled,
+            error: formControl.error,
+            required: formControl.required,
+            size: formControl.size,
+            success: formControl.success,
             // rest
             ...InputProps,
             classes: {
               root: clsx(
                 classes.inputRoot,
-                classes[`private-inputRoot-size-${size}`],
+                classes[`private-inputRoot-size-${formControl.size}`],
                 {
                   [classes['private-inputRoot-noWrap']]: noWrap,
                 },
@@ -991,9 +991,11 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
               ),
               leadingEl: clsx(
                 classes['private-inputLeadingEl'],
-                classes[`private-inputLeadingEl-size-${size}`],
+                classes[`private-inputLeadingEl-size-${formControl.size}`],
                 {
-                  [classes[`private-inputLeadingEl-size-${size}-tags`]]: tags,
+                  [classes[
+                    `private-inputLeadingEl-size-${formControl.size}-tags`
+                  ]]: tags,
                   [classes['private-inputLeadingEl-noWrap']]: noWrap,
                   [classes['private-inputLeadingEl-noWrap-focused']]:
                     noWrap && focused,
@@ -1006,26 +1008,26 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
               ),
               trailingEl: clsx(
                 classes['private-inputTrailingEl'],
-                classes[`private-inputTrailingEl-size-${size}`],
+                classes[`private-inputTrailingEl-size-${formControl.size}`],
                 InputProps?.classes?.trailingEl
               ),
             },
             inputProps: {
               className: clsx(
                 classes.input,
-                classes[`private-input-size-${size}`],
+                classes[`private-input-size-${formControl.size}`],
                 {
                   [classes['private-input-focused']]: focusedTag === -1,
                 },
                 InputProps?.inputProps?.className
               ),
-              disabled,
+              disabled: formControl.disabled,
               ...getInputProps(),
               ...InputProps?.inputProps,
             },
           },
           {
-            size,
+            size: formControl.size,
             // Clear Indicator
             clearIndicator: hasClearIndicator
               ? renderClearIndicator(
@@ -1034,7 +1036,9 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
                     children: clearIcon,
                     className: clsx(
                       classes.clearIndicator,
-                      classes[`private-clearIndicator-size-${size}`],
+                      classes[
+                        `private-clearIndicator-size-${formControl.size}`
+                      ],
                       {
                         [classes['private-clearIndicator-dirty']]: dirty,
                       }
@@ -1045,7 +1049,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
                   },
                   {
                     dirty,
-                    disabled,
+                    disabled: formControl.disabled,
                   }
                 )
               : null,
@@ -1059,9 +1063,12 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
                     children: popupIcon,
                     className: clsx(
                       classes.popupIndicator,
-                      classes[`private-popupIndicator-size-${size}`],
+                      classes[
+                        `private-popupIndicator-size-${formControl.size}`
+                      ],
                       {
-                        [classes['private-popupIndicator-disabled']]: disabled,
+                        [classes['private-popupIndicator-disabled']]:
+                          formControl.disabled,
                         [classes['private-popupIndicator-open']]: popupOpen,
                       }
                     ),
@@ -1071,7 +1078,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
                   },
                   {
                     dirty,
-                    disabled,
+                    disabled: formControl.disabled,
                   }
                 )
               : null,
