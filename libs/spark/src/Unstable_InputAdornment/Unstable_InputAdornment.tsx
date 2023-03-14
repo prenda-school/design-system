@@ -75,8 +75,8 @@ const styles: Styles<Unstable_InputAdornmentClassKey | PrivateClassKey> = (
     marginTop: 12, // shift-down in multiline input (= half of typical icon height + input top margin)
   },
   'private-root-size-small': {
-    fontSize: theme.unstable_typography.pxToRem(16),
-    marginTop: 10,
+    fontSize: theme.unstable_typography.pxToRem(20),
+    marginTop: 8,
   },
   'private-root-size-medium-children-string': {
     ...theme.unstable_typography.body,

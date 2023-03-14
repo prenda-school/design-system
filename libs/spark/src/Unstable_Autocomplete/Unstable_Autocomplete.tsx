@@ -429,6 +429,9 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   },
   'private-inputLeadingEl-size-medium-tags': {
     marginTop: 8,
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginTop: 4,
+    },
   },
   'private-inputLeadingEl-size-small': {
     ...buildVariant(
@@ -448,15 +451,14 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   },
   'private-inputLeadingEl-size-small-tags': {
     marginTop: 6,
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginTop: 2,
+    },
   },
   'private-inputLeadingEl-tags-noAdditionalLeadingEl': {
     marginLeft: 0,
   },
-  'private-inputLeadingEl-tags': {
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginTop: 4,
-    },
-  },
+  'private-inputLeadingEl-tags': {},
   /* Styles applied to leading element child elements. */
   multipleValueChild: {},
   'private-multipleValueChild-tags': {
