@@ -174,15 +174,12 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
 const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
   function Unstable_Select(props, ref) {
     const {
-      'aria-describedby': ariaDescribedByProp,
       autoWidth = false,
       children,
       classes,
-      disabled,
       displayEmpty = true,
       getTagProps,
       IconComponent = Unstable_ChevronDown,
-      id: idProp,
       input,
       inputProps,
       labelId: labelIdProp,
@@ -195,13 +192,29 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
       preventMultipleOverflow = false,
       renderValue: renderValueProp,
       renderValueAsTag = false,
-      size: _size,
       SelectDisplayProps,
       value,
+      // form control
+      'aria-describedby': ariaDescribedByProp,
+      disabled: disabledProp,
+      error: errorProp,
+      fullWidth: fullWidthProp,
+      id: idProp,
+      required: requiredProp,
+      size: sizeProp,
+      success: successProp,
       ...other
     } = props;
 
-    const formControl = useFormControl_unstable(props);
+    const formControl = useFormControl_unstable({
+      disabled: disabledProp,
+      error: errorProp,
+      fullWidth: fullWidthProp,
+      inputId: idProp,
+      required: requiredProp,
+      size: sizeProp,
+      success: successProp,
+    });
 
     const {
       getContentAnchorEl: getContentAnchorElMenuProp = null,
@@ -245,7 +258,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
                 <Unstable_Tag
                   key={value}
                   label={value}
-                  disabled={disabled}
+                  disabled={formControl.disabled}
                   {...(getTagProps && getTagProps({ value, index }))}
                 />
               ))}
@@ -264,8 +277,10 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
     }
 
     return cloneElement(InputComponent, {
-      'aria-describedby': ariaDescribedByProp || formControl.helperTextId,
-      disabled,
+      'aria-describedby': formControl.helperTextId,
+      disabled: formControl.disabled,
+      error: formControl.error,
+      fullWidth: formControl.fullWidth,
       inputComponent,
       inputProps: {
         children,
@@ -273,11 +288,11 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         type: undefined, // We render a select. We can ignore the type provided by the `Input`.
         multiple,
         ...(native
-          ? { id: idProp || formControl.id }
+          ? { id: formControl.inputId }
           : {
               autoWidth,
               displayEmpty,
-              labelId: labelIdProp || formControl.labelId,
+              labelId: formControl.labelId,
               MenuProps: {
                 ...MenuProps,
                 anchorOrigin: anchorOriginMenuProp,
@@ -309,7 +324,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
               open,
               renderValue,
               SelectDisplayProps: {
-                id: idProp || formControl.id,
+                id: formControl.inputId,
                 ...SelectDisplayProps,
               },
             }),
@@ -338,7 +353,9 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
         },
         ...(input ? input.props.inputProps : {}),
       },
+      required: formControl.required,
       size: formControl.size,
+      success: formControl.success,
       value,
       ref,
       ...other,

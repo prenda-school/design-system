@@ -3,51 +3,35 @@ import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import { buildVariant } from '../theme/typography';
-import useFormControl_unstable from '../useFormControl_unstable';
+import useFormControl_unstable, {
+  FormControlProperties_Unstable,
+} from '../useFormControl_unstable';
 
 export interface Unstable_FormHelperTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
   D extends ElementType = 'p'
 > {
-  props: P & {
-    /**
-     * The content of the component.
-     */
-    children?: React.ReactNode;
-    /**
-     * If `true`, the helper text should be displayed in a disabled state.
-     */
-    disabled?: boolean;
-    /**
-     * If `true`, helper text should be displayed in an error state.
-     */
-    error?: boolean;
-    /**
-     * If `true`, the helper text should use filled classes key.
-     */
-    filled?: boolean;
-    /**
-     * If `true`, the helper text should use focused classes key.
-     */
-    focused?: boolean;
-    /**
-     * Icon placed before the children.
-     */
-    leadingIcon?: ReactNode;
-    /**
-     * If `true`, the component reserves one line height for displaying a future message.
-     */
-    reserveLineHeight?: boolean;
-    /**
-     * If `true`, the helper text should use required classes key.
-     */
-    required?: boolean;
-    /**
-     * The size of the component.
-     */
-    size?: 'medium' | 'small';
-  };
+  props: P &
+    Partial<
+      Pick<
+        FormControlProperties_Unstable,
+        'disabled' | 'error' | 'filled' | 'focused' | 'required' | 'size'
+      >
+    > & {
+      /**
+       * The content of the component.
+       */
+      children?: React.ReactNode;
+      /**
+       * Icon placed before the children.
+       */
+      leadingIcon?: ReactNode;
+      /**
+       * If `true`, the component reserves one line height for displaying a future message.
+       */
+      reserveLineHeight?: boolean;
+    };
   defaultComponent: D;
   classKey: Unstable_FormHelperTextClassKey;
 }
@@ -135,19 +119,28 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
       className,
       // @ts-expect-error not picked up as a prop from `OverridableComponent`
       component: Component = 'p',
-      disabled: _disabled,
-      error: _error,
-      filled: _filled,
-      focused: _focused,
-      id: idProp,
       leadingIcon,
       reserveLineHeight,
-      required: _required,
-      size: _size,
+      // form control
+      disabled: disabledProp,
+      error: errorProp,
+      filled: filledProp,
+      focused: focusedProp,
+      id: idProp,
+      required: requiredProp,
+      size: sizeProp,
       ...other
     } = props;
 
-    const formControl = useFormControl_unstable(props);
+    const formControl = useFormControl_unstable({
+      disabled: disabledProp,
+      error: errorProp,
+      filled: filledProp,
+      focused: focusedProp,
+      helperTextId: idProp,
+      required: requiredProp,
+      size: sizeProp,
+    });
 
     return (
       <Component
@@ -162,7 +155,7 @@ const Unstable_FormHelperText: OverridableComponent<Unstable_FormHelperTextTypeM
           },
           className
         )}
-        id={idProp || formControl.helperTextId}
+        id={formControl.helperTextId}
         ref={ref}
         {...other}
       >

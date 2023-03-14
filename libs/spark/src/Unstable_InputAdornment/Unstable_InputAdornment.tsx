@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import { buildVariant } from '../theme/typography';
-import useFormControl_unstable from '../useFormControl_unstable';
+import useFormControl_unstable, {
+  FormControlProperties_Unstable,
+} from '../useFormControl_unstable';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -10,16 +12,13 @@ export interface Unstable_InputAdornmentTypeMap<
   P = {},
   D extends ElementType = 'div'
 > {
-  props: P & {
-    /**
-     * The position of the adornment in the Input element.
-     */
-    position: 'start' | 'end';
-    /**
-     * The size of the adornment.
-     */
-    size?: 'medium' | 'small';
-  };
+  props: P &
+    Partial<Pick<FormControlProperties_Unstable, 'size'>> & {
+      /**
+       * The position of the adornment in the Input element.
+       */
+      position: 'start' | 'end';
+    };
   defaultComponent: D;
   classKey: Unstable_InputAdornmentClassKey;
 }
@@ -95,11 +94,12 @@ const Unstable_InputAdornment: OverridableComponent<Unstable_InputAdornmentTypeM
       // @ts-expect-error prop does not exist :/
       component: Component = 'div',
       position,
-      size: _size,
+      // form control
+      size: sizeProp,
       ...other
     } = props;
 
-    const formControl = useFormControl_unstable(props);
+    const formControl = useFormControl_unstable({ size: sizeProp });
 
     return (
       <Component

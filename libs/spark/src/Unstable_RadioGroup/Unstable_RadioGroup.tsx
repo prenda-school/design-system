@@ -30,7 +30,6 @@ const Unstable_RadioGroup = forwardRef<unknown, Unstable_RadioGroupProps>(
   function Unstable_RadioGroup(props, ref) {
     const {
       classes,
-      id: idProp,
       // underscored props will be processed directly from `props` by `formControlState` below
       required: _required,
       ...other

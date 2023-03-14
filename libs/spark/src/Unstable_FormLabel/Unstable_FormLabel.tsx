@@ -6,7 +6,9 @@ import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 import clsx from 'clsx';
 import { buildVariant } from '../theme/typography';
-import useFormControl_unstable from '../useFormControl_unstable';
+import useFormControl_unstable, {
+  FormControlProperties_Unstable,
+} from '../useFormControl_unstable';
 
 export interface Unstable_FormLabelTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -14,12 +16,22 @@ export interface Unstable_FormLabelTypeMap<
   D extends ElementType = 'label'
 > {
   props: P &
-    Omit<MuiFormLabelProps, 'classes' | 'color' | 'filled'> & {
-      /**
-       * The size of the label.
-       */
-      size?: 'medium' | 'small';
-    };
+    Omit<
+      MuiFormLabelProps,
+      | 'classes'
+      | 'color'
+      | 'disabled'
+      | 'error'
+      | 'filled'
+      | 'focused'
+      | 'required'
+    > &
+    Partial<
+      Pick<
+        FormControlProperties_Unstable,
+        'disabled' | 'error' | 'filled' | 'focused' | 'required' | 'size'
+      >
+    >;
   defaultComponent: D;
   classKey: Unstable_FormLabelClassKey;
 }
@@ -89,13 +101,28 @@ const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> =
     const {
       classes,
       color: _color,
+      // form control
+      disabled: disabledProp,
+      error: errorProp,
+      filled: filledProp,
+      focused: focusedProp,
       htmlFor: htmlForProp,
       id: idProp,
-      size: _size,
+      required: requiredProp,
+      size: sizeProp,
       ...other
     } = props;
 
-    const formControl = useFormControl_unstable(props);
+    const formControl = useFormControl_unstable({
+      disabled: disabledProp,
+      error: errorProp,
+      filled: filledProp,
+      focused: focusedProp,
+      inputId: htmlForProp,
+      labelId: idProp,
+      required: requiredProp,
+      size: sizeProp,
+    });
 
     return (
       <MuiFormLabel
@@ -106,8 +133,13 @@ const Unstable_FormLabel: OverridableComponent<Unstable_FormLabelTypeMap> =
           ),
           asterisk: classes.asterisk,
         }}
-        htmlFor={htmlForProp || formControl.id}
-        id={idProp || formControl.labelId}
+        disabled={formControl.disabled}
+        error={formControl.error}
+        filled={formControl.filled}
+        focused={formControl.focused}
+        htmlFor={formControl.inputId}
+        id={formControl.labelId}
+        required={formControl.required}
         ref={ref}
         {...other}
       />

@@ -6,14 +6,38 @@ API surface:
 
 - **Unstable_Autocomplete**
   - see **Unstable_Input** for changes affecting default value of `renderInput`
+  - [feat] improve Form Control API-integration
+- **Unstable_CheckboxGroupField**
+  - see **Unstable_FormControl**
+- **Unstable_FormControl**
+  - [feat] improve Form Control API-integration
+  - [BREAKING] change `id` prop to forward to the root, wrapper element (formerly forwarded to the descendant input element)
+    - _migration: use `inputId` prop_
+  - [feat] add `inputId` prop
+  - [feat] add `labelId` prop
+  - [feat] add `helperTextId` prop
 - **Unstable_Input**
   - see **Unstable_InputAdornment** for changes affecting default values of `renderLeadingEl`, `renderTrailingEl`
+  - [feat] improve Form Control API-integration
 - **Unstable_InputAdornment**
   - [style] increase font size when `size="small`
 - **Unstable_Link**
   - [fix] vertical alignment when `component="button"`
+- **Unstable_RadioGroupField**
+  - [fix] not forwarding the `id` prop to the underlying element
+- **Unstable_RadioGroupField**
+  - see **Unstable_FormControl**, **Unstable_RadioGroup**
 - **Unstable_Select**
   - see **Unstable_Input** for changes affecting default value of `input`
+  - [feat] improve Form Control API-integration
+- **Unstable_TextField**
+  - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
+  - [DEPRECATION] deprecated; compose the Form Control pattern directly
+- **useFormControl_unstable**
+  - [feat] add `filled`, `focused`, `inputId`, `labelId`, `helperTextId` to parameters
+  - [BREAKING] remove `id` from result
+    - _migration: use `inputId` parameter_
+  - [feat] add `inputId` to result
 
 ## [v2.0.0-alpha.10](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.9...v2.0.0-alpha.10) (2023-03-13)
 

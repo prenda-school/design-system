@@ -1,27 +1,59 @@
 import { useFormControl } from '@material-ui/core/FormControl';
-import { useContext } from 'react';
-import Unstable_FormControlExtraContext from '../Unstable_FormControlExtraContext';
+import useFormControlExtra_unstable from '../useFormControlExtra_unstable/useFormControlExtra_unstable';
 
-export type UseFormControl_UnstableParams = {
-  disabled?: boolean;
-  error?: boolean;
-  fullWidth?: boolean;
-  required?: boolean;
-  size?: 'medium' | 'small';
-  success?: boolean;
-};
+export type UseFormControl_UnstableParams = Partial<
+  Omit<
+    FormControlProperties_Unstable,
+    'onBlur' | 'onEmpty' | 'onFilled' | 'onFocus'
+  >
+>;
 
-export type UseFormControl_UnstableResult = {
+export type UseFormControl_UnstableResult = FormControlProperties_Unstable;
+
+export type FormControlProperties_Unstable = {
+  /**
+   * Whether the components display in a disabled state.
+   */
   disabled: boolean;
+  /**
+   * Whether the components display in an error state.
+   */
   error: boolean;
+  /**
+   * Whether the components take up the full width of the container.
+   */
   fullWidth: boolean;
+  /**
+   * Whether the components display as required.
+   */
   required: boolean;
+  /**
+   * The size of the components.
+   */
   size: 'medium' | 'small';
+  /**
+   * Whether the components display in a success state.
+   */
   success: boolean;
-  id?: string;
+  /**
+   * The id of the input element.
+   */
+  inputId?: string;
+  /**
+   * The id of the label element.
+   */
   labelId?: string;
+  /**
+   * The id of the helper text element.
+   */
   helperTextId?: string;
+  /**
+   * Whether the components display as filled.
+   */
   filled?: boolean;
+  /**
+   * Whether the components display as focused.
+   */
   focused?: boolean;
   onBlur?: () => void;
   onEmpty?: () => void;
@@ -29,52 +61,73 @@ export type UseFormControl_UnstableResult = {
   onFocus?: () => void;
 };
 
+export const DEFAULT_FORM_CONTROL_API_VALUES: Readonly<FormControlProperties_Unstable> =
+  {
+    disabled: false,
+    error: false,
+    fullWidth: false,
+    required: false,
+    row: false,
+    size: 'medium',
+    success: false,
+  };
+
 const useFormControl_unstable = (
   params: UseFormControl_UnstableParams
 ): UseFormControl_UnstableResult => {
   const muiFormControl = useFormControl();
-  const formControlExtra = useContext(Unstable_FormControlExtraContext);
+  const formControlExtra = useFormControlExtra_unstable(params);
 
-  let disabled = false;
-  if (typeof params.disabled === 'undefined' && muiFormControl) {
+  // always let consumer override => prefer passed parameters -- note, the consumer can't override mui form control internals given that their api doesn't accept parameters, so consumer overrides of those attributes are isolated to the single, calling component
+
+  let disabled: FormControlProperties_Unstable['disabled'];
+  if (typeof params.disabled !== 'undefined') {
+    disabled = params.disabled;
+  } else if (muiFormControl) {
     disabled = muiFormControl.disabled;
   } else {
-    disabled = params.disabled;
+    disabled = DEFAULT_FORM_CONTROL_API_VALUES.disabled;
   }
 
-  let error = false;
-  if (typeof params.error === 'undefined' && muiFormControl) {
+  let error: FormControlProperties_Unstable['error'];
+  if (typeof params.error !== 'undefined') {
+    error = params.error;
+  } else if (muiFormControl) {
     error = muiFormControl.error;
   } else {
-    error = params.error;
+    error = DEFAULT_FORM_CONTROL_API_VALUES.error;
   }
 
-  let fullWidth = false;
-  if (typeof params.fullWidth === 'undefined' && muiFormControl) {
+  let fullWidth: FormControlProperties_Unstable['fullWidth'];
+  if (typeof params.fullWidth !== 'undefined') {
+    fullWidth = params.fullWidth;
+  } else if (muiFormControl) {
     fullWidth = muiFormControl.fullWidth;
   } else {
-    fullWidth = params.fullWidth;
+    fullWidth = DEFAULT_FORM_CONTROL_API_VALUES.fullWidth;
   }
 
-  let required = false;
-  if (typeof params.required === 'undefined' && muiFormControl) {
+  let required: FormControlProperties_Unstable['required'];
+  if (typeof params.required !== 'undefined') {
+    required = params.required;
+  } else if (muiFormControl) {
     required = muiFormControl.required;
   } else {
-    required = params.required;
+    required = DEFAULT_FORM_CONTROL_API_VALUES.required;
   }
 
-  let size: 'medium' | 'small' = 'medium';
-  if (typeof params.size === 'undefined' && formControlExtra) {
-    size = formControlExtra.size;
-  } else {
-    size = params.size;
+  let filled: FormControlProperties_Unstable['filled'];
+  if (typeof params.filled !== 'undefined') {
+    filled = params.filled;
+  } else if (muiFormControl) {
+    filled = muiFormControl.filled;
   }
 
-  let success = false;
-  if (typeof params.success === 'undefined' && formControlExtra) {
-    success = formControlExtra.success;
-  } else {
-    success = params.success;
+  let focused: FormControlProperties_Unstable['focused'];
+  if (typeof params.focused !== 'undefined') {
+    focused = params.focused;
+  } else if (muiFormControl) {
+    focused = muiFormControl.focused;
   }
 
   return {
@@ -82,19 +135,18 @@ const useFormControl_unstable = (
     error,
     fullWidth,
     required,
-    size,
-    success,
-    // PDS : not prop-controlled
-    id: formControlExtra.id,
+    size: formControlExtra.size,
+    success: formControlExtra.success,
+    inputId: formControlExtra.inputId,
     labelId: formControlExtra.labelId,
     helperTextId: formControlExtra.helperTextId,
-    // MUI : internal-determined
-    filled: muiFormControl?.filled,
-    focused: muiFormControl?.focused,
-    onBlur: muiFormControl?.onBlur,
-    onEmpty: muiFormControl?.onEmpty,
-    onFilled: muiFormControl?.onFilled,
-    onFocus: muiFormControl?.onFocus,
+    ...(filled && { filled }),
+    ...(focused && { focused }),
+    // determined completely by mui-internals
+    ...(muiFormControl?.onBlur && { onBlur: muiFormControl?.onBlur }),
+    ...(muiFormControl?.onEmpty && { onEmpty: muiFormControl?.onEmpty }),
+    ...(muiFormControl?.onFilled && { onFilled: muiFormControl?.onFilled }),
+    ...(muiFormControl?.onFocus && { onBlur: muiFormControl?.onFocus }),
   };
 };
 

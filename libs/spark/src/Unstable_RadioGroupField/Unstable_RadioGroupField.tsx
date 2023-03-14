@@ -24,14 +24,6 @@ export interface Unstable_RadioGroupFieldProps
    */
   defaultValue?: Unstable_RadioGroupProps['defaultValue'];
   /**
-   * If `true`, the label, control, and helper text will be disabled.
-   */
-  disabled?: boolean;
-  /**
-   * If `true`, the label, control, and helper text will be displayed in an error state.
-   */
-  error?: boolean;
-  /**
    * Props applied to the `FormHelperText` element.
    */
   FormHelperTextProps?: Partial<Unstable_FormHelperTextProps>;
@@ -40,17 +32,9 @@ export interface Unstable_RadioGroupFieldProps
    */
   FormLabelProps?: Partial<Unstable_FormLabelProps>;
   /**
-   * If `true`, the label, control, and helper text will take up the full width of its container.
-   */
-  fullWidth?: boolean;
-  /**
    * The helper text content.
    */
   helperText?: ReactNode;
-  /**
-   * The `id` attribute of the `RadioGroup` element.
-   */
-  id?: string;
   /**
    * The label content.
    */
@@ -71,10 +55,6 @@ export interface Unstable_RadioGroupFieldProps
    */
   RadioGroupProps?: Partial<Unstable_RadioGroupProps>;
   /**
-   * If `true`, the label is displayed as required and the controls will be required.
-   */
-  required?: boolean;
-  /**
    * Display the `RadioGroup` in a row.
    */
   row?: boolean;
@@ -91,18 +71,14 @@ const Unstable_RadioGroupField = forwardRef<
   const {
     children,
     defaultValue,
-    disabled = false,
-    error = false,
     FormHelperTextProps,
     FormLabelProps,
-    fullWidth = false,
     helperText,
     id: idProp,
     label,
     name,
     onChange,
     RadioGroupProps,
-    required = false,
     row,
     value,
     ...other
@@ -115,25 +91,26 @@ const Unstable_RadioGroupField = forwardRef<
 
   return (
     <Unstable_FormControl
-      disabled={disabled}
-      error={error}
-      fullWidth={fullWidth}
-      ref={ref as unknown as RefObject<HTMLDivElement>}
-      required={required}
+      component="fieldset"
+      id={id}
+      inputId={id}
+      labelId={labelId}
+      helperTextId={helperTextId}
+      role="radiogroup"
+      // @ts-expect-error not identical types
+      ref={ref as unknown as RefObject<HTMLFieldSetElement>}
+      {...(helperTextId && { 'aria-describedby': helperTextId })}
+      {...(labelId && { 'aria-labelledby': labelId })}
       {...other}
     >
       {label ? (
-        <Unstable_FormLabel htmlFor={id} id={labelId} {...FormLabelProps}>
-          {label}
-        </Unstable_FormLabel>
+        <Unstable_FormLabel {...FormLabelProps}>{label}</Unstable_FormLabel>
       ) : null}
 
       <Unstable_RadioGroup
-        aria-describedby={helperTextId}
-        aria-labelledby={labelId}
         defaultValue={defaultValue}
-        id={id}
         onChange={onChange}
+        role={undefined}
         row={row}
         value={value}
         {...RadioGroupProps}
@@ -142,7 +119,7 @@ const Unstable_RadioGroupField = forwardRef<
       </Unstable_RadioGroup>
 
       {helperText ? (
-        <Unstable_FormHelperText id={helperTextId} {...FormHelperTextProps}>
+        <Unstable_FormHelperText {...FormHelperTextProps}>
           {helperText}
         </Unstable_FormHelperText>
       ) : null}
