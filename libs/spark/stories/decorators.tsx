@@ -160,6 +160,3 @@ export const containBoxShadowInline = (Story, context) => (
     <Story {...context} />
   </ContainBoxShadowInlineDiv>
 );
-
-// // prevent overflowing past viewport
-// maxWidth: '100%',

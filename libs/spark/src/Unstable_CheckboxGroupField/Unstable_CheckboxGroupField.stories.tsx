@@ -177,3 +177,18 @@ Children2LabelHelperText.args = {
 };
 Children2LabelHelperText.storyName =
   'children=(CheckboxFields helperText) label helperText';
+
+const SideBySideTemplate = (args) => (
+  <>
+    <Unstable_CheckboxGroupField {...args} />
+    <Unstable_CheckboxGroupField {...args} />
+  </>
+);
+
+export const SideBySide: Story = SideBySideTemplate.bind({});
+SideBySide.args = {
+  children: '(CheckboxFields)',
+  label: 'Label',
+  helperText: 'Helper text',
+};
+SideBySide.storyName = '(side by side)';
