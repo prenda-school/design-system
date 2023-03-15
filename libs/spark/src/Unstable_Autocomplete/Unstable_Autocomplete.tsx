@@ -315,6 +315,16 @@ type PrivateClassKey =
   | 'private-listbox-loadingOptions'
   | 'private-listbox-noOptions';
 
+const inputLeadingElSizeSmallTypography = buildVariant(
+  400,
+  14,
+  16,
+  undefined,
+  'none',
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
+
 export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   theme
 ) => ({
@@ -430,15 +440,7 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     },
   },
   'private-inputLeadingEl-size-small': {
-    ...buildVariant(
-      400,
-      14,
-      16,
-      undefined,
-      'none',
-      '"Inter", sans-serif',
-      "'cv05' 1, 'ss03' 1"
-    ),
+    ...inputLeadingElSizeSmallTypography,
     gap: 2,
     marginTop: 10,
     '& > *:first-child': {
