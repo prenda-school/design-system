@@ -719,7 +719,12 @@ const defaultRenderMultipleValue: Unstable_AutocompleteRenderMultipleValue<
     return (
       <span {...other}>
         {state.getOptionLabel(option)}
-        {state.inputValue || index < value.length - 1 ? ',' : ''}
+        {index < value.length - 1 ? ',' : null}
+        {index === value.length - 1 ? (
+          <span style={{ display: 'inline-block', width: '.25em' }}>
+            {state.inputValue ? ',' : null}
+          </span>
+        ) : null}
       </span>
     );
   });

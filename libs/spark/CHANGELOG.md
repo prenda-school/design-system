@@ -6,7 +6,7 @@ API surface:
 
 - **Unstable_Autocomplete**
   - see **Unstable_Input** for changes affecting default value of `renderInput`
-  - [style] prevent width changes during value input when `multiple={true}` and the default value of `renderMultipleValue` is applied
+  - [style] prevent width changes from default `renderMultipleValue`
   - [feat] improve Form Control API-integration
 - **Unstable_CheckboxGroupField**
   - see **Unstable_FormControl**
