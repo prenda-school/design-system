@@ -6,6 +6,7 @@ API surface:
 
 - **Unstable_Autocomplete**
   - see **Unstable_Input** for changes affecting default value of `renderInput`
+  - [style] prevent width changes during value input when `multiple={true}` and the default value of `renderMultipleValue` is applied
   - [feat] improve Form Control API-integration
 - **Unstable_CheckboxGroupField**
   - see **Unstable_FormControl**
@@ -20,9 +21,9 @@ API surface:
   - see **Unstable_InputAdornment** for changes affecting default values of `renderLeadingEl`, `renderTrailingEl`
   - [feat] improve Form Control API-integration
 - **Unstable_InputAdornment**
-  - [style] increase font size when `size="small`
+  - [style] increase font size when `size="small"`
 - **Unstable_Link**
-  - [fix] vertical alignment when `component="button"`
+  - [style] vertically align with inline text when `component="button"`
 - **Unstable_RadioGroupField**
   - [fix] not forwarding the `id` prop to the underlying element
 - **Unstable_RadioGroupField**
