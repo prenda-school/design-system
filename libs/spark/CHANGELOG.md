@@ -12,6 +12,7 @@ API surface:
   - see **Unstable_FormControl**
 - **Unstable_FormControl**
   - [feat] improve Form Control API-integration
+  - [style] remove default width
   - [BREAKING] change `id` prop to forward to the root, wrapper element (formerly forwarded to the descendant input element)
     - _migration: use `inputId` prop_
   - [feat] add `inputId` prop
