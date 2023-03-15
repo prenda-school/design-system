@@ -330,9 +330,11 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
 ) => ({
   /* Styles applied to the root element. */
   root: {
-    display: 'flex',
+    display: 'inline-flex',
+
     maxWidth: theme.unstable_typography.pxToRem(320),
     width: '100%',
+    verticalAlign: 'bottom',
     '&$focused $private-clearIndicator-dirty': {
       visibility: 'visible',
     },
@@ -356,6 +358,10 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   /* Styles applied to the Input element. */
   inputRoot: {
     flexWrap: 'wrap',
+    '& $input': {
+      width: 0,
+      minWidth: '5ch',
+    },
   },
   'private-inputRoot-noWrap': {
     flexWrap: 'nowrap',
@@ -368,10 +374,6 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '$private-root-hasPopupIndicator$private-root-hasClearIndicator &': {
       paddingRight: 4 + 32 + 4 + 32 + 12,
     },
-    '& $input': {
-      width: 0,
-      minWidth: '5ch',
-    },
   },
   'private-inputRoot-size-small': {
     paddingLeft: 4,
@@ -380,10 +382,6 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     },
     '$private-root-hasPopupIndicator$private-root-hasClearIndicator &': {
       paddingRight: 2 + 28 + 2 + 28 + 8, // spacing + popup-indicator + gap + popup-indicator + padding
-    },
-    '& $input': {
-      width: 0,
-      minWidth: 30,
     },
   },
   /* Styles applied to the input element. */

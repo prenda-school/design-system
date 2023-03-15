@@ -7,6 +7,8 @@ API surface:
 - **Unstable_Autocomplete**
   - see **Unstable_Input** for changes affecting default value of `renderInput`
   - [style] prevent width changes from default `renderMultipleValue`
+  - [style] change to be inline-level element
+  - [style] change to vertically align with inline text
   - [feat] improve Form Control API-integration
 - **Unstable_CheckboxGroupField**
   - see **Unstable_FormControl**
