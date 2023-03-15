@@ -1,6 +1,10 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...vNext) (YYYY-MM-DD)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.11...vNext) (YYYY-MM-DD)
+
+No changes.
+
+## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
 API surface:
 
