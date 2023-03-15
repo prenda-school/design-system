@@ -315,6 +315,16 @@ type PrivateClassKey =
   | 'private-listbox-loadingOptions'
   | 'private-listbox-noOptions';
 
+const inputLeadingElSizeSmallTypography = buildVariant(
+  400,
+  14,
+  16,
+  undefined,
+  'none',
+  '"Inter", sans-serif',
+  "'cv05' 1, 'ss03' 1"
+);
+
 export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   theme
 ) => ({
@@ -396,15 +406,12 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     alignItems: 'center',
     alignSelf: 'flex-start',
     color: theme.unstable_palette.text.subdued,
-    display: 'flex',
+    display: 'inline-flex',
     flexWrap: 'wrap',
     marginRight: 0,
     marginTop: 0,
     '.Mui-disabled > &': {
       color: theme.unstable_palette.text.disabled,
-    },
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginTop: 0,
     },
   },
   'private-inputLeadingEl-noWrap': {
@@ -422,6 +429,10 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '& > *:first-child': {
       marginLeft: 8,
     },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginBottom: 0,
+      marginTop: 0,
+    },
   },
   'private-inputLeadingEl-size-medium-tags': {
     marginTop: 8,
@@ -430,19 +441,15 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     },
   },
   'private-inputLeadingEl-size-small': {
-    ...buildVariant(
-      400,
-      14,
-      16,
-      undefined,
-      'none',
-      '"Inter", sans-serif',
-      "'cv05' 1, 'ss03' 1"
-    ),
+    ...inputLeadingElSizeSmallTypography,
     gap: 2,
     marginTop: 10,
     '& > *:first-child': {
       marginLeft: 4,
+    },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginBottom: -2,
+      marginTop: -2,
     },
   },
   'private-inputLeadingEl-size-small-tags': {
@@ -717,7 +724,12 @@ const defaultRenderMultipleValue: Unstable_AutocompleteRenderMultipleValue<
     return (
       <span {...other}>
         {state.getOptionLabel(option)}
-        {state.inputValue || index < value.length - 1 ? ',' : ''}
+        {index < value.length - 1 ? ',' : null}
+        {index === value.length - 1 ? (
+          <span style={{ display: 'inline-block', width: '.25em' }}>
+            {state.inputValue ? ',' : null}
+          </span>
+        ) : null}
       </span>
     );
   });
