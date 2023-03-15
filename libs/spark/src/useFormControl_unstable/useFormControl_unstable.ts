@@ -67,7 +67,6 @@ export const DEFAULT_FORM_CONTROL_API_VALUES: Readonly<FormControlProperties_Uns
     error: false,
     fullWidth: false,
     required: false,
-    row: false,
     size: 'medium',
     success: false,
   };
