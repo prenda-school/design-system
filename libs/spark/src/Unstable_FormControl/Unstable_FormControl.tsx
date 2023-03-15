@@ -66,17 +66,14 @@ type PrivateClassKey =
   | 'private-root-size-medium'
   | 'private-root-size-small';
 
-const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = (
-  theme
-) => ({
+const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
   /** Styles applied to the root element. */
   root: {
-    maxWidth: theme.unstable_typography.pxToRem(320),
-    width: '100%',
+    display: 'flex',
   },
   /* Private */
   'private-root-fullWidth': {
-    maxWidth: '100%',
+    width: '100%',
   },
   'private-root-size-medium': {
     gap: 8,
@@ -84,7 +81,7 @@ const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = (
   'private-root-size-small': {
     gap: 4,
   },
-});
+};
 
 const Unstable_FormControl: OverridableComponent<Unstable_FormControlTypeMap> =
   forwardRef(function Unstable_FormControl(props, ref) {

@@ -179,10 +179,10 @@ Children2LabelHelperText.storyName =
   'children=(CheckboxFields helperText) label helperText';
 
 const SideBySideTemplate = (args) => (
-  <>
+  <div style={{ display: 'flex' }}>
     <Unstable_CheckboxGroupField {...args} />
     <Unstable_CheckboxGroupField {...args} />
-  </>
+  </div>
 );
 
 export const SideBySide: Story = SideBySideTemplate.bind({});

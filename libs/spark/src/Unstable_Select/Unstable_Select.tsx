@@ -93,6 +93,7 @@ export type Unstable_SelectClassKey =
   | 'menuPaper';
 
 type PrivateClassKey =
+  | 'private-root-fullWidth'
   | 'private-root-renderValueAsTag'
   | 'private-root-renderValueAsTag-preventMultipleOverflow'
   | 'private-icon-size-medium'
@@ -111,7 +112,7 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
       ...styles.select,
       ...styles.selectMenu,
       '&&': {
-        paddingRight: 24 + 14 + 4, // override MUI (icon width + right margin + left margin) (requires increased specificity)
+        paddingRight: 4 + 24 + 16, // spacing + icon + padding; override MUI
       },
       '.MuiSparkUnstable_InputAdornment-root ~ &': {
         paddingLeft: 14 + 24 + 8,
@@ -138,6 +139,9 @@ const styles: Styles<Unstable_SelectClassKey | PrivateClassKey> = (theme) => {
       marginTop: 4,
     },
     /* Private */
+    'private-root-fullWidth': {
+      width: '100%',
+    },
     'private-root-renderValueAsTag': {
       paddingBottom: 8,
       paddingTop: 8,
@@ -233,7 +237,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
     const {
       bgcolor: bgcolorMenuPaperProp = 'default',
       border: borderMenuPaperProp = 'none',
-      className: classMameMenuPaperProp,
+      className: classNameMenuPaperProp,
       radius: radiusMenuPaperProp = 'sm',
       shadow: shadowMenuPaperProp = 'E400',
       ...otherMenuPaperProps
@@ -315,7 +319,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
                     paperClasses_unstable[
                       `private-root-shadow-${shadowMenuPaperProp}`
                     ],
-                    classMameMenuPaperProp
+                    classNameMenuPaperProp
                   ),
                 },
               },
@@ -333,6 +337,7 @@ const Unstable_Select = forwardRef<unknown, Unstable_SelectProps>(
           root: clsx(
             classes.root,
             {
+              [classes['private-root-fullWidth']]: formControl.fullWidth,
               [classes['private-root-renderValueAsTag']]: renderValueAsTag,
               [classes[
                 'private-root-renderValueAsTag-preventMultipleOverflow'

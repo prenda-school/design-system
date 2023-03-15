@@ -7,24 +7,28 @@ API surface:
 - **Unstable_Autocomplete**
   - see **Unstable_Input** for changes affecting default value of `renderInput`
   - [style] prevent width changes from default `renderMultipleValue`
+  - [style] change to be inline-level element
+  - [style] change to vertically align with inline text
   - [feat] improve Form Control API-integration
 - **Unstable_CheckboxGroupField**
   - see **Unstable_FormControl**
 - **Unstable_FormControl**
   - [feat] improve Form Control API-integration
+  - [style] remove default width
   - [BREAKING] change `id` prop to forward to the root, wrapper element (formerly forwarded to the descendant input element)
     - _migration: use `inputId` prop_
   - [feat] add `inputId` prop
   - [feat] add `labelId` prop
   - [feat] add `helperTextId` prop
+  - [style] change to be block-level element
 - **Unstable_Input**
   - see **Unstable_InputAdornment** for changes affecting default values of `renderLeadingEl`, `renderTrailingEl`
   - [feat] improve Form Control API-integration
 - **Unstable_InputAdornment**
   - [style] increase font size when `size="small"`
 - **Unstable_Link**
-  - [style] vertically align with inline text when `component="button"`
-- **Unstable_RadioGroupField**
+  - [style] change to vertically align with inline text when `component="button"`
+- **Unstable_RadioGroup**
   - [fix] not forwarding the `id` prop to the underlying element
 - **Unstable_RadioGroupField**
   - see **Unstable_FormControl**, **Unstable_RadioGroup**
@@ -33,7 +37,8 @@ API surface:
   - [feat] improve Form Control API-integration
 - **Unstable_TextField**
   - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
-  - [DEPRECATION] deprecated; compose the Form Control pattern directly
+  - [DEPRECATION] deprecated
+    - _migration: compose the Form Control pattern directly_
 - **useFormControl_unstable**
   - [feat] add `filled`, `focused`, `inputId`, `labelId`, `helperTextId` to parameters
   - [BREAKING] remove `id` from result

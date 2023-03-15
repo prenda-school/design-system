@@ -136,13 +136,13 @@ LabelHelperTextErrorDisabled.storyName =
   'children=(RadioFields) label helperText error disabled';
 
 export const LabelHelperTextFullWidth: Story = Template.bind({});
-LabelHelperTextErrorDisabled.args = {
+LabelHelperTextFullWidth.args = {
   children: '(RadioFields)',
   label: 'Label',
   helperText: 'Helper text',
   fullWidth: true,
 };
-LabelHelperTextErrorDisabled.storyName =
+LabelHelperTextFullWidth.storyName =
   'children=(RadioFields) label helperText fullWidth';
 
 export const LabelHelperTextRequired: Story = Template.bind({});
