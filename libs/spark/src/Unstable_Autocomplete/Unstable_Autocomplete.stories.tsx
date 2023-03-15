@@ -307,6 +307,19 @@ OptionsPrimitiveMultipleValue1.args = {
 };
 OptionsPrimitiveMultipleValue1.storyName = 'multiple value=[..1]';
 
+export const OptionsPrimitiveMultipleValue1SizeSmall: StoryAutocomplete<
+  string,
+  true
+> = Template.bind({});
+OptionsPrimitiveMultipleValue1SizeSmall.args = {
+  options: '[..string]',
+  multiple: true,
+  value: ['value-1'],
+  size: 'small',
+};
+OptionsPrimitiveMultipleValue1SizeSmall.storyName =
+  'multiple value=[..1] size="small"';
+
 export const OptionsPrimitiveMultipleValue1InputPropsLeadingEl: StoryAutocomplete<
   string,
   true
@@ -637,6 +650,20 @@ TagsOptionsPrimitiveMultipleValue1InputPropsLeadingEl.args = {
 TagsOptionsPrimitiveMultipleValue1InputPropsLeadingEl.storyName =
   'tags multiple value=[..1] InputProps.leadingEl';
 
+export const TagsOptionsPrimitiveMultipleValue1SizeSmall: StoryAutocomplete<
+  string,
+  true
+> = Template.bind({});
+TagsOptionsPrimitiveMultipleValue1SizeSmall.args = {
+  options: '[..string]',
+  multiple: true,
+  value: ['value-1'],
+  tags: true,
+  size: 'small',
+};
+TagsOptionsPrimitiveMultipleValue1SizeSmall.storyName =
+  'tags multiple value=[..1] size="small"';
+
 export const TagsOptionsPrimitiveMultipleValue1Disabled: StoryAutocomplete<
   string,
   true
@@ -752,6 +779,18 @@ TagsOptionsPrimitiveMultipleValue2InputValueSizeSmall.args = {
 };
 TagsOptionsPrimitiveMultipleValue2InputValueSizeSmall.storyName =
   'tags multiple value=[..2] inputValue size=small';
+
+export const TagsOptionsPrimitiveMultipleValue3: StoryAutocomplete<
+  string,
+  true
+> = Template.bind({});
+TagsOptionsPrimitiveMultipleValue3.args = {
+  options: '[..string]',
+  multiple: true,
+  value: ['value-1', 'value-2', 'value-3'],
+  tags: true,
+};
+TagsOptionsPrimitiveMultipleValue3.storyName = 'tags multiple value=[..3]';
 
 export const TagsOptionsPrimitiveMultipleValue3Limit1: StoryAutocomplete<
   string,

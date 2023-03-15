@@ -406,15 +406,12 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     alignItems: 'center',
     alignSelf: 'flex-start',
     color: theme.unstable_palette.text.subdued,
-    display: 'flex',
+    display: 'inline-flex',
     flexWrap: 'wrap',
     marginRight: 0,
     marginTop: 0,
     '.Mui-disabled > &': {
       color: theme.unstable_palette.text.disabled,
-    },
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginTop: 0,
     },
   },
   'private-inputLeadingEl-noWrap': {
@@ -432,6 +429,10 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '& > *:first-child': {
       marginLeft: 8,
     },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginBottom: 0,
+      marginTop: 0,
+    },
   },
   'private-inputLeadingEl-size-medium-tags': {
     marginTop: 8,
@@ -445,6 +446,10 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     marginTop: 10,
     '& > *:first-child': {
       marginLeft: 4,
+    },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginBottom: -2,
+      marginTop: -2,
     },
   },
   'private-inputLeadingEl-size-small-tags': {
