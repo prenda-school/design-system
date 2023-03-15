@@ -20,6 +20,7 @@ API surface:
   - [feat] add `inputId` prop
   - [feat] add `labelId` prop
   - [feat] add `helperTextId` prop
+  - [style] change to be block-level element
 - **Unstable_Input**
   - see **Unstable_InputAdornment** for changes affecting default values of `renderLeadingEl`, `renderTrailingEl`
   - [feat] improve Form Control API-integration

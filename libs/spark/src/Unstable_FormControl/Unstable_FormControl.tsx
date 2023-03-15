@@ -68,7 +68,9 @@ type PrivateClassKey =
 
 const styles: Styles<Unstable_FormControlClassKey | PrivateClassKey> = {
   /** Styles applied to the root element. */
-  root: {},
+  root: {
+    display: 'flex',
+  },
   /* Private */
   'private-root-fullWidth': {
     width: '100%',
