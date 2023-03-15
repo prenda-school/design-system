@@ -23,8 +23,8 @@ API surface:
 - **Unstable_InputAdornment**
   - [style] increase font size when `size="small"`
 - **Unstable_Link**
-  - [style] vertically align with inline text when `component="button"`
-- **Unstable_RadioGroupField**
+  - [style] change to vertically align with inline text when `component="button"`
+- **Unstable_RadioGroup**
   - [fix] not forwarding the `id` prop to the underlying element
 - **Unstable_RadioGroupField**
   - see **Unstable_FormControl**, **Unstable_RadioGroup**
@@ -33,7 +33,8 @@ API surface:
   - [feat] improve Form Control API-integration
 - **Unstable_TextField**
   - see **Unstable_FormControl**, **Unstable_Input**, **Unstable_Select**
-  - [DEPRECATION] deprecated; compose the Form Control pattern directly
+  - [DEPRECATION] deprecated
+    - _migration: compose the Form Control pattern directly_
 - **useFormControl_unstable**
   - [feat] add `filled`, `focused`, `inputId`, `labelId`, `helperTextId` to parameters
   - [BREAKING] remove `id` from result
