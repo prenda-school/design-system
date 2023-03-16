@@ -418,11 +418,17 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     paddingLeft: 4,
     paddingTop: 4,
     paddingBottom: 4,
+    '&:first-child': {
+      paddingLeft: 8,
+    },
   },
   'private-input-size-small': {
     paddingLeft: 2,
     paddingTop: 4,
     paddingBottom: 4,
+    '&:first-child': {
+      paddingLeft: 4,
+    },
   },
   'private-input-focused': {
     opacity: 1,
