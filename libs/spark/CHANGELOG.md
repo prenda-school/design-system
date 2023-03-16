@@ -2,7 +2,10 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.11...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **Unstable_Autocomplete**
+  - [style] simplify internal styles for better behavior with multiple value rendering
 
 ## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
