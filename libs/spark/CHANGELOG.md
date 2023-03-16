@@ -6,6 +6,7 @@ API surface:
 
 - **Unstable_Autocomplete**
   - [style] simplify internal styles for better behavior with multiple value rendering
+  - [feat] add `multipleValueWrapper` class key
 
 ## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
