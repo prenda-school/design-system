@@ -367,6 +367,8 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     flexWrap: 'nowrap',
   },
   'private-inputRoot-size-medium': {
+    paddingTop: 8,
+    paddingBottom: 8,
     paddingLeft: 8,
     '$private-root-hasPopupIndicator &, $private-root-hasClearIndicator &': {
       paddingRight: 4 + 32 + 12,
@@ -377,6 +379,8 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   },
   'private-inputRoot-size-small': {
     paddingLeft: 4,
+    paddingTop: 6,
+    paddingBottom: 6,
     '$private-root-hasPopupIndicator &, $private-root-hasClearIndicator &': {
       paddingRight: 2 + 28 + 8, // spacing + popup-indicator + padding
     },
@@ -393,9 +397,13 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   },
   'private-input-size-medium': {
     paddingLeft: 8,
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   'private-input-size-small': {
     paddingLeft: 4,
+    paddingTop: 0,
+    paddingBottom: 0,
   },
   'private-input-focused': {
     opacity: 1,
@@ -411,6 +419,11 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '.Mui-disabled > &': {
       color: theme.unstable_palette.text.disabled,
     },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      alignSelf: 'center',
+      marginBottom: 0,
+      marginTop: 0,
+    },
   },
   'private-inputLeadingEl-noWrap': {
     flexWrap: 'nowrap',
@@ -423,39 +436,21 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   'private-inputLeadingEl-size-medium': {
     ...theme.unstable_typography.body,
     gap: 4,
-    marginTop: 12,
+    minHeight: 32,
     '& > *:first-child': {
       marginLeft: 8,
     },
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginBottom: 0,
-      marginTop: 0,
-    },
   },
-  'private-inputLeadingEl-size-medium-tags': {
-    marginTop: 8,
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginTop: 4,
-    },
-  },
+  'private-inputLeadingEl-size-medium-tags': {},
   'private-inputLeadingEl-size-small': {
     ...inputLeadingElSizeSmallTypography,
     gap: 2,
-    marginTop: 10,
+    minHeight: 24,
     '& > *:first-child': {
       marginLeft: 4,
     },
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginBottom: -2,
-      marginTop: -2,
-    },
   },
-  'private-inputLeadingEl-size-small-tags': {
-    marginTop: 6,
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      marginTop: 2,
-    },
-  },
+  'private-inputLeadingEl-size-small-tags': {},
   'private-inputLeadingEl-tags-noAdditionalLeadingEl': {
     marginLeft: 0,
   },
