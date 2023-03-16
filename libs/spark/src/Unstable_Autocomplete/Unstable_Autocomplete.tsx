@@ -183,7 +183,8 @@ export type Unstable_AutocompleteRenderInput = (
   state: Pick<FormControlProperties_Unstable, 'size'> & {
     clearIndicator: ReactNode;
     popupIndicator: ReactNode;
-    multipleValue: ReactNode[];
+    multipleValue: ReactNode | ReactNode[];
+    noWrap: boolean;
   }
 ) => ReactNode;
 
@@ -274,6 +275,7 @@ export type Unstable_AutocompleteClassKey =
   | 'root'
   | 'focused'
   | 'inputRoot'
+  | 'multipleValueWrapper'
   | 'multipleValueChild'
   | 'input'
   | 'clearIndicator'
@@ -293,16 +295,12 @@ type PrivateClassKey =
   | 'private-inputRoot-noWrap'
   | 'private-inputRoot-size-medium'
   | 'private-inputRoot-size-small'
+  | 'private-multipleValueWrapper-size-medium'
+  | 'private-multipleValueWrapper-size-small'
+  | 'private-multipleValueWrapper-focused'
+  | 'private-multipleValueChild-size-medium'
+  | 'private-multipleValueChild-size-small'
   | 'private-multipleValueChild-tags'
-  | 'private-inputLeadingEl'
-  | 'private-inputLeadingEl-noWrap'
-  | 'private-inputLeadingEl-noWrap-focused'
-  | 'private-inputLeadingEl-size-medium'
-  | 'private-inputLeadingEl-size-medium-tags'
-  | 'private-inputLeadingEl-size-small'
-  | 'private-inputLeadingEl-size-small-tags'
-  | 'private-inputLeadingEl-tags'
-  | 'private-inputLeadingEl-tags-noAdditionalLeadingEl'
   | 'private-inputTrailingEl'
   | 'private-inputTrailingEl-size-medium'
   | 'private-inputTrailingEl-size-small'
@@ -358,9 +356,20 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
   /* Styles applied to the Input element. */
   inputRoot: {
     flexWrap: 'wrap',
-    '& $input': {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    display: 'inline-flex',
+    // flexWrap: 'wrap',
+    marginRight: 0,
+    marginTop: 0,
+    '& > $input': {
       width: 0,
       minWidth: '5ch',
+    },
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      alignSelf: 'center',
+      marginBottom: 0,
+      marginTop: 0,
     },
   },
   'private-inputRoot-noWrap': {
@@ -376,6 +385,11 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '$private-root-hasPopupIndicator$private-root-hasClearIndicator &': {
       paddingRight: 4 + 32 + 4 + 32 + 12,
     },
+    ...theme.unstable_typography.body,
+    gap: 4,
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginLeft: 8,
+    },
   },
   'private-inputRoot-size-small': {
     paddingLeft: 4,
@@ -387,6 +401,11 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     '$private-root-hasPopupIndicator$private-root-hasClearIndicator &': {
       paddingRight: 2 + 28 + 2 + 28 + 8, // spacing + popup-indicator + gap + popup-indicator + padding
     },
+    ...inputLeadingElSizeSmallTypography,
+    gap: 2,
+    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
+      marginLeft: 4,
+    },
   },
   /* Styles applied to the input element. */
   input: {
@@ -396,68 +415,59 @@ export const styles: Styles<Unstable_AutocompleteClassKey | PrivateClassKey> = (
     paddingRight: 0,
   },
   'private-input-size-medium': {
-    paddingLeft: 8,
+    paddingLeft: 4,
     paddingTop: 4,
     paddingBottom: 4,
   },
   'private-input-size-small': {
-    paddingLeft: 4,
-    paddingTop: 0,
-    paddingBottom: 0,
+    paddingLeft: 2,
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   'private-input-focused': {
     opacity: 1,
   },
-  'private-inputLeadingEl': {
-    alignItems: 'center',
-    alignSelf: 'flex-start',
-    color: theme.unstable_palette.text.subdued,
+  /* Styles applied to the multiple value wrapping element (applied when `noWrap={true}`). */
+  multipleValueWrapper: {
     display: 'inline-flex',
-    flexWrap: 'wrap',
-    marginRight: 0,
-    marginTop: 0,
-    '.Mui-disabled > &': {
-      color: theme.unstable_palette.text.disabled,
-    },
-    '& [class*="MuiSparkUnstable_InputAdornment-root"]': {
-      alignSelf: 'center',
-      marginBottom: 0,
-      marginTop: 0,
-    },
-  },
-  'private-inputLeadingEl-noWrap': {
     flexWrap: 'nowrap',
     overflowX: 'hidden',
     whiteSpace: 'nowrap',
   },
-  'private-inputLeadingEl-noWrap-focused': {
-    flexDirection: 'row-reverse',
-  },
-  'private-inputLeadingEl-size-medium': {
-    ...theme.unstable_typography.body,
+  'private-multipleValueWrapper-size-medium': {
     gap: 4,
-    minHeight: 32,
-    '& > *:first-child': {
+  },
+  'private-multipleValueWrapper-size-small': {
+    gap: 2,
+  },
+  'private-multipleValueWrapper-focused': {
+    flexDirection: 'row-reverse',
+    '& > $multipleValueChild:first-child': {
+      marginLeft: 0,
+    },
+  },
+  /* Styles applied to multiple value child elements. */
+  multipleValueChild: {
+    color: theme.unstable_palette.text.subdued,
+    marginTop: 4,
+    marginBottom: 4,
+    '.Mui-disabled &': {
+      color: theme.unstable_palette.text.disabled,
+    },
+  },
+  'private-multipleValueChild-size-medium': {
+    '&:first-child': {
       marginLeft: 8,
     },
   },
-  'private-inputLeadingEl-size-medium-tags': {},
-  'private-inputLeadingEl-size-small': {
-    ...inputLeadingElSizeSmallTypography,
-    gap: 2,
-    minHeight: 24,
-    '& > *:first-child': {
+  'private-multipleValueChild-size-small': {
+    '&:first-child': {
       marginLeft: 4,
     },
   },
-  'private-inputLeadingEl-size-small-tags': {},
-  'private-inputLeadingEl-tags-noAdditionalLeadingEl': {
-    marginLeft: 0,
-  },
-  'private-inputLeadingEl-tags': {},
-  /* Styles applied to leading element child elements. */
-  multipleValueChild: {},
   'private-multipleValueChild-tags': {
+    marginTop: 0,
+    marginBottom: 0,
     '&:first-child': {
       marginLeft: 0,
     },
@@ -639,11 +649,10 @@ const defaultRenderInput: Unstable_AutocompleteRenderInput = (props, state) => {
               {leadingEl}
             </Unstable_InputAdornment>
           ) : null}
-
           {state.multipleValue ? state.multipleValue : null}
         </>
       }
-      renderLeadingEl={(props) => <div {...props} />}
+      renderLeadingEl={(props) => props.children}
       trailingEl={
         <>
           {state.clearIndicator}
@@ -880,7 +889,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
   const hasNoOptions =
     groupedOptions.length === 0 && !freeSolo && !loadingOptions;
 
-  let multipleValue: ReactNode[] | undefined;
+  let multipleValue: ReactNode | ReactNode[] | undefined;
 
   if (multiple && (value as T[]).length > 0) {
     multipleValue = renderMultipleValue(
@@ -894,6 +903,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
           ...consumerProps,
           className: clsx(
             classes.multipleValueChild,
+            classes[`private-multipleValueChild-size-${formControl.size}`],
             {
               [classes['private-multipleValueChild-tags']]: tags,
             },
@@ -918,10 +928,10 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
       more > 0
     ) {
       multipleValue = multipleValue.splice(0, multipleValueVisibleLimit);
-      multipleValue.push(
+      (multipleValue as ReactNode[]).push(
         <span
           className={clsx(classes.multipleValueChild)}
-          key={multipleValue.length}
+          key={(multipleValue as ReactNode[]).length}
         >
           {getMultipleValueVisibleLimitText(more)}
         </span>
@@ -931,6 +941,22 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
 
   if (noWrap && focused && Array.isArray(multipleValue)) {
     multipleValue.reverse();
+  }
+
+  if (noWrap) {
+    multipleValue = (
+      <span
+        className={clsx(
+          classes.multipleValueWrapper,
+          classes[`private-multipleValueWrapper-size-${formControl.size}`],
+          {
+            [classes['private-multipleValueWrapper-focused']]: focused,
+          }
+        )}
+      >
+        {multipleValue}
+      </span>
+    );
   }
 
   const getOptionProps: Unstable_AutocompleteGetOptionProps<T> = (
@@ -994,23 +1020,6 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
                 },
                 InputProps?.classes?.root
               ),
-              leadingEl: clsx(
-                classes['private-inputLeadingEl'],
-                classes[`private-inputLeadingEl-size-${formControl.size}`],
-                {
-                  [classes[
-                    `private-inputLeadingEl-size-${formControl.size}-tags`
-                  ]]: tags,
-                  [classes['private-inputLeadingEl-noWrap']]: noWrap,
-                  [classes['private-inputLeadingEl-noWrap-focused']]:
-                    noWrap && focused,
-                  [classes['private-inputLeadingEl-tags']]: tags,
-                  [classes[
-                    'private-inputLeadingEl-tags-noAdditionalLeadingEl'
-                  ]]: tags && !InputProps?.leadingEl,
-                },
-                InputProps?.classes?.leadingEl
-              ),
               trailingEl: clsx(
                 classes['private-inputTrailingEl'],
                 classes[`private-inputTrailingEl-size-${formControl.size}`],
@@ -1032,6 +1041,7 @@ const UnstyledUnstable_Autocomplete = forwardRef(function Unstable_Autocomplete<
             },
           },
           {
+            noWrap,
             size: formControl.size,
             // Clear Indicator
             clearIndicator: hasClearIndicator
