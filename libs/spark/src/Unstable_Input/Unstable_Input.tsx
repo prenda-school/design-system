@@ -112,6 +112,9 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
       border: theme.unstable_borders.focus,
       boxShadow: theme.unstable_shadows.info,
     },
+    '&.Mui-focused:hover, &:focus-visible:hover': {
+      backgroundColor: theme.unstable_palette.neutral[0],
+    },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
       border: theme.unstable_borders.error,
@@ -146,6 +149,9 @@ const styles: Styles<Unstable_InputClassKey | PrivateClassKey> = (theme) => ({
     border: theme.unstable_borders.bold,
     '&:hover': {
       backgroundColor: theme.unstable_palette.neutral[70],
+    },
+    '&.Mui-focused:hover, &:focus-visible:hover': {
+      backgroundColor: theme.unstable_palette.neutral[60],
     },
   },
   'private-root-multiline': {
