@@ -86,6 +86,10 @@ export const FocusVisible: Story = Template.bind({});
 FocusVisible.parameters = { pseudo: { focusVisible: true } };
 FocusVisible.storyName = ':focus-visible';
 
+export const FocusVisibleHover: Story = Template.bind({});
+FocusVisibleHover.parameters = { pseudo: { focusVisible: true, hover: true } };
+FocusVisibleHover.storyName = ':focus-visible :hover';
+
 export const Disabled: Story = Template.bind({});
 Disabled.args = { disabled: true };
 Disabled.storyName = 'disabled';
@@ -168,6 +172,13 @@ export const ValueFocusVisible: Story = Template.bind({});
 ValueFocusVisible.args = { value: 'Text' };
 ValueFocusVisible.parameters = { pseudo: { focusVisible: true } };
 ValueFocusVisible.storyName = 'value :focus-visible';
+
+export const ValueFocusVisibleHover: Story = Template.bind({});
+ValueFocusVisible.args = { value: 'Text' };
+ValueFocusVisibleHover.parameters = {
+  pseudo: { focusVisible: true, hover: true },
+};
+ValueFocusVisibleHover.storyName = 'value :focus-visible :hover';
 
 export const ValueDisabled: Story = Template.bind({});
 ValueDisabled.args = { value: 'Text', disabled: true };

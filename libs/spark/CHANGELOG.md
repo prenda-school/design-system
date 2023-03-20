@@ -5,8 +5,15 @@
 API surface:
 
 - **Unstable_Autocomplete**
+  - see **Unstable_Input**
   - [style] simplify internal styles for better behavior with multiple value rendering
   - [feat] add `multipleValueWrapper` class key
+- **Unstable_Input**
+  - [style] keep background color constant on focus _and_ hover
+- **Unstable_Select**
+  - see **Unstable_Input**
+- **Unstable_TextField**
+  - see **Unstable_Input**
 
 ## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
