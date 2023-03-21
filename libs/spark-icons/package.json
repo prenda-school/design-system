@@ -1,6 +1,6 @@
 {
   "name": "@prenda/spark-icons",
-  "version": "2.0.0-alpha.12",
+  "version": "2.0.0-alpha.13",
   "author": "Prenda, Inc.",
   "license": "UNLICENSED",
   "publishConfig": {
@@ -12,7 +12,7 @@
     "@babel/runtime": "^7.4.4"
   },
   "peerDependencies": {
-    "@prenda/spark": "2.0.0-alpha.12",
+    "@prenda/spark": "2.0.0-alpha.13",
     "@types/react": "^16.8.6 || ^17.0.0",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0"
