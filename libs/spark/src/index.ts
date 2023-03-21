@@ -394,6 +394,8 @@ export * from './Unstable_TextField';
 export { default as Unstable_Typography } from './Unstable_Typography';
 export * from './Unstable_Typography';
 
+export { default as createSvgIcon_unstable } from './createSvgIcon_unstable';
+
 export { default as makeStyles } from './makeStyles';
 
 export { default as styled } from './styled';
@@ -412,11 +414,15 @@ export { default as useFormControl } from './useFormControl';
 
 export { default as useMediaQuery } from './useMediaQuery';
 
+export { default as useMediaQuery_unstable } from './useMediaQuery_unstable';
+
 export { default as useRadioGroupExtra_unstable } from './useRadioGroupExtra_unstable';
 
 export { default as useTabs_unstable } from './useTabs_unstable';
 
 export { default as useTheme } from './useTheme';
+
+export { default as useTheme_unstable } from './useTheme_unstable';
 
 export { default as useToasts_unstable } from './useToasts_unstable';
 
