@@ -2,7 +2,14 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.12...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **createSvgIcon_unstable**
+  - [fix] missing top-level re-export
+- **useMediaQuery_unstable**
+  - [fix] missing top-level re-export
+- **useTheme_unstable**
+  - [fix] missing top-level re-export
 
 ## [v2.0.0-alpha.12](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.11...v2.0.0-alpha.12) (2023-03-21)
 
