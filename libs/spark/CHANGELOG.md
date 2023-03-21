@@ -19,6 +19,12 @@ API surface:
 - **unstable_createSvgIcon**
   - [DEPRECATION] deprecated
     - _migration: use createSvgIcon_unstable (no api changes)_
+- **useMediaQuery_unstable**
+  - [feat] added
+    - supports default theme with "unstable" properties
+- **useTheme_unstable**
+  - [feat] added
+    - supports default theme with "unstable" properties
 
 ## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
