@@ -4,6 +4,8 @@
 
 API surface:
 
+- **createSvgIcon_unstable**
+  - [feat] added
 - **Unstable_Autocomplete**
   - see **Unstable_Input**
   - [style] simplify internal styles for better behavior with multiple value rendering
@@ -14,6 +16,9 @@ API surface:
   - see **Unstable_Input**
 - **Unstable_TextField**
   - see **Unstable_Input**
+- **unstable_createSvgIcon**
+  - [DEPRECATION] deprecated
+    - _migration: use createSvgIcon_unstable (no api changes)_
 
 ## [v2.0.0-alpha.11](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.10...v2.0.0-alpha.11) (2023-03-15)
 
