@@ -211,6 +211,9 @@ export * from './ThemeProvider';
 export { default as Toolbar } from './Toolbar';
 export * from './Toolbar';
 
+export { default as TopBar_unstable } from './TopBar_unstable';
+export * from './TopBar_unstable';
+
 export { default as Typography } from './Typography';
 export * from './Typography';
 
