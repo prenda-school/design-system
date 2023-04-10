@@ -2,7 +2,12 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.13...vNext) (YYYY-MM-DD)
 
-No changes.
+The naming scheme of v2 replacement components will change from "Unstable\_\<Component\>" to "\<Component\>\_unstable". The intention is to ease developer emotions about the "unstable" prefix by changing it to a suffix and to increase find-ability of components.
+
+API surface:
+
+- **LinearProgress_unstable**
+  - [feat] initial implementation
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2023-03-21)
 
