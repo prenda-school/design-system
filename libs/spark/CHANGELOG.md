@@ -10,6 +10,8 @@ API surface:
   - [feat] initial implementation
 - **LinearProgress_unstable**
   - [feat] initial implementation
+- **TopBar_unstable**
+  - [feat] initial implementation
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2023-03-21)
 
