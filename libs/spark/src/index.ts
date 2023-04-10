@@ -86,6 +86,9 @@ export * from './InputBase';
 export { default as InputLabel } from './InputLabel';
 export * from './InputLabel';
 
+export { default as LinearProgress_unstable } from './LinearProgress_unstable';
+export * from './LinearProgress_unstable';
+
 export { default as Link } from './Link';
 export * from './Link';
 
