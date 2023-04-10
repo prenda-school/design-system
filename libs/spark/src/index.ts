@@ -34,6 +34,9 @@ export * from './CardMedia';
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
 
+export { default as CircularProgress_unstable } from './CircularProgress_unstable';
+export * from './CircularProgress_unstable';
+
 export { default as Collapse } from './Collapse';
 export * from './Collapse';
 

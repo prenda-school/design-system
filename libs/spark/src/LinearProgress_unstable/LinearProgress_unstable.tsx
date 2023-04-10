@@ -14,7 +14,7 @@ export interface LinearProgressProps_unstable
     'classes' | 'color' | 'variant'
   > {
   /**
-   * The color of the bar.
+   * The color of the bar, label (if provided).
    */
   color?: 'neutral' | 'red' | 'yellow' | 'teal' | 'green' | 'blue' | 'purple';
   /**
@@ -68,7 +68,9 @@ const styles: Styles<LinearProgressClassKey_unstable | PrivateClassKey> = (
     display: 'flex',
     gap: 8,
   },
-  label: {},
+  label: {
+    ...theme.unstable_typography.T14,
+  },
   'private-root-with-label': {
     width: '100%',
   },
@@ -94,7 +96,7 @@ const styles: Styles<LinearProgressClassKey_unstable | PrivateClassKey> = (
     backgroundColor: theme.unstable_palette.purple[500],
   },
   'private-label-color-neutral': {
-    color: theme.unstable_palette.neutral[300],
+    color: theme.unstable_palette.neutral[500],
   },
   'private-label-color-red': {
     color: theme.unstable_palette.red[600],

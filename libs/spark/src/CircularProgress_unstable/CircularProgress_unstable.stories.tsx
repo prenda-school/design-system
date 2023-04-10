@@ -1,19 +1,19 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { LinearProgress_unstable, LinearProgressProps_unstable } from '..';
+import { CircularProgress_unstable, CircularProgressProps_unstable } from '..';
 
 export const _retyped =
-  LinearProgress_unstable as typeof LinearProgress_unstable;
+  CircularProgress_unstable as typeof CircularProgress_unstable;
 
 export default {
-  title: '@ps/LinearProgress',
+  title: '@ps/CircularProgress',
   component: _retyped,
   excludeStories: ['_retyped'],
 } as Meta;
 
-const Template = (args) => <LinearProgress_unstable {...args} />;
+const Template = (args) => <CircularProgress_unstable {...args} />;
 
-type Story = DefaultStory<LinearProgressProps_unstable>;
+type Story = DefaultStory<CircularProgressProps_unstable>;
 
 export const Default: Story = Template.bind({});
 Default.storyName = '(default)';
@@ -97,10 +97,6 @@ export const VariantIndeterminate: Story = Template.bind({});
 VariantIndeterminate.args = { variant: 'indeterminate' };
 VariantIndeterminate.storyName = 'variant=indeterminate';
 
-export const VariantQuery: Story = Template.bind({});
-VariantQuery.args = { variant: 'query' };
-VariantQuery.storyName = 'variant=query';
-
 export const Value50Children: Story = Template.bind({});
 Value50Children.args = {
   children: <>50%</>,
@@ -108,20 +104,9 @@ Value50Children.args = {
 };
 Value50Children.storyName = 'children value=50';
 
-export const Value50ChildrenLabelPlacementStart: Story = Template.bind({});
-Value50ChildrenLabelPlacementStart.args = {
-  children: <>50%</>,
-  value: 50,
-  labelPlacement: 'start',
+export const Value100Children: Story = Template.bind({});
+Value100Children.args = {
+  children: <>100%</>,
+  value: 100,
 };
-Value50ChildrenLabelPlacementStart.storyName =
-  'children value=50 labelPlacement=start';
-
-export const Value50ChildrenLabelPlacementEnd: Story = Template.bind({});
-Value50ChildrenLabelPlacementEnd.args = {
-  children: <>50%</>,
-  value: 50,
-  labelPlacement: 'end',
-};
-Value50ChildrenLabelPlacementEnd.storyName =
-  'children value=50 labelPlacement=end';
+Value100Children.storyName = 'children value=100';

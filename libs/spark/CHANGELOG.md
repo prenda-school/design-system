@@ -6,6 +6,8 @@ The naming scheme of v2 replacement components will change from "Unstable\_\<Com
 
 API surface:
 
+- **CircularProgress_unstable**
+  - [feat] initial implementation
 - **LinearProgress_unstable**
   - [feat] initial implementation
 
