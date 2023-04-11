@@ -45,6 +45,9 @@ export { default as CssBaseline } from './CssBaseline';
 export { default as Divider } from './Divider';
 export * from './Divider';
 
+export { default as Drawer_unstable } from './Drawer_unstable';
+export * from './Drawer_unstable';
+
 export { default as DropdownAnchor } from './DropdownAnchor';
 export * from './DropdownAnchor';
 
@@ -151,6 +154,24 @@ export * from './SectionMessageTitle';
 
 export { default as Select } from './Select';
 export * from './Select';
+
+export { default as SideBarContext_unstable } from './SideBarContext_unstable';
+export * from './SideBarContext_unstable';
+
+export { default as SideBarDrawer_unstable } from './SideBarDrawer_unstable';
+export * from './SideBarDrawer_unstable';
+
+export { default as SideBarList_unstable } from './SideBarList_unstable';
+export * from './SideBarList_unstable';
+
+export { default as SideBarListItem_unstable } from './SideBarListItem_unstable';
+export * from './SideBarListItem_unstable';
+
+export { default as SideBarListSubheader_unstable } from './SideBarListSubheader_unstable';
+export * from './SideBarListSubheader_unstable';
+
+export { default as SideBarProvider_unstable } from './SideBarProvider_unstable';
+export * from './SideBarProvider_unstable';
 
 export { default as Skeleton } from './Skeleton';
 export * from './Skeleton';
@@ -426,6 +447,10 @@ export { default as useMediaQuery } from './useMediaQuery';
 export { default as useMediaQuery_unstable } from './useMediaQuery_unstable';
 
 export { default as useRadioGroupExtra_unstable } from './useRadioGroupExtra_unstable';
+
+export { default as useSideBar_unstable } from './useSideBar_unstable';
+
+export { default as useSideBarTrigger_unstable } from './useSideBarTrigger_unstable';
 
 export { default as useTabs_unstable } from './useTabs_unstable';
 
