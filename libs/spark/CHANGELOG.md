@@ -11,6 +11,24 @@ API surface:
   - [style] add background circle
   - [style] change default label styles to fit within smaller default size
   - [feat] add prop `hideBgCircle`
+- **Drawer_unstable**
+  - [feat] initial implementation
+- **SideBarContext_unstable**
+  - [feat] initial implementation
+- **SideBarDrawer_unstable**
+  - [feat] initial implementation
+- **SideBarList_unstable**
+  - [feat] initial implementation
+- **SideBarListItem_unstable**
+  - [feat] initial implementation
+- **SideBarListSubheader_unstable**
+  - [feat] initial implementation
+- **SideBarProvider_unstable**
+  - [feat] initial implementation
+- **useSideBar_unstable**
+  - [feat] initial implementation
+- **useSideBarTrigger_unstable**
+  - [feat] initial implementation
 
 ## [v2.0.0-alpha.14](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2023-04-10)
 
