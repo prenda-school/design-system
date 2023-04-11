@@ -2,7 +2,15 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.14...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **CircularProgress_unstable**
+  - [style] add class keys `svg`, `svgBg`, `circleBg`
+  - [style] change default size to 48
+  - [style] change default thickness to ~6.2
+  - [style] add background circle
+  - [style] change default label styles to fit within smaller default size
+  - [feat] add prop `hideBgCircle`
 
 ## [v2.0.0-alpha.14](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2023-04-10)
 
