@@ -1,2 +1,2 @@
-export { default } from './Unstable_TextField';
-export * from './Unstable_TextField';
+export { default } from '../alpha/TextField';
+export { TextFieldProps as Unstable_TextFieldProps } from '../alpha/TextField';

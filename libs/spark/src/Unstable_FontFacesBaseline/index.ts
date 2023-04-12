@@ -1,1 +1,1 @@
-export { default } from './Unstable_FontFacesBaseline';
+export { default } from '../alpha/FontFacesBaseline';

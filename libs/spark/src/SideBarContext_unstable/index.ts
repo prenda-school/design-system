@@ -1,2 +1,2 @@
-export { default } from './SideBarContext_unstable';
-export * from './SideBarContext_unstable';
+export { default } from '../alpha/SideBarContext';
+export { SideBarContextValue as SideBarContextValue_unstable } from '../alpha/SideBarContext';

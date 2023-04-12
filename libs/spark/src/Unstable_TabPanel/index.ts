@@ -1,2 +1,5 @@
-export { default } from './Unstable_TabPanel';
-export * from './Unstable_TabPanel';
+export { default } from '../alpha/TabPanel';
+export {
+  TabPanelClassKey as Unstable_TabPanelClassKey,
+  TabPanelProps as Unstable_TabPanelProps,
+} from '../alpha/TabPanel';

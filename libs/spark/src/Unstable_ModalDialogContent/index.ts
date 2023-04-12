@@ -1,2 +1,5 @@
-export { default } from './Unstable_ModalDialogContent';
-export * from './Unstable_ModalDialogContent';
+export { default } from '../alpha/ModalDialogContent';
+export {
+  ModalDialogContentClassKey as Unstable_ModalDialogContentClassKey,
+  ModalDialogContentProps as Unstable_ModalDialogContentProps,
+} from '../alpha/ModalDialogContent';

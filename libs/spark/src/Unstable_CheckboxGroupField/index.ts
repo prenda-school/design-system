@@ -1,2 +1,2 @@
-export { default } from './Unstable_CheckboxGroupField';
-export * from './Unstable_CheckboxGroupField';
+export { default } from '../alpha/CheckboxGroupField';
+export { CheckboxGroupFieldProps as Unstable_CheckboxGroupFieldProps } from '../alpha/CheckboxGroupField';

@@ -1,1 +1,1 @@
-export * from './Unstable_Modal';
+export * from '../alpha/Modal';

@@ -1,2 +1,2 @@
-export { default } from './Unstable_TabsContext';
-export * from './Unstable_TabsContext';
+export { default } from '../alpha/TabsContext';
+export { TabsContextValue as Unstable_TabsContextValue } from '../alpha/TabsContext';

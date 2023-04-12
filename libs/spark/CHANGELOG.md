@@ -2,7 +2,187 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...vNext) (YYYY-MM-DD)
 
-No changes.
+The naming scheme of v2 replacement components will change (again) to just the component name. However, in addition, the location of these components is now under the "/alpha" directory. Previous exports are maintained in order to give consumers the chance to migrate over time, rather than all at once.
+
+Example
+
+```diff
+-import { Unstable_Button } from '@prenda/spark'
++import { Button } from '@prenda/spark/alpha'
+```
+
+- **alpha/Autocomplete**
+  - [feat] added
+- **alpha/Avatar**
+  - [feat] added
+- **alpha/AvatarButton**
+  - [feat] added
+- **alpha/Banner**
+  - [feat] added
+- **alpha/Button**
+  - [feat] added
+- **alpha/Card**
+  - [feat] added
+- **alpha/Checkbox**
+  - [feat] added
+- **alpha/CheckboxField**
+  - [feat] added
+- **alpha/CheckboxGroupField**
+  - [feat] added
+- **alpha/CheckboxListItem**
+  - [feat] added
+- **alpha/CheckboxMenuItem**
+  - [feat] added
+- **alpha/CircularProgress**
+  - [feat] added
+- **alpha/ContentGroup**
+  - [feat] added
+- **alpha/createSvgIcon**
+  - [feat] added
+- **alpha/CssBaseline**
+  - [feat] added
+- **alpha/Divider**
+  - [feat] added
+- **alpha/Dropdown**
+  - [feat] added
+- **alpha/DropdownContext**
+  - [feat] added
+- **alpha/DropdownMenu**
+  - [feat] added
+- **alpha/DropdownTrigger**
+  - [feat] added
+- **alpha/FontFacesBaseline**
+  - [feat] added
+- **alpha/FormControl**
+  - [feat] added
+- **alpha/FormControlExtraContext**
+  - [feat] added
+- **alpha/FormControlLabel**
+  - [feat] added
+- **alpha/FormGroup**
+  - [feat] added
+- **alpha/FormHelperText**
+  - [feat] added
+- **alpha/FormLabel**
+  - [feat] added
+- **alpha/IconButton**
+  - [feat] added
+- **alpha/Input**
+  - [feat] added
+- **alpha/InputAdornment**
+  - [feat] added
+- **alpha/LinearProgress**
+  - [feat] added
+- **alpha/Link**
+  - [feat] added
+- **alpha/List**
+  - [feat] added
+- **alpha/ListItem**
+  - [feat] added
+- **alpha/ListSubheader**
+  - [feat] added
+- **alpha/Menu**
+  - [feat] added
+- **alpha/MenuItem**
+  - [feat] added
+- **alpha/MenuList**
+  - [feat] added
+- **alpha/Modal**
+  - [feat] added
+- **alpha/ModalDialog**
+  - [feat] added
+- **alpha/ModalDialogActions**
+  - [feat] added
+- **alpha/ModalDialogContent**
+  - [feat] added
+- **alpha/ModalDialogContentText**
+  - [feat] added
+- **alpha/ModalDialogTitle**
+  - [feat] added
+- **alpha/Paper**
+  - [feat] added
+- **alpha/Radio**
+  - [feat] added
+- **alpha/RadioField**
+  - [feat] added
+- **alpha/RadioGroup**
+  - [feat] added
+- **alpha/RadioGroupExtraContext**
+  - [feat] added
+- **alpha/RadioGroupField**
+  - [feat] added
+- **alpha/SectionMessage**
+  - [feat] added
+- **alpha/Select**
+  - [feat] added
+- **alpha/SideBarContext**
+  - [feat] added
+- **alpha/SideBarDrawer**
+  - [feat] added
+- **alpha/SideBarList**
+  - [feat] added
+- **alpha/SideBarListItem**
+  - [feat] added
+- **alpha/SideBarListSubheader**
+  - [feat] added
+- **alpha/SideBarProvider**
+  - [feat] added
+- **alpha/Skeleton**
+  - [feat] added
+- **alpha/SvgIcon**
+  - [feat] added
+- **alpha/Switch**
+  - [feat] added
+- **alpha/SwitchField**
+  - [feat] added
+- **alpha/Tab**
+  - [feat] added
+- **alpha/TabPanel**
+  - [feat] added
+- **alpha/Tabs**
+  - [feat] added
+- **alpha/TabsContext**
+  - [feat] added
+- **alpha/TabsList**
+  - [feat] added
+- **alpha/Tag**
+  - [feat] added
+- **alpha/TextField**
+  - [feat] added
+- **alpha/Toast**
+  - [feat] added
+- **alpha/ToastsContext**
+  - [feat] added
+- **alpha/ToastsProvider**
+  - [feat] added
+- **alpha/Tooltip**
+  - [feat] added
+- **alpha/TopBar**
+  - [feat] added
+- **alpha/Typography**
+  - [feat] added
+- **alpha/useAutocomplete**
+  - [feat] added
+- **alpha/useDropdown**
+  - [feat] added
+- **alpha/useFormControl**
+  - [feat] added
+- **alpha/useFormControlExtra**
+  - [feat] added
+- **alpha/useMediaQuery**
+  - [feat] added
+- **alpha/useRadioGroupExtra**
+  - [feat] added
+- **alpha/useSideBar**
+  - [feat] added
+- **alpha/useSideBarTrigger**
+  - [feat] added
+- **alpha/useTabs**
+  - [feat] added
+- **alpha/useTheme**
+  - [feat] added
+- **alpha/useToasts**
+  - [feat] added
 
 ## [v2.0.0-alpha.16](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2023-04-12)
 

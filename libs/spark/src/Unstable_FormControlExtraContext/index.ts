@@ -1,2 +1,2 @@
-export { default } from './Unstable_FormControlExtraContext';
-export * from './Unstable_FormControlExtraContext';
+export { default } from '../alpha/FormControlExtraContext';
+export { FormControlExtraContextValue as Unstable_FormControlExtraContextValue } from '../alpha/FormControlExtraContext';
