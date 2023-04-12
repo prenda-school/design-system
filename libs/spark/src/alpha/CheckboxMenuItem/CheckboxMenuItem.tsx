@@ -38,18 +38,18 @@ const styles: Styles<CheckboxMenuItemClassKey> = (theme) => ({
     whiteSpace: 'nowrap',
     '&& .MuiSpark_alpha_CheckboxIcon-root': {
       // remove focus shadow because menu item should be only element with the styling
-      boxShadow: theme.unstable_shadows.none,
+      boxShadow: theme.shadows_alpha.none,
     },
     // reset selected styles since only checkbox should appear selected
     '&$selected': {
       backgroundColor: 'transparent',
-      color: theme.unstable_palette.text.body,
+      color: theme.palette_alpha.text.body,
     },
     '&$selected:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.08),
     },
     '&$selected:active': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
   },
   selected: {},

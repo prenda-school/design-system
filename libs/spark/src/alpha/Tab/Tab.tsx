@@ -51,8 +51,8 @@ const styles: Styles<TabClassKey | PrivateClassKey> = (theme) => ({
     maxWidth: 'unset',
     minWidth: 'unset',
     // override v1
-    border: theme.unstable_borders.none,
-    borderRadius: theme.unstable_radii.zero,
+    border: theme.borders_alpha.none,
+    borderRadius: theme.radii_alpha.zero,
     // override MUI defaults
     '&&': {
       opacity: 1,
@@ -71,47 +71,47 @@ const styles: Styles<TabClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   label: {
-    ...theme.unstable_typography.label,
-    color: theme.unstable_palette.text.body,
+    ...theme.typography_alpha.label,
+    color: theme.palette_alpha.text.body,
     textTransform: 'none',
   },
   'private-root-disabled': {
     '&:hover': {
-      boxShadow: theme.unstable_shadows.none,
+      boxShadow: theme.shadows_alpha.none,
     },
   },
   'private-root-orientation-horizontal': {
     padding: '16px 0',
     '&:hover': {
-      boxShadow: `inset 0px -2px ${theme.unstable_palette.neutral[100]}`,
+      boxShadow: `inset 0px -2px ${theme.palette_alpha.neutral[100]}`,
     },
     '&:active': {
       zIndex: 2,
-      boxShadow: `inset 0px -2px ${theme.unstable_palette.blue[400]}`,
+      boxShadow: `inset 0px -2px ${theme.palette_alpha.blue[400]}`,
     },
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
-      borderRadius: theme.unstable_radii.md,
-      boxShadow: theme.unstable_shadows.focus,
+      borderRadius: theme.radii_alpha.md,
+      boxShadow: theme.shadows_alpha.focus,
     },
   },
   'private-root-orientation-vertical': {
     padding: '12px 12px',
     '&:hover': {
-      boxShadow: `inset -2px 0 ${theme.unstable_palette.neutral[100]}`,
+      boxShadow: `inset -2px 0 ${theme.palette_alpha.neutral[100]}`,
     },
     '&:active': {
       zIndex: 2,
-      boxShadow: `inset -2px 0px ${theme.unstable_palette.blue[400]}`,
+      boxShadow: `inset -2px 0px ${theme.palette_alpha.blue[400]}`,
     },
     '&.Mui-focusVisible, &:focus-visible': {
       zIndex: 2,
-      borderRadius: theme.unstable_radii.md,
-      boxShadow: theme.unstable_shadows.focus,
+      borderRadius: theme.radii_alpha.md,
+      boxShadow: theme.shadows_alpha.focus,
     },
   },
   'private-label-disabled': {
-    color: theme.unstable_palette.text.disabled,
+    color: theme.palette_alpha.text.disabled,
   },
   'private-label-orientation-horizontal': {},
   'private-label-orientation-vertical': {

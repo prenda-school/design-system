@@ -25,7 +25,7 @@ type PrivateClassKey =
 
 const styles: Styles<TooltipClassKey | PrivateClassKey> = (theme) => ({
   arrow: {
-    color: theme.unstable_palette.neutral[600],
+    color: theme.palette_alpha.neutral[600],
   },
   'private-arrow-placement-bottom': {
     '&::before': {
@@ -48,11 +48,11 @@ const styles: Styles<TooltipClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   tooltip: {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
     alignItems: 'flex-start',
-    backgroundColor: theme.unstable_palette.neutral[600],
-    borderRadius: theme.unstable_radii.md,
-    color: theme.unstable_palette.neutral[80],
+    backgroundColor: theme.palette_alpha.neutral[600],
+    borderRadius: theme.radii_alpha.md,
+    color: theme.palette_alpha.neutral[80],
     display: 'flex',
     flexDirection: 'column',
     gap: 24,

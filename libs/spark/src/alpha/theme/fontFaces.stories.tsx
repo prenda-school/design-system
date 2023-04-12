@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { ScopedCssBaseline, styled, withStyles } from '..';
-import { VariantUseFor } from './unstable_typography.stories';
+import { ScopedCssBaseline, styled, withStyles } from '../..';
+import { VariantUseFor } from './typography.stories';
 
 export default {
   title: '@ps/theme/fonts',
@@ -155,7 +155,7 @@ const Root = styled('div')({
 });
 const Heading = styled('h1')(({ theme }) => ({
   fontFamily: '"Poppins"',
-  fontSize: theme.unstable_typography.pxToRem(32),
+  fontSize: theme.typography_alpha.pxToRem(32),
   fontWeight: 500,
   letterSpacing: '-0.04em',
   lineHeight: 48 / 32,
@@ -164,17 +164,17 @@ const Description = styled('p')(({ theme }) => ({
   margin: 0, // reset
   marginBottom: 16,
   fontFamily: '"Inter"',
-  fontSize: theme.unstable_typography.pxToRem(18),
+  fontSize: theme.typography_alpha.pxToRem(18),
   lineHeight: 28 / 18,
 }));
 const Code = styled('span')(({ theme }) => ({
   margin: 0, // reset
   display: 'inline',
   backgroundColor: '#f4f5f7',
-  color: theme.unstable_palette.neutral[500],
+  color: theme.palette_alpha.neutral[500],
   paddingRight: 4,
   paddingLeft: 4,
-  ...theme.unstable_typography.code,
+  ...theme.typography_alpha.code,
 }));
 
 export const Guide: Story = () => (
@@ -300,7 +300,7 @@ const Showcase = styled('div')({
   gridGap: 64,
 });
 const Hr = styled('hr')(({ theme }) => ({
-  background: theme.unstable_palette.neutral[600],
+  background: theme.palette_alpha.neutral[600],
   marginTop: 24,
   marginBottom: 48,
   opacity: 0.32,
@@ -312,9 +312,9 @@ const LargeDisplay = styled(({ fontFamily, fontWeight, ...other }) => (
 ))(
   // @ts-expect-error ts(2339)
   ({ fontFamily = '"Poppins"', fontWeight = 700, theme }) => ({
-    color: theme.unstable_palette.neutral[600],
+    color: theme.palette_alpha.neutral[600],
     fontFamily,
-    fontSize: theme.unstable_typography.pxToRem(64),
+    fontSize: theme.typography_alpha.pxToRem(64),
     fontWeight,
     lineHeight: 72 / 64,
     margin: 0, // reset
@@ -323,7 +323,7 @@ const LargeDisplay = styled(({ fontFamily, fontWeight, ...other }) => (
 const Body = styled('p')(({ theme }) => ({
   marginTop: 16,
   marginBottom: 32,
-  ...theme.unstable_typography.body,
+  ...theme.typography_alpha.body,
 }));
 const WeightWaterfall = styled(({ fontFamily, ...other }) => (
   <div {...other} />
@@ -335,7 +335,7 @@ const WeightWaterfall = styled(({ fontFamily, ...other }) => (
     gap: 32,
     '& > *': {
       fontFamily,
-      fontSize: theme.unstable_typography.pxToRem(48),
+      fontSize: theme.typography_alpha.pxToRem(48),
       letterSpacing: '-0.02em',
       lineHeight: 40 / 48,
       // inline `fontWeight`

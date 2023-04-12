@@ -152,7 +152,7 @@ const robotoMonoItalic: CSS.AtRule.FontFace = {
   src: buildSrc('robotomono-italic'),
 };
 
-const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
+const fontFaces: Array<CSS.AtRule.FontFace> = [
   poppinsExtrabold,
   poppinsExtraboldItalic,
   poppinsBold,
@@ -173,4 +173,4 @@ const unstable_fontFaces: Array<CSS.AtRule.FontFace> = [
   robotoMonoItalic,
 ];
 
-export default unstable_fontFaces;
+export default fontFaces;

@@ -14,11 +14,11 @@ import type { TypographyClassKey } from '../Typography';
 import type { PaletteTertiaryColor, TypeBrand } from './palette';
 import type { Theme } from './theme';
 import type { SparkVariant } from './typography';
-import type { Unstable_Borders } from './unstable_borders';
-import type { Unstable_Palette } from './unstable_palette';
-import type { Unstable_Radii } from './unstable_radii';
-import type { Unstable_Shadows } from './unstable_shadows';
-import type { Unstable_TypographyOptions } from './unstable_typography';
+import type { Borders as Borders_alpha } from '../alpha/theme/borders';
+import type { Palette as Palette_alpha } from '../alpha/theme/palette';
+import type { Radii as Radii_alpha } from '../alpha/theme/radii';
+import type { Shadows as Shadows_alpha } from '../alpha/theme/shadows';
+import type { TypographyOptions as TypographyOptions_alpha } from '../alpha/theme/typography';
 
 // Augment global interfaces so consumers TS can recognize the customizations
 
@@ -26,22 +26,32 @@ import type { Unstable_TypographyOptions } from './unstable_typography';
 
 declare module '@material-ui/core/styles/createTheme' {
   interface Theme {
-    unstable_borders: Unstable_Borders;
-    unstable_palette: Unstable_Palette;
-    unstable_radii: Unstable_Radii;
-    unstable_shadows: Unstable_Shadows;
-    unstable_typography: Unstable_TypographyOptions;
+    unstable_borders: Borders_alpha;
+    borders_alpha: Borders_alpha;
+    unstable_palette: Palette_alpha;
+    palette_alpha: Palette_alpha;
+    unstable_radii: Radii_alpha;
+    radii_alpha: Radii_alpha;
+    unstable_shadows: Shadows_alpha;
+    shadows_alpha: Shadows_alpha;
+    unstable_typography: TypographyOptions_alpha;
+    typography_alpha: TypographyOptions_alpha;
   }
 }
 
 declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {
-    unstable_borders: Unstable_Borders;
-    unstable_palette: Unstable_Palette;
-    unstable_radii: Unstable_Radii;
-    unstable_shadows: Unstable_Shadows;
-    unstable_typography: Unstable_TypographyOptions;
+    unstable_borders: Borders_alpha;
+    borders_alpha: Borders_alpha;
+    unstable_palette: Palette_alpha;
+    palette_alpha: Palette_alpha;
+    unstable_radii: Radii_alpha;
+    radii_alpha: Radii_alpha;
+    unstable_shadows: Shadows_alpha;
+    shadows_alpha: Shadows_alpha;
+    unstable_typography: TypographyOptions_alpha;
+    typography_alpha: TypographyOptions_alpha;
   }
 }
 

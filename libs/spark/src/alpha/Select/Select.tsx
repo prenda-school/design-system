@@ -122,11 +122,11 @@ const styles: Styles<SelectClassKey | PrivateClassKey> = (theme) => {
     },
     icon: {
       ...styles.icon,
-      color: theme.unstable_palette.text.icon,
+      color: theme.palette_alpha.text.icon,
       transition: 'transform 250ms ease',
       /* disabled -- can get from internal context => can't condition on prop */
       '.Mui-disabled > &': {
-        color: theme.unstable_palette.text.disabled,
+        color: theme.palette_alpha.text.disabled,
       },
     },
     iconOpen: {
@@ -160,12 +160,12 @@ const styles: Styles<SelectClassKey | PrivateClassKey> = (theme) => {
       },
     },
     'private-icon-size-medium': {
-      fontSize: theme.unstable_typography.pxToRem(24),
+      fontSize: theme.typography_alpha.pxToRem(24),
       marginRight: 16,
       top: 'calc(50% - 12px)',
     },
     'private-icon-size-small': {
-      fontSize: theme.unstable_typography.pxToRem(20),
+      fontSize: theme.typography_alpha.pxToRem(20),
       marginRight: 8,
       top: 'calc(50% - 10px)',
     },

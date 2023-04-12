@@ -39,12 +39,12 @@ type PrivateClassKey =
 const styles: Styles<DividerClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    backgroundColor: theme.unstable_palette.neutral[80],
+    backgroundColor: theme.palette_alpha.neutral[80],
     display: 'block',
   },
   /* Private */
   'private-root-darker': {
-    backgroundColor: theme.unstable_palette.neutral[90],
+    backgroundColor: theme.palette_alpha.neutral[90],
   },
   'private-root-inset': {
     marginLeft: 'unset',

@@ -1,9 +1,6 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import Alert, {
-  Unstable_AlertClassKey as AlertClassKey,
-  Unstable_AlertProps as AlertProps,
-} from '../../internal/Unstable_Alert';
+import Alert, { AlertClassKey, AlertProps } from '../internal/Alert';
 import { StandardProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 
@@ -21,9 +18,9 @@ type PrivateClassKey =
 const styles: Styles<ToastClassKey | PrivateClassKey> = (theme) => ({
   root: {
     alignItems: 'center',
-    backgroundColor: theme.unstable_palette.background.inverse,
-    color: theme.unstable_palette.text.inverseBody,
-    borderRadius: theme.unstable_radii.sm,
+    backgroundColor: theme.palette_alpha.background.inverse,
+    color: theme.palette_alpha.text.inverseBody,
+    borderRadius: theme.radii_alpha.sm,
     display: 'flex',
     gap: 8,
     minHeight: 54,
@@ -31,11 +28,11 @@ const styles: Styles<ToastClassKey | PrivateClassKey> = (theme) => ({
   },
   icon: {
     display: 'flex',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     lineHeight: 1,
   },
   message: {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
     flexGrow: 2,
   },
   action: {
@@ -44,16 +41,16 @@ const styles: Styles<ToastClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Private */
   'private-icon-severity-error': {
-    color: theme.unstable_palette.red[400],
+    color: theme.palette_alpha.red[400],
   },
   'private-icon-severity-info': {
-    color: theme.unstable_palette.blue[300],
+    color: theme.palette_alpha.blue[300],
   },
   'private-icon-severity-success': {
-    color: theme.unstable_palette.green[400],
+    color: theme.palette_alpha.green[400],
   },
   'private-icon-severity-warning': {
-    color: theme.unstable_palette.yellow[400],
+    color: theme.palette_alpha.yellow[400],
   },
 });
 

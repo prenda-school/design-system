@@ -5,7 +5,7 @@ import initialTheme from '../../theme/initialTheme';
 const useTheme = (): Theme => {
   let theme = useMuiTheme<Theme>();
 
-  if (typeof theme.unstable_palette === 'undefined') {
+  if (typeof theme.palette_alpha === 'undefined') {
     theme = initialTheme;
   }
 

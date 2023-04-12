@@ -42,11 +42,11 @@ const styles: Styles<SideBarListItemClassKey> = (theme) => ({
       textDecoration: 'none',
     },
     '&[aria-current="page"]': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
     '&[aria-current="page"]:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-      color: theme.unstable_palette.text.body, // override Bootstrap.css
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.08),
+      color: theme.palette_alpha.text.body, // override Bootstrap.css
     },
   },
   container: {},

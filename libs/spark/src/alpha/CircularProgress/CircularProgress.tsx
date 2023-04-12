@@ -72,7 +72,7 @@ const styles: Styles<CircularProgressClassKey | PrivateClassKey> = (theme) => ({
     inset: 0,
   },
   circleBg: {
-    color: theme.unstable_palette.neutral[70],
+    color: theme.palette_alpha.neutral[70],
     stroke: 'currentColor',
   },
   dashed: {},
@@ -81,7 +81,7 @@ const styles: Styles<CircularProgressClassKey | PrivateClassKey> = (theme) => ({
     display: 'inline-flex',
   },
   label: {
-    ...theme.unstable_typography.T14,
+    ...theme.typography_alpha.T14,
     fontSize: '.75rem',
     lineHeight: '1.25rem',
     letterSpacing: '-0.05em',
@@ -92,46 +92,46 @@ const styles: Styles<CircularProgressClassKey | PrivateClassKey> = (theme) => ({
     justifyContent: 'center',
   },
   'private-circle-color-neutral': {
-    color: theme.unstable_palette.neutral[200],
+    color: theme.palette_alpha.neutral[200],
   },
   'private-circle-color-red': {
-    color: theme.unstable_palette.red[600],
+    color: theme.palette_alpha.red[600],
   },
   'private-circle-color-yellow': {
-    color: theme.unstable_palette.yellow[500],
+    color: theme.palette_alpha.yellow[500],
   },
   'private-circle-color-teal': {
-    color: theme.unstable_palette.teal[500],
+    color: theme.palette_alpha.teal[500],
   },
   'private-circle-color-green': {
-    color: theme.unstable_palette.green[600],
+    color: theme.palette_alpha.green[600],
   },
   'private-circle-color-blue': {
-    color: theme.unstable_palette.blue[600],
+    color: theme.palette_alpha.blue[600],
   },
   'private-circle-color-purple': {
-    color: theme.unstable_palette.purple[500],
+    color: theme.palette_alpha.purple[500],
   },
   'private-label-color-neutral': {
-    color: theme.unstable_palette.neutral[500],
+    color: theme.palette_alpha.neutral[500],
   },
   'private-label-color-red': {
-    color: theme.unstable_palette.red[600],
+    color: theme.palette_alpha.red[600],
   },
   'private-label-color-yellow': {
-    color: theme.unstable_palette.yellow[500],
+    color: theme.palette_alpha.yellow[500],
   },
   'private-label-color-teal': {
-    color: theme.unstable_palette.teal[500],
+    color: theme.palette_alpha.teal[500],
   },
   'private-label-color-green': {
-    color: theme.unstable_palette.green[600],
+    color: theme.palette_alpha.green[600],
   },
   'private-label-color-blue': {
-    color: theme.unstable_palette.blue[600],
+    color: theme.palette_alpha.blue[600],
   },
   'private-label-color-purple': {
-    color: theme.unstable_palette.purple[500],
+    color: theme.palette_alpha.purple[500],
   },
 });
 

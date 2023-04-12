@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/InputBase';
 import InputAdornment from '../InputAdornment';
 import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import useFormControl, { FormControlProperties } from '../useFormControl';
 
 export interface InputProps
@@ -90,40 +90,40 @@ const styles: Styles<InputClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
     boxSizing: 'border-box',
-    backgroundColor: theme.unstable_palette.neutral[0],
-    border: theme.unstable_borders.standard,
-    borderRadius: theme.unstable_radii.sm,
-    color: theme.unstable_palette.text.body,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    border: theme.borders_alpha.standard,
+    borderRadius: theme.radii_alpha.sm,
+    color: theme.palette_alpha.text.body,
     letterSpacing: 0,
     margin: 0,
-    maxWidth: theme.unstable_typography.pxToRem(320),
+    maxWidth: theme.typography_alpha.pxToRem(320),
     width: '100%',
     '&:hover': {
-      backgroundColor: theme.unstable_palette.neutral[60],
+      backgroundColor: theme.palette_alpha.neutral[60],
     },
     '&.Mui-focused, &:focus-visible': {
-      backgroundColor: theme.unstable_palette.neutral[0],
-      border: theme.unstable_borders.focus,
-      boxShadow: theme.unstable_shadows.info,
+      backgroundColor: theme.palette_alpha.neutral[0],
+      border: theme.borders_alpha.focus,
+      boxShadow: theme.shadows_alpha.info,
     },
     '&.Mui-focused:hover, &:focus-visible:hover': {
-      backgroundColor: theme.unstable_palette.neutral[0],
+      backgroundColor: theme.palette_alpha.neutral[0],
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
-      border: theme.unstable_borders.error,
-      boxShadow: theme.unstable_shadows.error,
+      border: theme.borders_alpha.error,
+      boxShadow: theme.shadows_alpha.error,
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '&.Mui-disabled': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
       opacity: 1,
-      color: theme.unstable_palette.text.disabled, // override Mui default
+      color: theme.palette_alpha.text.disabled, // override Mui default
     },
   },
   /* Styles applied to the `input` element. */
   input: {
-    borderRadius: theme.unstable_radii.sm,
+    borderRadius: theme.radii_alpha.sm,
     color: 'inherit',
     height: 'unset', // override weird default `em` height
     /* disabled -- can get from internal context => can't condition on prop */
@@ -139,20 +139,20 @@ const styles: Styles<InputClassKey | PrivateClassKey> = (theme) => ({
     maxWidth: '100%',
   },
   'private-root-value': {
-    backgroundColor: theme.unstable_palette.neutral[60],
-    border: theme.unstable_borders.bold,
+    backgroundColor: theme.palette_alpha.neutral[60],
+    border: theme.borders_alpha.bold,
     '&:hover': {
-      backgroundColor: theme.unstable_palette.neutral[70],
+      backgroundColor: theme.palette_alpha.neutral[70],
     },
     '&.Mui-focused:hover, &:focus-visible:hover': {
-      backgroundColor: theme.unstable_palette.neutral[60],
+      backgroundColor: theme.palette_alpha.neutral[60],
     },
   },
   'private-root-multiline': {
     padding: 0,
   },
   'private-root-size-medium': {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
   },
   'private-root-size-small': {
     ...sizeSmallVariant,
@@ -170,15 +170,15 @@ const styles: Styles<InputClassKey | PrivateClassKey> = (theme) => ({
     paddingRight: 8,
   },
   'private-root-success': {
-    border: theme.unstable_borders.success,
-    boxShadow: theme.unstable_shadows.success,
+    border: theme.borders_alpha.success,
+    boxShadow: theme.shadows_alpha.success,
   },
   'private-input-placeholder': {
-    color: theme.unstable_palette.neutral[400],
+    color: theme.palette_alpha.neutral[400],
     opacity: 0.87,
     // override mui default
     '&::placeholder': {
-      color: theme.unstable_palette.neutral[400],
+      color: theme.palette_alpha.neutral[400],
       opacity: 0.87,
     },
   },

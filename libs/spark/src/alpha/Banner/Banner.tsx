@@ -1,9 +1,6 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import Alert, {
-  Unstable_AlertClassKey as AlertClassKey,
-  Unstable_AlertProps as AlertProps,
-} from '../../internal/Unstable_Alert';
+import Alert, { AlertClassKey, AlertProps } from '../internal/Alert';
 import withStyles, { Styles } from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -38,13 +35,13 @@ const styles: Styles<BannerClassKey | PrivateClassKey> = (theme) => ({
   },
   icon: {
     display: 'flex',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     lineHeight: 1,
     paddingBottom: 4,
     paddingTop: 4,
   },
   message: {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
     flexGrow: 2,
     paddingTop: 4,
   },
@@ -53,40 +50,40 @@ const styles: Styles<BannerClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Private */
   'private-root-severity-error': {
-    backgroundColor: theme.unstable_palette.red[700],
+    backgroundColor: theme.palette_alpha.red[700],
   },
   'private-root-severity-info': {
-    backgroundColor: theme.unstable_palette.blue[700],
+    backgroundColor: theme.palette_alpha.blue[700],
   },
   'private-root-severity-success': {
-    backgroundColor: theme.unstable_palette.green[700],
+    backgroundColor: theme.palette_alpha.green[700],
   },
   'private-root-severity-warning': {
-    backgroundColor: theme.unstable_palette.yellow[600],
+    backgroundColor: theme.palette_alpha.yellow[600],
   },
   'private-icon-severity-error': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-icon-severity-info': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-icon-severity-success': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-icon-severity-warning': {
-    color: theme.unstable_palette.neutral[600],
+    color: theme.palette_alpha.neutral[600],
   },
   'private-message-severity-error': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-message-severity-info': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-message-severity-success': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-message-severity-warning': {
-    color: theme.unstable_palette.neutral[600],
+    color: theme.palette_alpha.neutral[600],
   },
 });
 

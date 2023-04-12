@@ -285,8 +285,8 @@ export const EnrollmentResource = (args) => (
 
 const useEnrollmentMicroschoolInformationStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: theme.unstable_radii.sm,
-    border: theme.unstable_borders.bold,
+    borderRadius: theme.radii_alpha.sm,
+    border: theme.borders_alpha.bold,
     minWidth: 320,
     padding: 16,
   },
@@ -323,13 +323,13 @@ export const EnrollmentMicroschoolInformation = (args) => {
 
 const useEnrollmentGuideCodeStyles = makeStyles((theme) => ({
   root: {
-    borderRadius: theme.unstable_radii.sm,
-    border: theme.unstable_borders.bold,
+    borderRadius: theme.radii_alpha.sm,
+    border: theme.borders_alpha.bold,
     minWidth: 320,
     padding: 16,
   },
   secondary: {
-    fontSize: theme.unstable_typography.pxToRem(32),
+    fontSize: theme.typography_alpha.pxToRem(32),
     letterSpacing: '0.25em',
     lineHeight: 40 / 32,
   },
@@ -382,9 +382,9 @@ const useMicroschoolThumbnailStyles = makeStyles((theme) => ({
     paddingBlockStart: 24,
   },
   primary: {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
     '&:visited': {
-      color: theme.unstable_palette.text.body,
+      color: theme.palette_alpha.text.body,
     },
   },
   leadingEl: {
@@ -392,14 +392,14 @@ const useMicroschoolThumbnailStyles = makeStyles((theme) => ({
     paddingInlineStart: 16,
     position: 'relative',
     '& .site-photo': {
-      borderRadius: theme.unstable_radii.md,
+      borderRadius: theme.radii_alpha.md,
       width: 210,
       '@media (max-width: 320px)': {
         width: '100%',
       },
       // fallback styles
       minHeight: 140,
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
     '& .guide-photo-border': {
       backgroundColor: 'white',

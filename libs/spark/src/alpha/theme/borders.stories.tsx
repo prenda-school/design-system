@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, theme } from '..';
+import { styled, theme } from '../..';
 
 export default {
   title: '@ps/theme/borders',
@@ -10,13 +10,10 @@ const _Borders = styled(function Borders(props) {
   return (
     <div {...props}>
       <h1 className="title">Borders</h1>
-      <span className="code">theme.unstable_borders</span>
+      <span className="code">theme.borders_alpha</span>
       <div className="content">
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.none }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.none }}>
             <span className="name">none</span>
             <span className="code">borders.none</span>
           </div>
@@ -27,7 +24,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.transparent }}
+            style={{ border: theme.borders_alpha.transparent }}
           >
             <span className="name">transparent</span>
             <span className="code">borders.transparent</span>
@@ -37,7 +34,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.subtle }}
+            style={{ border: theme.borders_alpha.subtle }}
           >
             <span className="name">subtle</span>
             <span className="code">borders.subtle</span>
@@ -47,7 +44,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.standard }}
+            style={{ border: theme.borders_alpha.standard }}
           >
             <span className="name">standard</span>
             <span className="code">borders.standard</span>
@@ -55,10 +52,7 @@ const _Borders = styled(function Borders(props) {
         </div>
 
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.bold }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.bold }}>
             <span className="name">bold</span>
             <span className="code">borders.bold</span>
           </div>
@@ -67,7 +61,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.selected }}
+            style={{ border: theme.borders_alpha.selected }}
           >
             <span className="name">selected</span>
             <span className="code">borders.selected</span>
@@ -79,7 +73,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.active }}
+            style={{ border: theme.borders_alpha.active }}
           >
             <span className="name">active</span>
             <span className="code">borders.active</span>
@@ -89,7 +83,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.expanded }}
+            style={{ border: theme.borders_alpha.expanded }}
           >
             <span className="name">expanded</span>
             <span className="code">borders.expanded</span>
@@ -97,20 +91,14 @@ const _Borders = styled(function Borders(props) {
         </div>
 
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.hover }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.hover }}>
             <span className="name">hover</span>
             <span className="code">borders.hover</span>
           </div>
         </div>
 
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.focus }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.focus }}>
             <span className="name">focus</span>
             <span className="code">borders.focus</span>
           </div>
@@ -119,20 +107,14 @@ const _Borders = styled(function Borders(props) {
 
       <div className="content">
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.error }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.error }}>
             <span className="name">error</span>
             <span className="code">borders.error</span>
           </div>
         </div>
 
         <div>
-          <div
-            className="square"
-            style={{ border: theme.unstable_borders.info }}
-          >
+          <div className="square" style={{ border: theme.borders_alpha.info }}>
             <span className="name">info</span>
             <span className="code">borders.info</span>
           </div>
@@ -141,7 +123,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.success }}
+            style={{ border: theme.borders_alpha.success }}
           >
             <span className="name">success</span>
             <span className="code">borders.success</span>
@@ -151,7 +133,7 @@ const _Borders = styled(function Borders(props) {
         <div>
           <div
             className="square"
-            style={{ border: theme.unstable_borders.warning }}
+            style={{ border: theme.borders_alpha.warning }}
           >
             <span className="name">warning</span>
             <span className="code">borders.warning</span>
@@ -163,7 +145,7 @@ const _Borders = styled(function Borders(props) {
 })(({ theme }) => ({
   paddingLeft: 8,
   '& .title': {
-    ...theme.unstable_typography.T22,
+    ...theme.typography_alpha.T22,
     margin: 0,
   },
   '& .content': {
@@ -173,8 +155,8 @@ const _Borders = styled(function Borders(props) {
   },
   '& .square': {
     alignItems: 'center',
-    backgroundColor: theme.unstable_palette.neutral[0],
-    borderRadius: theme.unstable_radii.sm,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    borderRadius: theme.radii_alpha.sm,
     display: 'flex',
     flexDirection: 'column',
     height: 200,
@@ -182,10 +164,10 @@ const _Borders = styled(function Borders(props) {
     width: 200,
   },
   '& .name': {
-    ...theme.unstable_typography.label,
+    ...theme.typography_alpha.label,
   },
   '& .code': {
-    ...theme.unstable_typography.code,
+    ...theme.typography_alpha.code,
   },
 }));
 

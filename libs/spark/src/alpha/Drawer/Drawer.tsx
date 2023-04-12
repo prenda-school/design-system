@@ -50,19 +50,19 @@ const styles: Styles<DrawerClassKey | PrivateClassKey> = (theme) => ({
     }),
   },
   'private-paper-bgcolor-standard': {
-    backgroundColor: theme.unstable_palette.background.default,
+    backgroundColor: theme.palette_alpha.background.default,
   },
   'private-paper-bgcolor-alternative': {
-    backgroundColor: theme.unstable_palette.background.alternative,
+    backgroundColor: theme.palette_alpha.background.alternative,
   },
   'private-paper-bgcolor-brand': {
-    backgroundColor: theme.unstable_palette.background.brand,
+    backgroundColor: theme.palette_alpha.background.brand,
   },
   'private-paper-bgcolor-inverse': {
-    backgroundColor: theme.unstable_palette.background.inverse,
+    backgroundColor: theme.palette_alpha.background.inverse,
   },
   'private-paper-variant-temporary': {
-    boxShadow: theme.unstable_shadows.E300,
+    boxShadow: theme.shadows_alpha.E300,
   },
 });
 

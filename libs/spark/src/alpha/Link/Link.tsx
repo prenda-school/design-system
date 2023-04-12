@@ -57,7 +57,7 @@ const styles: Styles<LinkClassKey | PrivateClassKey> = (theme) => ({
   root: {
     textDecoration: 'underline',
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: theme.unstable_shadows.focus,
+      boxShadow: theme.shadows_alpha.focus,
     },
     // reset browser default
     '&:focus': {
@@ -83,26 +83,26 @@ const styles: Styles<LinkClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   'private-root-color-inverse': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
     '&:hover': {
-      color: theme.unstable_palette.neutral[80],
+      color: theme.palette_alpha.neutral[80],
     },
     '&:visited': {
-      color: theme.unstable_palette.purple[200],
+      color: theme.palette_alpha.purple[200],
       '&:hover': {
-        color: theme.unstable_palette.purple[100],
+        color: theme.palette_alpha.purple[100],
       },
     },
   },
   'private-root-color-standard': {
-    color: theme.unstable_palette.blue['600'],
+    color: theme.palette_alpha.blue['600'],
     '&:hover': {
-      color: theme.unstable_palette.blue['500'],
+      color: theme.palette_alpha.blue['500'],
     },
     '&:visited': {
-      color: theme.unstable_palette.purple[600],
+      color: theme.palette_alpha.purple[600],
       '&:hover': {
-        color: theme.unstable_palette.purple[400],
+        color: theme.palette_alpha.purple[400],
       },
     },
   },
@@ -111,7 +111,7 @@ const styles: Styles<LinkClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-root-variant-alias': {},
   'private-root-variant-standard': {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
   },
 });
 

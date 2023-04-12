@@ -36,18 +36,18 @@ const styles: Styles<FormControlLabelClassKey> = (theme) => ({
   },
   /* Styles applied to the label element. */
   label: {
-    ...theme.unstable_typography.body,
-    color: theme.unstable_palette.text.body,
+    ...theme.typography_alpha.body,
+    color: theme.palette_alpha.text.body,
     'label:hover > &': {
       textDecoration: 'underline',
     },
     /* error */
     '$root.Mui-error > &': {
-      color: theme.unstable_palette.red[700],
+      color: theme.palette_alpha.red[700],
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '$root.Mui-disabled > &': {
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
       textDecoration: 'none',
     },
   },

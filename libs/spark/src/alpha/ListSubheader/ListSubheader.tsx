@@ -35,9 +35,9 @@ type PrivateClassKey = 'private-root-inset' | 'private-root-sticky';
 const styles: Styles<ListSubheaderClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    ...theme.unstable_typography.description,
+    ...theme.typography_alpha.description,
     alignItems: 'center',
-    color: theme.unstable_palette.text.subdued,
+    color: theme.palette_alpha.text.subdued,
     display: 'flex',
     fontWeight: 600,
     height: 40,

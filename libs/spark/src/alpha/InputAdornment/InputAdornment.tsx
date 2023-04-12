@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import useFormControl, { FormControlProperties } from '../useFormControl';
 import { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
@@ -55,7 +55,7 @@ const styles: Styles<InputAdornmentClassKey | PrivateClassKey> = (theme) => ({
     alignItems: 'flex-start',
     whiteSpace: 'nowrap',
     /* for PDS */
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     lineHeight: 1,
     alignSelf: 'flex-start', // un-center in multiline input
   },
@@ -66,15 +66,15 @@ const styles: Styles<InputAdornmentClassKey | PrivateClassKey> = (theme) => ({
     marginLeft: 2,
   },
   'private-root-size-medium': {
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     marginTop: 12, // shift-down in multiline input (= half of typical icon height + input top margin)
   },
   'private-root-size-small': {
-    fontSize: theme.unstable_typography.pxToRem(20),
+    fontSize: theme.typography_alpha.pxToRem(20),
     marginTop: 8,
   },
   'private-root-size-medium-children-string': {
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
   },
   'private-root-size-small-children-string': {
     ...sizeSmallVariant,

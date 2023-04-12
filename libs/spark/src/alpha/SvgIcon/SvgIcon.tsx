@@ -63,31 +63,31 @@ const styles: Styles<SvgIconClassKey | PrivateClassKey> = (theme) => ({
     color: 'inherit',
   },
   'private-color-normal': {
-    color: theme.unstable_palette.text.icon,
+    color: theme.palette_alpha.text.icon,
   },
   'private-color-secondary': {
-    color: theme.unstable_palette.text.secondaryIcon,
+    color: theme.palette_alpha.text.secondaryIcon,
   },
   'private-color-inverse': {
-    color: theme.unstable_palette.text.inverseIcon,
+    color: theme.palette_alpha.text.inverseIcon,
   },
   'private-color-inverseSecondary': {
-    color: theme.unstable_palette.text.inverseSecondaryIcon,
+    color: theme.palette_alpha.text.inverseSecondaryIcon,
   },
   'private-fontSize-inherit': {
     fontSize: 'inherit',
   },
   'private-fontSize-small': {
-    fontSize: theme.unstable_typography.pxToRem(16),
+    fontSize: theme.typography_alpha.pxToRem(16),
   },
   'private-fontSize-medium': {
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
   },
   'private-fontSize-large': {
-    fontSize: theme.unstable_typography.pxToRem(32),
+    fontSize: theme.typography_alpha.pxToRem(32),
   },
   'private-fontSize-xlarge': {
-    fontSize: theme.unstable_typography.pxToRem(48),
+    fontSize: theme.typography_alpha.pxToRem(48),
   },
 });
 

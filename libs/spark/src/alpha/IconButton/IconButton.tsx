@@ -71,10 +71,10 @@ type PrivateClassKey =
 
 const styles: Styles<IconButtonClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    border: theme.unstable_borders.none,
-    borderRadius: theme.unstable_radii.sm,
+    border: theme.borders_alpha.none,
+    borderRadius: theme.radii_alpha.sm,
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: theme.unstable_shadows.focus,
+      boxShadow: theme.shadows_alpha.focus,
     },
   },
   label: {
@@ -87,34 +87,34 @@ const styles: Styles<IconButtonClassKey | PrivateClassKey> = (theme) => ({
     padding: 12,
   },
   'private-root-variant-primary': {
-    backgroundColor: theme.unstable_palette.brand.blue,
+    backgroundColor: theme.palette_alpha.brand.blue,
     '&:hover': {
-      backgroundColor: lighten(theme.unstable_palette.brand.blue, 0.1),
+      backgroundColor: lighten(theme.palette_alpha.brand.blue, 0.1),
     },
     '&:active': {
-      backgroundColor: darken(theme.unstable_palette.brand.blue, 0.2),
+      backgroundColor: darken(theme.palette_alpha.brand.blue, 0.2),
     },
     '&[aria-expanded="true"]': {
-      backgroundColor: theme.unstable_palette.neutral[600],
+      backgroundColor: theme.palette_alpha.neutral[600],
     },
     '&:disabled': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
   },
   'private-root-variant-stroked': {
-    backgroundColor: theme.unstable_palette.neutral[0],
-    border: theme.unstable_borders.standard,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    border: theme.borders_alpha.standard,
     '&:hover': {
-      backgroundColor: theme.unstable_palette.neutral[70],
+      backgroundColor: theme.palette_alpha.neutral[70],
     },
     '&:active': {
-      backgroundColor: theme.unstable_palette.blue[100],
+      backgroundColor: theme.palette_alpha.blue[100],
     },
     '&[aria-expanded="true"]': {
-      backgroundColor: theme.unstable_palette.neutral[600],
+      backgroundColor: theme.palette_alpha.neutral[600],
     },
     '&:disabled': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
   },
   'private-root-variant-stroked-size-small': {
@@ -127,51 +127,51 @@ const styles: Styles<IconButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-root-variant-ghost-color-standard': {
     backgroundColor: 'transparent',
     '&:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.08),
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
     '&[aria-expanded="true"]': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.8),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.8),
     },
     '&:disabled': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      backgroundColor: alpha(theme.palette_alpha.neutral[200], 0.2),
     },
   },
   'private-root-variant-ghost-color-inverse': {
     backgroundColor: 'transparent',
     '&:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
+      backgroundColor: alpha(theme.palette_alpha.neutral[0], 0.08),
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
     '&[aria-expanded="true"]': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
+      backgroundColor: alpha(theme.palette_alpha.neutral[90], 0.4),
     },
     '&:disabled': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      backgroundColor: alpha(theme.palette_alpha.neutral[200], 0.2),
     },
   },
   'private-label-variant-primary': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-label-variant-stroked': {
-    color: theme.unstable_palette.brand.blue,
+    color: theme.palette_alpha.brand.blue,
   },
   'private-label-variant-ghost': {},
   'private-label-variant-ghost-color-standard': {
-    color: theme.unstable_palette.brand.blue,
+    color: theme.palette_alpha.brand.blue,
   },
   'private-label-variant-ghost-color-inverse': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-label-ariaExpanded': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-label-disabled': {
-    color: theme.unstable_palette.text.disabled,
+    color: theme.palette_alpha.text.disabled,
   },
 });
 

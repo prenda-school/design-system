@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { ScopedCssBaseline, styled, withStyles } from '..';
+import { ScopedCssBaseline, styled, withStyles } from '../..';
 
 export default {
   title: '@ps/theme/typography',
@@ -44,11 +44,11 @@ const VariantInfo = styled('div')(({ theme }) => ({
   '& > :nth-child(1)': {
     fontFamily: '"Poppins"',
     fontWeight: 900,
-    fontSize: theme.unstable_typography.pxToRem(20),
+    fontSize: theme.typography_alpha.pxToRem(20),
     lineHeight: 32 / 20,
   },
   '& > :nth-child(2)': {
-    ...theme.unstable_typography.code,
+    ...theme.typography_alpha.code,
   },
 }));
 
@@ -61,8 +61,8 @@ const FlexBox = styled('div')({
 const VariantSwagger = styled(({ variant, ...other }) => <div {...other} />)(
   // @ts-expect-error ts(2339)
   ({ theme, variant }) => ({
-    ...theme.unstable_typography[variant],
-    color: theme.unstable_palette.neutral[500],
+    ...theme.typography_alpha[variant],
+    color: theme.palette_alpha.neutral[500],
   })
 );
 export const VariantUseFor = styled('span')(({ theme }) => ({
@@ -71,15 +71,15 @@ export const VariantUseFor = styled('span')(({ theme }) => ({
   flexDirection: 'column',
   gap: 8,
   padding: 8,
-  color: theme.unstable_palette.neutral[500],
-  ...theme.unstable_typography.code,
+  color: theme.palette_alpha.neutral[500],
+  ...theme.typography_alpha.code,
   '& > :nth-child(1)': {
     fontWeight: 700,
   },
 }));
 
 const Root = styled('div')(({ theme }) => ({
-  color: theme.unstable_palette.neutral[500],
+  color: theme.palette_alpha.neutral[500],
   display: 'grid',
   gridGap: 32,
   gridTemplateColumns: '186px auto',

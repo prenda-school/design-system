@@ -5,7 +5,7 @@ import {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { Unstable_TypographyVariant as TypographyVariant } from '../../theme/unstable_typography';
+import { TypographyVariant } from '../theme/typography';
 import withStyles, { Styles } from '../../withStyles';
 
 export interface TypographyTypeMap<
@@ -86,100 +86,100 @@ const styles: Styles<TypographyClassKey | PrivateClassKey> = (theme) => ({
     color: 'inherit',
   },
   'private-variant-display': {
-    ...theme.unstable_typography.display,
+    ...theme.typography_alpha.display,
   },
   'private-variant-T32': {
-    ...theme.unstable_typography['T32'],
+    ...theme.typography_alpha['T32'],
   },
   'private-variant-T28': {
-    ...theme.unstable_typography['T28'],
+    ...theme.typography_alpha['T28'],
   },
   'private-variant-T22': {
-    ...theme.unstable_typography['T22'],
+    ...theme.typography_alpha['T22'],
   },
   'private-variant-T18': {
-    ...theme.unstable_typography['T18'],
+    ...theme.typography_alpha['T18'],
   },
   'private-variant-T14': {
-    ...theme.unstable_typography['T14'],
+    ...theme.typography_alpha['T14'],
   },
   'private-variant-body': {
-    ...theme.unstable_typography['body'],
+    ...theme.typography_alpha['body'],
     '& strong, b': {
       fontWeight: 600,
     },
   },
   'private-variant-label': {
-    ...theme.unstable_typography['label'],
+    ...theme.typography_alpha['label'],
   },
   'private-variant-description': {
-    ...theme.unstable_typography['description'],
+    ...theme.typography_alpha['description'],
     '& strong, b': {
       fontWeight: 700,
     },
   },
   'private-variant-code': {
-    ...theme.unstable_typography['code'],
+    ...theme.typography_alpha['code'],
   },
   'private-color-normal-variant-display': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-T32': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-T28': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-T22': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-T18': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-T14': {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
   },
   'private-color-normal-variant-body': {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   'private-color-normal-variant-label': {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   'private-color-normal-variant-description': {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   'private-color-normal-variant-code': {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   'private-color-inverse-variant-display': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-T32': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-T28': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-T22': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-T18': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-T14': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-color-inverse-variant-body': {
-    color: theme.unstable_palette.text.inverseBody,
+    color: theme.palette_alpha.text.inverseBody,
   },
   'private-color-inverse-variant-label': {
-    color: theme.unstable_palette.text.inverseBody,
+    color: theme.palette_alpha.text.inverseBody,
   },
   'private-color-inverse-variant-description': {
-    color: theme.unstable_palette.text.inverseBody,
+    color: theme.palette_alpha.text.inverseBody,
   },
   'private-color-inverse-variant-code': {
-    color: theme.unstable_palette.text.inverseBody,
+    color: theme.palette_alpha.text.inverseBody,
   },
 });
 

@@ -52,12 +52,12 @@ type PrivateClassKey =
 const styles: Styles<LinearProgressClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    backgroundColor: theme.unstable_palette.neutral[80],
+    backgroundColor: theme.palette_alpha.neutral[80],
     borderRadius: 4,
     height: 8,
   },
   bar: {
-    backgroundColor: theme.unstable_palette.blue[500],
+    backgroundColor: theme.palette_alpha.blue[500],
     borderRadius: 4,
   },
   dashed: {},
@@ -67,52 +67,52 @@ const styles: Styles<LinearProgressClassKey | PrivateClassKey> = (theme) => ({
     gap: 8,
   },
   label: {
-    ...theme.unstable_typography.T14,
+    ...theme.typography_alpha.T14,
   },
   'private-root-with-label': {
     width: '100%',
   },
   'private-bar-color-neutral': {
-    backgroundColor: theme.unstable_palette.neutral[300],
+    backgroundColor: theme.palette_alpha.neutral[300],
   },
   'private-bar-color-red': {
-    backgroundColor: theme.unstable_palette.red[600],
+    backgroundColor: theme.palette_alpha.red[600],
   },
   'private-bar-color-yellow': {
-    backgroundColor: theme.unstable_palette.yellow[500],
+    backgroundColor: theme.palette_alpha.yellow[500],
   },
   'private-bar-color-teal': {
-    backgroundColor: theme.unstable_palette.teal[500],
+    backgroundColor: theme.palette_alpha.teal[500],
   },
   'private-bar-color-green': {
-    backgroundColor: theme.unstable_palette.green[600],
+    backgroundColor: theme.palette_alpha.green[600],
   },
   'private-bar-color-blue': {
-    backgroundColor: theme.unstable_palette.blue[600],
+    backgroundColor: theme.palette_alpha.blue[600],
   },
   'private-bar-color-purple': {
-    backgroundColor: theme.unstable_palette.purple[500],
+    backgroundColor: theme.palette_alpha.purple[500],
   },
   'private-label-color-neutral': {
-    color: theme.unstable_palette.neutral[500],
+    color: theme.palette_alpha.neutral[500],
   },
   'private-label-color-red': {
-    color: theme.unstable_palette.red[600],
+    color: theme.palette_alpha.red[600],
   },
   'private-label-color-yellow': {
-    color: theme.unstable_palette.yellow[500],
+    color: theme.palette_alpha.yellow[500],
   },
   'private-label-color-teal': {
-    color: theme.unstable_palette.teal[500],
+    color: theme.palette_alpha.teal[500],
   },
   'private-label-color-green': {
-    color: theme.unstable_palette.green[600],
+    color: theme.palette_alpha.green[600],
   },
   'private-label-color-blue': {
-    color: theme.unstable_palette.blue[600],
+    color: theme.palette_alpha.blue[600],
   },
   'private-label-color-purple': {
-    color: theme.unstable_palette.purple[500],
+    color: theme.palette_alpha.purple[500],
   },
 });
 
