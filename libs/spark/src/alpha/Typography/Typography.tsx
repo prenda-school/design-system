@@ -5,7 +5,7 @@ import {
   TypographyProps as MuiTypographyProps,
 } from '@material-ui/core/Typography';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { TypographyVariant } from '../../theme/unstable_typography';
+import { Unstable_TypographyVariant as TypographyVariant } from '../../theme/unstable_typography';
 import withStyles, { Styles } from '../../withStyles';
 
 export interface TypographyTypeMap<
