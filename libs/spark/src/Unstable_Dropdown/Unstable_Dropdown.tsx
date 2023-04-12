@@ -15,9 +15,7 @@ export interface Unstable_DropdownProps {
   children?: ReactNode;
 }
 
-export const Unstable_Dropdown = (
-  props: Unstable_DropdownProps
-): JSX.Element => {
+const Unstable_Dropdown = (props: Unstable_DropdownProps): JSX.Element => {
   const id = useUniqueId();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
