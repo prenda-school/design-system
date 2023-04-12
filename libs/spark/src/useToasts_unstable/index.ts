@@ -1,1 +1,1 @@
-export { default } from './useToasts_unstable';
+export { default } from '../alpha/useToasts';

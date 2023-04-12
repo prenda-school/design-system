@@ -1,1 +1,1 @@
-export { default } from './useTabs_unstable';
+export { default } from '../alpha/useTabs';

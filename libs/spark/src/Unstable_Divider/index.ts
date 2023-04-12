@@ -1,2 +1,6 @@
-export { default } from './Unstable_Divider';
-export * from './Unstable_Divider';
+export { default } from '../alpha/Divider';
+export {
+  DividerClassKey as Unstable_DividerClassKey,
+  DividerProps as Unstable_DividerProps,
+  DividerTypeMap as Unstable_DividerTypeMap,
+} from '../alpha/Divider';

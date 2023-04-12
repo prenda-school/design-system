@@ -1,2 +1,2 @@
-export { default } from './Unstable_RadioField';
-export * from './Unstable_RadioField';
+export { default } from '../alpha/RadioField';
+export { RadioFieldProps as Unstable_RadioFieldProps } from '../alpha/RadioField';

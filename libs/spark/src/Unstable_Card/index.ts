@@ -1,2 +1,6 @@
-export { default } from './Unstable_Card';
-export * from './Unstable_Card';
+export { default } from '../alpha/Card';
+export {
+  CardClassKey as Unstable_CardClassKey,
+  CardProps as Unstable_CardProps,
+  CardTypeMap as Unstable_CardTypeMap,
+} from '../alpha/Card';

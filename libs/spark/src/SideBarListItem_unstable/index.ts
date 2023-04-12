@@ -1,2 +1,6 @@
-export { default } from './SideBarListItem_unstable';
-export * from './SideBarListItem_unstable';
+export { default } from '../alpha/SideBarListItem';
+export {
+  SideBarListItemClassKey as SideBarListItemClassKey_unstable,
+  SideBarListItemProps as SideBarListItemProps_unstable,
+  SideBarListItemTypeMap as SideBarListItemTypeMap_unstable,
+} from '../alpha/SideBarListItem';

@@ -1,2 +1,5 @@
-export { default } from './SideBarProvider_unstable';
-export * from './SideBarProvider_unstable';
+export { default } from '../alpha/SideBarProvider';
+export {
+  SideBarProviderClassKey as SideBarProviderClassKey_unstable,
+  SideBarProviderProps as SideBarProviderProps_unstable,
+} from '../alpha/SideBarProvider';

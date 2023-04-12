@@ -1,1 +1,1 @@
-export { default } from './useTheme_unstable';
+export { default } from '../alpha/useTheme';
