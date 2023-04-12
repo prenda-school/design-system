@@ -9,7 +9,7 @@ import clsx from 'clsx';
 import Checkbox, { CheckboxProps } from '../Checkbox';
 import ListItem, { ListItemTypeMap, ListItemProps } from '../ListItem';
 import { OverridableComponent, OverrideProps, useId } from '../../utils';
-import { ExtendButtonBase } from '../ButtonBase';
+import { ExtendButtonBase } from '../../ButtonBase';
 import withStyles, { Styles } from '../../withStyles';
 
 export type CheckboxListItemTypeMap<

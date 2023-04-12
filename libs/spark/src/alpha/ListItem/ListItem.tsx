@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/ListItem';
 import { default as MuiListItemSecondaryAction } from '@material-ui/core/ListItemSecondaryAction';
 import { darken, alpha } from '@material-ui/core/styles';
-import { ExtendButtonBase } from '../ButtonBase';
+import { ExtendButtonBase } from '../../ButtonBase';
 import { OverridableComponent, OverrideProps } from '../../utils';
 import ContentGroup, { ContentGroupProps } from '../ContentGroup';
 import withStyles, { Styles } from '../../withStyles';

@@ -9,7 +9,7 @@ import useMediaQuery from '../useMediaQuery';
 import useSideBar from '../useSideBar';
 import withStyles, { Styles } from '../../withStyles';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../ButtonBase';
+import { ExtendButtonBase } from '../../ButtonBase';
 
 export type SideBarListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

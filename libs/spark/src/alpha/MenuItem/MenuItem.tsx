@@ -2,7 +2,7 @@ import React, { ElementType, forwardRef, Ref } from 'react';
 import clsx from 'clsx';
 import ListItem, { ListItemProps, ListItemTypeMap } from '../ListItem';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../ButtonBase';
+import { ExtendButtonBase } from '../../ButtonBase';
 import withStyles, { Styles } from '../../withStyles';
 
 export type MenuItemTypeMap<

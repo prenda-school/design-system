@@ -5,7 +5,7 @@ import CheckboxListItem, {
   CheckboxListItemTypeMap,
 } from '../CheckboxListItem';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../ButtonBase';
+import { ExtendButtonBase } from '../../ButtonBase';
 import { alpha } from '@material-ui/core/styles';
 import withStyles, { Styles } from '../../withStyles';
 
