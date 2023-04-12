@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { theme, Avatar, Button, ButtonProps } from '..';
+import { theme } from '../..';
+import { Avatar, Button, ButtonProps } from '..';
 import {
   ChevronDown,
   containBoxShadowInline,
