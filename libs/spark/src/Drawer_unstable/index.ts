@@ -1,2 +1,5 @@
-export { default } from './Drawer_unstable';
-export * from './Drawer_unstable';
+export { default } from '../alpha/Drawer';
+export {
+  DrawerClassKey as DrawerClassKey_unstable,
+  DrawerProps as DrawerProps_unstable,
+} from '../alpha/Drawer';

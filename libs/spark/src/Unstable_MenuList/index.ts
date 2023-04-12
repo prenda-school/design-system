@@ -1,2 +1,5 @@
-export { default } from './Unstable_MenuList';
-export * from './Unstable_MenuList';
+export { default } from '../alpha/MenuList';
+export {
+  MenuListClassKey as Unstable_MenuListClassKey,
+  MenuListProps as Unstable_MenuListProps,
+} from '../alpha/MenuList';

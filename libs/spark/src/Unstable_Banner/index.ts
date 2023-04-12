@@ -1,2 +1,5 @@
-export { default } from './Unstable_Banner';
-export * from './Unstable_Banner';
+export { default } from '../alpha/Banner';
+export {
+  BannerClassKey as Unstable_BannerClassKey,
+  BannerProps as Unstable_BannerProps,
+} from '../alpha/Banner';

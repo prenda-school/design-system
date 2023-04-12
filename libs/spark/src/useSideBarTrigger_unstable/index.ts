@@ -1,1 +1,1 @@
-export { default } from './useSideBarTrigger_unstable';
+export { default } from '../alpha/useSideBarTrigger';

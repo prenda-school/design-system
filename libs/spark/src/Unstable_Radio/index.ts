@@ -1,2 +1,5 @@
-export { default } from './Unstable_Radio';
-export * from './Unstable_Radio';
+export { default } from '../alpha/Radio';
+export {
+  RadioClassKey as Unstable_RadioClassKey,
+  RadioProps as Unstable_RadioProps,
+} from '../alpha/Radio';

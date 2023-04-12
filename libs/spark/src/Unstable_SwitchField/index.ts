@@ -1,2 +1,2 @@
-export { default } from './Unstable_SwitchField';
-export * from './Unstable_SwitchField';
+export { default } from '../alpha/SwitchField';
+export { SwitchFieldProps as Unstable_SwitchFieldProps } from '../alpha/SwitchField';

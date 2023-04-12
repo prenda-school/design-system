@@ -1,1 +1,1 @@
-export { default } from './createSvgIcon_unstable';
+export { default } from '../alpha/createSvgIcon';

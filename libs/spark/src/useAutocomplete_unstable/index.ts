@@ -1,2 +1,15 @@
-export { default } from './useAutocomplete_unstable';
-export * from './useAutocomplete_unstable';
+export { default } from '../alpha/useAutocomplete';
+export {
+  createFilterOptions,
+  UseAutocompleteProps as UseAutocomplete_UnstableProps,
+  UseAutocompleteResult as UseAutocomplete_UnstableResult,
+  UseAutocompleteResultGetClearIndicatorProps as UseAutocomplete_UnstableResultGetClearIndicatorProps,
+  UseAutocompleteResultGetInputLabelProps as UseAutocomplete_UnstableResultGetInputLabelProps,
+  UseAutocompleteResultGetInputProps as UseAutocomplete_UnstableResultGetInputProps,
+  UseAutocompleteResultGetListboxProps as UseAutocomplete_UnstableResultGetListboxProps,
+  UseAutocompleteResultGetMultipleValueProps as UseAutocomplete_UnstableResultGetMultipleValueProps,
+  UseAutocompleteResultGetOptionProps as UseAutocomplete_UnstableResultGetOptionProps,
+  UseAutocompleteResultGetPopupIndicatorProps as UseAutocomplete_UnstableResultGetPopupIndicatorProps,
+  UseAutocompleteResultGetRootProps as UseAutocomplete_UnstableResultGetRootProps,
+  UseAutocompleteValue,
+} from '../alpha/useAutocomplete';

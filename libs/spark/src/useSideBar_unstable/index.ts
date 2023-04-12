@@ -1,1 +1,1 @@
-export { default } from './useSideBar_unstable';
+export { default } from '../alpha/useSideBar';

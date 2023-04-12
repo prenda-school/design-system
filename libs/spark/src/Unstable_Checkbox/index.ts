@@ -1,2 +1,5 @@
-export { default } from './Unstable_Checkbox';
-export * from './Unstable_Checkbox';
+export { default } from '../alpha/Checkbox';
+export {
+  CheckboxClassKey as Unstable_CheckboxClassKey,
+  CheckboxProps as Unstable_CheckboxProps,
+} from '../alpha/Checkbox';

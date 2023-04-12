@@ -1,2 +1,5 @@
-export { default } from './Unstable_Toast';
-export * from './Unstable_Toast';
+export { default } from '../alpha/Toast';
+export {
+  ToastClassKey as Unstable_ToastClassKey,
+  ToastProps as Unstable_ToastProps,
+} from '../alpha/Toast';

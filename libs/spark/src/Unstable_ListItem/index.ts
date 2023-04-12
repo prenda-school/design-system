@@ -1,2 +1,6 @@
-export { default } from './Unstable_ListItem';
-export * from './Unstable_ListItem';
+export { default } from '../alpha/ListItem';
+export {
+  ListItemClassKey as Unstable_ListItemClassKey,
+  ListItemProps as Unstable_ListItemProps,
+  ListItemTypeMap as Unstable_ListItemTypeMap,
+} from '../alpha/ListItem';
