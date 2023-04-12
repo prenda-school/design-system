@@ -1,13 +1,13 @@
 import clsx from 'clsx';
-import useMediaQuery_unstable from '../useMediaQuery_unstable';
-import useSideBar_unstable from '../useSideBar_unstable';
-import { StandardProps } from '../utils';
-import withStyles, { Styles } from '../withStyles';
+import React, { HTMLAttributes } from 'react';
 import Drawer_unstable, {
   DrawerClassKey_unstable,
   DrawerProps_unstable,
 } from '../Drawer_unstable';
-import { HTMLAttributes } from 'react';
+import useMediaQuery_unstable from '../useMediaQuery_unstable';
+import useSideBar_unstable from '../useSideBar_unstable';
+import { StandardProps } from '../utils';
+import withStyles, { Styles } from '../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SideBarDrawerProps_unstable

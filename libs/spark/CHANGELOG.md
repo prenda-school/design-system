@@ -2,7 +2,10 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.15...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **SideBarDrawer_unstable**
+  - [fix] missing React import
 
 ## [v2.0.0-alpha.15](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2023-04-11)
 
