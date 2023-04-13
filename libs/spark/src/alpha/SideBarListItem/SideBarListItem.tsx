@@ -37,7 +37,9 @@ export type SideBarListItemClassKey = Exclude<ListItemClassKey, 'selected'>;
 
 const styles: Styles<SideBarListItemClassKey> = (theme) => ({
   root: {
+    paddingBottom: 6,
     paddingLeft: 24,
+    paddingTop: 6,
     '&:hover': {
       textDecoration: 'none',
     },
@@ -83,7 +85,20 @@ const UnstyledSideBarListItem: OverridableComponent<
     }
   };
 
-  return <ListItem onClick={handleClick} {...other} ref={ref} />;
+  return (
+    <ListItem
+      onClick={handleClick}
+      ContentGroupProps={{
+        ...other?.ContentGroupProps,
+        primaryTypographyProps: {
+          variant: 'description',
+          ...other?.ContentGroupProps?.primaryTypographyProps,
+        },
+      }}
+      {...other}
+      ref={ref}
+    />
+  );
 });
 
 const SideBarListItem = withStyles(styles, {
