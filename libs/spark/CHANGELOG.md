@@ -139,6 +139,7 @@ Lastly, all v1 stable components with a v2 alpha replacement have been marked as
   - [style] change typography, reduce padding
 - **alpha/SideBarProvider**
   - [feat] added
+  - [style] opening on initial render on mobile
 - **alpha/Skeleton**
   - [feat] added
 - **alpha/SvgIcon**

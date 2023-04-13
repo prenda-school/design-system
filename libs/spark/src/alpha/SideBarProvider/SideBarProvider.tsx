@@ -62,51 +62,51 @@ const UnstyledSideBarProvider = forwardRef<
 
   const classes = classesProp as Exclude<typeof classesProp, undefined>;
 
-  const isTabletOrMobile = useMediaQuery((theme) =>
-    theme.breakpoints.down('md')
-  );
-  const isMobile = useMediaQuery(
+  // media query returns `false` initially, even when the query is true. see https://github.com/mui/material-ui/issues/21142
+  // ~ >= tablet
+  const isMdUp = useMediaQuery((theme) => theme.breakpoints.up('md'), {
+    noSsr: true, // prevent inaccurate initial value
+  });
+  // ~ <= mobile
+  const isXsDown = useMediaQuery(
     (theme) => theme.breakpoints.down('xs'),
-    // prevent media query returning `false` initially, even when the query is true. see https://github.com/mui/material-ui/issues/21142
-    { noSsr: true }
+    { noSsr: true } // prevent inaccurate initial value
   );
 
   // start closed on mobile, unless consumer says otherwise
-  const [isOpen, setIsOpen] = useState(
-    isOpenProp !== undefined ? isOpenProp : !isMobile
+  const [isOpenState, setIsOpenState] = useState(
+    isOpenProp !== undefined ? isOpenProp : !isXsDown
   );
+  // if prop is provided, always use it, otherwise use state (i.e. controlled vs uncontrolled)
+  const isOpen = isOpenProp !== undefined ? isOpenProp : isOpenState;
 
   const open = useCallback(() => {
-    setIsOpen(true);
+    setIsOpenState(true);
     onOpen?.();
-  }, [setIsOpen, onOpen]);
+  }, [setIsOpenState, onOpen]);
 
   const close = useCallback(() => {
-    setIsOpen(false);
+    setIsOpenState(false);
     onClose?.();
-  }, [setIsOpen, onClose]);
+  }, [setIsOpenState, onClose]);
 
+  // close when transitioning to mobile
   useEffect(() => {
-    if (isOpenProp !== undefined) {
+    if (!isXsDown) {
       return;
     }
 
-    if (isMobile) {
-      close();
-    } else {
-      open();
-    }
-  }, [isOpenProp, isMobile, close, open]);
+    close();
+  }, [isXsDown, close, open]);
 
+  // open when transitioning to tablet/desktop
   useEffect(() => {
-    if (isOpenProp !== undefined) {
+    if (!isMdUp) {
       return;
     }
 
-    if (!isTabletOrMobile) {
-      open();
-    }
-  }, [isOpenProp, isTabletOrMobile, open]);
+    open();
+  }, [isMdUp, open]);
 
   const value = useMemo(() => ({ close, open, isOpen }), [close, open, isOpen]);
 
