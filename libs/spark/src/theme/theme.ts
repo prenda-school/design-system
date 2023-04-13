@@ -17,16 +17,21 @@ import typography_alpha, {
   TypographyOptions as TypographyOptions_alpha,
 } from '../alpha/theme/typography';
 export interface Theme extends MuiTheme {
-  unstable_borders: Borders_alpha;
-  border_alpha: Borders_alpha;
-  unstable_palette: Palette_alpha;
+  borders_alpha: Borders_alpha;
   palette_alpha: Palette_alpha;
-  unstable_radii: Radii_alpha;
   radii_alpha: Radii_alpha;
-  unstable_shadows: Shadows_alpha;
   shadows_alpha: Shadows_alpha;
-  unstable_typography: TypographyOptions_alpha;
   typography_alpha: TypographyOptions_alpha;
+  /** @deprecated use borders_alpha */
+  unstable_borders: Borders_alpha;
+  /** @deprecated use `palette_alpha` */
+  unstable_palette: Palette_alpha;
+  /** @deprecated use `radii_alpha` */
+  unstable_radii: Radii_alpha;
+  /** @deprecated use `shadows_alpha` */
+  unstable_shadows: Shadows_alpha;
+  /** @deprecated use `typography_alpha` */
+  unstable_typography: TypographyOptions_alpha;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

@@ -1,1 +1,4 @@
-export { default } from '../alpha/useMediaQuery';
+export {
+  /** @deprecated use `alpha/useMediaQuery` */
+  default,
+} from '../alpha/useMediaQuery';

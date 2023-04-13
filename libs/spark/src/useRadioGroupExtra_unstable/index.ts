@@ -1,1 +1,4 @@
-export { default } from '../alpha/useRadioGroupExtra';
+export {
+  /** @deprecated use `alpha/useRadioGroupExtra` */
+  default,
+} from '../alpha/useRadioGroupExtra';

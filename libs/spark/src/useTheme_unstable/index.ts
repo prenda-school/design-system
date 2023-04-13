@@ -1,1 +1,4 @@
-export { default } from '../alpha/useTheme';
+export {
+  /** @deprecated use `alpha/useTheme` */
+  default,
+} from '../alpha/useTheme';
