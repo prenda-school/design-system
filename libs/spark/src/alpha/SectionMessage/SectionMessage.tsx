@@ -1,9 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
-import Alert, {
-  Unstable_AlertClassKey as AlertClassKey,
-  Unstable_AlertProps as AlertProps,
-} from '../../internal/Unstable_Alert';
+import Alert, { AlertClassKey, AlertProps } from '../internal/Alert';
 import { StandardProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 
@@ -31,11 +28,11 @@ type PrivateClassKey =
 const styles: Styles<SectionMessageClassKey | PrivateClassKey> = (theme) => ({
   root: {
     alignItems: 'flex-start',
-    borderRadius: theme.unstable_radii.sm,
+    borderRadius: theme.radii_alpha.sm,
     display: 'flex',
     gap: 16,
     padding: 24,
-    border: theme.unstable_borders.bold,
+    border: theme.borders_alpha.bold,
     [theme.breakpoints.down('sm')]: {
       gap: 12,
       padding: 18,
@@ -43,12 +40,12 @@ const styles: Styles<SectionMessageClassKey | PrivateClassKey> = (theme) => ({
   },
   icon: {
     display: 'flex',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     lineHeight: 1,
   },
   message: {
-    ...theme.unstable_typography.body,
-    color: theme.unstable_palette.text.body,
+    ...theme.typography_alpha.body,
+    color: theme.palette_alpha.text.body,
     flexGrow: 2,
   },
   action: {
@@ -56,38 +53,38 @@ const styles: Styles<SectionMessageClassKey | PrivateClassKey> = (theme) => ({
     justifySelf: 'flex-end',
   },
   title: {
-    ...theme.unstable_typography.label,
-    color: theme.unstable_palette.text.heading,
+    ...theme.typography_alpha.label,
+    color: theme.palette_alpha.text.heading,
     marginBottom: 4,
   },
   /* Private */
   'private-root-severity-error': {
-    backgroundColor: theme.unstable_palette.red[100],
-    border: theme.unstable_borders.error,
+    backgroundColor: theme.palette_alpha.red[100],
+    border: theme.borders_alpha.error,
   },
   'private-root-severity-info': {
-    backgroundColor: theme.unstable_palette.blue[100],
-    border: theme.unstable_borders.info,
+    backgroundColor: theme.palette_alpha.blue[100],
+    border: theme.borders_alpha.info,
   },
   'private-root-severity-success': {
-    backgroundColor: theme.unstable_palette.green[100],
-    border: theme.unstable_borders.success,
+    backgroundColor: theme.palette_alpha.green[100],
+    border: theme.borders_alpha.success,
   },
   'private-root-severity-warning': {
-    backgroundColor: theme.unstable_palette.yellow[100],
-    border: theme.unstable_borders.warning,
+    backgroundColor: theme.palette_alpha.yellow[100],
+    border: theme.borders_alpha.warning,
   },
   'private-icon-severity-error': {
-    color: theme.unstable_palette.red[700],
+    color: theme.palette_alpha.red[700],
   },
   'private-icon-severity-info': {
-    color: theme.unstable_palette.blue[600],
+    color: theme.palette_alpha.blue[600],
   },
   'private-icon-severity-success': {
-    color: theme.unstable_palette.green[600],
+    color: theme.palette_alpha.green[600],
   },
   'private-icon-severity-warning': {
-    color: theme.unstable_palette.yellow[600],
+    color: theme.palette_alpha.yellow[600],
   },
 });
 

@@ -73,7 +73,7 @@ type PrivateClassKey =
 const styles: Styles<ListItemClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
     padding: '8px 16px',
   },
   /* Styles applied to the container element (added when a secondary action is given). */
@@ -90,7 +90,7 @@ const styles: Styles<ListItemClassKey | PrivateClassKey> = (theme) => ({
     justifyContent: 'center',
     right: 0,
     // don't leave slivers of space for the behind list item
-    fontSize: theme.unstable_typography.pxToRem(40),
+    fontSize: theme.typography_alpha.pxToRem(40),
     minHeight: '1em',
     minWidth: '1em',
   },
@@ -100,49 +100,49 @@ const styles: Styles<ListItemClassKey | PrivateClassKey> = (theme) => ({
     paddingRight: 40 + 16, // width of small icon button + gap
   },
   'private-root-button': {
-    color: theme.unstable_palette.text.body, // override Bootstrap.css
+    color: theme.palette_alpha.text.body, // override Bootstrap.css
     textDecoration: 'unset', // override Bootstrap.css
     cursor: 'pointer',
     userSelect: 'text',
     WebkitTapHighlightColor: 'transparent',
     '&:hover, &[data-focus="true"]': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
-      color: theme.unstable_palette.text.body, // override Bootstrap.css
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.08),
+      color: theme.palette_alpha.text.body, // override Bootstrap.css
       textDecoration: 'unset', // override Bootstrap.css
     },
     '&:focus': {
       outline: 'unset', // override Bootstrap.css
-      color: theme.unstable_palette.text.body, // override Bootstrap.css
+      color: theme.palette_alpha.text.body, // override Bootstrap.css
       textDecoration: 'unset', // override Bootstrap.css
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
     '&$selected, &[aria-selected="true"]': {
-      backgroundColor: theme.unstable_palette.blue[600],
-      color: theme.unstable_palette.text.inverseBody,
+      backgroundColor: theme.palette_alpha.blue[600],
+      color: theme.palette_alpha.text.inverseBody,
     },
     '&$selected:hover, &[aria-selected="true"]:hover': {
-      backgroundColor: alpha(theme.unstable_palette.blue[600], 0.86),
+      backgroundColor: alpha(theme.palette_alpha.blue[600], 0.86),
     },
     '&$selected:active, &[aria-selected="true"]:active': {
-      backgroundColor: darken(theme.unstable_palette.blue[600], 0.2),
+      backgroundColor: darken(theme.palette_alpha.blue[600], 0.2),
     },
     '&$disabled, &[aria-disabled="true"]': {
       backgroundColor: 'transparent',
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
       opacity: 1, // reset Mui default
     },
     '&$selected$disabled, &$selected[aria-disabled="true"], &[aria-selected="true"][aria-disabled="true"]':
       {
-        backgroundColor: theme.unstable_palette.neutral[80],
-        color: theme.unstable_palette.text.disabled,
+        backgroundColor: theme.palette_alpha.neutral[80],
+        color: theme.palette_alpha.text.disabled,
         pointerEvents: 'none',
       },
     '&.Mui-focusVisible, &:focus-visible': {
       // doesn't appear in story because is under `Mui-focusVisible`
       // backgroundColor: 'transparent',
-      boxShadow: theme.unstable_shadows.focus,
+      boxShadow: theme.shadows_alpha.focus,
       outline: 'unset', // override Chrome user agent
     },
   },

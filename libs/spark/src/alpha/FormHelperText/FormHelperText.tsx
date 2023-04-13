@@ -2,7 +2,7 @@ import React, { ElementType, forwardRef, ReactNode } from 'react';
 import clsx from 'clsx';
 import { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import useFormControl, { FormControlProperties } from '../useFormControl';
 
 export interface FormHelperTextTypeMap<
@@ -64,7 +64,7 @@ const styles: Styles<FormHelperTextClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
     alignItems: 'center',
-    color: theme.unstable_palette.text.subdued,
+    color: theme.palette_alpha.text.subdued,
     display: 'inline-flex',
     gap: 4,
     letterSpacing: 0,
@@ -77,11 +77,11 @@ const styles: Styles<FormHelperTextClassKey | PrivateClassKey> = (theme) => ({
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
-      color: theme.unstable_palette.red[700],
+      color: theme.palette_alpha.red[700],
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '&.Mui-disabled': {
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
     },
   },
   /* Class applied to the root element if `error={true}`. */
@@ -100,7 +100,7 @@ const styles: Styles<FormHelperTextClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Private */
   'private-root-size-medium': {
-    ...theme.unstable_typography.description,
+    ...theme.typography_alpha.description,
   },
   'private-root-size-small': {
     ...sizeSmallVariant,

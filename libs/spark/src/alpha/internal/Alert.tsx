@@ -1,23 +1,17 @@
 import Paper, { PaperProps } from '@material-ui/core/Paper';
 import clsx from 'clsx';
 import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
-import Unstable_AlertTriangle from './Unstable_AlertTriangle';
-import Unstable_AlertOctagon from './Unstable_AlertOctagon';
-import Unstable_CheckCircle2 from './Unstable_CheckCircle2';
-import Unstable_Cross from './Unstable_Cross';
-import Unstable_Info from './Unstable_Info';
-import Unstable_IconButton, {
-  Unstable_IconButtonProps,
-} from '../Unstable_IconButton';
-import { StandardProps } from '../utils';
-import withStyles from '../withStyles';
+import AlertTriangle from './AlertTriangle';
+import AlertOctagon from './AlertOctagon';
+import CheckCircle2 from './CheckCircle2';
+import Cross from './Cross';
+import Info from './Info';
+import IconButton, { IconButtonProps } from '../IconButton';
+import { StandardProps } from '../../utils';
+import withStyles from '../../withStyles';
 
-export interface Unstable_AlertProps
-  extends StandardProps<
-    Omit<PaperProps, 'title'>,
-    Unstable_AlertClassKey,
-    'variant'
-  > {
+export interface AlertProps
+  extends StandardProps<Omit<PaperProps, 'title'>, AlertClassKey, 'variant'> {
   /**
    * The action to display. It renders after the message, at the end of the component.
    */
@@ -48,22 +42,19 @@ export interface Unstable_AlertProps
   /**
    * Props applied to the *close alert* icon button.
    */
-  CloseProps?: Unstable_IconButtonProps;
+  CloseProps?: IconButtonProps;
 }
 
-export type Unstable_AlertClassKey = 'root' | 'icon' | 'message' | 'action';
+export type AlertClassKey = 'root' | 'icon' | 'message' | 'action';
 
 const defaultIconMapping = {
-  success: <Unstable_CheckCircle2 />,
-  warning: <Unstable_AlertTriangle />,
-  error: <Unstable_AlertOctagon />,
-  info: <Unstable_Info />,
+  success: <CheckCircle2 />,
+  warning: <AlertTriangle />,
+  error: <AlertOctagon />,
+  info: <Info />,
 };
 
-const Unstable_Alert = forwardRef(function Unstable_Alert(
-  props: Unstable_AlertProps,
-  ref
-) {
+const UnstyledAlert = forwardRef(function Alert(props: AlertProps, ref) {
   const {
     action,
     children,
@@ -100,7 +91,7 @@ const Unstable_Alert = forwardRef(function Unstable_Alert(
       ) : null}
 
       {action == null && onClose ? (
-        <Unstable_IconButton
+        <IconButton
           aria-label={closeText}
           className={clsx(classes?.action)}
           onClick={onClose}
@@ -108,16 +99,18 @@ const Unstable_Alert = forwardRef(function Unstable_Alert(
           variant="ghost"
           {...CloseProps}
         >
-          <Unstable_Cross />
-        </Unstable_IconButton>
+          <Cross />
+        </IconButton>
       ) : null}
     </Paper>
   );
 });
 
-export default withStyles<Unstable_AlertClassKey>({
+const Alert = withStyles<AlertClassKey>({
   root: {},
   icon: {},
   action: {},
   message: {},
-})(Unstable_Alert) as typeof Unstable_Alert;
+})(UnstyledAlert) as typeof UnstyledAlert;
+
+export default Alert;

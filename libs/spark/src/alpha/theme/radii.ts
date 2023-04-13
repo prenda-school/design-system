@@ -1,6 +1,6 @@
 import * as CSS from 'csstype';
 
-export interface Unstable_Radii {
+export interface Radii {
   zero: CSS.Property.BorderRadius;
   xs: CSS.Property.BorderRadius;
   sm: CSS.Property.BorderRadius;
@@ -10,7 +10,7 @@ export interface Unstable_Radii {
   full: CSS.Property.BorderRadius;
 }
 
-const unstable_radii: Unstable_Radii = {
+const radii: Radii = {
   zero: 0,
   xs: '2px',
   sm: '4px',
@@ -20,4 +20,4 @@ const unstable_radii: Unstable_Radii = {
   full: '9999px',
 };
 
-export default unstable_radii;
+export default radii;

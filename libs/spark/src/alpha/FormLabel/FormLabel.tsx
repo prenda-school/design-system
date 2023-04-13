@@ -5,7 +5,7 @@ import MuiFormLabel, {
 import { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 import clsx from 'clsx';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import useFormControl, { FormControlProperties } from '../useFormControl';
 
 export interface FormLabelTypeMap<
@@ -57,35 +57,35 @@ const sizeSmallVariant = buildVariant(
 const styles: Styles<FormLabelClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
     display: 'inline-block',
     margin: 0,
     /* focused -- can get from internal context => can't condition on prop */
     '&.Mui-focused': {
       // override Mui default
-      color: theme.unstable_palette.text.heading,
+      color: theme.palette_alpha.text.heading,
     },
     /* error -- can get from internal context => can't condition on prop */
     '&.Mui-error': {
-      color: theme.unstable_palette.text.heading,
+      color: theme.palette_alpha.text.heading,
     },
     /* disabled -- can get from internal context => can't condition on prop */
     '&.Mui-disabled': {
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
     },
   },
   /* Styles applied to the asterisk element. */
   asterisk: {
     '&.Mui-error': {
-      color: theme.unstable_palette.red[600],
+      color: theme.palette_alpha.red[600],
     },
     '.Mui-disabled > &': {
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
     },
   },
   /* Private */
   'private-root-size-medium': {
-    ...theme.unstable_typography.label,
+    ...theme.typography_alpha.label,
   },
   'private-root-size-small': {
     ...sizeSmallVariant,

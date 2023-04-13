@@ -68,41 +68,41 @@ const styles: Styles<SwitchClassKey | PrivateClassKey> = (theme) => ({
     },
   },
   thumb: {
-    backgroundColor: theme.unstable_palette.neutral[0],
-    boxShadow: theme.unstable_shadows.E100,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    boxShadow: theme.shadows_alpha.E100,
     '$disabled &': {
-      backgroundColor: theme.unstable_palette.neutral[90],
-      boxShadow: theme.unstable_shadows.none,
+      backgroundColor: theme.palette_alpha.neutral[90],
+      boxShadow: theme.shadows_alpha.none,
     },
   },
   track: {
-    backgroundColor: theme.unstable_palette.neutral[80],
+    backgroundColor: theme.palette_alpha.neutral[80],
     // double specificity to override PDS v1
     '$checked + &&': {
-      backgroundColor: theme.unstable_palette.blue[600],
+      backgroundColor: theme.palette_alpha.blue[600],
     },
     '$disabled + &&': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
     '$switchBase:hover + &&': {
-      backgroundColor: theme.unstable_palette.neutral[90],
+      backgroundColor: theme.palette_alpha.neutral[90],
     },
     '$disabled:hover + &&': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
     '$checked:hover + &&': {
-      backgroundColor: theme.unstable_palette.blue[400],
+      backgroundColor: theme.palette_alpha.blue[400],
     },
     '$checked$disabled:hover + &&': {
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
     /* error */
     '.Mui-error + &&': {
-      boxShadow: theme.unstable_shadows.error,
+      boxShadow: theme.shadows_alpha.error,
     },
     /* focus-visible */
     '$switchBase:focus-visible + &&, $switchBase.Mui-focusVisible + &&': {
-      boxShadow: theme.unstable_shadows.focus,
+      boxShadow: theme.shadows_alpha.focus,
     },
     // triple specificity to override PDS v1
     '&&&': {
@@ -138,12 +138,12 @@ const styles: Styles<SwitchClassKey | PrivateClassKey> = (theme) => ({
     width: 24,
   },
   'private-track-size-medium': {
-    borderRadius: theme.unstable_radii.full,
+    borderRadius: theme.radii_alpha.full,
     height: 24,
     width: 48,
   },
   'private-track-size-large': {
-    borderRadius: theme.unstable_radii.full,
+    borderRadius: theme.radii_alpha.full,
     height: 32,
     width: 56,
   },

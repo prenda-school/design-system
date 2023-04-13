@@ -150,7 +150,7 @@ const styles: Styles<ContentGroupClassKey | PrivateClassKey> = (theme) => ({
     // marginInlineEnd: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     // set minimum so that larger icons can still expand
     minHeight: '1em',
     minWidth: '1em',
@@ -162,7 +162,7 @@ const styles: Styles<ContentGroupClassKey | PrivateClassKey> = (theme) => ({
     maxWidth: '100%',
     // for icon
     color: 'inherit',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
   },
   /* Styles applied to the group of typography elements. */
   typography: {
@@ -187,7 +187,7 @@ const styles: Styles<ContentGroupClassKey | PrivateClassKey> = (theme) => ({
     // marginInlineEnd: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
     // set minimum so that larger icons can still expand
     minHeight: '1em',
     minWidth: '1em',
@@ -199,7 +199,7 @@ const styles: Styles<ContentGroupClassKey | PrivateClassKey> = (theme) => ({
     maxWidth: '100%',
     // for icon
     color: 'inherit',
-    fontSize: theme.unstable_typography.pxToRem(24),
+    fontSize: theme.typography_alpha.pxToRem(24),
   },
   /* Private */
   'private-root-alignItems-baseline': {
@@ -221,7 +221,7 @@ const styles: Styles<ContentGroupClassKey | PrivateClassKey> = (theme) => ({
     color: 'inherit',
   },
   'private-root-color-standard': {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   'private-root-disablePadding': {
     padding: 0,

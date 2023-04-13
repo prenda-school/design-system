@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import makeStyles from '../../makeStyles';
-import type { Borders } from '../../theme/unstable_borders';
-import type { Palette } from '../../theme/unstable_palette';
-import type { Radii } from '../../theme/unstable_radii';
-import type { Shadows } from '../../theme/unstable_shadows';
+import type { Borders } from '../../theme/borders_alpha';
+import type { Palette } from '../../theme/palette_alpha';
+import type { Radii } from '../../theme/radii_alpha';
+import type { Shadows } from '../../theme/shadows_alpha';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 
@@ -79,119 +79,119 @@ type PrivateClassKey =
 
 const styles: Styles<PaperClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    color: theme.unstable_palette.text.body,
+    color: theme.palette_alpha.text.body,
   },
   /* Private */
   'private-root-bgcolor-default': {
-    backgroundColor: theme.unstable_palette.background.default,
+    backgroundColor: theme.palette_alpha.background.default,
   },
   'private-root-bgcolor-alternative': {
-    backgroundColor: theme.unstable_palette.background.alternative,
+    backgroundColor: theme.palette_alpha.background.alternative,
   },
   'private-root-bgcolor-brand': {
-    backgroundColor: theme.unstable_palette.background.brand,
+    backgroundColor: theme.palette_alpha.background.brand,
   },
   'private-root-bgcolor-inverse': {
-    backgroundColor: theme.unstable_palette.background.inverse,
+    backgroundColor: theme.palette_alpha.background.inverse,
   },
   'private-root-bgcolor-overlay': {
-    backgroundColor: theme.unstable_palette.background.overlay,
+    backgroundColor: theme.palette_alpha.background.overlay,
   },
   'private-root-border-none': {
-    border: theme.unstable_borders.none,
+    border: theme.borders_alpha.none,
   },
   'private-root-border-transparent': {
-    border: theme.unstable_borders.transparent,
+    border: theme.borders_alpha.transparent,
   },
   'private-root-border-subtle': {
-    border: theme.unstable_borders.subtle,
+    border: theme.borders_alpha.subtle,
   },
   'private-root-border-standard': {
-    border: theme.unstable_borders.standard,
+    border: theme.borders_alpha.standard,
   },
   'private-root-border-bold': {
-    border: theme.unstable_borders.bold,
+    border: theme.borders_alpha.bold,
   },
   'private-root-border-selected': {
-    border: theme.unstable_borders.selected,
+    border: theme.borders_alpha.selected,
   },
   'private-root-border-active': {
-    border: theme.unstable_borders.active,
+    border: theme.borders_alpha.active,
   },
   'private-root-border-expanded': {
-    border: theme.unstable_borders.expanded,
+    border: theme.borders_alpha.expanded,
   },
   'private-root-border-hover': {
-    border: theme.unstable_borders.hover,
+    border: theme.borders_alpha.hover,
   },
   'private-root-border-focus': {
-    border: theme.unstable_borders.focus,
+    border: theme.borders_alpha.focus,
   },
   'private-root-border-error': {
-    border: theme.unstable_borders.error,
+    border: theme.borders_alpha.error,
   },
   'private-root-border-info': {
-    border: theme.unstable_borders.info,
+    border: theme.borders_alpha.info,
   },
   'private-root-border-success': {
-    border: theme.unstable_borders.success,
+    border: theme.borders_alpha.success,
   },
   'private-root-border-warning': {
-    border: theme.unstable_borders.warning,
+    border: theme.borders_alpha.warning,
   },
   'private-root-radius-zero': {
-    borderRadius: theme.unstable_radii.zero,
+    borderRadius: theme.radii_alpha.zero,
   },
   'private-root-radius-xs': {
-    borderRadius: theme.unstable_radii.xs,
+    borderRadius: theme.radii_alpha.xs,
   },
   'private-root-radius-sm': {
-    borderRadius: theme.unstable_radii.sm,
+    borderRadius: theme.radii_alpha.sm,
   },
   'private-root-radius-md': {
-    borderRadius: theme.unstable_radii.md,
+    borderRadius: theme.radii_alpha.md,
   },
   'private-root-radius-lg': {
-    borderRadius: theme.unstable_radii.lg,
+    borderRadius: theme.radii_alpha.lg,
   },
   'private-root-radius-xl': {
-    borderRadius: theme.unstable_radii.xl,
+    borderRadius: theme.radii_alpha.xl,
   },
   'private-root-radius-full': {
-    borderRadius: theme.unstable_radii.full,
+    borderRadius: theme.radii_alpha.full,
   },
   'private-root-shadow-none': {
-    boxShadow: theme.unstable_shadows.none,
+    boxShadow: theme.shadows_alpha.none,
   },
   'private-root-shadow-E100': {
-    boxShadow: theme.unstable_shadows.E100,
+    boxShadow: theme.shadows_alpha.E100,
   },
   'private-root-shadow-E200': {
-    boxShadow: theme.unstable_shadows.E200,
+    boxShadow: theme.shadows_alpha.E200,
   },
   'private-root-shadow-E300': {
-    boxShadow: theme.unstable_shadows.E300,
+    boxShadow: theme.shadows_alpha.E300,
   },
   'private-root-shadow-E400': {
-    boxShadow: theme.unstable_shadows.E400,
+    boxShadow: theme.shadows_alpha.E400,
   },
   'private-root-shadow-E500': {
-    boxShadow: theme.unstable_shadows.E500,
+    boxShadow: theme.shadows_alpha.E500,
   },
   'private-root-shadow-focus': {
-    boxShadow: theme.unstable_shadows.focus,
+    boxShadow: theme.shadows_alpha.focus,
   },
   'private-root-shadow-error': {
-    boxShadow: theme.unstable_shadows.error,
+    boxShadow: theme.shadows_alpha.error,
   },
   'private-root-shadow-info': {
-    boxShadow: theme.unstable_shadows.info,
+    boxShadow: theme.shadows_alpha.info,
   },
   'private-root-shadow-success': {
-    boxShadow: theme.unstable_shadows.success,
+    boxShadow: theme.shadows_alpha.success,
   },
   'private-root-shadow-warning': {
-    boxShadow: theme.unstable_shadows.warning,
+    boxShadow: theme.shadows_alpha.warning,
   },
 });
 

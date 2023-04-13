@@ -42,7 +42,7 @@ export type SideBarProviderClassKey = 'root';
 
 const styles: Styles<SideBarProviderClassKey> = (theme) => ({
   root: {
-    backgroundColor: theme.unstable_palette.background.default,
+    backgroundColor: theme.palette_alpha.background.default,
     display: 'flex',
   },
 });

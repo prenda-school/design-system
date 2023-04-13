@@ -71,7 +71,7 @@ export const statefulValue = (Story, context) => {
 };
 
 const InverseBackgroundSpan = styled('span')(({ theme }) => ({
-  backgroundColor: theme.unstable_palette.background.inverse,
+  backgroundColor: theme.palette_alpha.background.inverse,
   display: 'inline-flex',
 }));
 

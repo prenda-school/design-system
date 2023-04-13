@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, theme } from '..';
+import { styled, theme } from '../..';
 
 export default {
   title: '@ps/theme/radius',
@@ -10,12 +10,12 @@ const _Radii = styled(function Radii(props) {
   return (
     <div {...props}>
       <h1 className="title">Radii</h1>
-      <span className="code">theme.unstable_radii</span>
+      <span className="code">theme.radii_alpha</span>
       <div className="content">
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.zero }}
+            style={{ borderRadius: theme.radii_alpha.zero }}
           >
             <span className="name">zero</span>
             <span className="code">radii.zero (0px)</span>
@@ -24,7 +24,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.xs }}
+            style={{ borderRadius: theme.radii_alpha.xs }}
           >
             <span className="name">xs</span>
             <span className="code">radii.xs (2px)</span>
@@ -33,7 +33,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.sm }}
+            style={{ borderRadius: theme.radii_alpha.sm }}
           >
             <span className="name">sm</span>
             <span className="code">radii.sm (4px)</span>
@@ -42,7 +42,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.md }}
+            style={{ borderRadius: theme.radii_alpha.md }}
           >
             <span className="name">md</span>
             <span className="code">radii.md (8px)</span>
@@ -51,7 +51,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.lg }}
+            style={{ borderRadius: theme.radii_alpha.lg }}
           >
             <span className="name">lg</span>
             <span className="code">radii.lg (16px)</span>
@@ -60,7 +60,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.xl }}
+            style={{ borderRadius: theme.radii_alpha.xl }}
           >
             <span className="name">xl</span>
             <span className="code">radii.xl (32px)</span>
@@ -69,7 +69,7 @@ const _Radii = styled(function Radii(props) {
         <div>
           <div
             className="square"
-            style={{ borderRadius: theme.unstable_radii.full }}
+            style={{ borderRadius: theme.radii_alpha.full }}
           >
             <span className="name">full</span>
             <span className="code">radii.full</span>
@@ -82,7 +82,7 @@ const _Radii = styled(function Radii(props) {
 })(({ theme }) => ({
   paddingLeft: 8,
   '& .title': {
-    ...theme.unstable_typography.T22,
+    ...theme.typography_alpha.T22,
     margin: 0,
   },
   '& .content': {
@@ -92,8 +92,8 @@ const _Radii = styled(function Radii(props) {
   },
   '& .square': {
     alignItems: 'center',
-    backgroundColor: theme.unstable_palette.neutral[0],
-    border: theme.unstable_borders.standard,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    border: theme.borders_alpha.standard,
     display: 'flex',
     flexDirection: 'column',
     height: 160,
@@ -101,10 +101,10 @@ const _Radii = styled(function Radii(props) {
     width: 160,
   },
   '& .name': {
-    ...theme.unstable_typography.label,
+    ...theme.typography_alpha.label,
   },
   '& .code': {
-    ...theme.unstable_typography.code,
+    ...theme.typography_alpha.code,
   },
 }));
 

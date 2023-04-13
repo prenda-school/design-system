@@ -1,9 +1,6 @@
-import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import { default as Button, ButtonTypeMap } from '../Button';
 import { useDropdownContext } from '../DropdownContext';
-import { Unstable_ChevronDown } from '../internal';
-import { Unstable_ButtonProps } from '../Unstable_Button';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
@@ -39,7 +36,7 @@ const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
     { classes, component = Button, onClick, ...other }: DropdownAnchorProps,
     ref
   ) {
-    const { id, isOpen, openDropdown } = useDropdownContext();
+    const { id, openDropdown } = useDropdownContext();
 
     const Component = component as ElementType;
 
@@ -48,27 +45,6 @@ const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
       'private-button-trailingIcon-open': privateButtonTrailingIconOpenClass,
       ...otherClasses
     } = classes;
-
-    const extra = {};
-    // @ts-expect-error property does not exist
-    if (Component._PDS_ID === 'Unstable_Button') {
-      // check if should add default trailing icon and styles
-      if (
-        Object.prototype.hasOwnProperty.call(other, 'trailingIcon') === false
-      ) {
-        (extra as Unstable_ButtonProps).trailingIcon = <Unstable_ChevronDown />;
-        (extra as Unstable_ButtonProps).classes = {
-          ...(other as Unstable_ButtonProps)?.classes,
-          trailingIcon: clsx(
-            privateButtonTrailingIconClass,
-            {
-              [privateButtonTrailingIconOpenClass]: isOpen,
-            },
-            (other as Unstable_ButtonProps)?.classes?.trailingIcon
-          ),
-        };
-      }
-    }
 
     return (
       <Component
@@ -80,7 +56,6 @@ const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
           openDropdown(event);
         }}
         ref={ref}
-        {...extra}
         {...other}
       />
     );

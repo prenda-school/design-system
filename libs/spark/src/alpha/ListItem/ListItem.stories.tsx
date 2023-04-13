@@ -275,14 +275,14 @@ const useMicroschoolThumbnailContentGroupStyles = makeStyles((theme) => ({
     paddingInlineStart: 16,
     position: 'relative',
     '& .site-photo': {
-      borderRadius: theme.unstable_radii.md,
+      borderRadius: theme.radii_alpha.md,
       width: 210,
       '@media (max-width: 320px)': {
         width: '100%',
       },
       // fallback styles
       minHeight: 140,
-      backgroundColor: theme.unstable_palette.neutral[80],
+      backgroundColor: theme.palette_alpha.neutral[80],
     },
     '& .guide-photo-border': {
       backgroundColor: 'white',

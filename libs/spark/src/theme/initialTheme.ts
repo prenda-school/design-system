@@ -2,11 +2,11 @@ import { default as createTheme } from '@material-ui/core/styles/createTheme';
 import palette from './palette';
 import shadows from './shadows';
 import typography from './typography';
-import unstable_borders from './unstable_borders';
-import unstable_palette from './unstable_palette';
-import unstable_radii from './unstable_radii';
-import unstable_shadows from './unstable_shadows';
-import unstable_typography from './unstable_typography';
+import borders_alpha from '../alpha/theme/borders';
+import palette_alpha from '../alpha/theme/palette';
+import radii_alpha from '../alpha/theme/radii';
+import shadows_alpha from '../alpha/theme/shadows';
+import typography_alpha from '../alpha/theme/typography';
 
 const initialTheme = createTheme({
   palette,
@@ -14,10 +14,15 @@ const initialTheme = createTheme({
   typography,
 });
 
-initialTheme.unstable_borders = unstable_borders;
-initialTheme.unstable_palette = unstable_palette;
-initialTheme.unstable_radii = unstable_radii;
-initialTheme.unstable_shadows = unstable_shadows;
-initialTheme.unstable_typography = unstable_typography;
+initialTheme.unstable_borders = borders_alpha;
+initialTheme.borders_alpha = borders_alpha;
+initialTheme.unstable_palette = palette_alpha;
+initialTheme.palette_alpha = palette_alpha;
+initialTheme.unstable_radii = radii_alpha;
+initialTheme.radii_alpha = radii_alpha;
+initialTheme.unstable_shadows = shadows_alpha;
+initialTheme.shadows_alpha = shadows_alpha;
+initialTheme.unstable_typography = typography_alpha;
+initialTheme.typography_alpha = typography_alpha;
 
 export default initialTheme;

@@ -31,8 +31,8 @@ type PrivateClassKey =
 const styles: Styles<TopBarClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the root element. */
   root: {
-    borderBottom: theme.unstable_borders.standard,
-    borderColor: theme.unstable_palette.neutral[80],
+    borderBottom: theme.borders_alpha.standard,
+    borderColor: theme.palette_alpha.neutral[80],
     minHeight: 64,
     [theme.breakpoints.down('sm')]: {
       minHeight: 48,
@@ -40,18 +40,18 @@ const styles: Styles<TopBarClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Private */
   'private-root-color-alternative': {
-    backgroundColor: theme.unstable_palette.background.alternative,
+    backgroundColor: theme.palette_alpha.background.alternative,
   },
   'private-root-color-brand': {
-    backgroundColor: theme.unstable_palette.background.brand,
-    borderColor: theme.unstable_palette.neutral[600],
+    backgroundColor: theme.palette_alpha.background.brand,
+    borderColor: theme.palette_alpha.neutral[600],
   },
   'private-root-color-inverse': {
-    backgroundColor: theme.unstable_palette.background.inverse,
-    borderColor: theme.unstable_palette.neutral[0],
+    backgroundColor: theme.palette_alpha.background.inverse,
+    borderColor: theme.palette_alpha.neutral[0],
   },
   'private-root-color-standard': {
-    backgroundColor: theme.unstable_palette.background.default,
+    backgroundColor: theme.palette_alpha.background.default,
   },
   'private-root-color-transparent': {
     backgroundColor: 'transparent',

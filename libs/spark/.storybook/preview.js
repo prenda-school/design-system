@@ -1,16 +1,13 @@
 import React, { Fragment } from 'react';
 import { addDecorator } from '@storybook/react';
-import {
-  CssBaseline,
-  FontFacesBaseline,
-  Unstable_FontFacesBaseline,
-} from '../src';
+import { CssBaseline, FontFacesBaseline } from '../src';
+import { FontFacesBaseline as FontFacesBaseline_alpha } from '../src/alpha';
 
 addDecorator((Story) => (
   <Fragment>
     <CssBaseline />
     <FontFacesBaseline />
-    <Unstable_FontFacesBaseline />
+    <FontFacesBaseline_alpha />
 
     <Story />
   </Fragment>

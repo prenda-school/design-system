@@ -4,9 +4,11 @@ import type {
   TypographyStyleOptions,
   FontStyleOptions,
 } from '@material-ui/core/styles/createTypography';
-import { buildVariant } from './typography';
+import { buildVariant as buildVariant_stable } from '../../theme/typography';
 
-export type Unstable_TypographyVariant =
+export const buildVariant = buildVariant_stable;
+
+export type TypographyVariant =
   | 'display'
   | 'T32'
   | 'T28'
@@ -18,11 +20,10 @@ export type Unstable_TypographyVariant =
   | 'description'
   | 'code';
 
-export interface Unstable_TypographyOptions
+export interface TypographyOptions
   extends TypographyUtils,
     Partial<
-      Record<Unstable_TypographyVariant, TypographyStyleOptions> &
-        FontStyleOptions
+      Record<TypographyVariant, TypographyStyleOptions> & FontStyleOptions
     > {}
 
 const codeFontFamily = '"Roboto Mono", monospace';
@@ -31,7 +32,7 @@ const headingFontFamily = '"Poppins", sans-serif';
 const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
 
-const customVariants: Record<Unstable_TypographyVariant, TypographyStyle> = {
+const customVariants: Record<TypographyVariant, TypographyStyle> = {
   display: buildVariant(800, 48, 52, -0.01, undefined, headingFontFamily),
   T32: buildVariant(700, 32, 40, -0.01, undefined, headingFontFamily),
   T28: buildVariant(700, 28, 36, -0.01, undefined, headingFontFamily),
@@ -68,14 +69,14 @@ const customVariants: Record<Unstable_TypographyVariant, TypographyStyle> = {
   code: buildVariant(400, 14, 24, undefined, undefined, codeFontFamily),
 };
 
-const unstable_typography: Unstable_TypographyOptions = {
+const typography: TypographyOptions = {
   // override default Roboto
   fontFamily: defaultFontFamily,
   // override default 14px
   fontSize: defaultFontSize,
   // override default division by 14
   pxToRem,
-  // :unstable_: uncomment once merged
+  // :v2.0.0: uncomment once merged
   // specify all mui defaults (some Mui components rely on these by default)
   // h1: customVariants['T28'],
   // h2: customVariants['T22'],
@@ -94,4 +95,4 @@ const unstable_typography: Unstable_TypographyOptions = {
   ...customVariants,
 };
 
-export default unstable_typography;
+export default typography;

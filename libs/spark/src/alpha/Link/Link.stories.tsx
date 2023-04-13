@@ -128,7 +128,7 @@ ColorInherit.args = { color: 'inherit' };
 ColorInherit.storyName = 'color=inherit';
 
 const NowrapTemplate = (args) => (
-  <span style={{ ...theme.unstable_typography.body, width: 200 }}>
+  <span style={{ ...theme.typography_alpha.body, width: 200 }}>
     Other words wrapping in a container but not{' '}
     <Link {...args}>many words of text</Link>
   </span>
@@ -140,7 +140,7 @@ Nowrap.decorators = [mediumWidth];
 Nowrap.storyName = 'nowrap';
 
 const VariantAliasTemplate = (args) => (
-  <span style={{ ...theme.unstable_typography.label }}>
+  <span style={{ ...theme.typography_alpha.label }}>
     <Link {...args}>Text</Link>
   </span>
 );

@@ -57,7 +57,7 @@ const styles: Styles<TabsListClassKey | PrivateClassKey> = (theme) => ({
     margin: -4,
     padding: 4,
     // override v1
-    boxShadow: theme.unstable_shadows.none,
+    boxShadow: theme.shadows_alpha.none,
     // override MUI
     minHeight: 'unset',
   },
@@ -79,15 +79,15 @@ const styles: Styles<TabsListClassKey | PrivateClassKey> = (theme) => ({
   flexContainer: {},
   /* Styles applied to the indicator element (child of scroller element). */
   indicator: {
-    backgroundColor: theme.unstable_palette.blue[600],
+    backgroundColor: theme.palette_alpha.blue[600],
   },
   /* Private */
   'private-flexContainer-orientation-horizontal': {
-    boxShadow: `inset 0px -2px ${theme.unstable_palette.neutral[80]}`,
+    boxShadow: `inset 0px -2px ${theme.palette_alpha.neutral[80]}`,
     gap: 32,
   },
   'private-flexContainer-orientation-vertical': {
-    boxShadow: `inset -2px 0 ${theme.unstable_palette.neutral[80]}`,
+    boxShadow: `inset -2px 0 ${theme.palette_alpha.neutral[80]}`,
     gap: 12,
   },
   'private-indicator-orientation-horizontal': {

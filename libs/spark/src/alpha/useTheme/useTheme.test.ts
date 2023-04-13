@@ -6,8 +6,8 @@ describe('useTheme', () => {
     const { result } = renderHook(() => useTheme());
 
     expect(result.current).toBeTruthy();
-    expect(result.current.unstable_borders).toBeTruthy();
-    expect(result.current.unstable_palette).toBeTruthy();
-    expect(result.current.unstable_typography).toBeTruthy();
+    expect(result.current.borders_alpha).toBeTruthy();
+    expect(result.current.palette_alpha).toBeTruthy();
+    expect(result.current.typography_alpha).toBeTruthy();
   });
 });

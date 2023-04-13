@@ -5,7 +5,7 @@ import {
   ButtonProps as MuiButtonProps,
 } from '@material-ui/core/Button';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import { lighten, darken, alpha } from '@material-ui/core/styles';
 import { AvatarProps } from '../Avatar';
 import withStyles, { Styles } from '../../withStyles';
@@ -149,10 +149,10 @@ const styles: Styles<ButtonClassKey | PrivateClassKey> = (theme) => ({
   root: {
     '&&': {
       // override PDS v1 (requires double-specifity)
-      border: theme.unstable_borders.none,
-      borderRadius: theme.unstable_radii.sm,
+      border: theme.borders_alpha.none,
+      borderRadius: theme.radii_alpha.sm,
       '&.Mui-focusVisible, &:focus-visible': {
-        boxShadow: theme.unstable_shadows.focus,
+        boxShadow: theme.shadows_alpha.focus,
       },
       // overide Bootstrap (requires double-specifity)
       color: 'unset',
@@ -209,60 +209,57 @@ const styles: Styles<ButtonClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-root-variant-primary': {
     '&&': {
-      backgroundColor: theme.unstable_palette.background.brand,
+      backgroundColor: theme.palette_alpha.background.brand,
       '&:hover': {
-        backgroundColor: lighten(theme.unstable_palette.background.brand, 0.1),
+        backgroundColor: lighten(theme.palette_alpha.background.brand, 0.1),
       },
       '&:active': {
-        backgroundColor: darken(theme.unstable_palette.background.brand, 0.2),
+        backgroundColor: darken(theme.palette_alpha.background.brand, 0.2),
       },
     },
   },
   'private-root-variant-primary-color-standard': {
     '&&': {
       '&[aria-expanded="true"]': {
-        backgroundColor: theme.unstable_palette.background.inverse,
+        backgroundColor: theme.palette_alpha.background.inverse,
       },
     },
   },
   'private-root-variant-primary-color-inverse': {
     '&&': {
       '&[aria-expanded="true"]': {
-        backgroundColor: theme.unstable_palette.background.default,
+        backgroundColor: theme.palette_alpha.background.default,
       },
     },
   },
   'private-root-variant-stroked': {},
   'private-root-variant-stroked-color-standard': {
     '&&': {
-      backgroundColor: theme.unstable_palette.background.default,
-      border: theme.unstable_borders.standard,
+      backgroundColor: theme.palette_alpha.background.default,
+      border: theme.borders_alpha.standard,
       '&:hover': {
-        backgroundColor: theme.unstable_palette.neutral[70],
+        backgroundColor: theme.palette_alpha.neutral[70],
       },
       '&:active': {
-        backgroundColor: theme.unstable_palette.blue[100],
+        backgroundColor: theme.palette_alpha.blue[100],
       },
       '&[aria-expanded="true"]': {
-        backgroundColor: theme.unstable_palette.background.inverse,
+        backgroundColor: theme.palette_alpha.background.inverse,
       },
     },
   },
   'private-root-variant-stroked-color-inverse': {
     '&&': {
-      backgroundColor: theme.unstable_palette.background.inverse,
-      border: `1px solid ${theme.unstable_palette.neutral[80]}`,
+      backgroundColor: theme.palette_alpha.background.inverse,
+      border: `1px solid ${theme.palette_alpha.neutral[80]}`,
       '&:hover': {
-        backgroundColor: theme.unstable_palette.neutral[500],
+        backgroundColor: theme.palette_alpha.neutral[500],
       },
       '&:active': {
-        backgroundColor: lighten(
-          theme.unstable_palette.background.inverse,
-          0.2
-        ),
+        backgroundColor: lighten(theme.palette_alpha.background.inverse, 0.2),
       },
       '&[aria-expanded="true"]': {
-        backgroundColor: theme.unstable_palette.background.default,
+        backgroundColor: theme.palette_alpha.background.default,
       },
     },
   },
@@ -304,51 +301,51 @@ const styles: Styles<ButtonClassKey | PrivateClassKey> = (theme) => ({
   'private-root-variant-ghost-color-standard': {
     '&&': {
       '&:hover': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.08),
+        backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.08),
       },
       '&:active': {
-        backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+        backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
       },
       '&[aria-expanded="true"]': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.9),
+        backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.9),
       },
       '&:disabled': {
-        backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+        backgroundColor: alpha(theme.palette_alpha.neutral[200], 0.2),
       },
     },
   },
   'private-root-variant-ghost-color-inverse': {
     '&:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[0], 0.08),
+      backgroundColor: alpha(theme.palette_alpha.neutral[0], 0.08),
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.blue[300], 0.19),
+      backgroundColor: alpha(theme.palette_alpha.blue[300], 0.19),
     },
     '&[aria-expanded="true"]': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[90], 0.4),
+      backgroundColor: alpha(theme.palette_alpha.neutral[90], 0.4),
     },
     '&:disabled': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[200], 0.2),
+      backgroundColor: alpha(theme.palette_alpha.neutral[200], 0.2),
     },
   },
   'private-root-variant-destructive': {
     '&&': {
-      backgroundColor: theme.unstable_palette.red[700],
+      backgroundColor: theme.palette_alpha.red[700],
       '&:hover': {
-        backgroundColor: theme.unstable_palette.red[600],
+        backgroundColor: theme.palette_alpha.red[600],
       },
       '&:active': {
-        backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
+        backgroundColor: darken(theme.palette_alpha.red[700], 0.2),
       },
       '&[aria-expanded="true"]': {
-        backgroundColor: theme.unstable_palette.background.inverse,
+        backgroundColor: theme.palette_alpha.background.inverse,
       },
     },
   },
   'private-root-disabled': {
     '&&': {
-      backgroundColor: theme.unstable_palette.neutral[80],
-      color: theme.unstable_palette.text.disabled,
+      backgroundColor: theme.palette_alpha.neutral[80],
+      color: theme.palette_alpha.text.disabled,
       opacity: 'unset',
     },
   },
@@ -362,43 +359,43 @@ const styles: Styles<ButtonClassKey | PrivateClassKey> = (theme) => ({
     ...buttonFontVariantLarge,
   },
   'private-label-variant-primary': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-label-variant-primary-color-standard': {},
   'private-label-variant-primary-color-inverse': {
     '[aria-expanded="true"] &': {
-      color: theme.unstable_palette.text.heading,
+      color: theme.palette_alpha.text.heading,
     },
   },
   'private-label-variant-stroked': {},
   'private-label-variant-stroked-color-standard': {
-    color: theme.unstable_palette.brand.blue,
+    color: theme.palette_alpha.brand.blue,
     '[aria-expanded="true"] &': {
-      color: theme.unstable_palette.text.inverseHeading,
+      color: theme.palette_alpha.text.inverseHeading,
     },
   },
   'private-label-variant-stroked-color-inverse': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
     '[aria-expanded="true"] &': {
-      color: theme.unstable_palette.text.heading,
+      color: theme.palette_alpha.text.heading,
     },
   },
   'private-label-variant-ghost': {},
   'private-label-variant-ghost-color-standard': {
-    color: theme.unstable_palette.brand.blue,
+    color: theme.palette_alpha.brand.blue,
     '[aria-expanded="true"] &': {
-      color: theme.unstable_palette.text.inverseHeading,
+      color: theme.palette_alpha.text.inverseHeading,
     },
   },
   'private-label-variant-ghost-color-inverse': {
-    color: theme.unstable_palette.text.inverseHeading,
+    color: theme.palette_alpha.text.inverseHeading,
   },
   'private-label-variant-destructive': {
-    color: theme.unstable_palette.neutral[0],
+    color: theme.palette_alpha.neutral[0],
   },
   'private-label-ariaExpanded': {},
   'private-label-disabled': {
-    color: theme.unstable_palette.text.disabled,
+    color: theme.palette_alpha.text.disabled,
   },
   'private-leadingAvatar-disabled': {
     opacity: 0.62,

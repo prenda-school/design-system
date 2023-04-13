@@ -23,10 +23,10 @@ const CssBaseline = withStyles(
         boxSizing: 'inherit',
       },
       body: {
-        backgroundColor: theme.unstable_palette.background.default,
-        color: theme.unstable_palette.text.body,
-        fontFamily: theme.unstable_typography.fontFamily,
-        fontSize: theme.unstable_typography.fontSize,
+        backgroundColor: theme.palette_alpha.background.default,
+        color: theme.palette_alpha.text.body,
+        fontFamily: theme.typography_alpha.fontFamily,
+        fontSize: theme.typography_alpha.fontSize,
         margin: 0, // Remove the margin in all browsers.
         '@media print': {
           // Save printer ink.
@@ -35,7 +35,7 @@ const CssBaseline = withStyles(
         // Add support for document.body.requestFullScreen().
         // Other elements, if background transparent, are not supported.
         '&::backdrop': {
-          backgroundColor: theme.unstable_palette.background.default,
+          backgroundColor: theme.palette_alpha.background.default,
         },
       },
     },

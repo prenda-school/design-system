@@ -3,7 +3,7 @@ import * as CSS from 'csstype';
 // Global tokens
 // see https://spectrum.adobe.com/page/design-tokens/#Global-tokens
 const globalTokens: Pick<
-  Unstable_Palette,
+  Palette,
   | 'brand'
   | 'red'
   | 'yellow'
@@ -124,7 +124,7 @@ const globalTokens: Pick<
 
 // Alias tokens, composed of global tokens
 // see https://spectrum.adobe.com/page/design-tokens/#Alias-tokens
-const aliasTokens: Pick<Unstable_Palette, 'background' | 'text' | 'action'> = {
+const aliasTokens: Pick<Palette, 'background' | 'text' | 'action'> = {
   background: {
     default: globalTokens.neutral[0],
     alternative: globalTokens.neutral[60],
@@ -151,12 +151,12 @@ const aliasTokens: Pick<Unstable_Palette, 'background' | 'text' | 'action'> = {
   },
 };
 
-const unstable_palette = {
+const palette = {
   ...globalTokens,
   ...aliasTokens,
 };
 
-export default unstable_palette;
+export default palette;
 
 // ***************
 // ***  TYPES  ***
@@ -236,7 +236,7 @@ export interface PaletteAction {
   focusBoxShadow: CSS.Property.BoxShadow;
 }
 
-export interface Unstable_Palette {
+export interface Palette {
   brand: PaletteBrand;
   red: Color;
   yellow: Color;

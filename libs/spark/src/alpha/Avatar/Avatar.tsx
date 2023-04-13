@@ -4,7 +4,7 @@ import {
   default as MuiAvatar,
   AvatarProps as MuiAvatarProps,
 } from '@material-ui/core/Avatar';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 
@@ -85,38 +85,38 @@ const avatarFontVariantSmall = buildVariant(
 
 const styles: Styles<AvatarClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    backgroundColor: theme.unstable_palette.neutral[70],
-    color: theme.unstable_palette.text.heading,
+    backgroundColor: theme.palette_alpha.neutral[70],
+    color: theme.palette_alpha.text.heading,
     '& [class*=MuiSvgIcon-root]': {
-      color: theme.unstable_palette.text.icon,
+      color: theme.palette_alpha.text.icon,
     },
   },
   img: {},
   fallback: {},
   /* Private */
   'private-root-color-neutral': {
-    backgroundColor: theme.unstable_palette.neutral[70],
+    backgroundColor: theme.palette_alpha.neutral[70],
   },
   'private-root-color-orange': {
-    backgroundColor: theme.unstable_palette.red[200],
+    backgroundColor: theme.palette_alpha.red[200],
   },
   'private-root-color-yellow': {
-    backgroundColor: theme.unstable_palette.yellow[200],
+    backgroundColor: theme.palette_alpha.yellow[200],
   },
   'private-root-color-green': {
-    backgroundColor: theme.unstable_palette.green[200],
+    backgroundColor: theme.palette_alpha.green[200],
   },
   'private-root-color-blue': {
-    backgroundColor: theme.unstable_palette.blue[200],
+    backgroundColor: theme.palette_alpha.blue[200],
   },
   'private-root-color-purple': {
-    backgroundColor: theme.unstable_palette.purple[200],
+    backgroundColor: theme.palette_alpha.purple[200],
   },
   'private-root-color-teal': {
-    backgroundColor: theme.unstable_palette.teal[200],
+    backgroundColor: theme.palette_alpha.teal[200],
   },
   'private-root-color-magenta': {
-    backgroundColor: theme.unstable_palette.magenta[300],
+    backgroundColor: theme.palette_alpha.magenta[300],
   },
   /* 
       size
@@ -124,36 +124,36 @@ const styles: Styles<AvatarClassKey | PrivateClassKey> = (theme) => ({
         - set min height/width to match design, and lesser-responsive height/width to scale with user's browser-set font size to maintain a11y
     */
   'private-root-size-small': {
-    borderRadius: theme.unstable_radii.sm,
+    borderRadius: theme.radii_alpha.sm,
     minHeight: 24,
     minWidth: 24,
-    height: theme.unstable_typography.pxToRem(16),
-    width: theme.unstable_typography.pxToRem(16),
+    height: theme.typography_alpha.pxToRem(16),
+    width: theme.typography_alpha.pxToRem(16),
     ...avatarFontVariantSmall,
     '& [class*=MuiSvgIcon-root]': {
-      fontSize: theme.unstable_typography.pxToRem(16),
+      fontSize: theme.typography_alpha.pxToRem(16),
     },
   },
   'private-root-size-medium': {
     borderRadius: 6,
     minHeight: 40,
     minWidth: 40,
-    height: theme.unstable_typography.pxToRem(24),
-    width: theme.unstable_typography.pxToRem(24),
+    height: theme.typography_alpha.pxToRem(24),
+    width: theme.typography_alpha.pxToRem(24),
     ...avatarFontVariantMedium,
     '& [class*=MuiSvgIcon-root]': {
-      fontSize: theme.unstable_typography.pxToRem(24),
+      fontSize: theme.typography_alpha.pxToRem(24),
     },
   },
   'private-root-size-large': {
-    borderRadius: theme.unstable_radii.md,
+    borderRadius: theme.radii_alpha.md,
     minHeight: 64,
     minWidth: 64,
-    height: theme.unstable_typography.pxToRem(32),
-    width: theme.unstable_typography.pxToRem(32),
+    height: theme.typography_alpha.pxToRem(32),
+    width: theme.typography_alpha.pxToRem(32),
     ...avatarFontVariantLarge,
     '& [class*=MuiSvgIcon-root]': {
-      fontSize: theme.unstable_typography.pxToRem(32),
+      fontSize: theme.typography_alpha.pxToRem(32),
     },
   },
 });

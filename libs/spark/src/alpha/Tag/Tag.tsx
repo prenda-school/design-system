@@ -6,7 +6,7 @@ import {
 } from '@material-ui/core/Chip';
 import { CrossSmall } from '../../internal';
 import { OverridableComponent, OverrideProps } from '../../utils';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import { alpha, darken } from '@material-ui/core/styles';
 import withStyles, { Styles } from '../../withStyles';
 
@@ -104,12 +104,12 @@ const tagFontVariantSmall = buildVariant(
 
 const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
   root: {
-    borderRadius: theme.unstable_radii.sm,
+    borderRadius: theme.radii_alpha.sm,
     height: 'unset', // unset MUI
     // Determined in fn body
-    color: theme.unstable_palette.text.heading,
+    color: theme.palette_alpha.text.heading,
     '&.Mui-focusVisible, &:focus-visible': {
-      boxShadow: theme.unstable_shadows.focus,
+      boxShadow: theme.shadows_alpha.focus,
     },
   },
   label: {
@@ -126,7 +126,7 @@ const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
     width: '1em',
   },
   deleteIcon: {
-    borderRadius: theme.unstable_radii.xs,
+    borderRadius: theme.radii_alpha.xs,
     color: 'inherit',
     height: '1em',
     margin: '0 0 0 4px',
@@ -141,7 +141,7 @@ const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
   /* Private */
   'private-root-clickable': {
     '&:active': {
-      boxShadow: theme.unstable_shadows.none, // override MUI
+      boxShadow: theme.shadows_alpha.none, // override MUI
     },
   },
   'private-root-deletable': {},
@@ -152,154 +152,154 @@ const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
     padding: '6px 16px',
   },
   'private-root-variant-bold-color-neutral': {
-    backgroundColor: theme.unstable_palette.neutral[70],
+    backgroundColor: theme.palette_alpha.neutral[70],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.neutral[70], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[70], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.neutral[70], 0.2),
+      backgroundColor: darken(theme.palette_alpha.neutral[70], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.neutral[70], 0.4),
+      backgroundColor: darken(theme.palette_alpha.neutral[70], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.neutral[70], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[70], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.neutral[70], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[70], // override MUI
     },
   },
   'private-root-variant-bold-color-red': {
-    backgroundColor: theme.unstable_palette.red[700],
-    color: theme.unstable_palette.text.inverseHeading,
+    backgroundColor: theme.palette_alpha.red[700],
+    color: theme.palette_alpha.text.inverseHeading,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.red[700], // override MUI
+      backgroundColor: theme.palette_alpha.red[700], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.red[700], 0.2),
+      backgroundColor: darken(theme.palette_alpha.red[700], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.red[700], 0.4),
+      backgroundColor: darken(theme.palette_alpha.red[700], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.red[700], // override MUI
+      backgroundColor: theme.palette_alpha.red[700], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.red[700], // override MUI
+      backgroundColor: theme.palette_alpha.red[700], // override MUI
     },
   },
   'private-root-variant-bold-color-yellow': {
-    backgroundColor: theme.unstable_palette.yellow[500],
+    backgroundColor: theme.palette_alpha.yellow[500],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.yellow[500], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[500], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.yellow[500], 0.2),
+      backgroundColor: darken(theme.palette_alpha.yellow[500], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.yellow[500], 0.4),
+      backgroundColor: darken(theme.palette_alpha.yellow[500], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.yellow[500], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[500], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.yellow[500], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[500], // override MUI
     },
   },
   'private-root-variant-bold-color-teal': {
-    backgroundColor: theme.unstable_palette.teal[600],
-    color: theme.unstable_palette.text.inverseHeading,
+    backgroundColor: theme.palette_alpha.teal[600],
+    color: theme.palette_alpha.text.inverseHeading,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.teal[600], // override MUI
+      backgroundColor: theme.palette_alpha.teal[600], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.teal[600], 0.2),
+      backgroundColor: darken(theme.palette_alpha.teal[600], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.teal[600], 0.4),
+      backgroundColor: darken(theme.palette_alpha.teal[600], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.teal[600], // override MUI
+      backgroundColor: theme.palette_alpha.teal[600], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.teal[600], // override MUI
+      backgroundColor: theme.palette_alpha.teal[600], // override MUI
     },
   },
   'private-root-variant-bold-color-green': {
-    backgroundColor: theme.unstable_palette.green[600],
-    color: theme.unstable_palette.text.inverseHeading,
+    backgroundColor: theme.palette_alpha.green[600],
+    color: theme.palette_alpha.text.inverseHeading,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.green[600], // override MUI
+      backgroundColor: theme.palette_alpha.green[600], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.green[600], 0.2),
+      backgroundColor: darken(theme.palette_alpha.green[600], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.green[600], 0.4),
+      backgroundColor: darken(theme.palette_alpha.green[600], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.green[600], // override MUI
+      backgroundColor: theme.palette_alpha.green[600], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.green[600], // override MUI
+      backgroundColor: theme.palette_alpha.green[600], // override MUI
     },
   },
   'private-root-variant-bold-color-blue': {
-    backgroundColor: theme.unstable_palette.blue[600],
-    color: theme.unstable_palette.text.inverseHeading,
+    backgroundColor: theme.palette_alpha.blue[600],
+    color: theme.palette_alpha.text.inverseHeading,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.blue[600], // override MUI
+      backgroundColor: theme.palette_alpha.blue[600], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.blue[600], 0.2),
+      backgroundColor: darken(theme.palette_alpha.blue[600], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.blue[600], 0.4),
+      backgroundColor: darken(theme.palette_alpha.blue[600], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.blue[600], // override MUI
+      backgroundColor: theme.palette_alpha.blue[600], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.blue[600], // override MUI
+      backgroundColor: theme.palette_alpha.blue[600], // override MUI
     },
   },
   'private-root-variant-bold-color-purple': {
-    backgroundColor: theme.unstable_palette.purple[600],
-    color: theme.unstable_palette.text.inverseHeading,
+    backgroundColor: theme.palette_alpha.purple[600],
+    color: theme.palette_alpha.text.inverseHeading,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.purple[600], // override MUI
+      backgroundColor: theme.palette_alpha.purple[600], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.purple[600], 0.2),
+      backgroundColor: darken(theme.palette_alpha.purple[600], 0.2),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.purple[600], 0.4),
+      backgroundColor: darken(theme.palette_alpha.purple[600], 0.4),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.purple[600], // override MUI
+      backgroundColor: theme.palette_alpha.purple[600], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.purple[600], // override MUI
+      backgroundColor: theme.palette_alpha.purple[600], // override MUI
     },
   },
   'private-root-variant-subtle-color-neutral': {
-    backgroundColor: theme.unstable_palette.neutral[0],
+    backgroundColor: theme.palette_alpha.neutral[0],
     // Special case: add border and decrease padding to account for the added height/width
-    border: theme.unstable_borders.subtle,
+    border: theme.borders_alpha.subtle,
     '&:focus': {
-      backgroundColor: theme.unstable_palette.neutral[0], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[0], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.neutral[0], 0.1),
+      backgroundColor: darken(theme.palette_alpha.neutral[0], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.neutral[0], 0.2),
+      backgroundColor: darken(theme.palette_alpha.neutral[0], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.neutral[0], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[0], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.neutral[0], // override MUI
+      backgroundColor: theme.palette_alpha.neutral[0], // override MUI
     },
   },
   'private-root-variant-subtle-color-neutral-size-small': {
@@ -309,111 +309,111 @@ const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
     padding: '5px 15px',
   },
   'private-root-variant-subtle-color-red': {
-    backgroundColor: theme.unstable_palette.red[200],
+    backgroundColor: theme.palette_alpha.red[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.red[200], // override MUI
+      backgroundColor: theme.palette_alpha.red[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.red[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.red[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.red[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.red[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.red[200], // override MUI
+      backgroundColor: theme.palette_alpha.red[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.red[200], // override MUI
+      backgroundColor: theme.palette_alpha.red[200], // override MUI
     },
   },
   'private-root-variant-subtle-color-yellow': {
-    backgroundColor: theme.unstable_palette.yellow[200],
+    backgroundColor: theme.palette_alpha.yellow[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.yellow[200], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.yellow[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.yellow[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.yellow[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.yellow[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.yellow[200], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.yellow[200], // override MUI
+      backgroundColor: theme.palette_alpha.yellow[200], // override MUI
     },
   },
   'private-root-variant-subtle-color-teal': {
-    backgroundColor: theme.unstable_palette.teal[200],
+    backgroundColor: theme.palette_alpha.teal[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.teal[200], // override MUI
+      backgroundColor: theme.palette_alpha.teal[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.teal[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.teal[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.teal[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.teal[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.teal[200], // override MUI
+      backgroundColor: theme.palette_alpha.teal[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.teal[200], // override MUI
+      backgroundColor: theme.palette_alpha.teal[200], // override MUI
     },
   },
   'private-root-variant-subtle-color-green': {
-    backgroundColor: theme.unstable_palette.green[200],
+    backgroundColor: theme.palette_alpha.green[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.green[200], // override MUI
+      backgroundColor: theme.palette_alpha.green[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.green[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.green[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.green[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.green[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.green[200], // override MUI
+      backgroundColor: theme.palette_alpha.green[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.green[200], // override MUI
+      backgroundColor: theme.palette_alpha.green[200], // override MUI
     },
   },
   'private-root-variant-subtle-color-blue': {
-    backgroundColor: theme.unstable_palette.blue[200],
+    backgroundColor: theme.palette_alpha.blue[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.blue[200], // override MUI
+      backgroundColor: theme.palette_alpha.blue[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.blue[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.blue[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.blue[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.blue[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.blue[200], // override MUI
+      backgroundColor: theme.palette_alpha.blue[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.blue[200], // override MUI
+      backgroundColor: theme.palette_alpha.blue[200], // override MUI
     },
   },
   'private-root-variant-subtle-color-purple': {
-    backgroundColor: theme.unstable_palette.purple[200],
+    backgroundColor: theme.palette_alpha.purple[200],
     '&:focus': {
-      backgroundColor: theme.unstable_palette.purple[200], // override MUI
+      backgroundColor: theme.palette_alpha.purple[200], // override MUI
     },
     '&$private-root-clickable:hover': {
-      backgroundColor: darken(theme.unstable_palette.purple[200], 0.1),
+      backgroundColor: darken(theme.palette_alpha.purple[200], 0.1),
     },
     '&$private-root-clickable:active': {
-      backgroundColor: darken(theme.unstable_palette.purple[200], 0.2),
+      backgroundColor: darken(theme.palette_alpha.purple[200], 0.2),
     },
     '&$private-root-deletable:hover': {
-      backgroundColor: theme.unstable_palette.purple[200], // override MUI
+      backgroundColor: theme.palette_alpha.purple[200], // override MUI
     },
     '&$private-root-deletable:active': {
-      backgroundColor: theme.unstable_palette.purple[200], // override MUI
+      backgroundColor: theme.palette_alpha.purple[200], // override MUI
     },
   },
   'private-label-size-small': {
@@ -436,18 +436,18 @@ const styles: Styles<TagClassKey | PrivateClassKey> = (theme) => ({
   },
   'private-deleteIcon-variant-bold': {
     '&:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.2),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.2),
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.3),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.3),
     },
   },
   'private-deleteIcon-variant-subtle': {
     '&:hover': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.1),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.1),
     },
     '&:active': {
-      backgroundColor: alpha(theme.unstable_palette.neutral[600], 0.2),
+      backgroundColor: alpha(theme.palette_alpha.neutral[600], 0.2),
     },
   },
 });

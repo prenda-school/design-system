@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, theme } from '..';
+import { styled, theme } from '../..';
 
 export default {
   title: '@ps/theme/shadow',
@@ -10,12 +10,12 @@ const _Shadows = styled(function Shadows(props) {
   return (
     <div {...props}>
       <h1 className="title">Shadows</h1>
-      <span className="code">theme.unstable_shadows</span>
+      <span className="code">theme.shadows_alpha</span>
       <div className="content">
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.none }}
+            style={{ boxShadow: theme.shadows_alpha.none }}
           >
             <span className="name">none</span>
             <span className="code">shadows.none</span>
@@ -25,7 +25,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.focus }}
+            style={{ boxShadow: theme.shadows_alpha.focus }}
           >
             <span className="name">focus</span>
             <span className="code">shadows.focus</span>
@@ -37,7 +37,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.error }}
+            style={{ boxShadow: theme.shadows_alpha.error }}
           >
             <span className="name">error</span>
             <span className="code">shadows.error</span>
@@ -47,7 +47,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.info }}
+            style={{ boxShadow: theme.shadows_alpha.info }}
           >
             <span className="name">info</span>
             <span className="code">shadows.info</span>
@@ -57,7 +57,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.success }}
+            style={{ boxShadow: theme.shadows_alpha.success }}
           >
             <span className="name">success</span>
             <span className="code">shadows.success</span>
@@ -67,7 +67,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.warning }}
+            style={{ boxShadow: theme.shadows_alpha.warning }}
           >
             <span className="name">warning</span>
             <span className="code">shadows.warning</span>
@@ -79,7 +79,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.E100 }}
+            style={{ boxShadow: theme.shadows_alpha.E100 }}
           >
             <span className="name">E100</span>
             <span className="code">shadows.E100</span>
@@ -89,7 +89,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.E200 }}
+            style={{ boxShadow: theme.shadows_alpha.E200 }}
           >
             <span className="name">E200</span>
             <span className="code">shadows.E200</span>
@@ -99,7 +99,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.E300 }}
+            style={{ boxShadow: theme.shadows_alpha.E300 }}
           >
             <span className="name">E300</span>
             <span className="code">shadows.E300</span>
@@ -109,7 +109,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.E400 }}
+            style={{ boxShadow: theme.shadows_alpha.E400 }}
           >
             <span className="name">E400</span>
             <span className="code">shadows.E400</span>
@@ -119,7 +119,7 @@ const _Shadows = styled(function Shadows(props) {
         <div>
           <div
             className="square"
-            style={{ boxShadow: theme.unstable_shadows.E500 }}
+            style={{ boxShadow: theme.shadows_alpha.E500 }}
           >
             <span className="name">E500</span>
             <span className="code">shadows.E500</span>
@@ -131,7 +131,7 @@ const _Shadows = styled(function Shadows(props) {
 })(({ theme }) => ({
   paddingLeft: 8,
   '& .title': {
-    ...theme.unstable_typography.T22,
+    ...theme.typography_alpha.T22,
     margin: 0,
   },
   '& .content': {
@@ -141,8 +141,8 @@ const _Shadows = styled(function Shadows(props) {
   },
   '& .square': {
     alignItems: 'center',
-    backgroundColor: theme.unstable_palette.neutral[0],
-    borderRadius: theme.unstable_radii.sm,
+    backgroundColor: theme.palette_alpha.neutral[0],
+    borderRadius: theme.radii_alpha.sm,
     display: 'flex',
     flexDirection: 'column',
     height: 200,
@@ -150,10 +150,10 @@ const _Shadows = styled(function Shadows(props) {
     width: 200,
   },
   '& .name': {
-    ...theme.unstable_typography.label,
+    ...theme.typography_alpha.label,
   },
   '& .code': {
-    ...theme.unstable_typography.code,
+    ...theme.typography_alpha.code,
   },
 }));
 

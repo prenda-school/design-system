@@ -21,7 +21,7 @@ import MenuItem from '../MenuItem';
 import Paper, { PaperProps } from '../Paper';
 import Tag, { TagProps } from '../Tag';
 import { ChevronDown, Cross } from '../../internal';
-import { buildVariant } from '../../theme/typography';
+import { buildVariant } from '../theme/typography';
 import useAutocomplete, {
   UseAutocompleteResultGetOptionProps,
 } from '../useAutocomplete';
@@ -324,7 +324,7 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
   root: {
     display: 'inline-flex',
 
-    maxWidth: theme.unstable_typography.pxToRem(320),
+    maxWidth: theme.typography_alpha.pxToRem(320),
     width: '100%',
     verticalAlign: 'bottom',
     '&$focused $private-clearIndicator-dirty': {
@@ -379,7 +379,7 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
     '$private-root-hasPopupIndicator$private-root-hasClearIndicator &': {
       paddingRight: 4 + 32 + 4 + 32 + 12,
     },
-    ...theme.unstable_typography.body,
+    ...theme.typography_alpha.body,
     gap: 4,
     '& [class*="MuiSpark_alpha_InputAdornment-root"]': {
       marginLeft: 8,
@@ -448,11 +448,11 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Styles applied to multiple value child elements. */
   multipleValueChild: {
-    color: theme.unstable_palette.text.subdued,
+    color: theme.palette_alpha.text.subdued,
     marginTop: 4,
     marginBottom: 4,
     '.Mui-disabled &': {
-      color: theme.unstable_palette.text.disabled,
+      color: theme.palette_alpha.text.disabled,
     },
   },
   'private-multipleValueChild-size-medium': {
@@ -498,7 +498,7 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the clear indicator if `size='small'`. */
   'private-clearIndicator-size-small': {
     '& [class*="MuiSpark_alpha_IconButton-label"]': {
-      fontSize: theme.unstable_typography.pxToRem(20),
+      fontSize: theme.typography_alpha.pxToRem(20),
     },
   },
   /* Styles applied to the popup indicator. */
@@ -524,7 +524,7 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
   /* Styles applied to the popup indicator if `size='small'`. */
   'private-popupIndicator-size-small': {
     '& [class*="MuiSpark_alpha_IconButton-label"]': {
-      fontSize: theme.unstable_typography.pxToRem(20),
+      fontSize: theme.typography_alpha.pxToRem(20),
     },
   },
   /* Styles applied to the popper element. */
@@ -551,14 +551,14 @@ const styles: Styles<AutocompleteClassKey | PrivateClassKey> = (theme) => ({
   },
   /* Styles applied to the optionsLoading wrapper. */
   'private-listbox-loadingOptions': {
-    ...theme.unstable_typography.body,
-    color: theme.unstable_palette.text.subdued,
+    ...theme.typography_alpha.body,
+    color: theme.palette_alpha.text.subdued,
     padding: '8px 16px',
   },
   /* Styles applied to the no option wrapper. */
   'private-listbox-noOptions': {
-    ...theme.unstable_typography.body,
-    color: theme.unstable_palette.text.subdued,
+    ...theme.typography_alpha.body,
+    color: theme.palette_alpha.text.subdued,
     padding: '8px 16px',
   },
   /* Styles applied to the option elements. */

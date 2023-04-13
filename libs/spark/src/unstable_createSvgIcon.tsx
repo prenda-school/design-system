@@ -1,6 +1,6 @@
-import createSvgIcon_unstable from './createSvgIcon_unstable';
+import createSvgIcon from './alpha/createSvgIcon';
 
-/** @deprecated use `createSvgIcon_unstable` */
-const unstable_createSvgIcon = createSvgIcon_unstable;
+/** @deprecated use `alpha/createSvgIcon` */
+const unstable_createSvgIcon = createSvgIcon;
 
 export default unstable_createSvgIcon;

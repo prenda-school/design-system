@@ -100,7 +100,7 @@ const SizeByVariantTemplate = (args) => (
           display: 'flex',
           gap: 4,
           alignItems: 'flex-start',
-          backgroundColor: theme.unstable_palette.background.inverse,
+          backgroundColor: theme.palette_alpha.background.inverse,
           margin: -4,
           padding: 4,
         }}
