@@ -1,1 +1,4 @@
-export { default } from '../alpha/FontFacesBaseline';
+export {
+  /** @deprecated use `alpha/FontFacesBaseline` */
+  default,
+} from '../alpha/FontFacesBaseline';

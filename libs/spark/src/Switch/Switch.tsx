@@ -6,9 +6,11 @@ import {
 } from '@material-ui/core/Switch';
 import { OverridableComponent, OverrideProps } from '../utils';
 
+/** @deprecated */
 // Add keys missing from Mui
 export type SwitchClassKey = MuiSwitchClassKey | 'edgeEnd' | 'edgeStart';
 
+/** @deprecated */
 export interface SwitchTypeMap<
   P = Record<string, unknown>,
   D extends ElementType = 'div'
@@ -24,11 +26,13 @@ export interface SwitchTypeMap<
   classKey: SwitchClassKey;
 }
 
+/** @deprecated */
 export type SwitchProps<
   D extends ElementType = SwitchTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<SwitchTypeMap<P, D>, D>;
 
+/** @deprecated */
 const Switch: OverridableComponent<SwitchTypeMap> = forwardRef(function Switch(
   { size: passedSize = 'small', ...other },
   ref

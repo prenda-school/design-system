@@ -1,1 +1,4 @@
-export { default } from '../alpha/useSideBarTrigger';
+export {
+  /** @deprecated use `alpha/useSideBarTrigger` */
+  default,
+} from '../alpha/useSideBarTrigger';

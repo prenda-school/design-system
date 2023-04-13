@@ -2,14 +2,22 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...vNext) (YYYY-MM-DD)
 
-The naming scheme of v2 replacement components will change (again) to just the component name and the location of these components is now under the "/alpha" directory. Previous exports are maintained in order to give consumers the chance to migrate over time, rather than all at once.
-
-Example
+The naming scheme of v2 replacement components will change (again) to just the component name. However, in addition, the location of these components is now under the "/alpha" directory. Previous exports are maintained, but deprecated, in order to give consumers the chance to migrate over time, rather than all at once.
 
 ```diff
 -import { Unstable_Button } from '@prenda/spark'
 +import { Button } from '@prenda/spark/alpha'
 ```
+
+The v2 theme properties have also been migrated to "alpha" naming. Previous properties are maintained but deprecated.
+
+```diff
+import { theme } from '@prenda/spark'
+-theme.unstable_palette.neutral[100]
++theme.palette_alpha.netural[100]
+```
+
+Lastly, all v1 stable components with a v2 alpha replacement have been marked as deprecated.
 
 - **alpha/Autocomplete**
   - [feat] added
@@ -185,6 +193,303 @@ Example
   - [feat] added
 - **alpha/useToasts**
   - [feat] added
+- **Alert**
+  - [DEPRECATED]
+- **AlertTitle**
+  - [DEPRECATED]
+- **Autocomplete**
+  - [DEPRECATED]
+- **Avatar**
+  - [DEPRECATED]
+- **Banner**
+  - [DEPRECATED]
+- **Button**
+  - [DEPRECATED]
+- **Card**
+  - [DEPRECATED]
+- **Checkbox**
+  - [DEPRECATED]
+- **CircularProgress_unstable**
+  - [DEPRECATED]
+- **createSvgIcon_unstable**
+  - [DEPRECATED]
+- **CssBaseline**
+  - [DEPRECATED]
+- **Divider**
+  - [DEPRECATED]
+- **DropdownAnchor**
+  - [DEPRECATED]
+- **DropdownContext**
+  - [DEPRECATED]
+- **DropdownMenu**
+  - [DEPRECATED]
+- **FontFacesBaseline**
+  - [DEPRECATED]
+- **FormControl**
+  - [DEPRECATED]
+- **FormControlLabel**
+  - [DEPRECATED]
+- **FormGroup**
+  - [DEPRECATED]
+- **FormHelperText**
+  - [DEPRECATED]
+- **FormLabel**
+  - [DEPRECATED]
+- **IconButton**
+  - [DEPRECATED]
+- **Input**
+  - [DEPRECATED]
+- **InputAdornment**
+  - [DEPRECATED]
+- **InputBase**
+  - [DEPRECATED]
+- **InputLabel**
+  - [DEPRECATED]
+- **LinearProgress_unstable**
+  - [DEPRECATED]
+- **Link**
+  - [DEPRECATED]
+- **List**
+  - [DEPRECATED]
+- **ListItem**
+  - [DEPRECATED]
+- **ListItemAvatar**
+  - [DEPRECATED]
+- **ListItemIcon**
+  - [DEPRECATED]
+- **ListItemSecondaryAction**
+  - [DEPRECATED]
+- **ListItemText**
+  - [DEPRECATED]
+- **ListSubheader**
+  - [DEPRECATED]
+- **Menu**
+  - [DEPRECATED]
+- **MenuItem**
+  - [DEPRECATED]
+- **MenuList**
+  - [DEPRECATED]
+- **NavBar**
+  - [DEPRECATED]
+- **Paper**
+  - [DEPRECATED]
+- **Radio**
+  - [DEPRECATED]
+- **RadioGroup**
+  - [DEPRECATED]
+- **SectionMessage**
+  - [DEPRECATED]
+- **SectionMessageTitle**
+  - [DEPRECATED]
+- **Select**
+  - [DEPRECATED]
+- **SideBarContext_unstable**
+  - [DEPRECATED]
+- **SideBarDrawer_unstable**
+  - [DEPRECATED]
+- **SideBarList_unstable**
+  - [DEPRECATED]
+- **SideBarListItem_unstable**
+  - [DEPRECATED]
+- **SideBarListSubheader_unstable**
+  - [DEPRECATED]
+- **SideBarProvider_unstable**
+  - [DEPRECATED]
+- **Skeleton**
+  - [DEPRECATED]
+- **SparkThemeProvider**
+  - [DEPRECATED]
+- **SvgIcon**
+  - [DEPRECATED]
+- **Switch**
+  - [DEPRECATED]
+- **Tab**
+  - [DEPRECATED]
+- **TabContext**
+  - [DEPRECATED]
+- **TabList**
+  - [DEPRECATED]
+- **TabPanel**
+  - [DEPRECATED]
+- **Tabs**
+  - [DEPRECATED]
+- **Tag**
+  - [DEPRECATED]
+- **TextField**
+  - [DEPRECATED]
+- **Typography**
+  - [DEPRECATED]
+- **theme**
+  - [DEPRECATED] `theme.unstable_borders`
+  - [DEPRECATED] `theme.unstable_palette`
+  - [DEPRECATED] `theme.unstable_radii`
+  - [DEPRECATED] `theme.unstable_shadows`
+  - [DEPRECATED] `theme.unstable_typography`
+  - [feat] added `theme.borders_alpha`
+  - [feat] added `theme.palette_alpha`
+  - [feat] added `theme.radii_alpha`
+  - [feat] added `theme.shadows_alpha`
+  - [feat] added `theme.typography_alpha`
+- **Unstable_Autocomplete**
+  - [DEPRECATED]
+- **Unstable_Avatar**
+  - [DEPRECATED]
+- **Unstable_AvatarButton**
+  - [DEPRECATED]
+- **Unstable_Banner**
+  - [DEPRECATED]
+- **Unstable_Button**
+  - [DEPRECATED]
+- **Unstable_Card**
+  - [DEPRECATED]
+- **Unstable_Checkbox**
+  - [DEPRECATED]
+- **Unstable_CheckboxField**
+  - [DEPRECATED]
+- **Unstable_CheckboxGroupField**
+  - [DEPRECATED]
+- **Unstable_CheckboxListItem**
+  - [DEPRECATED]
+- **Unstable_CheckboxMenuItem**
+  - [DEPRECATED]
+- **Unstable_ContentGroup**
+  - [DEPRECATED]
+- **Unstable_CssBaseline**
+  - [DEPRECATED]
+- **Unstable_Divider**
+  - [DEPRECATED]
+- **Unstable_Dropdown**
+  - [DEPRECATED]
+- **Unstable_DropdownContext**
+  - [DEPRECATED]
+- **Unstable_DropdownMenu**
+  - [DEPRECATED]
+- **Unstable_DropdownTrigger**
+  - [DEPRECATED]
+- **Unstable_FontFacesBaseline**
+  - [DEPRECATED]
+- **Unstable_FormControl**
+  - [DEPRECATED]
+- **Unstable_FormControlExtraContext**
+  - [DEPRECATED]
+- **Unstable_FormControlLabel**
+  - [DEPRECATED]
+- **Unstable_FormGroup**
+  - [DEPRECATED]
+- **Unstable_FormHelperText**
+  - [DEPRECATED]
+- **Unstable_FormLabel**
+  - [DEPRECATED]
+- **Unstable_IconButton**
+  - [DEPRECATED]
+- **Unstable_Input**
+  - [DEPRECATED]
+- **Unstable_InputAdornment**
+  - [DEPRECATED]
+- **Unstable_Link**
+  - [DEPRECATED]
+- **Unstable_List**
+  - [DEPRECATED]
+- **Unstable_ListItem**
+  - [DEPRECATED]
+- **Unstable_ListSubheader**
+  - [DEPRECATED]
+- **Unstable_Menu**
+  - [DEPRECATED]
+- **Unstable_MenuItem**
+  - [DEPRECATED]
+- **Unstable_MenuList**
+  - [DEPRECATED]
+- **Unstable_Modal**
+  - [DEPRECATED]
+- **Unstable_ModalDialog**
+  - [DEPRECATED]
+- **Unstable_ModalDialogActions**
+  - [DEPRECATED]
+- **Unstable_ModalDialogContent**
+  - [DEPRECATED]
+- **Unstable_ModalDialogContentText**
+  - [DEPRECATED]
+- **Unstable_ModalDialogTitle**
+  - [DEPRECATED]
+- **Unstable_Paper**
+  - [DEPRECATED]
+- **Unstable_Radio**
+  - [DEPRECATED]
+- **Unstable_RadioField**
+  - [DEPRECATED]
+- **Unstable_RadioGroup**
+  - [DEPRECATED]
+- **Unstable_RadioGroupExtraContext**
+  - [DEPRECATED]
+- **Unstable_RadioGroupField**
+  - [DEPRECATED]
+- **Unstable_SectionMessage**
+  - [DEPRECATED]
+- **Unstable_Select**
+  - [DEPRECATED]
+- **Unstable_Skeleton**
+  - [DEPRECATED]
+- **Unstable_SvgIcon**
+  - [DEPRECATED]
+- **Unstable_Switch**
+  - [DEPRECATED]
+- **Unstable_SwitchField**
+  - [DEPRECATED]
+- **Unstable_Tab**
+  - [DEPRECATED]
+- **Unstable_TabPanel**
+  - [DEPRECATED]
+- **Unstable_Tabs**
+  - [DEPRECATED]
+- **Unstable_TabsContext**
+  - [DEPRECATED]
+- **Unstable_TabsList**
+  - [DEPRECATED]
+- **Unstable_Tag**
+  - [DEPRECATED]
+- **Unstable_TextField**
+  - [DEPRECATED]
+- **Unstable_Toast**
+  - [DEPRECATED]
+- **Unstable_ToastsContext**
+  - [DEPRECATED]
+- **Unstable_ToastsProvider**
+  - [DEPRECATED]
+- **Unstable_Tooltip**
+  - [DEPRECATED]
+- **Unstable_TopBar**
+  - [DEPRECATED]
+- **Unstable_Typography**
+  - [DEPRECATED]
+- **Unstable_useAutocomplete**
+  - [DEPRECATED]
+- **useDropdown_unstable**
+  - [DEPRECATED]
+- **useFormControl**
+  - [DEPRECATED]
+- **useFormControl_unstable**
+  - [DEPRECATED]
+- **useFormControlExtra_unstable**
+  - [DEPRECATED]
+- **useMediaQuery**
+  - [DEPRECATED]
+- **useMediaQuery_unstable**
+  - [DEPRECATED]
+- **useRadioGroupExtra_unstable**
+  - [DEPRECATED]
+- **useSideBar_unstable**
+  - [DEPRECATED]
+- **useSideBarTrigger_unstable**
+  - [DEPRECATED]
+- **useTabs_unstable**
+  - [DEPRECATED]
+- **useTheme**
+  - [DEPRECATED]
+- **useTheme_unstable**
+  - [DEPRECATED]
+- **useToasts_unstable**
+  - [DEPRECATED]
 
 ## [v2.0.0-alpha.16](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2023-04-12)
 

@@ -1,1 +1,4 @@
-export { default } from '../alpha/useDropdown';
+export {
+  /** @deprecated use `alpha/useDropdown` */
+  default,
+} from '../alpha/useDropdown';

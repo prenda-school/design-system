@@ -7,6 +7,7 @@ import {
 import makeStyles from '../makeStyles';
 import { OverridableComponent, OverrideProps, useMergeClasses } from '../utils';
 
+/** @deprecated */
 export interface LinkTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
@@ -23,12 +24,14 @@ export interface LinkTypeMap<
   classKey: LinkClassKey;
 }
 
+/** @deprecated */
 export type LinkProps<
   D extends ElementType = LinkTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {}
 > = OverrideProps<LinkTypeMap<P, D>, D>;
 
+/** @deprecated */
 export type LinkClassKey = 'root' | 'standalone' | 'focusVisible';
 
 const useStyles = makeStyles<LinkClassKey>(
@@ -65,6 +68,7 @@ const useStyles = makeStyles<LinkClassKey>(
   { name: 'MuiSparkLink' }
 );
 
+/** @deprecated */
 const Link: OverridableComponent<LinkTypeMap> = forwardRef(function Link(
   {
     classes: classesProp,

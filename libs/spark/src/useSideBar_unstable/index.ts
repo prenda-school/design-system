@@ -1,1 +1,4 @@
-export { default } from '../alpha/useSideBar';
+export {
+  /** @deprecated use `alpha/useSideBar` */
+  default,
+} from '../alpha/useSideBar';

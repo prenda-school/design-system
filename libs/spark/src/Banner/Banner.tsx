@@ -5,6 +5,7 @@ import IconButton from '../IconButton';
 import { ArrowRight, Cross } from '../internal';
 import withStyles from '../withStyles';
 
+/** @deprecated */
 export interface BannerProps extends Omit<AlertProps, 'variant'> {
   /**
    * Override the default label for the *details popup* button.
@@ -19,6 +20,7 @@ export interface BannerProps extends Omit<AlertProps, 'variant'> {
   onDetails?: (event: SyntheticEvent) => void;
 }
 
+/** @deprecated */
 export type BannerClassKey = AlertClassKey;
 
 const CustomIconButton = withStyles((theme) => ({
@@ -65,6 +67,7 @@ const actionMapping = {
   ),
 };
 
+/** @deprecated */
 export default withStyles(
   (theme) => ({
     root: {

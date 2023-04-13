@@ -1,6 +1,12 @@
-export { default } from '../alpha/DropdownTrigger';
 export {
+  /** @deprecated use `alpha/DropdownTrigger` */
+  default,
+} from '../alpha/DropdownTrigger';
+export {
+  /** @deprecated */
   DropdownTriggerClassKey as Unstable_DropdownTriggerClassKey,
+  /** @deprecated */
   DropdownTriggerProps as Unstable_DropdownTriggerProps,
+  /** @deprecated */
   DropdownTriggerTypeMap as Unstable_DropdownTriggerTypeMap,
 } from '../alpha/DropdownTrigger';

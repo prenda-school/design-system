@@ -1,2 +1,14 @@
-export { default } from '@material-ui/core/FormLabel';
-export * from '@material-ui/core/FormLabel';
+export {
+  /** @deprecated */
+  default,
+} from '@material-ui/core/FormLabel';
+export {
+  /** @deprecated */
+  FormLabelBaseProps,
+  /** @deprecated */
+  FormLabelClassKey,
+  /** @deprecated */
+  FormLabelProps,
+  /** @deprecated */
+  FormLabelTypeMap,
+} from '@material-ui/core/FormLabel';

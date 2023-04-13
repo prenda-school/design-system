@@ -4,11 +4,13 @@ import { useDropdownContext } from '../DropdownContext';
 import { OverridableComponent, OverrideProps } from '../utils';
 import withStyles, { Styles } from '../withStyles';
 
+/** @deprecated */
 export type DropdownAnchorProps<
   D extends ElementType = DropdownAnchorTypeMap['defaultComponent'],
   P = Record<string, unknown>
 > = OverrideProps<DropdownAnchorTypeMap<P, D>, D>;
 
+/** @deprecated */
 export interface DropdownAnchorTypeMap<
   P = Record<string, unknown>,
   D extends ElementType = ButtonTypeMap['defaultComponent']
@@ -31,6 +33,7 @@ const styles: Styles<PrivateClassKey> = {
   },
 };
 
+/** @deprecated */
 const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
   function DropdownAnchor(
     { classes, component = Button, onClick, ...other }: DropdownAnchorProps,
@@ -62,6 +65,7 @@ const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
   }
 );
 
+/** @deprecated */
 export default withStyles(styles, { name: 'MuiSparkDropdownAnchor' })(
   DropdownAnchor
 ) as typeof DropdownAnchor;

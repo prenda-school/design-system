@@ -14,6 +14,7 @@ import {
   useClassesCapture,
 } from '../utils';
 
+/** @deprecated */
 export type TagClassKey = MuiChipClassKey | CustomClassKey;
 
 type CustomClassKey =
@@ -30,6 +31,7 @@ type CustomClassKey =
   | 'colorPurple'
   | 'bold';
 
+/** @deprecated */
 export interface TagTypeMap<
   P = Record<string, unknown>,
   D extends ElementType = 'div'
@@ -56,6 +58,7 @@ export interface TagTypeMap<
   classKey: TagClassKey;
 }
 
+/** @deprecated */
 export type TagProps<
   D extends ElementType = TagTypeMap['defaultComponent'],
   P = Record<string, unknown>
@@ -301,6 +304,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkTag' }
 );
 
+/** @deprecated */
 const Tag: OverridableComponent<TagTypeMap> = forwardRef(function Tag(
   { classes, color = 'default', variant = 'subtle', ...other },
   ref

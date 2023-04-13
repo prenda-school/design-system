@@ -26,32 +26,42 @@ import type { TypographyOptions as TypographyOptions_alpha } from '../alpha/them
 
 declare module '@material-ui/core/styles/createTheme' {
   interface Theme {
-    unstable_borders: Borders_alpha;
     borders_alpha: Borders_alpha;
-    unstable_palette: Palette_alpha;
     palette_alpha: Palette_alpha;
-    unstable_radii: Radii_alpha;
     radii_alpha: Radii_alpha;
-    unstable_shadows: Shadows_alpha;
     shadows_alpha: Shadows_alpha;
-    unstable_typography: TypographyOptions_alpha;
     typography_alpha: TypographyOptions_alpha;
+    /** @deprecated */
+    unstable_borders: Borders_alpha;
+    /** @deprecated */
+    unstable_palette: Palette_alpha;
+    /** @deprecated */
+    unstable_radii: Radii_alpha;
+    /** @deprecated */
+    unstable_shadows: Shadows_alpha;
+    /** @deprecated */
+    unstable_typography: TypographyOptions_alpha;
   }
 }
 
 declare module '@material-ui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {
-    unstable_borders: Borders_alpha;
     borders_alpha: Borders_alpha;
-    unstable_palette: Palette_alpha;
     palette_alpha: Palette_alpha;
-    unstable_radii: Radii_alpha;
     radii_alpha: Radii_alpha;
-    unstable_shadows: Shadows_alpha;
     shadows_alpha: Shadows_alpha;
-    unstable_typography: TypographyOptions_alpha;
     typography_alpha: TypographyOptions_alpha;
+    /** @deprecated */
+    unstable_borders: Borders_alpha;
+    /** @deprecated */
+    unstable_palette: Palette_alpha;
+    /** @deprecated */
+    unstable_radii: Radii_alpha;
+    /** @deprecated */
+    unstable_shadows: Shadows_alpha;
+    /** @deprecated */
+    unstable_typography: TypographyOptions_alpha;
   }
 }
 

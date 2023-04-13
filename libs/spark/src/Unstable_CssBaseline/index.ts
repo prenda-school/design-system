@@ -1,1 +1,4 @@
-export { default } from '../alpha/CssBaseline';
+export {
+  /** @deprecated use `alpha/CssBaseline` */
+  default,
+} from '../alpha/CssBaseline';

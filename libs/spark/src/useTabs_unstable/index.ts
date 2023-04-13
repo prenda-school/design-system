@@ -1,1 +1,4 @@
-export { default } from '../alpha/useTabs';
+export {
+  /** @deprecated use `alpha/useTabs` */
+  default,
+} from '../alpha/useTabs';

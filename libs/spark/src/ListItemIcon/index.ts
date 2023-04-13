@@ -1,2 +1,10 @@
-export { default } from './ListItemIcon';
-export * from './ListItemIcon';
+export {
+  /** @deprecated */
+  default,
+} from './ListItemIcon';
+export {
+  /** @deprecated */
+  ListItemIconClassKey,
+  /** @deprecated */
+  ListItemIconProps,
+} from './ListItemIcon';
