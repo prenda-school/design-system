@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import React, { ElementType, forwardRef } from 'react';
 import makeStyles from '../../makeStyles';
-import type { Borders } from '../../theme/borders_alpha';
-import type { Palette } from '../../theme/palette_alpha';
-import type { Radii } from '../../theme/radii_alpha';
-import type { Shadows } from '../../theme/shadows_alpha';
+import type { Borders } from '../theme/borders';
+import type { Palette } from '../theme/palette';
+import type { Radii } from '../theme/radii';
+import type { Shadows } from '../theme/shadows';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import withStyles, { Styles } from '../../withStyles';
 
