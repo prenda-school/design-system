@@ -45,6 +45,7 @@ Lastly, all v1 stable components with a v2 alpha replacement have been marked as
   - [feat] added
 - **alpha/ContentGroup**
   - [feat] added
+  - [fix] not handling given `className`
 - **alpha/createSvgIcon**
   - [feat] added
 - **alpha/CssBaseline**

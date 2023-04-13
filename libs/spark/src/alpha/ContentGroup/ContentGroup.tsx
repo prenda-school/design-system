@@ -261,6 +261,7 @@ const ContentGroup: OverridableComponent<ContentGroupTypeMap> = forwardRef(
       alignItems = 'flex-start',
       color = 'standard',
       classes,
+      className,
       disablePadding = false,
       flexWrap = 'nowrap',
       leadingAction,
@@ -297,7 +298,8 @@ const ContentGroup: OverridableComponent<ContentGroupTypeMap> = forwardRef(
           classes[`private-root-flexWrap-${flexWrap}`],
           {
             [classes['private-root-disablePadding']]: disablePadding,
-          }
+          },
+          className
         )}
         ref={ref}
         {...other}
