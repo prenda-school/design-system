@@ -92,6 +92,7 @@ Lastly, all v1 stable components with a v2 alpha replacement have been marked as
   - [feat] added
 - **alpha/Menu**
   - [feat] added
+  - [style] unset v1 list styles
 - **alpha/MenuItem**
   - [feat] added
 - **alpha/MenuList**

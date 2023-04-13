@@ -8,6 +8,7 @@ import { ListProps } from '../List';
 import { StandardProps, useId } from '../../utils';
 import { PaperProps, usePaperStyles } from '../Paper';
 import clsx from 'clsx';
+import withStyles, { Styles } from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MenuProps
@@ -33,7 +34,15 @@ export interface MenuProps
 
 export type MenuClassKey = MuiMenuClassKey;
 
-const Menu = forwardRef<unknown, MenuProps>(function Menu(props, ref) {
+const styles: Styles<MenuClassKey> = (theme) => ({
+  paper: {},
+  list: {
+    border: 'unset', // reset v1
+    borderRadius: 'unset', // reset v1
+  },
+});
+
+const UnstyledMenu = forwardRef<unknown, MenuProps>(function Menu(props, ref) {
   const { MenuListProps, open = false, PaperProps = {}, ...other } = props;
 
   const {
@@ -80,5 +89,7 @@ const Menu = forwardRef<unknown, MenuProps>(function Menu(props, ref) {
     />
   );
 });
+
+const Menu = withStyles(styles, { name: 'MuiSpark_alpha_Menu' })(UnstyledMenu);
 
 export default Menu;
