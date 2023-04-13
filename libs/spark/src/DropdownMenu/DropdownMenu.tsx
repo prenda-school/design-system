@@ -9,6 +9,7 @@ import withStyles, { Styles } from '../withStyles';
 
 type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
 
+/** @deprecated */
 export interface DropdownMenuTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
@@ -35,6 +36,7 @@ export interface DropdownMenuTypeMap<
   classKey: never;
 }
 
+/** @deprecated */
 export type DropdownMenuProps<
   D extends ElementType = DropdownMenuTypeMap['defaultComponent'],
   // eslint-disable-next-line @typescript-eslint/ban-types
@@ -86,6 +88,7 @@ const styles: Styles<PrivateClassKey> = {
   },
 };
 
+/** @deprecated */
 const DropdownMenu: OverridableComponent<DropdownMenuTypeMap> = forwardRef(
   function DropdownMenu(props, ref) {
     const {
@@ -132,6 +135,7 @@ const DropdownMenu: OverridableComponent<DropdownMenuTypeMap> = forwardRef(
   }
 );
 
+/** @deprecated */
 export default withStyles(styles, {
   name: 'MuiSparkDropdownMenu',
 })(DropdownMenu) as typeof DropdownMenu;

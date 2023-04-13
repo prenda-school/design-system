@@ -8,6 +8,7 @@ import {
 import makeStyles from '../makeStyles';
 import { OverridableComponent, capitalize, useClassesCapture } from '../utils';
 
+/** @deprecated */
 export interface IconButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
@@ -18,6 +19,7 @@ export interface IconButtonTypeMap<
   classKey: IconButtonClassKey;
 }
 
+/** @deprecated */
 export type IconButtonProps = Omit<MuiIconButtonProps, 'classes' | 'size'> & {
   /**
    * The size of the icon button.
@@ -29,6 +31,7 @@ export type IconButtonProps = Omit<MuiIconButtonProps, 'classes' | 'size'> & {
   variant?: 'contained' | 'outlined' | 'text';
 };
 
+/** @deprecated */
 export type IconButtonClassKey = MuiIconButtonClassKey | CustomClassKey;
 
 // IconButton is used in Radio/Checkbox, so all used classes must be
@@ -133,6 +136,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkIconButton' }
 );
 
+/** @deprecated */
 const IconButton: OverridableComponent<IconButtonTypeMap> = forwardRef(
   function IconButton(
     { classes, variant = 'contained', size = 'large', children, ...other },

@@ -1,2 +1,12 @@
-export { default } from './Typography';
-export * from './Typography';
+export {
+  /** @deprecated */
+  default,
+} from './Typography';
+export {
+  /** @deprecated */
+  TypographyClassKey,
+  /** @deprecated */
+  TypographyProps,
+  /** @deprecated */
+  TypographyTypeMap,
+} from './Typography';

@@ -6,11 +6,14 @@ import {
 } from '../AlertTitle';
 import withStyles from '../withStyles';
 
+/** @deprecated */
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SectionMessageTitleProps extends AlertTitleProps {}
 
+/** @deprecated */
 export type SectionMessageTitleClassKey = AlertTitleClassKey;
 
+/** @deprecated */
 export default withStyles(
   (theme) => ({
     root: {

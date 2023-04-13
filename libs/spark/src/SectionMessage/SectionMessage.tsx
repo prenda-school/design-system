@@ -4,9 +4,11 @@ import IconButton from '../IconButton';
 import { Cross } from '../internal';
 import withStyles from '../withStyles';
 
+/** @deprecated */
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SectionMessageProps extends Omit<AlertProps, 'variant'> {}
 
+/** @deprecated */
 export type SectionMessageClassKey = AlertClassKey;
 
 const CustomIconButton = withStyles((theme) => ({
@@ -33,6 +35,7 @@ const actionMapping = {
   ),
 };
 
+/** @deprecated */
 export default withStyles(
   (theme) => ({
     root: {

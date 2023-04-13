@@ -13,6 +13,7 @@ import {
   useClassesCapture,
 } from '../utils';
 
+/** @deprecated */
 export type AvatarClassKey = MuiAvatarClassKey | CustomClassKey;
 
 type CustomClassKey =
@@ -25,6 +26,7 @@ type CustomClassKey =
   | 'sizeSmall'
   | 'sizeXsmall';
 
+/** @deprecated */
 export interface AvatarTypeMap<
   P = Record<string, unknown>,
   D extends ElementType = 'div'
@@ -40,6 +42,7 @@ export interface AvatarTypeMap<
   classKey: AvatarClassKey;
 }
 
+/** @deprecated */
 export type AvatarProps<
   D extends ElementType = AvatarTypeMap['defaultComponent'],
   P = Record<string, unknown>
@@ -96,6 +99,7 @@ const useCustomStyles = makeStyles<CustomClassKey>(
   { name: 'MuiSparkAvatar' }
 );
 
+/** @deprecated */
 const Avatar: OverridableComponent<AvatarTypeMap> = forwardRef(function Avatar(
   { classes, size = 'medium', ...other },
   ref

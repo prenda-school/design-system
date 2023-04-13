@@ -11,6 +11,7 @@ import { useUniqueId } from '../utils';
 // This file is an adaption of Mui's TabContext.
 // See https://github.com/mui-org/material-ui/blob/cd8aeb64a9038ae9cb8ecf1cd7fd8a2bfea2d6b6/packages/material-ui-lab/src/TabContext/TabContext.js
 
+/** @deprecated */
 export interface DropdownContextValue {
   id: string;
   anchorEl: null | HTMLElement;
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
   Context.displayName = 'DropdownContext';
 }
 
+/** @deprecated */
 export interface DropdownContextProps {
   /**
    * The content of the component.
@@ -32,6 +34,7 @@ export interface DropdownContextProps {
   children?: ReactNode;
 }
 
+/** @deprecated */
 export default function DropdownContext(
   props: DropdownContextProps
 ): JSX.Element {
@@ -55,6 +58,7 @@ export default function DropdownContext(
   return <Context.Provider value={value} {...props} />;
 }
 
+/** @deprecated */
 export function useDropdownContext(): DropdownContextValue | null {
   return useContext(Context);
 }

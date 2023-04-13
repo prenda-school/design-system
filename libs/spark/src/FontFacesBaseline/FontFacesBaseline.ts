@@ -5,6 +5,7 @@ import withStyles from '../withStyles';
 /**
  * Inject necessary `@font-face` declarations into the global styles.
  *
+ * @deprecated
  * @example
  *  const MyApp = () => (
  *    <>

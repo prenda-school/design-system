@@ -10,6 +10,7 @@ const generateClassName = createGenerateClassName({
   productionPrefix: 'spark',
 });
 
+/** @deprecated */
 const SparkThemeProvider = (props) => {
   return (
     <StylesProvider injectFirst generateClassName={generateClassName}>

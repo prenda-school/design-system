@@ -2,6 +2,7 @@ import React from 'react';
 import { default as AppBar, AppBarProps } from '@material-ui/core/AppBar';
 import withStyles from '../withStyles';
 
+/** @deprecated */
 export interface NavBarProps extends Omit<AppBarProps, 'color'> {
   /**
    * @default 'default'
@@ -9,6 +10,7 @@ export interface NavBarProps extends Omit<AppBarProps, 'color'> {
   color?: 'default';
 }
 
+/** @deprecated use `alpha/TopBar` */
 export default withStyles(({ palette }) => ({
   root: {
     backgroundColor: palette.common.white,

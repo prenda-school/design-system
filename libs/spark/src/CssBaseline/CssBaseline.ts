@@ -3,6 +3,7 @@ import withStyles from '../withStyles';
 /**
  * Inject a consistent and simple baseline into the global styles.
  *
+ * @deprecated
  * @example
  *  const MyApp = () => (
  *    <>

@@ -12,6 +12,7 @@ import {
   useMergeClasses,
 } from '../utils';
 
+/** @deprecated */
 export type SvgIconClassKey =
   | 'root'
   | 'colorDark'
@@ -95,6 +96,7 @@ const useStyles = makeStyles<SvgIconClassKey>(
   { name: 'MuiSparkSvgIcon' }
 );
 
+/** @deprecated */
 export interface SvgIconTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types
   P = {},
@@ -130,6 +132,7 @@ export type SvgIconProps<
   P = {}
 > = OverrideProps<SvgIconTypeMap<P, D>, D>;
 
+/** @deprecated */
 const SvgIcon: OverridableComponent<SvgIconTypeMap> = forwardRef(
   function SvgIcon(
     {

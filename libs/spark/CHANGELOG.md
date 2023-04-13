@@ -17,6 +17,8 @@ import { theme } from '@prenda/spark'
 +theme.palette_alpha.netural[100]
 ```
 
+Lastly, all v1 stable components with a v2 alpha replacement have been marked as deprecated.
+
 - **alpha/Autocomplete**
   - [feat] added
 - **alpha/Avatar**
@@ -190,14 +192,96 @@ import { theme } from '@prenda/spark'
 - **alpha/useTheme**
   - [feat] added
 - **alpha/useToasts**
-
   - [feat] added
-
+- **Alert**
+  - [DEPRECATED]
+- **AlertTitle**
+  - [DEPRECATED]
+- **Autocomplete**
+  - [DEPRECATED]
+- **Avatar**
+  - [DEPRECATED]
+- **Banner**
+  - [DEPRECATED]
+- **Button**
+  - [DEPRECATED]
+- **Card**
+  - [DEPRECATED]
+- **Checkbox**
+  - [DEPRECATED]
 - **CircularProgress_unstable**
   - [DEPRECATED]
 - **createSvgIcon_unstable**
   - [DEPRECATED]
+- **CssBaseline**
+  - [DEPRECATED]
+- **Divider**
+  - [DEPRECATED]
+- **DropdownAnchor**
+  - [DEPRECATED]
+- **DropdownContext**
+  - [DEPRECATED]
+- **DropdownMenu**
+  - [DEPRECATED]
+- **FontFacesBaseline**
+  - [DEPRECATED]
+- **FormControl**
+  - [DEPRECATED]
+- **FormControlLabel**
+  - [DEPRECATED]
+- **FormGroup**
+  - [DEPRECATED]
+- **FormHelperText**
+  - [DEPRECATED]
+- **FormLabel**
+  - [DEPRECATED]
+- **IconButton**
+  - [DEPRECATED]
+- **Input**
+  - [DEPRECATED]
+- **InputAdornment**
+  - [DEPRECATED]
+- **InputBase**
+  - [DEPRECATED]
+- **InputLabel**
+  - [DEPRECATED]
 - **LinearProgress_unstable**
+  - [DEPRECATED]
+- **Link**
+  - [DEPRECATED]
+- **List**
+  - [DEPRECATED]
+- **ListItem**
+  - [DEPRECATED]
+- **ListItemAvatar**
+  - [DEPRECATED]
+- **ListItemIcon**
+  - [DEPRECATED]
+- **ListItemSecondaryAction**
+  - [DEPRECATED]
+- **ListItemText**
+  - [DEPRECATED]
+- **ListSubheader**
+  - [DEPRECATED]
+- **Menu**
+  - [DEPRECATED]
+- **MenuItem**
+  - [DEPRECATED]
+- **MenuList**
+  - [DEPRECATED]
+- **NavBar**
+  - [DEPRECATED]
+- **Paper**
+  - [DEPRECATED]
+- **Radio**
+  - [DEPRECATED]
+- **RadioGroup**
+  - [DEPRECATED]
+- **SectionMessage**
+  - [DEPRECATED]
+- **SectionMessageTitle**
+  - [DEPRECATED]
+- **Select**
   - [DEPRECATED]
 - **SideBarContext_unstable**
   - [DEPRECATED]
@@ -210,6 +294,30 @@ import { theme } from '@prenda/spark'
 - **SideBarListSubheader_unstable**
   - [DEPRECATED]
 - **SideBarProvider_unstable**
+  - [DEPRECATED]
+- **Skeleton**
+  - [DEPRECATED]
+- **SparkThemeProvider**
+  - [DEPRECATED]
+- **SvgIcon**
+  - [DEPRECATED]
+- **Switch**
+  - [DEPRECATED]
+- **Tab**
+  - [DEPRECATED]
+- **TabContext**
+  - [DEPRECATED]
+- **TabList**
+  - [DEPRECATED]
+- **TabPanel**
+  - [DEPRECATED]
+- **Tabs**
+  - [DEPRECATED]
+- **Tag**
+  - [DEPRECATED]
+- **TextField**
+  - [DEPRECATED]
+- **Typography**
   - [DEPRECATED]
 - **theme**
   - [DEPRECATED] `theme.unstable_borders`
@@ -358,9 +466,13 @@ import { theme } from '@prenda/spark'
   - [DEPRECATED]
 - **useDropdown_unstable**
   - [DEPRECATED]
+- **useFormControl**
+  - [DEPRECATED]
 - **useFormControl_unstable**
   - [DEPRECATED]
 - **useFormControlExtra_unstable**
+  - [DEPRECATED]
+- **useMediaQuery**
   - [DEPRECATED]
 - **useMediaQuery_unstable**
   - [DEPRECATED]
@@ -371,6 +483,8 @@ import { theme } from '@prenda/spark'
 - **useSideBarTrigger_unstable**
   - [DEPRECATED]
 - **useTabs_unstable**
+  - [DEPRECATED]
+- **useTheme**
   - [DEPRECATED]
 - **useTheme_unstable**
   - [DEPRECATED]

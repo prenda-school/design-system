@@ -1,2 +1,12 @@
-export { default } from './InputAdornment';
-export * from './InputAdornment';
+export {
+  /** @deprecated */
+  default,
+} from './InputAdornment';
+export {
+  /** @deprecated */
+  InputAdornmentClassKey,
+  /** @deprecated */
+  InputAdornmentProps,
+  /** @deprecated */
+  InputAdornmentTypeMap,
+} from './InputAdornment';

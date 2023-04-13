@@ -1,2 +1,10 @@
-export { default } from '@material-ui/core/Menu';
-export * from '@material-ui/core/Menu';
+export {
+  /** @deprecated */
+  default,
+} from '@material-ui/core/Menu';
+export {
+  /** @deprecated */
+  MenuClassKey,
+  /** @deprecated */
+  MenuProps,
+} from '@material-ui/core/Menu';
