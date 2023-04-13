@@ -1,6 +1,10 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...vNext) (YYYY-MM-DD)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.17...vNext) (YYYY-MM-DD)
+
+No changes.
+
+## [v2.0.0-alpha.17](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2023-04-13)
 
 The naming scheme of v2 replacement components will change (again) to just the component name. However, in addition, the location of these components is now under the "/alpha" directory. Previous exports are maintained, but deprecated, in order to give consumers the chance to migrate over time, rather than all at once.
 
