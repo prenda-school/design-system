@@ -6,8 +6,6 @@ import type {
 } from '@material-ui/core/styles/createTypography';
 import { buildVariant as buildVariant_stable } from '../../theme/typography';
 
-export const buildVariant = buildVariant_stable;
-
 export type TypographyVariant =
   | 'display'
   | 'T32'
@@ -31,6 +29,25 @@ const defaultFontFamily = '"Inter", sans-serif';
 const headingFontFamily = '"Poppins", sans-serif';
 const defaultFontSize = 16;
 const pxToRem = (px: number) => `${px / defaultFontSize}rem`;
+
+export const buildVariant = (
+  fontWeight: number,
+  fontSize: number,
+  lineHeight: number,
+  letterSpacing?: number,
+  textTransform?: 'uppercase' | 'none',
+  fontFamily: string = defaultFontFamily,
+  fontFeatureSettings?: string
+) =>
+  buildVariant_stable(
+    fontWeight,
+    fontSize,
+    lineHeight,
+    letterSpacing,
+    textTransform,
+    fontFamily,
+    fontFeatureSettings
+  );
 
 const customVariants: Record<TypographyVariant, TypographyStyle> = {
   display: buildVariant(800, 48, 52, -0.01, undefined, headingFontFamily),

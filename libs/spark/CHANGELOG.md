@@ -2,7 +2,7 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...vNext) (YYYY-MM-DD)
 
-The naming scheme of v2 replacement components will change (again) to just the component name. However, in addition, the location of these components is now under the "/alpha" directory. Previous exports are maintained in order to give consumers the chance to migrate over time, rather than all at once.
+The naming scheme of v2 replacement components will change (again) to just the component name and the location of these components is now under the "/alpha" directory. Previous exports are maintained in order to give consumers the chance to migrate over time, rather than all at once.
 
 Example
 
@@ -123,8 +123,10 @@ Example
   - [feat] added
 - **alpha/SideBarListItem**
   - [feat] added
+  - [style] change typography, reduce padding
 - **alpha/SideBarListSubheader**
   - [feat] added
+  - [style] change typography, reduce padding
 - **alpha/SideBarProvider**
   - [feat] added
 - **alpha/Skeleton**

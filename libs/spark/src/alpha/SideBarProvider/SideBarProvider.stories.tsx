@@ -7,6 +7,7 @@ import {
   SideBarProviderProps,
   SideBarProvider,
   useSideBarTrigger,
+  Divider,
 } from '..';
 
 export default {
@@ -22,8 +23,28 @@ const Template = (args) => {
         <CloseSideBarTrigger />
 
         <SideBarList>
-          <SideBarListSubheader>Subheader</SideBarListSubheader>
+          <SideBarListItem button>List item</SideBarListItem>
+        </SideBarList>
 
+        <SideBarList>
+          <SideBarListSubheader>Subheader</SideBarListSubheader>
+          <SideBarListItem button>List item</SideBarListItem>
+          <SideBarListItem button>List item</SideBarListItem>
+          <SideBarListItem button>List item</SideBarListItem>
+        </SideBarList>
+
+        <Divider />
+
+        <SideBarList>
+          <SideBarListSubheader>Subheader</SideBarListSubheader>
+          <SideBarListItem button>List item</SideBarListItem>
+          <SideBarListItem button>List item</SideBarListItem>
+          <SideBarListItem button>List item</SideBarListItem>
+        </SideBarList>
+
+        <Divider />
+
+        <SideBarList>
           <SideBarListItem button>List item</SideBarListItem>
         </SideBarList>
       </SideBarDrawer>
