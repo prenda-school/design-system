@@ -36,7 +36,7 @@ const DropdownAnchor: OverridableComponent<DropdownAnchorTypeMap> = forwardRef(
     { classes, component = Button, onClick, ...other }: DropdownAnchorProps,
     ref
   ) {
-    const { id, isOpen, openDropdown } = useDropdownContext();
+    const { id, openDropdown } = useDropdownContext();
 
     const Component = component as ElementType;
 
