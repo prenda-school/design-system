@@ -1,7 +1,7 @@
 import type { TabProps as MuiTabProps } from '@material-ui/core/Tab';
 import MuiTab from '@material-ui/core/Tab';
 import clsx from 'clsx';
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import type { ButtonBaseTypeMap } from '../../ButtonBase';
 import useTabs from '../useTabs';

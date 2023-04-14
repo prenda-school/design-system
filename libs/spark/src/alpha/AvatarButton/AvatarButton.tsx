@@ -1,10 +1,7 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
-import type {
-  ExtendButtonBaseTypeMap} from '@material-ui/core/ButtonBase';
-import {
-  default as ButtonBase
-} from '@material-ui/core/ButtonBase';
+import type { ExtendButtonBaseTypeMap } from '@material-ui/core/ButtonBase';
+import { default as ButtonBase } from '@material-ui/core/ButtonBase';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { AvatarProps } from '../Avatar';
 import Avatar from '../Avatar';

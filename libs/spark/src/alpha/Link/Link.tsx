@@ -1,11 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  LinkProps as MuiLinkProps} from '@material-ui/core/Link';
-import {
-  default as MuiLink
-} from '@material-ui/core/Link';
+import type { LinkProps as MuiLinkProps } from '@material-ui/core/Link';
+import { default as MuiLink } from '@material-ui/core/Link';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

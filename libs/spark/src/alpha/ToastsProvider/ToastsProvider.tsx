@@ -1,9 +1,8 @@
 import type {
   CustomContentProps as NotistackCustomContentProps,
-  SnackbarProviderProps as NotistackSnackbarProviderProps} from 'notistack';
-import {
-  SnackbarProvider as NotistackSnackbarProvider
+  SnackbarProviderProps as NotistackSnackbarProviderProps,
 } from 'notistack';
+import { SnackbarProvider as NotistackSnackbarProvider } from 'notistack';
 import type { JSXElementConstructor } from 'react';
 import React, { forwardRef } from 'react';
 import type { ToastProps } from '../Toast';

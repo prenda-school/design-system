@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import type { ButtonProps, ButtonTypeMap } from '../Button';
 import Button from '../Button';

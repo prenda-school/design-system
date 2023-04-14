@@ -1,8 +1,6 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
-import type {
-  FormLabelProps as MuiFormLabelProps,
-} from '@material-ui/core/FormLabel';
+import type { FormLabelProps as MuiFormLabelProps } from '@material-ui/core/FormLabel';
 import MuiFormLabel from '@material-ui/core/FormLabel';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { Styles } from '../../withStyles';

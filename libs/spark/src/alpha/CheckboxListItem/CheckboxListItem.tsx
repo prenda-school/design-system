@@ -1,17 +1,11 @@
-import type {
-  ElementType,
-  MouseEvent,
-  MouseEventHandler,
-  Ref} from 'react';
-import React, {
-  forwardRef
-} from 'react';
+import type { ElementType, MouseEvent, MouseEventHandler, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import type { CheckboxProps } from '../Checkbox';
 import Checkbox from '../Checkbox';
 import type { ListItemTypeMap, ListItemProps } from '../ListItem';
 import ListItem from '../ListItem';
-import type { OverridableComponent, OverrideProps} from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { useId } from '../../utils';
 import type { ExtendButtonBase } from '../../ButtonBase';
 import type { Styles } from '../../withStyles';

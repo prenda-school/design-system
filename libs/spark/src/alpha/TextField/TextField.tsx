@@ -1,11 +1,5 @@
-import type {
-  InputHTMLAttributes,
-  ReactNode,
-  Ref,
-  RefObject} from 'react';
-import React, {
-  forwardRef
-} from 'react';
+import type { InputHTMLAttributes, ReactNode, Ref, RefObject } from 'react';
+import React, { forwardRef } from 'react';
 import type { InputProps } from '../Input';
 import Input from '../Input';
 import type { FormLabelProps } from '../FormLabel';

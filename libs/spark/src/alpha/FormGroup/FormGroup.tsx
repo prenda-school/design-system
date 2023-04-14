@@ -1,7 +1,5 @@
 import React, { forwardRef } from 'react';
-import type {
-  FormGroupProps as MuiFormGroupProps,
-} from '@material-ui/core/FormGroup';
+import type { FormGroupProps as MuiFormGroupProps } from '@material-ui/core/FormGroup';
 import MuiFormGroup from '@material-ui/core/FormGroup';
 import type { StyledComponentProps, Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

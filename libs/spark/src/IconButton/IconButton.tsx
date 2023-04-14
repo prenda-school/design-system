@@ -1,14 +1,13 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import type {
   IconButtonClassKey as MuiIconButtonClassKey,
-  IconButtonProps as MuiIconButtonProps} from '@material-ui/core/IconButton';
-import {
-  default as MuiIconButton
+  IconButtonProps as MuiIconButtonProps,
 } from '@material-ui/core/IconButton';
+import { default as MuiIconButton } from '@material-ui/core/IconButton';
 import makeStyles from '../makeStyles';
-import type { OverridableComponent} from '../utils';
+import type { OverridableComponent } from '../utils';
 import { capitalize, useClassesCapture } from '../utils';
 
 /** @deprecated */

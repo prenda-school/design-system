@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
-import type { OverridableComponent, OverrideProps} from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { useId } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

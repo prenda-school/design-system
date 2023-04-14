@@ -1,11 +1,8 @@
 import type { ReactNode } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  InputBaseProps as MuiInputBaseProps} from '@material-ui/core/InputBase';
-import {
-  default as MuiInputBase
-} from '@material-ui/core/InputBase';
+import type { InputBaseProps as MuiInputBaseProps } from '@material-ui/core/InputBase';
+import { default as MuiInputBase } from '@material-ui/core/InputBase';
 import InputAdornment from '../InputAdornment';
 import type { StyledComponentProps, Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

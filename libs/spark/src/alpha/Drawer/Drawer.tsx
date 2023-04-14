@@ -1,8 +1,5 @@
-import type {
-  DrawerProps as MuiDrawerProps} from '@material-ui/core/Drawer';
-import {
-  default as MuiDrawer
-} from '@material-ui/core/Drawer';
+import type { DrawerProps as MuiDrawerProps } from '@material-ui/core/Drawer';
+import { default as MuiDrawer } from '@material-ui/core/Drawer';
 import clsx from 'clsx';
 import type { CSSProperties } from 'react';
 import React from 'react';

@@ -1,6 +1,4 @@
-import type {
-  TabPanelProps as MuiTabPanelProps,
-} from '@material-ui/lab/TabPanel';
+import type { TabPanelProps as MuiTabPanelProps } from '@material-ui/lab/TabPanel';
 import MuiTabPanel from '@material-ui/lab/TabPanel';
 import React, { forwardRef } from 'react';
 import type { Styles } from '../../withStyles';

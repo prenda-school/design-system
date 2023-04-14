@@ -1,4 +1,4 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import type { ButtonTypeMap } from '../Button';
 import { default as Button } from '../Button';

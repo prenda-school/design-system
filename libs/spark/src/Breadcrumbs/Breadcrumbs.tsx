@@ -2,12 +2,11 @@ import React, { forwardRef } from 'react';
 import type {
   BreadcrumbsClassKey,
   BreadcrumbsProps,
-  BreadcrumbsTypeMap} from '@material-ui/core/Breadcrumbs';
-import {
-  default as MuiBreadcrumbs
+  BreadcrumbsTypeMap,
 } from '@material-ui/core/Breadcrumbs';
+import { default as MuiBreadcrumbs } from '@material-ui/core/Breadcrumbs';
 import makeStyles from '../makeStyles';
-import type { OverridableComponent} from '../utils';
+import type { OverridableComponent } from '../utils';
 import { useMergeClasses } from '../utils';
 import { ChevronRight } from '../internal';
 

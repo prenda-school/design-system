@@ -1,19 +1,9 @@
 import MuiTabContext from '@material-ui/lab/TabContext';
 import clsx from 'clsx';
-import type {
-  ElementType,
-  SyntheticEvent} from 'react';
-import React, {
-  forwardRef,
-  useCallback,
-  useMemo,
-} from 'react';
-import type {
-  OverridableComponent,
-  OverrideProps} from '../../utils';
-import {
-  useControlled,
-} from '../../utils';
+import type { ElementType, SyntheticEvent } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import { useControlled } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';
 import type { TabsContextValue } from '../TabsContext';

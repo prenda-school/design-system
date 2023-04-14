@@ -1,7 +1,5 @@
 import React, { forwardRef } from 'react';
-import type {
-  RadioGroupProps as MuiRadioGroupProps,
-} from '@material-ui/core/RadioGroup';
+import type { RadioGroupProps as MuiRadioGroupProps } from '@material-ui/core/RadioGroup';
 import MuiRadioGroup from '@material-ui/core/RadioGroup';
 import RadioGroupExtraContext from '../RadioGroupExtraContext';
 import { formControlState } from '../FormControl';

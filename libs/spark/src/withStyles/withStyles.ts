@@ -9,10 +9,9 @@ import type {
   StyleRules,
   StyleRulesCallback,
   WithStyles,
-  WithStylesOptions} from '@material-ui/core/styles/withStyles';
-import {
-  default as muiWithStyles
+  WithStylesOptions,
 } from '@material-ui/core/styles/withStyles';
+import { default as muiWithStyles } from '@material-ui/core/styles/withStyles';
 import type { DefaultTheme, Theme } from '../theme';
 import initialTheme from '../theme/initialTheme';
 

@@ -1,11 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  ChipProps as MuiChipProps} from '@material-ui/core/Chip';
-import {
-  default as MuiChip
-} from '@material-ui/core/Chip';
+import type { ChipProps as MuiChipProps } from '@material-ui/core/Chip';
+import { default as MuiChip } from '@material-ui/core/Chip';
 import { CrossSmall } from '../../internal';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import { buildVariant } from '../theme/typography';

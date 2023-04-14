@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import type { TooltipProps} from '..';
+import type { TooltipProps } from '..';
 import { IconButton, Tooltip, Typography } from '..';
 import { Plus } from '../../../stories';
 import type { DecoratorFn } from '@storybook/react';

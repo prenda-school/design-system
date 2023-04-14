@@ -3,7 +3,7 @@ import type { HTMLAttributes, Ref } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import type { StandardProps} from '../utils';
+import type { StandardProps } from '../utils';
 import { useMergeClasses } from '../utils';
 import type { Orientation } from '../Stepper';
 

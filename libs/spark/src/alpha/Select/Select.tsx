@@ -1,9 +1,7 @@
-import type { CSSProperties} from 'react';
+import type { CSSProperties } from 'react';
 import React, { cloneElement, forwardRef } from 'react';
 import type { SelectProps as MuiSelectProps } from '@material-ui/core/Select';
-import type {
-  SelectInputProps as MuiSelectInputProps,
-} from '@material-ui/core/Select/SelectInput';
+import type { SelectInputProps as MuiSelectInputProps } from '@material-ui/core/Select/SelectInput';
 import MuiSelectInput from '@material-ui/core/Select/SelectInput';
 import MuiNativeSelectInput, {
   styles as nativeSelectStyles,
@@ -16,7 +14,7 @@ import { ChevronDown } from '../../internal';
 import type { Theme } from '../../theme';
 import type { TagProps } from '../Tag';
 import Tag from '../Tag';
-import type { PaperProps} from '../Paper';
+import type { PaperProps } from '../Paper';
 import { usePaperStyles } from '../Paper';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

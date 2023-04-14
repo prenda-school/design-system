@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import type { ListSubheaderProps } from '../ListSubheader';
 import ListSubheader from '../ListSubheader';
-import type { OverridableComponent, OverrideProps} from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { useId } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

@@ -1,11 +1,10 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import type {
   SwitchClassKey as MuiSwitchClassKey,
-  SwitchProps as MuiSwitchProps} from '@material-ui/core/Switch';
-import {
-  default as MuiSwitch
+  SwitchProps as MuiSwitchProps,
 } from '@material-ui/core/Switch';
+import { default as MuiSwitch } from '@material-ui/core/Switch';
 import type { OverridableComponent, OverrideProps } from '../utils';
 
 /** @deprecated */

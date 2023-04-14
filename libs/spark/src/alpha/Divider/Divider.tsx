@@ -1,10 +1,7 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
-import type {
-  DividerProps as MuiDividerProps} from '@material-ui/core/Divider';
-import {
-  default as MuiDivider
-} from '@material-ui/core/Divider';
+import type { DividerProps as MuiDividerProps } from '@material-ui/core/Divider';
+import { default as MuiDivider } from '@material-ui/core/Divider';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

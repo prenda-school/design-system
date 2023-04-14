@@ -8,9 +8,10 @@ import type {
   UseAutocompleteResultGetPopupIndicatorProps as UseAutocompleteResultGetPopupIndicatorProps_mui,
   UseAutocompleteResultGetRootProps as UseAutocompleteResultGetRootProps_mui,
   UseAutocompleteResultGetTagProps as UseAutocompleteResultGetTagProps_mui,
-  Value as Value_mui} from '@material-ui/lab/useAutocomplete';
+  Value as Value_mui,
+} from '@material-ui/lab/useAutocomplete';
 import useAutocomplete_mui, {
-  createFilterOptions as createFilterOptions_mui
+  createFilterOptions as createFilterOptions_mui,
 } from '@material-ui/lab/useAutocomplete';
 import type { HTMLAttributes } from 'react';
 

@@ -1,11 +1,8 @@
 import type { ElementType, ReactNode } from 'react';
 import React, { cloneElement, forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  ButtonProps as MuiButtonProps} from '@material-ui/core/Button';
-import {
-  default as MuiButton
-} from '@material-ui/core/Button';
+import type { ButtonProps as MuiButtonProps } from '@material-ui/core/Button';
+import { default as MuiButton } from '@material-ui/core/Button';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import { buildVariant } from '../theme/typography';
 import { lighten, darken, alpha } from '@material-ui/core/styles';

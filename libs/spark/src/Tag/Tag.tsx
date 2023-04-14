@@ -1,21 +1,15 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import type {
   ChipClassKey as MuiChipClassKey,
-  ChipProps as MuiChipProps} from '@material-ui/core/Chip';
-import {
-  default as MuiChip
+  ChipProps as MuiChipProps,
 } from '@material-ui/core/Chip';
+import { default as MuiChip } from '@material-ui/core/Chip';
 import { CrossSmall } from '../internal';
 import makeStyles from '../makeStyles';
-import type {
-  OverridableComponent,
-  OverrideProps} from '../utils';
-import {
-  capitalize,
-  useClassesCapture,
-} from '../utils';
+import type { OverridableComponent, OverrideProps } from '../utils';
+import { capitalize, useClassesCapture } from '../utils';
 
 /** @deprecated */
 export type TagClassKey = MuiChipClassKey | CustomClassKey;

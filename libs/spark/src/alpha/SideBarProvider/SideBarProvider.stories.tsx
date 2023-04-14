@@ -1,6 +1,5 @@
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import type {
-  SideBarProviderProps} from '..';
+import type { SideBarProviderProps } from '..';
 import {
   SideBarDrawer,
   SideBarListItem,

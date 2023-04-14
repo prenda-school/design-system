@@ -1,9 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { makeStyles } from '../..';
-import type {
-  AvatarProps,
-  ListItemProps} from '..';
+import type { AvatarProps, ListItemProps } from '..';
 import {
   Avatar,
   Checkbox,

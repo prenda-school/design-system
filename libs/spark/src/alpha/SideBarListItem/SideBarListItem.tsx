@@ -1,5 +1,5 @@
 import { alpha } from '@material-ui/core/styles';
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import type {
   ListItemClassKey,

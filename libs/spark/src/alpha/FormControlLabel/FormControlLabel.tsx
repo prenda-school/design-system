@@ -1,10 +1,7 @@
 import React, { cloneElement, forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  FormControlLabelProps as MuiFormControlLabelProps} from '@material-ui/core/FormControlLabel';
-import {
-  default as MuiFormControlLabel
-} from '@material-ui/core/FormControlLabel';
+import type { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
+import { default as MuiFormControlLabel } from '@material-ui/core/FormControlLabel';
 import { formControlState } from '../FormControl';
 import useFormControl from '../useFormControl';
 import type { StyledComponentProps, Styles } from '../../withStyles';

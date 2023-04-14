@@ -1,10 +1,6 @@
 import type { CSSProperties } from 'react';
-import type {
-  AlertTitleProps,
-  AlertTitleClassKey} from '../AlertTitle';
-import {
-  default as AlertTitle
-} from '../AlertTitle';
+import type { AlertTitleProps, AlertTitleClassKey } from '../AlertTitle';
+import { default as AlertTitle } from '../AlertTitle';
 import withStyles from '../withStyles';
 
 /** @deprecated */

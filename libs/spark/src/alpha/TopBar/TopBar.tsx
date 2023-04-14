@@ -1,8 +1,5 @@
-import type {
-  AppBarProps as MuiAppBarProps} from '@material-ui/core/AppBar';
-import {
-  default as MuiAppBar
-} from '@material-ui/core/AppBar';
+import type { AppBarProps as MuiAppBarProps } from '@material-ui/core/AppBar';
+import { default as MuiAppBar } from '@material-ui/core/AppBar';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import type { StandardProps } from '../../utils';

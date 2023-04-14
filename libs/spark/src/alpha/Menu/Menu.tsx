@@ -6,9 +6,9 @@ import type {
 import MuiMenu from '@material-ui/core/Menu';
 import ListSubheader from '../ListSubheader';
 import type { ListProps } from '../List';
-import type { StandardProps} from '../../utils';
+import type { StandardProps } from '../../utils';
 import { useId } from '../../utils';
-import type { PaperProps} from '../Paper';
+import type { PaperProps } from '../Paper';
 import { usePaperStyles } from '../Paper';
 import clsx from 'clsx';
 import type { Styles } from '../../withStyles';

@@ -1,9 +1,6 @@
 import type { ComponentProps, ComponentType, ElementType } from 'react';
-import type {
-  StyledProps} from '@material-ui/core/styles/styled';
-import {
-  default as muiStyled
-} from '@material-ui/core/styles/styled';
+import type { StyledProps } from '@material-ui/core/styles/styled';
+import { default as muiStyled } from '@material-ui/core/styles/styled';
 import type {
   CreateCSSProperties,
   StyledComponentProps,

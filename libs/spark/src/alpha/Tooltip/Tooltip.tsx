@@ -1,8 +1,5 @@
-import type {
-  TooltipProps as MuiTooltipProps} from '@material-ui/core/Tooltip';
-import {
-  default as MuiTooltip
-} from '@material-ui/core/Tooltip';
+import type { TooltipProps as MuiTooltipProps } from '@material-ui/core/Tooltip';
+import { default as MuiTooltip } from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import type { StyledComponentProps, Styles } from '../../withStyles';

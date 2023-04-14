@@ -1,11 +1,8 @@
 import type { ElementType, ReactNode } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  ListItemProps as MuiListItemProps} from '@material-ui/core/ListItem';
-import {
-  default as MuiListItem
-} from '@material-ui/core/ListItem';
+import type { ListItemProps as MuiListItemProps } from '@material-ui/core/ListItem';
+import { default as MuiListItem } from '@material-ui/core/ListItem';
 import { default as MuiListItemSecondaryAction } from '@material-ui/core/ListItemSecondaryAction';
 import { darken, alpha } from '@material-ui/core/styles';
 import type { ExtendButtonBase } from '../../ButtonBase';

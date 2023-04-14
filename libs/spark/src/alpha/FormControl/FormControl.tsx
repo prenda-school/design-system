@@ -1,10 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
-import type {
-  FormControlProps as MuiFormControlProps,
-} from '@material-ui/core/FormControl';
+import type { FormControlProps as MuiFormControlProps } from '@material-ui/core/FormControl';
 import MuiFormControl from '@material-ui/core/FormControl';
-import type { OverridableComponent, OverrideProps} from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { useId } from '../../utils';
 import type { Styles } from '../../withStyles';
 import withStyles from '../../withStyles';

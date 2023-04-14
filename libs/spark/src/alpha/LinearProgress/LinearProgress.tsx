@@ -1,8 +1,5 @@
-import type {
-  LinearProgressProps as MuiLinearProgressProps} from '@material-ui/core/LinearProgress';
-import {
-  default as MuiLinearProgress
-} from '@material-ui/core/LinearProgress';
+import type { LinearProgressProps as MuiLinearProgressProps } from '@material-ui/core/LinearProgress';
+import { default as MuiLinearProgress } from '@material-ui/core/LinearProgress';
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import React, { forwardRef, isValidElement } from 'react';

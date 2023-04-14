@@ -1,11 +1,8 @@
 import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  RadioProps as MuiRadioProps} from '@material-ui/core/Radio';
-import {
-  default as MuiRadio
-} from '@material-ui/core/Radio';
+import type { RadioProps as MuiRadioProps } from '@material-ui/core/Radio';
+import { default as MuiRadio } from '@material-ui/core/Radio';
 import RadioIcon from './RadioIcon';
 import type { Styles, StyledComponentProps } from '../../withStyles';
 import withStyles from '../../withStyles';

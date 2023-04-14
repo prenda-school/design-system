@@ -1,11 +1,9 @@
 import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
-import type {
-  MenuListProps as MuiMenuListProps,
-} from '@material-ui/core/MenuList';
+import type { MenuListProps as MuiMenuListProps } from '@material-ui/core/MenuList';
 import MuiMenuList from '@material-ui/core/MenuList';
 import ListSubheader from '../ListSubheader';
-import type { StandardProps} from '../../utils';
+import type { StandardProps } from '../../utils';
 import { useId } from '../../utils';
 import type { ListClassKey, ListProps } from '../List';
 

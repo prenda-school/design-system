@@ -4,23 +4,15 @@ import initialTheme from './initialTheme';
 import overrides from './overrides';
 import props from './props';
 import type {} from './themeAugmentation';
-import type {
-  Borders as Borders_alpha,
-} from '../alpha/theme/borders';
+import type { Borders as Borders_alpha } from '../alpha/theme/borders';
 import borders_alpha from '../alpha/theme/borders';
-import type {
-  Palette as Palette_alpha,
-} from '../alpha/theme/palette';
+import type { Palette as Palette_alpha } from '../alpha/theme/palette';
 import palette_alpha from '../alpha/theme/palette';
 import type { Radii as Radii_alpha } from '../alpha/theme/radii';
 import radii_alpha from '../alpha/theme/radii';
-import type {
-  Shadows as Shadows_alpha,
-} from '../alpha/theme/shadows';
+import type { Shadows as Shadows_alpha } from '../alpha/theme/shadows';
 import shadows_alpha from '../alpha/theme/shadows';
-import type {
-  TypographyOptions as TypographyOptions_alpha,
-} from '../alpha/theme/typography';
+import type { TypographyOptions as TypographyOptions_alpha } from '../alpha/theme/typography';
 import typography_alpha from '../alpha/theme/typography';
 export interface Theme extends MuiTheme {
   borders_alpha: Borders_alpha;

@@ -1,11 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  TypographyProps as MuiTypographyProps} from '@material-ui/core/Typography';
-import {
-  default as MuiTypography
-} from '@material-ui/core/Typography';
+import type { TypographyProps as MuiTypographyProps } from '@material-ui/core/Typography';
+import { default as MuiTypography } from '@material-ui/core/Typography';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { TypographyVariant } from '../theme/typography';
 import type { Styles } from '../../withStyles';

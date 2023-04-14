@@ -1,6 +1,6 @@
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import React from 'react';
-import type { TabPanelProps} from '..';
+import type { TabPanelProps } from '..';
 import { TabPanel, Tabs } from '..';
 import { sparkThemeProvider } from '../../../stories';
 

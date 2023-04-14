@@ -5,14 +5,8 @@ import type {
   AutocompleteRenderGroupParams as MuiAutocompleteRenderGroupParams,
 } from '@material-ui/lab/Autocomplete';
 import clsx from 'clsx';
-import type {
-  ComponentType,
-  HTMLAttributes,
-  Key,
-  ReactNode} from 'react';
-import React, {
-  forwardRef,
-} from 'react';
+import type { ComponentType, HTMLAttributes, Key, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import Skeleton from '../Skeleton';
 import CheckboxMenuItem from '../CheckboxMenuItem';
 import type { IconButtonProps } from '../IconButton';
@@ -28,9 +22,7 @@ import type { TagProps } from '../Tag';
 import Tag from '../Tag';
 import { ChevronDown, Cross } from '../../internal';
 import { buildVariant } from '../theme/typography';
-import type {
-  UseAutocompleteResultGetOptionProps,
-} from '../useAutocomplete';
+import type { UseAutocompleteResultGetOptionProps } from '../useAutocomplete';
 import useAutocomplete from '../useAutocomplete';
 import type { FormControlProperties } from '../useFormControl';
 import useFormControl from '../useFormControl';

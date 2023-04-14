@@ -1,4 +1,7 @@
-import type { UseAutocompleteProps, Value } from '@material-ui/lab/useAutocomplete';
+import type {
+  UseAutocompleteProps,
+  Value,
+} from '@material-ui/lab/useAutocomplete';
 import type { HTMLAttributes, Key, LabelHTMLAttributes, Ref } from 'react';
 
 declare module '@material-ui/lab/useAutocomplete' {

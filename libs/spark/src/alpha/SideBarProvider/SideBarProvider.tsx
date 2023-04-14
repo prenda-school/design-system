@@ -1,7 +1,5 @@
 import clsx from 'clsx';
-import type {
-  HTMLAttributes,
-  ReactNode} from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import React, {
   forwardRef,
   useCallback,

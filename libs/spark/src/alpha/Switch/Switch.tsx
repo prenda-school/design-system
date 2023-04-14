@@ -1,11 +1,8 @@
 import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  SwitchProps as MuiSwitchProps} from '@material-ui/core/Switch';
-import {
-  default as MuiSwitch
-} from '@material-ui/core/Switch';
+import type { SwitchProps as MuiSwitchProps } from '@material-ui/core/Switch';
+import { default as MuiSwitch } from '@material-ui/core/Switch';
 import type { StyledComponentProps, Styles } from '../../withStyles';
 import withStyles from '../../withStyles';
 

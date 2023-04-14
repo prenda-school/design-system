@@ -1,11 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  IconButtonProps as MuiIconButtonProps} from '@material-ui/core/IconButton';
-import {
-  default as MuiIconButton
-} from '@material-ui/core/IconButton';
+import type { IconButtonProps as MuiIconButtonProps } from '@material-ui/core/IconButton';
+import { default as MuiIconButton } from '@material-ui/core/IconButton';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import { lighten, darken, alpha } from '@material-ui/core/styles';
 import type { Styles } from '../../withStyles';

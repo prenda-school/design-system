@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import { buildVariant } from '../theme/typography';
 import type { FormControlProperties } from '../useFormControl';

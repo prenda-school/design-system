@@ -1,11 +1,8 @@
-import type { ElementType} from 'react';
+import type { ElementType } from 'react';
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import type {
-  AvatarProps as MuiAvatarProps} from '@material-ui/core/Avatar';
-import {
-  default as MuiAvatar
-} from '@material-ui/core/Avatar';
+import type { AvatarProps as MuiAvatarProps } from '@material-ui/core/Avatar';
+import { default as MuiAvatar } from '@material-ui/core/Avatar';
 import { buildVariant } from '../theme/typography';
 import type { OverridableComponent, OverrideProps } from '../../utils';
 import type { Styles } from '../../withStyles';

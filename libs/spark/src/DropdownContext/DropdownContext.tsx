@@ -1,12 +1,5 @@
-import type {
-  MouseEvent,
-  ReactNode} from 'react';
-import React, {
-  createContext,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { useUniqueId } from '../utils';
 
 // This file is an adaption of Mui's TabContext.

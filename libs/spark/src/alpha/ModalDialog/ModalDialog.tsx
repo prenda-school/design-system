@@ -1,8 +1,6 @@
-import type {
-  DialogProps as MuiDialogProps,
-} from '@material-ui/core/Dialog';
+import type { DialogProps as MuiDialogProps } from '@material-ui/core/Dialog';
 import MuiDialog from '@material-ui/core/Dialog';
-import type { ComponentType} from 'react';
+import type { ComponentType } from 'react';
 import React, { forwardRef } from 'react';
 import { Cross } from '../../internal';
 import type { IconButtonProps } from '../IconButton';
