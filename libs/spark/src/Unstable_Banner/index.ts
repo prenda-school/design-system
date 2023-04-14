@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Banner` */
   default,
 } from '../alpha/Banner';
-export {
+export type {
   /** @deprecated */
   BannerClassKey as Unstable_BannerClassKey,
   /** @deprecated */

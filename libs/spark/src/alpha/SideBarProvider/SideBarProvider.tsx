@@ -1,17 +1,20 @@
 import clsx from 'clsx';
-import React, {
+import type {
   HTMLAttributes,
-  ReactNode,
+  ReactNode} from 'react';
+import React, {
   forwardRef,
   useCallback,
   useEffect,
   useMemo,
   useState,
 } from 'react';
-import SideBarContext, { SideBarContextValue } from '../SideBarContext';
+import type { SideBarContextValue } from '../SideBarContext';
+import SideBarContext from '../SideBarContext';
 import useMediaQuery from '../useMediaQuery';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface SideBarProviderProps
   extends StandardProps<

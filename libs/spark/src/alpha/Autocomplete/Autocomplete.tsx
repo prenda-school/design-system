@@ -1,33 +1,42 @@
-import Popper, { PopperProps } from '@material-ui/core/Popper';
-import {
+import type { PopperProps } from '@material-ui/core/Popper';
+import Popper from '@material-ui/core/Popper';
+import type {
   AutocompleteProps as MuiAutocompleteProps,
   AutocompleteRenderGroupParams as MuiAutocompleteRenderGroupParams,
 } from '@material-ui/lab/Autocomplete';
 import clsx from 'clsx';
-import React, {
+import type {
   ComponentType,
   HTMLAttributes,
   Key,
-  ReactNode,
+  ReactNode} from 'react';
+import React, {
   forwardRef,
 } from 'react';
 import Skeleton from '../Skeleton';
 import CheckboxMenuItem from '../CheckboxMenuItem';
-import IconButton, { IconButtonProps } from '../IconButton';
-import Input, { InputProps } from '../Input';
+import type { IconButtonProps } from '../IconButton';
+import IconButton from '../IconButton';
+import type { InputProps } from '../Input';
+import Input from '../Input';
 import InputAdornment from '../InputAdornment';
 import ListSubheader from '../ListSubheader';
 import MenuItem from '../MenuItem';
-import Paper, { PaperProps } from '../Paper';
-import Tag, { TagProps } from '../Tag';
+import type { PaperProps } from '../Paper';
+import Paper from '../Paper';
+import type { TagProps } from '../Tag';
+import Tag from '../Tag';
 import { ChevronDown, Cross } from '../../internal';
 import { buildVariant } from '../theme/typography';
-import useAutocomplete, {
+import type {
   UseAutocompleteResultGetOptionProps,
 } from '../useAutocomplete';
-import useFormControl, { FormControlProperties } from '../useFormControl';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import useAutocomplete from '../useAutocomplete';
+import type { FormControlProperties } from '../useFormControl';
+import useFormControl from '../useFormControl';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface AutocompleteProps<
   T,

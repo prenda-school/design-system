@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Tag, TagProps } from '..';
+import type { TagProps } from '..';
+import { Tag } from '..';
 import {
   containBoxShadowInline,
   Filter,

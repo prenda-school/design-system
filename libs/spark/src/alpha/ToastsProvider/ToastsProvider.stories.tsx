@@ -1,6 +1,8 @@
-import React, { ReactNode, useState } from 'react';
+import type { ReactNode} from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { ToastsProvider, ToastsProviderProps, Button, useToasts } from '..';
+import type { ToastsProviderProps} from '..';
+import { ToastsProvider, Button, useToasts } from '..';
 import { Email, enableHooks, largeWidth } from '../../../stories';
 
 export const _retyped = ToastsProvider as typeof ToastsProvider;

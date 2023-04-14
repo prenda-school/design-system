@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { SwitchField, SwitchFieldProps } from '..';
+import type { SwitchFieldProps } from '..';
+import { SwitchField } from '..';
 import { containBoxShadow } from '../../../stories';
 
 export const _retyped = SwitchField as typeof SwitchField;

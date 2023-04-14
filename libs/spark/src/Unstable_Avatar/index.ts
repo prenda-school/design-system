@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Avatar` */
   default,
 } from '../alpha/Avatar';
-export {
+export type {
   /** @deprecated */
   AvatarClassKey as Unstable_AvatarClassKey,
   /** @deprecated */

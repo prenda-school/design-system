@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/CheckboxMenuItem` */
   default,
 } from '../alpha/CheckboxMenuItem';
-export {
+export type {
   /** @deprecated */
   CheckboxMenuItemClassKey as Unstable_CheckboxMenuItemClassKey,
   /** @deprecated */

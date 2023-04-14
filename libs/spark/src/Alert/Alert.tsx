@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/lab/Alert';
-export {
+export type {
   /** @deprecated */
   AlertClassKey,
   /** @deprecated */

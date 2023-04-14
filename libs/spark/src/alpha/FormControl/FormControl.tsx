@@ -1,12 +1,16 @@
-import React, { ElementType, forwardRef } from 'react';
-import MuiFormControl, {
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
+import type {
   FormControlProps as MuiFormControlProps,
 } from '@material-ui/core/FormControl';
-import { OverridableComponent, OverrideProps, useId } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import MuiFormControl from '@material-ui/core/FormControl';
+import type { OverridableComponent, OverrideProps} from '../../utils';
+import { useId } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import clsx from 'clsx';
 import FormControlExtraContext from '../FormControlExtraContext';
-import { FormControlProperties } from '../useFormControl';
+import type { FormControlProperties } from '../useFormControl';
 
 export interface FormControlTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

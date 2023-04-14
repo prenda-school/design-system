@@ -1,9 +1,9 @@
-import {
+import type {
   OptionsObject as NotistackOptionsObject,
   SnackbarKey as NotistackSnackbarKey,
 } from 'notistack';
-import { ReactNode } from 'react';
-import { ToastProps } from '../Toast/Toast';
+import type { ReactNode } from 'react';
+import type { ToastProps } from '../Toast/Toast';
 
 export type ToastId = NotistackSnackbarKey;
 

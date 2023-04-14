@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Card, CardProps, Typography } from '..';
+import type { CardProps} from '..';
+import { Card, Typography } from '..';
 
 export const _retyped = (props: CardProps) => <Card {...props} />;
 

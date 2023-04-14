@@ -1,4 +1,4 @@
-import * as CSS from 'csstype';
+import type * as CSS from 'csstype';
 import fontFaces from '../theme/fontFaces';
 import withStyles from '../../withStyles';
 

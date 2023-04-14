@@ -1,4 +1,4 @@
-export {
+export type {
   /** @deprecated */
   ToastsContextEnqueueOptions as Unstable_ToastsContextEnqueueOptions,
   /** @deprecated */

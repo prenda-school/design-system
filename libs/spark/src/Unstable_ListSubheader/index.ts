@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/ListSubheader` */
   default,
 } from '../alpha/ListSubheader';
-export {
+export type {
   /** @deprecated */
   ListSubheaderClassKey as Unstable_ListSubheaderClassKey,
   /** @deprecated */

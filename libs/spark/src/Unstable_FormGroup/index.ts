@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/FormGroup` */
   default,
 } from '../alpha/FormGroup';
-export {
+export type {
   /** @deprecated */
   FormGroupClassKey as Unstable_FormGroupClassKey,
   /** @deprecated */

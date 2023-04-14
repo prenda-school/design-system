@@ -1,14 +1,17 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
+import type {
+  ChipProps as MuiChipProps} from '@material-ui/core/Chip';
 import {
-  default as MuiChip,
-  ChipProps as MuiChipProps,
+  default as MuiChip
 } from '@material-ui/core/Chip';
 import { CrossSmall } from '../../internal';
-import { OverridableComponent, OverrideProps } from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { buildVariant } from '../theme/typography';
 import { alpha, darken } from '@material-ui/core/styles';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface TagTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

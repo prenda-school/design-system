@@ -5,6 +5,8 @@ export {
 export {
   /** @deprecated */
   createFilterOptions,
+} from '../alpha/useAutocomplete';
+export type {
   /** @deprecated */
   UseAutocompleteProps as UseAutocomplete_UnstableProps,
   /** @deprecated */

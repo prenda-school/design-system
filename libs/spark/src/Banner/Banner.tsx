@@ -1,5 +1,7 @@
-import React, { CSSProperties, SyntheticEvent } from 'react';
-import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
+import type { CSSProperties, SyntheticEvent } from 'react';
+import React from 'react';
+import type { AlertProps, AlertClassKey } from '../Alert';
+import { default as Alert } from '../Alert';
 import Button from '../Button';
 import IconButton from '../IconButton';
 import { ArrowRight, Cross } from '../internal';

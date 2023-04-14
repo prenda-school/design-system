@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Tag` */
   default,
 } from '../alpha/Tag';
-export {
+export type {
   /** @deprecated */
   TagClassKey as Unstable_TagClassKey,
   /** @deprecated */

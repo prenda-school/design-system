@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SideBarListSubheader` */
   default,
 } from '../alpha/SideBarListSubheader';
-export {
+export type {
   /** @deprecated */
   SideBarListSubheaderClassKey as SideBarListSubheaderClassKey_unstable,
   /** @deprecated */

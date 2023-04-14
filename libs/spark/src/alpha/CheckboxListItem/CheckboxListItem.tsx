@@ -1,16 +1,21 @@
-import React, {
+import type {
   ElementType,
-  forwardRef,
   MouseEvent,
   MouseEventHandler,
-  Ref,
+  Ref} from 'react';
+import React, {
+  forwardRef
 } from 'react';
 import clsx from 'clsx';
-import Checkbox, { CheckboxProps } from '../Checkbox';
-import ListItem, { ListItemTypeMap, ListItemProps } from '../ListItem';
-import { OverridableComponent, OverrideProps, useId } from '../../utils';
-import { ExtendButtonBase } from '../../ButtonBase';
-import withStyles, { Styles } from '../../withStyles';
+import type { CheckboxProps } from '../Checkbox';
+import Checkbox from '../Checkbox';
+import type { ListItemTypeMap, ListItemProps } from '../ListItem';
+import ListItem from '../ListItem';
+import type { OverridableComponent, OverrideProps} from '../../utils';
+import { useId } from '../../utils';
+import type { ExtendButtonBase } from '../../ButtonBase';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export type CheckboxListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

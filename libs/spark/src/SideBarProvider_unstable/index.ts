@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SideBarProvider` */
   default,
 } from '../alpha/SideBarProvider';
-export {
+export type {
   /** @deprecated */
   SideBarProviderClassKey as SideBarProviderClassKey_unstable,
   /** @deprecated */

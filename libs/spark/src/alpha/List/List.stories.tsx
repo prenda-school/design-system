@@ -1,13 +1,14 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import type {
+  ListProps} from '..';
 import {
   CheckboxListItem,
   Divider,
   IconButton,
   Link,
   List,
-  ListItem,
-  ListProps,
+  ListItem
 } from '..';
 import {
   CheckCircleDuotone,

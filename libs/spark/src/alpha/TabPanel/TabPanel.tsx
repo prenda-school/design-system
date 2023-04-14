@@ -1,8 +1,10 @@
-import MuiTabPanel, {
+import type {
   TabPanelProps as MuiTabPanelProps,
 } from '@material-ui/lab/TabPanel';
+import MuiTabPanel from '@material-ui/lab/TabPanel';
 import React, { forwardRef } from 'react';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TabPanelProps extends MuiTabPanelProps {}

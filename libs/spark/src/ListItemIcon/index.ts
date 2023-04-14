@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from './ListItemIcon';
-export {
+export type {
   /** @deprecated */
   ListItemIconClassKey,
   /** @deprecated */

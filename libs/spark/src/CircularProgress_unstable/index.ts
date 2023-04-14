@@ -2,7 +2,7 @@ export {
   /** @deprecated use `/alpha/CircularProgress` */
   default,
 } from '../alpha/CircularProgress';
-export {
+export type {
   /** @deprecated */
   CircularProgressClassKey as CircularProgressClassKey_unstable,
   /** @deprecated */

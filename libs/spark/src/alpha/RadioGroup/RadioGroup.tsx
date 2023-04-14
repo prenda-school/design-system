@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
-import MuiRadioGroup, {
+import type {
   RadioGroupProps as MuiRadioGroupProps,
 } from '@material-ui/core/RadioGroup';
+import MuiRadioGroup from '@material-ui/core/RadioGroup';
 import RadioGroupExtraContext from '../RadioGroupExtraContext';
 import { formControlState } from '../FormControl';
 import useFormControl from '../useFormControl';
-import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
+import type { StyledComponentProps, Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface RadioGroupProps
   extends Omit<MuiRadioGroupProps, 'classes'>,

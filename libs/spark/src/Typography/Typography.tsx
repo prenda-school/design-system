@@ -1,13 +1,16 @@
-import React, { ElementType, ForwardedRef, forwardRef } from 'react';
+import type { ElementType, ForwardedRef} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiTypography,
+import type {
   TypographyClassKey as MuiTypographyClassKey,
-  TypographyProps as MuiTypographyProps,
+  TypographyProps as MuiTypographyProps} from '@material-ui/core/Typography';
+import {
+  default as MuiTypography
 } from '@material-ui/core/Typography';
 import makeStyles from '../makeStyles';
 import type { SparkVariant } from '../theme/typography';
-import { OverrideProps, capitalize, useClassesCapture } from '../utils';
+import type { OverrideProps} from '../utils';
+import { capitalize, useClassesCapture } from '../utils';
 
 export interface TypographyTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

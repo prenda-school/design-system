@@ -1,21 +1,27 @@
-import { createTheme, Theme as MuiTheme } from '@material-ui/core/styles';
+import type { Theme as MuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import initialTheme from './initialTheme';
 import overrides from './overrides';
 import props from './props';
 import type {} from './themeAugmentation';
-import borders_alpha, {
+import type {
   Borders as Borders_alpha,
 } from '../alpha/theme/borders';
-import palette_alpha, {
+import borders_alpha from '../alpha/theme/borders';
+import type {
   Palette as Palette_alpha,
 } from '../alpha/theme/palette';
-import radii_alpha, { Radii as Radii_alpha } from '../alpha/theme/radii';
-import shadows_alpha, {
+import palette_alpha from '../alpha/theme/palette';
+import type { Radii as Radii_alpha } from '../alpha/theme/radii';
+import radii_alpha from '../alpha/theme/radii';
+import type {
   Shadows as Shadows_alpha,
 } from '../alpha/theme/shadows';
-import typography_alpha, {
+import shadows_alpha from '../alpha/theme/shadows';
+import type {
   TypographyOptions as TypographyOptions_alpha,
 } from '../alpha/theme/typography';
+import typography_alpha from '../alpha/theme/typography';
 export interface Theme extends MuiTheme {
   borders_alpha: Borders_alpha;
   palette_alpha: Palette_alpha;

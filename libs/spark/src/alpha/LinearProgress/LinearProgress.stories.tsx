@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { LinearProgress, LinearProgressProps } from '..';
+import type { LinearProgressProps } from '..';
+import { LinearProgress } from '..';
 
 export const _retyped = LinearProgress as typeof LinearProgress;
 

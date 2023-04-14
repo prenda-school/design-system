@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/FormLabel` */
   default,
 } from '../alpha/FormLabel';
-export {
+export type {
   /** @deprecated */
   FormLabelClassKey as Unstable_FormLabelClassKey,
   /** @deprecated */

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { TopBar, TopBarProps } from '..';
+import type { TopBarProps } from '..';
+import { TopBar } from '..';
 
 export const _retyped = TopBar as typeof TopBar;
 

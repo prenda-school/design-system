@@ -1,15 +1,19 @@
-import React, { ElementType, forwardRef, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
+import type {
+  ListItemProps as MuiListItemProps} from '@material-ui/core/ListItem';
 import {
-  default as MuiListItem,
-  ListItemProps as MuiListItemProps,
+  default as MuiListItem
 } from '@material-ui/core/ListItem';
 import { default as MuiListItemSecondaryAction } from '@material-ui/core/ListItemSecondaryAction';
 import { darken, alpha } from '@material-ui/core/styles';
-import { ExtendButtonBase } from '../../ButtonBase';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import ContentGroup, { ContentGroupProps } from '../ContentGroup';
-import withStyles, { Styles } from '../../withStyles';
+import type { ExtendButtonBase } from '../../ButtonBase';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { ContentGroupProps } from '../ContentGroup';
+import ContentGroup from '../ContentGroup';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

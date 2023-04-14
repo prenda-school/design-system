@@ -1,5 +1,7 @@
-import React, { forwardRef, memo, ReactNode } from 'react';
-import SvgIcon, { SvgIconProps } from '../SvgIcon';
+import type { ReactNode } from 'react';
+import React, { forwardRef, memo } from 'react';
+import type { SvgIconProps } from '../SvgIcon';
+import SvgIcon from '../SvgIcon';
 
 const createSvgIcon = (
   path: ReactNode,

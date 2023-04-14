@@ -1,11 +1,13 @@
+import type {
+  AppBarProps as MuiAppBarProps} from '@material-ui/core/AppBar';
 import {
-  default as MuiAppBar,
-  AppBarProps as MuiAppBarProps,
+  default as MuiAppBar
 } from '@material-ui/core/AppBar';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface TopBarProps
   extends StandardProps<

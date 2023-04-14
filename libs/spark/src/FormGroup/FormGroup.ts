@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/FormGroup';
-export {
+export type {
   /** @deprecated */
   FormGroupClassKey,
   /** @deprecated */

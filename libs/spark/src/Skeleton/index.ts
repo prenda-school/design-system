@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from './Skeleton';
-export {
+export type {
   /** @deprecated */
   SkeletonClassKey,
   /** @deprecated */

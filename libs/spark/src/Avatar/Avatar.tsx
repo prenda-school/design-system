@@ -1,14 +1,17 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiAvatar,
+import type {
   AvatarClassKey as MuiAvatarClassKey,
-  AvatarProps as MuiAvatarProps,
+  AvatarProps as MuiAvatarProps} from '@material-ui/core/Avatar';
+import {
+  default as MuiAvatar
 } from '@material-ui/core/Avatar';
 import makeStyles from '../makeStyles';
-import {
+import type {
   OverridableComponent,
-  OverrideProps,
+  OverrideProps} from '../utils';
+import {
   capitalize,
   useClassesCapture,
 } from '../utils';

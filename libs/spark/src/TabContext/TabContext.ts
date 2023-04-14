@@ -8,9 +8,11 @@ export {
   /** @deprecated */
   getTabId,
   /** @deprecated */
+  useTabContext,
+} from '@material-ui/lab/TabContext';
+export type {
+  /** @deprecated */
   TabContextProps,
   /** @deprecated */
   TabContextValue,
-  /** @deprecated */
-  useTabContext,
 } from '@material-ui/lab/TabContext';

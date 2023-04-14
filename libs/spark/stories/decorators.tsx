@@ -1,4 +1,5 @@
-import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { SparkThemeProvider, styled } from '../src';
 
 /**

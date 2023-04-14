@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from './Typography';
-export {
+export type {
   /** @deprecated */
   TypographyClassKey,
   /** @deprecated */

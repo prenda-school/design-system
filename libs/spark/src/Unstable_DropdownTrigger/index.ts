@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/DropdownTrigger` */
   default,
 } from '../alpha/DropdownTrigger';
-export {
+export type {
   /** @deprecated */
   DropdownTriggerClassKey as Unstable_DropdownTriggerClassKey,
   /** @deprecated */

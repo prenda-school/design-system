@@ -1,5 +1,7 @@
-import React, { CSSProperties } from 'react';
-import { default as Alert, AlertProps, AlertClassKey } from '../Alert';
+import type { CSSProperties } from 'react';
+import React from 'react';
+import type { AlertProps, AlertClassKey } from '../Alert';
+import { default as Alert } from '../Alert';
 import IconButton from '../IconButton';
 import { Cross } from '../internal';
 import withStyles from '../withStyles';

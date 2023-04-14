@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Divider';
-export {
+export type {
   /** @deprecated */
   DividerClassKey,
   /** @deprecated */

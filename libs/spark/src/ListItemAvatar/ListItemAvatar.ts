@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/ListItemAvatar';
-export {
+export type {
   /** @deprecated */
   ListItemAvatarClassKey,
   /** @deprecated */

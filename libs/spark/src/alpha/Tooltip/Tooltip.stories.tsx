@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { IconButton, Tooltip, TooltipProps, Typography } from '..';
+import type { TooltipProps} from '..';
+import { IconButton, Tooltip, Typography } from '..';
 import { Plus } from '../../../stories';
-import { DecoratorFn } from '@storybook/react';
+import type { DecoratorFn } from '@storybook/react';
 
 export const _retyped = Tooltip as typeof Tooltip;
 

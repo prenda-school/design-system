@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ClassNameMap } from './ClassNameMap';
+import type { ClassNameMap } from './ClassNameMap';
 
 /**
  * Capture custom classes while preserving all other classes.

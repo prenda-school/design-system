@@ -1,7 +1,8 @@
 // Original credit to https://github.com/mui-org/material-ui/blob/1c5beec4be20eae30e75c69ab513bbfec3e9baaf/packages/material-ui/src/utils/createSvgIcon.js
 //  Changes made since
 
-import React, { forwardRef, memo, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { forwardRef, memo } from 'react';
 import SvgIcon from '../SvgIcon';
 import type { SvgIconProps } from '../SvgIcon';
 

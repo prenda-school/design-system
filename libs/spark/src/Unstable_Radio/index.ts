@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Radio` */
   default,
 } from '../alpha/Radio';
-export {
+export type {
   /** @deprecated */
   RadioClassKey as Unstable_RadioClassKey,
   /** @deprecated */

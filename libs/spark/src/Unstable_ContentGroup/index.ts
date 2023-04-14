@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/ContentGroup` */
   default,
 } from '../alpha/ContentGroup';
-export {
+export type {
   /** @deprecated */
   ContentGroupClassKey as Unstable_ContentGroupClassKey,
   /** @deprecated */

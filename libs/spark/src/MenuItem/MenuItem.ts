@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/MenuItem';
-export {
+export type {
   /** @deprecated */
   MenuItemClassKey,
   /** @deprecated */

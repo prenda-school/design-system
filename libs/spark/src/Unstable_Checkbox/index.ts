@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Checkbox` */
   default,
 } from '../alpha/Checkbox';
-export {
+export type {
   /** @deprecated */
   CheckboxClassKey as Unstable_CheckboxClassKey,
   /** @deprecated */

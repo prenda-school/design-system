@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Card';
-export {
+export type {
   /** @deprecated */
   CardClassKey,
   /** @deprecated */

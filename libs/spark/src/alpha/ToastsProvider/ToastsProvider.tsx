@@ -1,10 +1,13 @@
-import {
+import type {
   CustomContentProps as NotistackCustomContentProps,
-  SnackbarProvider as NotistackSnackbarProvider,
-  SnackbarProviderProps as NotistackSnackbarProviderProps,
+  SnackbarProviderProps as NotistackSnackbarProviderProps} from 'notistack';
+import {
+  SnackbarProvider as NotistackSnackbarProvider
 } from 'notistack';
-import React, { forwardRef, JSXElementConstructor } from 'react';
-import Toast, { ToastProps } from '../Toast';
+import type { JSXElementConstructor } from 'react';
+import React, { forwardRef } from 'react';
+import type { ToastProps } from '../Toast';
+import Toast from '../Toast';
 import useToasts from '../useToasts';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

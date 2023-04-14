@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { RadioField, RadioFieldProps } from '..';
+import type { RadioFieldProps } from '..';
+import { RadioField } from '..';
 import { containBoxShadowInline } from '../../../stories';
 
 export const _retyped = RadioField as typeof RadioField;

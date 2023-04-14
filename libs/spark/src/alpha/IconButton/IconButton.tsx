@@ -1,12 +1,15 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
+import type {
+  IconButtonProps as MuiIconButtonProps} from '@material-ui/core/IconButton';
 import {
-  default as MuiIconButton,
-  IconButtonProps as MuiIconButtonProps,
+  default as MuiIconButton
 } from '@material-ui/core/IconButton';
-import { OverridableComponent, OverrideProps } from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { lighten, darken, alpha } from '@material-ui/core/styles';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface IconButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

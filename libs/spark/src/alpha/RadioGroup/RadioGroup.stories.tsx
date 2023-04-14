@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { RadioField, RadioGroup, RadioGroupProps } from '..';
+import type { RadioGroupProps } from '..';
+import { RadioField, RadioGroup } from '..';
 import { containBoxShadow, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = RadioGroup as typeof RadioGroup;

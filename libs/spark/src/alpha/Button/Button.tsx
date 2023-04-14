@@ -1,14 +1,17 @@
-import React, { cloneElement, ElementType, forwardRef, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
+import React, { cloneElement, forwardRef } from 'react';
 import clsx from 'clsx';
+import type {
+  ButtonProps as MuiButtonProps} from '@material-ui/core/Button';
 import {
-  default as MuiButton,
-  ButtonProps as MuiButtonProps,
+  default as MuiButton
 } from '@material-ui/core/Button';
-import { OverridableComponent, OverrideProps } from '../../utils';
+import type { OverridableComponent, OverrideProps } from '../../utils';
 import { buildVariant } from '../theme/typography';
 import { lighten, darken, alpha } from '@material-ui/core/styles';
-import { AvatarProps } from '../Avatar';
-import withStyles, { Styles } from '../../withStyles';
+import type { AvatarProps } from '../Avatar';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

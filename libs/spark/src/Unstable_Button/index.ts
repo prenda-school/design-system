@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Button` */
   default,
 } from '../alpha/Button';
-export {
+export type {
   /** @deprecated */
   ButtonClassKey as Unstable_ButtonClassKey,
   /** @deprecated */

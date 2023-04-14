@@ -1,13 +1,16 @@
-import React, { ElementType, forwardRef, Ref } from 'react';
+import type { ElementType, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import CheckboxListItem, {
+import type {
   CheckboxListItemProps,
   CheckboxListItemTypeMap,
 } from '../CheckboxListItem';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../../ButtonBase';
+import CheckboxListItem from '../CheckboxListItem';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { ExtendButtonBase } from '../../ButtonBase';
 import { alpha } from '@material-ui/core/styles';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export type CheckboxMenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

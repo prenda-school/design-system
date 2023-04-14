@@ -1,12 +1,14 @@
-import MuiTabList, {
+import type {
   TabListTypeMap as MuiTabListTypeMap,
   TabListProps as MuiTabListProps,
 } from '@material-ui/lab/TabList';
+import MuiTabList from '@material-ui/lab/TabList';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import useTabs from '../useTabs';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface TabsListTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

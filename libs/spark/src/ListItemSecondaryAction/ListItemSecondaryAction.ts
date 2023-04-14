@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/ListItemSecondaryAction';
-export {
+export type {
   /** @deprecated */
   ListItemSecondaryActionClassKey,
   /** @deprecated */

@@ -1,9 +1,12 @@
-import React, { ElementType, forwardRef, Ref } from 'react';
+import type { ElementType, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import ListItem, { ListItemProps, ListItemTypeMap } from '../ListItem';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../../ButtonBase';
-import withStyles, { Styles } from '../../withStyles';
+import type { ListItemProps, ListItemTypeMap } from '../ListItem';
+import ListItem from '../ListItem';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { ExtendButtonBase } from '../../ButtonBase';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export type MenuItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react/types-6-0';
-import { styled, theme, Theme } from '../..';
+import type { Theme } from '../..';
+import { styled, theme } from '../..';
 
 export default {
   title: '@ps/theme/palette',

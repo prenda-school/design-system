@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { InputAdornment, InputAdornmentProps } from '..';
+import type { InputAdornmentProps } from '..';
+import { InputAdornment } from '..';
 import { Search, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = InputAdornment as typeof InputAdornment;

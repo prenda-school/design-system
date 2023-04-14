@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Select';
-export {
+export type {
   /** @deprecated */
   SelectClassKey,
   /** @deprecated */

@@ -1,10 +1,12 @@
+import type {
+  TooltipProps as MuiTooltipProps} from '@material-ui/core/Tooltip';
 import {
-  default as MuiTooltip,
-  TooltipProps as MuiTooltipProps,
+  default as MuiTooltip
 } from '@material-ui/core/Tooltip';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
-import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
+import type { StyledComponentProps, Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface TooltipProps

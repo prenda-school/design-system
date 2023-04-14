@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { AvatarButton, AvatarButtonProps } from '..';
+import type { AvatarButtonProps } from '..';
+import { AvatarButton } from '..';
 import {
   containBoxShadowInline,
   inverseBackground,

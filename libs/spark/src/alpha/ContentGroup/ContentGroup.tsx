@@ -1,8 +1,12 @@
-import React, { ElementType, forwardRef, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import Typography, { TypographyProps } from '../Typography';
-import { OverridableComponent, OverrideProps, useId } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { TypographyProps } from '../Typography';
+import Typography from '../Typography';
+import type { OverridableComponent, OverrideProps} from '../../utils';
+import { useId } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ContentGroupTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

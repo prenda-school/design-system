@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { MenuItem, MenuList, MenuListProps } from '..';
+import type { MenuListProps } from '..';
+import { MenuItem, MenuList } from '..';
 import { containBoxShadow } from '../../../stories';
 
 export const _retyped = MenuList as typeof MenuList;

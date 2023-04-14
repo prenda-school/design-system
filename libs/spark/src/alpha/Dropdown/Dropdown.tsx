@@ -1,6 +1,7 @@
-import React, {
+import type {
   MouseEvent,
-  ReactNode,
+  ReactNode} from 'react';
+import React, {
   useCallback,
   useMemo,
   useState,

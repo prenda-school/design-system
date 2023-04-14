@@ -1,12 +1,15 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
+import type {
+  AvatarProps as MuiAvatarProps} from '@material-ui/core/Avatar';
 import {
-  default as MuiAvatar,
-  AvatarProps as MuiAvatarProps,
+  default as MuiAvatar
 } from '@material-ui/core/Avatar';
 import { buildVariant } from '../theme/typography';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface AvatarTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

@@ -12,7 +12,13 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "rules": {}
+      "parserOptions": {
+        "project": ["libs/spark/tsconfig.*?.json"]
+      },
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/consistent-type-exports": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

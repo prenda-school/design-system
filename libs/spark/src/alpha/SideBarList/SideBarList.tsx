@@ -1,5 +1,7 @@
-import List, { ListClassKey, ListProps } from '../List';
-import withStyles, { Styles } from '../../withStyles';
+import type { ListClassKey, ListProps } from '../List';
+import List from '../List';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SideBarListProps extends ListProps {}

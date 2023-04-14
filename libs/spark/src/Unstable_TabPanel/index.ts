@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/TabPanel` */
   default,
 } from '../alpha/TabPanel';
-export {
+export type {
   /** @deprecated */
   TabPanelClassKey as Unstable_TabPanelClassKey,
   /** @deprecated */

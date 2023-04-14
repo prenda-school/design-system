@@ -5,6 +5,8 @@ export {
 export {
   /** @deprecated */
   createFilterOptions,
+} from '@material-ui/lab/Autocomplete';
+export type {
   /** @deprecated */
   AutocompleteChangeDetails,
   /** @deprecated */

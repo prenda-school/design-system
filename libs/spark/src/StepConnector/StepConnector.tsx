@@ -1,8 +1,10 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepConnector/StepConnector.js
-import React, { forwardRef, HTMLAttributes, Ref } from 'react';
+import type { HTMLAttributes, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
 import makeStyles from '../makeStyles';
-import { StandardProps, useMergeClasses } from '../utils';
+import type { StandardProps} from '../utils';
+import { useMergeClasses } from '../utils';
 import type { Orientation } from '../Stepper';
 
 export type StepConnectorClassKey =

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Button, CheckboxMenuItem, MenuItem, Menu, MenuProps } from '..';
+import type { MenuProps } from '..';
+import { Button, CheckboxMenuItem, MenuItem, Menu } from '..';
 import { enableHooks } from '../../../stories';
 
 export const _retyped = Menu as typeof Menu;

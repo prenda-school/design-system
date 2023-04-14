@@ -1,4 +1,5 @@
-import { createContext, MouseEvent } from 'react';
+import type { MouseEvent } from 'react';
+import { createContext } from 'react';
 
 export interface DropdownContextValue {
   id: string;

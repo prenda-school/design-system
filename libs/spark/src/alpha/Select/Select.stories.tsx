@@ -1,10 +1,11 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import type {
+  SelectProps as _SelectProps} from '..';
 import {
   CheckboxMenuItem,
   MenuItem,
-  Select,
-  SelectProps as _SelectProps,
+  Select
 } from '..';
 import {
   containBoxShadow,

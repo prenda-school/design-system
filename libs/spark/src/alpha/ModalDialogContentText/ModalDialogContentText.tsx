@@ -1,7 +1,10 @@
-import React, { ElementType, forwardRef } from 'react';
-import Typography, { TypographyTypeMap } from '../Typography';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
+import type { TypographyTypeMap } from '../Typography';
+import Typography from '../Typography';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ModalDialogContentTextTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

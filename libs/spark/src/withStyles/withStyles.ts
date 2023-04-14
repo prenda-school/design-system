@@ -1,6 +1,5 @@
-import { PropInjector } from '@material-ui/types';
-import {
-  default as muiWithStyles,
+import type { PropInjector } from '@material-ui/types';
+import type {
   BaseCSSProperties,
   ClassNameMap,
   CreateCSSProperties,
@@ -10,7 +9,9 @@ import {
   StyleRules,
   StyleRulesCallback,
   WithStyles,
-  WithStylesOptions,
+  WithStylesOptions} from '@material-ui/core/styles/withStyles';
+import {
+  default as muiWithStyles
 } from '@material-ui/core/styles/withStyles';
 import type { DefaultTheme, Theme } from '../theme';
 import initialTheme from '../theme/initialTheme';

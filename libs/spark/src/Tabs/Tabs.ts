@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Tabs';
-export {
+export type {
   /** @deprecated */
   TabsActions,
   /** @deprecated */

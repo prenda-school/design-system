@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/DropdownMenu` */
   default,
 } from '../alpha/DropdownMenu';
-export {
+export type {
   /** @deprecated */
   DropdownMenuProps as Unstable_DropdownMenuProps,
   /** @deprecated */

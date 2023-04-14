@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Checkbox';
-export {
+export type {
   /** @deprecated */
   CheckboxClassKey,
   /** @deprecated */

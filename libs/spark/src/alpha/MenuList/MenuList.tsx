@@ -1,10 +1,13 @@
-import React, { forwardRef, Ref } from 'react';
-import MuiMenuList, {
+import type { Ref } from 'react';
+import React, { forwardRef } from 'react';
+import type {
   MenuListProps as MuiMenuListProps,
 } from '@material-ui/core/MenuList';
+import MuiMenuList from '@material-ui/core/MenuList';
 import ListSubheader from '../ListSubheader';
-import { StandardProps, useId } from '../../utils';
-import { ListClassKey, ListProps } from '../List';
+import type { StandardProps} from '../../utils';
+import { useId } from '../../utils';
+import type { ListClassKey, ListProps } from '../List';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MenuListProps

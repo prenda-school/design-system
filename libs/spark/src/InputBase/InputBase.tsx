@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/InputBase';
-export {
+export type {
   /** @deprecated */
   InputBaseClassKey,
   /** @deprecated */

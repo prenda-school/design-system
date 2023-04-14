@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Tabs` */
   default,
 } from '../alpha/Tabs';
-export {
+export type {
   /** @deprecated */
   TabsClassKey as Unstable_TabsClassKey,
   /** @deprecated */

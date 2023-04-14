@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { SectionMessage, SectionMessageProps } from '..';
+import type { SectionMessageProps } from '..';
+import { SectionMessage } from '..';
 
 export default {
   title: '@ps/SectionMessage',

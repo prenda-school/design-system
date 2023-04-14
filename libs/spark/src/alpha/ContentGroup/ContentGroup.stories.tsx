@@ -1,14 +1,15 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { makeStyles } from '../..';
+import type {
+  AvatarProps,
+  ContentGroupProps} from '..';
 import {
   Avatar,
-  AvatarProps,
   Checkbox,
   IconButton,
   Link,
   ContentGroup,
-  ContentGroupProps,
   useMediaQuery,
 } from '..';
 import {

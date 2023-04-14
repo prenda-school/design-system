@@ -1,11 +1,14 @@
+import type {
+  DrawerProps as MuiDrawerProps} from '@material-ui/core/Drawer';
 import {
-  default as MuiDrawer,
-  DrawerProps as MuiDrawerProps,
+  default as MuiDrawer
 } from '@material-ui/core/Drawer';
 import clsx from 'clsx';
-import React, { CSSProperties } from 'react';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { CSSProperties } from 'react';
+import React from 'react';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface DrawerProps
   extends StandardProps<

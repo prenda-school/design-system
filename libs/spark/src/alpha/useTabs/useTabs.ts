@@ -1,6 +1,7 @@
 import { useTabContext as useMuiTabContext } from '@material-ui/lab/TabContext';
 import { useContext } from 'react';
-import TabsContext, { TabsContextValue } from '../TabsContext';
+import type { TabsContextValue } from '../TabsContext';
+import TabsContext from '../TabsContext';
 
 const useTabs = (): TabsContextValue => {
   const value = useContext(TabsContext);

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { SvgIcon, SvgIconProps } from '..';
+import type { SvgIconProps } from '..';
+import { SvgIcon } from '..';
 import { inverseBackground } from '../../../stories';
 
 export const _retyped = SvgIcon as typeof SvgIcon;

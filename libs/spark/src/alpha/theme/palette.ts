@@ -1,4 +1,4 @@
-import * as CSS from 'csstype';
+import type * as CSS from 'csstype';
 
 // Global tokens
 // see https://spectrum.adobe.com/page/design-tokens/#Global-tokens

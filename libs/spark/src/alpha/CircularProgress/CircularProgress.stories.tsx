@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { CircularProgress, CircularProgressProps } from '..';
+import type { CircularProgressProps } from '..';
+import { CircularProgress } from '..';
 
 export const _retyped = CircularProgress as typeof CircularProgress;
 

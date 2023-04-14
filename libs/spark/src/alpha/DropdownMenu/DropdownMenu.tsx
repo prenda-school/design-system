@@ -1,9 +1,12 @@
-import { PopoverProps } from '@material-ui/core/Popover';
-import React, { ElementType, forwardRef } from 'react';
+import type { PopoverProps } from '@material-ui/core/Popover';
+import type { ElementType} from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
-import Menu, { MenuProps } from '../Menu';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
+import type { MenuProps } from '../Menu';
+import Menu from '../Menu';
 import useDropdown from '../useDropdown';
 
 type Placement = 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';

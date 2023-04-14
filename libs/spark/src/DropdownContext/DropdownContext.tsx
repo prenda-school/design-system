@@ -1,7 +1,8 @@
+import type {
+  MouseEvent,
+  ReactNode} from 'react';
 import React, {
   createContext,
-  MouseEvent,
-  ReactNode,
   useContext,
   useMemo,
   useState,

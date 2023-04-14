@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Switch, SwitchProps } from '..';
+import type { SwitchProps } from '..';
+import { Switch } from '..';
 import {
   containBoxShadowInline,
   enableHooks,
