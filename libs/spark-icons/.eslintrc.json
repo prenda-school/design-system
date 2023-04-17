@@ -8,6 +8,7 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
+      "excludedFiles": ["*.stories.*"],
       "parserOptions": {
         "project": ["libs/spark/tsconfig.*?.json"]
       },
@@ -18,6 +19,10 @@
     },
     {
       "files": ["*.js", "*.jsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.stories.*"],
       "rules": {}
     }
   ]
