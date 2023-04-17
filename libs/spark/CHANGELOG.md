@@ -2,7 +2,14 @@
 
 ## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.17...vNext) (YYYY-MM-DD)
 
-No changes.
+API surface:
+
+- **Breadcrumbs**
+  - [DEPRECATED] use **alpha/Breadcrumbs**
+- **alpha/Breadcrumb**
+  - [feat] initial implementation
+- **alpha/Breadcrumbs**
+  - [feat] initial implementation
 
 ## [v2.0.0-alpha.17](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2023-04-13)
 
