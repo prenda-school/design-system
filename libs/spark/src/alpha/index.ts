@@ -1,3 +1,9 @@
+export { default as Breadcrumbs } from './Breadcrumbs';
+export * from './Breadcrumbs';
+
+export { default as Breadcrumb } from './Breadcrumb';
+export * from './Breadcrumb';
+
 export { default as CircularProgress } from './CircularProgress';
 export * from './CircularProgress';
 
