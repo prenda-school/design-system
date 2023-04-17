@@ -1,19 +1,23 @@
-import React, { cloneElement, CSSProperties, forwardRef } from 'react';
-import { SelectProps as MuiSelectProps } from '@material-ui/core/Select';
-import MuiSelectInput, {
-  SelectInputProps as MuiSelectInputProps,
-} from '@material-ui/core/Select/SelectInput';
+import type { CSSProperties } from 'react';
+import React, { cloneElement, forwardRef } from 'react';
+import type { SelectProps as MuiSelectProps } from '@material-ui/core/Select';
+import type { SelectInputProps as MuiSelectInputProps } from '@material-ui/core/Select/SelectInput';
+import MuiSelectInput from '@material-ui/core/Select/SelectInput';
 import MuiNativeSelectInput, {
   styles as nativeSelectStyles,
 } from '@material-ui/core/NativeSelect/NativeSelect';
-import Input, { InputProps } from '../Input';
-import { StandardProps } from '../../utils';
+import type { InputProps } from '../Input';
+import Input from '../Input';
+import type { StandardProps } from '../../utils';
 import clsx from 'clsx';
 import { ChevronDown } from '../../internal';
-import { Theme } from '../../theme';
-import Tag, { TagProps } from '../Tag';
-import { PaperProps, usePaperStyles } from '../Paper';
-import withStyles, { Styles } from '../../withStyles';
+import type { Theme } from '../../theme';
+import type { TagProps } from '../Tag';
+import Tag from '../Tag';
+import type { PaperProps } from '../Paper';
+import { usePaperStyles } from '../Paper';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import useFormControl from '../useFormControl';
 
 declare module '@material-ui/core/NativeSelect/NativeSelect' {

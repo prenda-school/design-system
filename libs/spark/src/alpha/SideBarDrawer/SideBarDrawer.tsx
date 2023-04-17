@@ -1,10 +1,13 @@
 import clsx from 'clsx';
-import React, { HTMLAttributes } from 'react';
-import Drawer, { DrawerClassKey, DrawerProps } from '../Drawer';
+import type { HTMLAttributes } from 'react';
+import React from 'react';
+import type { DrawerClassKey, DrawerProps } from '../Drawer';
+import Drawer from '../Drawer';
 import useMediaQuery from '../useMediaQuery';
 import useSideBar from '../useSideBar';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface SideBarDrawerProps

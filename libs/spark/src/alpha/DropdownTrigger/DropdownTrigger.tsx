@@ -1,10 +1,13 @@
 import clsx from 'clsx';
-import React, { ElementType, forwardRef } from 'react';
-import Button, { ButtonProps, ButtonTypeMap } from '../Button';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { ButtonProps, ButtonTypeMap } from '../Button';
+import Button from '../Button';
 import { ChevronDown } from '../../internal';
 import useDropdown from '../useDropdown/useDropdown';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface DropdownTriggerTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

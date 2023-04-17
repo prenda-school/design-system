@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Card` */
   default,
 } from '../alpha/Card';
-export {
+export type {
   /** @deprecated */
   CardClassKey as Unstable_CardClassKey,
   /** @deprecated */

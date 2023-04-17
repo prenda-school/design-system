@@ -1,15 +1,15 @@
-import React, {
-  forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-  Ref,
-  RefObject,
-} from 'react';
-import Input, { InputProps } from '../Input';
-import FormLabel, { FormLabelProps } from '../FormLabel';
-import FormControl, { FormControlProps } from '../FormControl';
-import FormHelperText, { FormHelperTextProps } from '../FormHelperText';
-import Select, { SelectProps } from '../Select';
+import type { InputHTMLAttributes, ReactNode, Ref, RefObject } from 'react';
+import React, { forwardRef } from 'react';
+import type { InputProps } from '../Input';
+import Input from '../Input';
+import type { FormLabelProps } from '../FormLabel';
+import FormLabel from '../FormLabel';
+import type { FormControlProps } from '../FormControl';
+import FormControl from '../FormControl';
+import type { FormHelperTextProps } from '../FormHelperText';
+import FormHelperText from '../FormHelperText';
+import type { SelectProps } from '../Select';
+import Select from '../Select';
 
 export interface TextFieldProps
   extends Omit<

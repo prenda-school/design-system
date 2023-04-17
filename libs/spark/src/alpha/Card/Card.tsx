@@ -1,8 +1,11 @@
 import clsx from 'clsx';
-import React, { ElementType, forwardRef } from 'react';
-import Paper, { PaperProps } from '../Paper';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { PaperProps } from '../Paper';
+import Paper from '../Paper';
 import type { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface CardTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from './InputAdornment';
-export {
+export type {
   /** @deprecated */
   InputAdornmentClassKey,
   /** @deprecated */

@@ -1,10 +1,11 @@
-import React, { ElementType, forwardRef } from 'react';
-import {
-  default as MuiSwitch,
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type {
   SwitchClassKey as MuiSwitchClassKey,
   SwitchProps as MuiSwitchProps,
 } from '@material-ui/core/Switch';
-import { OverridableComponent, OverrideProps } from '../utils';
+import { default as MuiSwitch } from '@material-ui/core/Switch';
+import type { OverridableComponent, OverrideProps } from '../utils';
 
 /** @deprecated */
 // Add keys missing from Mui

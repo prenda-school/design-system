@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
-import CheckboxListItem, { CheckboxListItemProps } from './CheckboxListItem';
+import type { CheckboxListItemProps } from './CheckboxListItem';
+import CheckboxListItem from './CheckboxListItem';
 
 describe('CheckboxListItem', () => {
   it('Can render without ThemeProvider', () => {

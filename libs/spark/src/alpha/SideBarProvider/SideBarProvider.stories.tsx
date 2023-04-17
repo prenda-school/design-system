@@ -1,10 +1,10 @@
-import { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
+import type { SideBarProviderProps } from '..';
 import {
   SideBarDrawer,
   SideBarListItem,
   SideBarListSubheader,
   SideBarList,
-  SideBarProviderProps,
   SideBarProvider,
   useSideBarTrigger,
   Divider,

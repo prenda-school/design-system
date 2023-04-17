@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/RadioGroup` */
   default,
 } from '../alpha/RadioGroup';
-export {
+export type {
   /** @deprecated */
   RadioGroupClassKey as Unstable_RadioGroupClassKey,
   /** @deprecated */

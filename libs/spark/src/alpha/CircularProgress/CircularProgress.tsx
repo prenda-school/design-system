@@ -1,11 +1,11 @@
-import {
-  default as MuiCircularProgress,
-  CircularProgressProps as MuiCircularProgressProps,
-} from '@material-ui/core/CircularProgress';
+import type { CircularProgressProps as MuiCircularProgressProps } from '@material-ui/core/CircularProgress';
+import { default as MuiCircularProgress } from '@material-ui/core/CircularProgress';
 import clsx from 'clsx';
-import React, { ReactNode, forwardRef } from 'react';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface CircularProgressProps
   extends StandardProps<

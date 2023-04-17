@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { FormHelperText, FormHelperTextProps } from '..';
+import type { FormHelperTextProps } from '..';
+import { FormHelperText } from '..';
 import { Info } from '../../../stories';
 
 export const _retyped = FormHelperText as typeof FormHelperText;

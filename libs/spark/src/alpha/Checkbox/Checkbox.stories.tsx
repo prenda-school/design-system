@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Checkbox, CheckboxProps } from '..';
+import type { CheckboxProps } from '..';
+import { Checkbox } from '..';
 import {
   containBoxShadowInline,
   enableHooks,

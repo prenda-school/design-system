@@ -1,12 +1,14 @@
-import React, { ElementType, forwardRef } from 'react';
-import {
-  default as MuiBreadcrumbs,
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type {
   BreadcrumbsClassKey as MuiBreadcrumbsClassKey,
   BreadcrumbsProps as MuiBreadcrumbsProps,
   BreadcrumbsTypeMap as MuiBreadcrumbsTypeMap,
 } from '@material-ui/core/Breadcrumbs';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import { default as MuiBreadcrumbs } from '@material-ui/core/Breadcrumbs';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import createSvgIcon from '../createSvgIcon/createSvgIcon';
 
 export interface BreadcrumbsTypeMap<

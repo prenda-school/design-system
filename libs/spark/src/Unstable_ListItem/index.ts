@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/ListItem` */
   default,
 } from '../alpha/ListItem';
-export {
+export type {
   /** @deprecated */
   ListItemClassKey as Unstable_ListItemClassKey,
   /** @deprecated */

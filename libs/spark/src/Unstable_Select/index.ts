@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Select` */
   default,
 } from '../alpha/Select';
-export {
+export type {
   /** @deprecated */
   SelectClassKey as Unstable_SelectClassKey,
   /** @deprecated */

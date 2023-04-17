@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/FormControlLabel';
-export {
+export type {
   /** @deprecated */
   FormControlLabelClassKey,
   /** @deprecated */

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Autocomplete, AutocompleteProps } from '..';
+import type { AutocompleteProps } from '..';
+import { Autocomplete } from '..';
 import {
   containBoxShadow,
   enableHooks,

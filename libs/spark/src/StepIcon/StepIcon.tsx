@@ -1,10 +1,13 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepIcon/StepIcon.js
-import React, { ReactNode, forwardRef } from 'react';
+import type { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import { default as SvgIcon, SvgIconProps } from '../SvgIcon';
+import type { SvgIconProps } from '../SvgIcon';
+import { default as SvgIcon } from '../SvgIcon';
 import { AlertThick, CheckThick } from '../internal';
 import makeStyles from '../makeStyles';
-import { StandardProps, useMergeClasses } from '../utils';
+import type { StandardProps } from '../utils';
+import { useMergeClasses } from '../utils';
 
 export type StepIconClassKey =
   | 'root'

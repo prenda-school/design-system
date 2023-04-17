@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/lab/TabList';
-export {
+export type {
   /** @deprecated */
   TabListClassKey,
   /** @deprecated */

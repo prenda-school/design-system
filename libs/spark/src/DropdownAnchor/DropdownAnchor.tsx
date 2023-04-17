@@ -1,8 +1,11 @@
-import React, { ElementType, forwardRef } from 'react';
-import { default as Button, ButtonTypeMap } from '../Button';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { ButtonTypeMap } from '../Button';
+import { default as Button } from '../Button';
 import { useDropdownContext } from '../DropdownContext';
-import { OverridableComponent, OverrideProps } from '../utils';
-import withStyles, { Styles } from '../withStyles';
+import type { OverridableComponent, OverrideProps } from '../utils';
+import type { Styles } from '../withStyles';
+import withStyles from '../withStyles';
 
 /** @deprecated */
 export type DropdownAnchorProps<

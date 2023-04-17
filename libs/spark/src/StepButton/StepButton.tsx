@@ -1,17 +1,13 @@
 // Original credit to MUI. https://github.com/mui-org/material-ui/blob/c545ccab7edfdf4a44d4ec2f4bf10ebc7fd00259/packages/material-ui/src/StepButton/StepButton.js
-import React, {
-  cloneElement,
-  ElementType,
-  forwardRef,
-  isValidElement,
-  ReactNode,
-} from 'react';
+import type { ElementType, ReactNode } from 'react';
+import React, { cloneElement, forwardRef, isValidElement } from 'react';
 import clsx from 'clsx';
 import ButtonBase from '../ButtonBase';
 import StepLabel from '../StepLabel';
 import type { Orientation } from '../Stepper';
 import makeStyles from '../makeStyles';
-import { OverridableComponent, useMergeClasses } from '../utils';
+import type { OverridableComponent } from '../utils';
+import { useMergeClasses } from '../utils';
 
 export type StepButtonClassKey = 'root' | 'horizontal' | 'vertical';
 

@@ -1,8 +1,10 @@
-import ListSubheader, {
+import type {
   ListSubheaderClassKey,
   ListSubheaderProps,
 } from '../ListSubheader';
-import withStyles, { Styles } from '../../withStyles';
+import ListSubheader from '../ListSubheader';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import { buildVariant } from '../theme/typography';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

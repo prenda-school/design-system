@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { FormControlProperties } from '../useFormControl';
+import type { FormControlProperties } from '../useFormControl';
 
 /** internal */
 // eslint-disable-next-line @typescript-eslint/no-empty-interface

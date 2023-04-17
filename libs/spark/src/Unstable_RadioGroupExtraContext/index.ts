@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/RadioGroupExtraContext` */
   default,
 } from '../alpha/RadioGroupExtraContext';
-export {
+export type {
   /** @deprecated */
   RadioGroupExtraContextValue as Unstable_RadioGroupExtraContextValue,
 } from '../alpha/RadioGroupExtraContext';

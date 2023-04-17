@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Divider` */
   default,
 } from '../alpha/Divider';
-export {
+export type {
   /** @deprecated */
   DividerClassKey as Unstable_DividerClassKey,
   /** @deprecated */

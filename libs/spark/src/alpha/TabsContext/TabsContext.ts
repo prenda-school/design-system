@@ -1,5 +1,6 @@
-import { TabContextValue as MuiTabContextValue } from '@material-ui/lab/TabContext';
-import { createContext, SyntheticEvent } from 'react';
+import type { TabContextValue as MuiTabContextValue } from '@material-ui/lab/TabContext';
+import type { SyntheticEvent } from 'react';
+import { createContext } from 'react';
 
 type Value = string | false;
 

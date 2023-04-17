@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SectionMessage` */
   default,
 } from '../alpha/SectionMessage';
-export {
+export type {
   /** @deprecated */
   SectionMessageClassKey as Unstable_SectionMessageClassKey,
   /** @deprecated */

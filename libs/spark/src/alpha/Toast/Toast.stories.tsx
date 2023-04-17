@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Toast, ToastProps } from '..';
+import type { ToastProps } from '..';
+import { Toast } from '..';
 import { Email } from '../../../stories';
 
 export default {

@@ -1,5 +1,6 @@
-import React, { CSSProperties } from 'react';
-import { Meta, Story } from '@storybook/react/types-6-0';
+import type { CSSProperties } from 'react';
+import React from 'react';
+import type { Meta, Story } from '@storybook/react/types-6-0';
 import {
   AvatarButton,
   Button,

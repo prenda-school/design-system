@@ -1,12 +1,14 @@
-import React, { ElementType, forwardRef } from 'react';
-import MuiFormLabel, {
-  FormLabelProps as MuiFormLabelProps,
-} from '@material-ui/core/FormLabel';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { FormLabelProps as MuiFormLabelProps } from '@material-ui/core/FormLabel';
+import MuiFormLabel from '@material-ui/core/FormLabel';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import clsx from 'clsx';
 import { buildVariant } from '../theme/typography';
-import useFormControl, { FormControlProperties } from '../useFormControl';
+import type { FormControlProperties } from '../useFormControl';
+import useFormControl from '../useFormControl';
 
 export interface FormLabelTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

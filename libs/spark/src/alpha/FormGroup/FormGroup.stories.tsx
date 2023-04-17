@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Checkbox, FormControlLabel, FormGroup, FormGroupProps } from '..';
+import type { FormGroupProps } from '..';
+import { Checkbox, FormControlLabel, FormGroup } from '..';
 import { containBoxShadow, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = FormGroup as typeof FormGroup;

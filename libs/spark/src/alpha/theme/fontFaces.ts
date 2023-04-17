@@ -1,4 +1,4 @@
-import * as CSS from 'csstype';
+import type * as CSS from 'csstype';
 
 /**
  * A small, internal utility to generate a standard `src` property value for `@font-face` declarations.

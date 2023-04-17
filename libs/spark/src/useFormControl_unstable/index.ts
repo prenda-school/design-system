@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/useFormControl` */
   default,
 } from '../alpha/useFormControl';
-export {
+export type {
   /** @deprecated */
   UseFormControlParams as UseFormControl_UnstableParams,
   /** @deprecated */

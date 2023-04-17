@@ -1,14 +1,18 @@
 import React, { forwardRef } from 'react';
-import MuiMenu, {
+import type {
   MenuProps as MuiMenuProps,
   MenuClassKey as MuiMenuClassKey,
 } from '@material-ui/core/Menu';
+import MuiMenu from '@material-ui/core/Menu';
 import ListSubheader from '../ListSubheader';
-import { ListProps } from '../List';
-import { StandardProps, useId } from '../../utils';
-import { PaperProps, usePaperStyles } from '../Paper';
+import type { ListProps } from '../List';
+import type { StandardProps } from '../../utils';
+import { useId } from '../../utils';
+import type { PaperProps } from '../Paper';
+import { usePaperStyles } from '../Paper';
 import clsx from 'clsx';
-import withStyles, { Styles } from '../../withStyles';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MenuProps

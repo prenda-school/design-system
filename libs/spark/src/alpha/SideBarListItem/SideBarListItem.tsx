@@ -1,15 +1,18 @@
 import { alpha } from '@material-ui/core/styles';
-import React, { ElementType, forwardRef } from 'react';
-import ListItem, {
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type {
   ListItemClassKey,
   ListItemProps,
   ListItemTypeMap,
 } from '../ListItem';
+import ListItem from '../ListItem';
 import useMediaQuery from '../useMediaQuery';
 import useSideBar from '../useSideBar';
-import withStyles, { Styles } from '../../withStyles';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import { ExtendButtonBase } from '../../ButtonBase';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { ExtendButtonBase } from '../../ButtonBase';
 
 export type SideBarListItemTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

@@ -1,11 +1,11 @@
-import React, { forwardRef, Ref } from 'react';
+import type { Ref } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiCheckbox,
-  CheckboxProps as MuiCheckboxProps,
-} from '@material-ui/core/Checkbox';
+import type { CheckboxProps as MuiCheckboxProps } from '@material-ui/core/Checkbox';
+import { default as MuiCheckbox } from '@material-ui/core/Checkbox';
 import CheckboxIcon from './CheckboxIcon';
-import withStyles, { StyledComponentProps } from '../../withStyles';
+import type { StyledComponentProps } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface CheckboxProps
   extends Omit<

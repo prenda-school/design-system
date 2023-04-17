@@ -1,9 +1,10 @@
-import React, { ReactElement, forwardRef } from 'react';
-import {
-  default as MuiStep,
+import type { ReactElement } from 'react';
+import React, { forwardRef } from 'react';
+import type {
   StepClasskey as MuiStepClassKey,
   StepProps as MuiStepProps,
 } from '@material-ui/core/Step';
+import { default as MuiStep } from '@material-ui/core/Step';
 import StepConnector from '../StepConnector';
 import type { Orientation } from '../Stepper';
 import makeStyles from '../makeStyles';

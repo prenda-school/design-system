@@ -1,19 +1,13 @@
 import MuiTabContext from '@material-ui/lab/TabContext';
 import clsx from 'clsx';
-import React, {
-  ElementType,
-  forwardRef,
-  SyntheticEvent,
-  useCallback,
-  useMemo,
-} from 'react';
-import {
-  OverridableComponent,
-  OverrideProps,
-  useControlled,
-} from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
-import TabsContext, { TabsContextValue } from '../TabsContext';
+import type { ElementType, SyntheticEvent } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import { useControlled } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
+import type { TabsContextValue } from '../TabsContext';
+import TabsContext from '../TabsContext';
 
 export interface TabsTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

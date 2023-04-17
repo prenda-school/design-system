@@ -1,5 +1,5 @@
-import { CSSProperties, Ref } from 'react';
-import { StyledComponentProps } from '../withStyles';
+import type { CSSProperties, Ref } from 'react';
+import type { StyledComponentProps } from '../withStyles';
 
 /**
  * All standard components exposed by `material-ui` are `StyledComponents` with

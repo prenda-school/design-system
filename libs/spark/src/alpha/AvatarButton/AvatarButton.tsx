@@ -1,11 +1,12 @@
-import React, { ElementType, forwardRef } from 'react';
-import {
-  default as ButtonBase,
-  ExtendButtonBaseTypeMap,
-} from '@material-ui/core/ButtonBase';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import Avatar, { AvatarProps } from '../Avatar';
-import withStyles, { Styles } from '../../withStyles';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { ExtendButtonBaseTypeMap } from '@material-ui/core/ButtonBase';
+import { default as ButtonBase } from '@material-ui/core/ButtonBase';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { AvatarProps } from '../Avatar';
+import Avatar from '../Avatar';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 type _AvatarButtonTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

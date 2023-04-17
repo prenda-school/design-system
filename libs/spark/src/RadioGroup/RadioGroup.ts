@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/RadioGroup';
-export {
+export type {
   /** @deprecated */
   RadioGroupClassKey,
   /** @deprecated */

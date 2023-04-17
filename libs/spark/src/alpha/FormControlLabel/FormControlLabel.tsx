@@ -1,12 +1,11 @@
 import React, { cloneElement, forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiFormControlLabel,
-  FormControlLabelProps as MuiFormControlLabelProps,
-} from '@material-ui/core/FormControlLabel';
+import type { FormControlLabelProps as MuiFormControlLabelProps } from '@material-ui/core/FormControlLabel';
+import { default as MuiFormControlLabel } from '@material-ui/core/FormControlLabel';
 import { formControlState } from '../FormControl';
 import useFormControl from '../useFormControl';
-import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
+import type { StyledComponentProps, Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface FormControlLabelProps
   extends Omit<MuiFormControlLabelProps, 'classes'>,

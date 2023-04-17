@@ -1,9 +1,12 @@
 import clsx from 'clsx';
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
 import { buildVariant } from '../theme/typography';
-import useFormControl, { FormControlProperties } from '../useFormControl';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { FormControlProperties } from '../useFormControl';
+import useFormControl from '../useFormControl';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface InputAdornmentTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

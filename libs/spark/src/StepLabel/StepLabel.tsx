@@ -1,10 +1,11 @@
 import React, { forwardRef } from 'react';
-import {
-  default as MuiStepLabel,
+import type {
   StepLabelClasskey as StepLabelClassKey,
   StepLabelProps as MuiStepLabelProps,
 } from '@material-ui/core/StepLabel';
-import { default as StepIcon, StepIconProps } from '../StepIcon';
+import { default as MuiStepLabel } from '@material-ui/core/StepLabel';
+import type { StepIconProps } from '../StepIcon';
+import { default as StepIcon } from '../StepIcon';
 import makeStyles from '../makeStyles';
 import { useMergeClasses } from '../utils';
 

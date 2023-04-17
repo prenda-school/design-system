@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Switch` */
   default,
 } from '../alpha/Switch';
-export {
+export type {
   /** @deprecated */
   SwitchClassKey as Unstable_SwitchClassKey,
   /** @deprecated */

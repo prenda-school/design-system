@@ -1,4 +1,4 @@
-import { ComponentsProps } from '@material-ui/core/styles/props';
+import type { ComponentsProps } from '@material-ui/core/styles/props';
 import { MuiAutocompleteDefaultProps } from '../Autocomplete/defaults';
 import { MuiAlertDefaultProps } from '../Alert/defaults';
 import { MuiButtonDefaultProps } from '../Button/defaults';

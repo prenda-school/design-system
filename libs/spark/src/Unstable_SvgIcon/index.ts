@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SvgIcon` */
   default,
 } from '../alpha/SvgIcon';
-export {
+export type {
   /** @deprecated */
   SvgIconClassKey as Unstable_SvgIconClassKey,
   /** @deprecated */

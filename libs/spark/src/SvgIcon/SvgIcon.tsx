@@ -1,16 +1,11 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiSvgIcon,
-  SvgIconProps as MuiSvgIconProps,
-} from '@material-ui/core/SvgIcon';
+import type { SvgIconProps as MuiSvgIconProps } from '@material-ui/core/SvgIcon';
+import { default as MuiSvgIcon } from '@material-ui/core/SvgIcon';
 import makeStyles from '../makeStyles';
-import {
-  capitalize,
-  OverridableComponent,
-  OverrideProps,
-  useMergeClasses,
-} from '../utils';
+import type { OverridableComponent, OverrideProps } from '../utils';
+import { capitalize, useMergeClasses } from '../utils';
 
 /** @deprecated */
 export type SvgIconClassKey =

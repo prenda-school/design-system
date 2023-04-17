@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/TopBar` */
   default,
 } from '../alpha/TopBar';
-export {
+export type {
   /** @deprecated */
   TopBarClassKey as TopBarClassKey_unstable,
   /** @deprecated */

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Typography, TypographyProps } from '..';
+import type { TypographyProps } from '..';
+import { Typography } from '..';
 import { inverseBackground, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = Typography as typeof Typography;

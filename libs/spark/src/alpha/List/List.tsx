@@ -1,8 +1,12 @@
-import React, { ElementType, forwardRef, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import ListSubheader, { ListSubheaderProps } from '../ListSubheader';
-import { OverridableComponent, OverrideProps, useId } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { ListSubheaderProps } from '../ListSubheader';
+import ListSubheader from '../ListSubheader';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import { useId } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ListTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

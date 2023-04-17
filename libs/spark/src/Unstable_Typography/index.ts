@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Typography` */
   default,
 } from '../alpha/Typography';
-export {
+export type {
   /** @deprecated */
   TypographyClassKey as Unstable_TypographyClassKey,
   /** @deprecated */

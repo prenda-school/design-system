@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Drawer` */
   default,
 } from '../alpha/Drawer';
-export {
+export type {
   /** @deprecated */
   DrawerClassKey as DrawerClassKey_unstable,
   /** @deprecated */

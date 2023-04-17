@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Avatar, MenuItem, MenuItemProps } from '..';
+import type { MenuItemProps } from '..';
+import { Avatar, MenuItem } from '..';
 import { containBoxShadow, enableHooks, statefulValue } from '../../../stories';
 import { default as ListItemMeta } from '../ListItem/ListItem.stories';
 

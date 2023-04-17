@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/InputLabel';
-export {
+export type {
   /** @deprecated */
   InputLabelClassKey,
   /** @deprecated */

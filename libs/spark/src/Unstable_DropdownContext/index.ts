@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '../alpha/DropdownContext';
-export {
+export type {
   /** @deprecated */
   DropdownContextValue as Unstable_DropdownContextValue,
 } from '../alpha/DropdownContext';

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Checkbox, FormControlLabel, FormControlLabelProps, Radio } from '..';
+import type { FormControlLabelProps } from '..';
+import { Checkbox, FormControlLabel, Radio } from '..';
 import { containBoxShadowInline, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = FormControlLabel as typeof FormControlLabel;

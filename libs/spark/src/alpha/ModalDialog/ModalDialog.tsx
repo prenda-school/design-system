@@ -1,13 +1,16 @@
-import MuiDialog, {
-  DialogProps as MuiDialogProps,
-} from '@material-ui/core/Dialog';
-import React, { ComponentType, forwardRef } from 'react';
+import type { DialogProps as MuiDialogProps } from '@material-ui/core/Dialog';
+import MuiDialog from '@material-ui/core/Dialog';
+import type { ComponentType } from 'react';
+import React, { forwardRef } from 'react';
 import { Cross } from '../../internal';
-import IconButton, { IconButtonProps } from '../IconButton';
-import Paper, { PaperProps } from '../Paper';
-import withStyles, { Styles } from '../../withStyles';
-import { StandardProps } from '../../utils';
-import { ModalProps } from '../Modal';
+import type { IconButtonProps } from '../IconButton';
+import IconButton from '../IconButton';
+import type { PaperProps } from '../Paper';
+import Paper from '../Paper';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
+import type { StandardProps } from '../../utils';
+import type { ModalProps } from '../Modal';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ModalDialogProps

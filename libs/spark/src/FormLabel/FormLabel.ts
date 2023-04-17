@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/FormLabel';
-export {
+export type {
   /** @deprecated */
   FormLabelBaseProps,
   /** @deprecated */

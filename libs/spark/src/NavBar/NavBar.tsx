@@ -1,5 +1,6 @@
 import React from 'react';
-import { default as AppBar, AppBarProps } from '@material-ui/core/AppBar';
+import type { AppBarProps } from '@material-ui/core/AppBar';
+import { default as AppBar } from '@material-ui/core/AppBar';
 import withStyles from '../withStyles';
 
 /** @deprecated */

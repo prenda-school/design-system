@@ -1,8 +1,11 @@
 import clsx from 'clsx';
-import React, { forwardRef, HTMLAttributes, ReactNode } from 'react';
-import Typography, { TypographyProps } from '../Typography';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { HTMLAttributes, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
+import type { TypographyProps } from '../Typography';
+import Typography from '../Typography';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface ModalDialogTitleProps
   extends StandardProps<

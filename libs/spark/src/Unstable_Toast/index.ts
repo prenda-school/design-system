@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Toast` */
   default,
 } from '../alpha/Toast';
-export {
+export type {
   /** @deprecated */
   ToastClassKey as Unstable_ToastClassKey,
   /** @deprecated */

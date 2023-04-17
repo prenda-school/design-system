@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/FormHelperText` */
   default,
 } from '../alpha/FormHelperText';
-export {
+export type {
   /** @deprecated */
   FormHelperTextClassKey as Unstable_FormHelperTextClassKey,
   /** @deprecated */

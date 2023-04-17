@@ -1,8 +1,10 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import Alert, { AlertClassKey, AlertProps } from '../internal/Alert';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { AlertClassKey, AlertProps } from '../internal/Alert';
+import Alert from '../internal/Alert';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ToastProps extends StandardProps<AlertProps, ToastClassKey> {}

@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SideBarList` */
   default,
 } from '../alpha/SideBarList';
-export {
+export type {
   /** @deprecated */
   SideBarListClassKey as SideBarListClassKey_unstable,
   /** @deprecated */

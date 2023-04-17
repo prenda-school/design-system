@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { ModalDialogContentText, ModalDialogContentTextProps } from '..';
+import type { ModalDialogContentTextProps } from '..';
+import { ModalDialogContentText } from '..';
 
 export const _retyped = ModalDialogContentText as typeof ModalDialogContentText;
 

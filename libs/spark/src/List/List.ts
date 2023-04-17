@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/List';
-export {
+export type {
   /** @deprecated */
   ListClassKey,
   /** @deprecated */

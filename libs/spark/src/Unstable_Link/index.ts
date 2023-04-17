@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Link` */
   default,
 } from '../alpha/Link';
-export {
+export type {
   /** @deprecated */
   LinkClassKey as Unstable_LinkClassKey,
   /** @deprecated */

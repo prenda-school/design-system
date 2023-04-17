@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { Paper, PaperProps } from '..';
+import type { PaperProps } from '..';
+import { Paper } from '..';
 import { containElevation } from '../../../stories';
 
 export const _retyped = (props: PaperProps) => <Paper {...props} />;

@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { DecoratorFn } from '@storybook/react';
-import { Divider, DividerProps } from '..';
+import type { DecoratorFn } from '@storybook/react';
+import type { DividerProps } from '..';
+import { Divider } from '..';
 
 export const _retyped = Divider as typeof Divider;
 

@@ -1,13 +1,14 @@
-import React, { forwardRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiInputBase,
-  InputBaseProps as MuiInputBaseProps,
-} from '@material-ui/core/InputBase';
+import type { InputBaseProps as MuiInputBaseProps } from '@material-ui/core/InputBase';
+import { default as MuiInputBase } from '@material-ui/core/InputBase';
 import InputAdornment from '../InputAdornment';
-import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
+import type { StyledComponentProps, Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 import { buildVariant } from '../theme/typography';
-import useFormControl, { FormControlProperties } from '../useFormControl';
+import type { FormControlProperties } from '../useFormControl';
+import useFormControl from '../useFormControl';
 
 export interface InputProps
   extends Omit<

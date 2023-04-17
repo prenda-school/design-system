@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { FormLabel, FormLabelProps } from '..';
+import type { FormLabelProps } from '..';
+import { FormLabel } from '..';
 import { sparkThemeProvider } from '../../../stories';
 
 export const _retyped = FormLabel as typeof FormLabel;

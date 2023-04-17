@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Button';
-export {
+export type {
   /** @deprecated */
   ButtonClassKey,
   /** @deprecated */

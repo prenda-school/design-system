@@ -1,9 +1,7 @@
 import { useContext } from 'react';
 import FormControlExtraContext from '../FormControlExtraContext';
-import {
-  DEFAULT_FORM_CONTROL_API_VALUES,
-  FormControlProperties,
-} from '../useFormControl';
+import type { FormControlProperties } from '../useFormControl';
+import { DEFAULT_FORM_CONTROL_API_VALUES } from '../useFormControl';
 
 /** internal */
 export type UseFormControlExtraParams = Partial<

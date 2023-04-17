@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/FormHelperText';
-export {
+export type {
   /** @deprecated */
   FormHelperTextClassKey,
   /** @deprecated */

@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import {
-  default as MuiStepper,
+import type {
   Orientation,
   StepperClasskey as StepperClassKey,
   StepperProps,
 } from '@material-ui/core/Stepper';
+import { default as MuiStepper } from '@material-ui/core/Stepper';
 import StepConnector from '../StepConnector';
 import makeStyles from '../makeStyles';
 import { useMergeClasses } from '../utils';

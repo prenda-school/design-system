@@ -1,11 +1,11 @@
-import {
-  default as MuiLinearProgress,
-  LinearProgressProps as MuiLinearProgressProps,
-} from '@material-ui/core/LinearProgress';
+import type { LinearProgressProps as MuiLinearProgressProps } from '@material-ui/core/LinearProgress';
+import { default as MuiLinearProgress } from '@material-ui/core/LinearProgress';
 import clsx from 'clsx';
-import React, { forwardRef, isValidElement, ReactNode } from 'react';
-import { StandardProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { ReactNode } from 'react';
+import React, { forwardRef, isValidElement } from 'react';
+import type { StandardProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface LinearProgressProps
   extends StandardProps<

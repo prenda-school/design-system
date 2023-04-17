@@ -1,12 +1,12 @@
-import React, { ElementType, forwardRef } from 'react';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import {
-  default as MuiTypography,
-  TypographyProps as MuiTypographyProps,
-} from '@material-ui/core/Typography';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import { TypographyVariant } from '../theme/typography';
-import withStyles, { Styles } from '../../withStyles';
+import type { TypographyProps as MuiTypographyProps } from '@material-ui/core/Typography';
+import { default as MuiTypography } from '@material-ui/core/Typography';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { TypographyVariant } from '../theme/typography';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface TypographyTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

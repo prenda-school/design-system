@@ -1,6 +1,7 @@
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import React from 'react';
-import { Tab, TabProps, Tabs, TabsProps } from '..';
+import type { TabProps, TabsProps } from '..';
+import { Tab, Tabs } from '..';
 import { containBoxShadowInline, sparkThemeProvider } from '../../../stories';
 
 export const _retyped = Tab as typeof Tab;

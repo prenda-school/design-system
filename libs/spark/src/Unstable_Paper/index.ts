@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/Paper` */
   default,
 } from '../alpha/Paper';
-export {
+export type {
   /** @deprecated */
   PaperClassKey as Unstable_PaperClassKey,
   /** @deprecated */

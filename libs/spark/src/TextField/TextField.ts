@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/TextField';
-export {
+export type {
   /** @deprecated */
   BaseTextFieldProps,
   /** @deprecated */

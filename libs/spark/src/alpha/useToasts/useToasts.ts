@@ -1,10 +1,8 @@
-import {
-  OptionsObject as NotistackOptionsObject,
-  useSnackbar as useNotistackSnackbar,
-} from 'notistack';
+import type { OptionsObject as NotistackOptionsObject } from 'notistack';
+import { useSnackbar as useNotistackSnackbar } from 'notistack';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { ToastsContextValue } from '../ToastsContext';
-import { _Enqueue } from '../ToastsContext/ToastsContext';
+import type { ToastsContextValue } from '../ToastsContext';
+import type { _Enqueue } from '../ToastsContext/ToastsContext';
 
 const useToasts = (): ToastsContextValue => {
   const _notistackSnackbar = useNotistackSnackbar();

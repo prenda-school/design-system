@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { CheckboxMenuItem, CheckboxMenuItemProps } from '..';
+import type { CheckboxMenuItemProps } from '..';
+import { CheckboxMenuItem } from '..';
 import { containBoxShadow, enableHooks, statefulValue } from '../../../stories';
 import { default as CheckboxListItemMeta } from '../CheckboxListItem/CheckboxListItem.stories';
 

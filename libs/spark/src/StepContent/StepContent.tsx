@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import {
-  default as MuiStepContent,
+import type {
   StepContentClasskey as StepContentClassKey,
   StepContentProps,
 } from '@material-ui/core/StepContent';
+import { default as MuiStepContent } from '@material-ui/core/StepContent';
 import makeStyles from '../makeStyles';
 import { useMergeClasses } from '../utils';
 

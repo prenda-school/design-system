@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/ListSubheader';
-export {
+export type {
   /** @deprecated */
   ListSubheaderClassKey,
   /** @deprecated */

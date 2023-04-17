@@ -2,7 +2,7 @@ export {
   /** @deprecated `alpha/Autocomplete` */
   default,
 } from '../alpha/Autocomplete';
-export {
+export type {
   /** @deprecated */
   AutocompleteClassKey as Unstable_AutocompleteClassKey,
   /** @deprecated */

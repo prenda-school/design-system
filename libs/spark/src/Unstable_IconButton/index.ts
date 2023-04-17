@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/IconButton` */
   default,
 } from '../alpha/IconButton';
-export {
+export type {
   /** @deprecated */
   IconButtonClassKey as Unstable_IconButtonClassKey,
   /** @deprecated */

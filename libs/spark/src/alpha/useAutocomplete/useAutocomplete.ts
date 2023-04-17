@@ -1,5 +1,4 @@
-import useAutocomplete_mui, {
-  createFilterOptions as createFilterOptions_mui,
+import type {
   UseAutocompleteProps as UseAutocompleteProps_mui,
   UseAutocompleteResultGetClearProps as UseAutocompleteResultGetClearProps_mui,
   UseAutocompleteResultGetInputLabelProps as UseAutocompleteResultGetInputLabelProps_mui,
@@ -11,7 +10,10 @@ import useAutocomplete_mui, {
   UseAutocompleteResultGetTagProps as UseAutocompleteResultGetTagProps_mui,
   Value as Value_mui,
 } from '@material-ui/lab/useAutocomplete';
-import { HTMLAttributes } from 'react';
+import useAutocomplete_mui, {
+  createFilterOptions as createFilterOptions_mui,
+} from '@material-ui/lab/useAutocomplete';
+import type { HTMLAttributes } from 'react';
 
 export const createFilterOptions = createFilterOptions_mui;
 

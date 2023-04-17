@@ -1,10 +1,14 @@
-import React, { forwardRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import clsx from 'clsx';
-import FormControlLabel, { FormControlLabelProps } from '../FormControlLabel';
-import FormHelperText, { FormHelperTextProps } from '../FormHelperText';
+import type { FormControlLabelProps } from '../FormControlLabel';
+import FormControlLabel from '../FormControlLabel';
+import type { FormHelperTextProps } from '../FormHelperText';
+import FormHelperText from '../FormHelperText';
 import Checkbox from '../Checkbox';
 import { useId } from '../../utils';
-import withStyles, { StyledComponentProps, Styles } from '../../withStyles';
+import type { StyledComponentProps, Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface CheckboxFieldProps
   extends Omit<FormControlLabelProps, 'classes' | 'control'>,

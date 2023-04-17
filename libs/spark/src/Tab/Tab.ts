@@ -2,7 +2,7 @@ export {
   /** @deprecated */
   default,
 } from '@material-ui/core/Tab';
-export {
+export type {
   /** @deprecated */
   TabClassKey,
   /** @deprecated */

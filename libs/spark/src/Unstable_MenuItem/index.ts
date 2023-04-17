@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/MenuItem` */
   default,
 } from '../alpha/MenuItem';
-export {
+export type {
   /** @deprecated */
   MenuItemClassKey as Unstable_MenuItemClassKey,
   /** @deprecated */

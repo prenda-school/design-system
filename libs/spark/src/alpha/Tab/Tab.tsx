@@ -1,10 +1,13 @@
-import MuiTab, { TabProps as MuiTabProps } from '@material-ui/core/Tab';
+import type { TabProps as MuiTabProps } from '@material-ui/core/Tab';
+import MuiTab from '@material-ui/core/Tab';
 import clsx from 'clsx';
-import React, { ElementType, forwardRef } from 'react';
-import { ButtonBaseTypeMap } from '../../ButtonBase';
+import type { ElementType } from 'react';
+import React, { forwardRef } from 'react';
+import type { ButtonBaseTypeMap } from '../../ButtonBase';
 import useTabs from '../useTabs';
-import { OverridableComponent, OverrideProps } from '../../utils';
-import withStyles, { Styles } from '../../withStyles';
+import type { OverridableComponent, OverrideProps } from '../../utils';
+import type { Styles } from '../../withStyles';
+import withStyles from '../../withStyles';
 
 export interface TabTypeMap<
   // eslint-disable-next-line @typescript-eslint/ban-types

@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/ModalDialogTitle` */
   default,
 } from '../alpha/ModalDialogTitle';
-export {
+export type {
   /** @deprecated */
   ModalDialogTitleClassKey as Unstable_ModalDialogTitleClassKey,
   /** @deprecated */

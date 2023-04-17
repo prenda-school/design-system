@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/MenuList` */
   default,
 } from '../alpha/MenuList';
-export {
+export type {
   /** @deprecated */
   MenuListClassKey as Unstable_MenuListClassKey,
   /** @deprecated */

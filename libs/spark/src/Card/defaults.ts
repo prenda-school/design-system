@@ -1,5 +1,5 @@
-import { CardClassKey, CardProps } from './Card';
-import { StyleRules } from '../withStyles';
+import type { CardClassKey, CardProps } from './Card';
+import type { StyleRules } from '../withStyles';
 
 export const MuiCardDefaultProps: Partial<CardProps> = {
   elevation: 2, // E200

@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
-import { CheckboxField, CheckboxGroupField, CheckboxGroupFieldProps } from '..';
+import type { CheckboxGroupFieldProps } from '..';
+import { CheckboxField, CheckboxGroupField } from '..';
 import { containBoxShadow, Info } from '../../../stories';
 
 export const _retyped = CheckboxGroupField as typeof CheckboxGroupField;

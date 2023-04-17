@@ -1,13 +1,16 @@
-import Paper, { PaperProps } from '@material-ui/core/Paper';
+import type { PaperProps } from '@material-ui/core/Paper';
+import Paper from '@material-ui/core/Paper';
 import clsx from 'clsx';
-import React, { forwardRef, ReactNode, SyntheticEvent } from 'react';
+import type { ReactNode, SyntheticEvent } from 'react';
+import React, { forwardRef } from 'react';
 import AlertTriangle from './AlertTriangle';
 import AlertOctagon from './AlertOctagon';
 import CheckCircle2 from './CheckCircle2';
 import Cross from './Cross';
 import Info from './Info';
-import IconButton, { IconButtonProps } from '../IconButton';
-import { StandardProps } from '../../utils';
+import type { IconButtonProps } from '../IconButton';
+import IconButton from '../IconButton';
+import type { StandardProps } from '../../utils';
 import withStyles from '../../withStyles';
 
 export interface AlertProps

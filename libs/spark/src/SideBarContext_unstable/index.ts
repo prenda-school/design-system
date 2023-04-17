@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/SideBarContext` */
   default,
 } from '../alpha/SideBarContext';
-export {
+export type {
   /** @deprecated */
   SideBarContextValue as SideBarContextValue_unstable,
 } from '../alpha/SideBarContext';

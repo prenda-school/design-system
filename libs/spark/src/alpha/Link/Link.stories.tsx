@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story as DefaultStory } from '@storybook/react/types-6-0';
 import { theme } from '../..';
-import { Link, LinkProps } from '..';
+import type { LinkProps } from '..';
+import { Link } from '..';
 import {
   containBoxShadowInline,
   inverseBackground,

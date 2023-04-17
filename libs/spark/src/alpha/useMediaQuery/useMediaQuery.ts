@@ -1,4 +1,5 @@
-import useMuiMediaQuery, { Options } from '@material-ui/core/useMediaQuery';
+import type { Options } from '@material-ui/core/useMediaQuery';
+import useMuiMediaQuery from '@material-ui/core/useMediaQuery';
 import type { Theme } from '../../theme';
 import useTheme from '../useTheme';
 

@@ -2,7 +2,7 @@ export {
   /** @deprecated use `alpha/FormControl` */
   default,
 } from '../alpha/FormControl';
-export {
+export type {
   /** @deprecated */
   FormControlClassKey as Unstable_FormControlClassKey,
   /** @deprecated */

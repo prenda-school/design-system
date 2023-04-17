@@ -1,6 +1,6 @@
-import { TransitionProps } from '@material-ui/core/transitions';
-import { ButtonProps } from '../Button';
-import { IconButtonProps } from '../IconButton';
+import type { TransitionProps } from '@material-ui/core/transitions';
+import type { ButtonProps } from '../Button';
+import type { IconButtonProps } from '../IconButton';
 import useSideBar from '../useSideBar';
 import { useMediaQuery } from '..';
 import { useEffect } from 'react';

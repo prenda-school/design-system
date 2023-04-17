@@ -1,10 +1,5 @@
-import React, {
-  MouseEvent,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react';
+import type { MouseEvent, ReactNode } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import DropdownContext from '../DropdownContext/DropdownContext';
 import { useUniqueId } from '../../utils';
 
