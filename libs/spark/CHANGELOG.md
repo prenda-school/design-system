@@ -4,6 +4,8 @@
 
 API surface:
 
+- **Breadcrumbs**
+  - [DEPRECATED] use **alpha/Breadcrumbs**
 - **alpha/Breadcrumb**
   - [feat] initial implementation
 - **alpha/Breadcrumbs**

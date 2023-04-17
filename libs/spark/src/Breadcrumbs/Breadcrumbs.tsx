@@ -9,7 +9,14 @@ import makeStyles from '../makeStyles';
 import { OverridableComponent, useMergeClasses } from '../utils';
 import { ChevronRight } from '../internal';
 
-export type { BreadcrumbsClassKey, BreadcrumbsProps, BreadcrumbsTypeMap };
+export type {
+  /** @deprecated */
+  BreadcrumbsClassKey,
+  /** @deprecated */
+  BreadcrumbsProps,
+  /** @deprecated */
+  BreadcrumbsTypeMap,
+};
 
 const useStyles = makeStyles<BreadcrumbsClassKey>(
   ({ palette }) => ({
@@ -37,6 +44,7 @@ const useStyles = makeStyles<BreadcrumbsClassKey>(
   { name: 'MuiSparkBreadcrumbs' }
 );
 
+/** @deprecated use `alpha/Breadcrumbs` */
 const Breadcrumbs: OverridableComponent<BreadcrumbsTypeMap> = forwardRef(
   function Breadcrumbs(
     { classes: classesProp, separator = <ChevronRight />, ...other },
