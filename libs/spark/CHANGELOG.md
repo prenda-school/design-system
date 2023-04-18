@@ -1,6 +1,12 @@
 # Changelog
 
-## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.17...vNext) (YYYY-MM-DD)
+## [vNext](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.18...vNext) (YYYY-MM-DD)
+
+No changes.
+
+## [v2.0.0-alpha.18](https://github.com/prenda-school/prenda-spark/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2022-04-18)
+
+- [fix] type re-exports present in "esm" build distribution
 
 API surface:
 
