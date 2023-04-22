@@ -39,7 +39,7 @@ const theme = createTheme({
   ...initialTheme,
   props,
   overrides: overrides(initialTheme),
-});
+}) as Theme;
 
 theme.unstable_borders = borders_alpha;
 theme.borders_alpha = borders_alpha;
