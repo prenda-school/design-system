@@ -21,19 +21,16 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 20.7
 
       - name: NPM clean install
         run: npm ci
 
-      - name: Lint workspace and projects
+      - name: Lint projects
         run: npm run lint
 
-      - name: Check format
+      - name: Check formatting
         run: npm run format:check
 
-      - name: Unit test project spark
-        run: npx nx run spark:test
-
-      - name: Unit test project spark-icons
-        run: npx nx run spark-icons:test
+      - name: Test projects
+        run: npm run test

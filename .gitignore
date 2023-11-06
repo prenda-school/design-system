@@ -1,12 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
+dist
+tmp
 /out-tsc
 
 # dependencies
-/node_modules
+node_modules
 
 # IDEs and editors
 /.idea
@@ -38,5 +38,4 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# @prenda/spark-icons Raw Downloads
-/libs/spark-icons/svg-files
+.nx/cache

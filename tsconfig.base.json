@@ -3,22 +3,20 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@prenda/spark": ["libs/spark/src/index.ts"],
-      "@prenda/spark-icons": ["libs/spark-icons/src/index.ts"],
-      "@prenda/spark-icons/*": ["libs/spark-icons/src/*"]
+      "@prenda/components": ["packages/components/src/index.ts"],
+      "@prenda/icons": ["packages/icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

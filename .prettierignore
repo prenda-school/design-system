@@ -1,5 +1,4 @@
-/coverage
+# Add files here to ignore them from prettier formatting
 /dist
-/libs/spark/public/fonts/**/LICENSE.(txt|md)
-/libs/spark-icons/defaults/templateSvgIcon.js
-/libs/spark-icons/src/* 
+/coverage
+/.nx/cache

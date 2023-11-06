@@ -1,4 +1,4 @@
-const nxPreset = require('@nrwl/jest/preset');
+const nxPreset = require('@nx/jest/preset').default;
 
 const setupFiles = (
   nxPreset.setupFiles === undefined ? [] : nxPreset.setupFiles
