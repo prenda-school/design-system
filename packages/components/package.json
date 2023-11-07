@@ -2,6 +2,7 @@
   "name": "@prenda/components",
   "version": "0.0.1",
   "dependencies": {
+    "@mui/material": "^5.14.17",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
