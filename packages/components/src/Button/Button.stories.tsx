@@ -12,13 +12,16 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Default = {
-  args: {},
+  args: {
+    variant: 'primary',
+    children: 'Click me!',
+  },
 };
 
 export const WithPlay: Story = {
   args: {},
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/Welcome to Button!/gi)).toBeTruthy();
+    expect(canvas.getByText(/Click me/gi)).toBeTruthy();
   },
 };

@@ -1,3 +1,5 @@
+import { Button as MuiButton } from '@mui/base/Button';
+
 export const Button = () => {
-  return <button>Click me</button>;
-}
+  return <MuiButton>Click me</MuiButton>;
+};
