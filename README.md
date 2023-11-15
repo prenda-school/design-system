@@ -31,11 +31,6 @@
 Implementations are available as installable NPM packages:
 
 - [@prenda/spark](https://www.npmjs.com/package/@prenda/spark)
-- [@prenda/spark-icons](https://www.npmjs.com/package/@prenda/spark-icons)
-
-```sh
-npm i @prenda/spark @prenda/spark-icons
-```
 
 ## Usage
 
@@ -70,7 +65,6 @@ Read the [contributing guide](/CONTRIBUTING.md) to learn about our development p
 Read the changelog of each library to address breaking changes and learn about new features and fixes.
 
 - [`@prenda/spark/CHANGELOG`](libs/spark/CHANGELOG.md)
-- [`@prenda/spark-icons/CHANGELOG`](libs/spark-icons/CHANGELOG.md)
 
 ## No license
 

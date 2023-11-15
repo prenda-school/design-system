@@ -34,6 +34,3 @@ jobs:
 
       - name: Unit test project spark
         run: npx nx run spark:test
-
-      - name: Unit test project spark-icons
-        run: npx nx run spark-icons:test

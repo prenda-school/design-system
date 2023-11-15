@@ -37,6 +37,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# @prenda/spark-icons Raw Downloads
-/libs/spark-icons/svg-files
