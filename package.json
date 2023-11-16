@@ -24,22 +24,14 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "prepare": "husky install",
-    "build:components": "rimraf ./dist/libs/spark && npm run build:components:envs && npm run build:components:copy-files && npm run build:components:types",
-    "build:components:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\" && BABEL_ENV=\"esm\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark/esm --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\" && BABEL_ENV=\"es\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark/es --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\"",
-    "build:components:types": "tsc -p ./libs/spark/tsconfig.build.json",
-    "build:components:copy-files": "node ./scripts/copy-files.js ./libs/spark ./dist/libs/spark"
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
     "@babel/runtime": "7.12.18",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/lab": "^4.0.0-alpha.60",
     "babel-plugin-react-remove-properties": "^0.3.0",
-    "clsx": "^1.1.1",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
-    "notistack": "^3.0.0-alpha.11",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "regenerator-runtime": "0.13.7",
