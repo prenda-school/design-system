@@ -81,53 +81,6 @@
         }
       },
       "tags": []
-    },
-    "spark-icons": {
-      "root": "libs/spark-icons",
-      "sourceRoot": "libs/spark-icons/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:rollup",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/spark-icons",
-            "tsConfig": "libs/spark-icons/tsconfig.lib.json",
-            "project": "libs/spark-icons/package.json",
-            "entryFile": "libs/spark-icons/src/index.ts",
-            "external": [
-              "@material-ui/core",
-              "react",
-              "react-dom",
-              "react/jsx-runtime"
-            ],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/spark-icons/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/spark-icons/**/*.{ts,tsx,js,jsx}"]
-          },
-          "outputs": ["{options.outputFile}"]
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/spark-icons"],
-          "options": {
-            "jestConfig": "libs/spark-icons/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
     }
   }
 }

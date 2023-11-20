@@ -7,7 +7,6 @@ import { create } from '@storybook/theming';
 // Hierarchy naming described here: https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy . Limitation is that slashes ("/") cannot be used in a name, so we define some shorthand-mappings here (also these are just long).
 const nameToLabel = {
   '@ps': '@prenda/spark',
-  '@psi': '@prenda/spark-icons',
 };
 
 const config: Config = {

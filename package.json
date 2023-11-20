@@ -25,11 +25,6 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "prepare": "husky install",
-    "src:icons": "UV_THREADPOOL_SIZE=64 babel-node --config-file ./scripts/babel.config.js libs/spark-icons/scripts/builder.js --output-dir libs/spark-icons/src --svg-dir libs/spark-icons/svg-files",
-    "build:icons": "rimraf ./dist/libs/spark-icons && npm run build:icons:envs && npm run build:icons:types && npm run build:icons:copy-files",
-    "build:icons:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel libs/spark-icons/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark-icons --ignore \"libs/spark-icons/src/**/*.stories.tsx\",\"libs/spark-icons/src/**/*.spec.tsx\",\"libs/spark-icons/src/**/*.test.tsx\" && BABEL_ENV=\"esm\" babel libs/spark-icons/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark-icons/esm --ignore \"libs/spark-icons/src/**/*.stories.tsx\",\"libs/spark-icons/src/**/*.spec.tsx\",\"libs/spark-icons/src/**/*.test.tsx\"",
-    "build:icons:types": "babel-node --config-file ./scripts/babel.config.js libs/spark-icons/scripts/create-typings.js",
-    "build:icons:copy-files": "node ./scripts/copy-files.js ./libs/spark-icons ./dist/libs/spark-icons",
     "build:components": "rimraf ./dist/libs/spark && npm run build:components:envs && npm run build:components:copy-files && npm run build:components:types",
     "build:components:envs": "NODE_ENV=\"production\" BABEL_ENV=\"cjs\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\" && BABEL_ENV=\"esm\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark/esm --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\" && BABEL_ENV=\"es\" babel libs/spark/src --config-file ./scripts/babel.config.js --extensions \".js,.ts,.tsx\" --out-dir ./dist/libs/spark/es --ignore \"libs/spark/src/**/*.stories.tsx\",\"libs/spark/src/**/*.spec.tsx\",\"libs/spark/src/**/*.test.tsx\"",
     "build:components:types": "tsc -p ./libs/spark/tsconfig.build.json",
@@ -102,19 +97,14 @@
     "glob": "^7.1.7",
     "husky": "^6.0.0",
     "jest": "27.2.3",
-    "mustache": "^4.2.0",
     "nx": "13.9.7",
     "path": "^0.12.7",
     "prettier": "2.8.1",
     "rimraf": "^3.0.2",
     "storybook-addon-pseudo-states": "^1.0.0",
-    "svgo": "^2.5.0",
-    "temp": "^0.9.4",
     "ts-jest": "27.0.5",
     "ts-node": "~9.1.1",
     "typescript": "4.3.5",
-    "url-loader": "^3.0.0",
-    "webpack": "^5.75.0",
-    "yargs": "^17.1.1"
+    "webpack": "^5.75.0"
   }
 }
