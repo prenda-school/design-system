@@ -21,44 +21,6 @@ jobs:
       - name: Clean install
         run: npm ci
 
-      - name: Test
-        run: npx nx run spark:test
-
       - name: Get the version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
-      - name: Build @prenda/spark
-        run: npm run build:components
-
-      - name: Publish @prenda/spark
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./dist/libs/spark/package.json
-
-      - name: Notify @prenda/spark publish success
-        if: success()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: feed-design-system
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/prenda-design-system-abstract-mark-logo.svg
-          SLACK_USERNAME: 'Action: NPM Publish'
-          MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Published
-
-      - name: Notify @prenda/spark publish failure
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: feed-design-system
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://github.com/prenda-school/prenda-spark/raw/main/public/img/prenda-design-system-abstract-mark-logo.svg
-          SLACK_USERNAME: 'Action: NPM Publish'
-          MSG_MINIMAL: true
-          SLACK_TITLE: '@prenda/spark ${{ steps.get_version.outputs.VERSION }}'
-          SLACK_MESSAGE: Failed to publish

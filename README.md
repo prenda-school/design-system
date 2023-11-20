@@ -16,8 +16,6 @@
   </p>
 
 [![Contributors](https://img.shields.io/github/contributors/prenda-school/design-system)](https://github.com/prenda-school/design-system/graphs/contributors)
-[![NPM Latest Version](https://img.shields.io/npm/v/@prenda/spark/latest)](https://www.npmjs.com/package/@prenda/spark)
-[![NPM Downloads](https://img.shields.io/npm/dm/@prenda/spark)](https://www.npmjs.com/package/@prenda/spark)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow)](https://conventionalcommits.org)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079)](https://semver.org/)
 [![Figma](https://img.shields.io/badge/-designed%20in%20Figma-f24e1e?logo=figma&logoColor=white)](https://www.figma.com/files/917908403520495571/project/20230042/Design-System?fuid=918218354701455034)
@@ -30,26 +28,12 @@
 
 Implementations are available as installable NPM packages:
 
-- [@prenda/spark](https://www.npmjs.com/package/@prenda/spark)
-
 ## Usage
 
 Here is an example to get you started.
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { SparkThemeProvider, Button } from '@prenda/spark';
 
-function App() {
-  return (
-    <SparkThemeProvider>
-      <Button>Hello World</Button>
-    </SparkThemeProvider>
-  );
-}
-
-ReactDOM.render(<App />, document.querySelector('#app'));
 ```
 
 ## Documentation
@@ -63,8 +47,6 @@ Read the [contributing guide](/CONTRIBUTING.md) to learn about our development p
 ## Updating
 
 Read the changelog of each library to address breaking changes and learn about new features and fixes.
-
-- [`@prenda/spark/CHANGELOG`](libs/spark/CHANGELOG.md)
 
 ## No license
 
