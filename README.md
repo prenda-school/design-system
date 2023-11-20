@@ -60,7 +60,6 @@ This project was generated using [Nx](https://nx.dev).
 
 Prenda Design System is designed using Figma application, but is not affiliated with Figma in any way.
 
-
 ## More on Nx
 
 ### Running tasks
