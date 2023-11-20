@@ -34,6 +34,43 @@
       "options": {
         "jestConfig": "packages/icons/jest.config.ts"
       }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "packages/icons/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/icons",
+        "configDir": "packages/icons/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "icons:build-storybook",
+        "staticFilePath": "dist/storybook/icons"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "icons:build-storybook:ci"
+        }
+      }
     }
   }
 }
