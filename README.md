@@ -38,11 +38,11 @@ Here is an example to get you started.
 
 ## Documentation
 
-The [Prenda Design System Storybook](https://www.chromatic.com/library?appId=60b7f55f55fbd4004993da4c) acts as the documentation of the implementation. Stories are arranged in a hierarchy according to their NPM package and export names. Stories take on two forms: descriptive and programmatic. Descriptive stories are capitalized and present information in exposition. Programmatic stories are lowercased, named according to progammatic combinations (like prop names and values), and present the output of the programming.
+TODO
 
 ## Contributing
 
-Read the [contributing guide](/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes.
+TODO
 
 ## Updating
 
@@ -56,6 +56,35 @@ This project is not licensed. Prenda, Inc. is the copyright holder and retains a
 
 ## About
 
-This project was generated using [Nx](https://nx.dev). This project was formerly generated using [Create React App](https://github.com/facebook/create-react-app) and [TSdx](https://tsdx.io/).
+This project was generated using [Nx](https://nx.dev).
 
 Prenda Design System is designed using Figma application, but is not affiliated with Figma in any way.
+
+
+## More on Nx
+
+### Running tasks
+
+To execute tasks with Nx use the following syntax:
+
+```
+nx <target> <project> <...options>
+```
+
+You can also run multiple targets:
+
+```
+nx run-many -t <target1> <target2>
+```
+
+..or add `-p` to filter specific projects
+
+```
+nx run-many -t <target1> <target2> -p <proj1> <proj2>
+```
+
+Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
+
+### Want better Editor Integration?
+
+Have a look at the [Nx Console extensions](https://nx.dev/nx-console). It provides autocomplete support, a UI for exploring and running tasks & generators, and more! Available for VSCode, IntelliJ and comes with a LSP for Vim users.
