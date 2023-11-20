@@ -48,6 +48,13 @@
           "buildTarget": "storybook-host:build-storybook:ci"
         }
       }
+    },
+    "compose-storybooks": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx storybook components", "nx storybook icons"],
+        "parallel": true
+      }
     }
   }
 }
