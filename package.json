@@ -8,7 +8,11 @@
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
-    "format:check": "nx format:check --all"
+    "format:check": "nx format:check --all",
+    "storybook": "npx concurrently -c \"auto\" --handle-input \"npm:storybook:pkgs\" \"npm:storybook:host\"",
+    "storybook:pkgs": "nx run storybook-host:compose-storybooks",
+    "storybook:host": "nx run storybook-host:storybook",
+    "storybook:build": "nx run-many -t build-storybook"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -43,6 +47,7 @@
     "@vitest/ui": "~0.34.6",
     "babel-jest": "^29.4.1",
     "chromatic": "^9.1.0",
+    "concurrently": "^8.2.2",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "2.27.5",
