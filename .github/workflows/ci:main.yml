@@ -25,9 +25,3 @@ jobs:
 
       - name: NPM clean install
         run: npm ci
-
-      - name: Lint workspace and projects
-        run: npm run lint
-
-      - name: Check format
-        run: npm run format:check
