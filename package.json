@@ -42,6 +42,7 @@
     "@vitejs/plugin-react": "~4.0.0",
     "@vitest/ui": "~0.34.6",
     "babel-jest": "^29.4.1",
+    "chromatic": "^9.1.0",
     "eslint": "~8.46.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "2.27.5",
