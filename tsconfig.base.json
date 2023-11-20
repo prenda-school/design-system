@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@prenda/components": ["packages/components/src/index.ts"]
+      "@prenda/components": ["packages/components/src/index.ts"],
+      "@prenda/icons": ["packages/icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
