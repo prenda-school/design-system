@@ -4,7 +4,12 @@
   "author": "Prenda, Inc.",
   "license": "UNLICENSED",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test",
+    "format:check": "nx format:check --all"
+  },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",
