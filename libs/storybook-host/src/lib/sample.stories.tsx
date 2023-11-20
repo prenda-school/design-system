@@ -9,6 +9,6 @@ const meta: Meta<typeof Sample> = {
 export default meta;
 type Story = StoryObj<typeof Sample>;
 
-export const Primary = {
+export const Primary: Story = {
   args: {},
 };
