@@ -12,7 +12,10 @@
     "storybook": "npx concurrently -c \"auto\" --handle-input \"npm:storybook:pkgs\" \"npm:storybook:host\"",
     "storybook:pkgs": "nx run storybook-host:compose-storybooks",
     "storybook:host": "nx run storybook-host:storybook",
-    "storybook:build": "nx run-many -t build-storybook"
+    "storybook:build": "nx run-many -t build-storybook",
+    "storybook:build:host": "nx run storybook-host:build-storybook",
+    "storybook:build:components": "nx run components:build-storybook",
+    "storybook:build:icons": "nx run icons:build-storybook"
   },
   "dependencies": {
     "react": "18.2.0",
