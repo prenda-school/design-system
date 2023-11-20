@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@prenda/components": ["packages/components/src/index.ts"],
+      "@prenda/icons": ["packages/icons/src/index.ts"],
+      "@prenda/storybook-host": ["libs/storybook-host/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
