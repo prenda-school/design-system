@@ -30,6 +30,44 @@
       "options": {
         "jestConfig": "packages/tokens/jest.config.ts"
       }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "packages/tokens/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/tokens",
+        "configDir": "packages/tokens/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "tokens:build-storybook",
+        "staticFilePath": "dist/storybook/tokens",
+        "spa": true
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "tokens:build-storybook:ci"
+        }
+      }
     }
   }
 }
