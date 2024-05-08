@@ -3,8 +3,12 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
-  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm'],
+  stories: ['../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-mdx-gfm',
+    '@chromatic-com/storybook',
+  ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
