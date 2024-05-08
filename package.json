@@ -15,7 +15,8 @@
     "storybook:build": "nx run-many -t build-storybook",
     "storybook:build:host": "nx run storybook-host:build-storybook",
     "storybook:build:components": "nx run components:build-storybook",
-    "storybook:build:icons": "nx run icons:build-storybook"
+    "storybook:build:icons": "nx run icons:build-storybook",
+    "prepare": "husky"
   },
   "dependencies": {
     "react": "18.2.0",
