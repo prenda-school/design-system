@@ -9,6 +9,7 @@
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
     "format:check": "nx format:check --all",
+    "format:write": "nx format:write --all",
     "storybook": "npx concurrently -c \"auto\" --handle-input \"npm:storybook:pkgs\" \"npm:storybook:host\"",
     "storybook:pkgs": "nx run storybook-host:compose-storybooks",
     "storybook:host": "nx run storybook-host:storybook",
