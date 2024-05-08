@@ -48,7 +48,11 @@
     "compose-storybooks": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["nx storybook components", "nx storybook icons"],
+        "commands": [
+          "nx storybook components",
+          "nx storybook icons",
+          "nx storybook tokens"
+        ],
         "parallel": true
       }
     }
