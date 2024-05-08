@@ -34,7 +34,6 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM_COMPONENTS }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: dist/storybook/components
-          onlyChanged: true
 
   publish-storybook-icons:
     runs-on: ubuntu-latest
@@ -61,7 +60,6 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM_ICONS }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: dist/storybook/icons
-          onlyChanged: true
 
   publish-storybook-host:
     runs-on: ubuntu-latest
@@ -88,4 +86,3 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM }}
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: dist/storybook/storybook-host
-          onlyChanged: true
