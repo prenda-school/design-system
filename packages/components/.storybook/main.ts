@@ -1,8 +1,8 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  stories: ['../src/lib/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials'],
+  stories: ['../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
+  addons: ['@storybook/addon-essentials', '@chromatic-com/storybook'],
   framework: {
     name: '@storybook/react-vite',
     options: {
@@ -10,6 +10,9 @@ const config: StorybookConfig = {
         viteConfigPath: 'packages/components/vite.config.ts',
       },
     },
+  },
+  docs: {
+    autodocs: true,
   },
 };
 
