@@ -22,6 +22,10 @@ const config: StorybookConfig = {
       title: '@prenda/icons',
       url: 'http://localhost:4402',
     },
+    tokens: {
+      title: '@prenda/tokens',
+      url: 'http://localhost:4403',
+    },
   },
   viteFinal: async (config) =>
     mergeConfig(config, {
