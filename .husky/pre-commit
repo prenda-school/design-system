@@ -1,0 +1,10 @@
+bash << EOF
+if npm run --silent format:check >/dev/null; then
+  :
+else
+  # allow author review of formatting changes
+  npm run format:write
+  echo "[pre-commit] Failed format check. Please review and commit formatting changes."
+  exit 1
+fi
+EOF
