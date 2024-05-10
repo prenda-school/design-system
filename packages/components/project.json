@@ -13,7 +13,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/components"
+        "outputPath": "dist/packages/components",
+        "emptyOutDir": true
       },
       "configurations": {
         "development": {
