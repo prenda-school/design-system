@@ -30,7 +30,7 @@ export const Palette = function Palette(
   );
 };
 
-export const RadiusSwatch = function RadiusSwatch(
+export const BorderRadiusSwatch = function RadiusSwatch(
   props: React.ComponentProps<typeof Swatch>
 ) {
   return (
