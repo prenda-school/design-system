@@ -16,3 +16,6 @@ export type {
   SkinTonePalette,
   SkinToneNestedPalettes,
 } from './skin-tone';
+
+export { textColor } from './text-color';
+export type { TextColorToken, TextColorPalette } from './text-color';
