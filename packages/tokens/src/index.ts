@@ -4,6 +4,13 @@ export type {
   BackgroundColorPalette,
 } from './background-color';
 
+export { border } from './border';
+export type {
+  BorderToken,
+  BorderPalette,
+  BorderNestedPalettes,
+} from './border';
+
 export { boxShadow } from './box-shadow';
 export type {
   BoxShadowToken,
