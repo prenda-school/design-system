@@ -61,3 +61,19 @@ export const BoxShadowSwatch = function ShadowSwatch(
     </div>
   );
 };
+
+export const BorderSwatch = function BorderSwatch(
+  props: React.ComponentProps<typeof Swatch>
+) {
+  return (
+    <div style={{ padding: 4 }}>
+      <Swatch
+        {...props}
+        style={{
+          margin: 4,
+          ...props.style,
+        }}
+      />
+    </div>
+  );
+};
