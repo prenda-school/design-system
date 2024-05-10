@@ -21,6 +21,10 @@ export type {
 export { color } from './color';
 export type { ColorToken, ColorPalette, ColorNestedPalettes } from './color';
 
+export * from './font-family';
+export * from './font-feature-settings';
+export * from './font-size';
+
 export { radius } from './radius';
 export type { RadiusToken, RadiusPalette } from './radius';
 
