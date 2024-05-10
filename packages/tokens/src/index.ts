@@ -1,3 +1,9 @@
+export { backgroundColor } from './background-color';
+export type {
+  BackgroundColorToken,
+  BackgroundColorPalette,
+} from './background-color';
+
 export { color } from './color';
 export type { ColorToken, ColorPalette, ColorNestedPalettes } from './color';
 
