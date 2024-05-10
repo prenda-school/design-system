@@ -8,5 +8,7 @@
       "import": "./index.mjs",
       "require": "./index.js"
     }
-  }
+  },
+  "type": "module",
+  "dependencies": {}
 }
