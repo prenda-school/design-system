@@ -29,3 +29,19 @@ export const Palette = function Palette(
     />
   );
 };
+
+export const RadiusSwatch = function RadiusSwatch(
+  props: React.ComponentProps<typeof Swatch>
+) {
+  return (
+    <div style={{ padding: 4 }}>
+      <Swatch
+        {...props}
+        style={{
+          border: '1px solid black',
+          ...props.style,
+        }}
+      />
+    </div>
+  );
+};
