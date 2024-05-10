@@ -95,7 +95,7 @@ export const InverseSecondaryIcon: Story = {
   name: 'inverseSecondaryIcon',
 };
 
-export const Text: Story = {
+export const TextColor: Story = {
   render: () => (
     <div>
       {Object.entries(textColor.textColor).map(([name, value]) => (
@@ -106,5 +106,5 @@ export const Text: Story = {
       ))}
     </div>
   ),
-  name: 'text (palette)',
+  name: 'textColor (palette)',
 };
