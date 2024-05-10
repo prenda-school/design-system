@@ -37,3 +37,6 @@ export type {
 
 export { textColor } from './text-color';
 export type { TextColorToken, TextColorPalette } from './text-color';
+
+export { typography, pxToRem, makeTypographyToken } from './typography';
+export type { TypographyToken, TypographyPalette } from './typography';
