@@ -45,3 +45,19 @@ export const RadiusSwatch = function RadiusSwatch(
     </div>
   );
 };
+
+export const BoxShadowSwatch = function ShadowSwatch(
+  props: React.ComponentProps<typeof Swatch>
+) {
+  return (
+    <div style={{ padding: 30 }}>
+      <Swatch
+        {...props}
+        style={{
+          borderRadius: 8,
+          ...props.style,
+        }}
+      />
+    </div>
+  );
+};
