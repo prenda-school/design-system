@@ -11,6 +11,9 @@ export type {
   BorderNestedPalettes,
 } from './border';
 
+export { borderRadius } from './border-radius';
+export type { BorderRadiusToken, BorderRadiusPalette } from './border-radius';
+
 export { boxShadow } from './box-shadow';
 export type {
   BoxShadowToken,
@@ -24,9 +27,6 @@ export type { ColorToken, ColorPalette, ColorNestedPalettes } from './color';
 export * from './font-family';
 export * from './font-feature-settings';
 export * from './font-size';
-
-export { radius } from './radius';
-export type { RadiusToken, RadiusPalette } from './radius';
 
 export { skinTone } from './skin-tone';
 export type {
