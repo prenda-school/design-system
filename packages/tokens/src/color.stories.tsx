@@ -1,9 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as color from './color';
 import { Palette, Swatch } from '../.storybook/components';
+import styles from './color.module.css';
+import React from 'react';
 
 const meta: Meta = {
   title: 'Color',
+  decorators: (Story) => (
+    <div className={styles.pds}>
+      <Story />
+    </div>
+  ),
 };
 
 export default meta;
@@ -489,4 +496,25 @@ export const Brand: Story = {
     </Palette>
   ),
   name: 'brand (palette)',
+};
+
+export const Color: Story = {
+  render: () => (
+    <div>
+      {Object.entries(color.color).map(([name, value]) => (
+        <React.Fragment key={name}>
+          <div>{name}</div>
+          <Palette>
+            {Object.entries(value).map(([name, value]) => (
+              <div key={name}>
+                <div>{name}</div>
+                <Swatch style={{ backgroundColor: value }} />
+              </div>
+            ))}
+          </Palette>
+        </React.Fragment>
+      ))}
+    </div>
+  ),
+  name: 'color (nested palettes)',
 };
