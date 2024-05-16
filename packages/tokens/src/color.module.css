@@ -1,0 +1,84 @@
+.pds {
+  --pds-neutral-0: #ffffff;
+  --pds-neutral-60: #fafbfc;
+  --pds-neutral-70: #ebecf0;
+  --pds-neutral-80: #dfe1e6;
+  --pds-neutral-90: #c1c7d0;
+  --pds-neutral-100: #6b778c;
+  --pds-neutral-200: #5e6c84;
+  --pds-neutral-300: #505f79;
+  --pds-neutral-400: #42526e;
+  --pds-neutral-500: #253858;
+  --pds-neutral-600: #091e42;
+
+  --pds-overlay: #091e42cc;
+  --pds-shadow: #091e4229;
+  --pds-transparent: transparent;
+
+  --pds-red-100: #ffebe6;
+  --pds-red-200: #ffbdad;
+  --pds-red-300: #ff8f73;
+  --pds-red-400: #ff7452;
+  --pds-red-500: #ff5630;
+  --pds-red-600: #de350b;
+  --pds-red-700: #a72100;
+
+  --pds-yellow-100: #fffae6;
+  --pds-yellow-200: #fff0b3;
+  --pds-yellow-300: #ffe380;
+  --pds-yellow-400: #ffc400;
+  --pds-yellow-500: #ffab00;
+  --pds-yellow-600: #ff991f;
+  --pds-yellow-700: #ff8b00;
+
+  --pds-green-100: #e3fcef;
+  --pds-green-200: #abf5d1;
+  --pds-green-300: #79f2c0;
+  --pds-green-400: #57d9a3;
+  --pds-green-500: #36b37e;
+  --pds-green-600: #00875a;
+  --pds-green-700: #006644;
+
+  --pds-blue-100: #deebff;
+  --pds-blue-200: #b3d4ff;
+  --pds-blue-300: #4c9aff;
+  --pds-blue-400: #2684ff;
+  --pds-blue-500: #0065ff;
+  --pds-blue-600: #0052cc;
+  --pds-blue-700: #0747a6;
+
+  --pds-teal-100: #e6fcff;
+  --pds-teal-200: #b3f5ff;
+  --pds-teal-300: #79e2f2;
+  --pds-teal-400: #00c7e6;
+  --pds-teal-500: #00b8d9;
+  --pds-teal-600: #00a3bf;
+  --pds-teal-700: #008da6;
+
+  --pds-purple-100: #eae6ff;
+  --pds-purple-200: #c0b6f2;
+  --pds-purple-300: #998dd9;
+  --pds-purple-400: #8777d9;
+  --pds-purple-500: #6554c0;
+  --pds-purple-600: #5243aa;
+  --pds-purple-700: #403294;
+
+  --pds-magenta-100: #fff1f4;
+  --pds-magenta-200: #f7d2da;
+  --pds-magenta-300: #f399af;
+  --pds-magenta-400: #ea7793;
+  --pds-magenta-500: #de5173;
+  --pds-magenta-600: #d0355b;
+  --pds-magenta-700: #b2103a;
+
+  --pds-brand-blue: #0a4872;
+  --pds-brand-light-blue: #d7f3ff;
+  --pds-brand-dark-green: #36b37e;
+  --pds-brand-light-green: #79f2c0;
+  --pds-brand-dark-yellow: #ffc400;
+  --pds-brand-light-yellow: #fff0b3;
+  /* deprecated */
+  --pds-brand-orange: #f34700;
+  /* deprecated */
+  --pds-brand-light-orange: #ffb78f;
+}
