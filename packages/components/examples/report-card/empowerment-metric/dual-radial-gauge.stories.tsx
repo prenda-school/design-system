@@ -2,25 +2,27 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Arc, ArcCircle, ArcSweep, Arcs, Chart } from '../../../src';
 
-const ReportCardEmpowermentMetricRadialArc = (props: {
+const ReportCardEmpowermentMetricDualRadialGauge = (props: {
   valueMin: number;
   valueMax: number;
+  // current week
   valuePrimary: number;
+  radiusPrimary: number;
+  radiusRatioPrimary: number;
+  // previous week
   valueSecondary: number;
-  primaryRadius: number;
-  primaryRadiusRatio: number;
-  secondaryRadius: number;
-  secondaryRadiusRatio: number;
+  radiusSecondary: number;
+  radiusRatioSecondary: number;
 }) => {
   const {
     valueMin,
     valueMax,
     valuePrimary,
     valueSecondary,
-    primaryRadius,
-    primaryRadiusRatio,
-    secondaryRadius,
-    secondaryRadiusRatio,
+    radiusPrimary,
+    radiusRatioPrimary,
+    radiusSecondary,
+    radiusRatioSecondary,
   } = props;
 
   const Neutral70 = '#EBECF0';
@@ -44,16 +46,16 @@ const ReportCardEmpowermentMetricRadialArc = (props: {
           valueMax={valueMax}
         >
           <Arc
-            radius={primaryRadius}
-            ratio={primaryRadiusRatio}
+            radius={radiusPrimary}
+            ratio={radiusRatioPrimary}
             cornerRadius="50%"
           >
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
           </Arc>
           <Arc
-            radius={secondaryRadius}
-            ratio={secondaryRadiusRatio}
+            radius={radiusSecondary}
+            ratio={radiusRatioSecondary}
             cornerRadius="50%"
           >
             <ArcSweep style={{ fill: Neutral70 }} />
@@ -65,18 +67,18 @@ const ReportCardEmpowermentMetricRadialArc = (props: {
   );
 };
 
-const meta: Meta<typeof ReportCardEmpowermentMetricRadialArc> = {
-  title: 'Examples/Report Card/Empowerment Metric/Radial Arc',
-  component: ReportCardEmpowermentMetricRadialArc,
+const meta: Meta<typeof ReportCardEmpowermentMetricDualRadialGauge> = {
+  title: 'Examples/Report Card/Empowerment Metric/DualRadialGauge',
+  component: ReportCardEmpowermentMetricDualRadialGauge,
   args: {
     valueMin: 1,
     valueMax: 3,
     valuePrimary: 2,
     valueSecondary: 3,
-    primaryRadius: 126,
-    primaryRadiusRatio: 0.77,
-    secondaryRadius: 93,
-    secondaryRadiusRatio: 0.87,
+    radiusPrimary: 126,
+    radiusRatioPrimary: 0.77,
+    radiusSecondary: 93,
+    radiusRatioSecondary: 0.87,
   },
   argTypes: {
     valuePrimary: {

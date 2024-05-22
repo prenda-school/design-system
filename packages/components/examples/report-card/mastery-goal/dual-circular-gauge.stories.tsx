@@ -2,15 +2,15 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Arc, ArcSweep, Arcs, Chart } from '../../../src';
 
-const ReportCardMasteryGoalProgressCircle = (props: {
+const ReportCardMasteryGoalDualCircularGauge = (props: {
   valueMin: number;
   valueMax: number;
   valuePrimary: number;
   valueSecondary: number;
-  primaryRadius: number;
-  primaryRadiusRatio: number;
-  secondaryRadius: number;
-  secondaryRadiusRatio: number;
+  radiusPrimary: number;
+  radiusRatioPrimary: number;
+  radiusSecondary: number;
+  radiusRatioSecondary: number;
   goalStatus: 'on-track' | 'off-track';
 }) => {
   const {
@@ -18,10 +18,10 @@ const ReportCardMasteryGoalProgressCircle = (props: {
     valueMax,
     valuePrimary,
     valueSecondary,
-    primaryRadius,
-    primaryRadiusRatio,
-    secondaryRadius,
-    secondaryRadiusRatio,
+    radiusPrimary,
+    radiusRatioPrimary,
+    radiusSecondary,
+    radiusRatioSecondary,
     goalStatus,
   } = props;
 
@@ -49,16 +49,16 @@ const ReportCardMasteryGoalProgressCircle = (props: {
         valueMax={valueMax}
       >
         <Arc
-          radius={primaryRadius}
-          ratio={primaryRadiusRatio}
+          radius={radiusPrimary}
+          ratio={radiusRatioPrimary}
           cornerRadius="50%"
         >
           <ArcSweep style={{ fill: Neutral70 }} />
           <ArcSweep to={valuePrimary} style={{ fill: primaryValueSweepFill }} />
         </Arc>
         <Arc
-          radius={secondaryRadius}
-          ratio={secondaryRadiusRatio}
+          radius={radiusSecondary}
+          ratio={radiusRatioSecondary}
           cornerRadius="50%"
         >
           <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
@@ -68,18 +68,18 @@ const ReportCardMasteryGoalProgressCircle = (props: {
   );
 };
 
-const meta: Meta<typeof ReportCardMasteryGoalProgressCircle> = {
-  title: 'Examples/Report Card/Mastery Goal/Progress Circle',
-  component: ReportCardMasteryGoalProgressCircle,
+const meta: Meta<typeof ReportCardMasteryGoalDualCircularGauge> = {
+  title: 'Examples/Report Card/Mastery Goal/DualCircularGauge',
+  component: ReportCardMasteryGoalDualCircularGauge,
   args: {
     valueMin: 0,
     valueMax: 120,
     valuePrimary: 105,
     valueSecondary: 103,
-    primaryRadius: 126,
-    primaryRadiusRatio: 0.77,
-    secondaryRadius: 93,
-    secondaryRadiusRatio: 0.87,
+    radiusPrimary: 126,
+    radiusRatioPrimary: 0.77,
+    radiusSecondary: 93,
+    radiusRatioSecondary: 0.87,
     goalStatus: 'on-track',
   },
   argTypes: {
@@ -105,7 +105,7 @@ const meta: Meta<typeof ReportCardMasteryGoalProgressCircle> = {
         type: 'radio',
       },
     },
-    primaryRadius: {
+    radiusPrimary: {
       control: {
         type: 'range',
         min: 0,
@@ -113,7 +113,7 @@ const meta: Meta<typeof ReportCardMasteryGoalProgressCircle> = {
         step: 1,
       },
     },
-    primaryRadiusRatio: {
+    radiusRatioPrimary: {
       control: {
         type: 'range',
         min: 0,
@@ -121,7 +121,7 @@ const meta: Meta<typeof ReportCardMasteryGoalProgressCircle> = {
         step: 0.01,
       },
     },
-    secondaryRadius: {
+    radiusSecondary: {
       control: {
         type: 'range',
         min: 0,
@@ -129,7 +129,7 @@ const meta: Meta<typeof ReportCardMasteryGoalProgressCircle> = {
         step: 1,
       },
     },
-    secondaryRadiusRatio: {
+    radiusRatioSecondary: {
       control: {
         type: 'range',
         min: 0,
