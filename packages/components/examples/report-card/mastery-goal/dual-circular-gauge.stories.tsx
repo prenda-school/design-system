@@ -26,12 +26,33 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
   } = props;
 
   const Neutral70 = '#EBECF0';
+  const Neutral80 = '#DFE1E6';
   const Neutral90 = '#C1C7D0';
+  const Neutral300 = '#505F79';
   const Green400 = '#57D9A3';
   const Yellow400 = '#FFC400';
 
   const primaryValueSweepFill =
     goalStatus === 'on-track' ? Green400 : Yellow400;
+
+  const Neutral600 = '#091E42';
+
+  const styleT22 = {
+    fill: Neutral600,
+    fontFamily: 'Poppins',
+    fontSize: '22px',
+    fontStyle: 'normal',
+    fontWeight: 600,
+    letterSpacing: -0.01,
+  };
+
+  const styleDescription = {
+    fill: Neutral300,
+    fontFamily: 'Inter',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: 400,
+  };
 
   return (
     <Chart
@@ -64,6 +85,23 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
           <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
         </Arc>
       </Arcs>
+      <g>
+        <rect width={112} height={1} x={-112 / 2} fill={Neutral80} />
+        <text x={0} y={0} textAnchor="middle" dominantBaseline="hanging">
+          <tspan x={0} y={0} dy={0 - 4 - 16 - 28} style={styleT22}>
+            {valuePrimary}/{valueMax}
+          </tspan>
+          <tspan x={0} y={0} dy={0 - 4 - 16} style={styleDescription}>
+            badges
+          </tspan>
+          <tspan x={0} y={0} dy={0 + 4 + 4} style={styleDescription}>
+            {valuePrimary > valueSecondary ? 'Ahead' : 'Behind'} by
+          </tspan>
+          <tspan x={0} y={0} dy={0 + 4 + 4 + 4 + 16} style={styleDescription}>
+            {Math.abs(valuePrimary - valueSecondary)} badges
+          </tspan>
+        </text>
+      </g>
     </Chart>
   );
 };
