@@ -1,7 +1,10 @@
-import { HTMLAttributes } from 'react';
+import React from 'react';
 
 export interface ChartProps
-  extends Omit<HTMLAttributes<SVGSVGElement>, 'width' | 'height'> {
+  extends Omit<
+    React.SVGTextElementAttributes<SVGSVGElement>,
+    'width' | 'height'
+  > {
   /**
    * The width of the container.
    */

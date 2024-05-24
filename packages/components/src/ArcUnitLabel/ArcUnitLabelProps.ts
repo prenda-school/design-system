@@ -1,7 +1,8 @@
-import { HTMLAttributes } from 'react';
+import React from 'react';
 import { ArcOut } from '../Arc/generateArc';
 
-export interface ArcUnitLabelProps extends HTMLAttributes<SVGTextElement> {
+export interface ArcUnitLabelProps
+  extends React.SVGTextElementAttributes<SVGTextElement> {
   /**
    * The value at which the unit label is located.
    */
