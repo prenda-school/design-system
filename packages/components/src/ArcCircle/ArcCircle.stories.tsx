@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { ArcCircle } from './ArcCircle';
 import { Chart } from '../Chart';
 import { generateArc } from '../Arc/generateArc';
