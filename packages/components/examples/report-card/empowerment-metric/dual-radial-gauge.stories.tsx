@@ -80,10 +80,10 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
             <ArcUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
               Too easy
             </ArcUnitLabel>
-            <ArcUnitLabel at={2} style={unitLabelStyle(1, valuePrimary)}>
+            <ArcUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
               Just right
             </ArcUnitLabel>
-            <ArcUnitLabel at={3} style={unitLabelStyle(1, valuePrimary)}>
+            <ArcUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
               Too hard
             </ArcUnitLabel>
           </Arc>
