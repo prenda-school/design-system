@@ -9,6 +9,28 @@ import {
   Chart,
 } from '../../../src';
 
+const Neutral70 = '#EBECF0';
+const Purple600 = '#5243AA';
+const Purple200 = '#C0B6F2';
+
+const Neutral400 = '#42526E';
+const Neutral100 = '#6B778C';
+const FontWeightNormal = 400;
+const FontWeightBold = 600;
+
+const unitLabelStyle = (at: number, value: number) => {
+  const isPrimaryValue = at === value;
+  const fontWeight = isPrimaryValue ? FontWeightBold : FontWeightNormal;
+  const fill = isPrimaryValue ? Neutral400 : Neutral100;
+  return {
+    fontFamily: '"Inter"',
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight,
+    fill,
+  };
+};
+
 const ReportCardEmpowermentMetricDualRadialGauge = (props: {
   valueMin: number;
   valueMax: number;
@@ -31,27 +53,6 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
     radiusSecondary,
     radiusRatioSecondary,
   } = props;
-
-  const Neutral70 = '#EBECF0';
-  const Purple600 = '#5243AA';
-  const Purple200 = '#C0B6F2';
-
-  const Neutral400 = '#42526E';
-  const Neutral100 = '#6B778C';
-  const FontWeightNormal = 400;
-  const FontWeightBold = 600;
-  const unitLabelStyle = (at: number) => {
-    const isPrimaryValue = at === valuePrimary;
-    const fontWeight = isPrimaryValue ? FontWeightBold : FontWeightNormal;
-    const fill = isPrimaryValue ? Neutral400 : Neutral100;
-    return {
-      fontFamily: '"Inter"',
-      fontSize: '16px',
-      fontStyle: 'normal',
-      fontWeight,
-      fill,
-    };
-  };
 
   return (
     <Chart
@@ -76,13 +77,13 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
           >
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
-            <ArcUnitLabel at={1} style={unitLabelStyle(1)}>
-              <tspan>Too easy</tspan>
+            <ArcUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+              Too easy
             </ArcUnitLabel>
-            <ArcUnitLabel at={2} style={unitLabelStyle(2)}>
+            <ArcUnitLabel at={2} style={unitLabelStyle(1, valuePrimary)}>
               Just right
             </ArcUnitLabel>
-            <ArcUnitLabel at={3} style={unitLabelStyle(3)}>
+            <ArcUnitLabel at={3} style={unitLabelStyle(1, valuePrimary)}>
               Too hard
             </ArcUnitLabel>
           </Arc>
