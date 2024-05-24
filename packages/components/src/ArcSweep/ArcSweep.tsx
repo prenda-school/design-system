@@ -10,7 +10,7 @@ export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
 
     if (arc === undefined) {
       throw Error(
-        'Oops! `ArcSweep` received `arc: undefined`. Did you mean to either (1) render as a child of `Arc`? orpass `arc` from `generateArc`?'
+        'Oops! `ArcSweep` received `arc: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) pass `arc` from `generateArc`?'
       );
     }
 
