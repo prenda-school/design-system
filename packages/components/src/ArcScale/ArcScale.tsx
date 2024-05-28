@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArcsProps } from './ArcsProps';
-import { generateArcs } from './generateArcs';
+import { ArcScaleProps } from './ArcScaleProps';
+import { generateArcScale } from './generateArcScale';
 
-export const Arcs = (props: ArcsProps) => {
+export const ArcScale = (props: ArcScaleProps) => {
   const { angleMax, angleMin, valueMax, valueMin, children } = props;
 
-  const arcs = generateArcs({
+  const arcs = generateArcScale({
     angleMax,
     angleMin,
     valueMax,

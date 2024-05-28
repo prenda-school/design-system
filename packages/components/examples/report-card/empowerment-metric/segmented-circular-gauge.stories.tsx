@@ -5,7 +5,7 @@ import {
   ArcSegments,
   ArcSegmentsSweep,
   ArcUnitLabel,
-  Arcs,
+  ArcScale,
   Chart,
 } from '../../../src';
 
@@ -65,7 +65,7 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
       marginRight={68}
       marginTop={28}
     >
-      <Arcs
+      <ArcScale
         angleMin={0 + startAngleOffset}
         angleMax={2 * Math.PI + startAngleOffset}
         valueMin={valueMin}
@@ -104,7 +104,7 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
             Happy
           </ArcUnitLabel>
         </Arc>
-      </Arcs>
+      </ArcScale>
       <g>
         <circle r={118 / 2} fill={Yellow300} />
       </g>

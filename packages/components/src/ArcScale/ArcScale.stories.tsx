@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Arc } from '../Arc';
-import { Arcs } from './Arcs';
+import { ArcScale } from './ArcScale';
 import { ArcSweep } from '../ArcSweep';
 import { Chart } from '../Chart';
 
-const meta: Meta<typeof Arcs> = {
+const meta: Meta<typeof ArcScale> = {
   title: 'Arcs',
-  component: Arcs,
+  component: ArcScale,
   argTypes: {
     angleMin: {
       control: {
@@ -46,7 +46,7 @@ const meta: Meta<typeof Arcs> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Arcs>;
+type Story = StoryObj<typeof ArcScale>;
 
 export const Circular: Story = {
   args: {

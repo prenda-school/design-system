@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Arc, ArcSweep, Arcs, Chart } from '../../../src';
+import { Arc, ArcSweep, ArcScale, Chart } from '../../../src';
 
 const ReportCardMasteryGoalDualCircularGauge = (props: {
   valueMin: number;
@@ -63,7 +63,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
       marginRight={8}
       marginTop={8}
     >
-      <Arcs
+      <ArcScale
         angleMin={0}
         angleMax={2 * Math.PI}
         valueMin={valueMin}
@@ -84,7 +84,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
         >
           <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
         </Arc>
-      </Arcs>
+      </ArcScale>
       <g>
         <rect width={112} height={1} x={-112 / 2} fill={Neutral80} />
         <text x={0} y={0} textAnchor="middle" dominantBaseline="hanging">

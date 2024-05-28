@@ -5,7 +5,7 @@ import {
   ArcCircle,
   ArcSweep,
   ArcUnitLabel,
-  Arcs,
+  ArcScale,
   Chart,
 } from '../../../src';
 
@@ -64,7 +64,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
       marginTop={8}
     >
       <g style={{ transform: `translate(0, ${126 / 2}px)` }}>
-        <Arcs
+        <ArcScale
           angleMin={(-1 * Math.PI) / 2}
           angleMax={Math.PI / 2}
           valueMin={valueMin}
@@ -95,7 +95,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valueSecondary} style={{ fill: Purple200 }} />
           </Arc>
-        </Arcs>
+        </ArcScale>
       </g>
     </Chart>
   );
