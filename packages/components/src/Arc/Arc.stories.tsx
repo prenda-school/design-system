@@ -45,12 +45,10 @@ type Story = StoryObj<typeof Arc>;
 
 export const Circular: Story = {
   args: {
-    arcs: {
-      angleMax: 2 * Math.PI,
-      angleMin: 0,
-      valueMax: 120,
-      valueMin: 0,
-    },
+    angleMax: 2 * Math.PI,
+    angleMin: 0,
+    valueMax: 120,
+    valueMin: 0,
     cornerRadius: '50%',
     radius: 126,
     ratio: 0.77,
@@ -63,12 +61,10 @@ export const Circular: Story = {
 
 export const Radial: Story = {
   args: {
-    arcs: {
-      angleMax: Math.PI / 2,
-      angleMin: (-1 * Math.PI) / 2,
-      valueMax: 3,
-      valueMin: 1,
-    },
+    angleMax: Math.PI / 2,
+    angleMin: (-1 * Math.PI) / 2,
+    valueMax: 3,
+    valueMin: 1,
     cornerRadius: '50%',
     radius: 126,
     ratio: 0.77,

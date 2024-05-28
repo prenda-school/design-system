@@ -6,22 +6,22 @@ import { ArcSweep } from '../ArcSweep';
 import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcScale> = {
-  title: 'Arcs',
+  title: 'ArcScale',
   component: ArcScale,
   argTypes: {
     angleMin: {
       control: {
         type: 'range',
-        min: -2 * Math.PI,
-        max: 2 * Math.PI,
+        min: (-2 * Math.PI).toFixed(2),
+        max: (2 * Math.PI).toFixed(2),
         step: 0.01,
       },
     },
     angleMax: {
       control: {
         type: 'range',
-        min: -2 * Math.PI,
-        max: 2 * Math.PI,
+        min: (-2 * Math.PI).toFixed(2),
+        max: (2 * Math.PI).toFixed(2),
         step: 0.01,
       },
     },

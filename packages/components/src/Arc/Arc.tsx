@@ -3,26 +3,49 @@ import { ArcProps } from './ArcProps';
 import { generateArc } from './generateArc';
 
 export const Arc = (props: ArcProps) => {
-  const { arcs, cornerRadius, radius, ratio, children } = props;
+  const {
+    valueMin,
+    valueMax,
+    angleMax,
+    angleMin,
+    cornerRadius,
+    radius,
+    ratio,
+    children,
+  } = props;
 
-  if (arcs === undefined) {
-    throw Error(
-      'Oops! `Arc` received `arcs: undefined`. Did you mean to either (1) render as a child of `Arcs`? or (2) pass `arc` from `generateArc`?'
-    );
+  if (valueMin === undefined) {
+    throw Error(getMissingPropMessage('valueMin'));
+  }
+
+  if (valueMax === undefined) {
+    throw Error(getMissingPropMessage('valueMin'));
+  }
+
+  if (angleMin === undefined) {
+    throw Error(getMissingPropMessage('valueMin'));
+  }
+
+  if (angleMax === undefined) {
+    throw Error(getMissingPropMessage('valueMin'));
   }
 
   const arc = generateArc({
     radius,
     ratio,
     cornerRadius, // maybe
-    valueMax: arcs.valueMax,
-    valueMin: arcs.valueMin,
-    angleMax: arcs.angleMax,
-    angleMin: arcs.angleMin,
+    valueMax,
+    valueMin,
+    angleMax,
+    angleMin,
   });
 
   return React.Children.map(children, (child) => {
     // @ts-expect-error TODO
     return React.cloneElement(child, { arc });
   });
+};
+
+const getMissingPropMessage = (propName: string) => {
+  return `Oops! \`Arc\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`ArcScale\`? or (2) set \`${propName}\`?`;
 };

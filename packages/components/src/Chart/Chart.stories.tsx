@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
 import { Arc } from '../Arc';
 import { ArcCircle } from '../ArcCircle';
-import { Arcs } from '../Arcs';
+import { ArcScale } from '../ArcScale';
 import { ArcSweep } from '../ArcSweep';
 import { Chart } from './Chart';
 
@@ -23,7 +24,7 @@ export const Circular: Story = {
     marginRight: 8,
     marginTop: 8,
     children: (
-      <Arcs angleMin={0} angleMax={2 * Math.PI} valueMin={0} valueMax={120}>
+      <ArcScale angleMin={0} angleMax={2 * Math.PI} valueMin={0} valueMax={120}>
         <Arc radius={126} ratio={0.77} cornerRadius="50%">
           <ArcSweep to={120} style={{ fill: '#EBECF0' }} />
           <ArcSweep to={105} style={{ fill: '#57D9A3' }} />
@@ -31,7 +32,7 @@ export const Circular: Story = {
         <Arc radius={93} ratio={0.87} cornerRadius="50%">
           <ArcSweep to={103} style={{ fill: '#C1C7D0' }} />
         </Arc>
-      </Arcs>
+      </ArcScale>
     ),
   },
 };
@@ -46,7 +47,7 @@ export const Radial: Story = {
     marginTop: 8,
     children: (
       <g style={{ transform: `translate(0, ${126 / 2}px)` }}>
-        <Arcs
+        <ArcScale
           angleMin={(-1 * Math.PI) / 2}
           angleMax={Math.PI / 2}
           valueMin={1}
@@ -60,7 +61,7 @@ export const Radial: Story = {
             <ArcSweep to={3} style={{ fill: '#EBECF0' }} />
             <ArcCircle at={3} style={{ fill: '#C0B6F2' }} />
           </Arc>
-        </Arcs>
+        </ArcScale>
       </g>
     ),
   },
