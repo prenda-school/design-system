@@ -1,3 +1,5 @@
+import { BarCornerRadiusParam } from '../utils';
+
 export interface BarProps
   extends React.SVGTextElementAttributes<SVGPathElement> {
   valueMin: number;
@@ -24,16 +26,7 @@ export interface BarProps
    */
   direction?: 'forward' | 'backward';
   /**
-   * The radius of the corners of the bar.
+   * The corner radius (or radii) of the bar.
    */
-  cornerRadius?:
-    | number
-    | {
-        top?: number;
-        bottom?: number;
-        topLeft?: number;
-        topRight?: number;
-        bottomRight?: number;
-        bottomLeft?: number;
-      };
+  cornerRadius?: BarCornerRadiusParam;
 }
