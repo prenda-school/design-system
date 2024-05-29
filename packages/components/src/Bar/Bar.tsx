@@ -26,10 +26,6 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     throw Error(getMissingPropMessage('valueMax'));
   }
 
-  if (lengthMin === undefined) {
-    throw Error(getMissingPropMessage('lengthMin'));
-  }
-
   if (lengthMax === undefined) {
     throw Error(getMissingPropMessage('lengthMax'));
   }

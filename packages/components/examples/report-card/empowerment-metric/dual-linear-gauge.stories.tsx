@@ -1,28 +1,34 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Bar, BarFill, BarProps, BarScale, Chart } from '../../../src';
+import {
+  Bar,
+  BarFill,
+  BarProps,
+  BarScale,
+  BarUnitLabel,
+  Chart,
+} from '../../../src';
 
-// const Neutral70 = '#EBECF0';
 const Purple500 = '#6554C0';
 const Purple200 = '#C0B6F2';
 
-// const Neutral400 = '#42526E';
-// const Neutral100 = '#6B778C';
-// const FontWeightNormal = 400;
-// const FontWeightBold = 600;
+const Neutral400 = '#42526E';
+const Neutral100 = '#6B778C';
+const FontWeightNormal = 400;
+const FontWeightBold = 600;
 
-// const unitLabelStyle = (at: number, value: number) => {
-//   const isPrimaryValue = at === value;
-//   const fontWeight = isPrimaryValue ? FontWeightBold : FontWeightNormal;
-//   const fill = isPrimaryValue ? Neutral400 : Neutral100;
-//   return {
-//     fontFamily: '"Inter"',
-//     fontSize: '16px',
-//     fontStyle: 'normal',
-//     fontWeight,
-//     fill,
-//   };
-// };
+const unitLabelStyle = (at: number, value: number) => {
+  const isPrimaryValue = at === value;
+  const fontWeight = isPrimaryValue ? FontWeightBold : FontWeightNormal;
+  const fill = isPrimaryValue ? Neutral400 : Neutral100;
+  return {
+    fontFamily: '"Inter"',
+    fontSize: '16px',
+    fontStyle: 'normal',
+    fontWeight,
+    fill,
+  };
+};
 
 const ReportCardEmpowermentMetricDualLinearGauge = (props: {
   valueMin: number;
@@ -59,29 +65,34 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       ? valueSecondaryProp
       : valueSecondaryContinuous;
 
+  const unitLabelDy = thicknessPrimary + thicknessSecondary;
+
   return (
     <Chart
       width={544 + 8 + 8}
-      height={70 + 8 + 8}
+      height={70 + 8 + 8 + 16}
       marginBottom={8}
       marginLeft={8}
       marginRight={8}
-      marginTop={8}
+      marginTop={8 + 16}
     >
       <g
         style={{
           transform: `translate(-${(544 + 8 + 8) / 2}px, -${
-            (70 + 8 + 8) / 2
+            (70 + 8 + 8) / 2 - 16
           }px)`,
         }}
       >
         <BarScale
-          lengthMin={thicknessPrimary} // {30 - (2 * 1.66)}
           lengthMax={544} // {544 - (2 * 1.66)}
           valueMin={valueMin}
           valueMax={valueMax}
         >
-          <Bar thickness={thicknessPrimary} cornerRadius={cornerRadius}>
+          <Bar
+            lengthMin={thicknessPrimary} // {30 - (2 * 1.66)}
+            thickness={thicknessPrimary}
+            cornerRadius={cornerRadius}
+          >
             <BarFill to={valuePrimary} style={{ fill: Purple500 }} />
           </Bar>
 
@@ -94,17 +105,29 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
           </Bar>
 
-          {/* <BarUnits dy={thicknessPrimary + thicknessSecondary + 4}>
-            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-              Too easy
-            </BarUnitLabel>
-            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-              Just right
-            </BarUnitLabel>
-            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-              Too hard
-            </BarUnitLabel>
-          </BarUnits> */}
+          {/* <BarUnits dy={thicknessPrimary + thicknessSecondary + 4}> */}
+          <BarUnitLabel
+            dy={unitLabelDy}
+            at={1}
+            style={unitLabelStyle(1, valuePrimary)}
+          >
+            Too easy
+          </BarUnitLabel>
+          <BarUnitLabel
+            dy={unitLabelDy}
+            at={2}
+            style={unitLabelStyle(2, valuePrimary)}
+          >
+            Just right
+          </BarUnitLabel>
+          <BarUnitLabel
+            dy={unitLabelDy}
+            at={3}
+            style={unitLabelStyle(3, valuePrimary)}
+          >
+            Too hard
+          </BarUnitLabel>
+          {/* </BarUnits> */}
         </BarScale>
       </g>
     </Chart>

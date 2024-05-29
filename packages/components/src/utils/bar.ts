@@ -1,4 +1,5 @@
 import * as D3Scale from 'd3-scale';
+import { evalBarScaleLengthMin } from './bar-scale';
 import { RectangleCornerRadiusTuple, drawRoundedRectangle } from './rectangle';
 
 export type BarParams = {
@@ -32,7 +33,7 @@ export function drawBar(params: {
   valueMin: number;
   valueMax: number;
   to?: number;
-  lengthMin: number;
+  lengthMin?: number;
   lengthMax: number;
   thickness: number;
   cornerRadius?: BarCornerRadiusParam;
@@ -43,9 +44,11 @@ export function drawBar(params: {
 }) {
   const [x, y] = [params.dx ?? 0, params.dy ?? 0];
 
+  const lengthMin = evalBarScaleLengthMin(params.lengthMin);
+
   const scale = D3Scale.scaleLinear()
     .domain([params.valueMin, params.valueMax])
-    .range([params.lengthMin, params.lengthMax]);
+    .range([lengthMin, params.lengthMax]);
 
   const value = params.to ?? params.valueMax;
 

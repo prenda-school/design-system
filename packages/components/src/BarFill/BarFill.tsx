@@ -29,10 +29,6 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
       throw Error(getMissingPropMessage('valueMax'));
     }
 
-    if (lengthMin === undefined) {
-      throw Error(getMissingPropMessage('lengthMin'));
-    }
-
     if (lengthMax === undefined) {
       throw Error(getMissingPropMessage('lengthMax'));
     }
