@@ -3,6 +3,7 @@ export * from './arc-circle';
 export * from './arc-scale';
 export * from './arc-segments';
 export * from './bar';
+export * from './bar-fill';
 export * from './bar-scale';
 export * from './chart';
 export * from './circle';

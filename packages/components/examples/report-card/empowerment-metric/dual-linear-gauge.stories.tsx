@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Bar, BarProps, BarScale, Chart } from '../../../src';
+import { Bar, BarFill, BarProps, BarScale, Chart } from '../../../src';
 
 // const Neutral70 = '#EBECF0';
 const Purple500 = '#6554C0';
@@ -81,25 +81,16 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
           valueMin={valueMin}
           valueMax={valueMax}
         >
-          <Bar
-            thickness={thicknessPrimary}
-            cornerRadius={cornerRadius}
-            // BarFill
-            value={valuePrimary}
-            style={{ fill: Purple500 }}
-          >
-            {/* <BarFill to={valuePrimary} style={{ fill: Purple500 }} /> */}
+          <Bar thickness={thicknessPrimary} cornerRadius={cornerRadius}>
+            <BarFill to={valuePrimary} style={{ fill: Purple500 }} />
           </Bar>
 
           <Bar
             thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
             dy={thicknessPrimary}
-            // BarFill
-            value={valueSecondary}
-            style={{ fill: Purple200 }}
           >
-            {/* <BarFill to={valueSecondary} style={{ fill: Purple200 }} /> */}
+            <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
           </Bar>
 
           {/* <BarUnits dy={thicknessPrimary + thicknessSecondary + 4}>

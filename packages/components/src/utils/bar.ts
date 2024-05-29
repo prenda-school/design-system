@@ -1,14 +1,41 @@
 import * as D3Scale from 'd3-scale';
 import { RectangleCornerRadiusTuple, drawRoundedRectangle } from './rectangle';
 
+export type BarParams = {
+  /**
+   * The distance between the parallel, lengthwise edges of the bar, in pixels.
+   */
+  thickness: number;
+  /**
+   * The direction in which the bar is oriented.
+   */
+  orientation?: 'horizontal' | 'vertical';
+  /**
+   * The direction in which the bar grows along its orientation.
+   */
+  direction?: 'forward' | 'backward';
+  /**
+   * The common corner radius of the bar fill(s).
+   */
+  cornerRadius?: BarCornerRadiusParam;
+  /**
+   * The shift along the x-axis for bar's initial point.
+   */
+  dx?: number;
+  /**
+   * The shift along the y-axis for bar's initial point.
+   */
+  dy?: number;
+};
+
 export function drawBar(params: {
   valueMin: number;
   valueMax: number;
-  value: number;
+  to?: number;
   lengthMin: number;
   lengthMax: number;
   thickness: number;
-  cornerRadius: BarCornerRadiusParam;
+  cornerRadius?: BarCornerRadiusParam;
   orientation?: BarOrientation;
   direction?: BarDirection;
   dx?: number;
@@ -20,7 +47,9 @@ export function drawBar(params: {
     .domain([params.valueMin, params.valueMax])
     .range([params.lengthMin, params.lengthMax]);
 
-  const length = scale(params.value);
+  const value = params.to ?? params.valueMax;
+
+  const length = scale(value);
 
   const orientation = evalBarOrientation(params.orientation);
 

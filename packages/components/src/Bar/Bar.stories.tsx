@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Bar } from './Bar';
 import { Chart } from '../Chart';
+import { BarFill } from '../BarFill';
 
 const meta: Meta<typeof Bar> = {
   title: 'Bar',
@@ -35,14 +36,6 @@ const meta: Meta<typeof Bar> = {
       },
     },
     valueMax: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 100,
-        step: 1,
-      },
-    },
-    value: {
       control: {
         type: 'range',
         min: 0,
@@ -90,7 +83,6 @@ export const Between: Story = {
   args: {
     valueMin: 0,
     valueMax: 100,
-    value: 50,
     lengthMin: 0,
     lengthMax: 212,
     thickness: 30,
@@ -101,5 +93,6 @@ export const Between: Story = {
       startEnd: 0,
       endEnd: 0,
     },
+    children: <BarFill to={50} />,
   },
 };

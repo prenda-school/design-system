@@ -1,6 +1,5 @@
 import React from 'react';
 import { BarProps } from './BarProps';
-import { drawBar } from '../utils';
 
 export type BarRef = SVGPathElement;
 
@@ -8,7 +7,6 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
   const {
     valueMin,
     valueMax,
-    value,
     lengthMin,
     lengthMax,
     thickness,
@@ -17,7 +15,7 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     direction,
     dx,
     dy,
-    ...other
+    children,
   } = props;
 
   if (valueMin === undefined) {
@@ -36,21 +34,21 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     throw Error(getMissingPropMessage('lengthMax'));
   }
 
-  const d = drawBar({
-    valueMin,
-    valueMax,
-    value,
-    lengthMin,
-    lengthMax,
-    thickness,
-    cornerRadius,
-    orientation,
-    direction,
-    dx,
-    dy,
+  return React.Children.map(children, (child) => {
+    // @ts-expect-error TODO
+    return React.cloneElement(child, {
+      valueMin,
+      valueMax,
+      lengthMin,
+      lengthMax,
+      thickness,
+      cornerRadius,
+      orientation,
+      direction,
+      dx,
+      dy,
+    });
   });
-
-  return <path ref={ref} d={d} {...other} />;
 });
 
 const getMissingPropMessage = (propName: string) => {
