@@ -19,15 +19,15 @@ export const Arc = (props: ArcProps) => {
   }
 
   if (valueMax === undefined) {
-    throw Error(getMissingPropMessage('valueMin'));
+    throw Error(getMissingPropMessage('valueMax'));
   }
 
   if (angleMin === undefined) {
-    throw Error(getMissingPropMessage('valueMin'));
+    throw Error(getMissingPropMessage('angleMin'));
   }
 
   if (angleMax === undefined) {
-    throw Error(getMissingPropMessage('valueMin'));
+    throw Error(getMissingPropMessage('angleMax'));
   }
 
   const arc = generateArc({

@@ -1,20 +1,14 @@
-import { BarCornerRadiusParam } from '../utils';
+import { BarCornerRadiusParam, BarScaleParams } from '../utils';
 
 export interface BarProps
-  extends React.SVGTextElementAttributes<SVGPathElement> {
-  valueMin: number;
-  valueMax: number;
+  extends Partial<BarScaleParams>,
+    React.SVGTextElementAttributes<SVGPathElement> {
+  /**
+   * The value of the datum.
+   */
   value: number;
   /**
-   * The minimum distance between the start and end edges of the bar, measured in pixels..
-   */
-  lengthMin: number;
-  /**
-   * The maximum distance between the start and end edges of the bar, measured in pixels.
-   */
-  lengthMax: number;
-  /**
-   * The distance between the parallel, lengthwise edges of the bar, measured in pixels.
+   * The distance between the parallel, lengthwise edges of the bar, in pixels.
    */
   thickness: number;
   /**

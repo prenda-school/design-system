@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Bar, BarProps, Chart } from '../../../src';
+import { Bar, BarProps, BarScale, Chart } from '../../../src';
 
 // const Neutral70 = '#EBECF0';
 const Purple500 = '#6554C0';
@@ -75,54 +75,36 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
           }px)`,
         }}
       >
-        {/* <BarScale
-        lengthMin={30} // {30 - (2 * 1.66)}
-        lengthMax={544} // {544 - (2 * 1.66)}
-        valueMin={valueMin}
-        valueMax={valueMax}
-      > */}
-        <Bar
-          thickness={thicknessPrimary}
-          cornerRadius={cornerRadius}
-          // BarScale
+        <BarScale
+          lengthMin={30} // {30 - (2 * 1.66)}
+          lengthMax={544} // {544 - (2 * 1.66)}
           valueMin={valueMin}
           valueMax={valueMax}
-          lengthMin={30}
-          lengthMax={544}
-          // BarFill
-          value={valuePrimary}
-          style={{ fill: Purple500 }}
         >
-          {/* <BarFill to={valuePrimary} style={{ fill: Purple500 }} /> */}
-        </Bar>
+          <Bar
+            thickness={thicknessPrimary}
+            cornerRadius={cornerRadius}
+            // BarFill
+            value={valuePrimary}
+            style={{ fill: Purple500 }}
+          >
+            {/* <BarFill to={valuePrimary} style={{ fill: Purple500 }} /> */}
+          </Bar>
 
-        <g style={{ transform: `translate(0, ${thicknessPrimary}px)` }}>
+          {/* TODO add dy / dx to account for shifts since <g> can't pass the params */}
+          {/* <g style={{ transform: `translate(0, ${thicknessPrimary}px)` }}> */}
           <Bar
             thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
-            // BarScale
-            valueMin={valueMin}
-            valueMax={valueMax}
-            lengthMin={30}
-            lengthMax={544}
             // BarFill
             value={valueSecondary}
             style={{ fill: Purple200 }}
           >
             {/* <BarFill to={valueSecondary} style={{ fill: Purple200 }} /> */}
-            {/* <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-            Too easy
-          </BarUnitLabel>
-          <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-            Just right
-          </BarUnitLabel>
-          <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-            Too hard
-          </BarUnitLabel> */}
           </Bar>
-        </g>
+          {/* </g> */}
 
-        {/* <g>
+          {/* <g>
           <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
             Too easy
           </BarUnitLabel>
@@ -133,7 +115,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             Too hard
           </BarUnitLabel>
         </g> */}
-        {/* </BarScale> */}
+        </BarScale>
       </g>
     </Chart>
   );
