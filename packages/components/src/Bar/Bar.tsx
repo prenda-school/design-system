@@ -35,19 +35,22 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
   }
 
   return React.Children.map(children, (child) => {
-    // @ts-expect-error TODO
-    return React.cloneElement(child, {
-      valueMin,
-      valueMax,
-      lengthMin,
-      lengthMax,
-      thickness,
-      cornerRadius,
-      orientation,
-      direction,
-      dx,
-      dy,
-    });
+    if (React.isValidElement<Omit<BarProps, 'children'>>(child)) {
+      return React.cloneElement(child, {
+        lengthMax: child.props.lengthMax ?? lengthMax,
+        lengthMin: child.props.lengthMin ?? lengthMin,
+        valueMax: child.props.valueMax ?? valueMax,
+        valueMin: child.props.valueMin ?? valueMin,
+        thickness: child.props.thickness ?? thickness,
+        cornerRadius: child.props.cornerRadius ?? cornerRadius,
+        orientation: child.props.orientation ?? orientation,
+        direction: child.props.direction ?? direction,
+        dx: child.props.dx ?? dx,
+        dy: child.props.dy ?? dy,
+      });
+    }
+
+    return child;
   });
 });
 

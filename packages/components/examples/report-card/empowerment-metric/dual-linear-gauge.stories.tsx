@@ -76,7 +76,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
         }}
       >
         <BarScale
-          lengthMin={30} // {30 - (2 * 1.66)}
+          lengthMin={thicknessPrimary} // {30 - (2 * 1.66)}
           lengthMax={544} // {544 - (2 * 1.66)}
           valueMin={valueMin}
           valueMax={valueMax}
@@ -86,6 +86,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
           </Bar>
 
           <Bar
+            lengthMin={thicknessSecondary}
             thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
             dy={thicknessPrimary}
