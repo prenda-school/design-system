@@ -23,4 +23,12 @@ export interface BarProps
    * The corner radius (or radii) of the bar.
    */
   cornerRadius?: BarCornerRadiusParam;
+  /**
+   * The shift along the x-axis for bar's initial point.
+   */
+  dx?: number;
+  /**
+   * The shift along the y-axis for bar's initial point.
+   */
+  dy?: number;
 }

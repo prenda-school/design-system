@@ -91,30 +91,28 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             {/* <BarFill to={valuePrimary} style={{ fill: Purple500 }} /> */}
           </Bar>
 
-          {/* TODO add dy / dx to account for shifts since <g> can't pass the params */}
-          {/* <g style={{ transform: `translate(0, ${thicknessPrimary}px)` }}> */}
           <Bar
             thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
+            dy={thicknessPrimary}
             // BarFill
             value={valueSecondary}
             style={{ fill: Purple200 }}
           >
             {/* <BarFill to={valueSecondary} style={{ fill: Purple200 }} /> */}
           </Bar>
-          {/* </g> */}
 
-          {/* <g>
-          <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-            Too easy
-          </BarUnitLabel>
-          <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-            Just right
-          </BarUnitLabel>
-          <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-            Too hard
-          </BarUnitLabel>
-        </g> */}
+          {/* <BarUnits dy={thicknessPrimary + thicknessSecondary + 4}>
+            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+              Too easy
+            </BarUnitLabel>
+            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+              Just right
+            </BarUnitLabel>
+            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+              Too hard
+            </BarUnitLabel>
+          </BarUnits> */}
         </BarScale>
       </g>
     </Chart>

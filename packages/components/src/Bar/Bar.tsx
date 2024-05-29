@@ -15,6 +15,8 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     cornerRadius,
     orientation,
     direction,
+    dx,
+    dy,
     ...other
   } = props;
 
@@ -44,6 +46,8 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     cornerRadius,
     orientation,
     direction,
+    dx,
+    dy,
   });
 
   return <path ref={ref} d={d} {...other} />;

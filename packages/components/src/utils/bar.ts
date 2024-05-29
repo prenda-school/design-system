@@ -11,8 +11,10 @@ export function drawBar(params: {
   cornerRadius: BarCornerRadiusParam;
   orientation?: BarOrientation;
   direction?: BarDirection;
+  dx?: number;
+  dy?: number;
 }) {
-  const [x, y] = [0, 0];
+  const [x, y] = [params.dx ?? 0, params.dy ?? 0];
 
   const scale = D3Scale.scaleLinear()
     .domain([params.valueMin, params.valueMax])
