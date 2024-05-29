@@ -5,4 +5,5 @@ export * from './ArcSegmentsSweep';
 export * from './ArcSweep';
 export * from './ArcUnitLabel';
 export * from './ArcScale';
+export * from './Bar';
 export * from './Chart';
