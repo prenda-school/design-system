@@ -1,8 +1,7 @@
 import React from 'react';
 import { ArcOut } from '../Arc/generateArc';
 
-export interface ArcSweepProps
-  extends React.SVGTextElementAttributes<SVGPathElement> {
+export interface ArcSweepProps extends React.SVGProps<SVGPathElement> {
   /**
    * The value from which the arc sweep starts. Defaults to the minimum value.
    */

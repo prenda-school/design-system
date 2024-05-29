@@ -2,7 +2,7 @@ import { BarCornerRadiusParam, BarScaleParams } from '../utils';
 
 export interface BarProps
   extends Partial<BarScaleParams>,
-    React.SVGTextElementAttributes<SVGPathElement> {
+    React.SVGProps<SVGPathElement> {
   /**
    * The value of the datum.
    */

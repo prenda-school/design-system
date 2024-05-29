@@ -22,9 +22,6 @@ export interface ArcSegmentsSweepProps {
     segments: ArcSegmentsOut;
   };
   renderProps?:
-    | React.SVGTextElementAttributes<SVGPathElement>
-    | ((
-        props: { d: string },
-        index: number
-      ) => React.SVGTextElementAttributes<SVGPathElement>);
+    | React.SVGProps<SVGPathElement>
+    | ((props: { d: string }, index: number) => React.SVGProps<SVGPathElement>);
 }

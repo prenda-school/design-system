@@ -1,8 +1,7 @@
 import React from 'react';
 import { ArcOut } from '../Arc/generateArc';
 
-export interface ArcCircleProps
-  extends React.SVGTextElementAttributes<SVGPathElement> {
+export interface ArcCircleProps extends React.SVGProps<SVGPathElement> {
   /**
    * The value at which the point is located.
    */
