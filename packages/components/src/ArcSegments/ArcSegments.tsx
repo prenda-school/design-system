@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArcSegmentsProps } from './ArcSegmentsProp';
 import { generateArcSegments } from './generateArcSegments';
+import { ArcOut } from '../Arc/generateArc';
 
 export const ArcSegments = (props: ArcSegmentsProps) => {
   const { arc, children, cornerRadius, count, padAngle } = props;
@@ -17,10 +18,15 @@ export const ArcSegments = (props: ArcSegmentsProps) => {
     cornerRadius,
   });
 
-  const extraProps = { arc: Object.assign(arc, { segments: arcSegments }) };
+  const arcWithSegments = Object.assign(arc, { segments: arcSegments });
 
   return React.Children.map(children, (child) => {
-    // @ts-expect-error TODO
-    return React.cloneElement(child, extraProps);
+    if (React.isValidElement<Omit<{ arc: ArcOut }, 'children'>>(child)) {
+      return React.cloneElement(child, {
+        arc: child.props.arc ?? arcWithSegments,
+      });
+    }
+
+    return child;
   });
 };

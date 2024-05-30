@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcProps } from './ArcProps';
-import { generateArc } from './generateArc';
+import { ArcOut, generateArc } from './generateArc';
 
 export const Arc = (props: ArcProps) => {
   const {
@@ -41,8 +41,13 @@ export const Arc = (props: ArcProps) => {
   });
 
   return React.Children.map(children, (child) => {
-    // @ts-expect-error TODO
-    return React.cloneElement(child, { arc });
+    if (React.isValidElement<Omit<{ arc: ArcOut }, 'children'>>(child)) {
+      return React.cloneElement(child, {
+        arc: child.props.arc ?? arc,
+      });
+    }
+
+    return child;
   });
 };
 
