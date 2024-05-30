@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarUnitsParams } from '../utils/bar-units';
+import { BarUnitsParams } from '../utils';
 
 export interface BarUnitsProps extends BarUnitsParams {
   children: React.ReactNode;

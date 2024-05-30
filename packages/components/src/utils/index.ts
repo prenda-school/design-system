@@ -6,6 +6,7 @@ export * from './bar';
 export * from './bar-fill';
 export * from './bar-scale';
 export * from './bar-unit-label';
+export * from './bar-units';
 export * from './chart';
 export * from './circle';
 export * from './path';
