@@ -66,6 +66,8 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       ? valueSecondaryProp
       : valueSecondaryContinuous;
 
+  const bw = 1.66;
+
   return (
     <Chart
       width={544 + 8 + 8}
@@ -83,28 +85,31 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
         }}
       >
         <BarScale
-          lengthMax={544} // {544 - (2 * 1.66)}
+          lengthMax={544 - 2 * bw}
           valueMin={valueMin}
           valueMax={valueMax}
         >
           <Bar
-            lengthMin={thicknessPrimary} // {30 - (2 * 1.66)}
-            thickness={thicknessPrimary}
+            lengthMin={thicknessPrimary - 2 * bw}
+            thickness={thicknessPrimary - 2 * bw}
             cornerRadius={cornerRadius}
+            dy={bw}
+            dx={bw}
           >
             <BarFill to={valuePrimary} style={{ fill: Purple500 }} />
           </Bar>
 
           <Bar
-            lengthMin={thicknessSecondary}
-            thickness={thicknessSecondary}
+            lengthMin={thicknessSecondary - 2 * bw}
+            thickness={thicknessSecondary - 2 * bw}
             cornerRadius={cornerRadius}
-            dy={thicknessPrimary}
+            dy={thicknessPrimary + 2 * bw}
+            dx={bw}
           >
             <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
           </Bar>
 
-          <BarUnits dy={thicknessPrimary + thicknessSecondary}>
+          <BarUnits dy={thicknessPrimary + thicknessSecondary + bw}>
             <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
               Not really
             </BarUnitLabel>
