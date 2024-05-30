@@ -12,6 +12,8 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
   radiusSecondary: number;
   radiusRatioSecondary: number;
   goalStatus: 'on-track' | 'off-track';
+  // extra
+  cornerRadius?: string | number;
 }) => {
   const {
     valueMin,
@@ -23,6 +25,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
     radiusSecondary,
     radiusRatioSecondary,
     goalStatus,
+    cornerRadius,
   } = props;
 
   const Neutral70 = '#EBECF0';
@@ -72,7 +75,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
         <Arc
           radius={radiusPrimary}
           ratio={radiusRatioPrimary}
-          cornerRadius="50%"
+          cornerRadius={cornerRadius}
         >
           <ArcSweep style={{ fill: Neutral70 }} />
           <ArcSweep to={valuePrimary} style={{ fill: primaryValueSweepFill }} />
@@ -80,7 +83,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
         <Arc
           radius={radiusSecondary}
           ratio={radiusRatioSecondary}
-          cornerRadius="50%"
+          cornerRadius={cornerRadius}
         >
           <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
         </Arc>
@@ -119,6 +122,7 @@ const meta: Meta<typeof ReportCardMasteryGoalDualCircularGauge> = {
     radiusSecondary: 93,
     radiusRatioSecondary: 0.87,
     goalStatus: 'on-track',
+    cornerRadius: '50%',
   },
   argTypes: {
     valuePrimary: {
@@ -173,6 +177,11 @@ const meta: Meta<typeof ReportCardMasteryGoalDualCircularGauge> = {
         min: 0,
         max: 1,
         step: 0.01,
+      },
+    },
+    cornerRadius: {
+      control: {
+        type: 'text',
       },
     },
   },

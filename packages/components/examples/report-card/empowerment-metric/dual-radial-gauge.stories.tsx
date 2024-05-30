@@ -45,6 +45,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
   radiusRatioSecondary: number;
   // extra
   unitsOffset?: number;
+  cornerRadius?: string | number;
 }) => {
   const {
     valueMin,
@@ -56,6 +57,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
     radiusSecondary,
     radiusRatioSecondary,
     unitsOffset,
+    cornerRadius,
   } = props;
 
   return (
@@ -77,7 +79,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
           <Arc
             radius={radiusPrimary}
             ratio={radiusRatioPrimary}
-            cornerRadius="50%"
+            cornerRadius={cornerRadius}
           >
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
@@ -96,7 +98,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
           <Arc
             radius={radiusSecondary}
             ratio={radiusRatioSecondary}
-            cornerRadius="50%"
+            cornerRadius={cornerRadius}
           >
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valueSecondary} style={{ fill: Purple200 }} />
@@ -120,6 +122,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualRadialGauge> = {
     radiusSecondary: 93,
     radiusRatioSecondary: 0.87,
     unitsOffset: 8,
+    cornerRadius: '50%',
   },
   argTypes: {
     valuePrimary: {
@@ -144,6 +147,11 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualRadialGauge> = {
         min: 0,
         max: 16,
         step: 1,
+      },
+    },
+    cornerRadius: {
+      control: {
+        type: 'text',
       },
     },
   },
