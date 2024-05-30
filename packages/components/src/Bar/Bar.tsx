@@ -15,6 +15,7 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     direction,
     dx,
     dy,
+    borderWidth,
     children,
   } = props;
 
@@ -43,6 +44,7 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
         direction: child.props.direction ?? direction,
         dx: child.props.dx ?? dx,
         dy: child.props.dy ?? dy,
+        borderWidth: child.props.borderWidth ?? borderWidth,
       });
     }
 

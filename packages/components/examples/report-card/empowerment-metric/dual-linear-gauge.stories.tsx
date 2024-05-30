@@ -40,10 +40,11 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
   // previous week
   valueSecondary: number;
   thicknessSecondary: number;
-  cornerRadius: BarProps['cornerRadius'];
   // extra
+  cornerRadius: BarProps['cornerRadius'];
   valuePrimaryContinuous: number;
   valueSecondaryContinuous: number;
+  borderWidth: BarProps['borderWidth'];
 }) => {
   const {
     valueMin,
@@ -55,6 +56,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
     cornerRadius,
     valuePrimaryContinuous,
     valueSecondaryContinuous,
+    borderWidth,
   } = props;
 
   const valuePrimary =
@@ -65,8 +67,6 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
     valueSecondaryContinuous < valueMin
       ? valueSecondaryProp
       : valueSecondaryContinuous;
-
-  const bw = 1.66;
 
   return (
     <Chart
@@ -84,32 +84,27 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
           }px)`,
         }}
       >
-        <BarScale
-          lengthMax={544 - 2 * bw}
-          valueMin={valueMin}
-          valueMax={valueMax}
-        >
+        <BarScale lengthMax={544} valueMin={valueMin} valueMax={valueMax}>
           <Bar
-            lengthMin={thicknessPrimary - 2 * bw}
-            thickness={thicknessPrimary - 2 * bw}
+            lengthMin={thicknessPrimary}
+            thickness={thicknessPrimary}
             cornerRadius={cornerRadius}
-            dy={bw}
-            dx={bw}
+            borderWidth={borderWidth}
           >
             <BarFill to={valuePrimary} style={{ fill: Purple500 }} />
           </Bar>
 
           <Bar
-            lengthMin={thicknessSecondary - 2 * bw}
-            thickness={thicknessSecondary - 2 * bw}
+            lengthMin={thicknessSecondary}
+            thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
-            dy={thicknessPrimary + 2 * bw}
-            dx={bw}
+            dy={thicknessPrimary}
+            borderWidth={borderWidth}
           >
             <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
           </Bar>
 
-          <BarUnits dy={thicknessPrimary + thicknessSecondary + bw}>
+          <BarUnits dy={thicknessPrimary + thicknessSecondary}>
             <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
               Not really
             </BarUnitLabel>
@@ -139,6 +134,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
     cornerRadius: { end: 15 }, // TODO { end: "50%" }
     valuePrimaryContinuous: 1 - 0.05,
     valueSecondaryContinuous: 1 - 0.05,
+    borderWidth: 1.66,
   },
   argTypes: {
     valuePrimary: {
@@ -190,6 +186,14 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
         min: 1 - 0.05,
         max: 3,
         step: 0.05,
+      },
+    },
+    borderWidth: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 2,
+        step: 0.33,
       },
     },
   },

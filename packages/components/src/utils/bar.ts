@@ -16,7 +16,7 @@ export type BarParams = {
    */
   direction?: 'forward' | 'backward';
   /**
-   * The common corner radius of the bar fill(s).
+   * The radius of the corners of the bar fill(s).
    */
   cornerRadius?: BarCornerRadiusParam;
   /**
@@ -27,6 +27,10 @@ export type BarParams = {
    * The shift along the y-axis for bar's initial point.
    */
   dy?: number;
+  /**
+   * The width of the borders of the bar fill(s).
+   */
+  borderWidth?: number;
 };
 
 export function drawBar(params: {
@@ -41,14 +45,22 @@ export function drawBar(params: {
   direction?: BarDirection;
   dx?: number;
   dy?: number;
+  borderWidth?: number;
 }) {
-  const [x, y] = [params.dx ?? 0, params.dy ?? 0];
+  const dx = params.dx ?? 0;
+  const dy = params.dy ?? 0;
+
+  const borderWidth = evalBarBorderWidth(params.borderWidth);
+
+  const [x, y] = [dx + borderWidth, dy + borderWidth];
 
   const lengthMin = evalBarScaleLengthMin(params.lengthMin);
 
+  const lengthMax = params.lengthMax - 2 * borderWidth;
+
   const scale = D3Scale.scaleLinear()
     .domain([params.valueMin, params.valueMax])
-    .range([lengthMin, params.lengthMax]);
+    .range([lengthMin, lengthMax]);
 
   const value = params.to ?? params.valueMax;
 
@@ -56,9 +68,11 @@ export function drawBar(params: {
 
   const orientation = evalBarOrientation(params.orientation);
 
+  const thickness = params.thickness - 2 * borderWidth;
+
   const [width, height] = convertBarToRectangleDimensionTuple(
     length,
-    params.thickness,
+    thickness,
     orientation
   );
 
@@ -219,4 +233,14 @@ export function convertBarToRectangleDimensionTuple(
     // (orientation === 'horizontal')
     return [length, thickness];
   }
+}
+
+export type BarBorderWidth = number;
+
+export const DEFAULT_BAR_BORDER_WIDTH: BarBorderWidth = 0 as const;
+
+export type BarBorderWidthParam = undefined | number;
+
+export function evalBarBorderWidth(param: BarBorderWidthParam) {
+  return param ?? DEFAULT_BAR_BORDER_WIDTH;
 }

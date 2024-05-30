@@ -18,6 +18,7 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
       direction,
       dx,
       dy,
+      borderWidth,
       ...other
     } = props;
 
@@ -49,6 +50,7 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
       direction,
       dx,
       dy,
+      borderWidth,
     });
 
     return <path ref={ref} d={d} {...other} />;
