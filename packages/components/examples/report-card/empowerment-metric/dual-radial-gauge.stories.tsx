@@ -7,6 +7,7 @@ import {
   ArcUnitLabel,
   ArcScale,
   Chart,
+  ArcUnits,
 } from '../../../src';
 
 const Neutral70 = '#EBECF0';
@@ -42,6 +43,8 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
   valueSecondary: number;
   radiusSecondary: number;
   radiusRatioSecondary: number;
+  // extra
+  unitsOffset?: number;
 }) => {
   const {
     valueMin,
@@ -52,6 +55,7 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
     radiusRatioPrimary,
     radiusSecondary,
     radiusRatioSecondary,
+    unitsOffset,
   } = props;
 
   return (
@@ -77,15 +81,17 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
           >
             <ArcSweep style={{ fill: Neutral70 }} />
             <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
-            <ArcUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-              Too easy
-            </ArcUnitLabel>
-            <ArcUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-              Just right
-            </ArcUnitLabel>
-            <ArcUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-              Too hard
-            </ArcUnitLabel>
+            <ArcUnits offset={unitsOffset}>
+              <ArcUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+                Too easy
+              </ArcUnitLabel>
+              <ArcUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+                Just right
+              </ArcUnitLabel>
+              <ArcUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+                Too hard
+              </ArcUnitLabel>
+            </ArcUnits>
           </Arc>
           <Arc
             radius={radiusSecondary}
@@ -113,6 +119,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualRadialGauge> = {
     radiusRatioPrimary: 0.77,
     radiusSecondary: 93,
     radiusRatioSecondary: 0.87,
+    unitsOffset: 8,
   },
   argTypes: {
     valuePrimary: {
@@ -128,6 +135,14 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualRadialGauge> = {
         type: 'range',
         min: 1,
         max: 3,
+        step: 1,
+      },
+    },
+    unitsOffset: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 16,
         step: 1,
       },
     },

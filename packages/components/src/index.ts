@@ -3,6 +3,7 @@ export * from './ArcCircle';
 export * from './ArcSegments';
 export * from './ArcSegmentsSweep';
 export * from './ArcSweep';
+export * from './ArcUnits';
 export * from './ArcUnitLabel';
 export * from './ArcScale';
 export * from './Bar';

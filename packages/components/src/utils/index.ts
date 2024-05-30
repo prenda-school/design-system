@@ -2,6 +2,7 @@ export * from './arc';
 export * from './arc-circle';
 export * from './arc-scale';
 export * from './arc-segments';
+export * from './arc-units';
 export * from './bar';
 export * from './bar-fill';
 export * from './bar-scale';
