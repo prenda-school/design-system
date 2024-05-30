@@ -131,7 +131,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
     valueSecondary: 3,
     thicknessPrimary: 30,
     thicknessSecondary: 16,
-    cornerRadius: { end: 15 }, // TODO { end: "50%" }
+    cornerRadius: { end: '50%' },
     valuePrimaryContinuous: 1 - 0.05,
     valueSecondaryContinuous: 1 - 0.05,
     borderWidth: 1.66,

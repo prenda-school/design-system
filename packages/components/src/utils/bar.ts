@@ -1,6 +1,7 @@
 import * as D3Scale from 'd3-scale';
 import { evalBarScaleLengthMin } from './bar-scale';
 import { RectangleCornerRadiusTuple, drawRoundedRectangle } from './rectangle';
+import { getNumericalValue } from './value';
 
 export type BarParams = {
   /**
@@ -76,7 +77,7 @@ export function drawBar(params: {
     orientation
   );
 
-  const cornerRadius = evalBarCornerRadius(params.cornerRadius);
+  const cornerRadius = evalBarCornerRadius(params.cornerRadius, thickness);
 
   const direction = evalBarDirection(params.direction);
 
@@ -112,13 +113,14 @@ export const DEFAULT_BAR_DIRECTION: BarDirection = 'forward' as const;
 export type BarCornerRadiusParam =
   | undefined
   | number
+  | string
   | Partial<{
-      end: number;
-      start: number;
-      startStart: number;
-      endStart: number;
-      endEnd: number;
-      startEnd: number;
+      end: number | string;
+      start: number | string;
+      startStart: number | string;
+      endStart: number | string;
+      endEnd: number | string;
+      startEnd: number | string;
     }>;
 
 export type BarCornerRadius = {
@@ -136,10 +138,17 @@ export const DEFAULT_BAR_CORNER_RADIUS: BarCornerRadius = {
 } as const;
 
 export function evalBarCornerRadius(
-  cornerRadius: BarCornerRadiusParam
+  cornerRadius: BarCornerRadiusParam,
+  thickness: BarParams['thickness']
 ): BarCornerRadius {
   if (cornerRadius === undefined) {
     return Object.assign({}, DEFAULT_BAR_CORNER_RADIUS);
+  }
+
+  const toNum = (value: number | string) => getNumericalValue(value, thickness);
+
+  if (typeof cornerRadius === 'string') {
+    cornerRadius = toNum(cornerRadius);
   }
 
   if (typeof cornerRadius === 'number') {
@@ -172,10 +181,10 @@ export function evalBarCornerRadius(
     DEFAULT_BAR_CORNER_RADIUS.startEnd;
 
   return {
-    startStart,
-    endStart,
-    endEnd,
-    startEnd,
+    startStart: toNum(startStart),
+    endStart: toNum(endStart),
+    endEnd: toNum(endEnd),
+    startEnd: toNum(startEnd),
   };
 }
 

@@ -13,8 +13,11 @@ export type WideValue = number | string;
  * @param wideValue The value provided by the developer. Can either be a number or a string with '%' or 'px'.
  * @param reference The numerical value associated to 100%.
  * @returns The numerical value associated to the provided value.
+ * ---
  *
- * Credit: @mui/x-charts, `getPercentageValue`
+ * #### Credit
+ *
+ * [1] {@link https://github.com/mui/mui-x/blob/20c0f52833f5ab0d5a161425e47de861f8f54646/packages/x-charts/src/internals/utils.ts#L30 @mui/x-charts, getPercentageValue(...)}.
  */
 export function getNumericalValue(
   wideValue: WideValue,
