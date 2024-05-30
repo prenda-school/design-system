@@ -12,3 +12,6 @@ export * from './BarScale';
 export * from './BarUnits';
 export * from './BarUnitLabel';
 export * from './Chart';
+export * from './LinearScale';
+export * from './LinearUnitLabel';
+export * from './LinearUnits';

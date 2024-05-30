@@ -4,9 +4,11 @@ import {
   Arc,
   ArcSegments,
   ArcSegmentsSweep,
-  ArcUnitLabel,
   ArcScale,
   Chart,
+  LinearScale,
+  LinearUnits,
+  LinearUnitLabel,
 } from '../../../src';
 
 const Neutral400 = '#42526E';
@@ -56,11 +58,13 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
   const Yellow300 = '#FFE380';
   const Yellow500 = '#FFAB00';
 
+  const width = 200 + 68 + 68;
+
   return (
     <Chart
-      width={200 + 68 + 68}
-      height={200 + 28 + 28}
-      marginBottom={28}
+      width={width}
+      height={200 + 28 + 28 + 32 + 16}
+      marginBottom={28 + 32 + 16}
       marginLeft={68}
       marginRight={68}
       marginTop={28}
@@ -83,30 +87,27 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
               renderProps={{ style: { fill: Yellow500 } }}
             />
           </ArcSegments>
-          <ArcUnitLabel at={1 + 0.1} dx={12} style={unitLabelStyle(1, value)}>
-            Sad
-          </ArcUnitLabel>
-          <ArcUnitLabel at={2} style={unitLabelStyle(2, value)}>
-            Fair
-          </ArcUnitLabel>
-          <ArcUnitLabel
-            at={3}
-            textAnchor="middle"
-            dominantBaseline="hanging"
-            style={unitLabelStyle(3, value)}
-          >
-            Okay
-          </ArcUnitLabel>
-          <ArcUnitLabel at={4} style={unitLabelStyle(4, value)}>
-            Good
-          </ArcUnitLabel>
-          <ArcUnitLabel at={5 - 0.1} dx={-4} style={unitLabelStyle(5, value)}>
-            Happy
-          </ArcUnitLabel>
         </Arc>
       </ArcScale>
+
       <g>
         <circle r={118 / 2} fill={Yellow300} />
+      </g>
+
+      <g transform={`translate(${-width / 2}, ${radius + 32})`}>
+        <LinearScale valueMin={valueMin} valueMax={valueMax} lengthMax={width}>
+          <LinearUnits dominantBaseline="alphabetic">
+            <LinearUnitLabel at={1} style={unitLabelStyle(1, value)}>
+              Low
+            </LinearUnitLabel>
+            <LinearUnitLabel at={2} style={unitLabelStyle(2, value)}>
+              Med
+            </LinearUnitLabel>
+            <LinearUnitLabel at={3} style={unitLabelStyle(3, value)}>
+              High
+            </LinearUnitLabel>
+          </LinearUnits>
+        </LinearScale>
       </g>
     </Chart>
   );
@@ -117,7 +118,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricSegmentedCircularGauge> = {
   component: ReportCardEmpowermentMetricSegmentedCircularGauge,
   args: {
     valueMin: 1,
-    valueMax: 5,
+    valueMax: 3,
     value: 2,
     radius: 100,
     radiusRatio: 0.74,
@@ -131,7 +132,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricSegmentedCircularGauge> = {
       control: {
         type: 'range',
         min: 1,
-        max: 5,
+        max: 3,
         step: 1,
       },
     },
@@ -139,7 +140,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricSegmentedCircularGauge> = {
       control: {
         type: 'range',
         min: 0.9,
-        max: 5,
+        max: 3,
         step: 0.1,
       },
     },
