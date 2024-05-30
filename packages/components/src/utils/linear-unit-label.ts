@@ -8,7 +8,7 @@ export type LinearUnitLabelParams = {
    */
   at: number;
   /**
-   * The offset of the unit label from the line bottom (positive value) or top (negative value) edge.
+   * The offset of the unit label below (positive value) or above (negative value) the line.
    */
   offset?: LinearUnitLabelOffsetParam;
 };
