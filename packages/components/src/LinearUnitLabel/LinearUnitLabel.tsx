@@ -45,5 +45,5 @@ export const LinearUnitLabel = React.forwardRef<
 });
 
 const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`LinearUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`LinearScale\`? or (2) set \`${propName}\`?`;
+  return `Oops! \`LinearUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`LinearScale\`, \`LinearUnits\`? or (2) set \`${propName}\`?`;
 };

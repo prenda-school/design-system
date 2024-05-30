@@ -1,6 +1,7 @@
 import { SvgProperties } from 'csstype';
 import * as D3Scale from 'd3-scale';
 import { BarScaleParams, evalBarScaleLengthMin } from './bar-scale';
+import { BarParams } from './bar';
 
 export type BarUnitLabelParams = {
   /**
@@ -13,7 +14,9 @@ export type BarUnitLabelParams = {
   offset?: number;
 };
 
-export type DrawBarUnitLabelParams = BarUnitLabelParams & BarScaleParams;
+export type DrawBarUnitLabelParams = BarUnitLabelParams &
+  BarScaleParams &
+  Pick<BarParams, 'thickness'>;
 
 export function drawBarUnitLabel(params: DrawBarUnitLabelParams) {
   const lengthMin = evalBarScaleLengthMin(params.lengthMin) ?? 0;
@@ -29,7 +32,8 @@ export function drawBarUnitLabel(params: DrawBarUnitLabelParams) {
   const offset = evalBarUnitLabelOffset(params.offset);
 
   const x = length;
-  const y = offset;
+  const y =
+    offset === 0 ? offset : offset > 0 ? params.thickness + offset : offset;
 
   const textAnchor: SvgProperties['textAnchor'] =
     x === lengthMin ? 'start' : x === params.lengthMax ? 'end' : 'middle';

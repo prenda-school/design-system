@@ -86,35 +86,41 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       >
         <BarScale lengthMax={544} valueMin={valueMin} valueMax={valueMax}>
           <Bar
-            lengthMin={thicknessPrimary}
             thickness={thicknessPrimary}
             cornerRadius={cornerRadius}
             borderWidth={borderWidth}
           >
-            <BarFill to={valuePrimary} style={{ fill: Purple500 }} />
+            <BarFill
+              lengthMin={thicknessPrimary}
+              to={valuePrimary}
+              style={{ fill: Purple500 }}
+            />
+
+            <BarUnits dy={thicknessSecondary}>
+              <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+                Not really
+              </BarUnitLabel>
+              <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+                Kind of
+              </BarUnitLabel>
+              <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+                Very
+              </BarUnitLabel>
+            </BarUnits>
           </Bar>
 
           <Bar
-            lengthMin={thicknessSecondary}
             thickness={thicknessSecondary}
             cornerRadius={cornerRadius}
             dy={thicknessPrimary}
             borderWidth={borderWidth}
           >
-            <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
+            <BarFill
+              lengthMin={thicknessSecondary}
+              to={valueSecondary}
+              style={{ fill: Purple200 }}
+            />
           </Bar>
-
-          <BarUnits dy={thicknessPrimary + thicknessSecondary}>
-            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-              Not really
-            </BarUnitLabel>
-            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-              Kind of
-            </BarUnitLabel>
-            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-              Very
-            </BarUnitLabel>
-          </BarUnits>
         </BarScale>
       </g>
     </Chart>

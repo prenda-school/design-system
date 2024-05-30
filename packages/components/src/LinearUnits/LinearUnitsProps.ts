@@ -1,6 +1,8 @@
 import React from 'react';
-import { LinearUnitsParams } from '../utils';
+import { LinearScaleParams, LinearUnitsParams } from '../utils';
 
-export interface LinearUnitsProps extends LinearUnitsParams {
+export interface LinearUnitsProps
+  extends Partial<LinearScaleParams>,
+    LinearUnitsParams {
   children: React.ReactNode;
 }

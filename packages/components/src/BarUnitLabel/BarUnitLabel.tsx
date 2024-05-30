@@ -8,8 +8,16 @@ export const BarUnitLabel = React.forwardRef<
   BarUnitLabelRef,
   BarUnitLabelProps
 >((props, ref) => {
-  const { at, offset, valueMin, valueMax, lengthMin, lengthMax, ...other } =
-    props;
+  const {
+    at,
+    offset,
+    valueMin,
+    valueMax,
+    lengthMin,
+    lengthMax,
+    thickness,
+    ...other
+  } = props;
 
   if (valueMin === undefined) {
     throw Error(getMissingPropMessage('valueMin'));
@@ -23,6 +31,10 @@ export const BarUnitLabel = React.forwardRef<
     throw Error(getMissingPropMessage('lengthMax'));
   }
 
+  if (thickness === undefined) {
+    throw Error(getMissingPropMessage('thickness'));
+  }
+
   const { x, y, textAnchor, dominantBaseline } = drawBarUnitLabel({
     at,
     offset,
@@ -30,6 +42,7 @@ export const BarUnitLabel = React.forwardRef<
     valueMin,
     lengthMax,
     lengthMin,
+    thickness,
   });
 
   return (
@@ -45,5 +58,5 @@ export const BarUnitLabel = React.forwardRef<
 });
 
 const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`BarUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`Bar\`? or (2) set \`${propName}\`?`;
+  return `Oops! \`BarUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`BarScale\`, \`BarUnits\`? or (2) set \`${propName}\`?`;
 };

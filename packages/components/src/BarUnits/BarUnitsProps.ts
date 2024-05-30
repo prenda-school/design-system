@@ -1,6 +1,9 @@
 import React from 'react';
-import { BarUnitsParams } from '../utils';
+import { BarParams, BarScaleParams, BarUnitsParams } from '../utils';
 
-export interface BarUnitsProps extends BarUnitsParams {
+export interface BarUnitsProps
+  extends Partial<BarScaleParams>,
+    Partial<Pick<BarParams, 'thickness'>>,
+    BarUnitsParams {
   children: React.ReactNode;
 }
