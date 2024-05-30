@@ -6,6 +6,7 @@ import {
   BarProps,
   BarScale,
   BarUnitLabel,
+  BarUnits,
   Chart,
 } from '../../../src';
 
@@ -65,8 +66,6 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       ? valueSecondaryProp
       : valueSecondaryContinuous;
 
-  const unitLabelDy = thicknessPrimary + thicknessSecondary;
-
   return (
     <Chart
       width={544 + 8 + 8}
@@ -105,29 +104,17 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             <BarFill to={valueSecondary} style={{ fill: Purple200 }} />
           </Bar>
 
-          {/* <BarUnits dy={thicknessPrimary + thicknessSecondary + 4}> */}
-          <BarUnitLabel
-            dy={unitLabelDy}
-            at={1}
-            style={unitLabelStyle(1, valuePrimary)}
-          >
-            Too easy
-          </BarUnitLabel>
-          <BarUnitLabel
-            dy={unitLabelDy}
-            at={2}
-            style={unitLabelStyle(2, valuePrimary)}
-          >
-            Just right
-          </BarUnitLabel>
-          <BarUnitLabel
-            dy={unitLabelDy}
-            at={3}
-            style={unitLabelStyle(3, valuePrimary)}
-          >
-            Too hard
-          </BarUnitLabel>
-          {/* </BarUnits> */}
+          <BarUnits dy={thicknessPrimary + thicknessSecondary}>
+            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+              Not really
+            </BarUnitLabel>
+            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+              Kind of
+            </BarUnitLabel>
+            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+              Very
+            </BarUnitLabel>
+          </BarUnits>
         </BarScale>
       </g>
     </Chart>
