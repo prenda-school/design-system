@@ -23,26 +23,43 @@ const meta: Meta<typeof BarFill> = {
       },
     },
   },
+  args: {
+    valueMin: 0,
+    valueMax: 100,
+    lengthMin: 0,
+    lengthMax: 212,
+    thickness: 30,
+  },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof BarFill>;
 
-export const Between: Story = {
+export const ToMin: Story = {
+  name: 'to=0 (min)',
   args: {
-    valueMin: 0,
-    valueMax: 100,
+    to: 0,
+  },
+};
+
+export const To1: Story = {
+  name: 'to=1',
+  args: {
+    to: 1,
+  },
+};
+
+export const ToBetween: Story = {
+  name: 'to=50 (between)',
+  args: {
     to: 50,
-    lengthMin: 0,
-    lengthMax: 212,
-    thickness: 30,
-    orientation: 'vertical',
-    cornerRadius: {
-      startStart: 15,
-      endStart: 15,
-      startEnd: 0,
-      endEnd: 0,
-    },
+  },
+};
+
+export const ToMax: Story = {
+  name: 'to=100 (max)',
+  args: {
+    to: 100,
   },
 };
