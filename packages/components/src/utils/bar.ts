@@ -118,10 +118,12 @@ export type BarCornerRadiusParam =
     W3 calls these "directional-keyword values that are flow-relative" as an alternative to "directional-keyword values that are physical"
 
     Block Direction: The direction in which the bar grows or extends. 
-      - For a vertical bar graph, this is the vertical direction (top to bottom). For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards).
+      - For a vertical bar graph, this is the vertical direction (upwards or downwards).
+      - For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards).
 
-    Inline Direction: The direction along the baseline of the bars, which aligns with how the bars are laid out one above the other. 
-      - For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards). For a horizontal bar graph, this is the vertical direction (top to bottom).
+    Inline Direction: The direction along the baseline of the bars, which aligns with how the bars are laid out next to one another.
+      - For a vertical bar graph, this is the horizontal direction (left to right).
+      - For a horizontal bar graph, this is the vertical direction (top to bottom).
 
     { start, end } = { block-start, block-end }
 
