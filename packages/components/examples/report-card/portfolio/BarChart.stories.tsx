@@ -1,6 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart, BarScale, Bar, BarFill, BarLabel } from '../../../src';
+import {
+  Chart,
+  BarScale,
+  Bar,
+  BarFill,
+  BarLabel,
+  BarLabelProps,
+} from '../../../src';
 
 const BrandBlue = '#0A4872';
 const Teal200 = '#B3F5FF';
@@ -24,6 +31,7 @@ const ReportCardPortfolioBarChart = (props: {
   colors: string[];
   barThickness: number;
   barGapRatio: number;
+  barLabelPosition: BarLabelProps['position'];
   // extra
   width: number;
   height: number;
@@ -35,6 +43,7 @@ const ReportCardPortfolioBarChart = (props: {
     colors,
     barThickness,
     barGapRatio,
+    barLabelPosition,
     // extra
     width,
     height,
@@ -53,9 +62,12 @@ const ReportCardPortfolioBarChart = (props: {
 
   const gap = barThickness * barGapRatio;
 
+  const gdy =
+    barLabelPosition === 'above' ? -24 : barLabelPosition === 'below' ? 0 : 0;
+
   return (
     <Chart width={width} height={height}>
-      <g transform={`translate(-${width / 2}, -${height / 2 - 24})`}>
+      <g transform={`translate(-${width / 2}, -${height / 2 + gdy})`}>
         <BarScale valueMin={valueMin} valueMax={valueMax} lengthMax={lengthMax}>
           {data.map((datum, i) => (
             <Bar
@@ -65,7 +77,7 @@ const ReportCardPortfolioBarChart = (props: {
               cornerRadius={{ start: 4, end: '50%' }}
             >
               <BarFill to={datum.value} style={{ fill: colors[i] }} />
-              <BarLabel position="above" style={styleBody}>
+              <BarLabel position={barLabelPosition} style={styleBody}>
                 {datum.label} ({datum.value})
               </BarLabel>
             </Bar>
@@ -103,6 +115,10 @@ const meta: Meta<typeof ReportCardPortfolioBarChart> = {
     colors: { control: { type: 'object' } },
     barThickness: { control: { type: 'range', min: 0, max: 40, step: 1 } },
     barGapRatio: { control: { type: 'range', min: 0, max: 2, step: 0.1 } },
+    barLabelPosition: {
+      options: ['above', 'below', 'inside'],
+      control: { type: 'radio' },
+    },
     // extra
     height: { control: { type: 'range', min: 0, max: 484, step: 1 } },
     width: { control: { type: 'range', min: 0, max: 320, step: 1 } },
