@@ -114,6 +114,19 @@ export type BarCornerRadiusParam =
   | undefined
   | number
   | string
+  /*
+    W3 calls these "directional-keyword values that are flow-relative" as an alternative to "directional-keyword values that are physical"
+
+    Block Direction: The direction in which the bar grows or extends. 
+      - For a vertical bar graph, this is the vertical direction (top to bottom). For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards).
+
+    Inline Direction: The direction along the baseline of the bars, which aligns with how the bars are laid out one above the other. 
+      - For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards). For a horizontal bar graph, this is the vertical direction (top to bottom).
+
+    { start, end } = { block-start, block-end }
+
+    { startStart, startEnd, endStart, endEnd } = { block-start-inline-start, block-start-inline-end, block-end-inline-start, block-end-inline-end }
+  */
   | Partial<{
       end: number | string;
       start: number | string;
@@ -162,8 +175,13 @@ export function evalBarCornerRadius(
 
   const startStart =
     cornerRadius.startStart ??
-    cornerRadius.end ??
+    cornerRadius.start ??
     DEFAULT_BAR_CORNER_RADIUS.startStart;
+
+  const startEnd =
+    cornerRadius.startEnd ??
+    cornerRadius.start ??
+    DEFAULT_BAR_CORNER_RADIUS.startEnd;
 
   const endStart =
     cornerRadius.endStart ??
@@ -171,14 +189,7 @@ export function evalBarCornerRadius(
     DEFAULT_BAR_CORNER_RADIUS.endStart;
 
   const endEnd =
-    cornerRadius.endEnd ??
-    cornerRadius.start ??
-    DEFAULT_BAR_CORNER_RADIUS.endEnd;
-
-  const startEnd =
-    cornerRadius.startEnd ??
-    cornerRadius.start ??
-    DEFAULT_BAR_CORNER_RADIUS.startEnd;
+    cornerRadius.endEnd ?? cornerRadius.end ?? DEFAULT_BAR_CORNER_RADIUS.endEnd;
 
   return {
     startStart: toNum(startStart),
@@ -198,32 +209,32 @@ export function convertBarToRectangleCornerRadiusTuple(
 ): RectangleCornerRadiusTuple {
   if (orientation === 'vertical' && direction === 'forward') {
     return [
-      cornerRadius.startStart,
       cornerRadius.endStart,
       cornerRadius.endEnd,
       cornerRadius.startEnd,
+      cornerRadius.startStart,
     ];
   } else if (orientation === 'vertical' && direction === 'backward') {
     return [
-      cornerRadius.endEnd,
-      cornerRadius.startEnd,
       cornerRadius.startStart,
+      cornerRadius.startEnd,
+      cornerRadius.endEnd,
       cornerRadius.endStart,
     ];
   } else if (orientation === 'horizontal' && direction === 'forward') {
     return [
-      cornerRadius.startEnd,
       cornerRadius.startStart,
-      cornerRadius.endStart,
       cornerRadius.endEnd,
+      cornerRadius.endStart,
+      cornerRadius.startEnd,
     ];
   } else {
     // (orientation === 'horizontal' && direction === 'backward')
     return [
       cornerRadius.endStart,
-      cornerRadius.endEnd,
-      cornerRadius.startEnd,
       cornerRadius.startStart,
+      cornerRadius.startEnd,
+      cornerRadius.endEnd,
     ];
   }
 }
