@@ -1,6 +1,6 @@
-import React, { SVGAttributes } from 'react';
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Chart, BarScale, Bar, BarFill } from '../../../src';
+import { Chart, BarScale, Bar, BarFill, BarLabel } from '../../../src';
 
 const BrandBlue = '#0A4872';
 const Teal200 = '#B3F5FF';
@@ -17,65 +17,6 @@ const styleBody = {
   fontStyle: 'normal',
   fontWeight: 400,
 };
-
-const DEFAULT_POSITION = 'inside';
-// const DEFAULT_LINE_HEIGHT = 24
-const DEFAULT_OFFSET = 6;
-
-function BarText(props: {
-  dy?: number;
-  offset?: number;
-  position?: 'above' | 'below' | 'inside';
-  lineHeight?: number;
-  children: React.ReactNode;
-}) {
-  const {
-    dy: dyProp,
-    offset: offsetProp,
-    position = DEFAULT_POSITION,
-    // lineHeight = DEFAULT_LINE_HEIGHT,
-    // figure out how to stop these
-    lengthMax,
-    lengthMin,
-    valueMax,
-    valueMin,
-    cornerRadius,
-    borderWidth,
-    thickness,
-    ...other
-  } = props;
-
-  if (dyProp === undefined) {
-    throw new Error('dy is required');
-  }
-
-  const offset = Math.abs(offsetProp ?? DEFAULT_OFFSET);
-
-  let dominantBaseline: SVGAttributes<SVGTextElement>['dominantBaseline'];
-  let dy: SVGAttributes<SVGTextElement>['dy'];
-  if (position === 'above') {
-    dominantBaseline = 'alphabetic';
-    dy = dyProp - offset;
-  } else if (position === 'below') {
-    dominantBaseline = 'hanging';
-    dy = dyProp + thickness + offset;
-  } else if (position === 'inside') {
-    dominantBaseline = 'middle';
-    dy = dyProp + thickness / 2;
-  } else {
-    dy = dyProp;
-  }
-
-  return (
-    <text
-      dominantBaseline={dominantBaseline}
-      textAnchor="start"
-      style={styleBody}
-      dy={dy}
-      {...other}
-    />
-  );
-}
 
 const ReportCardPortfolioBarChart = (props: {
   data: { value: number; label: string }[];
@@ -124,9 +65,9 @@ const ReportCardPortfolioBarChart = (props: {
               cornerRadius={{ start: 4, end: '50%' }}
             >
               <BarFill to={datum.value} style={{ fill: colors[i] }} />
-              <BarText position="above">
+              <BarLabel position="above" style={styleBody}>
                 {datum.label} ({datum.value})
-              </BarText>
+              </BarLabel>
             </Bar>
           ))}
         </BarScale>

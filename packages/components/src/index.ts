@@ -8,6 +8,7 @@ export * from './ArcUnitLabel';
 export * from './ArcScale';
 export * from './Bar';
 export * from './BarFill';
+export * from './BarLabel';
 export * from './BarScale';
 export * from './BarUnits';
 export * from './BarUnitLabel';

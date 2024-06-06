@@ -5,6 +5,7 @@ export * from './arc-segments';
 export * from './arc-units';
 export * from './bar';
 export * from './bar-fill';
+export * from './bar-label';
 export * from './bar-scale';
 export * from './bar-unit-label';
 export * from './bar-units';
