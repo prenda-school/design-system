@@ -75,6 +75,14 @@ export const PositionOutsideOffset4: Story = {
   },
 };
 
+export const PositionOutsideOffsetNeg4: Story = {
+  name: 'position=outside offset=-4',
+  args: {
+    position: 'outside',
+    offset: -4,
+  },
+};
+
 export const PositionInside: Story = {
   name: 'position=inside',
   args: {
@@ -87,5 +95,13 @@ export const PositionInsideOffset4: Story = {
   args: {
     position: 'inside',
     offset: 4,
+  },
+};
+
+export const PositionInsideOffsetNeg4: Story = {
+  name: 'position=inside offset=-4',
+  args: {
+    position: 'inside',
+    offset: -4,
   },
 };
