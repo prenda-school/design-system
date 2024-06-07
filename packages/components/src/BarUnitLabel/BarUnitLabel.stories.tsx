@@ -43,7 +43,7 @@ const meta: Meta<typeof BarUnitLabel> = {
       options: ['above', 'below'],
     },
     offset: {
-      control: { type: 'range', min: 0, max: 20, step: 1 },
+      control: { type: 'range', min: -20, max: 20, step: 1 },
     },
   },
   args: {
@@ -104,6 +104,42 @@ export const AtMaxPositionBelow: Story = {
   name: 'at=(max) position=below',
   args: {
     at: 100,
+    position: 'below',
+  },
+};
+
+export const Offset4PositionAbove: Story = {
+  name: 'offset=4 position=above at=..',
+  args: {
+    at: 0,
+    offset: 4,
+    position: 'above',
+  },
+};
+
+export const Offset4PositionBelow: Story = {
+  name: 'offset=4 position=below at=..',
+  args: {
+    at: 0,
+    offset: 4,
+    position: 'below',
+  },
+};
+
+export const OffsetNeg4PositionAbove: Story = {
+  name: 'offset=-4 position=above at=..',
+  args: {
+    at: 0,
+    offset: -4,
+    position: 'above',
+  },
+};
+
+export const OffsetNeg4PositionBelow: Story = {
+  name: 'offset=-4 position=below at=..',
+  args: {
+    at: 0,
+    offset: -4,
     position: 'below',
   },
 };

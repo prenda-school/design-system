@@ -36,7 +36,7 @@ const meta: Meta<typeof BarUnits> = {
       options: ['above', 'below'],
     },
     offset: {
-      control: { type: 'range', min: 0, max: 20, step: 1 },
+      control: { type: 'range', min: -20, max: 20, step: 1 },
     },
   },
   args: {
@@ -77,18 +77,34 @@ export const PositionBelow: Story = {
   },
 };
 
-export const PositionAboveOffset2: Story = {
-  name: 'position=above offset=2',
+export const PositionAboveOffset4: Story = {
+  name: 'position=above offset=4',
   args: {
     position: 'above',
-    offset: 2,
+    offset: 4,
   },
 };
 
-export const PositionBelowOffset2: Story = {
-  name: 'position=below offset=2',
+export const PositionBelowOffset4: Story = {
+  name: 'position=below offset=4',
   args: {
     position: 'below',
-    offset: 2,
+    offset: 4,
+  },
+};
+
+export const PositionAboveOffsetNeg4: Story = {
+  name: 'position=above offset=-4',
+  args: {
+    position: 'above',
+    offset: -4,
+  },
+};
+
+export const PositionBelowOffsetNeg4: Story = {
+  name: 'position=below offset=-4',
+  args: {
+    position: 'below',
+    offset: -4,
   },
 };

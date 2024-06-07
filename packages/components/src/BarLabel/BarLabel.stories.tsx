@@ -35,7 +35,7 @@ const meta: Meta<typeof BarLabel> = {
       options: ['above', 'below', 'inside'],
     },
     offset: {
-      control: { type: 'range', min: 0, max: 20, step: 1 },
+      control: { type: 'range', min: -20, max: 20, step: 1 },
     },
   },
   args: {
@@ -71,5 +71,55 @@ export const PositionInside: Story = {
   args: {
     position: 'inside',
     fill: 'white',
+  },
+};
+
+export const Offset4PositionAbove: Story = {
+  name: 'offset=4 position=above',
+  args: {
+    position: 'above',
+    offset: 4,
+  },
+};
+
+export const Offset4PositionBelow: Story = {
+  name: 'offset=4 position=below',
+  args: {
+    position: 'below',
+    offset: 4,
+  },
+};
+
+export const Offset4PositionInside: Story = {
+  name: 'offset=4 position=inside',
+  args: {
+    position: 'inside',
+    fill: 'white',
+    offset: 4,
+  },
+};
+
+export const OffsetNeg4PositionAbove: Story = {
+  name: 'offset=-4 position=above',
+  args: {
+    position: 'above',
+    offset: -4,
+  },
+};
+
+export const OffsetNeg4PositionBelow: Story = {
+  name: 'offset=-4 position=below',
+  args: {
+    position: 'below',
+    offset: -4,
+  },
+};
+
+export const OffsetNeg4PositionInside: Story = {
+  name: 'offset=-4 position=inside',
+  args: {
+    position: 'inside',
+    fill: 'white',
+    offset: -4,
   },
 };

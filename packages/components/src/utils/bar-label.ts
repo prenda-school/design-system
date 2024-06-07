@@ -7,36 +7,40 @@ export type BarLabelParams = {
    */
   dy?: number;
   /**
-   * The magnitude of offset of the label from the bar, in the direction of its position.
+   * The offset of the label from the bar from its position.
    */
-  offset?: BarLabelOffsetParam;
+  offset?: BarLabelOffset;
   /**
    * The position of the label relative to the bar.
    */
-  position?: BarLabelPositionParam;
+  position?: BarLabelPosition;
 };
 
 export type DrawBarLabelParams = BarLabelParams & Pick<BarParams, 'thickness'>;
 
 export function drawBarLabel(params: DrawBarLabelParams) {
-  const offset = Math.abs(params.offset ?? DEFAULT_BAR_LABEL_OFFSET);
-
   const dy = params.dy ?? 0;
-  const position = params.position ?? DEFAULT_BAR_LABEL_POSITION;
+  const offset = evalBarLabelOffset(params.offset);
+  const position = evalBarLabelPosition(params.position);
 
-  let dominantBaseline: SvgProperties['dominantBaseline'];
   let y: number;
   if (position === 'above') {
-    dominantBaseline = 'alphabetic';
-    y = dy - offset;
+    y = dy + -1 * offset;
   } else if (position === 'below') {
-    dominantBaseline = 'hanging';
     y = dy + params.thickness + offset;
   } else if (position === 'inside') {
-    dominantBaseline = 'middle';
-    y = dy + params.thickness / 2;
+    y = dy + params.thickness / 2 + offset;
   } else {
     y = dy;
+  }
+
+  let dominantBaseline: SvgProperties['dominantBaseline'];
+  if (position === 'above') {
+    dominantBaseline = 'alphabetic';
+  } else if (position === 'below') {
+    dominantBaseline = 'hanging';
+  } else {
+    dominantBaseline = 'middle';
   }
 
   const textAnchor: SvgProperties['textAnchor'] = 'start';
@@ -50,11 +54,9 @@ export function drawBarLabel(params: DrawBarLabelParams) {
 
 export type BarLabelOffset = number;
 
-const DEFAULT_BAR_LABEL_OFFSET: BarLabelOffset = 6;
+const DEFAULT_BAR_LABEL_OFFSET: BarLabelOffset = 0;
 
-export type BarLabelOffsetParam = number | undefined;
-
-export function evalBarLabelOffset(param: BarLabelOffsetParam) {
+export function evalBarLabelOffset(param?: BarLabelOffset) {
   return param ?? DEFAULT_BAR_LABEL_OFFSET;
 }
 
@@ -62,8 +64,6 @@ export type BarLabelPosition = 'above' | 'below' | 'inside';
 
 const DEFAULT_BAR_LABEL_POSITION: BarLabelPosition = 'inside';
 
-export type BarLabelPositionParam = BarLabelPosition | undefined;
-
-export function evalBarLabelPosition(param: BarLabelPositionParam) {
+export function evalBarLabelPosition(param?: BarLabelPosition) {
   return param ?? DEFAULT_BAR_LABEL_POSITION;
 }

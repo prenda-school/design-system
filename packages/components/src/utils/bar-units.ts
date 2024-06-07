@@ -4,7 +4,7 @@ export type BarUnitsParams = {
    */
   dy?: number;
   /**
-   * The magnitude of offset of the unit label from the bar, in the direction of its position.
+   * The offset of the unit label from the bar from its position.
    */
   offset?: number;
   /**
