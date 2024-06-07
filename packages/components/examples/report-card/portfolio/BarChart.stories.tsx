@@ -104,6 +104,7 @@ const meta: Meta<typeof ReportCardPortfolioBarChart> = {
     colors: [Teal700, Teal600, Teal500, Teal400, Teal300, Teal200],
     barThickness: 40,
     barGapRatio: (24 + 20) / 40,
+    barLabelPosition: 'above',
     // extra
     height: 484,
     width: 320,
