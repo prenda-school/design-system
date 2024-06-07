@@ -4,7 +4,11 @@ export type BarUnitsParams = {
    */
   dy?: number;
   /**
-   * The offset of the units below (positive value) or above (negative value) the bar.
+   * The magnitude of offset of the unit label from the bar, in the direction of its position.
    */
   offset?: number;
+  /**
+   * The position of the units relative to the bar.
+   */
+  position?: 'above' | 'below';
 };

@@ -9,7 +9,7 @@ export type BarUnitLabelParams = {
    */
   at: number;
   /**
-   * The offset magnitude of the unit label from the bar, in the direction of its position.
+   * The magnitude of offset of the unit label from the bar, in the direction of its position.
    */
   offset?: BarUnitLabelOffsetParam;
   /**

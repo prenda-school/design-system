@@ -7,7 +7,7 @@ export type BarLabelParams = {
    */
   dy?: number;
   /**
-   * The offset magnitude of the label from the bar, in the direction of its position.
+   * The magnitude of offset of the label from the bar, in the direction of its position.
    */
   offset?: BarLabelOffsetParam;
   /**

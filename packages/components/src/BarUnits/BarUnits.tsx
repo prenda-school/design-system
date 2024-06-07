@@ -6,6 +6,7 @@ export const BarUnits = (props: BarUnitsProps) => {
     children,
     dy,
     offset,
+    position,
     thickness,
     valueMin,
     valueMax,
@@ -18,6 +19,7 @@ export const BarUnits = (props: BarUnitsProps) => {
       return React.cloneElement(child, {
         dy: child.props.dy ?? dy,
         offset: child.props.offset ?? offset,
+        position: child.props.position ?? position,
         thickness: child.props.thickness ?? thickness,
         valueMin: child.props.valueMin ?? valueMin,
         valueMax: child.props.valueMax ?? valueMax,
