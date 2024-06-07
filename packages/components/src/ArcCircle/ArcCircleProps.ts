@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArcOut } from '../Arc/generateArc';
 
-export interface ArcCircleProps extends React.SVGProps<SVGPathElement> {
+export interface ArcCircleProps extends React.SVGProps<SVGCircleElement> {
   /**
    * The value at which the point is located.
    */
