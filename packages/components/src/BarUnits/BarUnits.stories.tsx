@@ -61,7 +61,7 @@ const meta: Meta<typeof BarUnits> = {
 
 export default meta;
 
-type Story = StoryObj<typeof BarUnitLabel>;
+type Story = StoryObj<typeof BarUnits>;
 
 export const PositionAbove: Story = {
   name: 'position=above',
