@@ -9,9 +9,13 @@ export type BarUnitLabelParams = {
    */
   at: number;
   /**
-   * The offset of the unit label below (positive value) or above (negative value) the bar.
+   * The offset magnitude of the unit label from the bar, in the direction of its position.
    */
-  offset?: number;
+  offset?: BarUnitLabelOffsetParam;
+  /**
+   * The position of the unit label relative to the bar.
+   */
+  position?: BarUnitLabelPositionParam;
 };
 
 export type DrawBarUnitLabelParams = BarUnitLabelParams &
@@ -30,10 +34,15 @@ export function drawBarUnitLabel(params: DrawBarUnitLabelParams) {
   const length = scale(value);
 
   const offset = evalBarUnitLabelOffset(params.offset);
+  const position = evalBarUnitLabelPosition(params.position);
 
   const x = length;
-  const y =
-    offset === 0 ? offset : offset > 0 ? params.thickness + offset : offset;
+  let y = 0;
+  if (position === 'above') {
+    y = -offset;
+  } else if (position === 'below') {
+    y = params.thickness + offset;
+  }
 
   const textAnchor: SvgProperties['textAnchor'] =
     x === lengthMin ? 'start' : x === params.lengthMax ? 'end' : 'middle';
@@ -57,4 +66,14 @@ export type BarUnitLabelOffsetParam = number | undefined;
 
 export function evalBarUnitLabelOffset(param: BarUnitLabelOffsetParam) {
   return param ?? DEFAULT_BAR_UNIT_LABEL_OFFSET;
+}
+
+export type BarUnitLabelPosition = 'above' | 'below';
+
+const DEFAULT_BAR_UNIT_LABEL_POSITION: BarUnitLabelPosition = 'below';
+
+export type BarUnitLabelPositionParam = BarUnitLabelPosition | undefined;
+
+export function evalBarUnitLabelPosition(param: BarUnitLabelPositionParam) {
+  return param ?? DEFAULT_BAR_UNIT_LABEL_POSITION;
 }

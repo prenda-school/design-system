@@ -13,7 +13,7 @@ export type BarLabelParams = {
   /**
    * The position of the label relative to the bar.
    */
-  position?: 'above' | 'below' | 'inside';
+  position?: BarLabelPositionParam;
 };
 
 export type DrawBarLabelParams = BarLabelParams & Pick<BarParams, 'thickness'>;

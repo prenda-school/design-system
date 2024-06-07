@@ -11,6 +11,7 @@ export const BarUnitLabel = React.forwardRef<
   const {
     at,
     offset,
+    position,
     valueMin,
     valueMax,
     lengthMin,
@@ -38,6 +39,7 @@ export const BarUnitLabel = React.forwardRef<
   const { x, y, textAnchor, dominantBaseline } = drawBarUnitLabel({
     at,
     offset,
+    position,
     valueMax,
     valueMin,
     lengthMax,
