@@ -1,4 +1,3 @@
-import { SvgProperties } from 'csstype';
 import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
 import { generateArcUnitLabel } from './generateArcUnitLabel';
@@ -9,7 +8,7 @@ export const ArcUnitLabel = React.forwardRef<
   ArcUnitLabelRef,
   ArcUnitLabelProps
 >((props, ref) => {
-  const { at, offset, arc, ...other } = props;
+  const { at, offset, position, arc, ...other } = props;
 
   if (arc === undefined) {
     throw Error(
@@ -17,17 +16,12 @@ export const ArcUnitLabel = React.forwardRef<
     );
   }
 
-  const { x, y } = generateArcUnitLabel({
+  const { x, y, textAnchor, dominantBaseline } = generateArcUnitLabel({
     at,
     offset,
+    position,
     arc,
   });
-
-  const textAnchor: SvgProperties['textAnchor'] =
-    x < 0 ? 'end' : x > 0 ? 'start' : 'middle';
-
-  const dominantBaseline: SvgProperties['dominantBaseline'] =
-    x === 0 ? 'alphabetic' : 'central';
 
   return (
     <text

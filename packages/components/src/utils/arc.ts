@@ -1,4 +1,5 @@
 import { Coordinates } from './chart';
+import { withEpsilon } from './epsilon';
 
 /**
  * Calculate the coordinates of a point on an arc (drawn by this library) given an angle and radius.
@@ -14,9 +15,13 @@ export const calcCoordinatesOnArc = (params: {
   // The result is simply subtracting π/2 from the angle:
   //    x = r * cos(θ - π/2) = r * cos(π/2 - θ) = r * sin(θ)
   //    y = r * sin(θ - π/2) = r * -sin(π/2 - θ) = r * -cos(θ)
+
+  const x = params.radius * Math.sin(params.angle);
+  const y = params.radius * -Math.cos(params.angle);
+
   const coordinates: Coordinates = {
-    x: params.radius * Math.sin(params.angle),
-    y: params.radius * -Math.cos(params.angle),
+    x: withEpsilon(x),
+    y: withEpsilon(y),
   };
 
   return coordinates;
