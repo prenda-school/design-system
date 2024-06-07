@@ -101,7 +101,7 @@ export function generateArcUnitLabel(params: ArcUnitLabelIn): ArcUnitLabelOut {
       dominantBaseline = 'alphabetic';
     }
   }
-
+  console.log(refAngle, quadrant, textAnchor, dominantBaseline);
   return {
     x: coordinates.x,
     y: coordinates.y,
@@ -126,8 +126,14 @@ export function evalArcUnitLabelPosition(param?: ArcUnitLabelPosition) {
   return param ?? DEFAULT_ARC_UNIT_LABEL_POSITION;
 }
 
+const normalizeAngle = (params: { angle: number }) => {
+  const remainder = params.angle % (2 * Math.PI);
+  const positive = remainder < 0 ? 2 * Math.PI + remainder : remainder;
+  return withEpsilon(positive);
+};
+
 const getQuadrant = (params: { angle: number }) => {
-  const angle = withEpsilon(params.angle % (2 * Math.PI));
+  const angle = normalizeAngle({ angle: params.angle });
 
   if (angle > 0 && angle < Math.PI / 2) {
     return '1' as const;
@@ -143,7 +149,7 @@ const getQuadrant = (params: { angle: number }) => {
 };
 
 const getRefAngle = (params: { angle: number }) => {
-  const angle = withEpsilon(params.angle % (2 * Math.PI));
+  const angle = normalizeAngle({ angle: params.angle });
 
   if (angle === 0) {
     return '0' as const;

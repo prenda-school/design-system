@@ -27,7 +27,11 @@ const meta: Meta<typeof ArcUnits> = {
   ),
   argTypes: {
     offset: {
-      control: { type: 'range', min: 0, max: 20, step: 1 },
+      control: { type: 'range', min: -20, max: 20, step: 1 },
+    },
+    position: {
+      control: { type: 'select' },
+      options: ['inside', 'outside'],
     },
   },
   args: {
@@ -56,16 +60,32 @@ export default meta;
 
 type Story = StoryObj<typeof ArcUnits>;
 
-export const Offset0: Story = {
-  name: 'offset=0',
+export const PositionOutside: Story = {
+  name: 'position=outside',
   args: {
-    offset: 0,
+    position: 'outside',
   },
 };
 
-export const Offset4: Story = {
-  name: 'offset=4',
+export const PositionOutsideOffset4: Story = {
+  name: 'position=outside offset=4',
   args: {
+    position: 'outside',
+    offset: 4,
+  },
+};
+
+export const PositionInside: Story = {
+  name: 'position=inside',
+  args: {
+    position: 'inside',
+  },
+};
+
+export const PositionInsideOffset4: Story = {
+  name: 'position=inside offset=4',
+  args: {
+    position: 'inside',
     offset: 4,
   },
 };

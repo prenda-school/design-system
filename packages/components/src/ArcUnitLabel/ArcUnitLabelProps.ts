@@ -8,11 +8,11 @@ export interface ArcUnitLabelProps
    */
   at: number;
   /**
-   * The offset of the unit label from the arc's radius from its position.
+   * The offset of the unit label from the position.
    */
   offset?: number;
   /**
-   * The position of the unit label relative to the arc.
+   * The position of the unit label relative to the arc's radii.
    */
   position?: 'outside' | 'inside';
   /**
