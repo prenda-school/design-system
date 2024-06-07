@@ -45,6 +45,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
   valuePrimaryContinuous: number;
   valueSecondaryContinuous: number;
   borderWidth: BarProps['borderWidth'];
+  unitsOffset: number;
 }) => {
   const {
     valueMin,
@@ -57,6 +58,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
     valuePrimaryContinuous,
     valueSecondaryContinuous,
     borderWidth,
+    unitsOffset,
   } = props;
 
   const valuePrimary =
@@ -96,7 +98,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
               style={{ fill: Purple500 }}
             />
 
-            <BarUnits dy={thicknessSecondary}>
+            <BarUnits dy={thicknessSecondary} offset={unitsOffset}>
               <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
                 Not really
               </BarUnitLabel>
@@ -141,6 +143,7 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
     valuePrimaryContinuous: 1 - 0.05,
     valueSecondaryContinuous: 1 - 0.05,
     borderWidth: 1.66,
+    unitsOffset: 6,
   },
   argTypes: {
     valuePrimary: {
@@ -200,6 +203,14 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
         min: 0,
         max: 2,
         step: 0.33,
+      },
+    },
+    unitsOffset: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 16,
+        step: 1,
       },
     },
   },

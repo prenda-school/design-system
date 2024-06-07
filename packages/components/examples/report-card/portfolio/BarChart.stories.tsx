@@ -32,6 +32,7 @@ const ReportCardPortfolioBarChart = (props: {
   barThickness: number;
   barGapRatio: number;
   barLabelPosition: BarLabelProps['position'];
+  barLabelOffset: BarLabelProps['offset'];
   // extra
   width: number;
   height: number;
@@ -44,6 +45,7 @@ const ReportCardPortfolioBarChart = (props: {
     barThickness,
     barGapRatio,
     barLabelPosition,
+    barLabelOffset,
     // extra
     width,
     height,
@@ -77,7 +79,11 @@ const ReportCardPortfolioBarChart = (props: {
               cornerRadius={{ start: 4, end: '50%' }}
             >
               <BarFill to={datum.value} style={{ fill: colors[i] }} />
-              <BarLabel position={barLabelPosition} style={styleBody}>
+              <BarLabel
+                offset={barLabelOffset}
+                position={barLabelPosition}
+                style={styleBody}
+              >
                 {datum.label} ({datum.value})
               </BarLabel>
             </Bar>
@@ -105,6 +111,7 @@ const meta: Meta<typeof ReportCardPortfolioBarChart> = {
     barThickness: 40,
     barGapRatio: (24 + 20) / 40,
     barLabelPosition: 'above',
+    barLabelOffset: 6,
     // extra
     height: 484,
     width: 320,
@@ -119,6 +126,9 @@ const meta: Meta<typeof ReportCardPortfolioBarChart> = {
     barLabelPosition: {
       options: ['above', 'below', 'inside'],
       control: { type: 'radio' },
+    },
+    barLabelOffset: {
+      control: { type: 'range', min: -20, max: 20, step: 1 },
     },
     // extra
     height: { control: { type: 'range', min: 0, max: 484, step: 1 } },
