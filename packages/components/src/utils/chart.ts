@@ -1,3 +1,5 @@
+import { ViewBox } from './view-box';
+
 /**
  * The dimensions of an SVG.
  */
@@ -51,20 +53,6 @@ export const makeDimensions = (
   };
 };
 
-/**
- * The position and dimension, in user space, of an SVG viewport.
- */
-export type ViewBox = {
-  /** The minimum x coordinate */
-  x: number;
-  /** The minimum y coordinate */
-  y: number;
-  /** The width in user coordinates/px units */
-  width: number;
-  /** The height in user coordinates/px units */
-  height: number;
-};
-
 export const toCenteredViewBox = (params: {
   dimensions: Pick<Dimensions, 'height' | 'width'>;
 }): ViewBox => {
@@ -75,10 +63,6 @@ export const toCenteredViewBox = (params: {
     width: params.dimensions.width,
     height: params.dimensions.height,
   };
-};
-
-export const toViewBoxAttr = (params: { viewBox: ViewBox }) => {
-  return `${params.viewBox.x} ${params.viewBox.y} ${params.viewBox.width} ${params.viewBox.height}`;
 };
 
 /**

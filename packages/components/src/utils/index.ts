@@ -18,3 +18,4 @@ export * from './path';
 export * from './rectangle';
 export * from './scale';
 export * from './value';
+export * from './view-box';
