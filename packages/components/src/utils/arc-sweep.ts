@@ -13,7 +13,7 @@ type ArcSweepOut = {
   d: string;
 };
 
-export function generateArcSweep(params: ArcSweepIn): ArcSweepOut {
+export function drawArcSweep(params: ArcSweepIn): ArcSweepOut {
   // The "angle the filled arc needs to fill until"
   const angleScale = getValueAngleScale({
     value: {

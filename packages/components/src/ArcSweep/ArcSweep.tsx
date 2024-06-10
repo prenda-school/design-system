@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcSweepProps } from './ArcSweepProps';
-import { generateArcSweep } from '../utils';
+import { drawArcSweep } from '../utils';
 
 export type ArcSweepRef = SVGPathElement;
 
@@ -14,7 +14,7 @@ export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
       );
     }
 
-    const { d } = generateArcSweep({
+    const { d } = drawArcSweep({
       from,
       to,
       cornerRadius,
