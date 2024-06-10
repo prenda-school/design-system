@@ -1,6 +1,21 @@
 import { Coordinates } from './chart';
 import { withEpsilon } from './epsilon';
 
+export type ArcParams = {
+  /**
+   * The corner radius of any sweep located on this arc.
+   */
+  cornerRadius?: number | string;
+  /**
+   * The primary radius (outer radius) of the arc.
+   */
+  radius: number;
+  /**
+   * The ratio of the secondary radius (inner radius) of the arc to primary radius.
+   */
+  ratio: number;
+};
+
 /**
  * Calculate the coordinates of a point on an arc (drawn by this library) given an angle and radius.
  * @param angle The angle (in radians) subtended by the center of the arc.
