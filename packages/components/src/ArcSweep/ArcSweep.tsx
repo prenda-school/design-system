@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcSweepProps } from './ArcSweepProps';
-import { generateArcSweep } from './generateArcSweep';
+import { generateArcSweep } from '../utils';
 
 export type ArcSweepRef = SVGPathElement;
 

@@ -1,6 +1,6 @@
 import { arc as d3Arc } from 'd3-shape';
 import { ArcOut } from '../Arc/generateArc';
-import { getNumericalValue, getValueAngleScale } from '../utils';
+import { getNumericalValue, getValueAngleScale } from '.';
 
 type ArcSweepIn = {
   from?: number;
