@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArcSweep } from './ArcSweep';
 import { Chart } from '../Chart';
-import { generateArc } from '../Arc/generateArc';
+import { ArcParams, ArcScaleParams } from '../utils';
 
 const dim = 252 as const;
 
@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof ArcSweep>;
 
-const circularArc = generateArc({
+const circularArc: ArcScaleParams & ArcParams = {
   valueMin: 0,
   valueMax: 126,
   angleMin: 0,
@@ -28,7 +28,7 @@ const circularArc = generateArc({
   radius: 126,
   ratio: 0.77,
   cornerRadius: '50%',
-});
+};
 
 // circular; min = from = to < max
 export const CircularMin: Story = {
@@ -36,7 +36,7 @@ export const CircularMin: Story = {
     from: undefined,
     to: 0,
     cornerRadius: undefined,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -46,7 +46,7 @@ export const CircularPartial: Story = {
     from: undefined,
     to: 100,
     cornerRadius: undefined,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -56,7 +56,7 @@ export const CircularPartial2: Story = {
     from: 20,
     to: 110,
     cornerRadius: undefined,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -66,7 +66,7 @@ export const CircularPartial3: Story = {
     from: 20,
     to: 126,
     cornerRadius: undefined,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -76,11 +76,11 @@ export const CircularMax: Story = {
     from: undefined,
     to: 126,
     cornerRadius: undefined,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
-const radialArc = generateArc({
+const radialArc: ArcScaleParams & ArcParams = {
   valueMin: 1,
   valueMax: 3,
   angleMin: (-1 * Math.PI) / 2,
@@ -88,7 +88,7 @@ const radialArc = generateArc({
   radius: 126,
   ratio: 0.77,
   cornerRadius: '50%',
-});
+};
 
 // radial; min = from = to < max
 export const RadialMin: Story = {
@@ -96,7 +96,7 @@ export const RadialMin: Story = {
     from: undefined,
     to: 1,
     cornerRadius: undefined,
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -106,7 +106,7 @@ export const RadialPartial: Story = {
     from: undefined,
     to: 2,
     cornerRadius: undefined,
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -116,7 +116,7 @@ export const RadialPartialSharp: Story = {
     from: undefined,
     to: 2,
     cornerRadius: 0,
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -126,7 +126,7 @@ export const RadialPartialSoft: Story = {
     from: undefined,
     to: 2,
     cornerRadius: '8px',
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -136,6 +136,6 @@ export const RadialMax: Story = {
     from: undefined,
     to: 3,
     cornerRadius: undefined,
-    arc: radialArc,
+    ...radialArc,
   },
 };

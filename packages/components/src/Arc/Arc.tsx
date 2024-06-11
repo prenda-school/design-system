@@ -41,9 +41,15 @@ export const Arc = (props: ArcProps) => {
   });
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<{ arc: ArcOut }, 'children'>>(child)) {
+    if (React.isValidElement<Omit<ArcProps, 'children'>>(child)) {
       return React.cloneElement(child, {
-        arc: child.props.arc ?? arc,
+        angleMax: child.props.angleMax ?? angleMax,
+        angleMin: child.props.angleMin ?? angleMin,
+        valueMax: child.props.valueMax ?? valueMax,
+        valueMin: child.props.valueMin ?? valueMin,
+        radius: child.props.radius ?? radius,
+        ratio: child.props.ratio ?? ratio,
+        cornerRadius: child.props.cornerRadius ?? cornerRadius,
       });
     }
 
