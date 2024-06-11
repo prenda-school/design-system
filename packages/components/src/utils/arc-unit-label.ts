@@ -17,7 +17,7 @@ type ArcUnitLabelOut = {
   textAnchor: SvgProperties['textAnchor'];
 };
 
-export function generateArcUnitLabel(params: ArcUnitLabelIn): ArcUnitLabelOut {
+export function drawArcUnitLabel(params: ArcUnitLabelIn): ArcUnitLabelOut {
   const angleScale = getValueAngleScale({
     value: {
       min: params.arc.value.min,

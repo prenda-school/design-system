@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
-import { generateArcUnitLabel } from '../utils';
+import { drawArcUnitLabel } from '../utils';
 
 export type ArcUnitLabelRef = SVGTextElement;
 
@@ -16,7 +16,7 @@ export const ArcUnitLabel = React.forwardRef<
     );
   }
 
-  const { x, y, textAnchor, dominantBaseline } = generateArcUnitLabel({
+  const { x, y, textAnchor, dominantBaseline } = drawArcUnitLabel({
     at,
     offset,
     position,
