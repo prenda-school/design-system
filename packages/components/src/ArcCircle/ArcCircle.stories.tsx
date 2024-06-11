@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArcCircle } from './ArcCircle';
 import { Chart } from '../Chart';
-import { generateArc } from '../Arc/generateArc';
+import { ArcParams, ArcScaleParams } from '../utils';
 
 const dim = 252 as const;
 
@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof ArcCircle>;
 
-const circularArc = generateArc({
+const circularArc: ArcScaleParams & ArcParams = {
   valueMin: 0,
   valueMax: 126,
   angleMin: 0,
@@ -28,13 +28,13 @@ const circularArc = generateArc({
   radius: 126,
   ratio: 0.77,
   cornerRadius: '50%',
-});
+};
 
 // circular; min = at < max
 export const CircularMin: Story = {
   args: {
     at: 0,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -42,7 +42,7 @@ export const CircularMin: Story = {
 export const CircularPartial: Story = {
   args: {
     at: 100,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
@@ -50,11 +50,11 @@ export const CircularPartial: Story = {
 export const CircularMax: Story = {
   args: {
     at: 126,
-    arc: circularArc,
+    ...circularArc,
   },
 };
 
-const radialArc = generateArc({
+const radialArc: ArcScaleParams & ArcParams = {
   valueMin: 1,
   valueMax: 3,
   angleMin: (-1 * Math.PI) / 2,
@@ -62,13 +62,13 @@ const radialArc = generateArc({
   radius: 126,
   ratio: 0.77,
   cornerRadius: '50%',
-});
+};
 
 // radial; min = at < max
 export const RadialMin: Story = {
   args: {
     at: 1,
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -76,7 +76,7 @@ export const RadialMin: Story = {
 export const RadialPartial: Story = {
   args: {
     at: 2,
-    arc: radialArc,
+    ...radialArc,
   },
 };
 
@@ -84,6 +84,6 @@ export const RadialPartial: Story = {
 export const RadialMax: Story = {
   args: {
     at: 3,
-    arc: radialArc,
+    ...radialArc,
   },
 };

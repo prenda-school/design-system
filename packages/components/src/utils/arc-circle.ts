@@ -18,6 +18,17 @@ export const calcAbsAngleOffsetOfArcCircle = (
   return angleOffset;
 };
 
+export type ArcCircleParams = {
+  /**
+   * The value at which the circle is located.
+   */
+  at: number;
+  /**
+   * The ratio of the radius of the circle to the width of the arc.
+   */
+  radiusRatio?: number;
+};
+
 export type ArcCircleIn = {
   /**
    * The value at which the circle is located.

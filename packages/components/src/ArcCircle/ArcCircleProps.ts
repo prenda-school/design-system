@@ -1,17 +1,8 @@
 import React from 'react';
-import { ArcOut } from '../Arc/generateArc';
+import { ArcCircleParams, ArcParams, ArcScaleParams } from '../utils';
 
-export interface ArcCircleProps extends React.SVGProps<SVGCircleElement> {
-  /**
-   * The value at which the point is located.
-   */
-  at: number;
-  /**
-   * The ratio of the circle's radius to default radius (half of the arc's width). Defaults to `1`.
-   */
-  radiusRatio?: number;
-  /**
-   * The arc on which the circle is located.
-   */
-  arc?: ArcOut;
-}
+export interface ArcCircleProps
+  extends Partial<ArcScaleParams>,
+    Partial<ArcParams>,
+    ArcCircleParams,
+    Omit<React.SVGProps<SVGCircleElement>, 'radius'> {}
