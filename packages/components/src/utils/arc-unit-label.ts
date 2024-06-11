@@ -1,7 +1,7 @@
 import { SvgProperties } from 'csstype';
 import { ArcOut } from '../Arc/generateArc';
-import { calcCoordinatesOnArc, getValueAngleScale } from '../utils';
-import { withEpsilon } from '../utils/epsilon';
+import { calcCoordinatesOnArc, getValueAngleScale } from '.';
+import { withEpsilon } from './epsilon';
 
 type ArcUnitLabelIn = {
   at: number;

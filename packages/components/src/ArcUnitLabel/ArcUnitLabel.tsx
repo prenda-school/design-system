@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
-import { generateArcUnitLabel } from './generateArcUnitLabel';
+import { generateArcUnitLabel } from '../utils';
 
 export type ArcUnitLabelRef = SVGTextElement;
 
