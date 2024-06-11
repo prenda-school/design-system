@@ -32,3 +32,18 @@ export const getValueSegmentsScale = (params: {
 
   return scale;
 };
+
+export type ArcSegmentsParams = {
+  /**
+   * The number of segments in the arc.
+   */
+  count: number;
+  /**
+   * The angular separation in radians between adjacent segments.
+   */
+  padAngle: number;
+  /**
+   * The default corner radius of any segment located on this arc.
+   */
+  cornerRadius?: number | string;
+};
