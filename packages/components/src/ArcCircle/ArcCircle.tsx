@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcCircleProps } from './ArcCircleProps';
-import { generateArcCircle } from '../utils';
+import { drawArcCircle } from '../utils';
 
 export type ArcCircleRef = SVGCircleElement;
 
@@ -14,7 +14,7 @@ export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
       );
     }
 
-    const { r, cx, cy } = generateArcCircle({
+    const { r, cx, cy } = drawArcCircle({
       at,
       radiusRatio,
       arc,

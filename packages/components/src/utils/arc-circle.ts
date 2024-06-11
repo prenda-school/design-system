@@ -39,7 +39,7 @@ export type ArcCircleOut = {
   cy: number;
 };
 
-export function generateArcCircle(params: ArcCircleIn): ArcCircleOut {
+export function drawArcCircle(params: ArcCircleIn): ArcCircleOut {
   const arcWidth = params.arc.radius - params.arc.radius * params.arc.ratio;
   const defaultRadius = arcWidth / 2;
   const radiusRatio = params.radiusRatio ?? DEFAULT_RADIUS_RATIO;
