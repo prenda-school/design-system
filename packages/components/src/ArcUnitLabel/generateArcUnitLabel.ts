@@ -101,7 +101,7 @@ export function generateArcUnitLabel(params: ArcUnitLabelIn): ArcUnitLabelOut {
       dominantBaseline = 'alphabetic';
     }
   }
-  console.log(refAngle, quadrant, textAnchor, dominantBaseline);
+
   return {
     x: coordinates.x,
     y: coordinates.y,

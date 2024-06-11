@@ -8,11 +8,11 @@ export const ArcUnitLabel = React.forwardRef<
   ArcUnitLabelRef,
   ArcUnitLabelProps
 >((props, ref) => {
-  const { at, offset, position, arc, ...other } = props;
+  const { at, ctx, offset, position, ...other } = props;
 
-  if (arc === undefined) {
+  if (ctx === undefined) {
     throw Error(
-      'Oops! `ArcUnitLabel` received `arc: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) pass `arc` from `generateArc`?'
+      'Oops! `ArcUnitLabel` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) specify `ctx` explicitly?'
     );
   }
 
@@ -20,7 +20,7 @@ export const ArcUnitLabel = React.forwardRef<
     at,
     offset,
     position,
-    arc,
+    arc: ctx.arc,
   });
 
   return (

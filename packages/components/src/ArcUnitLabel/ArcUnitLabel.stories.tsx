@@ -37,11 +37,13 @@ const meta: Meta<typeof ArcUnitLabel> = {
     },
   },
   args: {
-    arc: {
-      angle: { min: 0, max: 2 * Math.PI },
-      radius: 50,
-      ratio: 0.9,
-      value: { min: 0, max: 100 },
+    ctx: {
+      arc: {
+        angle: { min: 0, max: 2 * Math.PI },
+        radius: 50,
+        ratio: 0.9,
+        value: { min: 0, max: 100 },
+      },
     },
     children: <>Label</>,
   },
