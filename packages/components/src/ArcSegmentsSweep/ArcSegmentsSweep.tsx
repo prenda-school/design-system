@@ -8,11 +8,11 @@ export const ArcSegmentsSweep = React.forwardRef<
   ArcSegmentsSweepRef,
   ArcSegmentsSweepProps
 >((props, ref) => {
-  const { from, to, cornerRadius, arc, renderProps, ...other } = props;
+  const { from, to, cornerRadius, renderProps, ctx, ...other } = props;
 
-  if (arc === undefined) {
+  if (ctx === undefined) {
     throw Error(
-      'Oops! `ArcSegmentsSweep` received `arc: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) pass `arc` from `generateArc`?'
+      'Oops! `ArcSegmentsSweep` received `ctx: undefined`. Did you mean to either (1) render as a child of `ArcSegments`? or (2) specify `ctx` explicitly?'
     );
   }
 
@@ -20,8 +20,8 @@ export const ArcSegmentsSweep = React.forwardRef<
     from,
     to,
     cornerRadius,
-    arc,
-    segments: arc.segments,
+    arc: ctx.arc,
+    segments: ctx.arcSegments,
   });
 
   return (

@@ -56,7 +56,7 @@ const circularArc = generateArc({
 
 export const Circular: Story = {
   args: {
-    arc: circularArc,
+    ctx: { arc: circularArc },
     padAngle: 0.05,
     count: 20,
     cornerRadius: '2px',
@@ -79,7 +79,7 @@ const radialArc = generateArc({
 
 export const Radial: Story = {
   args: {
-    arc: radialArc,
+    ctx: { arc: radialArc },
     padAngle: 0.05,
     count: 20,
     cornerRadius: '2px',

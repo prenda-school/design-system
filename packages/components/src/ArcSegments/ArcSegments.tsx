@@ -1,14 +1,14 @@
 import React from 'react';
 import { ArcSegmentsProps } from './ArcSegmentsProp';
-import { generateArcSegments } from './generateArcSegments';
+import { ArcSegmentsOut, generateArcSegments } from './generateArcSegments';
 import { ArcOut } from '../Arc/generateArc';
 
 export const ArcSegments = (props: ArcSegmentsProps) => {
-  const { arc, children, cornerRadius, count, padAngle } = props;
+  const { children, ctx, cornerRadius, count, padAngle } = props;
 
-  if (arc === undefined) {
+  if (ctx === undefined) {
     throw Error(
-      'Oops! `ArcSegments` received `arc: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) pass `arc` from `generateArc`?'
+      'Oops! `ArcSegments` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) specify `ctx` explicitly?'
     );
   }
 
@@ -18,12 +18,17 @@ export const ArcSegments = (props: ArcSegmentsProps) => {
     cornerRadius,
   });
 
-  const arcWithSegments = Object.assign(arc, { segments: arcSegments });
-
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<{ arc: ArcOut }, 'children'>>(child)) {
+    if (
+      React.isValidElement<{
+        ctx: { arc: ArcOut; arcSegments: ArcSegmentsOut };
+      }>(child)
+    ) {
       return React.cloneElement(child, {
-        arc: child.props.arc ?? arcWithSegments,
+        ctx: child.props.ctx ?? {
+          arc: ctx.arc,
+          arcSegments,
+        },
       });
     }
 
