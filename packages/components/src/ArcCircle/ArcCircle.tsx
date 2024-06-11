@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcCircleProps } from './ArcCircleProps';
-import { generateArcCircle } from './generateArcCircle';
+import { generateArcCircle } from '../utils';
 
 export type ArcCircleRef = SVGCircleElement;
 
