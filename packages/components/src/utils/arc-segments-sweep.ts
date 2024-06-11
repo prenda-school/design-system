@@ -1,6 +1,6 @@
 import { arc as d3Arc, pie as d3Pie } from 'd3-shape';
 import { ArcOut } from '../Arc/generateArc';
-import { getNumericalValue, getValueSegmentsScale } from '../utils';
+import { getNumericalValue, getValueSegmentsScale } from '.';
 
 type ArcSegmentsSweepIn = {
   from?: number;

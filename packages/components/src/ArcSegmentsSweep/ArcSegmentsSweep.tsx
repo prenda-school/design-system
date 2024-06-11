@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcSegmentsSweepProps } from './ArcSegmentsSweepProps';
-import { generateArcSegmentsSweep } from './generateArcSegmentsSweep';
+import { generateArcSegmentsSweep } from '../utils';
 
 export type ArcSegmentsSweepRef = SVGGElement;
 
