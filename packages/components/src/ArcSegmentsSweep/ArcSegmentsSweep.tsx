@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcSegmentsSweepProps } from './ArcSegmentsSweepProps';
-import { generateArcSegmentsSweep } from '../utils';
+import { drawArcSegmentsSweep } from '../utils';
 
 export type ArcSegmentsSweepRef = SVGGElement;
 
@@ -16,7 +16,7 @@ export const ArcSegmentsSweep = React.forwardRef<
     );
   }
 
-  const sweeps = generateArcSegmentsSweep({
+  const sweeps = drawArcSegmentsSweep({
     from,
     to,
     cornerRadius,

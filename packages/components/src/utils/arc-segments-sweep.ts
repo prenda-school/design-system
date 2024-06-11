@@ -18,7 +18,7 @@ type ArcSegmentsSweepOut = {
   d: string;
 }[];
 
-export function generateArcSegmentsSweep(
+export function drawArcSegmentsSweep(
   params: ArcSegmentsSweepIn
 ): ArcSegmentsSweepOut {
   const segmentScale = getValueSegmentsScale({
