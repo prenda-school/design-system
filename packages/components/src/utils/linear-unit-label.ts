@@ -1,6 +1,7 @@
 import { SvgProperties } from 'csstype';
 import * as D3Scale from 'd3-scale';
 import { LinearScaleParams, evalLinearScaleLengthMin } from './linear-scale';
+import { LinearUnitsParams } from './linear-units';
 
 export type LinearUnitLabelParams = {
   /**
@@ -10,30 +11,35 @@ export type LinearUnitLabelParams = {
   /**
    * The offset of the unit label below (positive value) or above (negative value) the line.
    */
-  offset?: LinearUnitLabelOffsetParam;
+  offset?: number;
 };
 
-export type DrawLinearUnitLabelParams = LinearUnitLabelParams &
-  LinearScaleParams;
+export type DrawLinearUnitLabelParams = {
+  scale: LinearScaleParams;
+  units: LinearUnitsParams;
+  unitLabel: LinearUnitLabelParams;
+};
 
 export function drawLinearUnitLabel(params: DrawLinearUnitLabelParams) {
-  const lengthMin = evalLinearScaleLengthMin(params.lengthMin) ?? 0;
+  const lengthMin = evalLinearScaleLengthMin(params.scale.lengthMin);
 
   const scale = D3Scale.scaleLinear()
-    .domain([params.valueMin, params.valueMax])
-    .range([lengthMin, params.lengthMax]);
+    .domain([params.scale.valueMin, params.scale.valueMax])
+    .range([lengthMin, params.scale.lengthMax]);
 
-  const value = params.at;
+  const value = params.unitLabel.at;
 
   const length = scale(value);
 
-  const offset = evalLinearUnitLabelOffset(params.offset);
+  const offset = evalLinearUnitLabelOffset(
+    params.unitLabel.offset ?? params.units.offset
+  );
 
   const x = length;
   const y = offset;
 
   const textAnchor: SvgProperties['textAnchor'] =
-    x === lengthMin ? 'start' : x === params.lengthMax ? 'end' : 'middle';
+    x === lengthMin ? 'start' : x === params.scale.lengthMax ? 'end' : 'middle';
 
   const dominantBaseline: SvgProperties['dominantBaseline'] =
     y === 0 ? 'middle' : y > 0 ? 'hanging' : 'alphabetic';
@@ -50,8 +56,8 @@ export type LinearUnitLabelOffset = number;
 
 const DEFAULT_LINEAR_UNIT_LABEL_OFFSET: LinearUnitLabelOffset = 8;
 
-export type LinearUnitLabelOffsetParam = number | undefined;
-
-export function evalLinearUnitLabelOffset(param: LinearUnitLabelOffsetParam) {
+export function evalLinearUnitLabelOffset(
+  param: LinearUnitLabelParams['offset']
+): LinearUnitLabelOffset {
   return param ?? DEFAULT_LINEAR_UNIT_LABEL_OFFSET;
 }

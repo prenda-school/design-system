@@ -8,28 +8,21 @@ export const LinearUnitLabel = React.forwardRef<
   LinearUnitLabelRef,
   LinearUnitLabelProps
 >((props, ref) => {
-  const { at, offset, valueMin, valueMax, lengthMin, lengthMax, ...other } =
-    props;
+  const { at, offset, ctx, ...other } = props;
 
-  if (valueMin === undefined) {
-    throw Error(getMissingPropMessage('valueMin'));
-  }
-
-  if (valueMax === undefined) {
-    throw Error(getMissingPropMessage('valueMax'));
-  }
-
-  if (lengthMax === undefined) {
-    throw Error(getMissingPropMessage('lengthMax'));
+  if (ctx === undefined) {
+    throw Error(
+      'Oops! `LinearUnits` received `ctx: undefined`. Did you mean to either (1) render as a child of `LinearScale`? or (2) specify `ctx` explicitly?'
+    );
   }
 
   const { x, y, textAnchor, dominantBaseline } = drawLinearUnitLabel({
-    at,
-    offset,
-    valueMax,
-    valueMin,
-    lengthMax,
-    lengthMin,
+    scale: ctx.linearScale,
+    units: ctx.linearUnits,
+    unitLabel: {
+      at,
+      offset,
+    },
   });
 
   return (
@@ -43,7 +36,3 @@ export const LinearUnitLabel = React.forwardRef<
     />
   );
 });
-
-const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`LinearUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`LinearScale\`, \`LinearUnits\`? or (2) set \`${propName}\`?`;
-};

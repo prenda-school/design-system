@@ -1,28 +1,26 @@
 import React from 'react';
-import { LinearUnitsProps } from './LinearUnitsProps';
+import { LinearUnitsChildProps, LinearUnitsProps } from './LinearUnitsProps';
 
 export const LinearUnits = (props: LinearUnitsProps) => {
-  const {
-    children,
-    dy,
-    dominantBaseline,
-    offset,
-    valueMin,
-    valueMax,
-    lengthMin,
-    lengthMax,
-  } = props;
+  const { children, dy, dominantBaseline, offset, ctx } = props;
+
+  if (ctx === undefined) {
+    throw Error(
+      'Oops! `LinearUnits` received `ctx: undefined`. Did you mean to either (1) render as a child of `LinearScale`? or (2) specify `ctx` explicitly?'
+    );
+  }
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<LinearUnitsProps, 'children'>>(child)) {
+    if (React.isValidElement<LinearUnitsChildProps>(child)) {
       return React.cloneElement(child, {
-        dy: child.props.dy ?? dy,
-        dominantBaseline: child.props.dominantBaseline ?? dominantBaseline,
-        offset: child.props.offset ?? offset,
-        valueMin: child.props.valueMin ?? valueMin,
-        valueMax: child.props.valueMax ?? valueMax,
-        lengthMin: child.props.lengthMin ?? lengthMin,
-        lengthMax: child.props.lengthMax ?? lengthMax,
+        ctx: {
+          ...ctx,
+          linearUnits: {
+            dy,
+            dominantBaseline,
+            offset,
+          },
+        },
       });
     }
 
