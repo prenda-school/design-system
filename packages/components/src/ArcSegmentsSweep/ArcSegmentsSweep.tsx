@@ -37,7 +37,10 @@ export const ArcSegmentsSweep = React.forwardRef<
             ? renderProps(baseProps, i)
             : Object.assign(baseProps, renderProps);
 
-        return <path {...props} />;
+        // `key` cannot be spread (react logs an error)
+        const { key, ...other } = props;
+
+        return <path key={key} {...other} />;
       })}
     </g>
   );
