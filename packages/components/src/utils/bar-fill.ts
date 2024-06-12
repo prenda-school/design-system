@@ -1,5 +1,6 @@
 import * as D3Scale from 'd3-scale';
 import {
+  BarBorderWidthParam,
   BarCornerRadiusParam,
   BarParams,
   convertBarToRectangleCornerRadiusTuple,
@@ -21,6 +22,10 @@ export type BarFillParams = {
    * The corner radius of the bar fill.
    */
   cornerRadius?: BarCornerRadiusParam;
+  /**
+   * The width of the border of the bar fill.
+   */
+  borderWidth?: BarBorderWidthParam;
 };
 
 export type DrawBarFillParams = {
@@ -33,7 +38,9 @@ export function drawBarFill(params: DrawBarFillParams) {
   const dx = params.bar.dx ?? 0;
   const dy = params.bar.dy ?? 0;
 
-  const borderWidth = evalBarBorderWidth(params.bar.borderWidth);
+  const borderWidth = evalBarBorderWidth(
+    params.fill.borderWidth ?? params.bar.borderWidth
+  );
 
   const [x, y] = [dx + borderWidth, dy + borderWidth];
 

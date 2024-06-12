@@ -6,7 +6,7 @@ export type BarFillRef = SVGPathElement;
 
 export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
   (props, ref) => {
-    const { to, cornerRadius, ctx, ...other } = props;
+    const { to, cornerRadius, borderWidth, ctx, ...other } = props;
 
     if (ctx === undefined) {
       throw Error(
@@ -20,6 +20,7 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
       fill: {
         to,
         cornerRadius,
+        borderWidth,
       },
     });
 

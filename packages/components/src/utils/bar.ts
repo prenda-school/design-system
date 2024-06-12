@@ -15,7 +15,7 @@ export type BarParams = {
    */
   direction?: 'forward' | 'backward';
   /**
-   * The radius of the corners of the bar fill(s).
+   * The radius of the corners of the bar.
    */
   cornerRadius?: BarCornerRadiusParam;
   /**
@@ -27,9 +27,9 @@ export type BarParams = {
    */
   dy?: number;
   /**
-   * The width of the borders of the bar fill(s).
+   * The width of the border of the bar.
    */
-  borderWidth?: number;
+  borderWidth?: BarBorderWidthParam;
 };
 
 export type BarOrientationParam = undefined | 'horizontal' | 'vertical';
