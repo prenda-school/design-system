@@ -93,12 +93,24 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             borderWidth={borderWidth}
           >
             <BarFill
-              lengthMin={thicknessPrimary}
+              // ctx={{
+              //   barScale: {
+              //     lengthMin: thicknessPrimary,
+              //     lengthMax: 544,
+              //     valueMin,
+              //     valueMax,
+              //   },
+              //   bar: {
+              //     thickness: thicknessPrimary,
+              //     cornerRadius,
+              //     borderWidth,
+              //   },
+              // }}
               to={valuePrimary}
               style={{ fill: Purple500 }}
             />
 
-            <BarUnits dy={thicknessSecondary} offset={unitsOffset}>
+            <BarUnits offset={thicknessSecondary + unitsOffset}>
               <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
                 Not really
               </BarUnitLabel>
@@ -118,7 +130,20 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             borderWidth={borderWidth}
           >
             <BarFill
-              lengthMin={thicknessSecondary}
+              // ctx={{
+              //   barScale: {
+              //     lengthMin: thicknessSecondary,
+              //     lengthMax: 544,
+              //     valueMin,
+              //     valueMax,
+              //   },
+              //   bar: {
+              //     thickness: thicknessSecondary,
+              //     cornerRadius,
+              //     borderWidth,
+              //     dy: thicknessPrimary,
+              //   },
+              // }}
               to={valueSecondary}
               style={{ fill: Purple200 }}
             />
