@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarFillProps } from './BarFillProps';
-import { drawBar } from '../utils';
+import { drawBarFill } from '../utils';
 
 export type BarFillRef = SVGPathElement;
 
@@ -14,7 +14,7 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
       );
     }
 
-    const d = drawBar({
+    const { d } = drawBarFill({
       bar: ctx.bar,
       scale: ctx.barScale,
       fill: {

@@ -52,7 +52,7 @@ export function drawRoundedRectangle(
   // draw bottom-left corner: arc of crbl
   // draw left (moving up): vertical to (cpx, cpy - (height - crbl - crtl))
   // draw top-left corner: arc of crtl
-  return `
+  const d = `
     ${moveTo(true, x + crtl1, y)}
     ${drawHorizontalLineTo(false, width - crtl1 - crtr1)}
     ${drawRoundedRectangleCorner(crtr1, 1, 1)}
@@ -64,6 +64,8 @@ export function drawRoundedRectangle(
     ${drawRoundedRectangleCorner(crtl1, 1, -1)}
     ${closePath()}
 `;
+
+  return { d };
 }
 
 /**
