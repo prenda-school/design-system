@@ -2,6 +2,21 @@ import { arc as d3Arc, pie as d3Pie } from 'd3-shape';
 import { ArcOut } from '../Arc/generateArc';
 import { getNumericalValue, getValueSegmentsScale } from '.';
 
+export type ArcSegmentsSweepParams = {
+  /**
+   * The value from which the arc sweep starts. Defaults to the minimum value.
+   */
+  from?: number;
+  /**
+   * The value from which the arc sweep ends. Defaults to the maximum value.
+   */
+  to?: number;
+  /**
+   * The corner radius of the arc sweep. Defaults to 0. Overrides the corner radius set on the `arc`.
+   */
+  cornerRadius?: number | string;
+};
+
 type ArcSegmentsSweepIn = {
   from?: number;
   to?: number;

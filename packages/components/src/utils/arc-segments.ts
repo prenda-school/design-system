@@ -47,3 +47,5 @@ export type ArcSegmentsParams = {
    */
   cornerRadius?: number | string;
 };
+
+export type CtxWithArcSegments = { arcSegments: ArcSegmentsParams };

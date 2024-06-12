@@ -1,14 +1,24 @@
 import React from 'react';
 import { ArcUnitsProps } from './ArcUnitsProps';
+import { CtxWithArc, CtxWithArcScale, CtxWithArcUnits } from '../utils';
 
 export const ArcUnits = (props: ArcUnitsProps) => {
-  const { children, offset, position, ...other } = props;
+  const { children, ctx, offset, position, ...other } = props;
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<ArcUnitsProps, 'children'>>(child)) {
+    if (
+      React.isValidElement<{
+        ctx: CtxWithArcScale & CtxWithArc & CtxWithArcUnits;
+      }>(child)
+    ) {
       return React.cloneElement(child, {
-        offset: child.props.offset ?? offset,
-        position: child.props.position ?? position,
+        ctx: child.props.ctx ?? {
+          ...ctx,
+          arcUnits: {
+            offset,
+            position,
+          },
+        },
         ...other,
       });
     }

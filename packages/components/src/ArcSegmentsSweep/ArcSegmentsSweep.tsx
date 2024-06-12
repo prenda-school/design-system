@@ -20,7 +20,18 @@ export const ArcSegmentsSweep = React.forwardRef<
     from,
     to,
     cornerRadius,
-    arc: ctx.arc,
+    arc: {
+      angle: {
+        min: ctx.arcScale.angleMin,
+        max: ctx.arcScale.angleMax,
+      },
+      radius: ctx.arc.radius,
+      ratio: ctx.arc.ratio,
+      value: {
+        min: ctx.arcScale.valueMin,
+        max: ctx.arcScale.valueMax,
+      },
+    },
     segments: ctx.arcSegments,
   });
 

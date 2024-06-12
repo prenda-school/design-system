@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArcSegmentsProps } from './ArcSegmentsProp';
-import { ArcSegmentsOut, generateArcSegments } from './generateArcSegments';
-import { ArcOut } from '../Arc/generateArc';
+import { CtxWithArc, CtxWithArcScale, CtxWithArcSegments } from '../utils';
 
 export const ArcSegments = (props: ArcSegmentsProps) => {
   const { children, ctx, cornerRadius, count, padAngle } = props;
@@ -12,22 +11,20 @@ export const ArcSegments = (props: ArcSegmentsProps) => {
     );
   }
 
-  const arcSegments = generateArcSegments({
-    count,
-    padAngle,
-    cornerRadius,
-  });
-
   return React.Children.map(children, (child) => {
     if (
       React.isValidElement<{
-        ctx: { arc: ArcOut; arcSegments: ArcSegmentsOut };
+        ctx: CtxWithArcScale & CtxWithArc & CtxWithArcSegments;
       }>(child)
     ) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? {
-          arc: ctx.arc,
-          arcSegments,
+          ...ctx,
+          arcSegments: {
+            cornerRadius,
+            count,
+            padAngle,
+          },
         },
       });
     }

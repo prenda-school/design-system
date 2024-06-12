@@ -6,41 +6,12 @@ export type ArcCircleRef = SVGCircleElement;
 
 export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
   (props, ref) => {
-    const {
-      at,
-      radiusRatio,
-      valueMin,
-      valueMax,
-      angleMin,
-      angleMax,
-      radius,
-      ratio,
-      cornerRadius: _cornerRadius,
-      ...other
-    } = props;
+    const { at, radiusRatio, ctx, ...other } = props;
 
-    if (valueMin === undefined) {
-      throw Error(getMissingPropMessage('valueMin'));
-    }
-
-    if (valueMax === undefined) {
-      throw Error(getMissingPropMessage('valueMax'));
-    }
-
-    if (angleMin === undefined) {
-      throw Error(getMissingPropMessage('angleMin'));
-    }
-
-    if (angleMax === undefined) {
-      throw Error(getMissingPropMessage('angleMax'));
-    }
-
-    if (radius === undefined) {
-      throw Error(getMissingPropMessage('radius'));
-    }
-
-    if (ratio === undefined) {
-      throw Error(getMissingPropMessage('ratio'));
+    if (ctx === undefined) {
+      throw Error(
+        'Oops! `ArcCircle` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) set `ctx`?'
+      );
     }
 
     const { r, cx, cy } = drawArcCircle({
@@ -48,22 +19,19 @@ export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
       radiusRatio,
       arc: {
         angle: {
-          min: angleMin,
-          max: angleMax,
+          min: ctx.arcScale.angleMin,
+          max: ctx.arcScale.angleMax,
         },
         value: {
-          min: valueMin,
-          max: valueMax,
+          min: ctx.arcScale.valueMin,
+          max: ctx.arcScale.valueMax,
         },
-        radius,
-        ratio,
+        radius: ctx.arc.radius,
+        ratio: ctx.arc.ratio,
+        cornerRadius: ctx.arc.cornerRadius,
       },
     });
 
     return <circle ref={ref} r={r} cx={cx} cy={cy} {...other} />;
   }
 );
-
-const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`ArcCircle\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`Arc\`? or (2) set \`${propName}\`?`;
-};

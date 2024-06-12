@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Chart } from '../Chart';
 import { ArcScale } from '../ArcScale';
 import { Arc } from '../Arc';
 import { ArcSweep } from '../ArcSweep';
 import { ArcUnits } from './ArcUnits';
 import { ArcUnitLabel } from '../ArcUnitLabel';
+import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcUnits> = {
   title: 'ArcUnits',
@@ -35,13 +35,6 @@ const meta: Meta<typeof ArcUnits> = {
     },
   },
   args: {
-    // @ts-expect-error fix
-    arc: {
-      angle: { min: (-1 * Math.PI) / 2, max: Math.PI / 2 },
-      radius: 50,
-      ratio: 0.9,
-      value: { min: 0, max: 100 },
-    },
     children: [
       <ArcUnitLabel key="0" at={0}>
         Label
@@ -53,6 +46,18 @@ const meta: Meta<typeof ArcUnits> = {
         Label
       </ArcUnitLabel>,
     ],
+    ctx: {
+      arcScale: {
+        angleMin: (-1 * Math.PI) / 2,
+        angleMax: Math.PI / 2,
+        valueMin: 0,
+        valueMax: 100,
+      },
+      arc: {
+        radius: 50,
+        ratio: 0.9,
+      },
+    },
   },
 };
 

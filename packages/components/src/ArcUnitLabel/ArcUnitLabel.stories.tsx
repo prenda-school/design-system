@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ArcUnitLabel } from './ArcUnitLabel';
+import { Arc } from '../Arc';
 import { ArcScale } from '../ArcScale';
-import { Chart } from '../Chart';
-import { Arc } from '../Arc/Arc';
 import { ArcSweep } from '../ArcSweep';
+import { ArcUnitLabel } from './ArcUnitLabel';
+import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcUnitLabel> = {
   title: 'ArcUnitLabel',
@@ -38,12 +38,17 @@ const meta: Meta<typeof ArcUnitLabel> = {
   },
   args: {
     ctx: {
+      arcScale: {
+        angleMin: 0,
+        angleMax: 2 * Math.PI,
+        valueMin: 0,
+        valueMax: 100,
+      },
       arc: {
-        angle: { min: 0, max: 2 * Math.PI },
         radius: 50,
         ratio: 0.9,
-        value: { min: 0, max: 100 },
       },
+      arcUnits: {},
     },
     children: <>Label</>,
   },

@@ -45,10 +45,6 @@ type Story = StoryObj<typeof Arc>;
 
 export const Circular: Story = {
   args: {
-    angleMax: 2 * Math.PI,
-    angleMin: 0,
-    valueMax: 120,
-    valueMin: 0,
     cornerRadius: '50%',
     radius: 126,
     ratio: 0.77,
@@ -56,15 +52,19 @@ export const Circular: Story = {
       <ArcSweep key="0" to={120} style={{ fill: '#EBECF0' }} />,
       <ArcSweep key="1" to={85} style={{ fill: '#57D9A3' }} />,
     ],
+    ctx: {
+      arcScale: {
+        angleMin: 0,
+        angleMax: 2 * Math.PI,
+        valueMin: 0,
+        valueMax: 120,
+      },
+    },
   },
 };
 
 export const Radial: Story = {
   args: {
-    angleMax: Math.PI / 2,
-    angleMin: (-1 * Math.PI) / 2,
-    valueMax: 3,
-    valueMin: 1,
     cornerRadius: '50%',
     radius: 126,
     ratio: 0.77,
@@ -72,5 +72,13 @@ export const Radial: Story = {
       <ArcSweep key="0" to={3} style={{ fill: '#EBECF0' }} />,
       <ArcSweep key="1" to={2} style={{ fill: '#5243AA' }} />,
     ],
+    ctx: {
+      arcScale: {
+        angleMin: (-1 * Math.PI) / 2,
+        angleMax: Math.PI / 2,
+        valueMin: 1,
+        valueMax: 3,
+      },
+    },
   },
 };
