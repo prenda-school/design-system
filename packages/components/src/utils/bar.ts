@@ -9,11 +9,11 @@ export type BarParams = {
   /**
    * The direction in which the bar is oriented.
    */
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: BarOrientation;
   /**
    * The direction in which the bar grows along its orientation.
    */
-  direction?: 'forward' | 'backward';
+  direction?: BarDirection;
   /**
    * The radius of the corners of the bar.
    */
@@ -29,26 +29,22 @@ export type BarParams = {
   /**
    * The width of the border of the bar.
    */
-  borderWidth?: BarBorderWidthParam;
+  borderWidth?: BarBorderWidth;
 };
-
-export type BarOrientationParam = undefined | 'horizontal' | 'vertical';
 
 export type BarOrientation = 'horizontal' | 'vertical';
 
-export function evalBarOrientation(orientation: BarOrientationParam) {
+export function evalBarOrientation(orientation?: BarOrientation) {
   return orientation ?? DEFAULT_BAR_ORIENTATION;
 }
 
 export const DEFAULT_BAR_ORIENTATION: BarOrientation = 'horizontal' as const;
 
-export type BarDirectionParam = undefined | 'forward' | 'backward';
+export type BarDirection = 'forward' | 'backward';
 
-export function evalBarDirection(direction: BarDirectionParam) {
+export function evalBarDirection(direction?: BarDirection) {
   return direction ?? DEFAULT_BAR_DIRECTION;
 }
-
-export type BarDirection = 'forward' | 'backward';
 
 export const DEFAULT_BAR_DIRECTION: BarDirection = 'forward' as const;
 
@@ -203,8 +199,6 @@ export type BarBorderWidth = number;
 
 export const DEFAULT_BAR_BORDER_WIDTH: BarBorderWidth = 0 as const;
 
-export type BarBorderWidthParam = undefined | number;
-
-export function evalBarBorderWidth(param: BarBorderWidthParam) {
+export function evalBarBorderWidth(param?: BarBorderWidth) {
   return param ?? DEFAULT_BAR_BORDER_WIDTH;
 }
