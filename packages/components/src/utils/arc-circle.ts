@@ -1,6 +1,6 @@
-import { ArcOut } from '../Arc';
 import { Angle } from './angle';
-import { calcCoordinatesOnArc } from './arc';
+import { ArcParams, calcCoordinatesOnArc } from './arc';
+import { ArcScaleParams } from './arc-scale';
 import { inverseGeometricChord } from './circle';
 import { getValueAngleScale } from './scale';
 
@@ -29,28 +29,26 @@ export type ArcCircleParams = {
   radiusRatio?: number;
 };
 
-export type ArcCircleIn = {
-  /**
-   * The value at which the circle is located.
-   */
-  at: number;
-  /**
-   * The ratio of the radius of the circle to the width of the arc.
-   */
-  radiusRatio?: number;
+export type DrawArcCircleParams = ArcCircleParams & {
   /**
    * The arc on which the circle is located.
    */
-  arc: ArcOut;
+  arc: ArcParams;
+  /**
+   * The scale of the arc.
+   */
+  arcScale: ArcScaleParams;
 };
 
-export type ArcCircleOut = {
-  r: number;
+export type DrawArcCircleResult = {
   cx: number;
   cy: number;
+  r: number;
 };
 
-export function drawArcCircle(params: ArcCircleIn): ArcCircleOut {
+export function drawArcCircle(
+  params: DrawArcCircleParams
+): DrawArcCircleResult {
   const arcWidth = params.arc.radius - params.arc.radius * params.arc.ratio;
   const defaultRadius = arcWidth / 2;
   const radiusRatio = params.radiusRatio ?? DEFAULT_RADIUS_RATIO;
@@ -63,12 +61,12 @@ export function drawArcCircle(params: ArcCircleIn): ArcCircleOut {
 
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arc.value.min,
-      max: params.arc.value.max,
+      min: params.arcScale.valueMin,
+      max: params.arcScale.valueMax,
     },
     angle: {
-      min: params.arc.angle.min + absAngleOffset,
-      max: params.arc.angle.max - absAngleOffset,
+      min: params.arcScale.angleMin + absAngleOffset,
+      max: params.arcScale.angleMax - absAngleOffset,
     },
   });
 

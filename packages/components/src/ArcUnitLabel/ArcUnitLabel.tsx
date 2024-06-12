@@ -18,21 +18,11 @@ export const ArcUnitLabel = React.forwardRef<
 
   const { x, y, textAnchor, dominantBaseline } = drawArcUnitLabel({
     at,
-    offset: offset ?? ctx.arcUnits.offset,
-    position: position ?? ctx.arcUnits.position,
-    arc: {
-      angle: {
-        min: ctx.arcScale.angleMin,
-        max: ctx.arcScale.angleMax,
-      },
-      value: {
-        min: ctx.arcScale.valueMin,
-        max: ctx.arcScale.valueMax,
-      },
-      radius: ctx.arc.radius,
-      ratio: ctx.arc.ratio,
-      cornerRadius: ctx.arc.cornerRadius,
-    },
+    offset,
+    position,
+    arc: ctx.arc,
+    arcScale: ctx.arcScale,
+    arcUnits: ctx.arcUnits,
   });
 
   return (

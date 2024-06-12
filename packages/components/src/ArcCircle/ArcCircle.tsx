@@ -17,19 +17,8 @@ export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
     const { r, cx, cy } = drawArcCircle({
       at,
       radiusRatio,
-      arc: {
-        angle: {
-          min: ctx.arcScale.angleMin,
-          max: ctx.arcScale.angleMax,
-        },
-        value: {
-          min: ctx.arcScale.valueMin,
-          max: ctx.arcScale.valueMax,
-        },
-        radius: ctx.arc.radius,
-        ratio: ctx.arc.ratio,
-        cornerRadius: ctx.arc.cornerRadius,
-      },
+      arc: ctx.arc,
+      arcScale: ctx.arcScale,
     });
 
     return <circle ref={ref} r={r} cx={cx} cy={cy} {...other} />;

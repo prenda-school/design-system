@@ -1,39 +1,73 @@
 import { SvgProperties } from 'csstype';
-import { ArcOut } from '../Arc/generateArc';
-import { calcCoordinatesOnArc, getValueAngleScale } from '.';
+import {
+  ArcParams,
+  ArcScaleParams,
+  ArcUnitsParams,
+  calcCoordinatesOnArc,
+  getValueAngleScale,
+} from '.';
 import { withEpsilon } from './epsilon';
 
-type ArcUnitLabelIn = {
+export type ArcUnitLabelParams = {
+  /**
+   * The value at which the unit label is located.
+   */
   at: number;
+  /**
+   * The offset of the unit label from the position.
+   */
   offset?: ArcUnitLabelOffset;
+  /**
+   * The position of the unit label relative to the arc's radii.
+   */
   position?: ArcUnitLabelPosition;
-  arc: ArcOut;
 };
 
-type ArcUnitLabelOut = {
+export type DrawArcUnitLabelParams = ArcUnitLabelParams & {
+  /**
+   * The arc on which the unit label is located.
+   */
+  arc: ArcParams;
+  /**
+   * The scale of the arc.
+   */
+  arcScale: ArcScaleParams;
+  /**
+   * The default units properties for each unit label.
+   */
+  arcUnits: ArcUnitsParams;
+};
+
+export type DrawArcUnitLabelResult = {
   x: number;
   y: number;
   dominantBaseline: SvgProperties['dominantBaseline'];
   textAnchor: SvgProperties['textAnchor'];
 };
 
-export function drawArcUnitLabel(params: ArcUnitLabelIn): ArcUnitLabelOut {
+export function drawArcUnitLabel(
+  params: DrawArcUnitLabelParams
+): DrawArcUnitLabelResult {
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arc.value.min,
-      max: params.arc.value.max,
+      min: params.arcScale.valueMin,
+      max: params.arcScale.valueMax,
     },
     angle: {
-      min: params.arc.angle.min,
-      max: params.arc.angle.max,
+      min: params.arcScale.angleMin,
+      max: params.arcScale.angleMax,
     },
   });
 
   const angle = angleScale(params.at);
 
-  const offset = evalArcUnitLabelOffset(params.offset);
+  const offset = evalArcUnitLabelOffset(
+    params.offset ?? params.arcUnits.offset
+  );
 
-  const position = evalArcUnitLabelPosition(params.position);
+  const position = evalArcUnitLabelPosition(
+    params.position ?? params.arcUnits.position
+  );
 
   let radiusOfCoords;
   if (position === 'inside') {

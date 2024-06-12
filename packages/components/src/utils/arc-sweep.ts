@@ -1,6 +1,10 @@
 import { arc as d3Arc } from 'd3-shape';
-import { ArcOut } from '../Arc/generateArc';
-import { getNumericalValue, getValueAngleScale } from '.';
+import {
+  ArcParams,
+  ArcScaleParams,
+  getNumericalValue,
+  getValueAngleScale,
+} from '.';
 
 export type ArcSweepParams = {
   /**
@@ -17,32 +21,36 @@ export type ArcSweepParams = {
   cornerRadius?: number | string;
 };
 
-type ArcSweepIn = {
-  from?: number;
-  to?: number;
-  cornerRadius?: number | string;
-  arc: ArcOut;
+export type DrawArcSweepParams = ArcSweepParams & {
+  /**
+   * The arc on which the sweep is located.
+   */
+  arc: ArcParams;
+  /**
+   * The scale of the arc.
+   */
+  arcScale: ArcScaleParams;
 };
 
-type ArcSweepOut = {
+export type DrawArcSweepResult = {
   d: string;
 };
 
-export function drawArcSweep(params: ArcSweepIn): ArcSweepOut {
+export function drawArcSweep(params: DrawArcSweepParams): DrawArcSweepResult {
   // The "angle the filled arc needs to fill until"
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arc.value.min,
-      max: params.arc.value.max,
+      min: params.arcScale.valueMin,
+      max: params.arcScale.valueMax,
     },
     angle: {
-      min: params.arc.angle.min,
-      max: params.arc.angle.max,
+      min: params.arcScale.angleMin,
+      max: params.arcScale.angleMax,
     },
   });
 
-  const from = params.from ?? params.arc.value.min;
-  const to = params.to ?? params.arc.value.max;
+  const from = params.from ?? params.arcScale.valueMin;
+  const to = params.to ?? params.arcScale.valueMax;
 
   const startAngle = angleScale(from);
   const endAngle = angleScale(to);

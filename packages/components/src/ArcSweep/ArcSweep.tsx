@@ -18,19 +18,8 @@ export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
       from,
       to,
       cornerRadius,
-      arc: {
-        angle: {
-          min: ctx.arcScale.angleMin,
-          max: ctx.arcScale.angleMax,
-        },
-        value: {
-          min: ctx.arcScale.valueMin,
-          max: ctx.arcScale.valueMax,
-        },
-        radius: ctx.arc.radius,
-        ratio: ctx.arc.ratio,
-        cornerRadius: ctx.arc.cornerRadius,
-      },
+      arc: ctx.arc,
+      arcScale: ctx.arcScale,
     });
 
     return <path ref={ref} d={d} {...other} />;
