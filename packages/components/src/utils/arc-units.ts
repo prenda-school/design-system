@@ -8,5 +8,3 @@ export type ArcUnitsParams = {
    */
   position?: 'outside' | 'inside';
 };
-
-export type CtxWithArcUnits = { arcUnits: ArcUnitsParams };

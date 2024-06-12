@@ -41,5 +41,3 @@ export const calcCoordinatesOnArc = (params: {
 
   return coordinates;
 };
-
-export type CtxWithArc = { arc: ArcParams };

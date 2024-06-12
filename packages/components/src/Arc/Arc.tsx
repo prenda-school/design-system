@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArcProps } from './ArcProps';
-import { CtxWithArc, CtxWithArcScale } from '../utils';
+import { ArcChildProps, ArcProps } from './ArcProps';
 
 export const Arc = (props: ArcProps) => {
   const { cornerRadius, radius, ratio, ctx, children } = props;
@@ -12,7 +11,7 @@ export const Arc = (props: ArcProps) => {
   }
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<{ ctx: CtxWithArcScale & CtxWithArc }>(child)) {
+    if (React.isValidElement<ArcChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? {
           ...ctx,

@@ -16,5 +16,3 @@ export type ArcScaleParams = {
    */
   angleMax: number;
 };
-
-export type CtxWithArcScale = { arcScale: ArcScaleParams };

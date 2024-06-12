@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArcCircle } from './ArcCircle';
 import { Chart } from '../Chart';
-import { CtxWithArc, CtxWithArcScale } from '../utils';
+import { ArcCircleProps } from './ArcCircleProps';
 
 const dim = 252 as const;
 
@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof ArcCircle>;
 
-const circularArcCtx: CtxWithArcScale & CtxWithArc = {
+const circularArcCtx: ArcCircleProps['ctx'] = {
   arcScale: {
     valueMin: 0,
     valueMax: 126,
@@ -58,7 +58,7 @@ export const CircularMax: Story = {
   },
 };
 
-const radialArcCtx: CtxWithArcScale & CtxWithArc = {
+const radialArcCtx: ArcCircleProps['ctx'] = {
   arcScale: {
     valueMin: 1,
     valueMax: 3,
