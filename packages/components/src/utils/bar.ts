@@ -9,15 +9,25 @@ export type BarParams = {
   /**
    * The direction in which the bar is oriented.
    */
-  orientation?: BarOrientation;
+  orientation?: 'horizontal' | 'vertical';
   /**
    * The direction in which the bar grows along its orientation.
    */
-  direction?: BarDirection;
+  direction?: 'forward' | 'backward';
   /**
    * The radius of the corners of the bar.
    */
-  cornerRadius?: BarCornerRadiusParam;
+  cornerRadius?:
+    | number
+    | string
+    | Partial<{
+        end: number | string;
+        start: number | string;
+        startStart: number | string;
+        endStart: number | string;
+        endEnd: number | string;
+        startEnd: number | string;
+      }>;
   /**
    * The shift along the x-axis for bar's initial point.
    */
@@ -29,12 +39,14 @@ export type BarParams = {
   /**
    * The width of the border of the bar.
    */
-  borderWidth?: BarBorderWidth;
+  borderWidth?: number;
 };
 
 export type BarOrientation = 'horizontal' | 'vertical';
 
-export function evalBarOrientation(orientation?: BarOrientation) {
+export function evalBarOrientation(
+  orientation?: BarParams['orientation']
+): BarOrientation {
   return orientation ?? DEFAULT_BAR_ORIENTATION;
 }
 
@@ -42,40 +54,37 @@ export const DEFAULT_BAR_ORIENTATION: BarOrientation = 'horizontal' as const;
 
 export type BarDirection = 'forward' | 'backward';
 
-export function evalBarDirection(direction?: BarDirection) {
+export function evalBarDirection(
+  direction?: BarParams['direction']
+): BarDirection {
   return direction ?? DEFAULT_BAR_DIRECTION;
 }
 
 export const DEFAULT_BAR_DIRECTION: BarDirection = 'forward' as const;
 
-export type BarCornerRadiusParam =
-  | undefined
-  | number
-  | string
-  /*
-    W3 calls these "directional-keyword values that are flow-relative" as an alternative to "directional-keyword values that are physical"
+/*
+  W3 calls these "directional-keyword values that are flow-relative" as an alternative to "directional-keyword values that are physical"
 
-    Block Direction: The direction in which the bar grows or extends. 
-      - For a vertical bar graph, this is the vertical direction (upwards or downwards).
-      - For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards).
+  Block Direction: The direction in which the bar grows or extends. 
+    - For a vertical bar graph, this is the vertical direction (upwards or downwards).
+    - For a horizontal bar graph, this is the horizontal direction (leftwards or rightwards).
 
-    Inline Direction: The direction along the baseline of the bars, which aligns with how the bars are laid out next to one another.
-      - For a vertical bar graph, this is the horizontal direction (left to right).
-      - For a horizontal bar graph, this is the vertical direction (top to bottom).
+  Inline Direction: The direction along the baseline of the bars, which aligns with how the bars are laid out next to one another.
+    - For a vertical bar graph, this is the horizontal direction (left to right).
+    - For a horizontal bar graph, this is the vertical direction (top to bottom).
 
-    { start, end } = { block-start, block-end }
+  { 
+    start = block-start, 
+    end   = block-end,
+  }
 
-    { startStart, startEnd, endStart, endEnd } = { block-start-inline-start, block-start-inline-end, block-end-inline-start, block-end-inline-end }
-  */
-  | Partial<{
-      end: number | string;
-      start: number | string;
-      startStart: number | string;
-      endStart: number | string;
-      endEnd: number | string;
-      startEnd: number | string;
-    }>;
-
+  { 
+    startStart  = block-start-inline-start, 
+    startEnd    = block-start-inline-end,
+    endStart    = block-end-inline-start,
+    endEnd      = block-end-inline-end,
+  }
+*/
 export type BarCornerRadius = {
   startStart: number;
   endStart: number;
@@ -91,7 +100,7 @@ export const DEFAULT_BAR_CORNER_RADIUS: BarCornerRadius = {
 } as const;
 
 export function evalBarCornerRadius(
-  cornerRadius: BarCornerRadiusParam,
+  cornerRadius: BarParams['cornerRadius'],
   thickness: BarParams['thickness']
 ): BarCornerRadius {
   if (cornerRadius === undefined) {
@@ -199,6 +208,8 @@ export type BarBorderWidth = number;
 
 export const DEFAULT_BAR_BORDER_WIDTH: BarBorderWidth = 0 as const;
 
-export function evalBarBorderWidth(param?: BarBorderWidth) {
+export function evalBarBorderWidth(
+  param?: BarParams['borderWidth']
+): BarBorderWidth {
   return param ?? DEFAULT_BAR_BORDER_WIDTH;
 }
