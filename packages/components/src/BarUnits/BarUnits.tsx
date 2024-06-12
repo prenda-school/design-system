@@ -1,30 +1,26 @@
 import React from 'react';
-import { BarUnitsProps } from './BarUnitsProps';
+import { BarUnitsChildProps, BarUnitsProps } from './BarUnitsProps';
 
 export const BarUnits = (props: BarUnitsProps) => {
-  const {
-    children,
-    dy,
-    offset,
-    position,
-    thickness,
-    valueMin,
-    valueMax,
-    lengthMin,
-    lengthMax,
-  } = props;
+  const { dy, offset, position, children, ctx } = props;
+
+  if (ctx === undefined) {
+    throw Error(
+      'Oops! `BarUnits` received `ctx: undefined`. Did you mean to either (1) render as a child of `Bar`? or (2) specify `ctx` explicitly?'
+    );
+  }
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<BarUnitsProps, 'children'>>(child)) {
+    if (React.isValidElement<BarUnitsChildProps>(child)) {
       return React.cloneElement(child, {
-        dy: child.props.dy ?? dy,
-        offset: child.props.offset ?? offset,
-        position: child.props.position ?? position,
-        thickness: child.props.thickness ?? thickness,
-        valueMin: child.props.valueMin ?? valueMin,
-        valueMax: child.props.valueMax ?? valueMax,
-        lengthMin: child.props.lengthMin ?? lengthMin,
-        lengthMax: child.props.lengthMax ?? lengthMax,
+        ctx: child.props.ctx ?? {
+          ...ctx,
+          barUnits: {
+            dy,
+            offset,
+            position,
+          },
+        },
       });
     }
 

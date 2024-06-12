@@ -42,11 +42,15 @@ const meta: Meta<typeof Bar> = {
     },
   },
   args: {
-    valueMin: 0,
-    valueMax: 100,
-    lengthMin: 0,
-    lengthMax: 212,
     children: <BarFill to={100} />,
+    ctx: {
+      barScale: {
+        valueMin: 0,
+        valueMax: 100,
+        lengthMin: 0,
+        lengthMax: 212,
+      },
+    },
   },
 };
 

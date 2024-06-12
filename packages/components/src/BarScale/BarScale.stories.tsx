@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Bar } from '../Bar';
-import { Chart } from '../Chart';
 import { BarFill } from '../BarFill';
 import { BarScale } from './BarScale';
+import { Chart } from '../Chart';
 
 const meta: Meta<typeof BarScale> = {
   title: 'BarScale',
@@ -64,7 +64,7 @@ const meta: Meta<typeof BarScale> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Bar>;
+type Story = StoryObj<typeof BarScale>;
 
 export const LengthMax100: Story = {
   name: 'lengthMax=100',

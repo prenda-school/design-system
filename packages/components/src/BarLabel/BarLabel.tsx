@@ -6,33 +6,19 @@ export type BarLabelRef = SVGTextElement;
 
 export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
   (props, ref) => {
-    const {
-      dy,
-      offset,
-      position,
-      thickness,
-      // ignored
-      valueMin,
-      valueMax,
-      lengthMin,
-      lengthMax,
-      cornerRadius,
-      orientation,
-      direction,
-      dx,
-      borderWidth,
-      ...other
-    } = props;
+    const { dy, offset, position, ctx, ...other } = props;
 
-    if (thickness === undefined) {
-      throw Error(getMissingPropMessage('thickness'));
+    if (ctx === undefined) {
+      throw Error(
+        'Oops! `BarLabel` received `ctx: undefined`. Did you mean to either (1) render as a child of `Bar`? or (2) specify `ctx` explicitly?'
+      );
     }
 
     const { y, textAnchor, dominantBaseline } = drawBarLabel({
       dy,
       offset,
       position,
-      thickness,
+      thickness: ctx.bar.thickness,
     });
 
     return (
@@ -46,7 +32,3 @@ export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
     );
   }
 );
-
-const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`BarLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`Bar\`? or (2) set \`${propName}\`?`;
-};

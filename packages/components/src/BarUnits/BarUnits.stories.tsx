@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { BarUnits } from './BarUnits';
-import { Chart } from '../Chart';
+import { Bar } from '../Bar';
 import { BarFill } from '../BarFill';
 import { BarScale } from '../BarScale';
-import { Bar } from '../Bar/Bar';
 import { BarUnitLabel } from '../BarUnitLabel';
+import { BarUnits } from './BarUnits';
+import { Chart } from '../Chart';
 
 const meta: Meta<typeof BarUnits> = {
   title: 'BarUnits',
@@ -40,11 +40,6 @@ const meta: Meta<typeof BarUnits> = {
     },
   },
   args: {
-    valueMin: 0,
-    valueMax: 100,
-    lengthMin: 0,
-    lengthMax: 212,
-    thickness: 30,
     children: [
       <BarUnitLabel key="0" at={0}>
         Label
@@ -56,6 +51,17 @@ const meta: Meta<typeof BarUnits> = {
         Label
       </BarUnitLabel>,
     ],
+    ctx: {
+      barScale: {
+        valueMin: 0,
+        valueMax: 100,
+        lengthMin: 0,
+        lengthMax: 212,
+      },
+      bar: {
+        thickness: 30,
+      },
+    },
   },
 };
 

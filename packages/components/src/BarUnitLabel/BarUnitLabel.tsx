@@ -8,43 +8,23 @@ export const BarUnitLabel = React.forwardRef<
   BarUnitLabelRef,
   BarUnitLabelProps
 >((props, ref) => {
-  const {
-    at,
-    offset,
-    position,
-    valueMin,
-    valueMax,
-    lengthMin,
-    lengthMax,
-    thickness,
-    ...other
-  } = props;
+  const { at, offset, position, ctx, ...other } = props;
 
-  if (valueMin === undefined) {
-    throw Error(getMissingPropMessage('valueMin'));
-  }
-
-  if (valueMax === undefined) {
-    throw Error(getMissingPropMessage('valueMax'));
-  }
-
-  if (lengthMax === undefined) {
-    throw Error(getMissingPropMessage('lengthMax'));
-  }
-
-  if (thickness === undefined) {
-    throw Error(getMissingPropMessage('thickness'));
+  if (ctx === undefined) {
+    throw Error(
+      'Oops! `BarUnitLabel` received `ctx: undefined`. Did you mean to either (1) render as a child of `BarUnits`? or (2) specify `ctx` explicitly?'
+    );
   }
 
   const { x, y, textAnchor, dominantBaseline } = drawBarUnitLabel({
     at,
-    offset,
-    position,
-    valueMax,
-    valueMin,
-    lengthMax,
-    lengthMin,
-    thickness,
+    offset: offset ?? ctx.barUnits.offset,
+    position: position ?? ctx.barUnits.position,
+    valueMax: ctx.barScale.valueMax,
+    valueMin: ctx.barScale.valueMin,
+    lengthMax: ctx.barScale.lengthMax,
+    lengthMin: ctx.barScale.lengthMin,
+    thickness: ctx.bar.thickness,
   });
 
   return (
@@ -58,7 +38,3 @@ export const BarUnitLabel = React.forwardRef<
     />
   );
 });
-
-const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`BarUnitLabel\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`BarScale\`, \`BarUnits\`? or (2) set \`${propName}\`?`;
-};

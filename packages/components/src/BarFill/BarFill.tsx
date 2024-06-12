@@ -6,57 +6,29 @@ export type BarFillRef = SVGPathElement;
 
 export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
   (props, ref) => {
-    const {
-      valueMin,
-      valueMax,
-      to,
-      lengthMin,
-      lengthMax,
-      thickness,
-      cornerRadius,
-      orientation,
-      direction,
-      dx,
-      dy,
-      borderWidth,
-      ...other
-    } = props;
+    const { to, cornerRadius, ctx, ...other } = props;
 
-    if (valueMin === undefined) {
-      throw Error(getMissingPropMessage('valueMin'));
-    }
-
-    if (valueMax === undefined) {
-      throw Error(getMissingPropMessage('valueMax'));
-    }
-
-    if (lengthMax === undefined) {
-      throw Error(getMissingPropMessage('lengthMax'));
-    }
-
-    if (thickness === undefined) {
-      throw Error(getMissingPropMessage('thickness'));
+    if (ctx === undefined) {
+      throw Error(
+        'Oops! `BarFill` received `ctx: undefined`. Did you mean to either (1) render as a child of `Bar`? or (2) specify `ctx` explicitly?'
+      );
     }
 
     const d = drawBar({
-      valueMin,
-      valueMax,
+      valueMin: ctx.barScale.valueMin,
+      valueMax: ctx.barScale.valueMax,
       to,
-      lengthMin,
-      lengthMax,
-      thickness,
-      cornerRadius,
-      orientation,
-      direction,
-      dx,
-      dy,
-      borderWidth,
+      lengthMin: ctx.barScale.lengthMin,
+      lengthMax: ctx.barScale.lengthMax,
+      thickness: ctx.bar.thickness,
+      cornerRadius: cornerRadius ?? ctx.bar.cornerRadius,
+      orientation: ctx.bar.orientation,
+      direction: ctx.bar.direction,
+      dx: ctx.bar.dx,
+      dy: ctx.bar.dy,
+      borderWidth: ctx.bar.borderWidth,
     });
 
     return <path ref={ref} d={d} {...other} />;
   }
 );
-
-const getMissingPropMessage = (propName: string) => {
-  return `Oops! \`BarFill\` received \`${propName}: undefined\`. Did you mean to either (1) render as a child of \`Bar\`? or (2) set \`${propName}\`?`;
-};

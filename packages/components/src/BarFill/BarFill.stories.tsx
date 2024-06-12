@@ -24,11 +24,17 @@ const meta: Meta<typeof BarFill> = {
     },
   },
   args: {
-    valueMin: 0,
-    valueMax: 100,
-    lengthMin: 0,
-    lengthMax: 212,
-    thickness: 30,
+    ctx: {
+      barScale: {
+        valueMin: 0,
+        valueMax: 100,
+        lengthMin: 0,
+        lengthMax: 212,
+      },
+      bar: {
+        thickness: 30,
+      },
+    },
   },
 };
 

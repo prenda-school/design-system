@@ -47,12 +47,19 @@ const meta: Meta<typeof BarUnitLabel> = {
     },
   },
   args: {
-    valueMin: 0,
-    valueMax: 100,
-    lengthMin: 0,
-    lengthMax: 212,
-    thickness: 30,
     children: <>Label</>,
+    ctx: {
+      bar: {
+        thickness: 30,
+      },
+      barScale: {
+        valueMin: 0,
+        valueMax: 100,
+        lengthMin: 0,
+        lengthMax: 212,
+      },
+      barUnits: {},
+    },
   },
 };
 

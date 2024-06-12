@@ -1,16 +1,20 @@
 import React from 'react';
-import { BarScaleProps } from './BarScaleProps';
+import { BarScaleChildProps, BarScaleProps } from './BarScaleProps';
 
 export const BarScale = (props: BarScaleProps) => {
   const { children, lengthMax, lengthMin, valueMax, valueMin } = props;
 
   return React.Children.map(children, (child) => {
-    if (React.isValidElement<Omit<BarScaleProps, 'children'>>(child)) {
+    if (React.isValidElement<BarScaleChildProps>(child)) {
       return React.cloneElement(child, {
-        lengthMax: child.props.lengthMax ?? lengthMax,
-        lengthMin: child.props.lengthMin ?? lengthMin,
-        valueMax: child.props.valueMax ?? valueMax,
-        valueMin: child.props.valueMin ?? valueMin,
+        ctx: child.props.ctx ?? {
+          barScale: {
+            lengthMax,
+            lengthMin,
+            valueMax,
+            valueMin,
+          },
+        },
       });
     }
 
