@@ -15,18 +15,12 @@ export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
     }
 
     const d = drawBar({
-      valueMin: ctx.barScale.valueMin,
-      valueMax: ctx.barScale.valueMax,
-      to,
-      lengthMin: ctx.barScale.lengthMin,
-      lengthMax: ctx.barScale.lengthMax,
-      thickness: ctx.bar.thickness,
-      cornerRadius: cornerRadius ?? ctx.bar.cornerRadius,
-      orientation: ctx.bar.orientation,
-      direction: ctx.bar.direction,
-      dx: ctx.bar.dx,
-      dy: ctx.bar.dy,
-      borderWidth: ctx.bar.borderWidth,
+      bar: ctx.bar,
+      scale: ctx.barScale,
+      fill: {
+        to,
+        cornerRadius,
+      },
     });
 
     return <path ref={ref} d={d} {...other} />;

@@ -17,14 +17,21 @@ export const BarUnitLabel = React.forwardRef<
   }
 
   const { x, y, textAnchor, dominantBaseline } = drawBarUnitLabel({
-    at,
-    offset: offset ?? ctx.barUnits.offset,
-    position: position ?? ctx.barUnits.position,
-    valueMax: ctx.barScale.valueMax,
-    valueMin: ctx.barScale.valueMin,
-    lengthMax: ctx.barScale.lengthMax,
-    lengthMin: ctx.barScale.lengthMin,
-    thickness: ctx.bar.thickness,
+    bar: {
+      thickness: ctx.bar.thickness,
+    },
+    scale: {
+      valueMax: ctx.barScale.valueMax,
+      valueMin: ctx.barScale.valueMin,
+      lengthMax: ctx.barScale.lengthMax,
+      lengthMin: ctx.barScale.lengthMin,
+    },
+    units: ctx.barUnits,
+    unitLabel: {
+      at,
+      offset,
+      position,
+    },
   });
 
   return (

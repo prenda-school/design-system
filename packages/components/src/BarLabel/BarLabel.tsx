@@ -15,10 +15,14 @@ export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
     }
 
     const { y, textAnchor, dominantBaseline } = drawBarLabel({
-      dy,
-      offset,
-      position,
-      thickness: ctx.bar.thickness,
+      label: {
+        dy,
+        offset,
+        position,
+      },
+      bar: {
+        thickness: ctx.bar.thickness,
+      },
     });
 
     return (

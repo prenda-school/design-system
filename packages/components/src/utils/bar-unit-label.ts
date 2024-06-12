@@ -2,6 +2,7 @@ import { SvgProperties } from 'csstype';
 import * as D3Scale from 'd3-scale';
 import { BarScaleParams, evalBarScaleLengthMin } from './bar-scale';
 import { BarParams } from './bar';
+import { BarUnitsParams } from './bar-units';
 
 export type BarUnitLabelParams = {
   /**
@@ -18,30 +19,37 @@ export type BarUnitLabelParams = {
   position?: BarUnitLabelPosition;
 };
 
-export type DrawBarUnitLabelParams = BarUnitLabelParams &
-  BarScaleParams &
-  Pick<BarParams, 'thickness'>;
+export type DrawBarUnitLabelParams = {
+  bar: Pick<BarParams, 'thickness'>;
+  scale: BarScaleParams;
+  units: BarUnitsParams;
+  unitLabel: BarUnitLabelParams;
+};
 
 export function drawBarUnitLabel(params: DrawBarUnitLabelParams) {
-  const lengthMin = evalBarScaleLengthMin(params.lengthMin) ?? 0;
+  const lengthMin = evalBarScaleLengthMin(params.scale.lengthMin) ?? 0;
 
   const scale = D3Scale.scaleLinear()
-    .domain([params.valueMin, params.valueMax])
-    .range([lengthMin, params.lengthMax]);
+    .domain([params.scale.valueMin, params.scale.valueMax])
+    .range([lengthMin, params.scale.lengthMax]);
 
-  const value = params.at;
+  const value = params.unitLabel.at;
 
   const length = scale(value);
 
-  const offset = evalBarUnitLabelOffset(params.offset);
-  const position = evalBarUnitLabelPosition(params.position);
+  const offset = evalBarUnitLabelOffset(
+    params.unitLabel.offset ?? params.units.offset
+  );
+  const position = evalBarUnitLabelPosition(
+    params.unitLabel.position ?? params.units.position
+  );
 
   const x = length;
   let y: number;
   if (position === 'above') {
     y = -1 * offset;
   } else if (position === 'below') {
-    y = params.thickness + offset;
+    y = params.bar.thickness + offset;
   } else {
     y = 0;
   }
@@ -49,7 +57,7 @@ export function drawBarUnitLabel(params: DrawBarUnitLabelParams) {
   let textAnchor: SvgProperties['textAnchor'];
   if (x === lengthMin) {
     textAnchor = 'start';
-  } else if (x === params.lengthMax) {
+  } else if (x === params.scale.lengthMax) {
     textAnchor = 'end';
   } else {
     textAnchor = 'middle';

@@ -1,7 +1,8 @@
 import * as D3Scale from 'd3-scale';
-import { evalBarScaleLengthMin } from './bar-scale';
+import { BarScaleParams, evalBarScaleLengthMin } from './bar-scale';
 import { RectangleCornerRadiusTuple, drawRoundedRectangle } from './rectangle';
 import { getNumericalValue } from './value';
+import { BarFillParams } from './bar-fill';
 
 export type BarParams = {
   /**
@@ -34,42 +35,35 @@ export type BarParams = {
   borderWidth?: number;
 };
 
-export function drawBar(params: {
-  valueMin: number;
-  valueMax: number;
-  to?: number;
-  lengthMin?: number;
-  lengthMax: number;
-  thickness: number;
-  cornerRadius?: BarCornerRadiusParam;
-  orientation?: BarOrientation;
-  direction?: BarDirection;
-  dx?: number;
-  dy?: number;
-  borderWidth?: number;
-}) {
-  const dx = params.dx ?? 0;
-  const dy = params.dy ?? 0;
+export type DrawBarParams = {
+  bar: BarParams;
+  fill: BarFillParams;
+  scale: BarScaleParams;
+};
 
-  const borderWidth = evalBarBorderWidth(params.borderWidth);
+export function drawBar(params: DrawBarParams) {
+  const dx = params.bar.dx ?? 0;
+  const dy = params.bar.dy ?? 0;
+
+  const borderWidth = evalBarBorderWidth(params.bar.borderWidth);
 
   const [x, y] = [dx + borderWidth, dy + borderWidth];
 
-  const lengthMin = evalBarScaleLengthMin(params.lengthMin);
+  const lengthMin = evalBarScaleLengthMin(params.scale.lengthMin);
 
-  const lengthMax = params.lengthMax - 2 * borderWidth;
+  const lengthMax = params.scale.lengthMax - 2 * borderWidth;
 
   const scale = D3Scale.scaleLinear()
-    .domain([params.valueMin, params.valueMax])
+    .domain([params.scale.valueMin, params.scale.valueMax])
     .range([lengthMin, lengthMax]);
 
-  const value = params.to ?? params.valueMax;
+  const value = params.fill.to ?? params.scale.valueMax;
 
   const length = scale(value);
 
-  const orientation = evalBarOrientation(params.orientation);
+  const orientation = evalBarOrientation(params.bar.orientation);
 
-  const thickness = params.thickness - 2 * borderWidth;
+  const thickness = params.bar.thickness - 2 * borderWidth;
 
   const [width, height] = convertBarToRectangleDimensionTuple(
     length,
@@ -77,9 +71,12 @@ export function drawBar(params: {
     orientation
   );
 
-  const cornerRadius = evalBarCornerRadius(params.cornerRadius, thickness);
+  const cornerRadius = evalBarCornerRadius(
+    params.fill.cornerRadius ?? params.bar.cornerRadius,
+    thickness
+  );
 
-  const direction = evalBarDirection(params.direction);
+  const direction = evalBarDirection(params.bar.direction);
 
   const [crtl, crtr, crbr, crbl] = convertBarToRectangleCornerRadiusTuple(
     cornerRadius,

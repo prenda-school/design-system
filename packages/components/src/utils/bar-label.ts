@@ -16,20 +16,29 @@ export type BarLabelParams = {
   position?: BarLabelPosition;
 };
 
-export type DrawBarLabelParams = BarLabelParams & Pick<BarParams, 'thickness'>;
+export type DrawBarLabelParams = {
+  /**
+   * The label properties.
+   */
+  label: BarLabelParams;
+  /**
+   * The bar on which the label is located.
+   */
+  bar: Pick<BarParams, 'thickness'>;
+};
 
 export function drawBarLabel(params: DrawBarLabelParams) {
-  const dy = params.dy ?? 0;
-  const offset = evalBarLabelOffset(params.offset);
-  const position = evalBarLabelPosition(params.position);
+  const dy = params.label.dy ?? 0;
+  const offset = evalBarLabelOffset(params.label.offset);
+  const position = evalBarLabelPosition(params.label.position);
 
   let y: number;
   if (position === 'above') {
     y = dy + -1 * offset;
   } else if (position === 'below') {
-    y = dy + params.thickness + offset;
+    y = dy + params.bar.thickness + offset;
   } else if (position === 'inside') {
-    y = dy + params.thickness / 2 + offset;
+    y = dy + params.bar.thickness / 2 + offset;
   } else {
     y = dy;
   }
