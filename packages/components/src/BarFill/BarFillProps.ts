@@ -1,4 +1,4 @@
-import { BarFillParams, BarParams, BarScaleParams } from '../utils';
+import { BarCtx, BarFillParams } from '../utils';
 
 export interface BarFillProps
   extends BarFillParams,
@@ -6,14 +6,5 @@ export interface BarFillProps
   /**
    * The context of the component. This is typically provided by the expected parent component(s) and marked as optional as a result. If not provided, an error is thrown. To render this component without the expected parent component(s), specify `ctx` explicitly.
    */
-  ctx?: {
-    /**
-     * The bar on which the fill is located.
-     */
-    bar: BarParams;
-    /**
-     * The scale of the bar.
-     */
-    barScale: BarScaleParams;
-  };
+  ctx?: Pick<BarCtx, 'bar' | 'barScale'>;
 }
