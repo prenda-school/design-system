@@ -9,5 +9,5 @@ export interface BarLabelProps
     Partial<BarScaleParams>,
     Partial<BarParams>,
     BarLabelParams {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }

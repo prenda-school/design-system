@@ -6,5 +6,5 @@ export interface BarUnitLabelProps
     Partial<BarScaleParams>,
     Partial<Pick<BarParams, 'thickness'>>,
     BarUnitLabelParams {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }

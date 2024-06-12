@@ -5,5 +5,5 @@ export interface BarUnitsProps
   extends Partial<BarScaleParams>,
     Partial<Pick<BarParams, 'thickness'>>,
     BarUnitsParams {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }

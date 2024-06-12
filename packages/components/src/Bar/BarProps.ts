@@ -7,5 +7,5 @@ export interface BarProps
     >,
     Partial<BarScaleParams>,
     BarParams {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
