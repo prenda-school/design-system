@@ -5,5 +5,5 @@ export interface LinearUnitLabelProps
   extends Omit<React.SVGTextElementAttributes<SVGTextElement>, 'offset'>,
     Partial<LinearScaleParams>,
     LinearUnitLabelParams {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
