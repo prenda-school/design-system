@@ -22,7 +22,7 @@ export type ArcSegmentsSweepParams = {
   cornerRadius?: number | string;
 };
 
-export type DrawArcSegmentsSweepParams = ArcSegmentsSweepParams & {
+export type DrawArcSegmentsSweepParams = {
   /**
    * The arc on which the segments sweep is located.
    */
@@ -30,11 +30,15 @@ export type DrawArcSegmentsSweepParams = ArcSegmentsSweepParams & {
   /**
    * The scale of the arc.
    */
-  arcScale: ArcScaleParams;
+  scale: ArcScaleParams;
   /**
    * The segments of the arc.
    */
-  arcSegments: ArcSegmentsParams;
+  segments: ArcSegmentsParams;
+  /**
+   * The properties of the sweep.
+   */
+  sweep: ArcSegmentsSweepParams;
 };
 
 export type DrawArcSegmentsSweepResult = {
@@ -46,14 +50,14 @@ export function drawArcSegmentsSweep(
 ): DrawArcSegmentsSweepResult {
   const segmentScale = getValueSegmentsScale({
     value: {
-      min: params.arcScale.valueMin,
-      max: params.arcScale.valueMax,
+      min: params.scale.valueMin,
+      max: params.scale.valueMax,
     },
-    segments: params.arcSegments.count,
+    segments: params.segments.count,
   });
 
-  const from = params.from ?? params.arcScale.valueMin;
-  const to = params.to ?? params.arcScale.valueMax;
+  const from = params.sweep.from ?? params.scale.valueMin;
+  const to = params.sweep.to ?? params.scale.valueMax;
 
   const startSegment = segmentScale(from);
   const endSegment = segmentScale(to);
@@ -62,19 +66,19 @@ export function drawArcSegmentsSweep(
   const innerRadius = outerRadius * params.arc.ratio;
   const width = outerRadius - innerRadius;
   const cornerRadiusWide =
-    params.cornerRadius ??
-    params.arcSegments.cornerRadius ??
+    params.sweep.cornerRadius ??
+    params.segments.cornerRadius ??
     DEFAULT_CORNER_RADIUS;
   const cornerRadius = getNumericalValue(cornerRadiusWide, width);
 
   const arcGenerator = d3Arc().cornerRadius(cornerRadius);
 
   // value doesn't matter, because the data is not used
-  const data = Array.from({ length: params.arcSegments.count }, () => 1);
+  const data = Array.from({ length: params.segments.count }, () => 1);
   const pieGenerator = d3Pie()
-    .padAngle(params.arcSegments.padAngle)
-    .startAngle(params.arcScale.angleMin)
-    .endAngle(params.arcScale.angleMax);
+    .padAngle(params.segments.padAngle)
+    .startAngle(params.scale.angleMin)
+    .endAngle(params.scale.angleMax);
   const pieArcs = pieGenerator(data);
   const pieArcSweeps = pieArcs
     .filter(

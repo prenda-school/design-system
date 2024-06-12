@@ -17,12 +17,14 @@ export const ArcSegmentsSweep = React.forwardRef<
   }
 
   const sweeps = drawArcSegmentsSweep({
-    from,
-    to,
-    cornerRadius,
     arc: ctx.arc,
-    arcScale: ctx.arcScale,
-    arcSegments: ctx.arcSegments,
+    scale: ctx.arcScale,
+    segments: ctx.arcSegments,
+    sweep: {
+      from,
+      to,
+      cornerRadius,
+    },
   });
 
   return (

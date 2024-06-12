@@ -15,11 +15,13 @@ export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
     }
 
     const { d } = drawArcSweep({
-      from,
-      to,
-      cornerRadius,
       arc: ctx.arc,
-      arcScale: ctx.arcScale,
+      scale: ctx.arcScale,
+      sweep: {
+        from,
+        to,
+        cornerRadius,
+      },
     });
 
     return <path ref={ref} d={d} {...other} />;

@@ -29,15 +29,19 @@ export type ArcCircleParams = {
   radiusRatio?: number;
 };
 
-export type DrawArcCircleParams = ArcCircleParams & {
+export type DrawArcCircleParams = {
   /**
    * The arc on which the circle is located.
    */
   arc: ArcParams;
   /**
+   * The properties of the circle.
+   */
+  circle: ArcCircleParams;
+  /**
    * The scale of the arc.
    */
-  arcScale: ArcScaleParams;
+  scale: ArcScaleParams;
 };
 
 export type DrawArcCircleResult = {
@@ -51,7 +55,7 @@ export function drawArcCircle(
 ): DrawArcCircleResult {
   const arcWidth = params.arc.radius - params.arc.radius * params.arc.ratio;
   const defaultRadius = arcWidth / 2;
-  const radiusRatio = params.radiusRatio ?? DEFAULT_RADIUS_RATIO;
+  const radiusRatio = params.circle.radiusRatio ?? DEFAULT_RADIUS_RATIO;
   const radius = defaultRadius * radiusRatio;
 
   // center line of the arc
@@ -61,16 +65,16 @@ export function drawArcCircle(
 
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arcScale.valueMin,
-      max: params.arcScale.valueMax,
+      min: params.scale.valueMin,
+      max: params.scale.valueMax,
     },
     angle: {
-      min: params.arcScale.angleMin + absAngleOffset,
-      max: params.arcScale.angleMax - absAngleOffset,
+      min: params.scale.angleMin + absAngleOffset,
+      max: params.scale.angleMax - absAngleOffset,
     },
   });
 
-  const angle = angleScale(params.at);
+  const angle = angleScale(params.circle.at);
 
   const coordinates = calcCoordinatesOnArc({ angle, radius: radialOffset });
 

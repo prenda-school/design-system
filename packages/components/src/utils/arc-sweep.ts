@@ -21,7 +21,7 @@ export type ArcSweepParams = {
   cornerRadius?: number | string;
 };
 
-export type DrawArcSweepParams = ArcSweepParams & {
+export type DrawArcSweepParams = {
   /**
    * The arc on which the sweep is located.
    */
@@ -29,7 +29,11 @@ export type DrawArcSweepParams = ArcSweepParams & {
   /**
    * The scale of the arc.
    */
-  arcScale: ArcScaleParams;
+  scale: ArcScaleParams;
+  /**
+   * The properties of the sweep.
+   */
+  sweep: ArcSweepParams;
 };
 
 export type DrawArcSweepResult = {
@@ -40,17 +44,17 @@ export function drawArcSweep(params: DrawArcSweepParams): DrawArcSweepResult {
   // The "angle the filled arc needs to fill until"
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arcScale.valueMin,
-      max: params.arcScale.valueMax,
+      min: params.scale.valueMin,
+      max: params.scale.valueMax,
     },
     angle: {
-      min: params.arcScale.angleMin,
-      max: params.arcScale.angleMax,
+      min: params.scale.angleMin,
+      max: params.scale.angleMax,
     },
   });
 
-  const from = params.from ?? params.arcScale.valueMin;
-  const to = params.to ?? params.arcScale.valueMax;
+  const from = params.sweep.from ?? params.scale.valueMin;
+  const to = params.sweep.to ?? params.scale.valueMax;
 
   const startAngle = angleScale(from);
   const endAngle = angleScale(to);
@@ -59,7 +63,9 @@ export function drawArcSweep(params: DrawArcSweepParams): DrawArcSweepResult {
   const innerRadius = outerRadius * params.arc.ratio;
   const width = outerRadius - innerRadius;
   const cornerRadiusWide =
-    params.cornerRadius ?? params.arc.cornerRadius ?? DEFAULT_CORNER_RADIUS;
+    params.sweep.cornerRadius ??
+    params.arc.cornerRadius ??
+    DEFAULT_CORNER_RADIUS;
   const cornerRadius = getNumericalValue(cornerRadiusWide, width);
 
   const d = d3Arc().cornerRadius(cornerRadius)({

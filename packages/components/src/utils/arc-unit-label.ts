@@ -23,7 +23,7 @@ export type ArcUnitLabelParams = {
   position?: ArcUnitLabelPosition;
 };
 
-export type DrawArcUnitLabelParams = ArcUnitLabelParams & {
+export type DrawArcUnitLabelParams = {
   /**
    * The arc on which the unit label is located.
    */
@@ -31,11 +31,15 @@ export type DrawArcUnitLabelParams = ArcUnitLabelParams & {
   /**
    * The scale of the arc.
    */
-  arcScale: ArcScaleParams;
+  scale: ArcScaleParams;
   /**
-   * The default units properties for each unit label.
+   * The unit label properties.
    */
-  arcUnits: ArcUnitsParams;
+  unitLabel: ArcUnitLabelParams;
+  /**
+   * The default properties for each unit label.
+   */
+  units: ArcUnitsParams;
 };
 
 export type DrawArcUnitLabelResult = {
@@ -50,23 +54,23 @@ export function drawArcUnitLabel(
 ): DrawArcUnitLabelResult {
   const angleScale = getValueAngleScale({
     value: {
-      min: params.arcScale.valueMin,
-      max: params.arcScale.valueMax,
+      min: params.scale.valueMin,
+      max: params.scale.valueMax,
     },
     angle: {
-      min: params.arcScale.angleMin,
-      max: params.arcScale.angleMax,
+      min: params.scale.angleMin,
+      max: params.scale.angleMax,
     },
   });
 
-  const angle = angleScale(params.at);
+  const angle = angleScale(params.unitLabel.at);
 
   const offset = evalArcUnitLabelOffset(
-    params.offset ?? params.arcUnits.offset
+    params.unitLabel.offset ?? params.units.offset
   );
 
   const position = evalArcUnitLabelPosition(
-    params.position ?? params.arcUnits.position
+    params.unitLabel.position ?? params.units.position
   );
 
   let radiusOfCoords;

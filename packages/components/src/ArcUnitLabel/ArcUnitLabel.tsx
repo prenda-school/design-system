@@ -17,12 +17,14 @@ export const ArcUnitLabel = React.forwardRef<
   }
 
   const { x, y, textAnchor, dominantBaseline } = drawArcUnitLabel({
-    at,
-    offset,
-    position,
     arc: ctx.arc,
-    arcScale: ctx.arcScale,
-    arcUnits: ctx.arcUnits,
+    scale: ctx.arcScale,
+    unitLabel: {
+      at,
+      offset,
+      position,
+    },
+    units: ctx.arcUnits,
   });
 
   return (
