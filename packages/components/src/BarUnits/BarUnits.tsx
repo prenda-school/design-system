@@ -2,7 +2,7 @@ import React from 'react';
 import { BarUnitsChildProps, BarUnitsProps } from './BarUnitsProps';
 
 export const BarUnits = (props: BarUnitsProps) => {
-  const { dy, offset, position, children, ctx } = props;
+  const { offset, position, children, ctx } = props;
 
   if (ctx === undefined) {
     throw Error(
@@ -16,7 +16,6 @@ export const BarUnits = (props: BarUnitsProps) => {
         ctx: child.props.ctx ?? {
           ...ctx,
           barUnits: {
-            dy,
             offset,
             position,
           },
