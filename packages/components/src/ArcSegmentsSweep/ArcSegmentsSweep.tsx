@@ -2,21 +2,13 @@ import React from 'react';
 import { ArcSegmentsSweepProps } from './ArcSegmentsSweepProps';
 import { drawArcSegmentsSweep, mergeCtxOverrides } from '../utils';
 
-export type ArcSegmentsSweepRef = SVGGElement;
+export type ArcSegmentsSweepRef = SVGPathElement;
 
 export const ArcSegmentsSweep = React.forwardRef<
   ArcSegmentsSweepRef,
   ArcSegmentsSweepProps
 >((props, ref) => {
-  const {
-    from,
-    to,
-    cornerRadius,
-    renderProps,
-    ctx: ctxProp,
-    overrides,
-    ...other
-  } = props;
+  const { from, to, cornerRadius, ctx: ctxProp, overrides, ...other } = props;
 
   if (ctxProp === undefined) {
     throw Error(
@@ -26,7 +18,7 @@ export const ArcSegmentsSweep = React.forwardRef<
 
   const ctx = mergeCtxOverrides(ctxProp, overrides);
 
-  const sweeps = drawArcSegmentsSweep({
+  const { d } = drawArcSegmentsSweep({
     arc: ctx.arc,
     scale: ctx.arcScale,
     segments: ctx.arcSegments,
@@ -37,23 +29,5 @@ export const ArcSegmentsSweep = React.forwardRef<
     },
   });
 
-  return (
-    <g ref={ref} {...other}>
-      {sweeps.map((sweep, i) => {
-        const baseProps = { key: i, d: sweep.d };
-
-        const props =
-          renderProps === undefined
-            ? baseProps
-            : typeof renderProps === 'function'
-            ? renderProps(baseProps, i)
-            : Object.assign(baseProps, renderProps);
-
-        // `key` cannot be spread (react logs an error)
-        const { key, ...other } = props;
-
-        return <path key={key} {...other} />;
-      })}
-    </g>
-  );
+  return <path d={d} ref={ref} {...other} />;
 });

@@ -81,10 +81,10 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
             padAngle={padAngle}
             cornerRadius={cornerRadius}
           >
-            <ArcSegmentsSweep renderProps={{ style: { fill: Neutral80 } }} />
+            <ArcSegmentsSweep style={{ fill: Neutral80 }} />
             <ArcSegmentsSweep
               to={valueContinuous === 0.9 ? value : valueContinuous}
-              renderProps={{ style: { fill: Yellow500 } }}
+              style={{ fill: Yellow500 }}
             />
           </ArcSegments>
         </Arc>

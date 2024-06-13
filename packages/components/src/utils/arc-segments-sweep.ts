@@ -43,7 +43,7 @@ export type DrawArcSegmentsSweepParams = {
 
 export type DrawArcSegmentsSweepResult = {
   d: string;
-}[];
+};
 
 export function drawArcSegmentsSweep(
   params: DrawArcSegmentsSweepParams
@@ -97,9 +97,9 @@ export function drawArcSegmentsSweep(
         }) as string
     );
 
-  const dMultiple = pieArcSweeps.map((d) => ({ d }));
+  const d = pieArcSweeps.reduce((acc, d) => acc + 'M0,0' + d, '');
 
-  return dMultiple;
+  return { d };
 }
 
 const DEFAULT_CORNER_RADIUS = 0;

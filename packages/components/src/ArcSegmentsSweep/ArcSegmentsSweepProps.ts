@@ -3,8 +3,5 @@ import { ArcCtx, ArcSegmentsSweepParams, WithOverridableCtx } from '../utils';
 
 export interface ArcSegmentsSweepProps
   extends ArcSegmentsSweepParams,
-    WithOverridableCtx<Pick<ArcCtx, 'arc' | 'arcScale' | 'arcSegments'>> {
-  renderProps?:
-    | React.SVGProps<SVGPathElement>
-    | ((props: { d: string }, index: number) => React.SVGProps<SVGPathElement>);
-}
+    WithOverridableCtx<Pick<ArcCtx, 'arc' | 'arcScale' | 'arcSegments'>>,
+    Omit<React.SVGProps<SVGPathElement>, 'from' | 'to'> {}
