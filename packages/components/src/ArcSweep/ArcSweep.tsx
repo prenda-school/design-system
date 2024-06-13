@@ -1,18 +1,20 @@
 import React from 'react';
 import { ArcSweepProps } from './ArcSweepProps';
-import { drawArcSweep } from '../utils';
+import { drawArcSweep, mergeCtxOverrides } from '../utils';
 
 export type ArcSweepRef = SVGPathElement;
 
 export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
   (props, ref) => {
-    const { from, to, cornerRadius, ctx, ...other } = props;
+    const { from, to, cornerRadius, ctx: ctxProp, overrides, ...other } = props;
 
-    if (ctx === undefined) {
+    if (ctxProp === undefined) {
       throw Error(
         'Oops! `ArcSweep` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) set `ctx`?'
       );
     }
+
+    const ctx = mergeCtxOverrides(ctxProp, overrides);
 
     const { d } = drawArcSweep({
       arc: ctx.arc,

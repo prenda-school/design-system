@@ -93,19 +93,11 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             borderWidth={borderWidth}
           >
             <BarFill
-              // ctx={{
-              //   barScale: {
-              //     lengthMin: thicknessPrimary,
-              //     lengthMax: 544,
-              //     valueMin,
-              //     valueMax,
-              //   },
-              //   bar: {
-              //     thickness: thicknessPrimary,
-              //     cornerRadius,
-              //     borderWidth,
-              //   },
-              // }}
+              overrides={{
+                barScale: {
+                  lengthMin: thicknessPrimary / 2,
+                },
+              }}
               to={valuePrimary}
               style={{ fill: Purple500 }}
             />
@@ -130,20 +122,11 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
             borderWidth={borderWidth}
           >
             <BarFill
-              // ctx={{
-              //   barScale: {
-              //     lengthMin: thicknessSecondary,
-              //     lengthMax: 544,
-              //     valueMin,
-              //     valueMax,
-              //   },
-              //   bar: {
-              //     thickness: thicknessSecondary,
-              //     cornerRadius,
-              //     borderWidth,
-              //     dy: thicknessPrimary,
-              //   },
-              // }}
+              overrides={{
+                barScale: {
+                  lengthMin: thicknessSecondary / 2,
+                },
+              }}
               to={valueSecondary}
               style={{ fill: Purple200 }}
             />

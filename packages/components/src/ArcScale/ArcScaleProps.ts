@@ -1,12 +1,8 @@
 import { ReactNode } from 'react';
-import { ArcScaleParams } from '../utils';
+import { ArcCtx, ArcScaleParams, WithCtx } from '../utils';
 
 export interface ArcScaleProps extends ArcScaleParams {
   children?: ReactNode;
 }
 
-export type ArcScaleChildProps = {
-  ctx: {
-    arcScale: ArcScaleParams;
-  };
-};
+export type ArcScaleChildProps = WithCtx<Pick<ArcCtx, 'arcScale'>>;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BarChildProps, BarProps } from './BarProps';
+import { mergeCtxOverrides } from '../utils';
 
 export type BarRef = SVGPathElement;
 
@@ -13,30 +14,35 @@ export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
     dy,
     borderWidth,
     children,
-    ctx,
+    ctx: ctxProp,
+    overrides,
   } = props;
 
-  if (ctx === undefined) {
+  if (ctxProp === undefined) {
     throw Error(
       'Oops! `Bar` received `ctx: undefined`. Did you mean to either (1) render as a child of `BarScale`? or (2) specify `ctx` explicitly?'
     );
   }
 
+  const ctxWithOverrides = mergeCtxOverrides(ctxProp, overrides);
+
+  const ctx = {
+    ...ctxWithOverrides,
+    bar: {
+      thickness,
+      cornerRadius,
+      orientation,
+      direction,
+      dx,
+      dy,
+      borderWidth,
+    },
+  };
+
   return React.Children.map(children, (child) => {
     if (React.isValidElement<BarChildProps>(child)) {
       return React.cloneElement(child, {
-        ctx: child.props.ctx ?? {
-          ...ctx,
-          bar: {
-            thickness,
-            cornerRadius,
-            orientation,
-            direction,
-            dx,
-            dy,
-            borderWidth,
-          },
-        },
+        ctx: child.props.ctx ?? ctx,
       });
     }
 

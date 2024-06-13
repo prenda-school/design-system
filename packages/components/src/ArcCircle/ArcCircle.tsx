@@ -1,18 +1,20 @@
 import React from 'react';
 import { ArcCircleProps } from './ArcCircleProps';
-import { drawArcCircle } from '../utils';
+import { drawArcCircle, mergeCtxOverrides } from '../utils';
 
 export type ArcCircleRef = SVGCircleElement;
 
 export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
   (props, ref) => {
-    const { at, radiusRatio, ctx, ...other } = props;
+    const { at, radiusRatio, ctx: ctxProp, overrides, ...other } = props;
 
-    if (ctx === undefined) {
+    if (ctxProp === undefined) {
       throw Error(
         'Oops! `ArcCircle` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) set `ctx`?'
       );
     }
+
+    const ctx = mergeCtxOverrides(ctxProp, overrides);
 
     const { r, cx, cy } = drawArcCircle({
       arc: ctx.arc,

@@ -1,12 +1,8 @@
 import React from 'react';
-import { BarScaleParams } from '../utils';
+import { BarCtx, BarScaleParams, WithCtx } from '../utils';
 
 export interface BarScaleProps extends BarScaleParams {
   children?: React.ReactNode;
 }
 
-export type BarScaleChildProps = {
-  ctx: {
-    barScale: BarScaleParams;
-  };
-};
+export type BarScaleChildProps = WithCtx<Pick<BarCtx, 'barScale'>>;

@@ -1,13 +1,10 @@
-import { BarCtx, BarParams } from '../utils';
+import { ReactNode } from 'react';
+import { BarCtx, BarParams, WithCtx, WithOverridableCtx } from '../utils';
 
-export interface BarProps extends BarParams {
-  children?: React.ReactNode;
-  /**
-   * The context of the component. This is typically provided by the expected parent component(s) and marked as optional as a result. If not provided, an error is thrown. To render this component without the expected parent component(s), specify `ctx` explicitly.
-   */
-  ctx?: Pick<BarCtx, 'barScale'>;
+export interface BarProps
+  extends BarParams,
+    WithOverridableCtx<Pick<BarCtx, 'barScale'>> {
+  children?: ReactNode;
 }
 
-export type BarChildProps = {
-  ctx: Pick<BarCtx, 'bar' | 'barScale'>;
-};
+export type BarChildProps = WithCtx<Pick<BarCtx, 'bar' | 'barScale'>>;

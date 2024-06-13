@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
-import { drawArcUnitLabel } from '../utils';
+import { drawArcUnitLabel, mergeCtxOverrides } from '../utils';
 
 export type ArcUnitLabelRef = SVGTextElement;
 
@@ -8,13 +8,15 @@ export const ArcUnitLabel = React.forwardRef<
   ArcUnitLabelRef,
   ArcUnitLabelProps
 >((props, ref) => {
-  const { at, ctx, offset, position, ...other } = props;
+  const { at, ctx: ctxProp, offset, overrides, position, ...other } = props;
 
-  if (ctx === undefined) {
+  if (ctxProp === undefined) {
     throw Error(
       'Oops! `ArcUnitLabel` received `ctx: undefined`. Did you mean to either (1) render as a child of `Arc`? or (2) specify `ctx` explicitly?'
     );
   }
+
+  const ctx = mergeCtxOverrides(ctxProp, overrides);
 
   const { x, y, textAnchor, dominantBaseline } = drawArcUnitLabel({
     arc: ctx.arc,

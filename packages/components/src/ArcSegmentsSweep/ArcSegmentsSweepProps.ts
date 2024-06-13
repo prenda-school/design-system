@@ -1,13 +1,10 @@
 import React from 'react';
-import { ArcCtx, ArcSegmentsSweepParams } from '../utils';
+import { ArcCtx, ArcSegmentsSweepParams, WithOverridableCtx } from '../utils';
 
-export interface ArcSegmentsSweepProps extends ArcSegmentsSweepParams {
+export interface ArcSegmentsSweepProps
+  extends ArcSegmentsSweepParams,
+    WithOverridableCtx<Pick<ArcCtx, 'arc' | 'arcScale' | 'arcSegments'>> {
   renderProps?:
     | React.SVGProps<SVGPathElement>
     | ((props: { d: string }, index: number) => React.SVGProps<SVGPathElement>);
-
-  /**
-   * The context of the component. This is typically provided by the expected parent component(s) and marked as optional as a result. If not provided, an error is thrown. To render this component without the expected parent component(s), specify `ctx` explicitly.
-   */
-  ctx?: Pick<ArcCtx, 'arc' | 'arcScale' | 'arcSegments'>;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArcSegmentsSweepProps } from './ArcSegmentsSweepProps';
-import { drawArcSegmentsSweep } from '../utils';
+import { drawArcSegmentsSweep, mergeCtxOverrides } from '../utils';
 
 export type ArcSegmentsSweepRef = SVGGElement;
 
@@ -8,13 +8,23 @@ export const ArcSegmentsSweep = React.forwardRef<
   ArcSegmentsSweepRef,
   ArcSegmentsSweepProps
 >((props, ref) => {
-  const { from, to, cornerRadius, renderProps, ctx, ...other } = props;
+  const {
+    from,
+    to,
+    cornerRadius,
+    renderProps,
+    ctx: ctxProp,
+    overrides,
+    ...other
+  } = props;
 
-  if (ctx === undefined) {
+  if (ctxProp === undefined) {
     throw Error(
       'Oops! `ArcSegmentsSweep` received `ctx: undefined`. Did you mean to either (1) render as a child of `ArcSegments`? or (2) specify `ctx` explicitly?'
     );
   }
+
+  const ctx = mergeCtxOverrides(ctxProp, overrides);
 
   const sweeps = drawArcSegmentsSweep({
     arc: ctx.arc,

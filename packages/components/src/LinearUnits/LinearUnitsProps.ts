@@ -1,14 +1,17 @@
 import React from 'react';
-import { LinearCtx, LinearUnitsParams } from '../utils';
+import {
+  LinearCtx,
+  LinearUnitsParams,
+  WithCtx,
+  WithOverridableCtx,
+} from '../utils';
 
-export interface LinearUnitsProps extends LinearUnitsParams {
+export interface LinearUnitsProps
+  extends LinearUnitsParams,
+    WithOverridableCtx<Pick<LinearCtx, 'linearScale'>> {
   children?: React.ReactNode;
-  /**
-   * The context of the component. This is typically provided by the expected parent component(s) and marked as optional as a result. If not provided, an error is thrown. To render this component without the expected parent component(s), specify `ctx` explicitly.
-   */
-  ctx?: Pick<LinearCtx, 'linearScale'>;
 }
 
-export type LinearUnitsChildProps = {
-  ctx: Pick<LinearCtx, 'linearScale' | 'linearUnits'>;
-};
+export type LinearUnitsChildProps = WithCtx<
+  Pick<LinearCtx, 'linearScale' | 'linearUnits'>
+>;
