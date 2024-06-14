@@ -24,11 +24,11 @@ export type DrawBarLabelParams = {
   /**
    * The bar on which the label is located.
    */
-  bar: Pick<BarParams, 'thickness'>;
+  bar: Pick<BarParams, 'thickness' | 'dy'>;
 };
 
 export function drawBarLabel(params: DrawBarLabelParams) {
-  const dy = params.label.dy ?? 0;
+  const dy = (params.label.dy ?? 0) + (params.bar.dy ?? 0);
   const offset = evalBarLabelOffset(params.label.offset);
   const position = evalBarLabelPosition(params.label.position);
 

@@ -22,9 +22,7 @@ export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
         offset,
         position,
       },
-      bar: {
-        thickness: ctx.bar.thickness,
-      },
+      bar: ctx.bar,
     });
 
     return (
