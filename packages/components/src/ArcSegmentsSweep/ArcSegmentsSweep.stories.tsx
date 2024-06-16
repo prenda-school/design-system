@@ -7,7 +7,7 @@ const meta: Meta<typeof ArcSegmentsSweep> = {
   title: 'ArcSegmentsSweep',
   component: ArcSegmentsSweep,
   decorators: (Story) => (
-    <svg viewBox="-100 -100 200 200" width="100" height="100">
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <Story />
     </svg>
   ),
