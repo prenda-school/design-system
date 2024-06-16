@@ -1,33 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { BarUnitLabel } from './BarUnitLabel';
-import { Chart } from '../Chart';
+import { Bar } from '../Bar';
 import { BarFill } from '../BarFill';
 import { BarScale } from '../BarScale';
-import { Bar } from '../Bar/Bar';
+import { BarUnitLabel } from './BarUnitLabel';
 
 const meta: Meta<typeof BarUnitLabel> = {
   title: 'BarUnitLabel',
   component: BarUnitLabel,
   decorators: (Story, ctx) => (
-    <Chart width={212} height={212}>
-      <g style={{ transform: `translate(-${212 / 2}px, -${212 / 2}px)` }}>
-        <g
-          style={{
-            transform: `translate(0, ${
-              ctx.args.position === 'above' ? 20 : 0
-            }px)`,
-          }}
-        >
-          <BarScale valueMin={0} valueMax={100} lengthMax={212}>
-            <Bar thickness={30}>
-              <BarFill to={100} />
-              <Story />
-            </Bar>
-          </BarScale>
-        </g>
+    <svg viewBox="0 0 200 200" width="200" height="200">
+      <g
+        style={{
+          transform: `translate(0, ${
+            ctx.args.position === 'above' ? 20 : 0
+          }px)`,
+        }}
+      >
+        <BarScale valueMin={0} valueMax={100} lengthMax={200}>
+          <Bar thickness={30}>
+            <BarFill to={100} />
+            <Story />
+          </Bar>
+        </BarScale>
       </g>
-    </Chart>
+    </svg>
   ),
   argTypes: {
     at: {
@@ -56,7 +53,7 @@ const meta: Meta<typeof BarUnitLabel> = {
         valueMin: 0,
         valueMax: 100,
         lengthMin: 0,
-        lengthMax: 212,
+        lengthMax: 200,
       },
       barUnits: {},
     },

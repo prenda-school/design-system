@@ -2,17 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArcSegments } from './ArcSegments';
 import { ArcSegmentsSweep } from '../ArcSegmentsSweep';
-import { Chart } from '../Chart';
-
-const dim = 252 as const;
 
 const meta: Meta<typeof ArcSegments> = {
   title: 'ArcSegments',
   component: ArcSegments,
   decorators: (Story) => (
-    <Chart width={dim} height={dim}>
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <Story />
-    </Chart>
+    </svg>
   ),
   argTypes: {
     padAngle: {
@@ -47,22 +44,21 @@ export const Circular: Story = {
   args: {
     padAngle: 0.05,
     count: 20,
-    cornerRadius: '2px',
+    cornerRadius: 2,
     children: [
-      <ArcSegmentsSweep key="0" to={120} />,
-      <ArcSegmentsSweep key="1" to={85} />,
+      <ArcSegmentsSweep key="0" to={100} fill="lightgrey" />,
+      <ArcSegmentsSweep key="1" to={60} />,
     ],
     ctx: {
       arcScale: {
         angleMin: 0,
         angleMax: 2 * Math.PI,
         valueMin: 0,
-        valueMax: 126,
+        valueMax: 100,
       },
       arc: {
-        radius: 126,
-        ratio: 0.77,
-        cornerRadius: '50%',
+        radius: 100,
+        ratio: 0.8,
       },
     },
   },
@@ -72,9 +68,9 @@ export const Radial: Story = {
   args: {
     padAngle: 0.05,
     count: 20,
-    cornerRadius: '2px',
+    cornerRadius: 2,
     children: [
-      <ArcSegmentsSweep key="0" to={3} />,
+      <ArcSegmentsSweep key="0" to={3} fill="lightgrey" />,
       <ArcSegmentsSweep key="1" to={2} />,
     ],
     ctx: {
@@ -85,9 +81,8 @@ export const Radial: Story = {
         valueMax: 3,
       },
       arc: {
-        radius: 126,
-        ratio: 0.77,
-        cornerRadius: '50%',
+        radius: 100,
+        ratio: 0.8,
       },
     },
   },

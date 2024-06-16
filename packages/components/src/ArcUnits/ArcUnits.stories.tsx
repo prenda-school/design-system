@@ -5,25 +5,24 @@ import { Arc } from '../Arc';
 import { ArcSweep } from '../ArcSweep';
 import { ArcUnits } from './ArcUnits';
 import { ArcUnitLabel } from '../ArcUnitLabel';
-import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcUnits> = {
   title: 'ArcUnits',
   component: ArcUnits,
   decorators: (Story, ctx) => (
-    <Chart width={212} height={212}>
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <ArcScale
         angleMin={(-1 * Math.PI) / 2}
         angleMax={Math.PI / 2}
         valueMin={0}
         valueMax={100}
       >
-        <Arc radius={50} ratio={0.9}>
+        <Arc radius={50} ratio={0.8}>
           <ArcSweep to={100} />
           <Story />
         </Arc>
       </ArcScale>
-    </Chart>
+    </svg>
   ),
   argTypes: {
     offset: {
@@ -55,7 +54,7 @@ const meta: Meta<typeof ArcUnits> = {
       },
       arc: {
         radius: 50,
-        ratio: 0.9,
+        ratio: 0.8,
       },
     },
   },

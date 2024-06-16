@@ -1,18 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Bar } from './Bar';
-import { Chart } from '../Chart';
 import { BarFill } from '../BarFill';
+import { Bar } from './Bar';
 
 const meta: Meta<typeof Bar> = {
   title: 'Bar',
   component: Bar,
   decorators: (Story) => (
-    <Chart width={212} height={212}>
-      <g style={{ transform: `translate(-${212 / 2}px, -${212 / 2}px)` }}>
-        <Story />
-      </g>
-    </Chart>
+    <svg viewBox="0 0 200 200" width="200" height="200">
+      <Story />
+    </svg>
   ),
   argTypes: {
     orientation: {
@@ -31,7 +28,7 @@ const meta: Meta<typeof Bar> = {
       control: {
         type: 'range',
         min: 0,
-        max: 212,
+        max: 100,
         step: 1,
       },
     },
@@ -48,7 +45,7 @@ const meta: Meta<typeof Bar> = {
         valueMin: 0,
         valueMax: 100,
         lengthMin: 0,
-        lengthMax: 212,
+        lengthMax: 200,
       },
     },
   },
@@ -113,12 +110,12 @@ export const CornerRadiusPx: Story = {
   },
 };
 
-export const CornerRadiusTenth: Story = {
+export const CornerRadiusPercent: Story = {
   name: 'cornerRadius=(percent)',
   args: {
     thickness: 25,
     orientation: 'horizontal',
-    cornerRadius: '10%',
+    cornerRadius: '25%',
   },
 };
 

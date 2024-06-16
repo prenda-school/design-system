@@ -3,17 +3,14 @@ import React from 'react';
 import { Bar } from '../Bar';
 import { BarFill } from '../BarFill';
 import { BarScale } from './BarScale';
-import { Chart } from '../Chart';
 
 const meta: Meta<typeof BarScale> = {
   title: 'BarScale',
   component: BarScale,
   decorators: (Story) => (
-    <Chart width={212} height={212}>
-      <g style={{ transform: `translate(-${212 / 2}px, -${212 / 2}px)` }}>
-        <Story />
-      </g>
-    </Chart>
+    <svg viewBox="0 0 200 200" width="200" height="200">
+      <Story />
+    </svg>
   ),
   argTypes: {
     valueMin: {
@@ -36,7 +33,7 @@ const meta: Meta<typeof BarScale> = {
       control: {
         type: 'range',
         min: 0,
-        max: 212,
+        max: 200,
         step: 1,
       },
     },
@@ -44,7 +41,7 @@ const meta: Meta<typeof BarScale> = {
       control: {
         type: 'range',
         min: 0,
-        max: 212,
+        max: 200,
         step: 1,
       },
     },
@@ -53,7 +50,7 @@ const meta: Meta<typeof BarScale> = {
     valueMin: 0,
     valueMax: 100,
     lengthMin: 0,
-    lengthMax: 212,
+    lengthMax: 200,
     children: (
       <Bar thickness={30}>
         <BarFill to={100} />
@@ -66,15 +63,15 @@ export default meta;
 
 type Story = StoryObj<typeof BarScale>;
 
-export const LengthMax100: Story = {
-  name: 'lengthMax=100',
+export const LengthMaxPartial: Story = {
+  name: 'lengthMax=100 (partial)',
   args: {
     lengthMax: 100,
   },
 };
 
-export const LengthMax200: Story = {
-  name: 'lengthMax=200',
+export const LengthMaxMax: Story = {
+  name: 'lengthMax=200 (max)',
   args: {
     lengthMax: 200,
   },

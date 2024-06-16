@@ -4,20 +4,19 @@ import { Arc } from '../Arc';
 import { ArcScale } from '../ArcScale';
 import { ArcSweep } from '../ArcSweep';
 import { ArcUnitLabel } from './ArcUnitLabel';
-import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcUnitLabel> = {
   title: 'ArcUnitLabel',
   component: ArcUnitLabel,
   decorators: (Story) => (
-    <Chart width={212} height={212}>
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <ArcScale angleMin={0} angleMax={2 * Math.PI} valueMin={0} valueMax={100}>
-        <Arc radius={50} ratio={0.9}>
+        <Arc radius={50} ratio={0.8}>
           <ArcSweep to={100} />
           <Story />
         </Arc>
       </ArcScale>
-    </Chart>
+    </svg>
   ),
   argTypes: {
     at: {
@@ -46,7 +45,7 @@ const meta: Meta<typeof ArcUnitLabel> = {
       },
       arc: {
         radius: 50,
-        ratio: 0.9,
+        ratio: 0.8,
       },
       arcUnits: {},
     },

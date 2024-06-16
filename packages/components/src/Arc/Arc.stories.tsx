@@ -2,24 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Arc } from './Arc';
 import { ArcSweep } from '../ArcSweep';
-import { Chart } from '../Chart';
-
-const dim = 252 as const;
 
 const meta: Meta<typeof Arc> = {
   title: 'Arc',
   component: Arc,
   decorators: (Story) => (
-    <Chart width={dim} height={dim}>
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <Story />
-    </Chart>
+    </svg>
   ),
   argTypes: {
     radius: {
       control: {
         type: 'range',
         min: 0,
-        max: dim / 2,
+        max: 100,
         step: 1,
       },
     },
@@ -33,7 +30,10 @@ const meta: Meta<typeof Arc> = {
     },
     cornerRadius: {
       control: {
-        type: 'text',
+        type: 'range',
+        min: 0,
+        max: 50,
+        step: 1,
       },
     },
   },
@@ -45,19 +45,19 @@ type Story = StoryObj<typeof Arc>;
 
 export const Circular: Story = {
   args: {
-    cornerRadius: '50%',
-    radius: 126,
-    ratio: 0.77,
+    cornerRadius: 10,
+    radius: 100,
+    ratio: 0.8,
     children: [
-      <ArcSweep key="0" to={120} style={{ fill: '#EBECF0' }} />,
-      <ArcSweep key="1" to={85} style={{ fill: '#57D9A3' }} />,
+      <ArcSweep key="0" to={100} fill="lightgrey" />,
+      <ArcSweep key="1" to={60} />,
     ],
     ctx: {
       arcScale: {
         angleMin: 0,
         angleMax: 2 * Math.PI,
         valueMin: 0,
-        valueMax: 120,
+        valueMax: 100,
       },
     },
   },
@@ -65,12 +65,12 @@ export const Circular: Story = {
 
 export const Radial: Story = {
   args: {
-    cornerRadius: '50%',
-    radius: 126,
-    ratio: 0.77,
+    cornerRadius: 10,
+    radius: 100,
+    ratio: 0.8,
     children: [
-      <ArcSweep key="0" to={3} style={{ fill: '#EBECF0' }} />,
-      <ArcSweep key="1" to={2} style={{ fill: '#5243AA' }} />,
+      <ArcSweep key="0" to={3} fill="lightgrey" />,
+      <ArcSweep key="1" to={2} />,
     ],
     ctx: {
       arcScale: {

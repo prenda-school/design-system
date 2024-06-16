@@ -3,11 +3,15 @@ import React from 'react';
 import { Arc } from '../Arc';
 import { ArcScale } from './ArcScale';
 import { ArcSweep } from '../ArcSweep';
-import { Chart } from '../Chart';
 
 const meta: Meta<typeof ArcScale> = {
   title: 'ArcScale',
   component: ArcScale,
+  decorators: (Story) => (
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
+      <Story />
+    </svg>
+  ),
   argTypes: {
     angleMin: {
       control: {
@@ -53,22 +57,17 @@ export const Circular: Story = {
     angleMin: 0,
     angleMax: 2 * Math.PI,
     valueMin: 0,
-    valueMax: 120,
+    valueMax: 100,
     children: [
-      <Arc key="0" radius={126} ratio={0.77} cornerRadius="50%">
-        <ArcSweep to={120} style={{ fill: '#EBECF0' }} />
-        <ArcSweep to={85} style={{ fill: '#57D9A3' }} />
+      <Arc key="0" radius={100} ratio={0.8} cornerRadius={10}>
+        <ArcSweep to={100} fill="lightgrey" />
+        <ArcSweep to={60} />
       </Arc>,
-      <Arc key="1" radius={93} ratio={0.87} cornerRadius="50%">
-        <ArcSweep to={80} style={{ fill: '#C1C7D0' }} />
+      <Arc key="1" radius={70} ratio={0.8} cornerRadius={7}>
+        <ArcSweep to={80} />
       </Arc>,
     ],
   },
-  decorators: (Story) => (
-    <Chart width={252} height={252}>
-      <Story />
-    </Chart>
-  ),
 };
 
 export const Radial: Story = {
@@ -78,19 +77,14 @@ export const Radial: Story = {
     valueMin: 1,
     valueMax: 3,
     children: [
-      <Arc key="0" radius={126} ratio={0.77} cornerRadius="50%">
-        <ArcSweep to={3} style={{ fill: '#EBECF0' }} />
-        <ArcSweep to={2} style={{ fill: '#5243AA' }} />
+      <Arc key="0" radius={100} ratio={0.8} cornerRadius={10}>
+        <ArcSweep to={3} fill="lightgrey" />
+        <ArcSweep to={2} />
       </Arc>,
-      <Arc key="1" radius={93} ratio={0.87} cornerRadius="50%">
-        <ArcSweep to={3} style={{ fill: '#EBECF0' }} />
-        <ArcSweep to={3} style={{ fill: '#C0B6F2' }} />
+      <Arc key="1" radius={70} ratio={0.8} cornerRadius={7}>
+        <ArcSweep to={3} fill="lightgrey" />
+        <ArcSweep to={3} />
       </Arc>,
     ],
   },
-  decorators: (Story) => (
-    <Chart width={252} height={252}>
-      <Story />
-    </Chart>
-  ),
 };

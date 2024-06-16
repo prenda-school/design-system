@@ -2,17 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ArcSweep } from './ArcSweep';
 import { ArcSweepProps } from './ArcSweepProps';
-import { Chart } from '../Chart';
-
-const dim = 252 as const;
 
 const meta: Meta<typeof ArcSweep> = {
   title: 'ArcSweep',
   component: ArcSweep,
   decorators: (Story) => (
-    <Chart width={dim} height={dim}>
+    <svg viewBox="-100 -100 200 200" width="200" height="200">
       <Story />
-    </Chart>
+    </svg>
   ),
 };
 
@@ -23,14 +20,54 @@ type Story = StoryObj<typeof ArcSweep>;
 const circularArcCtx: ArcSweepProps['ctx'] = {
   arcScale: {
     valueMin: 0,
-    valueMax: 126,
+    valueMax: 100,
     angleMin: 0,
     angleMax: 2 * Math.PI,
   },
   arc: {
-    radius: 126,
-    ratio: 0.77,
-    cornerRadius: '50%',
+    radius: 100,
+    ratio: 0.8,
+    cornerRadius: 10,
+  },
+};
+
+// circular; min = from < to < max
+export const CircularPartial: Story = {
+  args: {
+    from: undefined,
+    to: 60,
+    cornerRadius: undefined,
+    ctx: circularArcCtx,
+  },
+};
+
+// circular; min < from < to < max
+export const CircularPartial2: Story = {
+  args: {
+    from: 20,
+    to: 80,
+    cornerRadius: undefined,
+    ctx: circularArcCtx,
+  },
+};
+
+// circular; min < from < to = max
+export const CircularPartial3: Story = {
+  args: {
+    from: 20,
+    to: 100,
+    cornerRadius: undefined,
+    ctx: circularArcCtx,
+  },
+};
+
+// circular; min = from < to = max
+export const CircularMax: Story = {
+  args: {
+    from: undefined,
+    to: 100,
+    cornerRadius: undefined,
+    ctx: circularArcCtx,
   },
 };
 
@@ -44,46 +81,6 @@ export const CircularMin: Story = {
   },
 };
 
-// circular; min = from < to < max
-export const CircularPartial: Story = {
-  args: {
-    from: undefined,
-    to: 100,
-    cornerRadius: undefined,
-    ctx: circularArcCtx,
-  },
-};
-
-// circular; min < from < to < max
-export const CircularPartial2: Story = {
-  args: {
-    from: 20,
-    to: 110,
-    cornerRadius: undefined,
-    ctx: circularArcCtx,
-  },
-};
-
-// circular; min < from < to = max
-export const CircularPartial3: Story = {
-  args: {
-    from: 20,
-    to: 126,
-    cornerRadius: undefined,
-    ctx: circularArcCtx,
-  },
-};
-
-// circular; min = from < to = max
-export const CircularMax: Story = {
-  args: {
-    from: undefined,
-    to: 126,
-    cornerRadius: undefined,
-    ctx: circularArcCtx,
-  },
-};
-
 const radialArcCtx: ArcSweepProps['ctx'] = {
   arcScale: {
     valueMin: 1,
@@ -92,19 +89,9 @@ const radialArcCtx: ArcSweepProps['ctx'] = {
     angleMax: Math.PI / 2,
   },
   arc: {
-    radius: 126,
-    ratio: 0.77,
-    cornerRadius: '50%',
-  },
-};
-
-// radial; min = from = to < max
-export const RadialMin: Story = {
-  args: {
-    from: undefined,
-    to: 1,
-    cornerRadius: undefined,
-    ctx: radialArcCtx,
+    radius: 50,
+    ratio: 0.8,
+    cornerRadius: 5,
   },
 };
 
@@ -128,12 +115,12 @@ export const RadialPartialSharp: Story = {
   },
 };
 
-// radial; min = from < to < max; cornerRadius = 4px
+// radial; min = from < to < max; cornerRadius = 4
 export const RadialPartialSoft: Story = {
   args: {
     from: undefined,
     to: 2,
-    cornerRadius: '8px',
+    cornerRadius: 4,
     ctx: radialArcCtx,
   },
 };
@@ -143,6 +130,16 @@ export const RadialMax: Story = {
   args: {
     from: undefined,
     to: 3,
+    cornerRadius: undefined,
+    ctx: radialArcCtx,
+  },
+};
+
+// radial; min = from = to < max
+export const RadialMin: Story = {
+  args: {
+    from: undefined,
+    to: 1,
     cornerRadius: undefined,
     ctx: radialArcCtx,
   },
