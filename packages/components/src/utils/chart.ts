@@ -1,3 +1,4 @@
+import { Margin } from './margin';
 import { ViewBox } from './view-box';
 
 /**
@@ -24,16 +25,6 @@ export type Dimensions = {
    * The height of the (inner) chart.
    */
   innerHeight: number;
-};
-
-/**
- * The inner margin of a chart in an SVG.
- */
-export type Margin = {
-  top: number;
-  right: number;
-  bottom: number;
-  left: number;
 };
 
 export const makeDimensions = (

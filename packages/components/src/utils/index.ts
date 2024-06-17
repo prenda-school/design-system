@@ -20,6 +20,7 @@ export * from './linear-ctx';
 export * from './linear-scale';
 export * from './linear-units';
 export * from './linear-unit-label';
+export * from './margin';
 export * from './path';
 export * from './rectangle';
 export * from './scale';

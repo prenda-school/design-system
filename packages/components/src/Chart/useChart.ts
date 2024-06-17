@@ -1,7 +1,7 @@
 import { SVGProps } from 'react';
 import { ChartProps } from './ChartProps';
 import {
-  Margin,
+  evalMargin,
   makeDimensions,
   toStandardViewBox,
   toViewBoxAttr,
@@ -16,22 +16,24 @@ export function useChart(props: ChartProps): ChartAPI {
   const {
     width,
     height,
-    marginBottom = DEFAULT_MARGIN.bottom,
-    marginLeft = DEFAULT_MARGIN.left,
-    marginRight = DEFAULT_MARGIN.right,
-    marginTop = DEFAULT_MARGIN.top,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
     ...other
   } = props;
+
+  const margin = evalMargin({
+    bottom: marginBottom,
+    left: marginLeft,
+    right: marginRight,
+    top: marginTop,
+  });
 
   const dimensions = makeDimensions({
     width,
     height,
-    margin: {
-      top: marginTop,
-      right: marginRight,
-      bottom: marginBottom,
-      left: marginLeft,
-    },
+    margin,
   });
 
   const viewBox = toStandardViewBox({ dimensions });
@@ -51,10 +53,3 @@ export function useChart(props: ChartProps): ChartAPI {
     },
   };
 }
-
-const DEFAULT_MARGIN: Margin = {
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-} as const;
