@@ -36,7 +36,7 @@ export function useChart(props: ChartProps): ChartAPI {
 
   const viewBox = toStandardViewBox({ dimensions });
 
-  const transform = `translate(${marginLeft}, ${marginTop})`;
+  const transform = `translate(${dimensions.margin.left}, ${dimensions.margin.top})`;
 
   return {
     svgProps: {
