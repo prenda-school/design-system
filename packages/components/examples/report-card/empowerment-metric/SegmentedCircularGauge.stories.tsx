@@ -58,21 +58,25 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
   const Yellow300 = '#FFE380';
   const Yellow500 = '#FFAB00';
 
-  const marginTop = 8;
-  const marginLeft = 68;
-  const width = 200 + marginLeft + 68;
   const scaleGap = 32;
+  const fontSize = 16;
+  const marginTop = 8;
+  const marginRight = 68;
+  const marginBottom = 8 + scaleGap + fontSize;
+  const marginLeft = 68;
+  const width = 200 + marginLeft + marginRight;
+  const height = 200 + marginTop + marginBottom;
 
   return (
     <Chart
       width={width}
-      height={200 + marginTop + 8 + scaleGap + 16}
-      marginBottom={8 + scaleGap + 16}
+      height={height}
+      marginBottom={marginBottom}
       marginLeft={marginLeft}
-      marginRight={68}
+      marginRight={marginRight}
       marginTop={marginTop}
     >
-      <g transform={`translate(${radius}, ${radius})`}>
+      <g transform={`translate(${radius},${radius})`}>
         <ArcScale
           angleMin={0 + startAngleOffset}
           angleMax={2 * Math.PI + startAngleOffset}
