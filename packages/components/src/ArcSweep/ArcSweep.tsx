@@ -5,7 +5,7 @@ import { drawArcSweep, mergeCtxOverrides } from '../utils';
 export type ArcSweepRef = SVGPathElement;
 
 export const ArcSweep = React.forwardRef<ArcSweepRef, ArcSweepProps>(
-  (props, ref) => {
+  function ArcSweep(props, ref) {
     const { from, to, cornerRadius, ctx: ctxProp, overrides, ...other } = props;
 
     if (ctxProp === undefined) {

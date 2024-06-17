@@ -7,7 +7,7 @@ export type ArcUnitLabelRef = SVGTextElement;
 export const ArcUnitLabel = React.forwardRef<
   ArcUnitLabelRef,
   ArcUnitLabelProps
->((props, ref) => {
+>(function ArcUnitLabel(props, ref) {
   const { at, ctx: ctxProp, offset, overrides, position, ...other } = props;
 
   if (ctxProp === undefined) {

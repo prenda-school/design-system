@@ -4,7 +4,10 @@ import { useChart } from './useChart';
 
 export type ChartRef = SVGSVGElement;
 
-export const Chart = React.forwardRef<ChartRef, ChartProps>((props, ref) => {
+export const Chart = React.forwardRef<ChartRef, ChartProps>(function Chart(
+  props,
+  ref
+) {
   const { svgProps, gProps } = useChart(props);
 
   return (

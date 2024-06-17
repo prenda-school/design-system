@@ -4,7 +4,7 @@ import { mergeCtxOverrides } from '../utils';
 
 export type BarRef = SVGPathElement;
 
-export const Bar = React.forwardRef<BarRef, BarProps>((props, ref) => {
+export const Bar = React.forwardRef<BarRef, BarProps>(function Bar(props, ref) {
   const {
     thickness,
     cornerRadius,

@@ -5,7 +5,7 @@ import { drawArcCircle, mergeCtxOverrides } from '../utils';
 export type ArcCircleRef = SVGCircleElement;
 
 export const ArcCircle = React.forwardRef<ArcCircleRef, ArcCircleProps>(
-  (props, ref) => {
+  function ArcCircle(props, ref) {
     const { at, radiusRatio, ctx: ctxProp, overrides, ...other } = props;
 
     if (ctxProp === undefined) {

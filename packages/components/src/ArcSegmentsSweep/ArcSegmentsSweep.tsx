@@ -7,7 +7,7 @@ export type ArcSegmentsSweepRef = SVGPathElement;
 export const ArcSegmentsSweep = React.forwardRef<
   ArcSegmentsSweepRef,
   ArcSegmentsSweepProps
->((props, ref) => {
+>(function ArcSegmentsSweep(props, ref) {
   const { from, to, cornerRadius, ctx: ctxProp, overrides, ...other } = props;
 
   if (ctxProp === undefined) {

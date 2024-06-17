@@ -5,7 +5,7 @@ import { drawBarLabel, mergeCtxOverrides } from '../utils';
 export type BarLabelRef = SVGTextElement;
 
 export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
-  (props, ref) => {
+  function BarLabel(props, ref) {
     const { dy, offset, position, ctx: ctxProp, overrides, ...other } = props;
 
     if (ctxProp === undefined) {

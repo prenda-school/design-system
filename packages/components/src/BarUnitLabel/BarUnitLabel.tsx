@@ -7,7 +7,7 @@ export type BarUnitLabelRef = SVGTextElement;
 export const BarUnitLabel = React.forwardRef<
   BarUnitLabelRef,
   BarUnitLabelProps
->((props, ref) => {
+>(function BarUnitLabel(props, ref) {
   const { at, offset, position, ctx: ctxProp, overrides, ...other } = props;
 
   if (ctxProp === undefined) {

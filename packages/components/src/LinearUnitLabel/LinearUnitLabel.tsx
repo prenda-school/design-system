@@ -7,7 +7,7 @@ export type LinearUnitLabelRef = SVGTextElement;
 export const LinearUnitLabel = React.forwardRef<
   LinearUnitLabelRef,
   LinearUnitLabelProps
->((props, ref) => {
+>(function LinearUnitLabel(props, ref) {
   const { at, offset, ctx: ctxProp, overrides, ...other } = props;
 
   if (ctxProp === undefined) {

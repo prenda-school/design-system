@@ -5,7 +5,7 @@ import { drawBarFill, mergeCtxOverrides } from '../utils';
 export type BarFillRef = SVGPathElement;
 
 export const BarFill = React.forwardRef<BarFillRef, BarFillProps>(
-  (props, ref) => {
+  function BarFill(props, ref) {
     const {
       to,
       cornerRadius,
