@@ -218,6 +218,6 @@ const meta: Meta<typeof ReportCardEmpowermentMetricDualLinearGauge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Chart>;
+type Story = StoryObj<typeof ReportCardEmpowermentMetricDualLinearGauge>;
 
 export const Example: Story = {};

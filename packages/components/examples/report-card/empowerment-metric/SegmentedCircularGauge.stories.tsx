@@ -188,6 +188,6 @@ const meta: Meta<typeof ReportCardEmpowermentMetricSegmentedCircularGauge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Chart>;
+type Story = StoryObj<typeof ReportCardEmpowermentMetricSegmentedCircularGauge>;
 
 export const Example: Story = {};

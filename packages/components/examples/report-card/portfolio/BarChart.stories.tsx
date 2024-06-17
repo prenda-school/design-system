@@ -139,6 +139,6 @@ const meta: Meta<typeof ReportCardPortfolioBarChart> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Chart>;
+type Story = StoryObj<typeof ReportCardPortfolioBarChart>;
 
 export const Example: Story = {};

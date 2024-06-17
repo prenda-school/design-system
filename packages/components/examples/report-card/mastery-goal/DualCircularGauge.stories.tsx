@@ -194,6 +194,6 @@ const meta: Meta<typeof ReportCardMasteryGoalDualCircularGauge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Chart>;
+type Story = StoryObj<typeof ReportCardMasteryGoalDualCircularGauge>;
 
 export const Example: Story = {};
