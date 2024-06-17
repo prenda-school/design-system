@@ -2,10 +2,10 @@ import React from 'react';
 import { LinearUnitLabelProps } from './LinearUnitLabelProps';
 import { drawLinearUnitLabel, mergeCtxOverrides } from '../utils';
 
-export type LinearUnitLabelRef = SVGTextElement;
+export type LinearUnitLabelElement = SVGTextElement;
 
 export const LinearUnitLabel = React.forwardRef<
-  LinearUnitLabelRef,
+  LinearUnitLabelElement,
   LinearUnitLabelProps
 >(function LinearUnitLabel(props, ref) {
   const { at, offset, ctx: ctxProp, overrides, ...other } = props;

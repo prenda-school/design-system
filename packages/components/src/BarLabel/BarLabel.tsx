@@ -2,9 +2,9 @@ import React from 'react';
 import { BarLabelProps } from './BarLabelProps';
 import { drawBarLabel, mergeCtxOverrides } from '../utils';
 
-export type BarLabelRef = SVGTextElement;
+export type BarLabelElement = SVGTextElement;
 
-export const BarLabel = React.forwardRef<BarLabelRef, BarLabelProps>(
+export const BarLabel = React.forwardRef<BarLabelElement, BarLabelProps>(
   function BarLabel(props, ref) {
     const { dy, offset, position, ctx: ctxProp, overrides, ...other } = props;
 

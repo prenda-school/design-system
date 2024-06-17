@@ -2,9 +2,9 @@ import React from 'react';
 import { ChartProps } from './ChartProps';
 import { useChart } from './useChart';
 
-export type ChartRef = SVGSVGElement;
+export type ChartElement = SVGSVGElement;
 
-export const Chart = React.forwardRef<ChartRef, ChartProps>(function Chart(
+export const Chart = React.forwardRef<ChartElement, ChartProps>(function Chart(
   props,
   ref
 ) {

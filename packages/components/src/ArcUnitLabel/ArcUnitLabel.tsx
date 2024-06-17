@@ -2,10 +2,10 @@ import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
 import { drawArcUnitLabel, mergeCtxOverrides } from '../utils';
 
-export type ArcUnitLabelRef = SVGTextElement;
+export type ArcUnitLabelElement = SVGTextElement;
 
 export const ArcUnitLabel = React.forwardRef<
-  ArcUnitLabelRef,
+  ArcUnitLabelElement,
   ArcUnitLabelProps
 >(function ArcUnitLabel(props, ref) {
   const { at, ctx: ctxProp, offset, overrides, position, ...other } = props;
