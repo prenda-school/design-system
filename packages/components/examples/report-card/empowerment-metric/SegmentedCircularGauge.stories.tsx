@@ -58,43 +58,50 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
   const Yellow300 = '#FFE380';
   const Yellow500 = '#FFAB00';
 
-  const width = 200 + 68 + 68;
+  const marginTop = 8;
+  const marginLeft = 68;
+  const width = 200 + marginLeft + 68;
+  const scaleGap = 32;
 
   return (
     <Chart
       width={width}
-      height={200 + 28 + 28 + 32 + 16}
-      marginBottom={28 + 32 + 16}
-      marginLeft={68}
+      height={200 + marginTop + 8 + scaleGap + 16}
+      marginBottom={8 + scaleGap + 16}
+      marginLeft={marginLeft}
       marginRight={68}
-      marginTop={28}
+      marginTop={marginTop}
     >
-      <ArcScale
-        angleMin={0 + startAngleOffset}
-        angleMax={2 * Math.PI + startAngleOffset}
-        valueMin={valueMin}
-        valueMax={valueMax}
-      >
-        <Arc radius={radius} ratio={radiusRatio}>
-          <ArcSegments
-            count={segments}
-            padAngle={padAngle}
-            cornerRadius={cornerRadius}
-          >
-            <ArcSegmentsSweep style={{ fill: Neutral80 }} />
-            <ArcSegmentsSweep
-              to={valueContinuous === 0.9 ? value : valueContinuous}
-              style={{ fill: Yellow500 }}
-            />
-          </ArcSegments>
-        </Arc>
-      </ArcScale>
+      <g transform={`translate(${radius}, ${radius})`}>
+        <ArcScale
+          angleMin={0 + startAngleOffset}
+          angleMax={2 * Math.PI + startAngleOffset}
+          valueMin={valueMin}
+          valueMax={valueMax}
+        >
+          <Arc radius={radius} ratio={radiusRatio}>
+            <ArcSegments
+              count={segments}
+              padAngle={padAngle}
+              cornerRadius={cornerRadius}
+            >
+              <ArcSegmentsSweep style={{ fill: Neutral80 }} />
+              <ArcSegmentsSweep
+                to={valueContinuous === 0.9 ? value : valueContinuous}
+                style={{ fill: Yellow500 }}
+              />
+            </ArcSegments>
+          </Arc>
+        </ArcScale>
 
-      <g>
         <circle r={118 / 2} fill={Yellow300} />
       </g>
 
-      <g transform={`translate(${-width / 2}, ${radius + 32})`}>
+      <g
+        transform={`translate(-${marginLeft}, ${
+          -marginTop + radius * 2 + scaleGap
+        })`}
+      >
         <LinearScale valueMin={valueMin} valueMax={valueMax} lengthMax={width}>
           <LinearUnits dominantBaseline="alphabetic">
             <LinearUnitLabel at={1} style={unitLabelStyle(1, value)}>

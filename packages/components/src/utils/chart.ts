@@ -72,3 +72,15 @@ export type Coordinates = {
   x: number;
   y: number;
 };
+
+export const toStandardViewBox = (params: {
+  dimensions: Pick<Dimensions, 'height' | 'width'>;
+}): ViewBox => {
+  // anchor top-left at 0,0
+  return {
+    x: 0,
+    y: 0,
+    width: params.dimensions.width,
+    height: params.dimensions.height,
+  };
+};

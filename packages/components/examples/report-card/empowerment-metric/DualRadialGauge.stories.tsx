@@ -62,14 +62,14 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
 
   return (
     <Chart
-      width={544 - 68 * 2 + 8 + 8}
-      height={162 + 8 + 8}
-      marginBottom={8}
-      marginLeft={8}
-      marginRight={8}
-      marginTop={8}
+      width={544 - 68 * 2 + 80 + 80}
+      height={radiusPrimary + 16 + 28}
+      marginBottom={16}
+      marginLeft={80}
+      marginRight={80}
+      marginTop={28}
     >
-      <g style={{ transform: `translate(0, ${126 / 2}px)` }}>
+      <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
         <ArcScale
           angleMin={(-1 * Math.PI) / 2}
           angleMax={Math.PI / 2}

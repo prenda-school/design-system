@@ -3,12 +3,13 @@ import { ChartProps } from './ChartProps';
 import {
   Margin,
   makeDimensions,
-  toCenteredViewBox,
+  toStandardViewBox,
   toViewBoxAttr,
 } from '../utils';
 
 export interface ChartAPI {
   svgProps: SVGProps<SVGSVGElement>;
+  gProps: SVGProps<SVGGElement>;
 }
 
 export function useChart(props: ChartProps): ChartAPI {
@@ -33,15 +34,20 @@ export function useChart(props: ChartProps): ChartAPI {
     },
   });
 
-  const viewBox = toCenteredViewBox({ dimensions });
+  const viewBox = toStandardViewBox({ dimensions });
+
+  const transform = `translate(${marginLeft}, ${marginTop})`;
 
   return {
     svgProps: {
       viewBox: toViewBoxAttr({ viewBox }),
       width: dimensions.width,
       height: dimensions.height,
-      style: { maxWidth: '100%', height: 'auto' },
       ...other,
+      style: { maxWidth: '100%', height: 'auto', ...other?.style },
+    },
+    gProps: {
+      transform,
     },
   };
 }

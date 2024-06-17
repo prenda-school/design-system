@@ -1,3 +1,5 @@
+import { SVGAttributes } from 'react';
+
 /**
  * The position and dimension, in user space, of an SVG viewport.
  */
@@ -12,9 +14,14 @@ export type ViewBox = {
   height: number;
 };
 
+export type ViewBoxAttr = Exclude<
+  SVGAttributes<SVGSVGElement>['viewBox'],
+  undefined
+>;
+
 /**
  * Convert a `ViewBox` value to a `viewBox` attribute value.
  */
-export const toViewBoxAttr = (params: { viewBox: ViewBox }): string => {
+export const toViewBoxAttr = (params: { viewBox: ViewBox }): ViewBoxAttr => {
   return `${params.viewBox.x} ${params.viewBox.y} ${params.viewBox.width} ${params.viewBox.height}`;
 };

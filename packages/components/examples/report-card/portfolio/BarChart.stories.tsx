@@ -65,11 +65,11 @@ const ReportCardPortfolioBarChart = (props: {
   const gap = barThickness * barGapRatio;
 
   const gdy =
-    barLabelPosition === 'above' ? -24 : barLabelPosition === 'below' ? 0 : 0;
+    barLabelPosition === 'above' ? 24 : barLabelPosition === 'below' ? 0 : 0;
 
   return (
     <Chart width={width} height={height}>
-      <g transform={`translate(-${width / 2}, -${height / 2 + gdy})`}>
+      <g transform={`translate(0, ${gdy})`}>
         <BarScale valueMin={valueMin} valueMax={valueMax} lengthMax={lengthMax}>
           {data.map((datum, i) => (
             <Bar

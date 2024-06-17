@@ -79,60 +79,52 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       marginRight={8}
       marginTop={8 + 16}
     >
-      <g
-        style={{
-          transform: `translate(-${(544 + 8 + 8) / 2}px, -${
-            (70 + 8 + 8) / 2 - 16
-          }px)`,
-        }}
-      >
-        <BarScale lengthMax={544} valueMin={valueMin} valueMax={valueMax}>
-          <Bar
-            thickness={thicknessPrimary}
-            cornerRadius={cornerRadius}
-            borderWidth={borderWidth}
-          >
-            <BarFill
-              overrides={{
-                barScale: {
-                  lengthMin: thicknessPrimary / 2,
-                },
-              }}
-              to={valuePrimary}
-              style={{ fill: Purple500 }}
-            />
+      <BarScale lengthMax={544} valueMin={valueMin} valueMax={valueMax}>
+        <Bar
+          thickness={thicknessPrimary}
+          cornerRadius={cornerRadius}
+          borderWidth={borderWidth}
+        >
+          <BarFill
+            overrides={{
+              barScale: {
+                lengthMin: thicknessPrimary / 2,
+              },
+            }}
+            to={valuePrimary}
+            style={{ fill: Purple500 }}
+          />
 
-            <BarUnits offset={thicknessSecondary + unitsOffset}>
-              <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-                Not really
-              </BarUnitLabel>
-              <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-                Kind of
-              </BarUnitLabel>
-              <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-                Very
-              </BarUnitLabel>
-            </BarUnits>
-          </Bar>
+          <BarUnits offset={thicknessSecondary + unitsOffset}>
+            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+              Not really
+            </BarUnitLabel>
+            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+              Kind of
+            </BarUnitLabel>
+            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+              Very
+            </BarUnitLabel>
+          </BarUnits>
+        </Bar>
 
-          <Bar
-            thickness={thicknessSecondary}
-            cornerRadius={cornerRadius}
-            dy={thicknessPrimary}
-            borderWidth={borderWidth}
-          >
-            <BarFill
-              overrides={{
-                barScale: {
-                  lengthMin: thicknessSecondary / 2,
-                },
-              }}
-              to={valueSecondary}
-              style={{ fill: Purple200 }}
-            />
-          </Bar>
-        </BarScale>
-      </g>
+        <Bar
+          thickness={thicknessSecondary}
+          cornerRadius={cornerRadius}
+          dy={thicknessPrimary}
+          borderWidth={borderWidth}
+        >
+          <BarFill
+            overrides={{
+              barScale: {
+                lengthMin: thicknessSecondary / 2,
+              },
+            }}
+            to={valueSecondary}
+            style={{ fill: Purple200 }}
+          />
+        </Bar>
+      </BarScale>
     </Chart>
   );
 };

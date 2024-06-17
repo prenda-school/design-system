@@ -5,7 +5,11 @@ import { useChart } from './useChart';
 export type ChartRef = SVGSVGElement;
 
 export const Chart = React.forwardRef<ChartRef, ChartProps>((props, ref) => {
-  const { svgProps } = useChart(props);
+  const { svgProps, gProps } = useChart(props);
 
-  return <svg ref={ref} {...svgProps} />;
+  return (
+    <svg ref={ref} {...svgProps}>
+      <g {...gProps}>{svgProps.children}</g>
+    </svg>
+  );
 });

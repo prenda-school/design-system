@@ -66,44 +66,49 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
       marginRight={8}
       marginTop={8}
     >
-      <ArcScale
-        angleMin={0}
-        angleMax={2 * Math.PI}
-        valueMin={valueMin}
-        valueMax={valueMax}
-      >
-        <Arc
-          radius={radiusPrimary}
-          ratio={radiusRatioPrimary}
-          cornerRadius={cornerRadius}
+      <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
+        <ArcScale
+          angleMin={0}
+          angleMax={2 * Math.PI}
+          valueMin={valueMin}
+          valueMax={valueMax}
         >
-          <ArcSweep style={{ fill: Neutral70 }} />
-          <ArcSweep to={valuePrimary} style={{ fill: primaryValueSweepFill }} />
-        </Arc>
-        <Arc
-          radius={radiusSecondary}
-          ratio={radiusRatioSecondary}
-          cornerRadius={cornerRadius}
-        >
-          <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
-        </Arc>
-      </ArcScale>
-      <g>
-        <rect width={112} height={1} x={-112 / 2} fill={Neutral80} />
-        <text x={0} y={0} textAnchor="middle" dominantBaseline="hanging">
-          <tspan x={0} y={0} dy={0 - 4 - 16 - 28} style={styleT22}>
-            {valuePrimary}/{valueMax}
-          </tspan>
-          <tspan x={0} y={0} dy={0 - 4 - 16} style={styleDescription}>
-            badges
-          </tspan>
-          <tspan x={0} y={0} dy={0 + 4 + 4} style={styleDescription}>
-            {valuePrimary > valueSecondary ? 'Ahead' : 'Behind'} by
-          </tspan>
-          <tspan x={0} y={0} dy={0 + 4 + 4 + 4 + 16} style={styleDescription}>
-            {Math.abs(valuePrimary - valueSecondary)} badges
-          </tspan>
-        </text>
+          <Arc
+            radius={radiusPrimary}
+            ratio={radiusRatioPrimary}
+            cornerRadius={cornerRadius}
+          >
+            <ArcSweep style={{ fill: Neutral70 }} />
+            <ArcSweep
+              to={valuePrimary}
+              style={{ fill: primaryValueSweepFill }}
+            />
+          </Arc>
+          <Arc
+            radius={radiusSecondary}
+            ratio={radiusRatioSecondary}
+            cornerRadius={cornerRadius}
+          >
+            <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
+          </Arc>
+        </ArcScale>
+        <g>
+          <rect width={112} height={1} x={-112 / 2} fill={Neutral80} />
+          <text x={0} y={0} textAnchor="middle" dominantBaseline="hanging">
+            <tspan x={0} y={0} dy={0 - 4 - 16 - 28} style={styleT22}>
+              {valuePrimary}/{valueMax}
+            </tspan>
+            <tspan x={0} y={0} dy={0 - 4 - 16} style={styleDescription}>
+              badges
+            </tspan>
+            <tspan x={0} y={0} dy={0 + 4 + 4} style={styleDescription}>
+              {valuePrimary > valueSecondary ? 'Ahead' : 'Behind'} by
+            </tspan>
+            <tspan x={0} y={0} dy={0 + 4 + 4 + 4 + 16} style={styleDescription}>
+              {Math.abs(valuePrimary - valueSecondary)} badges
+            </tspan>
+          </text>
+        </g>
       </g>
     </Chart>
   );
