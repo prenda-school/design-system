@@ -128,7 +128,6 @@ export const useResponsiveChart = (
     },
   };
 
-  console.log('useResponsiveChart', { container, svg, inner });
   return {
     container,
     svg,
