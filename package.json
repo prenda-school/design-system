@@ -16,6 +16,7 @@
     "storybook:build": "nx run-many -t build-storybook",
     "storybook:build:host": "nx run storybook-host:build-storybook",
     "storybook:build:components": "nx run components:build-storybook",
+    "storybook:build:dataviz": "nx run dataviz:build-storybook",
     "storybook:build:icons": "nx run icons:build-storybook",
     "storybook:build:tokens": "nx run tokens:build-storybook",
     "prepare": "husky"
