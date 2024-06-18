@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  Arc,
-  ArcSegments,
-  ArcSegmentsSweep,
-  ArcScale,
+  RadialBar,
+  RadialBarSegments,
+  RadialBarSegmentsSweep,
+  RadialBarScale,
   LinearScale,
   LinearUnits,
   LinearUnitLabel,
@@ -94,28 +94,28 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
               ) / 2
             },0)`}
           >
-            {/* center-arc */}
+            {/* center-radial-bar */}
             <g transform={`translate(${radius},${radius})`}>
-              <ArcScale
+              <RadialBarScale
                 angleMin={0 + startAngleOffset}
                 angleMax={2 * Math.PI + startAngleOffset}
                 valueMin={valueMin}
                 valueMax={valueMax}
               >
-                <Arc radius={radius} ratio={radiusRatio}>
-                  <ArcSegments
+                <RadialBar radius={radius} ratio={radiusRatio}>
+                  <RadialBarSegments
                     count={segments}
                     padAngle={padAngle}
                     cornerRadius={cornerRadius}
                   >
-                    <ArcSegmentsSweep style={{ fill: Neutral80 }} />
-                    <ArcSegmentsSweep
+                    <RadialBarSegmentsSweep style={{ fill: Neutral80 }} />
+                    <RadialBarSegmentsSweep
                       to={valueContinuous === 0.9 ? value : valueContinuous}
                       style={{ fill: Yellow500 }}
                     />
-                  </ArcSegments>
-                </Arc>
-              </ArcScale>
+                  </RadialBarSegments>
+                </RadialBar>
+              </RadialBarScale>
 
               <circle r={118 / 2} fill={Yellow300} />
             </g>

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Arc, ArcSweep, ArcScale, Chart } from '../../../src';
+import { RadialBar, RadialBarSweep, RadialBarScale, Chart } from '../../../src';
 
 const ReportCardMasteryGoalDualCircularGauge = (props: {
   valueMin: number;
@@ -66,33 +66,33 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
       marginRight={8}
       marginTop={8}
     >
-      {/* center-arc */}
+      {/* center-radial-bar */}
       <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
-        <ArcScale
+        <RadialBarScale
           angleMin={0}
           angleMax={2 * Math.PI}
           valueMin={valueMin}
           valueMax={valueMax}
         >
-          <Arc
+          <RadialBar
             radius={radiusPrimary}
             ratio={radiusRatioPrimary}
             cornerRadius={cornerRadius}
           >
-            <ArcSweep style={{ fill: Neutral70 }} />
-            <ArcSweep
+            <RadialBarSweep style={{ fill: Neutral70 }} />
+            <RadialBarSweep
               to={valuePrimary}
               style={{ fill: primaryValueSweepFill }}
             />
-          </Arc>
-          <Arc
+          </RadialBar>
+          <RadialBar
             radius={radiusSecondary}
             ratio={radiusRatioSecondary}
             cornerRadius={cornerRadius}
           >
-            <ArcSweep to={valueSecondary} style={{ fill: Neutral90 }} />
-          </Arc>
-        </ArcScale>
+            <RadialBarSweep to={valueSecondary} style={{ fill: Neutral90 }} />
+          </RadialBar>
+        </RadialBarScale>
         <g>
           <rect width={112} height={1} x={-112 / 2} fill={Neutral80} />
           <text x={0} y={0} textAnchor="middle" dominantBaseline="hanging">

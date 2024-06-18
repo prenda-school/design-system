@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  Arc,
-  ArcCircle,
-  ArcSweep,
-  ArcUnitLabel,
-  ArcScale,
-  ArcUnits,
+  RadialBar,
+  RadialBarCircle,
+  RadialBarSweep,
+  RadialBarUnitLabel,
+  RadialBarScale,
+  RadialBarUnits,
   useResponsiveChart,
 } from '../../../src';
 
@@ -98,51 +98,57 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
               ) / 2
             },0)`}
           >
-            {/* center-arc */}
+            {/* center-radial-bar */}
             <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
-              <ArcScale
+              <RadialBarScale
                 angleMin={(-1 * Math.PI) / 2}
                 angleMax={Math.PI / 2}
                 valueMin={valueMin}
                 valueMax={valueMax}
               >
-                <Arc
+                <RadialBar
                   radius={radiusPrimary}
                   ratio={radiusRatioPrimary}
                   cornerRadius={cornerRadius}
                 >
-                  <ArcSweep style={{ fill: Neutral70 }} />
-                  <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
-                  <ArcUnits offset={unitsOffset}>
-                    <ArcUnitLabel
+                  <RadialBarSweep style={{ fill: Neutral70 }} />
+                  <RadialBarCircle
+                    at={valuePrimary}
+                    style={{ fill: Purple600 }}
+                  />
+                  <RadialBarUnits offset={unitsOffset}>
+                    <RadialBarUnitLabel
                       at={1}
                       style={unitLabelStyle(1, valuePrimary)}
                     >
                       Too easy
-                    </ArcUnitLabel>
-                    <ArcUnitLabel
+                    </RadialBarUnitLabel>
+                    <RadialBarUnitLabel
                       at={2}
                       style={unitLabelStyle(2, valuePrimary)}
                     >
                       Just right
-                    </ArcUnitLabel>
-                    <ArcUnitLabel
+                    </RadialBarUnitLabel>
+                    <RadialBarUnitLabel
                       at={3}
                       style={unitLabelStyle(3, valuePrimary)}
                     >
                       Too hard
-                    </ArcUnitLabel>
-                  </ArcUnits>
-                </Arc>
-                <Arc
+                    </RadialBarUnitLabel>
+                  </RadialBarUnits>
+                </RadialBar>
+                <RadialBar
                   radius={radiusSecondary}
                   ratio={radiusRatioSecondary}
                   cornerRadius={cornerRadius}
                 >
-                  <ArcSweep style={{ fill: Neutral70 }} />
-                  <ArcCircle at={valueSecondary} style={{ fill: Purple200 }} />
-                </Arc>
-              </ArcScale>
+                  <RadialBarSweep style={{ fill: Neutral70 }} />
+                  <RadialBarCircle
+                    at={valueSecondary}
+                    style={{ fill: Purple200 }}
+                  />
+                </RadialBar>
+              </RadialBarScale>
             </g>
           </g>
         </g>
