@@ -1,0 +1,69 @@
+.react-aria-Meter {
+  --fill-color: forestgreen;
+  --text-color: navy;
+  --bar-background-color: var(--Purple---Learning-500, #6554c0);
+  --bar-border-color: transparent;
+
+  display: grid;
+  grid-template-areas:
+    'label value'
+    'surface surface';
+  grid-template-columns: 1fr auto;
+  gap: 4px;
+  width: 512px;
+  color: var(--text-color);
+
+  .react-aria-Label {
+    color: var(--Neutral-500, #253858);
+    /* T18 */
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.18px;
+  }
+
+  .value {
+    grid-area: value;
+  }
+
+  .surface {
+    grid-area: surface;
+
+    .svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .track {
+      height: 30px;
+      width: 100%;
+    }
+  }
+
+  .bar {
+    background: var(--bar-background-color);
+    background-clip: padding-box;
+    border: 1.657px solid var(--bar-border-color);
+    border-radius: 0 9999px 9999px 0;
+    height: 30px;
+
+    grid-area: bar;
+
+    /* box-shadow: inset 0px 0px 0px 1px var(--border-color); */
+    forced-color-adjust: none;
+    overflow: hidden;
+  }
+
+  .fill {
+    background: var(--fill-color);
+    height: 100%;
+  }
+}
+
+@media (forced-colors: active) {
+  .react-aria-Meter {
+    --fill-color: Highlight;
+  }
+}
