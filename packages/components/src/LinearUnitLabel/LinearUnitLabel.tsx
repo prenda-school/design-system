@@ -8,7 +8,14 @@ export const LinearUnitLabel = React.forwardRef<
   LinearUnitLabelElement,
   LinearUnitLabelProps
 >(function LinearUnitLabel(props, ref) {
-  const { at, offset, ctx: ctxProp, overrides, ...other } = props;
+  const {
+    at,
+    dominantBaseline: dominantBaselineProp,
+    offset,
+    ctx: ctxProp,
+    overrides,
+    ...other
+  } = props;
 
   if (ctxProp === undefined) {
     throw Error(
@@ -23,6 +30,7 @@ export const LinearUnitLabel = React.forwardRef<
     units: ctx.linearUnits,
     unitLabel: {
       at,
+      dominantBaseline: dominantBaselineProp,
       offset,
     },
   });

@@ -1,4 +1,4 @@
-import { SvgProperties } from 'csstype';
+import { Property, SvgProperties } from 'csstype';
 import * as D3Scale from 'd3-scale';
 import { LinearScaleParams, evalLinearScaleLengthMin } from './linear-scale';
 import { LinearUnitsParams } from './linear-units';
@@ -8,6 +8,10 @@ export type LinearUnitLabelParams = {
    * The value at which the unit label is located.
    */
   at: number;
+  /**
+   * The baseline used to align text and inline-level contents of the unit label.
+   */
+  dominantBaseline?: Property.DominantBaseline;
   /**
    * The offset of the unit label below (positive value) or above (negative value) the line.
    */
@@ -42,8 +46,9 @@ export function drawLinearUnitLabel(params: DrawLinearUnitLabelParams) {
     x === lengthMin ? 'start' : x === params.scale.lengthMax ? 'end' : 'middle';
 
   const dominantBaseline: SvgProperties['dominantBaseline'] =
-    params.units.dominantBaseline ??
-    (y === 0 ? 'middle' : y > 0 ? 'hanging' : 'alphabetic');
+    evalLinearUnitLabelDominantBaseline(
+      params.unitLabel.dominantBaseline ?? params.units.dominantBaseline
+    );
 
   return {
     x,
@@ -55,10 +60,21 @@ export function drawLinearUnitLabel(params: DrawLinearUnitLabelParams) {
 
 export type LinearUnitLabelOffset = number;
 
-const DEFAULT_LINEAR_UNIT_LABEL_OFFSET: LinearUnitLabelOffset = 8;
+const DEFAULT_LINEAR_UNIT_LABEL_OFFSET: LinearUnitLabelOffset = 0;
 
 export function evalLinearUnitLabelOffset(
   param: LinearUnitLabelParams['offset']
 ): LinearUnitLabelOffset {
   return param ?? DEFAULT_LINEAR_UNIT_LABEL_OFFSET;
+}
+
+export type LinearUnitLabelDominantBaseline = Property.DominantBaseline;
+
+const DEFAULT_LINEAR_UNIT_LABEL_DOMINANT_BASELINE: LinearUnitLabelDominantBaseline =
+  'text-before-edge';
+
+export function evalLinearUnitLabelDominantBaseline(
+  param: LinearUnitLabelParams['dominantBaseline']
+): LinearUnitLabelDominantBaseline {
+  return param ?? DEFAULT_LINEAR_UNIT_LABEL_DOMINANT_BASELINE;
 }
