@@ -5,10 +5,10 @@ import {
   ArcSegments,
   ArcSegmentsSweep,
   ArcScale,
-  Chart,
   LinearScale,
   LinearUnits,
   LinearUnitLabel,
+  useResponsiveChart,
 } from '../../../src';
 
 const Neutral400 = '#42526E';
@@ -61,66 +61,92 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
   const scaleGap = 32;
   const fontSize = 16;
   const marginTop = 8;
-  const marginRight = 68;
+  const marginRight = 8;
   const marginBottom = 8 + scaleGap + fontSize;
-  const marginLeft = 68;
-  const width = 200 + marginLeft + marginRight;
-  const height = 200 + marginTop + marginBottom;
+  const marginLeft = 8;
+  const innerWidth = radius * 2;
+  const innerHeight = radius * 2;
+  const height = innerHeight + marginTop + marginBottom;
+
+  const chart = useResponsiveChart({
+    height,
+    innerWidth,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+  });
 
   return (
-    <Chart
-      width={width}
-      height={height}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      marginTop={marginTop}
-    >
-      <g transform={`translate(${radius},${radius})`}>
-        <ArcScale
-          angleMin={0 + startAngleOffset}
-          angleMax={2 * Math.PI + startAngleOffset}
-          valueMin={valueMin}
-          valueMax={valueMax}
-        >
-          <Arc radius={radius} ratio={radiusRatio}>
-            <ArcSegments
-              count={segments}
-              padAngle={padAngle}
-              cornerRadius={cornerRadius}
+    <div {...chart.container.props} ref={chart.container.ref}>
+      <svg {...chart.svg.props}>
+        {/* inner */}
+        <g {...chart.inner.props}>
+          {/* inner-center */}
+          <g
+            transform={`translate(${
+              Math.max(
+                0,
+                chart.svg.dim.width -
+                  chart.inner.dim.margin.left -
+                  chart.inner.dim.margin.right -
+                  chart.inner.dim.width
+              ) / 2
+            },0)`}
+          >
+            {/* center-arc */}
+            <g transform={`translate(${radius},${radius})`}>
+              <ArcScale
+                angleMin={0 + startAngleOffset}
+                angleMax={2 * Math.PI + startAngleOffset}
+                valueMin={valueMin}
+                valueMax={valueMax}
+              >
+                <Arc radius={radius} ratio={radiusRatio}>
+                  <ArcSegments
+                    count={segments}
+                    padAngle={padAngle}
+                    cornerRadius={cornerRadius}
+                  >
+                    <ArcSegmentsSweep style={{ fill: Neutral80 }} />
+                    <ArcSegmentsSweep
+                      to={valueContinuous === 0.9 ? value : valueContinuous}
+                      style={{ fill: Yellow500 }}
+                    />
+                  </ArcSegments>
+                </Arc>
+              </ArcScale>
+
+              <circle r={118 / 2} fill={Yellow300} />
+            </g>
+          </g>
+
+          {/* y-scale-offset */}
+          <g transform={`translate(0, ${chart.inner.dim.height + scaleGap})`}>
+            <LinearScale
+              valueMin={valueMin}
+              valueMax={valueMax}
+              lengthMax={Math.max(
+                chart.svg.dim.width - 16,
+                chart.inner.dim.width
+              )}
             >
-              <ArcSegmentsSweep style={{ fill: Neutral80 }} />
-              <ArcSegmentsSweep
-                to={valueContinuous === 0.9 ? value : valueContinuous}
-                style={{ fill: Yellow500 }}
-              />
-            </ArcSegments>
-          </Arc>
-        </ArcScale>
-
-        <circle r={118 / 2} fill={Yellow300} />
-      </g>
-
-      <g
-        transform={`translate(-${marginLeft}, ${
-          -marginTop + radius * 2 + scaleGap
-        })`}
-      >
-        <LinearScale valueMin={valueMin} valueMax={valueMax} lengthMax={width}>
-          <LinearUnits dominantBaseline="alphabetic">
-            <LinearUnitLabel at={1} style={unitLabelStyle(1, value)}>
-              Low
-            </LinearUnitLabel>
-            <LinearUnitLabel at={2} style={unitLabelStyle(2, value)}>
-              Med
-            </LinearUnitLabel>
-            <LinearUnitLabel at={3} style={unitLabelStyle(3, value)}>
-              High
-            </LinearUnitLabel>
-          </LinearUnits>
-        </LinearScale>
-      </g>
-    </Chart>
+              <LinearUnits>
+                <LinearUnitLabel at={1} style={unitLabelStyle(1, value)}>
+                  Not really
+                </LinearUnitLabel>
+                <LinearUnitLabel at={2} style={unitLabelStyle(2, value)}>
+                  Kind of
+                </LinearUnitLabel>
+                <LinearUnitLabel at={3} style={unitLabelStyle(3, value)}>
+                  A lot
+                </LinearUnitLabel>
+              </LinearUnits>
+            </LinearScale>
+          </g>
+        </g>
+      </svg>
+    </div>
   );
 };
 

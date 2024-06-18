@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-  Chart,
   BarScale,
   Bar,
   BarFill,
   BarLabel,
   BarLabelProps,
+  useResponsiveChart,
 } from '../../../src';
 
 const BrandBlue = '#0A4872';
@@ -48,7 +48,7 @@ const ReportCardPortfolioBarChart = (props: {
     barLabelOffset,
     // extra
     width,
-    height,
+    height: heightProp,
   } = props;
 
   const data = dataProp
@@ -60,37 +60,61 @@ const ReportCardPortfolioBarChart = (props: {
     .sort((a, b) => b.value - a.value);
   const values = data.map((d) => d.value);
   const valueMax = Math.max(...values);
-  const lengthMax = width;
+  // const lengthMax = width;
 
   const gap = barThickness * barGapRatio;
 
   const gdy =
     barLabelPosition === 'above' ? 24 : barLabelPosition === 'below' ? 0 : 0;
 
+  const marginTop = 8 + gdy;
+  const marginRight = 8;
+  const marginBottom = 8;
+  const marginLeft = 8;
+  const innerHeight = heightProp - gdy;
+  const height = innerHeight + marginTop + marginBottom;
+  // const minInnerWidth = 140;
+
+  const chart = useResponsiveChart({
+    height,
+    innerHeight,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+  });
+
   return (
-    <Chart width={width} height={height}>
-      <g transform={`translate(0, ${gdy})`}>
-        <BarScale valueMin={valueMin} valueMax={valueMax} lengthMax={lengthMax}>
-          {data.map((datum, i) => (
-            <Bar
-              dy={i * (barThickness + gap)}
-              key={i}
-              thickness={barThickness}
-              cornerRadius={{ start: 4, end: '50%' }}
-            >
-              <BarFill to={datum.value} style={{ fill: colors[i] }} />
-              <BarLabel
-                offset={barLabelOffset}
-                position={barLabelPosition}
-                style={styleBody}
+    <div {...chart.container.props} ref={chart.container.ref}>
+      <svg {...chart.svg.props}>
+        {/* inner */}
+        <g {...chart.inner.props}>
+          <BarScale
+            valueMin={valueMin}
+            valueMax={valueMax}
+            lengthMax={chart.inner.dim.width}
+          >
+            {data.map((datum, i) => (
+              <Bar
+                dy={i * (barThickness + gap)}
+                key={i}
+                thickness={barThickness}
+                cornerRadius={{ start: 4, end: '50%' }}
               >
-                {datum.label} ({datum.value})
-              </BarLabel>
-            </Bar>
-          ))}
-        </BarScale>
-      </g>
-    </Chart>
+                <BarFill to={datum.value} style={{ fill: colors[i] }} />
+                <BarLabel
+                  offset={barLabelOffset}
+                  position={barLabelPosition}
+                  style={styleBody}
+                >
+                  {datum.label} ({datum.value})
+                </BarLabel>
+              </Bar>
+            ))}
+          </BarScale>
+        </g>
+      </svg>
+    </div>
   );
 };
 

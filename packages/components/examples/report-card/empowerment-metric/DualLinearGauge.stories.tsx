@@ -7,7 +7,7 @@ import {
   BarScale,
   BarUnitLabel,
   BarUnits,
-  Chart,
+  useResponsiveChart,
 } from '../../../src';
 
 const Purple500 = '#6554C0';
@@ -70,62 +70,81 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
       ? valueSecondaryProp
       : valueSecondaryContinuous;
 
+  const marginTop = 8;
+  const marginRight = 8;
+  const marginBottom = 8;
+  const marginLeft = 8;
+  const innerHeight = 70;
+  const height = innerHeight + marginTop + marginBottom;
+  // const minWidth = 220;
+
+  const chart = useResponsiveChart({
+    height,
+    innerHeight,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+  });
+
   return (
-    <Chart
-      width={544 + 8 + 8}
-      height={70 + 8 + 8 + 16}
-      marginBottom={8}
-      marginLeft={8}
-      marginRight={8}
-      marginTop={8 + 16}
-    >
-      <BarScale lengthMax={544} valueMin={valueMin} valueMax={valueMax}>
-        <Bar
-          thickness={thicknessPrimary}
-          cornerRadius={cornerRadius}
-          borderWidth={borderWidth}
-        >
-          <BarFill
-            overrides={{
-              barScale: {
-                lengthMin: thicknessPrimary / 2,
-              },
-            }}
-            to={valuePrimary}
-            style={{ fill: Purple500 }}
-          />
+    <div ref={chart.container.ref} {...chart.container.props}>
+      <svg {...chart.svg.props}>
+        {/* inner */}
+        <g {...chart.inner.props}>
+          <BarScale
+            lengthMax={chart.inner.dim.width}
+            valueMin={valueMin}
+            valueMax={valueMax}
+          >
+            <Bar
+              thickness={thicknessPrimary}
+              cornerRadius={cornerRadius}
+              borderWidth={borderWidth}
+            >
+              <BarFill
+                overrides={{
+                  barScale: {
+                    lengthMin: thicknessPrimary / 2,
+                  },
+                }}
+                to={valuePrimary}
+                style={{ fill: Purple500 }}
+              />
 
-          <BarUnits offset={thicknessSecondary + unitsOffset}>
-            <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-              Not really
-            </BarUnitLabel>
-            <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-              Kind of
-            </BarUnitLabel>
-            <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-              Very
-            </BarUnitLabel>
-          </BarUnits>
-        </Bar>
+              <BarUnits offset={thicknessSecondary + unitsOffset}>
+                <BarUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
+                  Not really
+                </BarUnitLabel>
+                <BarUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
+                  Kind of
+                </BarUnitLabel>
+                <BarUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
+                  Very
+                </BarUnitLabel>
+              </BarUnits>
+            </Bar>
 
-        <Bar
-          thickness={thicknessSecondary}
-          cornerRadius={cornerRadius}
-          dy={thicknessPrimary}
-          borderWidth={borderWidth}
-        >
-          <BarFill
-            overrides={{
-              barScale: {
-                lengthMin: thicknessSecondary / 2,
-              },
-            }}
-            to={valueSecondary}
-            style={{ fill: Purple200 }}
-          />
-        </Bar>
-      </BarScale>
-    </Chart>
+            <Bar
+              thickness={thicknessSecondary}
+              cornerRadius={cornerRadius}
+              dy={thicknessPrimary}
+              borderWidth={borderWidth}
+            >
+              <BarFill
+                overrides={{
+                  barScale: {
+                    lengthMin: thicknessSecondary / 2,
+                  },
+                }}
+                to={valueSecondary}
+                style={{ fill: Purple200 }}
+              />
+            </Bar>
+          </BarScale>
+        </g>
+      </svg>
+    </div>
   );
 };
 

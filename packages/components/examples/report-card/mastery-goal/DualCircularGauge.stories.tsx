@@ -66,6 +66,7 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
       marginRight={8}
       marginTop={8}
     >
+      {/* center-arc */}
       <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
         <ArcScale
           angleMin={0}

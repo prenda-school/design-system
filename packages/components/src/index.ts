@@ -16,3 +16,4 @@ export * from './Chart';
 export * from './LinearScale';
 export * from './LinearUnitLabel';
 export * from './LinearUnits';
+export * from './ResponsiveChart';

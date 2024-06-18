@@ -6,8 +6,8 @@ import {
   ArcSweep,
   ArcUnitLabel,
   ArcScale,
-  Chart,
   ArcUnits,
+  useResponsiveChart,
 } from '../../../src';
 
 const Neutral70 = '#EBECF0';
@@ -60,52 +60,94 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
     cornerRadius,
   } = props;
 
+  const labelFontSize = 16;
+  const labelOffset = 8;
+  const labelLength = 70;
+  const marginTop = 8 + labelOffset + labelFontSize;
+  const marginRight = 8 + labelOffset + labelLength;
+  const marginBottom = 8 + labelFontSize / 2;
+  const marginLeft = 8 + labelOffset + labelLength;
+  const innerWidth = radiusPrimary * 2;
+  const innerHeight = radiusPrimary;
+  const height = innerHeight + marginTop + marginBottom;
+
+  const chart = useResponsiveChart({
+    height,
+    innerWidth,
+    innerHeight,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+  });
+
   return (
-    <Chart
-      width={544 - 68 * 2 + 80 + 80}
-      height={radiusPrimary + 16 + 28}
-      marginBottom={16}
-      marginLeft={80}
-      marginRight={80}
-      marginTop={28}
-    >
-      <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
-        <ArcScale
-          angleMin={(-1 * Math.PI) / 2}
-          angleMax={Math.PI / 2}
-          valueMin={valueMin}
-          valueMax={valueMax}
-        >
-          <Arc
-            radius={radiusPrimary}
-            ratio={radiusRatioPrimary}
-            cornerRadius={cornerRadius}
+    <div ref={chart.container.ref} {...chart.container.props}>
+      <svg {...chart.svg.props}>
+        {/* inner */}
+        <g {...chart.inner.props}>
+          {/* inner-center */}
+          <g
+            transform={`translate(${
+              Math.max(
+                0,
+                chart.svg.dim.width -
+                  chart.inner.dim.margin.right -
+                  chart.inner.dim.margin.left -
+                  chart.inner.dim.width
+              ) / 2
+            },0)`}
           >
-            <ArcSweep style={{ fill: Neutral70 }} />
-            <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
-            <ArcUnits offset={unitsOffset}>
-              <ArcUnitLabel at={1} style={unitLabelStyle(1, valuePrimary)}>
-                Too easy
-              </ArcUnitLabel>
-              <ArcUnitLabel at={2} style={unitLabelStyle(2, valuePrimary)}>
-                Just right
-              </ArcUnitLabel>
-              <ArcUnitLabel at={3} style={unitLabelStyle(3, valuePrimary)}>
-                Too hard
-              </ArcUnitLabel>
-            </ArcUnits>
-          </Arc>
-          <Arc
-            radius={radiusSecondary}
-            ratio={radiusRatioSecondary}
-            cornerRadius={cornerRadius}
-          >
-            <ArcSweep style={{ fill: Neutral70 }} />
-            <ArcCircle at={valueSecondary} style={{ fill: Purple200 }} />
-          </Arc>
-        </ArcScale>
-      </g>
-    </Chart>
+            {/* center-arc */}
+            <g transform={`translate(${radiusPrimary}, ${radiusPrimary})`}>
+              <ArcScale
+                angleMin={(-1 * Math.PI) / 2}
+                angleMax={Math.PI / 2}
+                valueMin={valueMin}
+                valueMax={valueMax}
+              >
+                <Arc
+                  radius={radiusPrimary}
+                  ratio={radiusRatioPrimary}
+                  cornerRadius={cornerRadius}
+                >
+                  <ArcSweep style={{ fill: Neutral70 }} />
+                  <ArcCircle at={valuePrimary} style={{ fill: Purple600 }} />
+                  <ArcUnits offset={unitsOffset}>
+                    <ArcUnitLabel
+                      at={1}
+                      style={unitLabelStyle(1, valuePrimary)}
+                    >
+                      Too easy
+                    </ArcUnitLabel>
+                    <ArcUnitLabel
+                      at={2}
+                      style={unitLabelStyle(2, valuePrimary)}
+                    >
+                      Just right
+                    </ArcUnitLabel>
+                    <ArcUnitLabel
+                      at={3}
+                      style={unitLabelStyle(3, valuePrimary)}
+                    >
+                      Too hard
+                    </ArcUnitLabel>
+                  </ArcUnits>
+                </Arc>
+                <Arc
+                  radius={radiusSecondary}
+                  ratio={radiusRatioSecondary}
+                  cornerRadius={cornerRadius}
+                >
+                  <ArcSweep style={{ fill: Neutral70 }} />
+                  <ArcCircle at={valueSecondary} style={{ fill: Purple200 }} />
+                </Arc>
+              </ArcScale>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
   );
 };
 
