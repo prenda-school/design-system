@@ -4,6 +4,9 @@ import { LinearCtx, LinearUnitLabelParams, WithOverridableCtx } from '../utils';
 export interface LinearUnitLabelProps
   extends LinearUnitLabelParams,
     WithOverridableCtx<Pick<LinearCtx, 'linearScale' | 'linearUnits'>>,
-    Omit<React.SVGTextElementAttributes<SVGTextElement>, 'offset'> {
+    Omit<
+      React.SVGTextElementAttributes<SVGTextElement>,
+      'offset' | 'dominantBaseline'
+    > {
   children?: React.ReactNode;
 }
