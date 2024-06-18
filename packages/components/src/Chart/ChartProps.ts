@@ -1,7 +1,9 @@
 import React from 'react';
 
+export interface ChartElement extends SVGSVGElement {}
+
 export interface ChartProps
-  extends Omit<React.SVGProps<SVGSVGElement>, 'width' | 'height'> {
+  extends Omit<React.SVGProps<ChartElement>, 'width' | 'height'> {
   /**
    * The width of the container.
    */

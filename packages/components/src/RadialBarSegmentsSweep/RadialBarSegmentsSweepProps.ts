@@ -5,9 +5,11 @@ import {
   WithOverridableCtx,
 } from '../utils';
 
+export interface RadialBarSegmentsSweepElement extends SVGPathElement {}
+
 export interface RadialBarSegmentsSweepProps
   extends RadialBarSegmentsSweepParams,
     WithOverridableCtx<
       Pick<RadialBarCtx, 'radialBar' | 'radialBarScale' | 'radialBarSegments'>
     >,
-    Omit<React.SVGProps<SVGPathElement>, 'from' | 'to'> {}
+    Omit<React.SVGProps<RadialBarSegmentsSweepElement>, 'from' | 'to'> {}

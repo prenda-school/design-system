@@ -1,8 +1,9 @@
 import React from 'react';
-import { RadialBarUnitLabelProps } from './RadialBarUnitLabelProps';
+import {
+  RadialBarUnitLabelElement,
+  RadialBarUnitLabelProps,
+} from './RadialBarUnitLabelProps';
 import { drawRadialBarUnitLabel, mergeCtxOverrides } from '../utils';
-
-export interface RadialBarUnitLabelElement extends SVGTextElement {}
 
 export const RadialBarUnitLabel = React.forwardRef<
   RadialBarUnitLabelElement,

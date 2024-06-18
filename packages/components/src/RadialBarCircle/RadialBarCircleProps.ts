@@ -5,7 +5,9 @@ import {
   WithOverridableCtx,
 } from '../utils';
 
+export interface RadialBarCircleElement extends SVGCircleElement {}
+
 export interface RadialBarCircleProps
   extends RadialBarCircleParams,
     WithOverridableCtx<Pick<RadialBarCtx, 'radialBar' | 'radialBarScale'>>,
-    Omit<React.SVGProps<SVGCircleElement>, 'radius'> {}
+    Omit<React.SVGProps<RadialBarCircleElement>, 'radius'> {}

@@ -1,8 +1,9 @@
 import React from 'react';
-import { RadialBarSweepProps } from './RadialBarSweepProps';
+import {
+  RadialBarSweepElement,
+  RadialBarSweepProps,
+} from './RadialBarSweepProps';
 import { drawRadialBarSweep, mergeCtxOverrides } from '../utils';
-
-export interface RadialBarSweepElement extends SVGPathElement {}
 
 export const RadialBarSweep = React.forwardRef<
   RadialBarSweepElement,

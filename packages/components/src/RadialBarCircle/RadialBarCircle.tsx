@@ -1,8 +1,9 @@
 import React from 'react';
-import { RadialBarCircleProps } from './RadialBarCircleProps';
+import {
+  RadialBarCircleElement,
+  RadialBarCircleProps,
+} from './RadialBarCircleProps';
 import { drawRadialBarCircle, mergeCtxOverrides } from '../utils';
-
-export interface RadialBarCircleElement extends SVGCircleElement {}
 
 export const RadialBarCircle = React.forwardRef<
   RadialBarCircleElement,

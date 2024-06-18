@@ -1,8 +1,9 @@
 import React from 'react';
-import { ResponsiveChartProps } from './ResponsiveChartProps';
+import {
+  ResponsiveChartElement,
+  ResponsiveChartProps,
+} from './ResponsiveChartProps';
 import { useResponsiveChart } from './useResponsiveChart';
-
-export interface ResponsiveChartElement extends SVGSVGElement {}
 
 export const ResponsiveChart = React.forwardRef<
   ResponsiveChartElement,
