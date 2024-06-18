@@ -7,7 +7,6 @@ import {
   toStandardViewBox,
   toViewBoxAttr,
 } from '../utils';
-import { useResponsiveContainerDimensions } from './useResponsiveContainerDimensions';
 
 export interface ResponsiveChartAPI {
   container: {
