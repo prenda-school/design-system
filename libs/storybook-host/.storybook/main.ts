@@ -18,8 +18,8 @@ const config: StorybookConfig = {
       title: '@prenda/components',
       url: 'http://localhost:4401',
     },
-    'data-viz': {
-      title: '@prenda/data-viz',
+    dataviz: {
+      title: '@prenda/dataviz',
       url: 'http://localhost:4404',
     },
     icons: {

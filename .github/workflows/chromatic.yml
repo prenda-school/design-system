@@ -35,7 +35,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: dist/storybook/components
 
-  publish-storybook-data-viz:
+  publish-storybook-dataviz:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -52,14 +52,14 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build storybook
-        run: npm run storybook:build:data-viz
+        run: npm run storybook:build:dataviz
 
       - name: Publish Storybook to Chromatic
         uses: chromaui/action@v1
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM_DATA_VIZ }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM_DATAVIZ }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          storybookBuildDir: dist/storybook/data-viz
+          storybookBuildDir: dist/storybook/dataviz
 
   publish-storybook-icons:
     runs-on: ubuntu-latest

@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import DataViz from './data-viz';
+import Dataviz from './dataviz';
 
-describe('DataViz', () => {
+describe('Dataviz', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<DataViz />);
+    const { baseElement } = render(<Dataviz />);
     expect(baseElement).toBeTruthy();
   });
 });

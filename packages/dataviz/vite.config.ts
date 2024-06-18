@@ -7,7 +7,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/packages/data-viz',
+  cacheDir: '../../node_modules/.vite/packages/dataviz',
 
   plugins: [
     react(),
@@ -26,7 +26,7 @@ export default defineConfig({
   // Configuration for building your library.
   // See: https://vitejs.dev/guide/build.html#library-mode
   build: {
-    outDir: '../../dist/packages/data-viz',
+    outDir: '../../dist/packages/dataviz',
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
@@ -34,7 +34,7 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: 'data-viz',
+      name: 'dataviz',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
