@@ -2,12 +2,7 @@ import React from 'react';
 import { BarChildProps, BarProps } from './BarProps';
 import { mergeCtxOverrides } from '../utils';
 
-export interface BarElement extends SVGPathElement {}
-
-export const Bar = React.forwardRef<BarElement, BarProps>(function Bar(
-  props,
-  ref
-) {
+export const Bar = (props: BarProps) => {
   const {
     thickness,
     cornerRadius,
@@ -51,4 +46,4 @@ export const Bar = React.forwardRef<BarElement, BarProps>(function Bar(
 
     return child;
   });
-});
+};
