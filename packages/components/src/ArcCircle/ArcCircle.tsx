@@ -2,7 +2,7 @@ import React from 'react';
 import { ArcCircleProps } from './ArcCircleProps';
 import { drawArcCircle, mergeCtxOverrides } from '../utils';
 
-export type ArcCircleElement = SVGCircleElement;
+export interface ArcCircleElement extends SVGCircleElement {}
 
 export const ArcCircle = React.forwardRef<ArcCircleElement, ArcCircleProps>(
   function ArcCircle(props, ref) {

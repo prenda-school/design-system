@@ -2,7 +2,7 @@ import React from 'react';
 import { BarFillProps } from './BarFillProps';
 import { drawBarFill, mergeCtxOverrides } from '../utils';
 
-export type BarFillElement = SVGPathElement;
+export interface BarFillElement extends SVGPathElement {}
 
 export const BarFill = React.forwardRef<BarFillElement, BarFillProps>(
   function BarFill(props, ref) {

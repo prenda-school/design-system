@@ -2,7 +2,7 @@ import React from 'react';
 import { ArcUnitLabelProps } from './ArcUnitLabelProps';
 import { drawArcUnitLabel, mergeCtxOverrides } from '../utils';
 
-export type ArcUnitLabelElement = SVGTextElement;
+export interface ArcUnitLabelElement extends SVGTextElement {}
 
 export const ArcUnitLabel = React.forwardRef<
   ArcUnitLabelElement,

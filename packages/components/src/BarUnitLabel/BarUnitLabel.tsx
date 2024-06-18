@@ -2,7 +2,7 @@ import React from 'react';
 import { BarUnitLabelProps } from './BarUnitLabelProps';
 import { drawBarUnitLabel, mergeCtxOverrides } from '../utils';
 
-export type BarUnitLabelElement = SVGTextElement;
+export interface BarUnitLabelElement extends SVGTextElement {}
 
 export const BarUnitLabel = React.forwardRef<
   BarUnitLabelElement,

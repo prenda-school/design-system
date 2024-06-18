@@ -2,7 +2,7 @@ import React from 'react';
 import { ArcSegmentsSweepProps } from './ArcSegmentsSweepProps';
 import { drawArcSegmentsSweep, mergeCtxOverrides } from '../utils';
 
-export type ArcSegmentsSweepElement = SVGPathElement;
+export interface ArcSegmentsSweepElement extends SVGPathElement {}
 
 export const ArcSegmentsSweep = React.forwardRef<
   ArcSegmentsSweepElement,

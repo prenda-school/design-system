@@ -2,7 +2,7 @@ import React from 'react';
 import { LinearUnitLabelProps } from './LinearUnitLabelProps';
 import { drawLinearUnitLabel, mergeCtxOverrides } from '../utils';
 
-export type LinearUnitLabelElement = SVGTextElement;
+export interface LinearUnitLabelElement extends SVGTextElement {}
 
 export const LinearUnitLabel = React.forwardRef<
   LinearUnitLabelElement,
