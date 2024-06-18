@@ -111,11 +111,8 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
                   ratio={radiusRatioPrimary}
                   cornerRadius={cornerRadius}
                 >
-                  <RadialBarSweep style={{ fill: Neutral70 }} />
-                  <RadialBarCircle
-                    at={valuePrimary}
-                    style={{ fill: Purple600 }}
-                  />
+                  <RadialBarSweep fill={Neutral70} />
+                  <RadialBarCircle at={valuePrimary} fill={Purple600} />
                   <RadialBarUnits offset={unitsOffset}>
                     <RadialBarUnitLabel
                       at={1}
@@ -142,11 +139,8 @@ const ReportCardEmpowermentMetricDualRadialGauge = (props: {
                   ratio={radiusRatioSecondary}
                   cornerRadius={cornerRadius}
                 >
-                  <RadialBarSweep style={{ fill: Neutral70 }} />
-                  <RadialBarCircle
-                    at={valueSecondary}
-                    style={{ fill: Purple200 }}
-                  />
+                  <RadialBarSweep fill={Neutral70} />
+                  <RadialBarCircle at={valueSecondary} fill={Purple200} />
                 </RadialBar>
               </RadialBarScale>
             </g>

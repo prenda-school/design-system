@@ -109,7 +109,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
                   },
                 }}
                 to={valuePrimary}
-                style={{ fill: Purple500 }}
+                fill={Purple500}
               />
 
               <BarUnits offset={thicknessSecondary + unitsOffset}>
@@ -138,7 +138,7 @@ const ReportCardEmpowermentMetricDualLinearGauge = (props: {
                   },
                 }}
                 to={valueSecondary}
-                style={{ fill: Purple200 }}
+                fill={Purple200}
               />
             </Bar>
           </BarScale>

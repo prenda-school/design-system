@@ -101,7 +101,7 @@ const ReportCardPortfolioBarChart = (props: {
                 thickness={barThickness}
                 cornerRadius={{ start: 4, end: '50%' }}
               >
-                <BarFill to={datum.value} style={{ fill: colors[i] }} />
+                <BarFill to={datum.value} fill={colors[i]} />
                 <BarLabel
                   offset={barLabelOffset}
                   position={barLabelPosition}

@@ -108,10 +108,10 @@ const ReportCardEmpowermentMetricSegmentedCircularGauge = (props: {
                     padAngle={padAngle}
                     cornerRadius={cornerRadius}
                   >
-                    <RadialBarSegmentsSweep style={{ fill: Neutral80 }} />
+                    <RadialBarSegmentsSweep fill={Neutral80} />
                     <RadialBarSegmentsSweep
                       to={valueContinuous === 0.9 ? value : valueContinuous}
-                      style={{ fill: Yellow500 }}
+                      fill={Yellow500}
                     />
                   </RadialBarSegments>
                 </RadialBar>

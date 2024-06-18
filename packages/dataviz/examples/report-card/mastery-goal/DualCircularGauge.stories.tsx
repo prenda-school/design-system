@@ -79,18 +79,15 @@ const ReportCardMasteryGoalDualCircularGauge = (props: {
             ratio={radiusRatioPrimary}
             cornerRadius={cornerRadius}
           >
-            <RadialBarSweep style={{ fill: Neutral70 }} />
-            <RadialBarSweep
-              to={valuePrimary}
-              style={{ fill: primaryValueSweepFill }}
-            />
+            <RadialBarSweep fill={Neutral70} />
+            <RadialBarSweep to={valuePrimary} fill={primaryValueSweepFill} />
           </RadialBar>
           <RadialBar
             radius={radiusSecondary}
             ratio={radiusRatioSecondary}
             cornerRadius={cornerRadius}
           >
-            <RadialBarSweep to={valueSecondary} style={{ fill: Neutral90 }} />
+            <RadialBarSweep to={valueSecondary} fill={Neutral90} />
           </RadialBar>
         </RadialBarScale>
         <g>
