@@ -35,6 +35,32 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           storybookBuildDir: dist/storybook/components
 
+  publish-storybook-data-viz:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Build storybook
+        run: npm run storybook:build:data-viz
+
+      - name: Publish Storybook to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN__DESIGN_SYSTEM_DATA_VIZ }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          storybookBuildDir: dist/storybook/data-viz
+
   publish-storybook-icons:
     runs-on: ubuntu-latest
     steps:
