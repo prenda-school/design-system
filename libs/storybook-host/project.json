@@ -50,6 +50,7 @@
       "options": {
         "commands": [
           "nx storybook components",
+          "nx storybook data-viz",
           "nx storybook icons",
           "nx storybook tokens"
         ],
