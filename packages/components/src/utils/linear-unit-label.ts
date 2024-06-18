@@ -42,7 +42,8 @@ export function drawLinearUnitLabel(params: DrawLinearUnitLabelParams) {
     x === lengthMin ? 'start' : x === params.scale.lengthMax ? 'end' : 'middle';
 
   const dominantBaseline: SvgProperties['dominantBaseline'] =
-    y === 0 ? 'middle' : y > 0 ? 'hanging' : 'alphabetic';
+    params.units.dominantBaseline ??
+    (y === 0 ? 'middle' : y > 0 ? 'hanging' : 'alphabetic');
 
   return {
     x,
