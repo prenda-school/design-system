@@ -3,5 +3,17 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words: []
-ignoreWords: ['dataviz', 'deepmerge', 'csstype', 'buildable', 'pkgs', 'arcsin']
+ignoreWords:
+  [
+    'dataviz',
+    'deepmerge',
+    'csstype',
+    'buildable',
+    'pkgs',
+    'arcsin',
+    'crtl',
+    'crtr',
+    'crbr',
+    'crbl',
+  ]
 import: []
