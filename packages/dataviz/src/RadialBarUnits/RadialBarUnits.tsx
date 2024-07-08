@@ -6,7 +6,13 @@ import {
 import { mergeCtxOverrides } from '../utils';
 
 export const RadialBarUnits = (props: RadialBarUnitsProps) => {
-  const { children, ctx: ctxProp, offset, overrides, position } = props;
+  const {
+    children: childrenProp,
+    ctx: ctxProp,
+    offset,
+    overrides,
+    position,
+  } = props;
 
   if (ctxProp === undefined) {
     throw Error(
@@ -24,7 +30,7 @@ export const RadialBarUnits = (props: RadialBarUnitsProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<RadialBarUnitsChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -33,4 +39,6 @@ export const RadialBarUnits = (props: RadialBarUnitsProps) => {
 
     return child;
   });
+
+  return <>{childrenProp}</>;
 };

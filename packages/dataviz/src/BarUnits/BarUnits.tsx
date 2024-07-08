@@ -3,7 +3,13 @@ import { BarUnitsChildProps, BarUnitsProps } from './BarUnitsProps';
 import { mergeCtxOverrides } from '../utils';
 
 export const BarUnits = (props: BarUnitsProps) => {
-  const { offset, position, children, ctx: ctxProp, overrides } = props;
+  const {
+    offset,
+    position,
+    children: childrenProp,
+    ctx: ctxProp,
+    overrides,
+  } = props;
 
   if (ctxProp === undefined) {
     throw Error(
@@ -21,7 +27,7 @@ export const BarUnits = (props: BarUnitsProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<BarUnitsChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -30,4 +36,6 @@ export const BarUnits = (props: BarUnitsProps) => {
 
     return child;
   });
+
+  return <>{childrenProp}</>;
 };

@@ -9,7 +9,7 @@ export const RadialBar = (props: RadialBarProps) => {
     ratio,
     ctx: ctxProp,
     overrides,
-    children,
+    children: childrenProp,
   } = props;
 
   if (ctxProp === undefined) {
@@ -29,7 +29,7 @@ export const RadialBar = (props: RadialBarProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<RadialBarChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -37,4 +37,6 @@ export const RadialBar = (props: RadialBarProps) => {
     }
     return child;
   });
+
+  return <>{childrenProp}</>;
 };
