@@ -5,7 +5,13 @@ import {
 } from './RadialBarScaleProps';
 
 export const RadialBarScale = (props: RadialBarScaleProps) => {
-  const { angleMax, angleMin, valueMax, valueMin, children } = props;
+  const {
+    angleMax,
+    angleMin,
+    valueMax,
+    valueMin,
+    children: childrenProp,
+  } = props;
 
   const ctx: RadialBarScaleChildProps['ctx'] = {
     radialBarScale: {
@@ -16,7 +22,7 @@ export const RadialBarScale = (props: RadialBarScaleProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<RadialBarScaleChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -25,4 +31,6 @@ export const RadialBarScale = (props: RadialBarScaleProps) => {
 
     return child;
   });
+
+  return <>{children}</>;
 };

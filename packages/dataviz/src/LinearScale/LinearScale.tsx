@@ -2,7 +2,13 @@ import React from 'react';
 import { LinearScaleChildProps, LinearScaleProps } from './LinearScaleProps';
 
 export const LinearScale = (props: LinearScaleProps) => {
-  const { children, lengthMax, lengthMin, valueMax, valueMin } = props;
+  const {
+    children: childrenProp,
+    lengthMax,
+    lengthMin,
+    valueMax,
+    valueMin,
+  } = props;
 
   const ctx = {
     linearScale: {
@@ -13,7 +19,7 @@ export const LinearScale = (props: LinearScaleProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<LinearScaleChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -22,4 +28,6 @@ export const LinearScale = (props: LinearScaleProps) => {
 
     return child;
   });
+
+  return <>{children}</>;
 };

@@ -11,7 +11,7 @@ export const Bar = (props: BarProps) => {
     dx,
     dy,
     borderWidth,
-    children,
+    children: childrenProp,
     ctx: ctxProp,
     overrides,
   } = props;
@@ -37,7 +37,7 @@ export const Bar = (props: BarProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<BarChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -46,4 +46,6 @@ export const Bar = (props: BarProps) => {
 
     return child;
   });
+
+  return <>{children}</>;
 };

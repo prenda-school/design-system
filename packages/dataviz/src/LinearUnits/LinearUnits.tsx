@@ -4,7 +4,7 @@ import { mergeCtxOverrides } from '../utils';
 
 export const LinearUnits = (props: LinearUnitsProps) => {
   const {
-    children,
+    children: childrenProp,
     dy,
     dominantBaseline,
     offset,
@@ -29,7 +29,7 @@ export const LinearUnits = (props: LinearUnitsProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<LinearUnitsChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -38,4 +38,6 @@ export const LinearUnits = (props: LinearUnitsProps) => {
 
     return child;
   });
+
+  return <>{children}</>;
 };

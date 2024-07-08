@@ -7,7 +7,7 @@ import { mergeCtxOverrides } from '../utils';
 
 export const RadialBarSegments = (props: RadialBarSegmentsProps) => {
   const {
-    children,
+    children: childrenProp,
     ctx: ctxProp,
     cornerRadius,
     count,
@@ -32,7 +32,7 @@ export const RadialBarSegments = (props: RadialBarSegmentsProps) => {
     },
   };
 
-  return React.Children.map(children, (child) => {
+  const children = React.Children.map(childrenProp, (child) => {
     if (React.isValidElement<RadialBarSegmentsChildProps>(child)) {
       return React.cloneElement(child, {
         ctx: child.props.ctx ?? ctx,
@@ -41,4 +41,6 @@ export const RadialBarSegments = (props: RadialBarSegmentsProps) => {
 
     return child;
   });
+
+  return <>{children}</>;
 };
