@@ -32,5 +32,5 @@ export const RadialBarScale = (props: RadialBarScaleProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

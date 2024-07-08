@@ -37,5 +37,5 @@ export const BarUnits = (props: BarUnitsProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

@@ -40,5 +40,5 @@ export const RadialBarUnits = (props: RadialBarUnitsProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

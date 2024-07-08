@@ -38,5 +38,5 @@ export const RadialBar = (props: RadialBarProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

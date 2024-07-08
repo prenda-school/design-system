@@ -39,5 +39,5 @@ export const LinearUnits = (props: LinearUnitsProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

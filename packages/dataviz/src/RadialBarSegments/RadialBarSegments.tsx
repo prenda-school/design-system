@@ -42,5 +42,5 @@ export const RadialBarSegments = (props: RadialBarSegmentsProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };

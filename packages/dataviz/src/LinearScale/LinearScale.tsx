@@ -29,5 +29,5 @@ export const LinearScale = (props: LinearScaleProps) => {
     return child;
   });
 
-  return <>{childrenProp}</>;
+  return <>{children}</>;
 };
