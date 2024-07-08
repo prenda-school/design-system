@@ -17,9 +17,12 @@
     {
       "files": ["*.jsx", "*.tsx"],
       "rules": {
-        "react/jsx-no-useless-fragment": {
-          "allowExpressions": true
-        }
+        "react/jsx-no-useless-fragment": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ]
       }
     }
   ]
